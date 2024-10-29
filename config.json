@@ -1,14 +1,14 @@
 {
   "revName": {
-    "plural": "Voies Lyonnaises",
-    "singular": "Voie Lyonnaise"
+    "plural": "Vélival",
+    "singular": "Vélival"
   },
-  "assoName": "La Ville à Vélo",
-  "assoLink": "https://lavilleavelo.org",
-  "slug": "voie-lyonnaise",
+  "assoName": "Collectif Cyliste 37",
+  "assoLink": "https://cc37.org",
+  "slug": "velival",
   "center": [
-    4.8312188,
-    45.757198
+    0.688933,
+    47.390048
   ],
   "zoom": 12,
   "colors": [
