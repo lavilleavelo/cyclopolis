@@ -35,33 +35,28 @@ const links = [
 
 const socials = [
   {
-    name: 'Twitter',
-    href: 'https://twitter.com/LaVilleaVelo',
-    icon: 'mdi:twitter'
-  },
-  {
     name: 'Facebook',
-    href: 'https://www.facebook.com/lavilleavelolyon/',
+    href: 'https://www.facebook.com/collectif.cycliste.37/',
     icon: 'mdi:facebook'
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/la-ville-%C3%A0-v%C3%A9lo',
+    href: 'https://fr.linkedin.com/company/cc37fub',
     icon: 'mdi:linkedin'
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/lavilleavelolyon',
+    href: 'https://www.instagram.com/collectif.cycliste37/',
     icon: 'mdi:instagram'
   },
   {
     name: 'Site web',
-    href: 'https://lavilleavelo.org/',
+    href: 'https://www.cc37.org/',
     icon: 'mdi:link'
   },
   {
     name: 'Email',
-    href: 'mailto:contact_at_lavilleavelo.org',
+    href: 'mailto:contact_at_cc37.org',
     icon: 'mdi:email-outline'
   }
 ];
