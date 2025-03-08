@@ -45,7 +45,7 @@ La traversée du pont de Neuville sera sécurisée à horizon 2030 via l'élargi
 
 
 #### Neuville-sur-Saône à Saint-Rambert
-*Parcours commun avec la véloroute touristique "La Voie Bleue" au Sud du pont de Fontaine-sur-Saône (pont Général Leclerc)*
+*Parcours commun avec la véloroute touristique "[La Voie Bleue](./itineraires/voie-bleue)" au Sud du pont de Fontaine-sur-Saône (pont Général Leclerc)*
 
 La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51 en desservant les communes d'Albigny-sur-Saône, Couzon-au-Mont-d'Or, Saint-Romain-au-Mont-d'Or et Collonges-au-Mont-d'Or. Elle sera aménagée sous la forme d'une voie verte de 3 à 4m de large sur la commune d'Albigny, tandis qu'elle sera aménagée en piste cyclable bidirectionnelle de 3.00 à 3.50m de large sur les communes de Couzon, St-Romain et Collonges. Les carrefours giratoires avec les ponts seront tous sécurisés.
 
@@ -86,7 +86,7 @@ La concertation publique sur ce tronçon s'est tenue du 30/01 au 10/03/2023.\
 [Voir le dossier de concertation](https://cyclopolis.lavilleavelo.org/vl3/VL3Nord_IleBarbe_Quincieux.pdf)
 
 ### Île Barbe au Pont Kitchener Marchand
-*Parcours commun avec la véloroute touristique "La Voie Bleue"*
+*Parcours commun avec la véloroute touristique "[La Voie Bleue](./itineraires/voie-bleue)"*
 
 #### Île Barbe à rue Antonin Laborde (Quai Sédallian)
 L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 3.50m de large aux standards d'une Voie Lyonnaise. La concertation a fait remonter le besoin de sécuriser la traversée du carrefour avec la rue Antonin Laborde.
@@ -174,7 +174,7 @@ streetView: 45.7372908,4.8119765,3a,75y,349.91h,90t
 ### Pont de la Mulatière au Barrage de Pierre-Bénite
 
 *via Oullins-La Saulaie et Pierre-Bénite Centre*\
-*Tronçon commun avec la véloroute touristique ViaRhôna*
+*Tronçon commun avec la véloroute touristique [ViaRhôna](./itineraires/viarhona)*
 
 #### Quai Pierre Sémard
 Sur ce tronçon, la Métropole propose de conserver la voie verte existante sur trottoir de 3m de large côté Ouest de la chaussée, créée entre 2019 et 2020. L'objectif est tout de même de l'améliorer ponctuellement en l'élargissant sur les sections les plus étroites et en améliorant certaines zones dangereuses avec une mauvaise visibilité et du conflit avec les piétons.
@@ -218,9 +218,9 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 
 
 ### Irigny à Givors<br>*via Vernaison et Grigny*
-*Tronçon commun avec la véloroute touristique ViaRhôna*
+*Tronçon commun avec la véloroute touristique [ViaRhôna](./itineraires/viarhona)*
 
-Ce long tronçon de 18km doit cheminer sur les berges du Rhône en voie verte le long de la rive droite et constitue l'un des derniers tronçons manquants de l'itinéraire de la ViaRhôna qui chemine le long du Rhône entre le lac Léman et la cote méditerranéenne.
+Ce long tronçon de 18km doit cheminer sur les berges du Rhône en voie verte le long de la rive droite et constitue l'un des derniers tronçons manquants de l'itinéraire de la [ViaRhôna](./itineraires/viarhona) qui chemine le long du Rhône entre le lac Léman et la cote méditerranéenne.
 
 Quelques rares tronçons ont été aménagés au début des années 2010, notamment le promenade Maurice Thorez à Givors et le rue des Faïenciers à Grigny.
 
@@ -242,7 +242,7 @@ L'enquête préalable à la déclaration d’utilité publique sur ce tronçon s
 A la demande de la mairie de Givors, la Métropole réalise un aménagement cyclable sur les quais au Sud de la ville pour faciliter la liaison entre le centre-ville et le collège Paul Vallon. Dans ce cadre, une piste cyclable bidirectionnelle de 3.5m de large est en train d'être aménagée entre le pont de Chasse et le chemin du Freyssinet. Elle est située côté Nord du quai Rosenberg qui devient avenue Anatole France plus au Sud.
 
 ::banner{type="info"}
-Ce projet permet d'accueillir un tronçon isolé de la Voie Lyonnaise 3. Il n'est relié à absolument aucun aménagement cyclable à ses extrémités, ce qui y mettra en difficulté les cyclistes circulant du Nord vers le Sud. La Ville à Vélo espère vivement la reprise des études puis des travaux de la ViaRhôna entre Givors et Irigny dans les meilleurs délais pour créer une continuité cyclable et sécurisée tant attendue par les habitants et cyclotouristes du secteur.
+Ce projet permet d'accueillir un tronçon isolé de la Voie Lyonnaise 3. Il n'est relié à absolument aucun aménagement cyclable à ses extrémités, ce qui y mettra en difficulté les cyclistes circulant du Nord vers le Sud. La Ville à Vélo espère vivement la reprise des études puis des travaux de la [ViaRhôna](./itineraires/viarhona) entre Givors et Irigny dans les meilleurs délais pour créer une continuité cyclable et sécurisée tant attendue par les habitants et cyclotouristes du secteur.
 ::
 
 ::banner{type="wip"}
@@ -266,7 +266,7 @@ Un première tranche de travaux a été effectuée au dernier trimestre 2023 ent
   - environ **10 000 000 € HT** pour le quai des Etroits et Jean-Jacques Rousseau
 <br>*source: [dossier de concertation, page 44 et 45](https://cyclopolis.lavilleavelo.org/vl3/VL3Centre_QuaiJJRousseau.pdf)*
 
-  - **7 800 000 € HT** pour la ViaRhôna Pierre-Bénite / Givors
+  - **7 800 000 € HT** pour la [ViaRhôna](./itineraires/viarhona) Pierre-Bénite / Givors
 <br>*source: [dossier de concertation, page 5](https://res-3.cloudinary.com/civocracy/image/upload/v1559552200/section/attachment/bfh05r8p6clhgkweqgaf.pdf)*
 
 ## Calendrier prévisionnel
