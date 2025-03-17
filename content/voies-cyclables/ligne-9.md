@@ -51,7 +51,7 @@ Se référer à la page de chaque ligne pour davantage d'informations.
 ### Villeurbanne St-Jean à Jonage
 
 *via parc de Miribel-Jonage*\
-*Parcours commun avec la véloroute touristique ViaRhôna.*
+*Parcours commun avec la véloroute touristique [ViaRhôna](./itineraires/viarhona).*
 
 ::banner{type="wip"}
 Les travaux ont commencé en février 2025 et se poursuivent par tronçons jusqu'à janvier 2026.
