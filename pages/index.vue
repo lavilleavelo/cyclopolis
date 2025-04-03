@@ -37,10 +37,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { Geojson } from '~/types';
+
 const { getRevName, displayQuality, displayQualityOnHomePage } = useConfig();
 
-const { data: voies } = await useAsyncData(() => {
-  return queryContent('voies-cyclables').where({ _type: 'json' }).find();
+const { data } = await useAsyncData(() => {
+  return queryCollection('voiesCyclablesGeojson').all();
 });
+
+const voies: Ref<Geojson[]> = computed(() => voies.value || []);
 </script>

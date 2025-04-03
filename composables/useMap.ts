@@ -554,29 +554,6 @@ export const useMap = () => {
     });
   }
 
-  function plotPumps({ map, features }: { map: Map; features: Feature[] }) {
-    const pumps = features.filter(isPumpFeature);
-    if (pumps.length === 0) {
-      return;
-    }
-    if (upsertMapSource(map, 'pumps', pumps)) {
-      return;
-    }
-    map.addLayer({
-      id: 'pumps',
-      source: 'pumps',
-      type: 'symbol',
-      layout: {
-        'icon-image': 'pump-icon',
-        'icon-size': 0.5,
-        'icon-offset': [-25, -25]
-      },
-      paint: {
-        'icon-color': '#152B68'
-      }
-    });
-  }
-
   function plotCompteurs({ map, features }: { map: Map; features: Feature[] }) {
     const compteurs = features.filter(isCompteurFeature);
     if (compteurs.length === 0) {

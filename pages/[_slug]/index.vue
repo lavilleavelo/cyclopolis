@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="voie">
     <ContentFrame
       :description="voie.description"
       :image-url="voie.cover"
@@ -24,14 +24,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { path } = useRoute();
 const { getLineColor } = useColors();
 const { getRevName } = useConfig();
 const { getVoieCyclableRegex } = useUrl();
 
 const regex = getVoieCyclableRegex();
-const line = path.match(regex)[1];
+const line = path.match(regex)?.[1] ?? '';
 
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
@@ -40,21 +40,23 @@ definePageMeta({
 });
 
 const { data: voie } = await useAsyncData(`${path}`, () => {
-  return queryContent('voies-cyclables').where({ _type: 'markdown', line: Number(line) }).findOne();
+  return queryCollection('voiesCyclablesPage')
+    .where('line', '=', Number(line))
+    .first();
 });
 
-const description = `Tout savoir sur la ${getRevName('singular')} ${voie.value.line}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
-const coverImage = voie.value.cover;
+const description = `Tout savoir sur la ${getRevName('singular')} ${line}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
+
 useHead({
-  title: `${getRevName('singular')} ${voie.value.line}`,
+  title: `${getRevName('singular')} ${line}`,
   meta: [
     // description
-    { hid: 'description', name: 'description', content: description },
-    { hid: 'og:description', property: 'og:description', content: description },
-    { hid: 'twitter:description', name: 'twitter:description', content: description },
+    { key: 'description', name: 'description', content: description },
+    { key: 'og:description', property: 'og:description', content: description },
+    { key: 'twitter:description', name: 'twitter:description', content: description },
     // cover image
-    { hid: 'og:image', property: 'og:image', content: coverImage },
-    { hid: 'twitter:image', name: 'twitter:image', content: coverImage }
+    ...(voie.value?.cover ? [{ key: 'og:image', property: 'og:image', content: voie.value.cover }] : []),
+    ...(voie.value?.cover ? [{ key: 'twitter:image', property: 'twitter:image', content: voie.value.cover }] : []),
   ]
 });
 </script>

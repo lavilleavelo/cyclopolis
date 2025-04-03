@@ -18,7 +18,7 @@
               </span>
             </div>
           </div>
-          <NuxtLink :to="article._path" class="block mt-4">
+          <NuxtLink :to="article.path" class="block mt-4">
             <p class="text-xl font-semibold text-gray-900">
               {{ article.title }}
             </p>
@@ -36,8 +36,7 @@
 const { getAssoName } = useConfig();
 
 const { data: articles } = await useAsyncData(() => {
-  return queryContent('blog')
-    .where({ _path: /^\/blog\/[^/]*$/ })
-    .find();
+  return queryCollection('blog')
+    .all();
 });
 </script>

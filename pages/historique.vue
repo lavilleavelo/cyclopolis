@@ -28,13 +28,15 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { data: news } = await useAsyncData(() => {
-  return queryContent('news').sort({ date: -1 }).find();
+  return queryCollection('news')
+    .order('date', 'DESC')
+    .all()
 });
 
-function formatDate(date) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+function formatDate(date: string) {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(date).toLocaleDateString('fr-FR', options);
 }
 </script>
