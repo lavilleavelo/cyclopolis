@@ -70,18 +70,6 @@ export type CompteurFeature = {
   };
 };
 
-export type PumpFeature = {
-  type: 'Feature';
-  properties: {
-    type: 'pump',
-    name: string
-  }
-  geometry: {
-    type: 'Point';
-    coordinates: [number, number];
-  };
-}
-
 export type DangerFeature = {
   type: 'Feature';
   properties: {
@@ -97,7 +85,7 @@ export type DangerFeature = {
   };
 }
 
-type PointFeature = PerspectiveFeature | CompteurFeature | PumpFeature | DangerFeature;
+type PointFeature = PerspectiveFeature | CompteurFeature | DangerFeature;
 
 export type Feature = LineStringFeature | PointFeature;
 
@@ -123,10 +111,6 @@ export function isPerspectiveFeature(feature: Feature): feature is PerspectiveFe
 
 export function isDangerFeature(feature: Feature): feature is DangerFeature {
   return isPointFeature(feature) && feature.properties.type === 'danger';
-}
-
-export function isPumpFeature(feature: Feature): feature is PumpFeature {
-  return isPointFeature(feature) && feature.properties.type === 'pump';
 }
 
 export function isCompteurFeature(feature: Feature): feature is CompteurFeature {
