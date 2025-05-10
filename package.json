@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "highcharts-vue": "^2.0.1",
-    "maplibre-gl": "^5.4.0"
+    "maplibre-gl": "^5.5.0"
   }
 }
