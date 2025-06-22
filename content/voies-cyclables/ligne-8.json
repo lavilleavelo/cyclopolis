@@ -748,7 +748,7 @@
       "properties": {
         "line": 8,
         "name": "Avenue Barthélémy Buyer",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#avenue-barthélémy-buyer"
@@ -812,7 +812,7 @@
       "properties": {
         "line": 8,
         "name": "Avenue Sidoine Apollinaire",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#avenue-apollinaire-et-quartier-de-la-gravière"
@@ -835,7 +835,8 @@
       "properties": {
         "line": 8,
         "name": "Lotissement La Gravière",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "01/04/2005",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#avenue-apollinaire-et-quartier-de-la-gravière"

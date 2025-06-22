@@ -231,9 +231,9 @@
       "properties": {
         "line": 3,
         "name": "St-Germain-au-Mont-d'Or",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#quincieux-à-neuville"
       },
       "geometry": {
@@ -324,7 +324,7 @@
       "properties": {
         "line": 3,
         "name": "Neuville - Esplanade Jean Vilar",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#massieux-à-neuville"
@@ -607,7 +607,7 @@
       "type": "Feature",
       "properties": {
         "line": 3,
-        "name": "Quai de la Libération",
+        "name": "Giratoire Pont Leclerc",
         "status": "planned",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
@@ -618,16 +618,18 @@
         "coordinates": [
           [4.844643134484471, 45.83201244372516],
           [4.845832497556785, 45.83173613123345],
-          [4.847387652311426, 45.831055576044875]
+          [4.847387652311426, 45.831055576044875],
+          [4.84758958627252, 45.83082757938333],
+          [4.848952371861799, 45.830115593229095]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "Collonges-commun",
+        "id": "Illhaeusern-commun",
         "line": 3,
-        "name": "Collonges",
+        "name": "Collonges - Quai d'Illhaeusern",
         "status": "planned",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
@@ -636,8 +638,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.847387652311426, 45.831055576044875],
-          [4.84758958627252, 45.83082757938333],
           [4.848952371861799, 45.830115593229095],
           [4.849463285526554, 45.82974744945379],
           [4.850220554447617, 45.82915454115287],
@@ -661,13 +661,49 @@
           [4.851872328081868, 45.81703190869914],
           [4.8510172950637696, 45.816649805094066],
           [4.8501527309417725, 45.81631309372029],
+          [4.848146555202475, 45.81551849456591]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Bocuse-commun",
+        "line": 3,
+        "name": "Giratoire Pont Bocuse",
+        "status": "planned",
+        "type": "voie-verte",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.848146555202475, 45.81551849456591],
           [4.8476551943778, 45.815344134649024],
           [4.847190346993343, 45.81520673303234],
           [4.846525500744888, 45.81493632161355],
           [4.846379562651734, 45.8148105315013],
           [4.845989843510232, 45.814680123184175],
-          [4.845646619796753, 45.81445114520847],
+          [4.845459674194984, 45.81424483939754]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Jonchère-commun",
+        "line": 3,
+        "name": "Collonges - Quai de la Jonchère",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.845459674194984, 45.81424483939754],
           [4.843054547236932, 45.81217483735474],
           [4.842820884583439, 45.811904236787896],
           [4.842554265260233, 45.8114743030404],

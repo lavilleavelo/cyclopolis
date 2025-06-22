@@ -29,7 +29,7 @@ streetView: 45.885026,4.8102775,3a,75y,162.21h,90t
 ::
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et la partie nord de ce tronçon entre St-Germain et Quincieux ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et ce tronçon ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
 ::
 
 #### Massieux à Neuville
@@ -51,13 +51,13 @@ La traversée du pont de Neuville sera sécurisée à horizon 2030 via l'élargi
 #### Neuville-sur-Saône à Saint-Rambert
 *Parcours commun avec la véloroute touristique "La Voie Bleue" au Sud du pont de Fontaine-sur-Saône (pont Général Leclerc)*
 
-La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51 en desservant les communes d'Albigny-sur-Saône, Couzon-au-Mont-d'Or, Saint-Romain-au-Mont-d'Or et Collonges-au-Mont-d'Or. Elle sera aménagée sous la forme d'une voie verte de 3 à 4m de large sur la commune d'Albigny, tandis qu'elle sera aménagée en piste cyclable bidirectionnelle de 3.00 à 3.50m de large sur les communes de Couzon, St-Romain et Collonges. Les carrefours giratoires avec les ponts seront tous sécurisés.
+La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51 en desservant les communes d'Albigny-sur-Saône, Couzon-au-Mont-d'Or, Saint-Romain-au-Mont-d'Or et Collonges-au-Mont-d'Or. Elle sera aménagée sous la forme d'une voie verte de 3 à 4m de large sur le nord de la commune d'Albigny, tandis qu'elle sera aménagée en piste cyclable bidirectionnelle de 3.00 à 3.50m de large sur les communes de Couzon, St-Romain et Collonges. Les carrefours giratoires avec les ponts seront tous améliorés avec la suppression des dangereuses traversées en diagonale, mais la sécurisation de la traversée des ponts ne sera pas optimale.
 
 ::banner{type="wip"}
 La section sur la commune d'Albigny est réalisée entre février et décembre 2025.\
 La section sur la commune de Couzon a été réalisée en deux phases : Sud de l'avenue De Gaulle à l'automne 2019 et Nord de l'avenue de juin à décembre 2022.\
 La section sur la commune de St-Romain a été réalisée entre février et juillet 2024.\
-La section sur la commune de Collonges devrait être en travaux au second semestre 2025. Entre les ponts Bocuse et Leclerc, l'aménagement sera définitif, tandis qu'entre le pont Bocuse et St-Rambert cela se limitera en une pérénisation de la piste cyclable transitoire.
+Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et décembre 2025 tandis qu'entre le pont Bocuse et St-Rambert cela se limitera en une pérénisation de la piste cyclable transitoire au printemps 2026.
 ::
 
 ::content-image
@@ -86,7 +86,7 @@ Entre Saint-Romain et Saint-Rambert, une piste cyclable bidirectionnelle transit
 Cette section de 900m a l'inconvénient d'être particulièrement étroite et de ne pas pouvoir accueillir d'aménagements séparatifs sans travaux lourd. Plusieurs hypothèses techniques ont été étudiées par la Métropole de Lyon : alternat routier, encorbellement ou encore détour par la Grande Rue de St-Rambert transformée en vélorue. L'objectif est de proposer un cheminement sécurisé pour les cyclistes les moins aguerris.
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et l'ensemble du quai Raoul Carrié ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur. La Métropole étudie cependant le jalonnement d'une continuité cyclable pour éviter ce quai, qui passerait par la Grande Rue de St-Rambert et la rue Pierre Termier avec des marquages en continuité cyclable et quelques aménagements légers. Les travaux sont prévus pendant l'été 2025.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et l'ensemble du quai Raoul Carrié ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur. La Métropole étudie cependant le jalonnement d'une continuité cyclable pour éviter ce quai, qui passerait par la Grande Rue de St-Rambert et la rue Pierre Termier avec des marquages en continuité cyclable et quelques aménagements légers. Les travaux sont prévus début 2026.
 ::
 
 #### *Concertation*
@@ -97,9 +97,11 @@ La concertation publique sur ce tronçon s'est tenue du 30/01 au 10/03/2023.\
 *Parcours commun avec la véloroute touristique "La Voie Bleue"*
 
 #### Île Barbe à rue Antonin Laborde (Quai Sédallian)
-Initialement, l'objectif était de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 3.50m de large aux standards d'une Voie Lyonnaise. La concertation avait en outre fait remonter le besoin de sécuriser la traversée du carrefour avec la rue Antonin Laborde.
+L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 2.70m de large à cause des contraintes de ce quai étroit. En outre, la traversée du carrefour avec la rue Antonin Laborde sera sécurisée avec la création d'un plateau surélevé et la priorité de la traversée vélo.
 
-Malheureusement, cette section a été victime des restrictions budgétaires de la Métropole de Lyon, et seule une pérenisation à minima de la piste cyclable transitoire est prévue pendant l'été 2025.
+::banner{type="wip"}
+Les travaux devraient avoir lieu entre novembre 2025 et mars 2026.
+::
 
 #### Rue Antonin Laborde au pont Clémenceau
 Une piste cyclable bidirectionnelle de 2.50 à 4.00m de large existe déjà sur ce tronçon, créée progressivement entre 2013 et 2020. Elle sera élargie et améliorée entre le pont Clémenceau et le pont Schuman, là où elle était la plus étroite. 

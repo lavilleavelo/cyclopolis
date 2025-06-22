@@ -141,7 +141,7 @@ streetView: 45.7640864,4.7918726,3a,75y,271.26h,90t
 ::
 
 #### Avenue Apollinaire et quartier de la Gravière
-La Voie Lyonnaise 8 sera donc déviée par l'avenue Apollinaire, avec la création d'une piste cyclable bidirectionnelle de 2.50m côté Est jusqu'à l'entrée du lotissement de la Gravière. Elle empruntera ensuite la rue de la Gravière puis la rue de la Persévérance. Ces voies privées avec peu de trafic automobile pourront être traitées en vélorue et embellies avec de la végétalisation.
+La Voie Lyonnaise 8 sera donc déviée par l'avenue Apollinaire, avec la création d'une piste cyclable bidirectionnelle de 2.50m côté Est jusqu'à l'entrée du lotissement de la Gravière. Elle empruntera ensuite la rue de la Gravière puis la rue de la Persévérance. Ces voies privées avec peu de trafic automobile pourront être traitées en vélorue dans un premier temps sans aménagements, puis embellies avec de la végétalisation dans un second temps.
 
 ::content-image
 ---

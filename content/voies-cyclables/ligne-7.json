@@ -296,7 +296,7 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Rue Ampère",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -682,9 +682,9 @@
         "id": "JctChPetit",
         "line": 7,
         "name": "Giratoire Leclerc - Petit",
-        "status": "planned",
-        "type": "bilaterale",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombe"
       },
       "geometry": {
