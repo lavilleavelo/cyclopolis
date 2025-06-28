@@ -785,11 +785,10 @@
       "properties": {
         "id": "varianteOullins-commun",
         "line": 6,
-        "name": "Scénario 2 - Grande Rue Nord - sens Sud>Nord",
-        "status": "variante",
-        "text": "variante 2 S>N",
-        "type": "voie-bus",
-        "quality": "satisfactory",
+        "name": "Grande Rue Nord - sens Sud>Nord",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-6#traversée-doullins-centre"
       },
       "geometry": {
@@ -812,7 +811,7 @@
       "properties": {
         "id": "varianteOullinsReport-commun",
         "line": 6,
-        "name": "Scénario 2 - Grande Rue Sud - sens Sud>Nord",
+        "name": "Grande Rue Sud - sens Sud>Nord",
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
@@ -831,11 +830,10 @@
       "properties": {
         "id": "varianteOullins2-commun",
         "line": 6,
-        "name": "Scénario 2 - Grande Rue",
-        "status": "variante",
-        "text": "variante 2",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "name": "Grande Rue",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-6#traversée-doullins-centre"
       },
       "geometry": {
@@ -851,11 +849,10 @@
       "properties": {
         "id": "varianteOullins-commun",
         "line": 6,
-        "name": "Scénario 2 - rues Bertholey/Hugo - sens Nord>Sud",
-        "status": "variante",
-        "text": "variante 2 N>S",
-        "type": "bilaterale",
-        "quality": "satisfactory",
+        "name": "Rues Bertholey/Hugo - sens Nord>Sud",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-6#traversée-doullins-centre"
       },
       "geometry": {
@@ -899,7 +896,7 @@
       "properties": {
         "id": "varianteOullinsReport-commun",
         "line": 6,
-        "name": "Scénario 2 - rue de la Camille - sens Nord>Sud",
+        "name": "Rue de la Camille - sens Nord>Sud",
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
@@ -922,81 +919,6 @@
           [4.802075288075372, 45.712588999769565],
           [4.802194762186701, 45.71248935678594],
           [4.802722510544356, 45.712035953447554]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteOullins-commun",
-        "line": 6,
-        "name": "Scénario 1 - rues République et parking Camille",
-        "status": "variante",
-        "text": "variante 1",
-        "type": "aucun",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-6#traversée-doullins-centre"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.809624845854955, 45.7168339786063],
-          [4.8095377857922585, 45.716805692528396],
-          [4.808657220216105, 45.716301055826676],
-          [4.808228535263964, 45.71604956984018],
-          [4.808065070960737, 45.71594397570885],
-          [4.807541712248877, 45.715634212706064],
-          [4.806997524464606, 45.71532328624008],
-          [4.806507292836045, 45.715044553435604],
-          [4.805742876764754, 45.714684675790494],
-          [4.80554940552301, 45.71458982913839],
-          [4.804852179559589, 45.71438146980569],
-          [4.804742380623708, 45.71435034533965],
-          [4.804823141436998, 45.71420149832554],
-          [4.804780670668606, 45.714169646972806],
-          [4.804476135192203, 45.71404442202777],
-          [4.804333018355351, 45.71401675854375],
-          [4.803953243235583, 45.71400163658376],
-          [4.80389156502261, 45.71399252690358],
-          [4.80397720590733, 45.713716335827485],
-          [4.8038026384418515, 45.71368687854533],
-          [4.803614804271973, 45.713656041218115],
-          [4.803571904813424, 45.71364952351183],
-          [4.8034994072406505, 45.713630027563255],
-          [4.8034675670904505, 45.713582826817714],
-          [4.803426276274479, 45.71349186652961],
-          [4.803380302549101, 45.71343902372442],
-          [4.803359200616512, 45.713374233319655],
-          [4.802938733819133, 45.71330586972377],
-          [4.8019687121298205, 45.71317778616694]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteOullins2-commun",
-        "line": 6,
-        "name": "Scénario 1 - rue Léon Bourgeois",
-        "status": "variante",
-        "text": "variante 1",
-        "type": "bandes-cyclables",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-6#traversée-doullins-centre"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.802044462773949, 45.712616331419355],
-          [4.801863821513223, 45.712505591944904],
-          [4.801332617901011, 45.71219339099173],
-          [4.800922398282665, 45.711951194177345],
-          [4.800863116285541, 45.711905254620774],
-          [4.800836752298437, 45.71185970591608],
-          [4.80083059319071, 45.71180542008466],
-          [4.8008524350551625, 45.7117620067649],
-          [4.800939990785196, 45.71169088698784],
-          [4.8014401714904125, 45.711285426962604]
         ]
       }
     },

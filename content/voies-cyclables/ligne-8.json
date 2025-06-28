@@ -933,10 +933,10 @@
         "id": "StJust-commun",
         "line": 8,
         "name": "Saint-Just",
-        "status": "tested",
-        "type": "velorue",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-12#traversée-de-saint-just"
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#rue-pierre-audry"
       },
       "geometry": {
         "type": "LineString",
@@ -962,6 +962,24 @@
           [4.82027555815435, 45.75655432156253],
           [4.82051620009338, 45.75670176455381],
           [4.820717258305393, 45.756871700771114],
+          [4.820736846750407, 45.75692193893809]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ChNeuf-commun",
+        "line": 8,
+        "name": "Montée du Chemin Neuf",
+        "status": "tested",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-8#rue-pierre-audry"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.820736846750407, 45.75692193893809],
           [4.820844095281672, 45.756914637299474],
           [4.820898414808198, 45.75692558974757],
@@ -976,24 +994,6 @@
           [4.821867312754705, 45.757881546547935],
           [4.821956302049074, 45.75800991946798],
           [4.822047846385345, 45.75814870140164],
-          [4.822084093040388, 45.75820302746939]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "ChNeuf-commun",
-        "line": 8,
-        "name": "Montée du Chemin Neuf",
-        "status": "tested",
-        "type": "velorue",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-12#traversée-de-saint-just"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
           [4.822084093040388, 45.75820302746939],
           [4.822155677945602, 45.75823583027454],
           [4.822338796288051, 45.758285732581584],
@@ -1033,10 +1033,11 @@
         "id": "StJean-commun",
         "line": 8,
         "name": "Saint-Jean",
-        "status": "tested",
+        "status": "done",
+        "doneAt": "30/11/2000",
         "type": "velorue",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-12#traversée-de-saint-jean"
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#rue-pierre-audry"
       },
       "geometry": {
         "type": "LineString",
@@ -1061,7 +1062,7 @@
         "status": "wip",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-12#traversée-de-saint-jean"
+        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
       },
       "geometry": {
         "type": "LineString",
@@ -1274,7 +1275,7 @@
       "properties": {
         "line": 8,
         "name": "Rue Camille Roy",
-        "status": "wip",
+        "status": "planned",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#rue-camille-roy"

@@ -244,6 +244,7 @@ La concertation publique sur ce tronçon s'est tenue du 15/05 au 19/06/2023.
 
 ::banner{type="postponed"}
 Après de nombreux rebondissements politiques déplorables début 2024 où Mairie et Métropole se livraient une guéguerre politique ridicule sur le dos des citoyens, la Métropole a annoncé mi-février 2024 qu'elle renonçait à la mise en sens unique de la rue de la Camille et d'une partie de la Grande Rue entre la rue de la Camille et la rue du Perron. Le report du traitement de ces sections est une réponse de la Métropole aux demandes des collectifs de riverains et commerçants. La Ville à Vélo déplore une absence de solution cyclable sécurisée à court-terme pour traverser la commune d'Oullins sur ce mandat, qui empêchera un développement du vélo dans le Sud-Ouest lyonnais.
+Finalement, la Métropole a abandonné l'ensemble du projet en catimini en juin 2025, reportant sa réalisation sur un prochain mandat plus favorable.
 ::
 
 

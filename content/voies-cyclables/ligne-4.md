@@ -112,14 +112,14 @@ Les travaux sur la rue de la Mairie et la place de la Liberté ont lieu entre ju
 Sur cette section, la Voie Lyonnaise 4 empruntera l'avenue Lanessan sous la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est, en lieu et place du stationnement existant. Le carrefour avec l'avenue de Champagne sera entièrement réaménagé pour sécuriser le lien avec le quartier de la Duchère.
 
 ::banner{type="wip"}
-Les travaux devraient commencer en juillet 2025 et durer jusque fin 2025.
+Les travaux devraient avoir lieu entre octobre et décembre 2025.
 ::
 
 #### Avenue du 25e Régiment de Tirailleurs Sénégalais
 Cette portion en pente sera totalement réaménagée : une piste cyclable bidirectionnelle de 3.60m de large sera créée côté Est, et séparée d'une voirie routière à double-sens par une large bande végétalisée. Elle rejoindra le carrefour de la rue Mouillard au niveau de la Porte de Vaise.
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et septembre 2025.
+Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et août 2025.
 ::
 
 #### *Concertation*
@@ -129,6 +129,10 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 ### Traversée de Vaise
 #### Porte de Vaise
 La traversée de cette zone très anxiogène avec un fort trafic lié à l'accès au périphérique Nord va pouvoir être sécurisée grâce à un léger détour via la rue Mouillard puis la friche SNCF (+190m). Cette zone en pleine mutation accueillera notamment un hôtel de logistique urbain facilitant l'activité de livraison à vélo. La piste cyclable bidirectionnelle qui longera cette zone se raccordera ensuite à la rue de Bourgogne au niveau du carrefour avec la rue Saint-Simon.
+
+::banner{type="wip"}
+Les travaux ont lieu entre juin et octobre 2025.
+::
 
 #### Rue de Bourgogne
 Entre la rue Saint-Simon et la rue de la Claire, la Voie Lyonnaise prendra la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est de la chaussée.
@@ -221,7 +225,7 @@ streetView: 45.7725923,4.8562026,3a,75y,270.71h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre juillet et décembre 2025.
+Les travaux ont lieu entre fin juin et décembre 2025.
 ::
 
 #### Cours André Philip et rue Francis de Pressensé

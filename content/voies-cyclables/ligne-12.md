@@ -63,6 +63,7 @@ La montée du Chemin Neuf pourrait être aménagée en vélorue avec un trafic a
 
 ::banner{type="modified"}
 Suite à la concertation, la Métropole a annoncé en février 2024 avoir retenu un troisième scénario qui ne modifie pas le plan de circulation à l'intérieur du quartier de Saint-Just pour faciliter les déplacements des riverains. En revanche, le trafic de transit reste supprimé avec la fermeture de la montée du Chemin Neuf aux automobiles, et l'impossibilité de continuer tout droit en haut de la montée Saint-Barthélémy. Cette expérimentation a débuté mi-août 2024 et dure jusqu'en juin 2025.
+Le 27/06/2025, la Métropole de Lyon a annoncé que la Montée du chemin Neuf resterait fermée à la circulation générale, mais que la rue de l'Antiquaille réouvrait dans les deux sens de circulation. C'est donc une bonne nouvelle pour Saint-Jean et Chemin Neuf, mais un retour en arrière dangereux sur la rue des Farges et la rue de Trion avec le retour d'un trafic de transit intense dans le sens de la montée qui va malheureusement effrayer de nombreux cyclistes qui se retrouve en mixité avec les voitures sans aucun aménagement cyclable.
 ::
 
 ::content-image
@@ -78,6 +79,10 @@ streetView: 45.7567455,4.8164702,3a,75y,326.99h,90t
 Dans le Vieux Lyon, la Voie Lyonnaise 12 empruntera la rue Tramassac puis la rue Jean Carries. Profitant de la fermeture de Chemin Neuf et de la suppression de la majorité du stationnement, ces deux rues pourront être aménagées en vélorue et végétalisées avec un trafic automobile qui sera très faible.
 
 En arrivant devant le :transport-link{type=métro line=D} Saint-Jean, l'itinéraire empruntera l'avenue Adolphe Max sur une piste cyclable bidirectionnelle côté Nord.
+
+::banner{type="wip"}
+Le réaménagement des rues Tramassac et Carries est reporté au prochain mandat, faute de volonté politique locale d'accompagner la pérénisation de la fermeture du Chemin Neuf. Ces rues conserveront donc une largeur étroite avec du stationnement en épi.
+::
 
 ::banner{type="modified"}
 Pour permettre la giration des gros véhicules depuis le quai vers l'avenue Adolphe Max, la piste cyclable bidirectionnelle n'était pas réalisable. Elle a donc été transformée en une large vélorue sur la branche Nord de l'avenue, grâce au déplacement du terminus du bus 27 sur la branche Sud.
@@ -174,12 +179,12 @@ streetView: 45.7399229,4.8893137,3a,75y,98.22h,90t
 ::
 
 ::banner{type="info"}
-Afin de confirmer le bon fonctionnement de la mise en sens unique de Rockefeller sur la portion Paré-Pinel, une expérimentation a lieu entre fin octobre 2024 et avril 2025.
+Afin de confirmer le bon fonctionnement de la mise en sens unique de Rockefeller sur la portion Paré-Pinel, une expérimentation a lieu entre fin octobre 2024 et mai 2025. La Métropole de Lyon a annoncé le 27/06/2025 que l'expérimentation était validée et que le projet serait pérénisé en fin d'année 2025, même si certains plans de ciruclation dans les quartiers résidentiels traversés par le report de circulation devaient être améliorés.
 ::
 
 ::banner{type="wip"}
-Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et l'été 2025.\
-Si l'expérimentation de la mise à sens unique est concluante, les travaux définitifs entre la rue Viala et le boulevard Pinel auront lieu entre l'été et l'automne 2025.
+Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et l'automne 2025.\
+Les travaux définitifs entre la rue Viala et le boulevard Pinel auront lieu entre l'automne et la fin d'année 2025.
 ::
 
 ### Boulevard Pinel à Bron - Boutasse

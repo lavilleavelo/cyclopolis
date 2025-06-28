@@ -500,7 +500,7 @@
       "properties": {
         "line": 4,
         "name": "Rue Mouillard",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#porte-de-vaise"
@@ -530,7 +530,7 @@
       "properties": {
         "line": 4,
         "name": "Friche SNCF",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#porte-de-vaise"
@@ -785,7 +785,7 @@
         "id": "Verguin-commun",
         "line": 4,
         "name": "Avenue Verguin",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-verguin"

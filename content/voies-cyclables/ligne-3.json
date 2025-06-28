@@ -95,6 +95,19 @@
     {
       "type": "Feature",
       "properties": {
+        "type": "danger",
+        "name": "Quai du Commerce - La Belle Equipe",
+        "description": "Voie verte étroite avec chicanes dangereuses",
+        "danger": "Tronçon de 30m de fort conflit piéton-vélo avec virages serrés et mauvaise visibilité"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.811171, 45.782808]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "id":"BusAqua-commun",
         "type": "danger",
         "name": "Quai Sémard - Dépose bus Aquarium",
@@ -630,7 +643,7 @@
         "id": "Illhaeusern-commun",
         "line": 3,
         "name": "Collonges - Quai d'Illhaeusern",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -840,7 +853,8 @@
       "properties": {
         "line": 3,
         "name": "Quai du Commerce",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "28/03/2021",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"
@@ -1108,7 +1122,7 @@
         "id": "QuaiLiberation-commun",
         "line": 3,
         "name": "La Mulatière - Quai de la Libération",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#pont-de-la-mulatière-au-barrage-de-pierre-bénite"
