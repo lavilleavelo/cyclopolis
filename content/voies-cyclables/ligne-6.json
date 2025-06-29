@@ -671,7 +671,7 @@
         "id": "QuaiLiberation-commun",
         "line": 6,
         "name": "La Mulatière - Quai de la Libération",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-6#aquarium-à-pont-doullins"
@@ -828,7 +828,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteOullins2-commun",
         "line": 6,
         "name": "Grande Rue",
         "status": "postponed",

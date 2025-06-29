@@ -249,7 +249,7 @@ streetView: 45.7350505,4.8736669,3a,75y,304.21h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre mi-janvier 2025 et septembre 2025.
+Les travaux ont lieu entre mi-janvier 2025 et septembre 2025, avec la réalisation de la piste cyclable entre février et juin, puis le traitement des carrefours aux extrémités entre juin et septembre.
 ::
 
 Entre le boulevard Ambroise Paré et le boulevard Pinel, le projet prévoit de conserver l'aménagement récent réalisé par SYTRAL Mobilités en 2019 à l'occasion de l'arrivée du :transport-link{type=tram line=6}.

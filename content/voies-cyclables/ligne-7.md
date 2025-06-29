@@ -297,7 +297,9 @@ Compte-tenu des travaux très impactants du tramway T10 dans ce secteur jusqu'à
 De Saint-Fons à Feyzin, la Voie Lyonnaise 7 suit le boulevard Yves Farge. Sa création rentre dans le cadre de la requalification de ce boulevard. Il est prévu une piste cyclable bidirectionnelle de 3 à 4m de large, côté Est de la chaussée jusqu'à l'avenue du 11 Novembre. Elle basculera ensuite en deux pistes cyclables bilatérales de 1.5 à 2m de large chacune pour traverser les deux giratoires de chaque côté du Boulevard Urbain Sud. Ces deux giratoires seront réaménagés à la hollandaise pour sécuriser les cheminements des vélos.
 
 ::banner{type="wip"}
-Les travaux préparatoires sur les réseaux ont eu lieu entre début 2024 et l'été 2024 et ont enchainé en septembre 2024 avec les travaux d'aménagement qui dureront jusqu'au printemps 2026. Une première tranche Nord jusqu'à l'avenue Maurice Thorez a été livrée début 2025.
+Les travaux préparatoires sur les réseaux ont eu lieu entre début 2024 et l'été 2024 et ont enchainé en septembre 2024 avec les travaux d'aménagement qui dureront jusqu'au printemps 2026.\
+Une première tranche Nord jusqu'à l'avenue Maurice Thorez a été livrée début 2025.\
+Une seconde tranche entre l'avenue Maurice Thorez et la rue de la Rochette a été livrée début juin 2025.
 ::
 
 ::content-image

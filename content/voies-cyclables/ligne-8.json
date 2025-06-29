@@ -200,6 +200,19 @@
       "type": "Feature",
       "properties": {
         "type": "danger",
+        "name": "Carrefour Mendès-France",
+        "description": "Traversée vélo/piéton à vue sans feux sur un axe à fort trafic",
+        "danger": "Risque de collision avec traversée vélo/piéton non prioritaire au milieu du flux de véhicules parfois à l'arrêt en cas de passage d'un tram"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.915246, 45.724527]
+      }
+    },     
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
         "name": "Sortie dépôt tram T2, sens Est>Ouest",
         "description": "Création d'un large ilot en plein dans la trajectoire, pouvant mener à un risque de chute grave et obligeant les cyclistes à un slalom dangereux sur les rails",
         "danger": "Risque de chute ou de collisions de cyclistes"

@@ -80,7 +80,7 @@ Dans le Vieux Lyon, la Voie Lyonnaise 12 empruntera la rue Tramassac puis la rue
 
 En arrivant devant le :transport-link{type=métro line=D} Saint-Jean, l'itinéraire empruntera l'avenue Adolphe Max sur une piste cyclable bidirectionnelle côté Nord.
 
-::banner{type="wip"}
+::banner{type="postponed"}
 Le réaménagement des rues Tramassac et Carries est reporté au prochain mandat, faute de volonté politique locale d'accompagner la pérénisation de la fermeture du Chemin Neuf. Ces rues conserveront donc une largeur étroite avec du stationnement en épi.
 ::
 
