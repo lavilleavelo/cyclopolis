@@ -635,7 +635,8 @@
         "id": "JctChPetit",
         "line": 7,
         "name": "Jonction Chemin Petit - Voie verte",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "25/04/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombe"
@@ -1291,7 +1292,7 @@
         "id": "TetedOr157-commun",
         "line": 7,
         "name": "Tête d'Or",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#pont-churchill-et-carrefour-tête-dor"

@@ -108,7 +108,7 @@ streetView: 45.7582316,4.8331345,3a,75y,261.07h,90t
 
 ::banner{type="wip"}
 Les travaux sur la rue Chambonnet ont eu lieu de mi-janvier à mi-mai 2025.
-Les travaux sur le pont Bonaparte ont lieu de fin mai à début juillet 2025.
+Les travaux sur le pont Bonaparte ont eu lieu de fin mai à début juillet 2025.
 ::
 
 ::banner{type="postponed"}

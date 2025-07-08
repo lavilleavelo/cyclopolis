@@ -219,6 +219,10 @@ streetView: 45.7455569,4.8494585,3a,75y,69.06h,90t
 ---
 ::
 
+::banner{type="wip"}
+Les travaux devraient avoir lieu à l'automne 2025.
+::
+
 #### Rue et Pont de l'Epargne
 Le projet prévoit d'aménager une piste cyclable bidirectionnelle côté Nord à l'Ouest du pont et côté Sud à l'Est.
 Concernant la circulation automobile et le traitement du pont, deux variantes sont soumises à concertation :
@@ -226,7 +230,7 @@ Concernant la circulation automobile et le traitement du pont, deux variantes so
  - Le maintien de la circulation automobile sur le pont de l'Epargne, où une voie verte étroite mélangeant cyclistes et piétons est aménagée au Sud et la voirie automobile au Nord. Le circulation automobile est maintenue à double sens côté Ouest, les piétons et vélos sont contraints de traverser la voirie, et il reste peu d'espace pour végétaliser davantage la rue.
 
 ::banner{type="wip"}
-Une première phase d'aménagement entièrement transitoire est prévue être déployée entre le dernier trimestre 2025 et début 2026.
+Une première phase d'aménagement entièrement transitoire est prévue être déployée à l'automne 2025.
 ::
 
 #### Rue Marius Berliet

@@ -963,7 +963,7 @@
         "link": "/voie-lyonnaise-3#pont-clémenceau-au-pont-koenig",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "status": "planned"
+        "status": "wip"
       },
       "geometry": {
         "type": "LineString",

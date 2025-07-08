@@ -314,7 +314,8 @@
         "id": "Bonaparte-commun",
         "line": 11,
         "name": "Pont Bonaparte - Chambonnet",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/07/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#traversée-de-saint-just-traversée-de-saint-jean"
@@ -616,9 +617,72 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "DauphineVerne-commun",
+        "id": "Lacassagne-commun",
         "line": 11,
-        "name": "Dauphiné - Jules Verne",
+        "name": "Avenue Lacassagne Sud",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [          
+          [4.870868145196283, 45.75214475091451],
+          [4.869538019534076, 45.752797439308665]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Domrémy-commun",
+        "line": 11,
+        "name": "Impasse Domrémy",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.87398491998664, 45.752524519310185],
+          [4.872930930957352, 45.75248280095562],
+          [4.87252107204273, 45.752473733616114],
+          [4.872046277484117, 45.75248780394898],
+          [4.871442084743592, 45.75254091471112],
+          [4.871160600665519, 45.75242066281143],
+          [4.870868145196283, 45.75214475091451]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Diday-commun",
+        "line": 11,
+        "name": "Square Diday",
+        "status": "done",
+        "doneAt": "31/10/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.875455022748923, 45.752604104932345],
+          [4.87398491998664, 45.752524519310185]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Foucauld-commun",
+        "line": 11,
+        "name": "Ecole et Collège Foucauld",
         "status": "planned",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
@@ -632,17 +696,10 @@
           [4.8769478375889435, 45.75266604668053],
           [4.876786372902643, 45.75265676363563],
           [4.87657738997035, 45.75265548451861],
-          [4.875056395561131, 45.752583690597476],
-          [4.873952005815454, 45.752524519310185],
-          [4.872930930957352, 45.75248280095562],
-          [4.87252107204273, 45.752473733616114],
-          [4.872046277484117, 45.75248780394898],
-          [4.871442084743592,45.75254091471112],
-          [4.870571917654445,45.75228765223716],
-          [4.869538019534076,45.752797439308665]
+          [4.875455022748923, 45.752604104932345]
         ]
       }
-    },
+    },    
     {
       "type": "Feature",
       "properties": {

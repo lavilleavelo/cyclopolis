@@ -174,7 +174,7 @@ Les travaux devraient avoir lieu entre avril et octobre 2025, d'abord sur la rue
 
 Le **pont Clémenceau** avait été initialement réaménagé en 2013 avec deux pistes cyclables étroites unidirectionnelles sur trottoir. Celles-ci ne répondaient pas aux besoin des cyclistes car la traversée difficile de cette avenue à 5 voies très routières les obligeait à utiliser les pistes à contre-sens. En 2022, la situation a été sensiblement améliorée et deux larges pistes cyclables bidirectionnelles ont été créées de chaque côté du pont.
 
-L'aménagement de l'**avenue Birmingham** sera globalement conservé, mais la bordure entre piétons et cyclistes sera ponctuellement réhaussée et une nouvelle traversée piétonne sera créé à l'avant de l'arrêt de bus, au niveau de la sortie du passage souterrain.
+L'aménagement de l'**avenue Birmingham** est globalement conservé, mais la bordure entre piétons et cyclistes a été ponctuellement réhaussée et une nouvelle traversée piétonne sera créé à l'avant de l'arrêt de bus, au niveau de la sortie du passage souterrain.
 
 Dans le **tunnel mode doux de la Croix-Rousse**, la Métropole a conservé la piste cyclable bidirectionnelle existante de 3m de large à court terme.
 
@@ -236,8 +236,8 @@ Les carrefours dangereux seront sécurisés : le giratoire des Charpennes sera r
 Ce projet nécessite la suppression du stationnement du côté de la piste cyclable sur l'ensemble du linéaire de tronçon. En outre, il implique la  mise en sens unique du cours André Philip à l'Est de la rue Bât Yam et sur l'ensemble de la rue Francis de Pressensé. Les sens de circulation définitifs retenus par la Métropole convergent vers le cours de la République.
 
 ::banner{type="wip"}
-Les travaux entre le cours de la République et Flachet ont lieu entre janvier et septembre 2025 de l'Est vers l'Ouest.
-Les travaux entre le cours de la République et l'avenue Verguin auront lieu entre juillet 2025 et mars 2026, en commençant par le carrefour Stalingrad/Verguin, puis le rond-point des Charpennes en août.
+Les travaux entre le cours de la République et Flachet ont lieu entre janvier et octobre 2025 de l'Est vers l'Ouest.
+Les travaux entre le cours de la République et l'avenue Verguin auront lieu entre juillet 2025 et mars 2026, en commençant par le carrefour Stalingrad/Verguin en juillet-août, puis le rond-point des Charpennes en septembre-octobre. Le reste du linéaire sera en travaux entre novembre 2025 et mars 2026.
 ::
 
 ::banner{type="info"}

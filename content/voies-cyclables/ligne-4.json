@@ -597,7 +597,7 @@
       "properties": {
         "line": 4,
         "name": "Rue de la Corderie",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-de-la-corderie"

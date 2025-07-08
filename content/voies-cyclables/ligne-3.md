@@ -36,7 +36,7 @@ Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire
 Ce tronçon débute à l'entrée de la commune de Massieux entre les deux giratoires qui servent d'échangeur avec l'A46. Il continue vers le Sud dans la commune de Genay sur un large trottoir déjà aménagé en voie verte de 3m de large situé côté Ouest de la route de Trévoux puis de l'avenue Sadi Carnot. A l'entrée du centre-ville de Neuville-sur-Saône, il emprunte la rue Barrée aménagée en zone de rencontre, puis rejoint les quais de Saône jusqu'au Pont de Neuville.
 
 ::banner{type="info"}
-Sur l'avenue Sadi Carnot, des travaux mineurs de sécurisation des carrefours devraient avoir lieu à l'été 2025 pour relier la voie verte et les rues perpendiculaires à l'Est.
+Sur l'avenue Sadi Carnot, des travaux mineurs de sécurisation des carrefours auront lieu en septembre 2025 pour relier la voie verte et les rues perpendiculaires à l'Est.
 ::
 
 ::banner{type="wip"}
@@ -100,7 +100,7 @@ La concertation publique sur ce tronçon s'est tenue du 30/01 au 10/03/2023.\
 L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 2.70m de large à cause des contraintes de ce quai étroit. En outre, la traversée du carrefour avec la rue Antonin Laborde sera sécurisée avec la création d'un plateau surélevé et la priorité de la traversée vélo.
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu entre novembre 2025 et mars 2026.
+Les travaux devraient avoir lieu entre mi-juillet et novembre 2025.
 ::
 
 #### Rue Antonin Laborde au pont Clémenceau
@@ -117,7 +117,7 @@ streetView: 45.7849251,4.8127776,3a,75y,201.14h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux entre le pont Clémenceau et le pont Schuman devraient avoir lieu entre octobre 2025 et mars 2026.
+Les travaux entre le pont Clémenceau et le pont Schuman devraient avoir lieu entre septembre 2025 et février 2026.
 ::
 
 #### Pont Clémenceau au pont Koenig
@@ -133,7 +133,7 @@ Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire
 ::
 
 ::banner{type="wip"}
-Les travaux **entre le pont Koenig et le Sud de la place du port Mouton** devraient avoir lieu entre juillet 2025 et mars 2026.
+Les travaux **entre le pont Koenig et le Sud de la place du port Mouton** ont lieu entre début juillet 2025 et mars 2026.
 ::
 
 ::content-image
@@ -162,7 +162,7 @@ streetView: 45.7579128,4.8260787,3a,75y,191.02h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et se poursuit jusqu'en juillet 2025.
+Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et se poursuit jusque fin juillet 2025.
 ::
 
 #### *Concertation*

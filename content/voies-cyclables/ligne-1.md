@@ -93,7 +93,7 @@ Après des études complémentaires de la Métropole, le scénario initial de cr
 ::
 
 ::banner{type="wip"}
-Le changement de revêtement sur la partie Sud aura lieu pendant l'été 2025.
+Le changement de revêtement sur la partie Sud aura lieu en septembre/octobre 2025.
 ::
 
 #### Quai de Grande-Bretagne et Quai de Serbie
@@ -163,7 +163,7 @@ La Métropole a annoncé le 30/01/2025 que la majeure partie de ce tronçon est 
 ::
 
 ::banner{type="wip"}
-La section entre la rue du commandant Ayasse et le pont Pasteur est en travaux entre fin mai et novembre 2025.
+La section entre la rue du commandant Ayasse et le pont Pasteur est en travaux entre fin mai et novembre 2025, du Nord vers le Sud.
 ::
 
 #### *Concertation*

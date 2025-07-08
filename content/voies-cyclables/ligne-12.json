@@ -410,7 +410,8 @@
         "id": "Bonaparte-commun",
         "line": 12,
         "name": "Pont Bonaparte - Chambonnet",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/07/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-12#traversée-de-la-presquîle-de-lyon"

@@ -60,7 +60,16 @@ Sur tout le reste de son parcours, la Voie Lyonnaise 10 suivra le tracé du :tra
 ***Lyon 3***
  - la piste cyclable sur trottoir de l'avenue Lacassagne sera supprimée pour être restituée sur la voirie côté Sud
  - la chicane inconfortable avant l'avenue Lacassagne sera totalement reprise avec des virages doux et intégrée dans un nouveau parc végétalisé
- - la voie le long du tram sera entièrement élargie pour séparer piétons et cyclistes
+ - la voie le long du tram sera entièrement élargie pour séparer piétons et cyclistes (sauf autour du square Diday)
+
+::banner{type="postponed"}
+Les aménagements prévus sur l'avenue Lacassagne ont été reportés à un prochain mandat et les cyclistes devront circuler en mixité avec les bus et taxis sur des voies bus bilatérales.\
+La section étroite en voie verte de chaque côté du square Diday ne sera finalement pas élargie sur ce mandat et cette zone de conflits important entre cyclistes et piétons perdurera pendant encore de nombreuses années.
+::
+
+::banner{type="wip"}
+Les travaux sont prévus entre octobre 2025 et février 2026, sauf le long de l'école et du collège Charles de Foucauld, où ils sont reportés entre juillet et octobre 2026.
+::
 
 ***Villeurbanne***
  - le franchissement de la station Reconnaissance-Balzac était proposé avec une variante de détour par Richard Vitton et Antonin Perrin de manière à éviter l'arrêt de tramway en conflit avec les piétons, mais c'est finalement le trajet actuel qui sera conservé faute de solution satisfaisante sur Antonin Perrin.
@@ -73,6 +82,10 @@ Sur tout le reste de son parcours, la Voie Lyonnaise 10 suivra le tracé du :tra
 
 ::banner{type="unsecured"}
 Sur la rue de la Ligne de l'Est, à l'Est de la rue Cyprian, le point dur étroit de 125m de long partagé avec les véhicules motorisés dans le sens Ouest>Est sera conservé faute d'élargissement possible. La Ville à Vélo réclame que le sens de circulation soit inversé pour en faire une vélorue compatible avec un faible trafic automobile.
+::
+
+::banner{type="wip"}
+Les travaux sont prévus entre octobre 2025 et février 2026.
 ::
 
 ***Vaulx-La Soie***

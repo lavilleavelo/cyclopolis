@@ -508,7 +508,7 @@
         "id": "TetedOr157-commun",
         "line": 1,
         "name": "Tête d'Or",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-1#quai-de-grande-bretagne-et-quai-de-serbie",
         "quality": "satisfactory"
