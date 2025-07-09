@@ -1743,7 +1743,7 @@
         "id": "CroixLuizet-commun",
         "line": 5,
         "name": "Croix Luizet",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#vaulx-en-velin-est"
@@ -1772,7 +1772,7 @@
         "id": "PeriCanal-commun",
         "line": 5,
         "name": "Vaulx-en-Velin Ouest",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#vaulx-en-velin-est"

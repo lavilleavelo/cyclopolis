@@ -460,7 +460,7 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Carrefour Mercières",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -508,7 +508,7 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Carrefour Avenue du 8 Mai",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -576,7 +576,7 @@
       "properties": {
         "line": 7,
         "name": "Carrefour Pierre Drevet",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
