@@ -1,6 +1,6 @@
 {
-  "name": "Avenue de la République - Tassin ",
-  "description": "Ce compteur mesure le trafic sur l'avenue de la République à Tassin entre Hespérides et Horloge",
+  "name": "Avenue de la République Est - Tassin ",
+  "description": "Ce compteur mesure le trafic sur l'est de l'avenue de la République à Tassin entre Hespérides et Horloge",
   "arrondissement": "Tassin",
   "idsPdc": [
     1621,
