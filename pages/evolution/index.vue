@@ -8,19 +8,19 @@
         {{ doneDistance }} km de {{ getRevName() }} réalisés
       </div>
       <div class="py-5 px-5 md:px-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
-        <div
-          v-for="year in years"
-          :key="year.label"
-          @click="year.isChecked = !year.isChecked"
-        >
+        <div v-for="year in years" :key="year.label" @click="year.isChecked = !year.isChecked">
           <div
             class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
             :class="{
               'bg-lvv-blue-600 border-transparent text-white hover:bg-lvv-blue-500': year.isChecked,
               'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !year.isChecked
-            }"
-          >
-            <div>{{ year.label }}</div>
+            }">
+            <div class="text-center">
+              <div class="whitespace-nowrap font-bold">{{ year.label }}</div>
+              <div class="text-xs" :class="{ 'text-gray-500': !year.isChecked }">
+                {{ year.distance }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -38,8 +38,12 @@ definePageMeta({
   layout: 'fullscreen'
 });
 
+const { data: geojsons } = await useAsyncData(() => {
+  return queryCollection('voiesCyclablesGeojson').all();
+});
+
 const years = ref([
-  { label: '< 2021', match: (year: number) => year < 2021, isChecked: true },
+  { label: '< 2021', match: (year: number) => year < 2021, isChecked: true, distance: '' },
   { label: '2021', match: (year: number) => year === 2021, isChecked: false },
   { label: '2022', match: (year: number) => year === 2022, isChecked: false },
   { label: '2023', match: (year: number) => year === 2023, isChecked: false },
@@ -47,28 +51,32 @@ const years = ref([
   { label: '2025', match: (year: number) => year === 2025, isChecked: false }
 ]);
 
-const { data: geojsons } = await useAsyncData(() => {
-  return queryCollection('voiesCyclablesGeojson').all();
-});
+years.value.forEach((year, index) =>
+  year.distance = `${index === 0 ? '' : '+'}${computeDistance(filterFeatures(geojsons.value, [year]))}km`
+);
 
 const features = computed(() => {
-  if (!geojsons.value) return [];
+  return filterFeatures(geojsons.value, years.value.filter(year => year.isChecked));
+});
 
-  return geojsons.value
-    .flatMap(geojson => geojson.features)
+const doneDistance = computed(() => computeDistance(features.value));
+
+function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof years.value) {
+  if (!jsons) return [];
+  return jsons
+    .flatMap(json => json.features)
     .filter(feature => 'status' in feature.properties && feature.properties.status === 'done')
     .filter(feature => {
       if (!('status' in feature.properties) || !feature.properties.doneAt) { return false; }
-      const selectedYear = years.value.filter(year => year.isChecked);
-      const [,, featureYear] = feature.properties.doneAt.split('/');
-      return selectedYear.some(year => year.match(Number(featureYear)));
+      const [, , featureYear] = feature.properties.doneAt.split('/');
+      return selectedYears.some(year => year.match(Number(featureYear)));
     });
-});
+}
 
-const doneDistance = computed(() => {
+function computeDistance(selectedFeatures: typeof features.value) {
   if (!geojsons.value) return 0;
-  const allUniqFeatures = getAllUniqLineStrings([{...geojsons.value[0], features: features.value}]);
+  const allUniqFeatures = getAllUniqLineStrings([{ ...geojsons.value[0], features: selectedFeatures }]);
   const doneDistance = getDistance({ features: allUniqFeatures });
   return Math.round(doneDistance / 100) / 10;
-});
+}
 </script>
