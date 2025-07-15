@@ -185,7 +185,7 @@
         "line": 10,
         "id": "Bld-Valvert-commun",
         "name": "Boulevard du Valvert",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"

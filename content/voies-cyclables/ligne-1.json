@@ -403,7 +403,7 @@
         "id": "StalingradNord-commun",
         "line": 1,
         "name": "Stalingrad Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "voie-verte",
         "link": "/voie-lyonnaise-1#stalingrad-nord",
         "quality": "satisfactory"

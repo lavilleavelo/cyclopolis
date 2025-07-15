@@ -58,7 +58,7 @@ Après des études complémentaires de la Métropole, l'option voie verte à l'E
 ::
 
 ::banner{type="wip"}
-Les travaux sur cette section auront lieu entre fin juillet et fin novembre 2025.
+Les travaux sur cette section ont lieu entre mi-juillet et fin novembre 2025.
 ::
 
 #### Boulevard Stalingrad Sud

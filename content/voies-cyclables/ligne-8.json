@@ -610,7 +610,7 @@
         "line": 8,
         "id": "Bld-Valvert-commun",
         "name": "Boulevard du Valvert",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-valvert-à-victor-hugo"

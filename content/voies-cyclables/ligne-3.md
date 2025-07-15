@@ -100,7 +100,7 @@ La concertation publique sur ce tronçon s'est tenue du 30/01 au 10/03/2023.\
 L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 2.70m de large à cause des contraintes de ce quai étroit. En outre, la traversée du carrefour avec la rue Antonin Laborde sera sécurisée avec la création d'un plateau surélevé et la priorité de la traversée vélo.
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu entre mi-juillet et novembre 2025.
+Les travaux ont lieu entre mi-juillet et novembre 2025.
 ::
 
 #### Rue Antonin Laborde au pont Clémenceau
