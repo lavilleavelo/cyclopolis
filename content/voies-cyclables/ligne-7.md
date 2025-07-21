@@ -102,7 +102,7 @@ Puis début 2025, c'est le tronçon entre la rue Hénon et la Montée de la Bouc
 ::
 
 ::banner{type="modified"}
-Entre le Montée de la Boucle et la place Jules Ferry, le projet initial a aussi été reporté. Cependant, suite à la suppression de la piste cyclable sur trottoir en 2022 obligeant les cyclistes à circuler sur deux bandes cyclables bilatérales très étroites, La Ville à Vélo s'est mobilisée et a obtenu la création d'une piste cyclable bidirectionnelle de 2m50 côté Sud, interrompue à deux reprises pour conserver quelques places de stationnement. Cet aménagement, bien qu'insuffisant, permettra d'assurer une continuité cyclable temporaire. Les travaux sont prévus pendant l'été 2025.
+Entre le Montée de la Boucle et la place Jules Ferry, le projet initial a aussi été reporté. Cependant, suite à la suppression de la piste cyclable sur trottoir en 2022 obligeant les cyclistes à circuler sur deux bandes cyclables bilatérales très étroites, La Ville à Vélo s'est mobilisée et a obtenu la création d'une piste cyclable bidirectionnelle de 2m50 côté Sud, interrompue à deux reprises pour conserver quelques places de stationnement. Cet aménagement, bien qu'insuffisant, permettra d'assurer une continuité cyclable temporaire. Les travaux sont prévus au mois d'octobre 2025.
 ::
 
 ::content-image
@@ -141,7 +141,9 @@ La Métropole a finalement reporté début 2025 l'aménagement définitif de ce 
 ::
 
 ::banner{type="wip"}
-Les travaux sur les 3 secteurs non reportés sont prévus entre fin juillet et septembre 2025.
+Les travaux sur le carrefour Boucle/Canuts a lieu entre fin juillet et début octobre 2025.
+Les travaux au carrefour Henri Dor auront lieu pendant les vacances de la Tousaint 2025.
+Les travaux sur la contre-allée du bas auront lieu en novembre-décembre 2025.
 ::
 
 ::content-image

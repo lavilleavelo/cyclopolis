@@ -1142,7 +1142,7 @@
       "properties": {
         "line": 7,
         "name": "Carrefour Boucle/Canuts",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#montée-de-la-boucle"
