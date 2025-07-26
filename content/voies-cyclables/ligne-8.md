@@ -121,7 +121,7 @@ streetView: 45.7649531,4.7854616,3a,75y,350.01h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux auront lieu entre septembre et décembre 2025.
+Les travaux auront lieu entre octobre et décembre 2025.
 ::
 
 #### Avenue Barthélémy Buyer
