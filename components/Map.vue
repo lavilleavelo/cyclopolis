@@ -24,7 +24,7 @@ import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
 
-import { isLineStringFeature, type CompteurFeature, type LaneStatus, type LaneType } from '~/types';
+import { isLineStringFeature, type CompteurFeature, type LaneQuality, type LaneStatus, type LaneType } from '~/types';
 import config from '~/config.json';
 
 // const config = useRuntimeConfig();
@@ -60,20 +60,22 @@ const {
 
 const statuses = ref(['planned', 'variante', 'done', 'postponed', 'variante-postponed', 'unknown', 'wip', 'tested']);
 const types = ref(['bidirectionnelle', 'bilaterale', 'voie-bus', 'voie-bus-elargie', 'velorue', 'voie-verte', 'bandes-cyclables', 'zone-de-rencontre', 'aucun', 'inconnu']);
+const qualities = ref(['satisfactory', 'unsatisfactory']);
 
 const features = computed(() => {
   return (props.features ?? []).filter(feature => {
     if (isLineStringFeature(feature)) {
       return statuses.value.includes(feature.properties.status) &&
-        types.value.includes(feature.properties.type);
+        types.value.includes(feature.properties.type) && qualities.value.includes(feature.properties.quality);
     }
     return true;
   });
 });
 
-function refreshFilters({ visibleStatuses, visibleTypes }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[] }) {
+function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[] }) {
   statuses.value = visibleStatuses;
   types.value = visibleTypes;
+  qualities.value = visibleQualities;
 }
 
 onMounted(() => {
