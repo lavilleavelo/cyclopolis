@@ -29,7 +29,7 @@
               'bg-lvv-blue-600 border-transparent text-white ring-offset-1 hover:bg-lvv-blue-500': statusFilter.isEnable,
               'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !statusFilter.isEnable
             }"
-            @click="toogleStatusFilter(index)"
+            @click="toggleStatusFilter(index)"
           >
             {{ statusFilter.label }}
           </div>
@@ -46,9 +46,26 @@
               'bg-lvv-blue-600 border-transparent text-white ring-offset-1 hover:bg-lvv-blue-500': typeFilter.isEnable,
               'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !typeFilter.isEnable
             }"
-            @click="toogleTypeFilter(index)"
+            @click="toggleTypeFilter(index)"
           >
             {{ typeFilter.label }}
+          </div>
+        </div>
+        <div class="mt-2 text-base font-medium">
+          Filtrer par qualité d'aménagement
+        </div>
+        <div class="mt-2 flex flex-wrap gap-x-2 gap-y-3">
+          <div
+            v-for="(qualityFilter, index) in qualityFilters"
+            :key="qualityFilter.label"
+            class="px-2 py-1 border rounded-2xl text-sm cursor-pointer focus:outline-none ring-lvv-blue-600 ring-2"
+            :class="{
+              'bg-lvv-blue-600 border-transparent text-white ring-offset-1 hover:bg-lvv-blue-500': qualityFilter.isEnable,
+              'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !qualityFilter.isEnable
+            }"
+            @click="toggleQualityFilter(index)"
+          >
+            {{ qualityFilter.label }}
           </div>
         </div>
       </DialogPanel>
@@ -92,17 +109,26 @@ const typeFilters = ref([
   { label: 'Aucun', isEnable: true, types: ['aucun'] }
 ]);
 
-function toogleStatusFilter(index: number) {
+const qualityFilters = ref([
+  { label: 'Satisfaisant', isEnable: true, qualities: ['satisfactory'] },
+  { label: 'Non satisfaisant', isEnable: true, qualities: ['unsatisfactory'] }
+]);
+
+function toggleStatusFilter(index: number) {
   statusFilters.value[index].isEnable = !statusFilters.value[index].isEnable;
 }
 
-function toogleTypeFilter(index: number) {
+function toggleTypeFilter(index: number) {
   typeFilters.value[index].isEnable = !typeFilters.value[index].isEnable;
+}
+
+function toggleQualityFilter(index: number) {
+  qualityFilters.value[index].isEnable = !qualityFilters.value[index].isEnable;
 }
 
 const emit = defineEmits(['update']);
 
-watch([statusFilters, typeFilters], () => {
+watch([statusFilters, typeFilters, qualityFilters], () => {
   const visibleStatuses = statusFilters.value
     .filter(item => item.isEnable)
     .flatMap(item => item.statuses);
@@ -111,7 +137,11 @@ watch([statusFilters, typeFilters], () => {
     .filter(item => item.isEnable)
     .flatMap(item => item.types);
 
-  emit('update', { visibleStatuses, visibleTypes });
+  const visibleQualities = qualityFilters.value
+    .filter(item => item.isEnable)
+    .flatMap(item => item.qualities);
+
+  emit('update', { visibleStatuses, visibleTypes, visibleQualities });
 }, { deep: true });
 
 </script>
