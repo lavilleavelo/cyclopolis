@@ -1,0 +1,4209 @@
+{
+  "name": "Lyon-Bron",
+  "coordinates": [
+    4.949167,
+    45.721333
+  ],
+  "counts": [
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-01",
+      "TN": 1.8,
+      "TX": 10.6,
+      "RR": 1.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-02",
+      "TN": 4.4,
+      "TX": 11.4,
+      "RR": 4.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-03",
+      "TN": 8.5,
+      "TX": 15.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-04",
+      "TN": 6.6,
+      "TX": 14,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-05",
+      "TN": 6.5,
+      "TX": 8.8,
+      "RR": 5.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-06",
+      "TN": 4.4,
+      "TX": 7.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-07",
+      "TN": 3.5,
+      "TX": 4.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-08",
+      "TN": -0.5,
+      "TX": 0.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-09",
+      "TN": -1,
+      "TX": 0.8,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-10",
+      "TN": 0.2,
+      "TX": 1.8,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-11",
+      "TN": 0.2,
+      "TX": 0.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-12",
+      "TN": -1.5,
+      "TX": 0.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-13",
+      "TN": -4.1,
+      "TX": 0.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-14",
+      "TN": -1.3,
+      "TX": 2.8,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-15",
+      "TN": 2.3,
+      "TX": 4.7,
+      "RR": 3.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-16",
+      "TN": -3.1,
+      "TX": 11.4,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-17",
+      "TN": 0.8,
+      "TX": 13.6,
+      "RR": 16.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-18",
+      "TN": 3,
+      "TX": 13.4,
+      "RR": 6.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-19",
+      "TN": -1.1,
+      "TX": 1.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-20",
+      "TN": -3.3,
+      "TX": 1.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-21",
+      "TN": -5.5,
+      "TX": 10,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-22",
+      "TN": -0.6,
+      "TX": 9.7,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-23",
+      "TN": 2,
+      "TX": 13.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-24",
+      "TN": 3.4,
+      "TX": 17.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-25",
+      "TN": 2.9,
+      "TX": 16.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-26",
+      "TN": 3.1,
+      "TX": 14.8,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-27",
+      "TN": 2.9,
+      "TX": 7.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-28",
+      "TN": 1.4,
+      "TX": 16.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-29",
+      "TN": 9.3,
+      "TX": 16.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-30",
+      "TN": 5.1,
+      "TX": 15.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-01-31",
+      "TN": 1,
+      "TX": 13.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-01",
+      "TN": 2.5,
+      "TX": 9.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-02",
+      "TN": 5.9,
+      "TX": 12.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-03",
+      "TN": 0.7,
+      "TX": 9.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-04",
+      "TN": 4.9,
+      "TX": 6.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-05",
+      "TN": 3.4,
+      "TX": 7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-06",
+      "TN": 1,
+      "TX": 9.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-07",
+      "TN": 6.9,
+      "TX": 14.4,
+      "RR": 1.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-08",
+      "TN": 8.7,
+      "TX": 15.8,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-09",
+      "TN": 10.5,
+      "TX": 13.7,
+      "RR": 4.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-10",
+      "TN": 6.6,
+      "TX": 10.1,
+      "RR": 15.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-11",
+      "TN": 4.9,
+      "TX": 12.2,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-12",
+      "TN": 2.5,
+      "TX": 11.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-13",
+      "TN": 2.4,
+      "TX": 13,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-14",
+      "TN": 4.9,
+      "TX": 16.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-15",
+      "TN": 3.7,
+      "TX": 17.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-16",
+      "TN": 11.6,
+      "TX": 18.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-17",
+      "TN": 9.2,
+      "TX": 10.9,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-18",
+      "TN": 9,
+      "TX": 14.1,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-19",
+      "TN": 8.9,
+      "TX": 14.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-20",
+      "TN": 7.9,
+      "TX": 12.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-21",
+      "TN": 3.1,
+      "TX": 16,
+      "RR": 5.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-22",
+      "TN": 9.4,
+      "TX": 13.7,
+      "RR": 5.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-23",
+      "TN": 1.6,
+      "TX": 10.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-24",
+      "TN": 4.1,
+      "TX": 11.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-25",
+      "TN": 4.1,
+      "TX": 11.1,
+      "RR": 5.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-26",
+      "TN": 8.1,
+      "TX": 15,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-27",
+      "TN": 3.5,
+      "TX": 11,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-28",
+      "TN": 6.9,
+      "TX": 9.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-02-29",
+      "TN": 0.6,
+      "TX": 13.2,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-01",
+      "TN": 4.4,
+      "TX": 13.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-02",
+      "TN": 7.2,
+      "TX": 14.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-03",
+      "TN": 2.3,
+      "TX": 9.8,
+      "RR": 30.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-04",
+      "TN": 4,
+      "TX": 9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-05",
+      "TN": 1.7,
+      "TX": 10.7,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-06",
+      "TN": 2.9,
+      "TX": 10.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-07",
+      "TN": -0.9,
+      "TX": 14.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-08",
+      "TN": 5.2,
+      "TX": 13.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-09",
+      "TN": 5.5,
+      "TX": 15.3,
+      "RR": 15.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-10",
+      "TN": 5.9,
+      "TX": 14.4,
+      "RR": 3.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-11",
+      "TN": 5.1,
+      "TX": 10.6,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-12",
+      "TN": 4.9,
+      "TX": 13.6,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-13",
+      "TN": 8,
+      "TX": 16.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-14",
+      "TN": 3.8,
+      "TX": 18.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-15",
+      "TN": 7.1,
+      "TX": 19.3,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-16",
+      "TN": 8.7,
+      "TX": 17.5,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-17",
+      "TN": 7.5,
+      "TX": 17.9,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-18",
+      "TN": 11.7,
+      "TX": 18.7,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-19",
+      "TN": 5.3,
+      "TX": 19.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-20",
+      "TN": 4.8,
+      "TX": 22,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-21",
+      "TN": 8.3,
+      "TX": 22.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-22",
+      "TN": 9.6,
+      "TX": 24.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-23",
+      "TN": 9.9,
+      "TX": 13.9,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-24",
+      "TN": 6,
+      "TX": 12.5,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-25",
+      "TN": -0.3,
+      "TX": 15,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-26",
+      "TN": 10.1,
+      "TX": 13.8,
+      "RR": 33
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-27",
+      "TN": 2.6,
+      "TX": 11.8,
+      "RR": 1.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-28",
+      "TN": 8.5,
+      "TX": 17,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-29",
+      "TN": 13,
+      "TX": 20.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-30",
+      "TN": 9.4,
+      "TX": 16.4,
+      "RR": 18.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-03-31",
+      "TN": 9.3,
+      "TX": 17.4,
+      "RR": 25.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-01",
+      "TN": 8.7,
+      "TX": 15.9,
+      "RR": 1.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-02",
+      "TN": 6.4,
+      "TX": 16.9,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-03",
+      "TN": 9.7,
+      "TX": 17.6,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-04",
+      "TN": 6.6,
+      "TX": 21.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-05",
+      "TN": 14.2,
+      "TX": 21.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-06",
+      "TN": 15,
+      "TX": 23,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-07",
+      "TN": 17,
+      "TX": 22.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-08",
+      "TN": 15.8,
+      "TX": 24.1,
+      "RR": 20.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-09",
+      "TN": 7.3,
+      "TX": 12.9,
+      "RR": 10.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-10",
+      "TN": 5.3,
+      "TX": 14.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-11",
+      "TN": 5.6,
+      "TX": 17.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-12",
+      "TN": 5.5,
+      "TX": 21.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-13",
+      "TN": 7.6,
+      "TX": 27.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-14",
+      "TN": 9,
+      "TX": 29.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-15",
+      "TN": 15.4,
+      "TX": 23,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-16",
+      "TN": 7.6,
+      "TX": 13.1,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-17",
+      "TN": 4.5,
+      "TX": 11.9,
+      "RR": 6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-18",
+      "TN": 3.9,
+      "TX": 10.7,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-19",
+      "TN": 0.9,
+      "TX": 15.4,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-20",
+      "TN": 5.9,
+      "TX": 11.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-21",
+      "TN": 3.6,
+      "TX": 9.7,
+      "RR": 1.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-22",
+      "TN": 2.4,
+      "TX": 10.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-23",
+      "TN": 2.7,
+      "TX": 11.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-24",
+      "TN": 2.9,
+      "TX": 10.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-25",
+      "TN": 3.9,
+      "TX": 15.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-26",
+      "TN": 9,
+      "TX": 15.7,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-27",
+      "TN": 10.2,
+      "TX": 20.6,
+      "RR": 24.5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-28",
+      "TN": 10.3,
+      "TX": 11.4,
+      "RR": 74.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-29",
+      "TN": 9.4,
+      "TX": 14.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-04-30",
+      "TN": 10.8,
+      "TX": 18.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-01",
+      "TN": 9.1,
+      "TX": 20.3,
+      "RR": 36.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-02",
+      "TN": 10,
+      "TX": 11.5,
+      "RR": 4.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-03",
+      "TN": 8.5,
+      "TX": 17.6,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-04",
+      "TN": 6.5,
+      "TX": 18.6,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-05",
+      "TN": 12.5,
+      "TX": 21.6,
+      "RR": 4.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-06",
+      "TN": 11.1,
+      "TX": 14.4,
+      "RR": 5.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-07",
+      "TN": 9.6,
+      "TX": 17.1,
+      "RR": 3.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-08",
+      "TN": 11.6,
+      "TX": 20.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-09",
+      "TN": 9.2,
+      "TX": 20.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-10",
+      "TN": 9.3,
+      "TX": 25.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-11",
+      "TN": 11.2,
+      "TX": 26.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-12",
+      "TN": 10.6,
+      "TX": 24.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-13",
+      "TN": 13.9,
+      "TX": 24.8,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-14",
+      "TN": 14,
+      "TX": 17.8,
+      "RR": 21
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-15",
+      "TN": 12.4,
+      "TX": 18.1,
+      "RR": 8.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-16",
+      "TN": 11.3,
+      "TX": 17,
+      "RR": 5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-17",
+      "TN": 8.1,
+      "TX": 21.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-18",
+      "TN": 10.8,
+      "TX": 19.8,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-19",
+      "TN": 8.7,
+      "TX": 23.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-20",
+      "TN": 10.8,
+      "TX": 24.3,
+      "RR": 7.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-21",
+      "TN": 10.8,
+      "TX": 21.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-22",
+      "TN": 13.6,
+      "TX": 21.5,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-23",
+      "TN": 11.2,
+      "TX": 20.5,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-24",
+      "TN": 11.6,
+      "TX": 21.1,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-25",
+      "TN": 9.3,
+      "TX": 23.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-26",
+      "TN": 12.9,
+      "TX": 25.4,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-27",
+      "TN": 15.2,
+      "TX": 20.7,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-28",
+      "TN": 10.3,
+      "TX": 22.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-29",
+      "TN": 12.1,
+      "TX": 22.1,
+      "RR": 1.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-30",
+      "TN": 14.8,
+      "TX": 21.1,
+      "RR": 7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-05-31",
+      "TN": 11.1,
+      "TX": 19.6,
+      "RR": 2.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-01",
+      "TN": 12.3,
+      "TX": 20.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-02",
+      "TN": 12.9,
+      "TX": 16.8,
+      "RR": 3.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-03",
+      "TN": 14.5,
+      "TX": 19,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-04",
+      "TN": 12.6,
+      "TX": 24.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-05",
+      "TN": 14.2,
+      "TX": 27.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-06",
+      "TN": 14.8,
+      "TX": 26.1,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-07",
+      "TN": 16.4,
+      "TX": 27.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-08",
+      "TN": 15.9,
+      "TX": 29.1,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-09",
+      "TN": 17.2,
+      "TX": 24.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-10",
+      "TN": 13.4,
+      "TX": 23.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-11",
+      "TN": 12.3,
+      "TX": 19.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-12",
+      "TN": 9.5,
+      "TX": 21.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-13",
+      "TN": 9.8,
+      "TX": 24,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-14",
+      "TN": 14.3,
+      "TX": 24.3,
+      "RR": 27.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-15",
+      "TN": 13.6,
+      "TX": 23.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-16",
+      "TN": 12,
+      "TX": 25.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-17",
+      "TN": 17,
+      "TX": 28.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-18",
+      "TN": 17.9,
+      "TX": 31.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-19",
+      "TN": 17.8,
+      "TX": 29.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-20",
+      "TN": 18.7,
+      "TX": 24.9,
+      "RR": 7.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-21",
+      "TN": 17.8,
+      "TX": 25.8,
+      "RR": 1.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-22",
+      "TN": 14.7,
+      "TX": 23.1,
+      "RR": 12.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-23",
+      "TN": 14.5,
+      "TX": 22.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-24",
+      "TN": 15.2,
+      "TX": 26.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-25",
+      "TN": 16.4,
+      "TX": 29.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-26",
+      "TN": 17.6,
+      "TX": 30.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-27",
+      "TN": 19,
+      "TX": 32.1,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-28",
+      "TN": 19,
+      "TX": 33.1,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-29",
+      "TN": 19.8,
+      "TX": 30.4,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-06-30",
+      "TN": 18.5,
+      "TX": 23.6,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-01",
+      "TN": 17,
+      "TX": 27.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-02",
+      "TN": 15.3,
+      "TX": 22.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-03",
+      "TN": 12.6,
+      "TX": 22.3,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-04",
+      "TN": 16.1,
+      "TX": 27.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-05",
+      "TN": 14.2,
+      "TX": 30.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-06",
+      "TN": 16.8,
+      "TX": 26.9,
+      "RR": 12.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-07",
+      "TN": 14.8,
+      "TX": 24.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-08",
+      "TN": 11.8,
+      "TX": 31.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-09",
+      "TN": 18,
+      "TX": 32.7,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-10",
+      "TN": 20.4,
+      "TX": 29,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-11",
+      "TN": 20.1,
+      "TX": 30.5,
+      "RR": 11.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-12",
+      "TN": 20.1,
+      "TX": 28.7,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-13",
+      "TN": 12.2,
+      "TX": 24.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-14",
+      "TN": 12.4,
+      "TX": 30.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-15",
+      "TN": 18.5,
+      "TX": 31.3,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-16",
+      "TN": 18.6,
+      "TX": 28.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-17",
+      "TN": 15.5,
+      "TX": 28,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-18",
+      "TN": 15,
+      "TX": 32.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-19",
+      "TN": 16,
+      "TX": 31.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-20",
+      "TN": 17.3,
+      "TX": 34.7,
+      "RR": 3.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-21",
+      "TN": 18.6,
+      "TX": 27.3,
+      "RR": 5.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-22",
+      "TN": 18.8,
+      "TX": 27.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-23",
+      "TN": 16.3,
+      "TX": 28.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-24",
+      "TN": 17.7,
+      "TX": 27.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-25",
+      "TN": 15.6,
+      "TX": 29.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-26",
+      "TN": 15,
+      "TX": 31.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-27",
+      "TN": 17.8,
+      "TX": 35,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-28",
+      "TN": 20.2,
+      "TX": 30.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-29",
+      "TN": 18.5,
+      "TX": 34.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-30",
+      "TN": 21.1,
+      "TX": 38.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-07-31",
+      "TN": 22,
+      "TX": 37.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-01",
+      "TN": 22.5,
+      "TX": 32.5,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-02",
+      "TN": 20.4,
+      "TX": 32.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-03",
+      "TN": 19.1,
+      "TX": 30,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-04",
+      "TN": 18.1,
+      "TX": 28.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-05",
+      "TN": 17.1,
+      "TX": 30.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-06",
+      "TN": 16.8,
+      "TX": 33.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-07",
+      "TN": 22.4,
+      "TX": 32.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-08",
+      "TN": 21,
+      "TX": 30.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-09",
+      "TN": 16.1,
+      "TX": 32.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-10",
+      "TN": 17.4,
+      "TX": 32.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-11",
+      "TN": 18.9,
+      "TX": 37.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-12",
+      "TN": 21.7,
+      "TX": 37.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-13",
+      "TN": 21.5,
+      "TX": 36.3,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-14",
+      "TN": 18.7,
+      "TX": 29.2,
+      "RR": 18.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-15",
+      "TN": 19.2,
+      "TX": 30.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-16",
+      "TN": 20.2,
+      "TX": 30.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-17",
+      "TN": 20.9,
+      "TX": 29.8,
+      "RR": 6.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-18",
+      "TN": 16.6,
+      "TX": 21.5,
+      "RR": 3.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-19",
+      "TN": 15.4,
+      "TX": 26.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-20",
+      "TN": 14.4,
+      "TX": 27.8,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-21",
+      "TN": 18.1,
+      "TX": 24.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-22",
+      "TN": 10.6,
+      "TX": 28.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-23",
+      "TN": 12.9,
+      "TX": 33.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-24",
+      "TN": 16.1,
+      "TX": 33,
+      "RR": 6.5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-25",
+      "TN": 16.1,
+      "TX": 24.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-26",
+      "TN": 13,
+      "TX": 25.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-27",
+      "TN": 12.4,
+      "TX": 28.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-28",
+      "TN": 16,
+      "TX": 34.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-29",
+      "TN": 18.1,
+      "TX": 35.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-30",
+      "TN": 18.5,
+      "TX": 34.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-08-31",
+      "TN": 19.4,
+      "TX": 35.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-01",
+      "TN": 17.9,
+      "TX": 30.1,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-02",
+      "TN": 18.1,
+      "TX": 30.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-03",
+      "TN": 17.6,
+      "TX": 32.6,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-04",
+      "TN": 19.4,
+      "TX": 23.9,
+      "RR": 15.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-05",
+      "TN": 16.1,
+      "TX": 19.8,
+      "RR": 2.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-06",
+      "TN": 11.8,
+      "TX": 26.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-07",
+      "TN": 14.5,
+      "TX": 32.2,
+      "RR": 9.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-08",
+      "TN": 14.9,
+      "TX": 20.9,
+      "RR": 13.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-09",
+      "TN": 13.9,
+      "TX": 19.9,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-10",
+      "TN": 13.4,
+      "TX": 21,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-11",
+      "TN": 9.9,
+      "TX": 19.4,
+      "RR": 9.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-12",
+      "TN": 10.3,
+      "TX": 16.2,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-13",
+      "TN": 6.8,
+      "TX": 16.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-14",
+      "TN": 7.6,
+      "TX": 18.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-15",
+      "TN": 6.5,
+      "TX": 19.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-16",
+      "TN": 9.7,
+      "TX": 20.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-17",
+      "TN": 12.7,
+      "TX": 19.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-18",
+      "TN": 8.5,
+      "TX": 22.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-19",
+      "TN": 9.3,
+      "TX": 23.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-20",
+      "TN": 13.4,
+      "TX": 25.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-21",
+      "TN": 13,
+      "TX": 25.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-22",
+      "TN": 15.8,
+      "TX": 19.6,
+      "RR": 18.5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-23",
+      "TN": 14.3,
+      "TX": 22.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-24",
+      "TN": 13.3,
+      "TX": 20.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-25",
+      "TN": 13.6,
+      "TX": 20.5,
+      "RR": 6.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-26",
+      "TN": 16.4,
+      "TX": 18.2,
+      "RR": 29.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-27",
+      "TN": 14.1,
+      "TX": 20.3,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-28",
+      "TN": 11.8,
+      "TX": 16,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-29",
+      "TN": 4.5,
+      "TX": 18.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-09-30",
+      "TN": 14.7,
+      "TX": 23,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-01",
+      "TN": 14.9,
+      "TX": 20.2,
+      "RR": 11.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-02",
+      "TN": 9.4,
+      "TX": 17.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-03",
+      "TN": 11.2,
+      "TX": 17.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-04",
+      "TN": 9.5,
+      "TX": 16,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-05",
+      "TN": 8.7,
+      "TX": 16,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-06",
+      "TN": 6.3,
+      "TX": 19,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-07",
+      "TN": 15.3,
+      "TX": 22.6,
+      "RR": 55.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-08",
+      "TN": 14.1,
+      "TX": 18.7,
+      "RR": 25.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-09",
+      "TN": 11.7,
+      "TX": 23.2,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-10",
+      "TN": 11.6,
+      "TX": 18.4,
+      "RR": 2.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-11",
+      "TN": 8.4,
+      "TX": 18.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-12",
+      "TN": 5.7,
+      "TX": 17.9,
+      "RR": 2.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-13",
+      "TN": 15.8,
+      "TX": 23.2,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-14",
+      "TN": 11.4,
+      "TX": 23.3,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-15",
+      "TN": 14.2,
+      "TX": 25.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-16",
+      "TN": 17.7,
+      "TX": 23.3,
+      "RR": 32.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-17",
+      "TN": 15.7,
+      "TX": 19.9,
+      "RR": 45.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-18",
+      "TN": 12.6,
+      "TX": 20.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-19",
+      "TN": 13.8,
+      "TX": 20.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-20",
+      "TN": 8.4,
+      "TX": 21.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-21",
+      "TN": 9.2,
+      "TX": 24.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-22",
+      "TN": 15.7,
+      "TX": 19.1,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-23",
+      "TN": 12.1,
+      "TX": 18.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-24",
+      "TN": 8.6,
+      "TX": 20.7,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-25",
+      "TN": 14.7,
+      "TX": 23.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-26",
+      "TN": 11.3,
+      "TX": 18.6,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-27",
+      "TN": 11.1,
+      "TX": 20.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-28",
+      "TN": 11.1,
+      "TX": 22.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-29",
+      "TN": 8.7,
+      "TX": 21.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-30",
+      "TN": 10.8,
+      "TX": 14.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-10-31",
+      "TN": 11.8,
+      "TX": 14.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-01",
+      "TN": 10.1,
+      "TX": 19.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-02",
+      "TN": 8.7,
+      "TX": 10.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-03",
+      "TN": 9.3,
+      "TX": 15.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-04",
+      "TN": 6.7,
+      "TX": 15.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-05",
+      "TN": 6.3,
+      "TX": 19.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-06",
+      "TN": 9.2,
+      "TX": 15.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-07",
+      "TN": 11.2,
+      "TX": 16,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-08",
+      "TN": 7.9,
+      "TX": 16.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-09",
+      "TN": 7.9,
+      "TX": 17.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-10",
+      "TN": 7.9,
+      "TX": 12.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-11",
+      "TN": 7.3,
+      "TX": 9,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-12",
+      "TN": 5.8,
+      "TX": 9.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-13",
+      "TN": 3,
+      "TX": 6.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-14",
+      "TN": 3.6,
+      "TX": 7.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-15",
+      "TN": 0.9,
+      "TX": 9.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-16",
+      "TN": -0.8,
+      "TX": 9.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-17",
+      "TN": -0.2,
+      "TX": 9.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-18",
+      "TN": 3.4,
+      "TX": 10.3,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-19",
+      "TN": 3.9,
+      "TX": 13.2,
+      "RR": 5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-20",
+      "TN": 4.9,
+      "TX": 8.2,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-21",
+      "TN": 0.1,
+      "TX": 12.5,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-22",
+      "TN": -0.2,
+      "TX": 5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-23",
+      "TN": -4.2,
+      "TX": 13.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-24",
+      "TN": 9,
+      "TX": 16.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-25",
+      "TN": 14.2,
+      "TX": 18.7,
+      "RR": 12.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-26",
+      "TN": 5.4,
+      "TX": 15.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-27",
+      "TN": 2.4,
+      "TX": 15,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-28",
+      "TN": 4.2,
+      "TX": 11.4,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-29",
+      "TN": 3.5,
+      "TX": 4.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-11-30",
+      "TN": -0.7,
+      "TX": 5.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-01",
+      "TN": 2.1,
+      "TX": 10.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-02",
+      "TN": 6.1,
+      "TX": 12.8,
+      "RR": 3.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-03",
+      "TN": 6.1,
+      "TX": 8.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-04",
+      "TN": 2.4,
+      "TX": 8.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-05",
+      "TN": -2.6,
+      "TX": 8.5,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-06",
+      "TN": 4.8,
+      "TX": 11.8,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-07",
+      "TN": 0.8,
+      "TX": 9.7,
+      "RR": 8.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-08",
+      "TN": 3.8,
+      "TX": 7.3,
+      "RR": 6.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-09",
+      "TN": 5,
+      "TX": 6.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-10",
+      "TN": 3.4,
+      "TX": 5.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-11",
+      "TN": -1.7,
+      "TX": 4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-12",
+      "TN": -0.7,
+      "TX": 1.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-13",
+      "TN": 0.7,
+      "TX": 3.7,
+      "RR": 6.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-14",
+      "TN": 2,
+      "TX": 6.7,
+      "RR": 2.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-15",
+      "TN": 3.2,
+      "TX": 6.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-16",
+      "TN": -0.8,
+      "TX": 7.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-17",
+      "TN": -1.2,
+      "TX": 7.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-18",
+      "TN": 0.8,
+      "TX": 13.3,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-19",
+      "TN": 4.4,
+      "TX": 11.9,
+      "RR": 13.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-20",
+      "TN": 2.3,
+      "TX": 6.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-21",
+      "TN": 1.3,
+      "TX": 9.4,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-22",
+      "TN": 4,
+      "TX": 10.7,
+      "RR": 5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-23",
+      "TN": 2.8,
+      "TX": 5.9,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-24",
+      "TN": 1.8,
+      "TX": 7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-25",
+      "TN": -0.1,
+      "TX": 6.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-26",
+      "TN": -4.2,
+      "TX": 6.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-27",
+      "TN": -3.3,
+      "TX": 0.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-28",
+      "TN": -3.7,
+      "TX": 0.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-29",
+      "TN": -2.9,
+      "TX": -0.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-30",
+      "TN": -2.5,
+      "TX": -1.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2024-12-31",
+      "TN": -2.3,
+      "TX": 0.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-01",
+      "TN": -0.4,
+      "TX": 10.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-02",
+      "TN": 5.6,
+      "TX": 11.5,
+      "RR": 2.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-03",
+      "TN": 2.3,
+      "TX": 3.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-04",
+      "TN": -5,
+      "TX": 10,
+      "RR": 4.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-05",
+      "TN": 6.3,
+      "TX": 14.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-06",
+      "TN": 10.9,
+      "TX": 13.6,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-07",
+      "TN": 3,
+      "TX": 11.2,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-08",
+      "TN": 8.2,
+      "TX": 15.2,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-09",
+      "TN": 7.7,
+      "TX": 13.5,
+      "RR": 5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-10",
+      "TN": 1.2,
+      "TX": 4.5,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-11",
+      "TN": 0.9,
+      "TX": 3.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-12",
+      "TN": -1,
+      "TX": 3.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-13",
+      "TN": -3.3,
+      "TX": 2.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-14",
+      "TN": -6.5,
+      "TX": 1.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-15",
+      "TN": -6,
+      "TX": 3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-16",
+      "TN": -0.3,
+      "TX": 3.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-17",
+      "TN": -3.2,
+      "TX": 0,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-18",
+      "TN": -2.3,
+      "TX": 0,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-19",
+      "TN": -2.4,
+      "TX": 1.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-20",
+      "TN": -1.3,
+      "TX": 4.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-21",
+      "TN": -2,
+      "TX": 6.7,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-22",
+      "TN": 0.3,
+      "TX": 13.7,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-23",
+      "TN": 4.8,
+      "TX": 11.8,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-24",
+      "TN": -1.4,
+      "TX": 14.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-25",
+      "TN": 11.9,
+      "TX": 17.5,
+      "RR": 11.5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-26",
+      "TN": 1.6,
+      "TX": 13.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-27",
+      "TN": 9.6,
+      "TX": 15.3,
+      "RR": 12.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-28",
+      "TN": 6.5,
+      "TX": 10.7,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-29",
+      "TN": 2.4,
+      "TX": 12.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-30",
+      "TN": 6.7,
+      "TX": 8.8,
+      "RR": 10.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-01-31",
+      "TN": 4,
+      "TX": 7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-01",
+      "TN": 0.7,
+      "TX": 5.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-02",
+      "TN": 3.5,
+      "TX": 5.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-03",
+      "TN": 1.9,
+      "TX": 2.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-04",
+      "TN": 0.9,
+      "TX": 2.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-05",
+      "TN": -0.4,
+      "TX": 4.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-06",
+      "TN": 1.9,
+      "TX": 3.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-07",
+      "TN": -2.5,
+      "TX": 12.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-08",
+      "TN": 3.1,
+      "TX": 8.6,
+      "RR": 3.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-09",
+      "TN": 1.9,
+      "TX": 9.2,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-10",
+      "TN": 4.1,
+      "TX": 11.8,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-11",
+      "TN": 10,
+      "TX": 12.5,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-12",
+      "TN": 6.7,
+      "TX": 14.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-13",
+      "TN": 6.8,
+      "TX": 12,
+      "RR": 3.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-14",
+      "TN": 2.5,
+      "TX": 6.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-15",
+      "TN": -3.9,
+      "TX": 6.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-16",
+      "TN": -3.7,
+      "TX": 10.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-17",
+      "TN": -2.4,
+      "TX": 9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-18",
+      "TN": -2.7,
+      "TX": 12,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-19",
+      "TN": 0.9,
+      "TX": 14.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-20",
+      "TN": 8.2,
+      "TX": 17.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-21",
+      "TN": 8.2,
+      "TX": 15.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-22",
+      "TN": 10.5,
+      "TX": 15.1,
+      "RR": 6.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-23",
+      "TN": 6.5,
+      "TX": 15.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-24",
+      "TN": 3.6,
+      "TX": 13.8,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-25",
+      "TN": 10,
+      "TX": 15.4,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-26",
+      "TN": 5.3,
+      "TX": 11.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-27",
+      "TN": 3.1,
+      "TX": 12.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-02-28",
+      "TN": 1.3,
+      "TX": 9.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-01",
+      "TN": 0.8,
+      "TX": 9.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-02",
+      "TN": -1.7,
+      "TX": 10.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-03",
+      "TN": -1.7,
+      "TX": 14.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-04",
+      "TN": -0.5,
+      "TX": 17.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-05",
+      "TN": -0.3,
+      "TX": 17.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-06",
+      "TN": 1.2,
+      "TX": 16.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-07",
+      "TN": 4.9,
+      "TX": 17.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-08",
+      "TN": 10.6,
+      "TX": 18.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-09",
+      "TN": 8.4,
+      "TX": 17.5,
+      "RR": 7.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-10",
+      "TN": 5.8,
+      "TX": 15.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-11",
+      "TN": 6.1,
+      "TX": 14.8,
+      "RR": 6.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-12",
+      "TN": 8,
+      "TX": 12.7,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-13",
+      "TN": 5,
+      "TX": 9.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-14",
+      "TN": 2.2,
+      "TX": 5.9,
+      "RR": 6.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-15",
+      "TN": 2,
+      "TX": 5.2,
+      "RR": 1.5
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-16",
+      "TN": 1.6,
+      "TX": 8.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-17",
+      "TN": 1,
+      "TX": 10.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-18",
+      "TN": -0.5,
+      "TX": 16.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-19",
+      "TN": 6.6,
+      "TX": 15.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-20",
+      "TN": 6.6,
+      "TX": 17.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-21",
+      "TN": 12,
+      "TX": 19.1,
+      "RR": 3.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-22",
+      "TN": 10.5,
+      "TX": 18.2,
+      "RR": 9.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-23",
+      "TN": 7.1,
+      "TX": 16.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-24",
+      "TN": 6.2,
+      "TX": 15.7,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-25",
+      "TN": 6.4,
+      "TX": 17.1,
+      "RR": 5.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-26",
+      "TN": 7.9,
+      "TX": 15.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-27",
+      "TN": 7.9,
+      "TX": 14.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-28",
+      "TN": 2,
+      "TX": 17,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-29",
+      "TN": 7.3,
+      "TX": 11.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-30",
+      "TN": 5.2,
+      "TX": 15.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-03-31",
+      "TN": 7.4,
+      "TX": 16,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-01",
+      "TN": 3,
+      "TX": 15.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-02",
+      "TN": 3.7,
+      "TX": 16.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-03",
+      "TN": 8.7,
+      "TX": 19.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-04",
+      "TN": 9.1,
+      "TX": 22.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-05",
+      "TN": 8.5,
+      "TX": 25.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-06",
+      "TN": 7.6,
+      "TX": 21.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-07",
+      "TN": 2.7,
+      "TX": 18.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-08",
+      "TN": 1.5,
+      "TX": 20.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-09",
+      "TN": 7.3,
+      "TX": 20.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-10",
+      "TN": 4.5,
+      "TX": 21.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-11",
+      "TN": 4.1,
+      "TX": 23.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-12",
+      "TN": 9.8,
+      "TX": 22.8,
+      "RR": 1.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-13",
+      "TN": 13.6,
+      "TX": 16.7,
+      "RR": 1.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-14",
+      "TN": 11.7,
+      "TX": 21.1,
+      "RR": 2.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-15",
+      "TN": 11.3,
+      "TX": 15.2,
+      "RR": 44.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-16",
+      "TN": 7.9,
+      "TX": 10,
+      "RR": 10.3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-17",
+      "TN": 7.6,
+      "TX": 9.5,
+      "RR": 4.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-18",
+      "TN": 3,
+      "TX": 17.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-19",
+      "TN": 7.1,
+      "TX": 21.7,
+      "RR": 4.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-20",
+      "TN": 7.1,
+      "TX": 19.6,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-21",
+      "TN": 10.6,
+      "TX": 17.7,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-22",
+      "TN": 6.3,
+      "TX": 19.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-23",
+      "TN": 5.4,
+      "TX": 17,
+      "RR": 19.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-24",
+      "TN": 6.8,
+      "TX": 16.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-25",
+      "TN": 6.1,
+      "TX": 16.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-26",
+      "TN": 6.1,
+      "TX": 18.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-27",
+      "TN": 11.4,
+      "TX": 20.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-28",
+      "TN": 9,
+      "TX": 23.4,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-29",
+      "TN": 9.5,
+      "TX": 25.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-04-30",
+      "TN": 9.9,
+      "TX": 27.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-01",
+      "TN": 9.9,
+      "TX": 25.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-02",
+      "TN": 11.8,
+      "TX": 26.2,
+      "RR": 2.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-03",
+      "TN": 13.3,
+      "TX": 25.6,
+      "RR": 17.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-04",
+      "TN": 12.7,
+      "TX": 21.7,
+      "RR": 17.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-05",
+      "TN": 9.9,
+      "TX": 11.5,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-06",
+      "TN": 7.6,
+      "TX": 13.5,
+      "RR": 1.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-07",
+      "TN": 8.8,
+      "TX": 12.6,
+      "RR": 1.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-08",
+      "TN": 5.8,
+      "TX": 18,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-09",
+      "TN": 6.7,
+      "TX": 20.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-10",
+      "TN": 11.4,
+      "TX": 22.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-11",
+      "TN": 10.7,
+      "TX": 23.9,
+      "RR": 3.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-12",
+      "TN": 12.3,
+      "TX": 21.4,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-13",
+      "TN": 7.3,
+      "TX": 22,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-14",
+      "TN": 8.2,
+      "TX": 24.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-15",
+      "TN": 9.1,
+      "TX": 23.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-16",
+      "TN": 10.8,
+      "TX": 20.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-17",
+      "TN": 9.4,
+      "TX": 21.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-18",
+      "TN": 6.6,
+      "TX": 23.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-19",
+      "TN": 9.5,
+      "TX": 24.3,
+      "RR": 2.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-20",
+      "TN": 14.1,
+      "TX": 22.8,
+      "RR": 1.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-21",
+      "TN": 14.7,
+      "TX": 22.9,
+      "RR": 2.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-22",
+      "TN": 11.4,
+      "TX": 15.3,
+      "RR": 2.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-23",
+      "TN": 6.2,
+      "TX": 19.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-24",
+      "TN": 4.3,
+      "TX": 20.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-25",
+      "TN": 9.4,
+      "TX": 24.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-26",
+      "TN": 15.2,
+      "TX": 21.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-27",
+      "TN": 10,
+      "TX": 22.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-28",
+      "TN": 9.6,
+      "TX": 24.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-29",
+      "TN": 12.6,
+      "TX": 25.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-30",
+      "TN": 11,
+      "TX": 30.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-05-31",
+      "TN": 13.4,
+      "TX": 31.4,
+      "RR": 4.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-01",
+      "TN": 14.4,
+      "TX": 30.7,
+      "RR": 3.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-02",
+      "TN": 17.7,
+      "TX": 22.8,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-03",
+      "TN": 13.8,
+      "TX": 27.9,
+      "RR": 1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-04",
+      "TN": 15.6,
+      "TX": 20.4,
+      "RR": 12.9
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-05",
+      "TN": 13.4,
+      "TX": 25.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-06",
+      "TN": 18,
+      "TX": 29.1,
+      "RR": 9.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-07",
+      "TN": 16.2,
+      "TX": 23.8,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-08",
+      "TN": 13.8,
+      "TX": 23.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-09",
+      "TN": 10,
+      "TX": 23.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-10",
+      "TN": 10.2,
+      "TX": 30.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-11",
+      "TN": 12.7,
+      "TX": 30.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-12",
+      "TN": 14.9,
+      "TX": 33.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-13",
+      "TN": 16.9,
+      "TX": 35.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-14",
+      "TN": 19.8,
+      "TX": 35.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-15",
+      "TN": 19.8,
+      "TX": 26.5,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-16",
+      "TN": 15,
+      "TX": 25.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-17",
+      "TN": 13.8,
+      "TX": 28.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-18",
+      "TN": 14.9,
+      "TX": 30.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-19",
+      "TN": 17.1,
+      "TX": 32.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-20",
+      "TN": 17.2,
+      "TX": 32.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-21",
+      "TN": 17.7,
+      "TX": 34.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-22",
+      "TN": 18.6,
+      "TX": 36.3,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-23",
+      "TN": 21.5,
+      "TX": 32.6,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-24",
+      "TN": 16.6,
+      "TX": 33.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-25",
+      "TN": 16.7,
+      "TX": 37.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-26",
+      "TN": 20.1,
+      "TX": 30.1,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-27",
+      "TN": 19.3,
+      "TX": 31.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-28",
+      "TN": 19.9,
+      "TX": 34,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-29",
+      "TN": 22.1,
+      "TX": 35.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-06-30",
+      "TN": 21.2,
+      "TX": 37.2,
+      "RR": 12.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-01",
+      "TN": 20.6,
+      "TX": 37.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-02",
+      "TN": 19.8,
+      "TX": 37.9,
+      "RR": 17
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-03",
+      "TN": 20.9,
+      "TX": 29.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-04",
+      "TN": 19.1,
+      "TX": 30.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-05",
+      "TN": 16.7,
+      "TX": 31.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-06",
+      "TN": 15.3,
+      "TX": 26.1,
+      "RR": 0.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-07",
+      "TN": 15.9,
+      "TX": 25.3,
+      "RR": 4.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-08",
+      "TN": 15.8,
+      "TX": 23.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-09",
+      "TN": 9.5,
+      "TX": 25.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-10",
+      "TN": 14.8,
+      "TX": 27.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-11",
+      "TN": 14.8,
+      "TX": 30.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-12",
+      "TN": 16.4,
+      "TX": 31.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-13",
+      "TN": 20.6,
+      "TX": 33.2,
+      "RR": 2.4
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-14",
+      "TN": 19.5,
+      "TX": 32.2,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-15",
+      "TN": 18.5,
+      "TX": 29.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-16",
+      "TN": 16,
+      "TX": 29.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-17",
+      "TN": 20.2,
+      "TX": 29.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-18",
+      "TN": 16.5,
+      "TX": 30.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-19",
+      "TN": 17.5,
+      "TX": 28.2,
+      "RR": 28.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-20",
+      "TN": 18.9,
+      "TX": 31.2,
+      "RR": 12.7
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-21",
+      "TN": 17.7,
+      "TX": 28.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-22",
+      "TN": 14.5,
+      "TX": 25.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-23",
+      "TN": 13.9,
+      "TX": 26,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-24",
+      "TN": 15.4,
+      "TX": 25,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-25",
+      "TN": 14.3,
+      "TX": 26,
+      "RR": 2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-26",
+      "TN": 15.5,
+      "TX": 26.9,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-27",
+      "TN": 16.8,
+      "TX": 27.2,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-28",
+      "TN": 15.1,
+      "TX": 23.2,
+      "RR": 0.8
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-29",
+      "TN": 13.3,
+      "TX": 25.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-30",
+      "TN": 13.7,
+      "TX": 26.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-07-31",
+      "TN": 15.6,
+      "TX": 28.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-01",
+      "TN": 16.1,
+      "TX": 29.6,
+      "RR": 0.6
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-02",
+      "TN": 17.1,
+      "TX": 24.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-03",
+      "TN": 13.5,
+      "TX": 25.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-04",
+      "TN": 13.1,
+      "TX": 29.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-05",
+      "TN": 15.8,
+      "TX": 32.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-06",
+      "TN": 14.7,
+      "TX": 26.2,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-07",
+      "TN": 11.6,
+      "TX": 34.7,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-08",
+      "TN": 17.6,
+      "TX": 37.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-09",
+      "TN": 19.9,
+      "TX": 39,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-10",
+      "TN": 22.4,
+      "TX": 34.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-11",
+      "TN": 18.7,
+      "TX": 35.8,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-12",
+      "TN": 19,
+      "TX": 39.5,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-13",
+      "TN": 20,
+      "TX": 39.6,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-14",
+      "TN": 19.3,
+      "TX": 35,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-15",
+      "TN": 19.6,
+      "TX": 36.4,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-16",
+      "TN": 22.9,
+      "TX": 35.1,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-17",
+      "TN": 20.8,
+      "TX": 32.3,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-18",
+      "TN": 18.3,
+      "TX": 32.9,
+      "RR": 0
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-19",
+      "TN": 19.4,
+      "TX": 26.6,
+      "RR": 9.1
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-20",
+      "TN": 16.9,
+      "TX": 25,
+      "RR": 3
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-21",
+      "TN": 13.7,
+      "TX": 24.2,
+      "RR": 0.2
+    },
+    {
+      "NOM_USUEL": "LYON-BRON",
+      "AAAAMMJJ": "2025-08-22",
+      "TN": 16.3,
+      "TX": 25.5,
+      "RR": 0
+    }
+  ]
+}

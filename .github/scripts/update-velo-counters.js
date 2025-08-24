@@ -10,7 +10,7 @@ const path = require('path');
 const dayjs = require('dayjs');
 dayjs().format();
 
-(async () => {
+(async() => {
   const allCounters = await getAllCounters();
   const trackedCounters = getTrackedCounters();
   for (const { file, counter: trackCounter } of trackedCounters) {
