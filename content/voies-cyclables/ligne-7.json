@@ -508,7 +508,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Carrefour Avenue du 8 Mai",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "28/08/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -576,7 +577,8 @@
       "properties": {
         "line": 7,
         "name": "Carrefour Pierre Drevet",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "28/08/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
