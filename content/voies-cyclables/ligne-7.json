@@ -1754,7 +1754,8 @@
       "properties": {
         "line": 7,
         "name": "Traversée Boulevard Urbain Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/09/2025",
         "type": "bilaterale",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#boulevard-yves-farge-de-saint-fons-à-feyzin"
