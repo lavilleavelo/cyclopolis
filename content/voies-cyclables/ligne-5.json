@@ -1540,7 +1540,7 @@
         "id": "Bonnevay127-commun",
         "line": 5,
         "name": "Transbordeur Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"

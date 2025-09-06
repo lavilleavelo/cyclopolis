@@ -434,7 +434,7 @@
         "id": "Bonnevay127-commun",
         "line": 1,
         "name": "Transbordeur Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-2#boulevard-stalingrad-nord",
         "quality": "satisfactory"

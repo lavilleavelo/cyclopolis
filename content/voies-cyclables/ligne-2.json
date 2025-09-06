@@ -673,7 +673,7 @@
         "id": "Bonnevay127-commun",
         "line": 2,
         "name": "Transbordeur Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
         "quality": "satisfactory"
