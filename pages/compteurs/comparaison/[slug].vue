@@ -3,6 +3,7 @@
     v-if="veloCounter"
     header="Fréquentation vélo & voiture"
     :title="veloCounter.name"
+    :sub-title="veloCounter.arrondissement"
     description=""
   >
     <!-- <ClientOnly>
