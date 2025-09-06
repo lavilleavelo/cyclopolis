@@ -3,6 +3,7 @@
     v-if="counter"
     header="compteur voiture"
     :title="counter.name"
+    :sub-title="counter.arrondissement"
     :description="counter.description"
     :image-url="counter.imageUrl"
   >
