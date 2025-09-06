@@ -3,6 +3,7 @@
     v-if="counter"
     header="compteur vélo"
     :title="counter.name"
+    :sub-title="counter.arrondissement"
     :description="counter.description"
     :image-url="counter.imageUrl"
   >
