@@ -3,6 +3,11 @@
     <LegendModal ref="legendModalComponent" />
     <FilterModal ref="filterModalComponent" @update="refreshFilters" />
     <div id="map" class="rounded-lg h-full w-full" />
+    <div 
+      v-if="totalDistance"
+      class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow">
+      Réseau affiché: {{ displayDistanceInKm(filteredDistance) }} ({{ displayPercent(Math.round(filteredDistance / totalDistance * 100)) }})
+    </div>
     <img
       v-if="options.logo"
       class="my-0 absolute bottom-0 right-0 z-10"
@@ -26,6 +31,7 @@ import ShrinkControl from '@/maplibre/ShrinkControl';
 
 import { isLineStringFeature, type CompteurFeature, type LaneQuality, type LaneStatus, type LaneType } from '~/types';
 import config from '~/config.json';
+const { getAllUniqLineStrings, getDistance, displayDistanceInKm, displayPercent } = useStats();
 
 // const config = useRuntimeConfig();
 // const maptilerKey = config.public.maptilerKey;
@@ -72,10 +78,19 @@ const features = computed(() => {
   });
 });
 
+const totalDistance = computeDistance(props.features);
+const filteredDistance = computed(() => computeDistance(features.value));
+
 function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[] }) {
   statuses.value = visibleStatuses;
   types.value = visibleTypes;
   qualities.value = visibleQualities;
+}
+
+function computeDistance(selectedFeatures: typeof features.value) {
+  if (!props.features) return 0;
+  const allUniqFeatures = getAllUniqLineStrings([{ ...props.features[0], features: selectedFeatures }]);
+  return getDistance({ features: allUniqFeatures });
 }
 
 onMounted(() => {
@@ -132,7 +147,7 @@ onMounted(() => {
     map.addControl(filterControl, 'top-right');
   }
 
-  map.on('load', async() => {
+  map.on('load', async () => {
     await loadImages({ map });
     plotFeatures({ map, features: features.value });
 
