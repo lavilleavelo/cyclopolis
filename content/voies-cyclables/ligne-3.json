@@ -985,7 +985,7 @@
         "link": "/voie-lyonnaise-3#pont-koenig-au-pont-kitchener-marchand",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "status": "wip"
+        "status": "done"
       },
       "geometry": {
         "type": "LineString",
