@@ -877,7 +877,7 @@
       "properties": {
         "line": 3,
         "name": "Quai Jaÿr Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"
@@ -903,7 +903,7 @@
         "id" :"Jayr-commun",
         "line": 3,
         "name": "Quai Jaÿr Sud",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"

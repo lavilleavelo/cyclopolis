@@ -117,7 +117,7 @@ streetView: 45.7849251,4.8127776,3a,75y,201.14h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux entre le pont Clémenceau et le pont Schuman devraient avoir lieu entre septembre 2025 et février 2026.
+Les travaux entre le pont Clémenceau et le pont Schuman ont lieu entre septembre 2025 et février 2026.
 ::
 
 #### Pont Clémenceau au pont Koenig
@@ -162,7 +162,7 @@ streetView: 45.7579128,4.8260787,3a,75y,191.02h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et se poursuit jusque fin juillet 2025.
+Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et se poursuit jusque début septembre 2025.
 ::
 
 #### *Concertation*

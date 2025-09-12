@@ -1303,7 +1303,7 @@
         "id": "CarrefourMtdOr-commun",
         "line": 5,
         "name": "Carrefour des Monts d'Or",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#quais-de-saône"
@@ -1322,7 +1322,7 @@
         "id": "Jayr-commun",
         "line": 5,
         "name": "Quai Jaÿr Sud",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#quais-de-saône"
@@ -1579,7 +1579,7 @@
       "properties": {
         "line": 5,
         "name": "Boulevard Laurent Bonnevay",
-        "status": "planned",
+        "status": "wip",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"

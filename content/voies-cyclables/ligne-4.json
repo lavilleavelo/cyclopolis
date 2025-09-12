@@ -617,7 +617,7 @@
         "id": "CarrefourMtdOr-commun",
         "line": 4,
         "name": "Carrefour des Monts d'Or",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#quais-de-saône"
@@ -636,7 +636,7 @@
         "id": "Jayr-commun",
         "line": 4,
         "name": "Quai Jaÿr Sud",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#quais-de-saône"
