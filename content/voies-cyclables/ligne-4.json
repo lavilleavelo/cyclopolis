@@ -264,7 +264,8 @@
       "properties": {
         "line": 4,
         "name": "Porte de Lyon",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "27/06/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#porte-de-lyon"

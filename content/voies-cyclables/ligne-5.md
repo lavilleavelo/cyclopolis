@@ -147,7 +147,7 @@ Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire
 Entre la rue du Souvenir et les hôtels du pont d'Ecully, la rue Marietton et ses 2x2 voies routières sera reconfigurée avec la création d'une piste cyclable bidirectionnelle de 2,50 à 3m de large côté Est à la place d'une voie de circulation.
 
 ::banner{type="wip"}
-Ce point noir cyclable majeur est aménagé entre mi-mars et septembre 2025.
+Ce point noir cyclable majeur a été aménagé entre mi-mars et début septembre 2025.
 ::
 
 #### *Concertation*
