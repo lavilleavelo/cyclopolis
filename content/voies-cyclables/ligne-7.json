@@ -412,7 +412,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Loup Pendu",
-        "status": "wip",
+        "status": "done",
+         "doneAt": "12/09/2025",       
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
