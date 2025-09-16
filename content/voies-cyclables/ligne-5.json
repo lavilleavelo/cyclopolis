@@ -203,8 +203,9 @@
       "type": "Feature",
       "properties": {
         "line": 5,
-        "name": "Pont Rhône-A7",
-        "status": "wip",
+        "name": "Rampe Ouest Rhône-A7",
+        "status": "done",
+        "doneAt": "10/04/2006",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -232,7 +233,43 @@
           [4.8370175295868565, 45.6979192834733],
           [4.8373777369870705, 45.69754165385917],
           [4.837819598292738, 45.69721921045132],
+          [4.838325608879521, 45.69688416544644]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 5,
+        "name": "Pont Rhône-A7",
+        "status": "done",
+        "doneAt": "20/06/2025",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.838325608879521, 45.69688416544644],
+          [4.843592230523097, 45.69383681988258]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 5,
+        "name": "Rampe Est Rhône-A7",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.843592230523097, 45.69383681988258],
           [4.84385491021751, 45.6937307463784],
           [4.8441068483058185, 45.693807003930345],
