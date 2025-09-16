@@ -512,7 +512,7 @@
       "properties": {
         "line": 9,
         "name": "Rampe Pont T9",
-        "status": "planned",
+        "status": "wip",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#promenade-le-long-de-la42"
