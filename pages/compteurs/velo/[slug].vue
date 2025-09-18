@@ -16,6 +16,7 @@
 
     <h2>Comparaison des passages pour un mois donné</h2>
     <p>Choisissez un mois dans le menu déroulant ci-dessous pour visualiser l'évolution de la fréquentation cyclable pour le même mois de chaque année.</p>
+    <p>Le meilleur mois jamais enregistré pour ce compteur est <strong>{{ bestMonthEver.month }} {{ bestMonthEver.year }}</strong> avec <strong>{{ bestMonthEver.value }}</strong> passages.</p>
     <ChartMonthComparison :title="graphTitles.monthComparison" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
     <template v-if="counter.limitation">
@@ -74,4 +75,14 @@ useHead({
     { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL }
   ]
 });
+
+let bestMonthEver = counter.value.counts.reduce((best, measure) => {
+  if (!best) return measure
+  return measure.count > best.count ? measure : best
+})
+bestMonthEver = {
+  month: new Date(bestMonthEver.month).toLocaleString('fr-Fr', { month: 'long' }),
+  year: new Date(bestMonthEver.month).toLocaleString('fr-Fr', { year: 'numeric' }),
+  value: bestMonthEver.count.toLocaleString('fr-FR'),
+}
 </script>
