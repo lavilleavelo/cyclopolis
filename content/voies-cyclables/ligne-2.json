@@ -1501,7 +1501,7 @@
         "line": 2,
         "name": "Métro Parilly",
         "status": "done",
-        "doneAt": "04/07/2025",
+        "doneAt": "01/09/2018",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "satisfactory"
@@ -1529,8 +1529,8 @@
       "properties": {
         "line": 2,
         "name": "Ancienne Route d'Heyrieux Ouest",
-        "status": "wip",
-        "type": "bidirectionnelle",
+        "status": "postponed",
+        "type": "aucun",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "satisfactory"
       },
@@ -1565,8 +1565,8 @@
       "properties": {
         "line": 2,
         "name": "Ancienne Route d'Heyrieux Est",
-        "status": "wip",
-        "type": "velorue",
+        "status": "postponed",
+        "type": "aucun",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "satisfactory"
       },
