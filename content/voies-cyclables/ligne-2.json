@@ -1532,7 +1532,7 @@
         "status": "postponed",
         "type": "aucun",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",
@@ -1568,7 +1568,7 @@
         "status": "postponed",
         "type": "aucun",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",
