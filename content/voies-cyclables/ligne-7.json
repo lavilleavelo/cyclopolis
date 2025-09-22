@@ -1698,6 +1698,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "StFons-commun",
         "line": 7,
         "name": "Saint-Fons Centre",
         "status": "postponed",
@@ -1709,6 +1710,31 @@
         "type": "LineString",
         "coordinates": [
           [4.854992141407166,45.712050115774645],
+          [4.855318415067629, 45.70623755286702],
+          [4.855265462902274, 45.705908802052896],
+          [4.855325918111703, 45.70558005123877],
+          [4.856360413936926,45.70560458150263]
+        ]
+      }
+    },
+        {
+      "type": "Feature",
+      "properties": {
+        "id": "StFons-commun",
+        "line": 7,
+        "name": "Saint-Fons Centre - Continuité",
+        "status": "variante",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-7#saint-fons-centre"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.854992141407166,45.712050115774645],
+          [4.857139218059771, 45.71211307393098],
+          [4.857220430326741, 45.70764878056749],
+          [4.856322568170839, 45.70764126445232],
           [4.856360413936926,45.70560458150263]
         ]
       }

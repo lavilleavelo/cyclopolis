@@ -876,7 +876,7 @@
       "properties": {
         "line": 1,
         "name": "St-Fons Ouest",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-1#halle-tony-garnier-à-st-fons-centre",
         "quality": "satisfactory"

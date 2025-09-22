@@ -57,7 +57,7 @@ La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51
 La section sur la commune d'Albigny est réalisée entre février et décembre 2025.\
 La section sur la commune de Couzon a été réalisée en deux phases : Sud de l'avenue De Gaulle à l'automne 2019 et Nord de l'avenue de juin à décembre 2022.\
 La section sur la commune de St-Romain a été réalisée entre février et juillet 2024.\
-Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et novembre 2025 tandis qu'entre le pont Bocuse et St-Rambert cela se limitera en une pérénisation de la piste cyclable transitoire au printemps 2026.
+Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et novembre 2025 tandis qu'entre le pont Bocuse et St-Rambert les travaux se limiteront en une pérénisation de la piste cyclable transitoire au printemps 2026.
 ::
 
 ::content-image
@@ -125,7 +125,7 @@ Cette portion doit faire l'objet d'un réaménagement majeur, avec la mise en se
 
 ::banner{type="modified"}
 Contrairement à ce qui a été annoncé lors de la concertation, une petite portion **entre le Nord de la place du Port Mouton et le pont Clémenceau** ne sera pas aménagée pour maintenir le couloir bus sur la rampe Est de la trémie essentiel à la bonne performance des nombreuses lignes de bus qui rejoignent Valmy. Il faudra attendre un projet de suppression de la trémie sous le pont Clémenceau pour pouvoir aménager une piste cyclable sur ce tronçon de 125m de long.\
-En attendant, pour les cyclistes en transit le long de la Saône, la Métropole a décidé d'aménager les berges de Saône qui passent sous le pont Clémenceau en voie verte pour relier en sécurité le quai Arloing et le carrefour des Monts d'Or au nord.
+En attendant, pour les cyclistes en transit le long de la Saône, la Métropole avait décidé d'aménager les berges de Saône qui passent sous le pont Clémenceau en voie verte pour relier en sécurité le quai Arloing et le carrefour des Monts d'Or au nord. Mais en fin de mandat, la mairie de Lyon 9 a demandé à reporter cette alternative pour ne pas supprimer à court-terme le parking sur les berges à cet endroit.
 ::
 
 ::banner{type="postponed"}
@@ -162,7 +162,7 @@ streetView: 45.7579128,4.8260787,3a,75y,191.02h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et se poursuit jusque début septembre 2025.
+Les travaux sur cette section ont débuté en avril 2024. Une première tranche couvrant les quais de Saône du Vieux Lyon a été livrée fin 2024, et une seconde tranche sur les arrêts de bus du quai Pierre Scize a débuté en novembre 2024 et s'est poursuivi jusque début septembre 2025.
 ::
 
 #### *Concertation*
@@ -210,7 +210,7 @@ Ceux au nord de la rue Chardiny débutent après les travaux de l'aquarium, entr
 La Voie Lyonnaise 3 fait ici un léger détour en s'éloignant du Rhône via la rue Gabriel Péri compatible avec un aménagement en vélorue pour desservir le complexe évenementiel des Grandes Locos. Elle traverse l'Yzeron en voie verte sur la passerelle existante au niveau de l'avenue Edmond Locard. Ce franchissement étroit de la rivière devra être amélioré à moyen-terme pour ne pas en faire un point noir piéton. Les cyclistes continueront ensuite sur l'avenue Locard qu'ils emprunteront jusqu'à son extrémité Sud sur de nouvelles pistes cyclables sécurisées et élargies. Ils auraient dû circuler ensuite sur la rue Dubois Crancé via la création d'une nouvelle piste cyclable bidirectionnelle de 3m de large côté Est, pour rejoindra la voie verte existante sur trottoir de l'avenue Jean Jaurès, datant de 2020, et qui sera conservée en l'état (3.5m de large).
 
 ::banner{type="info"}
-Les travaux de voirie liés au projet urbain de la Saulaie commenceront à l'été 2025 et se termineront au printemps 2026. En attendant, les cyclistes utiliseront les aménagements sécurisés existants sur l'avenue Locard et l'avenue des Saules.
+Les travaux de voirie liés au projet urbain de la Saulaie commenceront fin 2025 et continueront pendant l'année 2026. En attendant, les cyclistes utiliseront les aménagements sécurisés existants sur l'avenue Locard et l'avenue des Saules.
 ::
 
 ::banner{type="postponed"}
@@ -231,7 +231,7 @@ streetView: 45.7021441,4.821693,3a,75y,314.96h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont commencé fin août 2024 et continueront jusqu'en octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusque mi-2026.
+Les travaux préalables sur les réseaux souterrains ont commencé fin août 2024 et continueront jusqu'en octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusque mi-2026. Un premier tronçon entre Salengro et Voltaire a été livré à l'été 2025.
 ::
 
 #### *Concertation*

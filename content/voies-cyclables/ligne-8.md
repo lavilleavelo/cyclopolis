@@ -91,7 +91,7 @@ streetView: 45.7688341,4.7861129,3a,75y,64.59h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux auront lieu de novembre 2025 à janvier 2026.
+Alors que les travaux devaient avoir lieu de novembre 2025 à janvier 2026, ceux-ci sont compromis par un retard sur des travaux préalables sur des réseaux souterrains dans le secteur. Ils pourraient être reportés au prochain mandat, créant une discontinuité forte pourtant sur un itinéraire sécurisé continu de près de 10km...
 ::
 
 #### *Concertation*

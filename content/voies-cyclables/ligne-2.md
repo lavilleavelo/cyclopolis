@@ -205,9 +205,11 @@ Les travaux ont lieu entre fin mai 2025 et janvier 2026.
 Depuis l'avenue Viviani, les cyclistes emprunteront le passage sécurisé en voie verte sous le boulevard périphérique Laurent Bonnevay, inauguré au printemps 2019. Ils traverseront ensuite la place Grandclément (accès :transport-link{type=métro line=D}) avec une piste bidirectionnelle, puis emprunteront l'ancienne route d'Heyrieux qui sera aménagée en vélorue. Ils traverseront ensuite l'angle Sud-Ouest de la Plaine des Sports du Parc de Parilly avant de rejoindre l'avenue Charles de Gaulle.
 
 ::banner{type="wip"}
-Les travaux à l'Est de la place du métro Parilly ont eu lieu sur mai et juin 2025.
 Les travaux dans le parc de Parilly auront lieu de juin à août 2025.
-Les travaux sur l'ancienne Route d'Heyrieux auront lieu de mi-juillet à fin septembre 2025.
+::
+
+::banner{type="postponed"}
+Les travaux sur l'ancienne Route d'Heyrieux auraient du avoir lieu de mi-juillet à fin septembre 2025, mais au dernier moment, la mairie de Vénissieux a décidé de bloquer le projet pour ne pas supprimer quelques places de stationnement. La sécurité des cyclistes sur ce secteur ne semble pas être sa priorité.
 ::
 
 #### Route de Lyon (parc Parilly à rue des Alouettes)
