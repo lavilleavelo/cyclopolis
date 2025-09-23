@@ -11,7 +11,9 @@
           class="h-8 w-8 rounded-full flex items-center justify-center text-white text-base font-bold"
           :style="`background-color: ${getLineColor(line)}`"
         >
-          {{ line }}
+          <a :href="`/voie-lyonnaise-${line}`">
+            {{ line }}
+          </a>
         </div>
       </div>
     </div>
