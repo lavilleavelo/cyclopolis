@@ -1,5 +1,6 @@
 {
   "name": "Lyon-Bron",
+  "description": "Relevés quotidiens de température et de précipitations à la station météorologique de Lyon-Bron (69087) de 1950 à aujourd'hui.",
   "coordinates": [
     4.949167,
     45.721333
