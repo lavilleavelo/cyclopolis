@@ -96,7 +96,7 @@ export function isLineStringFeature(feature: Collections['voiesCyclablesGeojson'
   return feature.geometry.type === 'LineString';
 }
 
-export function isPointFeature(feature: Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature): feature is Extract<typeof feature, { geometry: { type: 'Point'; coordinates: [number, number] } }> {
+export function isPointFeature(feature: Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature): feature is Extract<typeof feature, { geometry: { type: 'Point'; coordinates: [number, number] ; properties: { line?: string } } }> {
   return feature.geometry.type === 'Point';
 }
 
