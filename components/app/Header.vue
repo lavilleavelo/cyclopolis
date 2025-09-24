@@ -64,7 +64,7 @@
                       Plan officiel
                     </NuxtLink>
                     <NuxtLink
-                      to="https://barometre.parlons-velo.fr/2021/carte/#11.88/45.74926/4.84739"
+                      :to="barometreVeloLink"
                       target="_blank"
                       class="flex align-center space-x-2 text-base font-medium text-gray-500 hover:text-lvv-blue-600"
                       @click="close()"
@@ -304,11 +304,13 @@ const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
 const { getAssoName } = useConfig();
 
+const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
+
 const navItems = [
   { name: 'Carte interactive', path: '/carte-interactive', target: '_self' },
   { name: 'Plan officiel', path: '/plan-officiel', target: '_self' },
   { name: 'Évolution du réseau', path: '/evolution', target: '_self' },
-  { name: 'Baromètre FUB Lyon', path: 'https://barometre.parlons-velo.fr/2021/carte/#11.88/45.74926/4.84739', target: '_blank' }
+  { name: 'Baromètre FUB Lyon', path: barometreVeloLink, target: '_blank' }
 ];
 
 const { data: voies } = await useAsyncData(() => {
