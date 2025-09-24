@@ -105,7 +105,7 @@ streetView: 45.795975,4.7877227,3a,75y,343.47h,90t
 ::banner{type="wip"}
 Les travaux sur l'avenue de Montlouis ont eu lieu en avril et mai 2025.\
 Les travaux sur le boulevard de la République ont eu lieu entre décembre 2024 et mai 2025.\
-Les travaux sur la rue de la Mairie et la place de la Liberté ont lieu entre juin et fin octobre 2025.
+Les travaux sur la rue de la Mairie et la place de la Liberté ont lieu entre août et fin novembre 2025.
 ::
 
 #### Rue Juttet à Avenue de Champagne
@@ -119,7 +119,7 @@ Les travaux devraient avoir lieu entre octobre et décembre 2025.
 Cette portion en pente sera totalement réaménagée : une piste cyclable bidirectionnelle de 3.60m de large sera créée côté Est, et séparée d'une voirie routière à double-sens par une large bande végétalisée. Elle rejoindra le carrefour de la rue Mouillard au niveau de la Porte de Vaise.
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et août 2025.
+Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et octobre 2025.
 ::
 
 #### *Concertation*
@@ -131,7 +131,7 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 La traversée de cette zone très anxiogène avec un fort trafic lié à l'accès au périphérique Nord va pouvoir être sécurisée grâce à un léger détour via la rue Mouillard puis la friche SNCF (+190m). Cette zone en pleine mutation accueillera notamment un hôtel de logistique urbain facilitant l'activité de livraison à vélo. La piste cyclable bidirectionnelle qui longera cette zone se raccordera ensuite à la rue de Bourgogne au niveau du carrefour avec la rue Saint-Simon.
 
 ::banner{type="wip"}
-Les travaux ont lieu entre juin et octobre 2025.
+Les travaux ont lieu entre juin et novembre 2025 sur la rue Mouillard, et entre novembre 2025 et février 2026 sur la friche SNCF.
 ::
 
 #### Rue de Bourgogne
@@ -164,7 +164,7 @@ La concertation publique sur ce tronçon se tenait du 29/01 au 11/03/2024 dans l
 [Voir le dossier de concertation (p.70 à 74, 78 à 82 et 84)](https://cyclopolis.lavilleavelo.org/vl4/VL4VL5_Vaise.pdf){:target="_blank"}
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu entre avril et octobre 2025, d'abord sur la rue de Bourgogne au printemps et au début de l'été, puis sur la rue de la Corderie sur la fin de l'été et l'automne.
+Les travaux devraient avoir lieu entre avril et novembre 2025, d'abord sur la rue de Bourgogne au printemps et au début de l'été, puis sur la rue de la Corderie sur la fin de l'été et l'automne.
 ::
 
 

@@ -236,9 +236,9 @@
         "line": 10,
         "id": "Ch-Vallon-commun",
         "name": "Chemin Vernique/Vallon",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
       },
       "geometry": {

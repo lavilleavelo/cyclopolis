@@ -90,8 +90,8 @@ streetView: 45.7688341,4.7861129,3a,75y,64.59h,90t
 ---
 ::
 
-::banner{type="wip"}
-Alors que les travaux devaient avoir lieu de novembre 2025 à janvier 2026, ceux-ci sont compromis par un retard sur des travaux préalables sur des réseaux souterrains dans le secteur. Ils pourraient être reportés au prochain mandat, créant une discontinuité forte pourtant sur un itinéraire sécurisé continu de près de 10km...
+::banner{type="postponed"}
+Alors que les travaux devaient avoir lieu de novembre 2025 à janvier 2026, ceux-ci auraient dû finalement démarrer début 2026 en raison d'un retard sur des travaux préalables de réseaux souterrains dans le secteur. A la demande des élus métropolitains, ils sont donc reportés au prochain mandat, créant une discontinuité forte sur un itinéraire sécurisé pourtant continu de près de 10km.
 ::
 
 #### *Concertation*
@@ -120,8 +120,8 @@ streetView: 45.7649531,4.7854616,3a,75y,350.01h,90t
 ---
 ::
 
-::banner{type="wip"}
-Les travaux auront lieu entre octobre et décembre 2025.
+::banner{type="postponed"}
+Les travaux auraient du avoir lieu entre octobre et décembre 2025, mais à cause d'un blocage de la mairie de Tassin, l'aménagement de la rue Vincent Serre est reporté au prochain mandat. En revanche, la traversée du giratoire des Hespérides et le raccordement sur l'avenue de la République est bien maintenu aux dates prévues.
 ::
 
 #### Avenue Barthélémy Buyer
