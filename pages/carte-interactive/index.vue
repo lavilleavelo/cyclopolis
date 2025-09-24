@@ -1,6 +1,6 @@
 <template>
   <ClientOnly>
-    <Map :features="features" :options="{ geolocation: true }" class="h-full w-full" />
+    <Map :features="features" :options="{ geolocation: true, showLineFilters: true }" class="h-full w-full" />
   </ClientOnly>
 </template>
 

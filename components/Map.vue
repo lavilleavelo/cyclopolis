@@ -1,9 +1,9 @@
 <template>
   <div class="relative">
     <LegendModal ref="legendModalComponent" />
-    <FilterModal ref="filterModalComponent" @update="refreshFilters" />
+    <FilterModal :show-line-filters="options.showLineFilters" ref="filterModalComponent" @update="refreshFilters" />
     <div id="map" class="rounded-lg h-full w-full" />
-    <div 
+    <div
       v-if="totalDistance"
       class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow">
       Réseau affiché: {{ displayDistanceInKm(filteredDistance) }} ({{ displayPercent(Math.round(filteredDistance / totalDistance * 100)) }})
@@ -29,7 +29,14 @@ import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
 
-import { isLineStringFeature, type CompteurFeature, type LaneQuality, type LaneStatus, type LaneType } from '~/types';
+import {
+  isLineStringFeature,
+  type CompteurFeature,
+  type LaneQuality,
+  type LaneStatus,
+  type LaneType,
+  isPointFeature
+} from '~/types';
 import config from '~/config.json';
 const { getAllUniqLineStrings, getDistance, displayDistanceInKm, displayPercent } = useStats();
 
@@ -44,6 +51,7 @@ const defaultOptions = {
   fullscreen: false,
   onFullscreenControlClick: () => { },
   shrink: false,
+  showLineFilters: false,
   onShrinkControlClick: () => { }
 };
 
@@ -67,13 +75,22 @@ const {
 const statuses = ref(['planned', 'variante', 'done', 'postponed', 'variante-postponed', 'unknown', 'wip', 'tested']);
 const types = ref(['bidirectionnelle', 'bilaterale', 'voie-bus', 'voie-bus-elargie', 'velorue', 'voie-verte', 'bandes-cyclables', 'zone-de-rencontre', 'aucun', 'inconnu']);
 const qualities = ref(['satisfactory', 'unsatisfactory']);
+const lines = ref<number[]>(Array.from(Array(1000).keys()));
 
 const features = computed(() => {
   return (props.features ?? []).filter(feature => {
-    if (isLineStringFeature(feature)) {
-      return statuses.value.includes(feature.properties.status) &&
-        types.value.includes(feature.properties.type) && qualities.value.includes(feature.properties.quality);
+    if (isLineStringFeature(feature) || isPointFeature(feature)) {
+      if (feature.properties.line && !lines.value.includes(feature.properties.line)) {
+        return false;
+      }
     }
+
+    if (isLineStringFeature(feature)) {
+      return statuses.value.includes(feature.properties.status)
+        && types.value.includes(feature.properties.type)
+        && qualities.value.includes(feature.properties.quality);
+    }
+
     return true;
   });
 });
@@ -81,10 +98,11 @@ const features = computed(() => {
 const totalDistance = computeDistance(props.features);
 const filteredDistance = computed(() => computeDistance(features.value));
 
-function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[] }) {
+function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities, visibleLines }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[], visibleLines: number[] }) {
   statuses.value = visibleStatuses;
   types.value = visibleTypes;
   qualities.value = visibleQualities;
+  lines.value = visibleLines;
 }
 
 function computeDistance(selectedFeatures: typeof features.value) {
