@@ -1309,9 +1309,9 @@
       "properties": {
         "line": 8,
         "name": "Rue et Pont de l'Epargne",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#rue-et-pont-de-lepargne"
       },
       "geometry": {

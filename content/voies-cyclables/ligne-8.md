@@ -229,8 +229,8 @@ Concernant la circulation automobile et le traitement du pont, deux variantes so
  - La coupure de la circulation automobile sur le pont de l'Epargne, où l'espace libéré est réparti entre une piste cyclable au Sud et un trottoir au Nord. La circulation automobile passe alors en sens unique côté Ouest, en direction du boulevard des Tchécoslovaques. Cela permet de libérer davantage d'espace et de végétaliser et arborer massivement.
  - Le maintien de la circulation automobile sur le pont de l'Epargne, où une voie verte étroite mélangeant cyclistes et piétons est aménagée au Sud et la voirie automobile au Nord. Le circulation automobile est maintenue à double sens côté Ouest, les piétons et vélos sont contraints de traverser la voirie, et il reste peu d'espace pour végétaliser davantage la rue.
 
-::banner{type="wip"}
-Une première phase d'aménagement entièrement transitoire est prévue être déployée à l'automne 2025.
+::banner{type="postponed"}
+Une première phase d'aménagement entièrement transitoire était prévue être déployée à l'automne 2025, mais à cause des délais imposés par les obligations administratives aux interfaces avec les tramways, le projet a dû être reporté.
 ::
 
 #### Rue Marius Berliet
