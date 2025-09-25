@@ -28,6 +28,6 @@
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
     "highcharts": "^12.4.0",
     "highcharts-vue": "^2.0.1",
-    "maplibre-gl": "^5.6.2"
+    "maplibre-gl": "^5.7.3"
   }
 }
