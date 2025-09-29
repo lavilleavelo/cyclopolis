@@ -729,7 +729,24 @@
           [4.785991581329512, 45.76670734335522],
           [4.785774990253827, 45.7660449784841],
           [4.785775042020816, 45.76604471591838],
-          [4.785340668894435, 45.76469691926084],
+          [4.785415267734919, 45.764902342496526]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Liaison République - Vincent Serre",
+        "status": "planned",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-8#tassin-victor-hugo-à-république-hespérides"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.785415267734919, 45.764902342496526],
           [4.78528167196751, 45.76452792042832],
           [4.785017801100651, 45.764350291798536]
         ]

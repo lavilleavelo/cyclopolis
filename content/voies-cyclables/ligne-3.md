@@ -17,7 +17,7 @@ cover: https://cyclopolis.lavilleavelo.org/vl3/quai-fulchiron.jpg
 Cette première branche devait commencer à la limite Ouest de Quincieux, au niveau de la traversée de l'A466, pour se connecter à un futur aménagement cyclable vers Anse. Cependant, compte-tenu de l'étroitesse de la voirie dans la traversée du bourg de Grand Veissieux, la Métropole a préféré conserver en l'état la voirie existante. En dehors de ce bourg sans aménagements cyclables, on conservera des bandes cyclables bilatérales et non sécurisées.
 ::
 
-La Voie Lyonnaise 3 devait donc débuter réellement au niveau du giratoire de la route de Varennes à l'entrée de Quincieux, puis continuer vers le Sud sur une voie verte de 3.00 à 3.50m de large située côté Est de la route départementale 51. Elle rejoingnait ensuite la rive droite de la Saône à hauteur de la commune de Saint-Germain-au-Mont-d'Or et sa gare TER. Elle longe ensuite la Saône et les voies ferrées jusqu'au pont de Neuville.
+La Voie Lyonnaise 3 devait donc débuter réellement au niveau du giratoire de la route de Varennes à l'entrée de Quincieux, puis continuer vers le Sud sur une voie verte de 3.00 à 3.50m de large située côté Est de la route départementale 51. Elle rejoindrait ensuite la rive droite de la Saône à hauteur de la commune de Saint-Germain-au-Mont-d'Or et sa gare TER. Elle longe ensuite la Saône et les voies ferrées jusqu'au pont de Neuville.
 
 ::content-image
 ---
@@ -29,7 +29,7 @@ streetView: 45.885026,4.8102775,3a,75y,162.21h,90t
 ::
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et ce tronçon ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et le tronçon au nord de la gare de St-Germain ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
 ::
 
 #### Massieux à Neuville

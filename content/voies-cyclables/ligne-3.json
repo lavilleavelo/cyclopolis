@@ -244,9 +244,9 @@
       "properties": {
         "line": 3,
         "name": "St-Germain-au-Mont-d'Or",
-        "status": "postponed",
-        "type": "bandes-cyclables",
-        "quality": "unsatisfactory",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#quincieux-à-neuville"
       },
       "geometry": {

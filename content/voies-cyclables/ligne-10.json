@@ -779,7 +779,8 @@
       "properties": {
         "line": 10,
         "name": "Part-Dieu Sud en surface",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "05/09/2025",
         "type": "voie-bus-elargie",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#pôle-déchange-part-dieu"

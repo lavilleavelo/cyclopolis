@@ -79,7 +79,7 @@ Les travaux préparatoires sur les réseaux ont lieu entre février 2024 et le p
 Cette section est en tronçon commun avec la :line-link{line=1}.
 
 ### Traversée du campus de la Doua
-La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccordera ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé sera recouvert d'un enrobé lisse. Enfin, le long du boulevard Laurent Bonnevay, une nouvelle piste cyclable bidirectionnelle de 3m de large sera créée sur une des 3 voies de circulation côté Sud.
+La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccordera ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé sera recouvert d'un enrobé lisse. Enfin, le long du boulevard Laurent Bonnevay, une nouvelle voie verte de 4m de large sera créée sur l'ancien cheminement piéton stabilisé côté Sud.
 
 #### *Concertation*
 La concertation sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
