@@ -46,7 +46,7 @@
             <p
               class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
             >
-              Une initiative de l'association <strong>{{ assoName }}</strong> pour suivre le développement du nouveau réseau vélo sécurisé Lyonnais.
+              Une initiative de l'association <a :href="getAssoLink()"><strong>{{ assoName }}</strong></a> pour suivre le développement du nouveau réseau vélo sécurisé Lyonnais.
             </p>
             <div
               class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0"
@@ -81,6 +81,6 @@
 </template>
 
 <script setup lang="ts">
-const { getRevName, getAssoName } = useConfig();
+const { getRevName, getAssoName, getAssoLink } = useConfig();
 const assoName = getAssoName();
 </script>
