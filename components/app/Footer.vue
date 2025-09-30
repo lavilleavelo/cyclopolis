@@ -15,10 +15,10 @@
             <Icon :name="item.icon" class="h-6 w-6" aria-hidden="true" />
           </a>
         </div>
-        <div class="mt-8 md:mt-0 md:order-1">
-          <p class="text-center text-base text-gray-500">
+        <div class="mt-8 md:mt-0 md:order-1 sm:hidden md:block">
+          <a :href="getAssoLink()" class="text-center text-base text-gray-500">
             {{ getAssoName() }}
-          </p>
+          </a>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-const { getAssoName } = useConfig();
+const { getAssoName, getAssoLink } = useConfig();
 
 const links = [
   { name: 'Mentions légales', path: '/mentions-legales' },
