@@ -105,7 +105,8 @@ streetView: 45.795975,4.7877227,3a,75y,343.47h,90t
 ::banner{type="wip"}
 Les travaux sur l'avenue de Montlouis ont eu lieu en avril et mai 2025.\
 Les travaux sur le boulevard de la République ont eu lieu entre décembre 2024 et mai 2025.\
-Les travaux sur la rue de la Mairie et la place de la Liberté ont lieu entre août et fin novembre 2025.
+Les travaux sur la place de la Liberté ont lieu entre septembre et mi-novembre 2025.\
+Les travaux sur la rue de la Mairie ont lieu entre mi-novembre et fin décembre 2025.
 ::
 
 #### Rue Juttet à Avenue de Champagne
@@ -131,7 +132,7 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 La traversée de cette zone très anxiogène avec un fort trafic lié à l'accès au périphérique Nord va pouvoir être sécurisée grâce à un léger détour via la rue Mouillard puis la friche SNCF (+190m). Cette zone en pleine mutation accueillera notamment un hôtel de logistique urbain facilitant l'activité de livraison à vélo. La piste cyclable bidirectionnelle qui longera cette zone se raccordera ensuite à la rue de Bourgogne au niveau du carrefour avec la rue Saint-Simon.
 
 ::banner{type="wip"}
-Les travaux ont lieu entre juin et novembre 2025 sur la rue Mouillard, et entre novembre 2025 et février 2026 sur la friche SNCF.
+Les travaux ont lieu entre juin et novembre 2025 sur la rue Mouillard, et entre septembre 2025 et février 2026 sur la friche SNCF.
 ::
 
 #### Rue de Bourgogne
