@@ -1,11 +1,21 @@
 <template>
-  <ClientOnly>
-    <Map :features="features" :options="mapOptions" class="h-full w-full" />
-  </ClientOnly>
+  <div class="h-full w-full relative">
+    <ClientOnly>
+      <Map
+        :features="filteredFeatures"
+        :options="mapOptions"
+        class="h-full w-full"
+        :total-distance="totalDistance"
+        :filtered-distance="filteredDistance"
+        @update="refreshFilters"
+      />
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
+import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 
 const { path } = useRoute();
 const { getVoieCyclableRegex } = useUrl();
@@ -24,6 +34,7 @@ definePageMeta({
 
 const mapOptions = {
   shrink: true,
+  canUseSidePanel: true,
   onShrinkControlClick: () => {
     const route = useRoute();
     return navigateTo({ path: `/${route.params._slug}` });
@@ -40,6 +51,8 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
   if (!geojson.value) return [];
   return geojson.value.features;
 });
+
+const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
 
 const description = `Carte de la ${getRevName('singular')} ${line}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés après 2026.`;
 useHead({

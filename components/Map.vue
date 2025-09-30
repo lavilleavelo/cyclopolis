@@ -1,13 +1,22 @@
 <template>
   <div class="relative">
     <LegendModal ref="legendModalComponent" />
-    <FilterModal :show-line-filters="options.showLineFilters" ref="filterModalComponent" @update="refreshFilters" />
-    <div id="map" class="rounded-lg h-full w-full" />
+
+    <div class="flex rounded-lg h-full w-full">
+      <div id="map" class="rounded-lg h-full w-full" />
+      <FilterModal
+        :show-line-filters="options.showLineFilters"
+        :can-use-side-panel="options.canUseSidePanel"
+        @update="handleUpdate"
+      />
+    </div>
+
     <div
       v-if="totalDistance"
       class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow">
-      Réseau affiché: {{ displayDistanceInKm(filteredDistance) }} ({{ displayPercent(Math.round(filteredDistance / totalDistance * 100)) }})
+      Réseau affiché: {{ displayDistanceInKm(filteredDistance || 0) }} ({{ displayPercent(Math.round((filteredDistance || 0) / totalDistance * 100)) }})
     </div>
+
     <img
       v-if="options.logo"
       class="my-0 absolute bottom-0 right-0 z-10"
@@ -29,19 +38,9 @@ import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
 
-import {
-  isLineStringFeature,
-  type CompteurFeature,
-  type LaneQuality,
-  type LaneStatus,
-  type LaneType,
-  isPointFeature
-} from '~/types';
+import type { CompteurFeature, } from '~/types';
 import config from '~/config.json';
-const { getAllUniqLineStrings, getDistance, displayDistanceInKm, displayPercent } = useStats();
-
-// const config = useRuntimeConfig();
-// const maptilerKey = config.public.maptilerKey;
+const { displayDistanceInKm, displayPercent } = useStats();
 
 const defaultOptions = {
   logo: true,
@@ -52,18 +51,25 @@ const defaultOptions = {
   onFullscreenControlClick: () => { },
   shrink: false,
   showLineFilters: false,
+  canUseSidePanel: false,
   onShrinkControlClick: () => { }
 };
 
 const props = defineProps<{
   features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]
   options?: Partial<typeof defaultOptions>;
+  totalDistance?: number;
+  filteredDistance?: number;
 }>();
 
 const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
-const filterModalComponent = ref<{ openModal: () => void } | null>(null);
+
+const emit = defineEmits(['update']);
+function handleUpdate(payload: { lines: number[]; years: number[] }) {
+  emit('update', payload);
+}
 
 const {
   loadImages,
@@ -72,43 +78,17 @@ const {
   handleMapClick
 } = useMap();
 
-const statuses = ref(['planned', 'variante', 'done', 'postponed', 'variante-postponed', 'unknown', 'wip', 'tested']);
-const types = ref(['bidirectionnelle', 'bilaterale', 'voie-bus', 'voie-bus-elargie', 'velorue', 'voie-verte', 'bandes-cyclables', 'zone-de-rencontre', 'aucun', 'inconnu']);
-const qualities = ref(['satisfactory', 'unsatisfactory']);
-const lines = ref<number[]>(Array.from(Array(1000).keys()));
+const router = useRouter();
+const route = useRoute();
 
-const features = computed(() => {
-  return (props.features ?? []).filter(feature => {
-    if (isLineStringFeature(feature) || isPointFeature(feature)) {
-      if (feature.properties.line && !lines.value.includes(feature.properties.line)) {
-        return false;
-      }
-    }
-
-    if (isLineStringFeature(feature)) {
-      return statuses.value.includes(feature.properties.status)
-        && types.value.includes(feature.properties.type)
-        && qualities.value.includes(feature.properties.quality);
-    }
-
-    return true;
-  });
-});
-
-const totalDistance = computeDistance(props.features);
-const filteredDistance = computed(() => computeDistance(features.value));
-
-function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities, visibleLines }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[], visibleLines: number[] }) {
-  statuses.value = visibleStatuses;
-  types.value = visibleTypes;
-  qualities.value = visibleQualities;
-  lines.value = visibleLines;
-}
-
-function computeDistance(selectedFeatures: typeof features.value) {
-  if (!props.features) return 0;
-  const allUniqFeatures = getAllUniqLineStrings([{ ...props.features[0], features: selectedFeatures }]);
-  return getDistance({ features: allUniqFeatures });
+function toggleFilterSidebar() {
+  const query = { ...route.query };
+  if (query.modal === 'filters') {
+    delete query.modal;
+  } else {
+    query.modal = 'filters';
+  }
+  router.replace({ query });
 }
 
 onMounted(() => {
@@ -120,14 +100,17 @@ onMounted(() => {
     zoom: config.zoom,
     attributionControl: false
   });
+
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
   map.addControl(new AttributionControl({ compact: false }), 'bottom-left');
+
   if (options.fullscreen) {
     const fullscreenControl = new FullscreenControl({
       onClick: () => options.onFullscreenControlClick()
     });
     map.addControl(fullscreenControl, 'top-right');
   }
+
   if (options.geolocation) {
     map.addControl(
       new GeolocateControl({
@@ -138,12 +121,14 @@ onMounted(() => {
       'top-right'
     );
   }
+
   if (options.shrink) {
     const shrinkControl = new ShrinkControl({
       onClick: () => options.onShrinkControlClick()
     });
     map.addControl(shrinkControl, 'top-right');
   }
+
   if (options.legend) {
     const legendControl = new LegendControl({
       onClick: () => {
@@ -154,29 +139,24 @@ onMounted(() => {
     });
     map.addControl(legendControl, 'top-right');
   }
+
   if (options.filter) {
     const filterControl = new FilterControl({
       onClick: () => {
-        if (filterModalComponent.value) {
-          (filterModalComponent.value).openModal();
-        }
+        toggleFilterSidebar();
       }
     });
     map.addControl(filterControl, 'top-right');
   }
 
-  map.on('load', async () => {
+  map.on('load', async() => {
     await loadImages({ map });
-    plotFeatures({ map, features: features.value });
+    plotFeatures({ map, features: props.features });
 
     const tailwindMdBreakpoint = 768;
     if (window.innerWidth > tailwindMdBreakpoint) {
-      fitBounds({ map, features: features.value });
+      fitBounds({ map, features: props.features });
     }
-  });
-
-  watch(features, newFeatures => {
-    plotFeatures({ map, features: newFeatures });
   });
 
   watch(() => props.features, newFeatures => {
@@ -184,7 +164,7 @@ onMounted(() => {
   });
 
   map.on('click', clickEvent => {
-    handleMapClick({ map, features: features.value, clickEvent });
+    handleMapClick({ map, features: props.features, clickEvent });
   });
 });
 </script>

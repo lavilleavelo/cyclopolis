@@ -1,11 +1,22 @@
 <template>
-  <ClientOnly>
-    <Map :features="features" :options="{ geolocation: true, showLineFilters: true }" class="h-full w-full" />
-  </ClientOnly>
+  <div class="flex h-screen w-screen">
+    <ClientOnly>
+      <Map
+        :features="filteredFeatures"
+        :options="{ geolocation: true, canUseSidePanel: true, showLineFilters: true }"
+        class="h-full flex-1"
+        :total-distance="totalDistance"
+        :filtered-distance="filteredDistance"
+        @update="refreshFilters"
+      />
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
+import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
+
 const { getRevName } = useConfig();
 
 // https://github.com/nuxt/framework/issues/3587
@@ -22,6 +33,8 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
   if (!geojsons.value) return [];
   return geojsons.value.flatMap(geojson => geojson.features);
 });
+
+const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
 
 const description =
   `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;

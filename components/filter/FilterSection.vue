@@ -13,7 +13,7 @@
     <div v-if="showSelectionButtons" class="mt-4 flex justify-start space-x-4">
       <button
         type="button"
-        class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
+        class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
         :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => !filter.isEnable) }"
         :disabled="filters.every(filter => !filter.isEnable)"
         @click="emit('deselectAll')"
@@ -22,7 +22,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
+        class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
         :disabled="filters.every(filter => filter.isEnable)"
         :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => filter.isEnable) }"
         @click="emit('selectAll')"
