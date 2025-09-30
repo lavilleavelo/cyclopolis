@@ -764,9 +764,12 @@ export const useMap = () => {
     const clickedLayer = layers.find(layer => layer.isClicked());
     if (!clickedLayer) { return; }
 
+    const tooltipContentId = `${clickedLayer.id}-tooltip`;
     new Popup({ closeButton: false, closeOnClick: true })
       .setLngLat(clickEvent.lngLat)
-      .setHTML(`<div id="${clickedLayer.id}-tooltip-content"></div>`)
+      // set min dimensions so that the tooltip has some height/width before Vue mounts the component
+      // otherwise, if the popup is too close to the top of the map, it is not fully visible
+      .setHTML(`<div style="min-height: 500px; min-width: 100px" id="${tooltipContentId}"></div>`)
       .addTo(map);
 
     const props = clickedLayer.getTooltipProps();
@@ -778,7 +781,14 @@ export const useMap = () => {
           default: h(component, props),
           fallback: 'Chargement...'
         })
-      }).mount(`#${clickedLayer.id}-tooltip-content`);
+      }).mount(`#${tooltipContentId}`);
+
+      // reset dimensions set initially to position the popup in case the popup content ends up being smaller than the initial min dimensions
+      const tooltipContentEl = document.getElementById(tooltipContentId);
+      if (tooltipContentEl) {
+        tooltipContentEl.style.minHeight = 'initial';
+        tooltipContentEl.style.minWidth = 'initial';
+      }
     });
   }
 
