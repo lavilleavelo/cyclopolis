@@ -75,7 +75,7 @@ export const useMap = () => {
     };
   }
 
-  function upsertMapSource(map: Map, sourceName: string, features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[] ) {
+  function upsertMapSource(map: Map, sourceName: string, features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[] | Collections['osmVoiesLyonnaises']['features'] ) {
     const source = map.getSource(sourceName) as GeoJSONSource;
     if (source) {
       source.setData({ type: 'FeatureCollection', features });
@@ -633,7 +633,59 @@ export const useMap = () => {
     }));
   }
 
-  function fitBounds({ map, features }: { map: Map; features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature> }) {
+  function plotOsmVoiesLyonnaises({ map, features }: { map: Map; features: Collections['osmVoiesLyonnaises']['features'] }) {
+      const osmVoiesLyonnaises = features.filter(feature => feature.properties.cycle_network === 'Les Voies Lyonnaises' && feature.properties.construction !== 'yes');
+
+      if (osmVoiesLyonnaises.length === 0 && !map.getLayer('osm-voies-lyonnaises')) {
+          return;
+      }
+
+      if (upsertMapSource(map, 'osm-voies-lyonnaises', osmVoiesLyonnaises)) {
+          return;
+      }
+
+      map.addLayer({
+          id: 'osm-voies-lyonnaises',
+          type: 'line',
+          source: 'osm-voies-lyonnaises',
+          paint: {
+              'line-width': 10,
+              'line-color': 'rgba(209,255,0)',
+              'line-opacity': 0.6
+          },
+          layout: {
+              'line-cap': 'round'
+          }
+      });
+
+      // add the one in construction
+      const osmVoiesLyonnaisesConstruction = features.filter(feature => feature.properties.cycle_network === 'Les Voies Lyonnaises' && feature.properties.construction === 'yes');
+
+      if (osmVoiesLyonnaisesConstruction.length === 0 && !map.getLayer('osm-voies-lyonnaises-construction')) {
+          return;
+      }
+      if (upsertMapSource(map, 'osm-voies-lyonnaises-construction', osmVoiesLyonnaisesConstruction)) {
+          return;
+      }
+
+      map.addLayer({
+          id: 'osm-voies-lyonnaises-construction',
+          type: 'line',
+          source: 'osm-voies-lyonnaises-construction',
+          paint: {
+              'line-width': 10,
+              'line-color': 'rgb(255,0,0)',
+              'line-opacity': 0.6,
+              'line-dasharray': [2, 2]
+          },
+          layout: {
+              'line-cap': 'round'
+          }
+      });
+
+  }
+
+  function fitBounds({ map, features, osmVoiesLyonnaises }: { map: Map; features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>, }) {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
       .flatMap(feature => feature.geometry.coordinates);
@@ -664,6 +716,7 @@ export const useMap = () => {
     plotWipSections({ map, features: lineStringFeatures });
     plotUnknownSections({ map, features: lineStringFeatures });
     plotPostponedSections({ map, features: lineStringFeatures });
+    plotOsmVoiesLyonnaises({ map, features: features });
 
 
     const compteurFeature = features.filter(isCompteurFeature);
