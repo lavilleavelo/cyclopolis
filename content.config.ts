@@ -98,6 +98,21 @@ export default defineContentConfig({
         )
       })
     }),
+    osmVoiesLyonnaises: defineCollection({
+        source: 'osm/voies-lyonnaises.json',
+        type: 'data',
+        schema: z.object({
+            features: z.array(z.object({
+                properties: z.object({
+                    id: z.string().optional(),
+                    line: z.number(),
+                    name: z.string(),
+                    cycle_network: z.string().optional(),
+                    construction: z.string().optional(),
+                }),
+            })),
+        })
+    }),
     compteurs: defineCollection({
       source: 'compteurs/**/*.json',
       type: 'page',
