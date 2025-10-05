@@ -441,17 +441,23 @@ export const useMap = () => {
 
   function plotPostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'postponed');
+    const featuresByColor = groupFeaturesByColor(sections);
 
-    if (sections.length === 0) {
-      for (let line = 1; line <= getNbVoiesCyclables(); line++) {
-        upsertMapSource(map, `postponed-sections-${getLineColor(line)}`, []);
+    for (let line = 1; line <= getNbVoiesCyclables(); line++) {
+      const lineColor = getLineColor(line);
+      if (!featuresByColor[lineColor]) {
+        upsertMapSource(map, `postponed-sections-${lineColor}`, []);
       }
-      return;
     }
 
-    const featuresByColor = groupFeaturesByColor(sections);
     for (const [color, sameColorFeatures] of Object.entries(featuresByColor)) {
-      if (upsertMapSource(map, `postponed-sections-${color}`, sameColorFeatures as Collections['voiesCyclablesGeojson']['features'])) {
+      upsertMapSource(
+        map,
+        `postponed-sections-${color}`,
+        sameColorFeatures as Collections['voiesCyclablesGeojson']['features']
+      );
+
+      if (map.getLayer(`postponed-symbols-${color}`)) {
         continue;
       }
 
@@ -485,7 +491,6 @@ export const useMap = () => {
           'text-size': 14
         }
       });
-
       map.on('mouseenter', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = ''));
     }
@@ -737,7 +742,11 @@ export const useMap = () => {
           const feature = lineStringFeatures
             .find(f => f.properties.line === line && f.properties.name === name);
 
-          const lines = feature!.properties.id
+          if (!feature) {
+            return;
+          }
+
+          const lines = feature.properties.id
             ? [...new Set(lineStringFeatures.filter(f => f.properties.id === feature!.properties.id).map(f => f.properties.line))]
             : [feature!.properties.line];
 
@@ -764,6 +773,11 @@ export const useMap = () => {
     const clickedLayer = layers.find(layer => layer.isClicked());
     if (!clickedLayer) { return; }
 
+    const props = clickedLayer.getTooltipProps();
+    if (!props) {
+      return;
+    }
+
     const tooltipContentId = `${clickedLayer.id}-tooltip`;
     new Popup({ closeButton: false, closeOnClick: true })
       .setLngLat(clickEvent.lngLat)
@@ -772,7 +786,6 @@ export const useMap = () => {
       .setHTML(`<div style="min-height: 500px; min-width: 100px" id="${tooltipContentId}"></div>`)
       .addTo(map);
 
-    const props = clickedLayer.getTooltipProps();
     // @ts-expect-error:next - The component type is dynamically determined and may not match the expected type
     const component = defineComponent(clickedLayer.component);
     nextTick(() => {
