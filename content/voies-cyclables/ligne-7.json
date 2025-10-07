@@ -970,7 +970,7 @@
       "properties": {
         "line": 7,
         "name": "Boulevard des Canuts Nord",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#boulevard-des-canuts"
