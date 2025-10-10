@@ -236,7 +236,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Route du Mas Rillier Ouest",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "09/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -296,7 +297,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Rue Ampère",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "09/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
