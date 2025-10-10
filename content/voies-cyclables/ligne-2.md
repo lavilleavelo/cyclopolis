@@ -202,14 +202,14 @@ Les travaux ont lieu entre fin mai 2025 et janvier 2026.
 
 *de Viviani à la Plaine des Sports*
 
-Depuis l'avenue Viviani, les cyclistes emprunteront le passage sécurisé en voie verte sous le boulevard périphérique Laurent Bonnevay, inauguré au printemps 2019. Ils traverseront ensuite la place Grandclément (accès :transport-link{type=métro line=D}) avec une piste bidirectionnelle, puis emprunteront l'ancienne route d'Heyrieux qui sera aménagée en vélorue. Ils traverseront ensuite l'angle Sud-Ouest de la Plaine des Sports du Parc de Parilly avant de rejoindre l'avenue Charles de Gaulle.
+Depuis l'avenue Viviani, les cyclistes emprunteront le passage sécurisé en voie verte sous le boulevard périphérique Laurent Bonnevay, puis circuleront sur la piste cyclable de l'avenue Jules Guesde Nord, inauguré au printemps 2019. Le carrefour avec l'Est de la place Grandclément a été repris en septembre 2025 pour éviter un double cisaillement inconfortable avec les piétons. Les vélos traversent ensuite l'Est de la place (accès :transport-link{type=métro line=D}) avec une piste bidirectionnelle qui date des années 2000, puis emprunteront l'ancienne route d'Heyrieux. Ils traverseront ensuite l'angle Sud-Ouest de la Plaine des Sports du Parc de Parilly avant de rejoindre l'avenue Charles de Gaulle.
 
 ::banner{type="wip"}
-Les travaux dans le parc de Parilly auront lieu de juin à août 2025.
+Les travaux dans le parc de Parilly ont eu lieu de juin à août 2025.
 ::
 
 ::banner{type="postponed"}
-Les travaux sur l'ancienne Route d'Heyrieux auraient du avoir lieu de mi-juillet à fin septembre 2025, mais au dernier moment, la mairie de Vénissieux a décidé de bloquer le projet pour ne pas supprimer quelques places de stationnement. La sécurité des cyclistes sur ce secteur ne semble pas être sa priorité.
+Les travaux sur l'ancienne Route d'Heyrieux auraient du avoir lieu de mi-juillet à fin septembre 2025, mais au dernier moment, la mairie de Vénissieux a décidé de bloquer le projet pour ne pas supprimer quelques places de stationnement qui avaient été aménagées au printemps 2020. La sécurité des cyclistes sur ce secteur ne semble pas être sa priorité.
 ::
 
 #### Route de Lyon (parc Parilly à rue des Alouettes)

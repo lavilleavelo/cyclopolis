@@ -543,7 +543,7 @@
         "id": "variantePoincaré",
         "line": 2,
         "name": "Détour via Passerelle de la Paix",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
         "quality": "satisfactory"
@@ -1530,7 +1530,7 @@
         "line": 2,
         "name": "Ancienne Route d'Heyrieux Ouest",
         "status": "postponed",
-        "type": "aucun",
+        "type": "bandes-cyclables",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "unsatisfactory"
       },
@@ -1565,8 +1565,9 @@
       "properties": {
         "line": 2,
         "name": "Ancienne Route d'Heyrieux Est",
-        "status": "postponed",
-        "type": "aucun",
+        "status": "done",
+        "doneAt": "01/06/2020",
+        "type": "velorue",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "unsatisfactory"
       },
