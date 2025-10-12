@@ -567,7 +567,8 @@
       "properties": {
         "line": 6,
         "name": "Quai Perrache Centre",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-6#quai-perrache"
@@ -586,10 +587,9 @@
       "properties": {
         "line": 6,
         "name": "Quai Perrache H7",
-        "status": "done",
-        "doneAt": "01/04/2022",
-        "type": "voie-verte",
-        "quality": "unsatisfactory",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
         "link": "/voie-lyonnaise-6#quai-perrache"
       },
       "geometry": {

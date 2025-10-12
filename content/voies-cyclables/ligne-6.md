@@ -144,12 +144,10 @@ La section rue du Belier - rue Casimir Périer a été réalisée à l'été 202
 La section rue Casimir Périer - rue Emile Duployé a été aménagée en transitoire à l'été 2022 en attendant la fin des travaux des immeubles de la seconde tranche d'aménagement du quartier Confluence.\
 
 ::banner{type="wip"}
-La section rue Casimir Périer - rue Montrochet sera aménagée pendant le second semestre 2025.
+La section rue Casimir Périer - rue Montrochet a été aménagée entre juillet et septembre 2025.
 ::
 
-::banner{type="postponed"}
-La section rue Duployé - pont de la Mulatière ne comporte aucun aménagement cyclable à ce jour, et ne fait pas partie de la liste des aménagements financés pour la fin de mandat qui est détaillée dans la délibération du Conseil Métropolitain du 17/03/2025. Elle est donc de fait reportée à un mandat ultérieur.
-::
+La section rue Duployé - pont de la Mulatière devrait faire l'objet d'un aménagement transitoire en voie verte début 2026 pour assurer une continuité cyclable à court-terme.
 
 ::content-image
 ---
