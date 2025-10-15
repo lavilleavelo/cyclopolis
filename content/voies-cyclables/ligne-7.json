@@ -1216,7 +1216,7 @@
       "properties": {
         "line": 7,
         "name": "Contre-allée de la Boucle",
-        "status": "planned",
+        "status": "wip",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#montée-de-la-boucle"
