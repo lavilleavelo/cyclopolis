@@ -541,7 +541,8 @@
       "properties": {
         "line": 12,
         "name": "Avenue Rockefeller Ouest",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-12#grange-blanche-à-boulevard-pinel"
