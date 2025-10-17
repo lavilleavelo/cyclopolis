@@ -207,7 +207,8 @@
         "id": "ChNeuf-commun",
         "line": 11,
         "name": "Montée du Chemin Neuf",
-        "status": "tested",
+        "status": "done",
+        "doneAt" : "20/08/2024",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#traversée-de-saint-just-traversée-de-saint-jean"
@@ -557,8 +558,7 @@
       "properties": {
         "line": 11,
         "name": "Avenue Félix Faure",
-        "status": "done",
-        "doneAt": "20/05/2025",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"

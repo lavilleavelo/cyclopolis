@@ -303,7 +303,8 @@
         "id": "ChNeuf-commun",
         "line": 12,
         "name": "Montée du Chemin Neuf",
-        "status": "tested",
+        "status": "done",
+        "doneAt": "20/08/2024",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-12#traversée-de-saint-just"
@@ -564,7 +565,7 @@
       "properties": {
         "line": 12,
         "name": "Avenue Rockefeller Est",
-        "status": "tested",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-12#grange-blanche-à-boulevard-pinel"

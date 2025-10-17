@@ -1594,7 +1594,8 @@
       "properties": {
         "line": 2,
         "name": "Parc de Parilly",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/09/2025",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-2#quartier-de-parilly",
         "quality": "satisfactory"
@@ -1646,7 +1647,8 @@
       "properties": {
         "line": 2,
         "name": "Avenue De Gaulle - Route de Lyon",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/10/2025",
         "type": "voie-verte",
         "link": "/voie-lyonnaise-2#route-de-lyon-parc-parilly-à-rue-des-alouettes",
         "quality": "satisfactory"

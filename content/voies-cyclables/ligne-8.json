@@ -1003,7 +1003,8 @@
         "id": "ChNeuf-commun",
         "line": 8,
         "name": "Montée du Chemin Neuf",
-        "status": "tested",
+        "status": "done",
+        "doneAt": "20/08/2024",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#rue-pierre-audry"
