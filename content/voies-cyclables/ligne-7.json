@@ -1170,7 +1170,7 @@
       "type": "Feature",
       "properties": {
         "line": 7,
-        "name": "Montée de la Boucle",
+        "name": "Montée de la Boucle Haut",
         "status": "done",
         "doneAt": "15/01/2023",
         "type": "bidirectionnelle",
@@ -1188,6 +1188,46 @@
           [4.840072893835966, 45.78073534682687],
           [4.8399199791788305, 45.780923037424024],
           [4.839610431134048, 45.78126774622038],
+          [4.835647, 45.782819]
+      ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 7,
+        "name": "Boucle - sortie Henri Dor",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#montée-de-la-boucle"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.835647, 45.782819]
+          [4.836151, 45.782872]
+      ]
+      }
+    },
+
+    
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 7,
+        "name": "Montée de la Boucle Bas",
+        "status": "done",
+        "doneAt": "15/01/2023",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#montée-de-la-boucle"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [      
+          [4.836151, 45.782872]       
           [4.839454622673671, 45.78146543960129],
           [4.839273754824461, 45.781649540244246],
           [4.8389813540797135, 45.78190614471203],
@@ -1211,6 +1251,7 @@
         ]
       }
     },
+    
     {
       "type": "Feature",
       "properties": {
