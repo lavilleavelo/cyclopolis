@@ -18,6 +18,10 @@ export function useBikeLaneFilters(allFeatures: Ref<Collections['voiesCyclablesG
 
   const filteredFeatures = computed(() => {
     return (allFeatures.value ?? []).filter(feature => {
+      if (!feature?.properties) {
+        return false;
+      }
+
       if (isLineStringFeature(feature) || isPointFeature(feature)) {
         if (feature.properties.line && !lines.value.includes(feature.properties.line)) {
           return false;
