@@ -49,9 +49,9 @@ const route = useRoute();
 const router = useRouter();
 
 const statusFilters = ref([
-  { label: 'Terminé', isEnable: true, statuses: ['done'] },
+  { label: 'Terminé', isEnable: true, statuses: ['done', 'variante'] },
   { label: 'En travaux', isEnable: true, statuses: ['wip', 'tested'] },
-  { label: 'Prévu pour 2026', isEnable: true, statuses: ['planned', 'variante'] },
+  { label: 'Prévu pour 2026', isEnable: true, statuses: ['planned'] },
   { label: 'Reporté', isEnable: true, statuses: ['postponed', 'variante-postponed'] },
   { label: 'Inconnu', isEnable: true, statuses: ['unknown'] }
 ]);
