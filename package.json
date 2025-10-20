@@ -20,7 +20,7 @@
     "eslint": "^9.38.0",
     "nuxt": "^3.17.5",
     "prettier": "^3.6.2",
-    "sitemap": "^8.0.0",
+    "sitemap": "^8.0.1",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },
