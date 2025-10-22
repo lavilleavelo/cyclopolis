@@ -158,7 +158,7 @@ Après des échanges avec les services de secours et l'hôpital Edouard Herriot,
 ::
 
 ::banner{type="wip"}
-Les travaux auront lieu pendant l'été 2025.
+Les travaux de modification des marquages ont eu lieu début octobre 2025.
 ::
 
 ### Grange Blanche à Boulevard Pinel

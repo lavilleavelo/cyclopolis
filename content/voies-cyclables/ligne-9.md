@@ -13,21 +13,29 @@ cover: https://cyclopolis.lavilleavelo.org/vl9/voie-lyonnaise-9.jpg
 Depuis le quartier de Beaunant et la route de Brignais, la Voie Lyonnaise 9 traversera Oullins d'Ouest en Est en tronçon commun avec la :line-link{line=5}.
 
 ### Franchissement du Rhône
-La Voie Lyonnaise 9 passera des berges de l'Yzeron au parc de Gerland via une nouvelle passerelle mode actifs qui traversera la M7 et le Rhône. Elle fera 7m de large, avec une piste cyclable bidirectionnelle de 4m de large pour les cyclistes et un cheminement de 3m pour les piétons. Plusieurs scénarios de raccordement aux berges ont été proposés à la concertation, avec des rampes de 4 à 6% de pente.
+La Voie Lyonnaise 9 passera des berges de l'Yzeron au parc de Gerland via une nouvelle passerelle mode actifs qui traversera la M7 et le Rhône. Alors qu'elle devait faire 7m de large, avec une piste cyclable bidirectionnelle de 4m de large pour les cyclistes et un cheminement de 3m pour les piétons, elle fera finalement 6m de large (piétons 2m50 et cyclistes 3m50) pour des raisons de maitrise des risques techniques et financiers. Plusieurs scénarios de raccordement aux berges ont été proposés à la concertation, avec des rampes de 4 à 6% de pente.
+
+::content-image
+---
+imageUrl: https://cyclopolis.lavilleavelo.org/vl9/Passerelle-Oullins-Gerland.jpg
+caption: Vue générale de la future passerelle Oullins-Gerland (depuis le Sud)
+credit: Métropole de Lyon - Explorations Architecture
+---
+::
 
 Dans le parc de Gerland, la piste cyclable bidirectionnelle de 4m de large passera au Sud de l'aire de jeux avant de rejoindre l'avenue Jean Jaurès.
 
-Un tel ouvrage d'art nécessite de longues années d'études et de procédures administratives, ce qui explique que sa livraison n'est pas attendue avant l'horizon 2028.
+Un tel ouvrage d'art nécessite de longues années d'études et de procédures administratives, ce qui explique que sa livraison n'était initialement pas attendue avant l'horizon 2028. Finalement, les premières études tablent maintenant pour une livraison en 2031.
 
 *La concertation préalable sur ce projet s'est tenue du 05/10 au 15/11/2022.*\
 [Voir le dossier de concertation](https://cyclopolis.lavilleavelo.org/vl9/VL9Passerelle_Oullins_Gerland.pdf)
 
 ::banner{type="info"}
-La suite de la concertation publique devait avoir lieu en 2024. Cependant, la Métropole a indiqué le 17/05/2024 que les offres de Maîtrise d'Oeuvre proposées pour la réalisation de la passerelle étaient jugées insatisfaisantes. Elle a ainsi déclaré la procédure infructueuse et relancé un nouveau concours. Le projet est donc retardé d'un an, et la suite de la concertation aura lieu courant 2025.
+La suite de la concertation publique devait avoir lieu en 2024. Cependant, la Métropole a indiqué le 17/05/2024 que les offres de Maîtrise d'Oeuvre proposées pour la réalisation de la passerelle étaient jugées insatisfaisantes. Elle a ainsi déclaré la procédure infructueuse et relancé un nouveau concours dont le lauréat a été annoncé le 21/10/2025. La suite de la concertation aura lieu courant 2026.
 ::
 
 ::banner{type="wip"}
-Les travaux sont prévus entre 2027 et 2029.
+Les travaux sont prévus entre 2028 et 2030 pour une mise en service en 2031.
 ::
 
 ### Avenue Jean Jaurès
@@ -145,7 +153,7 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 ## Budget prévisionnel
  - **7 300 000 € HT** au total
 
-Auxquels se rajoutent **21 000 000 € HT** pour la passerelle Oullins-Gerland\
+Auxquels se rajoutent **40 000 000 € HT** pour la passerelle Oullins-Gerland (initialement prévue à 21M€)\
 *source : [délibération de la Métropole de Lyon](https://agora.grandlyon.com/webdelib/files/unzip//seance_278909/d363338398542783_6291.pdf)*
 
 ## Calendrier prévisionnel
