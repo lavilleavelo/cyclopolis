@@ -941,6 +941,26 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "LienLacass-commun",
+        "line": 10,
+        "name": "Liaison Lacassagne",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.871442084743592, 45.75254091471112],
+          [4.871160600665519, 45.75242066281143],
+          [4.870868145196283, 45.75214475091451]
+        ]
+      }
+    },    
+    {
+      "type": "Feature",
+      "properties": {
         "id": "Domrémy-commun",
         "line": 10,
         "name": "Impasse Domrémy",
@@ -956,9 +976,7 @@
           [4.872930930957352, 45.75248280095562],
           [4.87252107204273, 45.752473733616114],
           [4.872046277484117, 45.75248780394898],
-          [4.871442084743592, 45.75254091471112],
-          [4.871160600665519, 45.75242066281143],
-          [4.870868145196283, 45.75214475091451]
+          [4.871442084743592, 45.75254091471112]
         ]
       }
     },
@@ -988,9 +1006,10 @@
         "id": "Foucauld-commun",
         "line": 10,
         "name": "Ecole et Collège Foucauld",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {
@@ -1011,9 +1030,10 @@
         "id": "VerneBalzac-commun",
         "line": 10,
         "name": "Jules Verne - Reconnaissance Balzac",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {
@@ -1040,9 +1060,10 @@
       "properties": {
         "line": 10,
         "name": "Reconnaissance Balzac Nord",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "10/04/2006",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {
@@ -1064,7 +1085,8 @@
       "properties": {
         "line": 10,
         "name": "Rue George Sand",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "10/04/2006",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
@@ -1143,9 +1165,10 @@
       "properties": {
         "line": 10,
         "name": "Rue de la Ligne de l'Est - Ouest",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {
@@ -1175,7 +1198,8 @@
       "properties": {
         "line": 10,
         "name": "Rue de la Ligne de l'Est étroite",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "10/04/2006",
         "type": "velorue",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
@@ -1194,9 +1218,10 @@
       "properties": {
         "line": 10,
         "name": "Rue de la Ligne de l'Est Sider",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {
@@ -1214,7 +1239,8 @@
       "properties": {
         "line": 10,
         "name": "Rue de la Ligne de l'Est - Médipôle",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "10/04/2006",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
@@ -1257,9 +1283,10 @@
       "properties": {
         "line": 10,
         "name": "Rue Legay Ouest - Site Adecco",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {

@@ -89,7 +89,7 @@ Pour permettre la giration des gros véhicules depuis le quai vers l'avenue Adol
 ::
 
 ::banner{type="wip"}
-Les travaux sur l'avenue Adolphe Max auront lieu en juin et juillet 2025.
+Les travaux sur l'avenue Adolphe Max ont eu lieu en juin et en octobre 2025.
 ::
 
 ### Traversée de la Presqu'Île de Lyon
@@ -183,8 +183,8 @@ Afin de confirmer le bon fonctionnement de la mise en sens unique de Rockefeller
 ::
 
 ::banner{type="wip"}
-Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et début octobre 2025.\
-Les travaux définitifs entre la rue Viala et le boulevard Pinel auront lieu entre l'automne et la fin d'année 2025.
+Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et octobre 2025.\
+Les travaux définitifs entre la rue Viala et le boulevard Pinel auront lieu entre octobre et décembre 2025.
 ::
 
 ### Boulevard Pinel à Bron - Boutasse

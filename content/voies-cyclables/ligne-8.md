@@ -70,7 +70,7 @@ Sur la suite du boulevard du Valvert, le projet prévoit de conforter la piste c
 ::banner{type="wip"}
 Les travaux entre la route de Paris et l'avenue Roosevelt ont lieu de fin avril à mi-juillet 2025, puis de début septembre à mi-octobre 2025.
 Les travaux sur le boulevard du Valvert ont lieu de mi-juillet à mi-septembre 2025.
-Les travaux sur la route de Paris ont lieu de mi-octobre 2025 à mars 2026.
+Les travaux sur la route de Paris ont lieu de fin octobre 2025 à mars 2026.
 ::
 
 #### Tassin - Valvert à Victor Hugo
@@ -121,7 +121,7 @@ streetView: 45.7649531,4.7854616,3a,75y,350.01h,90t
 ::
 
 ::banner{type="postponed"}
-Les travaux auraient du avoir lieu entre octobre et décembre 2025, mais à cause d'un blocage de la mairie de Tassin, l'aménagement de la rue Vincent Serre est reporté au prochain mandat. En revanche, la traversée du giratoire des Hespérides et le raccordement sur l'avenue de la République est bien maintenu aux dates prévues.
+Les travaux auraient du avoir lieu entre décembre 2025 et février 2026, mais à cause d'un blocage de la mairie de Tassin, l'aménagement de la rue Vincent Serre est reporté au prochain mandat. En revanche, la traversée du giratoire des Hespérides et le raccordement sur l'avenue de la République est bien maintenu aux dates prévues.
 ::
 
 #### Avenue Barthélémy Buyer
@@ -220,7 +220,7 @@ streetView: 45.7455569,4.8494585,3a,75y,69.06h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu à l'automne 2025.
+Les travaux devraient avoir lieu en janvier-février 2026.
 ::
 
 #### Rue et Pont de l'Epargne
@@ -253,7 +253,7 @@ streetView: 45.7350505,4.8736669,3a,75y,304.21h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre mi-janvier 2025 et septembre 2025, avec la réalisation de la piste cyclable entre février et juin, puis le traitement des carrefours aux extrémités entre juin et septembre.
+Les travaux ont eu lieu entre mi-janvier 2025 et mi-octobre 2025, avec la réalisation de la piste cyclable entre février et juillet, puis le traitement des carrefours aux extrémités entre août et octobre.
 ::
 
 Entre le boulevard Ambroise Paré et le boulevard Pinel, le projet prévoit de conserver l'aménagement récent réalisé par SYTRAL Mobilités en 2019 à l'occasion de l'arrivée du :transport-link{type=tram line=6}.

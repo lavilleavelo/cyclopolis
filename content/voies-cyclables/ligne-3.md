@@ -36,7 +36,7 @@ Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire
 Ce tronçon débute à l'entrée de la commune de Massieux entre les deux giratoires qui servent d'échangeur avec l'A46. Il continue vers le Sud dans la commune de Genay sur un large trottoir déjà aménagé en voie verte de 3m de large situé côté Ouest de la route de Trévoux puis de l'avenue Sadi Carnot. A l'entrée du centre-ville de Neuville-sur-Saône, il emprunte la rue Barrée aménagée en zone de rencontre, puis rejoint les quais de Saône jusqu'au Pont de Neuville.
 
 ::banner{type="info"}
-Sur l'avenue Sadi Carnot, des travaux mineurs de sécurisation des carrefours auront lieu en septembre 2025 pour relier la voie verte et les rues perpendiculaires à l'Est.
+Sur l'avenue Sadi Carnot, des travaux mineurs de sécurisation des carrefours auront lieu en novembre 2025 pour relier la voie verte et les rues perpendiculaires à l'Est.
 ::
 
 ::banner{type="wip"}

@@ -1398,7 +1398,8 @@
       "properties": {
         "line": 8,
         "name": "Avenue Mermoz Ouest",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "17/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link" : "/voie-lyonnaise-8#avenue-jean-mermoz"

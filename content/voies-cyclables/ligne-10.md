@@ -60,15 +60,15 @@ Sur tout le reste de son parcours, la Voie Lyonnaise 10 suivra le tracé du :tra
 ***Lyon 3***
  - la piste cyclable sur trottoir de l'avenue Lacassagne sera supprimée pour être restituée sur la voirie côté Sud
  - la chicane inconfortable avant l'avenue Lacassagne sera totalement reprise avec des virages doux et intégrée dans un nouveau parc végétalisé
- - la voie le long du tram sera entièrement élargie pour séparer piétons et cyclistes (sauf autour du square Diday)
+ - la voie le long du tram sera entièrement élargie pour séparer piétons et cyclistes
 
 ::banner{type="postponed"}
 Les aménagements prévus sur l'avenue Lacassagne ont été reportés à un prochain mandat et les cyclistes devront circuler en mixité avec les bus et taxis sur des voies bus bilatérales.\
-La section étroite en voie verte de chaque côté du square Diday ne sera finalement pas élargie sur ce mandat et cette zone de conflits important entre cyclistes et piétons perdurera pendant encore de nombreuses années.
+La section étroite en voie verte de chaque côté du square Diday et le long de l'école et du collège Charles de Foucauld ne sera finalement pas élargie sur ce mandat et cette zone de conflits important entre cyclistes et piétons perdurera pendant encore un moment.
 ::
 
 ::banner{type="wip"}
-Les travaux sont prévus entre octobre 2025 et février 2026, sauf le long de l'école et du collège Charles de Foucauld, où ils sont reportés entre juillet et octobre 2026.
+Les travaux sont prévus entre novembre 2025 et janvier 2026, uniquement sur le raccord entre l'avenue Lacssagne et le T3.
 ::
 
 ***Villeurbanne***
@@ -84,8 +84,8 @@ Les travaux sont prévus entre octobre 2025 et février 2026, sauf le long de l'
 Sur la rue de la Ligne de l'Est, à l'Est de la rue Cyprian, le point dur étroit de 125m de long partagé avec les véhicules motorisés dans le sens Ouest>Est sera conservé faute d'élargissement possible. La Ville à Vélo réclame que le sens de circulation soit inversé pour en faire une vélorue compatible avec un faible trafic automobile.
 ::
 
-::banner{type="wip"}
-Les travaux sont prévus entre octobre 2025 et février 2026.
+::banner{type="postponed"}
+Les travaux ont finalement été entièrement reportés en fin de mandat pour une date hypothétique...
 ::
 
 ***Vaulx-La Soie***
