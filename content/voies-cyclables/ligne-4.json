@@ -837,8 +837,8 @@
       "type": "Feature",
       "properties": {
         "line": 4,
-        "name": "Villeurbanne - André Philip",
-        "status": "wip",
+        "name": "Villeurbanne - André Philip Ouest",
+        "status": "planned",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
@@ -847,9 +847,31 @@
         "type": "LineString",
         "coordinates": [
           [4.858714207777808, 45.772826589591475],
+          [4.8644234640565855, 45.772457487402555]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Charpennes République",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.8644234640565855, 45.772457487402555],
           [4.866152107715607, 45.77233566549877],
-          [4.868038286275776, 45.7723761490205]
+          [4.868038286275776, 45.7723761490205],
+          [4.869728775918503, 45.77188357496782],
+          [4.870074124147266, 45.77173493966615],
+          [4.872339206500527, 45.77183272560534],
+          [4.873495080508888, 45.771838627818816],
+          [4.873846241017532, 45.77185193740561]
         ]
       }
     },
@@ -866,11 +888,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.868038286275776, 45.7723761490205],
-          [4.869728775918503, 45.77188357496782],
-          [4.870074124147266, 45.77173493966615],
-          [4.872339206500527, 45.77183272560534],
-          [4.873495080508888, 45.771838627818816],
           [4.873846241017532, 45.77185193740561],
           [4.8761012879226655, 45.771996477405416],
           [4.877486917364465, 45.77187440244553]

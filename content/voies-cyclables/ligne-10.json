@@ -964,9 +964,10 @@
         "id": "Domrémy-commun",
         "line": 10,
         "name": "Impasse Domrémy",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
       },
       "geometry": {

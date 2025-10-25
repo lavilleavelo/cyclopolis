@@ -659,9 +659,10 @@
         "id": "Domrémy-commun",
         "line": 11,
         "name": "Impasse Domrémy",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"
       },
       "geometry": {
