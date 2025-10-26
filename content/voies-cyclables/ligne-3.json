@@ -487,7 +487,8 @@
       "properties": {
         "line": 3,
         "name": "Albigny Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "22/10/2025",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -643,7 +644,8 @@
         "id": "Illhaeusern-commun",
         "line": 3,
         "name": "Collonges - Quai d'Illhaeusern",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "17/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
