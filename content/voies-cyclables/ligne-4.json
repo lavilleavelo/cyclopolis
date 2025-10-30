@@ -431,7 +431,7 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Mairie",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-de-montlouis-à-rue-juttet"
