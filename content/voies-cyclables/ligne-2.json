@@ -88,7 +88,7 @@
         "line": 2,
         "name": "Collonges - Quai d'Illhaeusern",
         "status": "done",
-        "doneat": "17/10/2025",
+        "doneAt": "03/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
@@ -674,8 +674,9 @@
         "id": "Bonnevay127-commun",
         "line": 2,
         "name": "Transbordeur Nord",
-        "status": "wip",
-        "type": "bidirectionnelle",
+        "status": "done",
+        "doneAt": "24/10/2025",
+        "type": "voie-verte",
         "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
         "quality": "satisfactory"
       },
@@ -712,7 +713,7 @@
         "line": 2,
         "name": "Stalingrad Nord",
         "status": "done",
-        "doneat": "29/10/2025",
+        "doneAt": "24/10/2025",
         "type": "voie-verte",
         "link": "/voie-lyonnaise-2#boulevard-stalingrad-nord",
         "quality": "satisfactory"

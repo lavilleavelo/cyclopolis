@@ -106,14 +106,14 @@ streetView: 45.795975,4.7877227,3a,75y,343.47h,90t
 Les travaux sur l'avenue de Montlouis ont eu lieu en avril et mai 2025.\
 Les travaux sur le boulevard de la République ont eu lieu entre décembre 2024 et mai 2025.\
 Les travaux sur la place de la Liberté ont lieu entre septembre et mi-novembre 2025.\
-Les travaux sur la rue de la Mairie ont lieu entre mi-novembre et fin décembre 2025.
+Les travaux sur la rue de la Mairie ont lieu entre mi-octobre et début décembre 2025.
 ::
 
 #### Rue Juttet à Avenue de Champagne
 Sur cette section, la Voie Lyonnaise 4 empruntera l'avenue Lanessan sous la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est, en lieu et place du stationnement existant. Le carrefour avec l'avenue de Champagne sera entièrement réaménagé pour sécuriser le lien avec le quartier de la Duchère.
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu entre octobre et décembre 2025.
+Les travaux ont lieu entre octobre et décembre 2025.
 ::
 
 #### Avenue du 25e Régiment de Tirailleurs Sénégalais

@@ -43,7 +43,7 @@ Après des études complémentaires de la Métropole pour proposer une solution 
 ::
 
 ::banner{type="wip"}
-Les travaux entre le Transbordeur et la passerelle de la Paix auront lieu entre l'été 2025 et début 2026.
+Les travaux entre le Transbordeur et la passerelle de la Paix ont lieu en octobre-novembre 2025.
 ::
 
 #### Boulevard Stalingrad Nord
@@ -58,7 +58,7 @@ Après des études complémentaires de la Métropole, l'option voie verte à l'E
 ::
 
 ::banner{type="wip"}
-Les travaux sur cette section ont lieu entre mi-juillet et fin novembre 2025.
+Les travaux sur cette section ont lieu entre mi-juillet et fin octobre 2025.
 ::
 
 #### Boulevard Stalingrad Sud
