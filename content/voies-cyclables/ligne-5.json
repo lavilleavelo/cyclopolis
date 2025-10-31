@@ -1618,7 +1618,8 @@
       "properties": {
         "line": 5,
         "name": "Boulevard Laurent Bonnevay",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "24/10/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"
