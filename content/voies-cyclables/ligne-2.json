@@ -710,7 +710,8 @@
         "id": "StalingradNord-commun",
         "line": 2,
         "name": "Stalingrad Nord",
-        "status": "wip",
+        "status": "done",
+        "doneat": "29/10/2025",
         "type": "voie-verte",
         "link": "/voie-lyonnaise-2#boulevard-stalingrad-nord",
         "quality": "satisfactory"
