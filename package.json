@@ -6,7 +6,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "patch-package && nuxt prepare",
     "test": "vitest"
   },
   "devDependencies": {
@@ -19,6 +19,7 @@
     "dayjs": "^1.11.18",
     "eslint": "^9.38.0",
     "nuxt": "^3.17.5",
+    "patch-package": "^8.0.1",
     "prettier": "^3.6.2",
     "sitemap": "^8.0.1",
     "typescript": "^5.9.3",
