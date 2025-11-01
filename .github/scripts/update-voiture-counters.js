@@ -61,7 +61,7 @@ async function getCompteurData({ idsPdc }) {
       process.exit(1);
     }
     // petite pause pour ne pas se faire jeter avec un "TOO MANY REQUESTS"
-    await sleep(7000); 
+    await sleep(15000); 
   }
 
   if (idsPdc.length === 1) return resByIdPdc[idsPdc[0]];
