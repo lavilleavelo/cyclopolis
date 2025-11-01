@@ -1,0 +1,26 @@
+diff --git a/node_modules/@nuxt/content/dist/module.cjs b/node_modules/@nuxt/content/dist/module.cjs
+index 3bc094c..def5905 100644
+--- a/node_modules/@nuxt/content/dist/module.cjs
++++ b/node_modules/@nuxt/content/dist/module.cjs
+@@ -2105,7 +2105,7 @@ function resolveSource(source) {
+     return defineLocalSource(source2);
+   });
+ }
+-const MAX_SQL_QUERY_SIZE = 1e5;
++const MAX_SQL_QUERY_SIZE = 1e10;
+ const SLICE_SIZE = 7e4;
+ function generateCollectionInsert(collection, data) {
+   const fields = [];
+diff --git a/node_modules/@nuxt/content/dist/module.mjs b/node_modules/@nuxt/content/dist/module.mjs
+index 3556852..8daf23d 100644
+--- a/node_modules/@nuxt/content/dist/module.mjs
++++ b/node_modules/@nuxt/content/dist/module.mjs
+@@ -2076,7 +2076,7 @@ function resolveSource(source) {
+     return defineLocalSource(source2);
+   });
+ }
+-const MAX_SQL_QUERY_SIZE = 1e5;
++const MAX_SQL_QUERY_SIZE = 1e10;
+ const SLICE_SIZE = 7e4;
+ function generateCollectionInsert(collection, data) {
+   const fields = [];
