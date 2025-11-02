@@ -57,7 +57,7 @@ La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51
 La section sur la commune d'Albigny est réalisée entre février et juillet 2025 au nord du giratoire, puis entre octobre 2025 et janvier 2026 au Sud. Le traitement des entrées charretières en "bateau" sur la partie en voie verte n'est pas satisfaisant et aurait pu être traité avec des rampants de manière à conserver un cheminement sans ressauts.\
 La section sur la commune de Couzon a été réalisée en deux phases : Sud de l'avenue De Gaulle à l'automne 2019 et Nord de l'avenue de juin à décembre 2022.\
 La section sur la commune de St-Romain a été réalisée entre février et juillet 2024.\
-Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et novembre 2025 tandis qu'entre le pont Bocuse et St-Rambert les travaux se limiteront en une pérénisation de la piste cyclable transitoire au printemps 2026.
+Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et décembre 2025 tandis qu'entre le pont Bocuse et St-Rambert les travaux se limiteront en une pérénisation de la piste cyclable transitoire au printemps 2026.
 ::
 
 ::content-image
