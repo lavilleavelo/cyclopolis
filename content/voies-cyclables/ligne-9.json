@@ -591,6 +591,25 @@
         "coordinates": [
           [4.87922082232771, 45.78288539135124],
           [4.880563373515827, 45.78317094959934],
+          [4.882679387118259, 45.78363917766046]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EinsteinE-commun",
+        "line": 9,
+        "name": "Arrêt Croix-Luizet",
+        "status": "variante",
+        "text": "variante temporaire",
+        "type": "bidirectionnelle",
+        "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean",
+        "quality": "satisfactory"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.882679387118259, 45.78363917766046],
           [4.883614216726187, 45.783845993887525],
           [4.883788881098923, 45.783762268603745]

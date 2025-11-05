@@ -3429,6 +3429,28 @@
           [
             4.882679387118259,
             45.78363917766046
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "EinsteinE-commun",
+        "line": 5,
+        "name": "Arrêt Croix-Luizet",
+        "status": "variante",
+        "text": "variante temporaire",
+        "type": "bidirectionnelle",
+        "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua",
+        "quality": "satisfactory"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.882679387118259,
+            45.78363917766046
           ],
           [
             4.883614216726187,
