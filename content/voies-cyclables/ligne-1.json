@@ -486,7 +486,7 @@
         "id": "LignonOuest-commun",
         "line": 1,
         "name": "Allée Achille Lignon Ouest",
-        "status": "planned",
+        "status": "wip",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-1#allée-achille-lignon"

@@ -2996,7 +2996,7 @@
         "id": "LignonOuest-commun",
         "line": 5,
         "name": "Allée Achille Lignon Ouest",
-        "status": "planned",
+        "status": "wip",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-5#pont-poincaré-à-pont-de-lattre-de-tassigny"

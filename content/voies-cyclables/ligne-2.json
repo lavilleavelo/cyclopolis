@@ -87,8 +87,7 @@
         "id": "Illhaeusern-commun",
         "line": 2,
         "name": "Collonges - Quai d'Illhaeusern",
-        "status": "done",
-        "doneAt": "03/10/2025",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"

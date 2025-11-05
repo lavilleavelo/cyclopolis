@@ -54,7 +54,7 @@ Une piste cyclable bidirectionnelle de 4m de large devait être aménagée à l'
 Au sud, la Métropole de Lyon a étudié deux variantes d'insertion d'une piste bidirectionnelle : à l'Ouest côté parc de la Tête d'Or à la place d'une voie de circulation ou à l'Est en réaménageant la voie verte actuelle.
 
 ::banner{type="info"}
-Après des études complémentaires de la Métropole, l'option voie verte à l'Est s'est avérée bien plus crédible, évitant notamment une double traversée du boulevard Stalingrad pour les usagers de la Voie Lyonnaise 1.
+Après des études complémentaires de la Métropole, l'option voie verte à l'Est s'est avérée bien plus crédible, évitant notamment une double traversée du boulevard Stalingrad pour les usagers de la Voie Lyonnaise 1. En revanche, ce choix a exclut le traitement du carrefour 11 Novembre/Stalingrad qui restera peu sécurisé et lisible pendant un moment.
 ::
 
 ::banner{type="wip"}
