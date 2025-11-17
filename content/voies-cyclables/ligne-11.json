@@ -639,7 +639,7 @@
         "id": "LienLacass-commun",
         "line": 11,
         "name": "Liaison Lacassagne",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"

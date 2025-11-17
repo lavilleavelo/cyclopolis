@@ -944,7 +944,7 @@
         "id": "LienLacass-commun",
         "line": 10,
         "name": "Liaison Lacassagne",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
