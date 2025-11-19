@@ -7,6 +7,7 @@ const BASE_URL = 'https://cyclopolis.fr';
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
 
 export default defineNuxtConfig({
+  srcDir: '.',
   app: {
     head: {
       htmlAttrs: { lang: 'fr' },
