@@ -43,7 +43,7 @@
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white">
                   <div class="p-4 flex flex-col gap-2">
                     <NuxtLink
-                      to="/carte-interactive"
+                      :to="linkToMap"
                       class="text-base font-medium text-gray-500 hover:text-lvv-blue-600"
                       @click="close()"
                     >
@@ -300,18 +300,24 @@
 
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue';
+import { useMediaQuery } from "@vueuse/core";
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
 const { getAssoName } = useConfig();
 
 const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
 
-const navItems = [
-  { name: 'Carte interactive', path: '/carte-interactive', target: '_self' },
+const isLargeScreen = useMediaQuery('(min-width: 1024px)');
+const linkToMap = computed(() => {
+  return isLargeScreen.value ? '/carte-interactive?modal=filters' : '/carte-interactive';
+});
+
+const navItems = computed(() => [
+  { name: 'Carte interactive', path: linkToMap.value, target: '_self' },
   { name: 'Plan officiel', path: '/plan-officiel', target: '_self' },
   { name: 'Évolution du réseau', path: '/evolution', target: '_self' },
   { name: 'Baromètre FUB Lyon', path: barometreVeloLink, target: '_blank' }
-];
+]);
 
 const { data: voies } = await useAsyncData(() => {
   return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
