@@ -7,10 +7,11 @@
 
       <Map
         :features="filteredFeatures"
-        :options="{ geolocation: true, canUseSidePanel: true, showLineFilters: true }"
+        :options="{ geolocation: true, canUseSidePanel: true, showLineFilters: true, showDateFilter: true }"
         class="h-full flex-1"
         :total-distance="totalDistance"
         :filtered-distance="filteredDistance"
+        :geojsons="geojsons"
         @update="refreshFilters"
       />
     </ClientOnly>

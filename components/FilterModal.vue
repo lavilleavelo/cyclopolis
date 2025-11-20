@@ -15,7 +15,7 @@
             <Icon name="mdi:close" class="h-6 w-6" aria-hidden="true" />
           </button>
           <DialogTitle class="text-lg font-medium leading-6 text-gray-900 mb-4"> Filtres </DialogTitle>
-          <FilterForm :show-line-filters="showLineFilters" @update="handleUpdate" />
+          <FilterForm :show-line-filters="showLineFilters" :show-date-filter="showDateFilter" :geojsons="geojsons" @update="handleUpdate" />
         </DialogPanel>
       </div>
     </Dialog>
@@ -23,12 +23,13 @@
     <!-- Sidebar on large screens -->
     <div v-if="isOpen && props.canUseSidePanel && isLargeScreen" class="hidden lg:flex flex-col h-full w-96 p-4 overflow-y-auto bg-white border-l">
       <h2 class="text-lg font-medium leading-6 text-gray-900 mb-4"> Filtres </h2>
-      <FilterForm :show-line-filters="showLineFilters" @update="handleUpdate" />
+      <FilterForm :show-line-filters="showLineFilters" :show-date-filter="showDateFilter" :geojsons="geojsons" @update="handleUpdate" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { Collections } from '@nuxt/content';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/vue';
 import { useRoute, useRouter } from 'vue-router';
 import FilterForm from '~/components/filter/FilterForm.vue';
@@ -36,7 +37,9 @@ import { useMediaQuery } from '@vueuse/core';
 
 const props = defineProps<{
   showLineFilters: boolean
+  showDateFilter?: boolean
   canUseSidePanel?: boolean
+  geojsons?: Collections['voiesCyclablesGeojson'][]
 }>();
 
 const route = useRoute();
@@ -59,7 +62,7 @@ watch(() => route.query.modal, (newVal) => {
 
 const emit = defineEmits(['update']);
 
-function handleUpdate(payload: { lines: number[]; years: number[] }) {
+function handleUpdate(payload: { lines: number[]; years: number[]; visibleDateRange?: [number, number] }) {
   emit('update', payload);
 }
 

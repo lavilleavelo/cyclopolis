@@ -17,7 +17,15 @@ export default <RouterConfig>{
       }
     }
 
-    return { top: 0, behavior: 'instant' }
+    if (to.name !== from.name) {
+        return { top: 0, behavior: 'instant' }
+    }
+
+    if (to.name === from.name) {
+        return;
+    }
+
+    return { top: 0, behavior: 'smooth' }
   }
 }
 
