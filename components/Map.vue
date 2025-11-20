@@ -6,7 +6,9 @@
       <div id="map" class="rounded-lg h-full w-full" />
       <FilterModal
         :show-line-filters="options.showLineFilters"
+        :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"
+        :geojsons="geojsons"
         @update="handleUpdate"
       />
     </div>
@@ -51,6 +53,7 @@ const defaultOptions = {
   onFullscreenControlClick: () => { },
   shrink: false,
   showLineFilters: false,
+  showDateFilter: false,
   canUseSidePanel: false,
   onShrinkControlClick: () => { }
 };
@@ -60,6 +63,7 @@ const props = defineProps<{
   options?: Partial<typeof defaultOptions>;
   totalDistance?: number;
   filteredDistance?: number;
+  geojsons?: Collections['voiesCyclablesGeojson'][];
 }>();
 
 const options = { ...defaultOptions, ...props.options };
@@ -67,7 +71,7 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 
 const emit = defineEmits(['update']);
-function handleUpdate(payload: { lines: number[]; years: number[] }) {
+function handleUpdate(payload: { lines: number[]; years: number[]; visibleDateRange?: [number, number] }) {
   emit('update', payload);
 }
 

@@ -9,11 +9,14 @@ export function useBikeLaneFilters(allFeatures: Ref<Collections['voiesCyclablesG
   const qualities = ref(['satisfactory', 'unsatisfactory']);
   const lines = ref<number[]>(Array.from(Array(1000).keys()));
 
-  function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities, visibleLines }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[], visibleLines: number[] }) {
+  const dateRange = ref<[number, number] | null>(null);
+
+  function refreshFilters({ visibleStatuses, visibleTypes, visibleQualities, visibleLines, visibleDateRange }: { visibleStatuses: LaneStatus[]; visibleTypes: LaneType[]; visibleQualities: LaneQuality[], visibleLines: number[], visibleDateRange?: [number, number] }) {
     statuses.value = visibleStatuses;
     types.value = visibleTypes;
     qualities.value = visibleQualities;
     lines.value = visibleLines;
+    dateRange.value = visibleDateRange || null;
   }
 
   const filteredFeatures = computed(() => {
@@ -25,6 +28,22 @@ export function useBikeLaneFilters(allFeatures: Ref<Collections['voiesCyclablesG
       }
 
       if (isLineStringFeature(feature)) {
+        if (dateRange.value) {
+          let featureMonth = 999999;
+          if (feature.properties.doneAt) {
+            const parts = feature.properties.doneAt.split('/');
+            if (parts.length === 3) {
+              const month = parseInt(parts[1]!) - 1;
+              const year = parseInt(parts[2]!);
+              featureMonth = year * 12 + month;
+            }
+          }
+
+          if (featureMonth < dateRange.value[0] || featureMonth > dateRange.value[1]) {
+            return false;
+          }
+        }
+
         return statuses.value.includes(feature.properties.status)
           && types.value.includes(feature.properties.type)
           && qualities.value.includes(feature.properties.quality);
