@@ -39,13 +39,6 @@ export default defineNuxtConfig({
         },
         { hid: 'twitter:image', name: 'twitter:image', content: COVER_IMAGE_URL }
       ],
-      script: [
-        {
-          src: 'https://beamanalytics.b-cdn.net/beam.min.js',
-          'data-token': process.env.BEAM_ANALYTICS_TOKEN,
-          async: true
-        }
-      ]
     }
   },
 
@@ -55,7 +48,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/icon', '@nuxt/eslint'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/icon', '@nuxt/eslint', 'nuxt-umami'],
 
   content: {
     markdown: {
@@ -84,5 +77,15 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue']
   },
 
-  compatibilityDate: '2024-08-11'
+  compatibilityDate: '2024-08-11',
+
+  umami: {
+    id: 'b9a30c67-3c47-465f-9629-632badd7632a',
+    host: 'https://umami.nimbus.lavilleavelo.org',
+    autoTrack: true,
+    ignoreLocalhost: true,
+    excludeQueryParams: true,
+    enabled: true,
+    logErrors: true,
+  },
 });
