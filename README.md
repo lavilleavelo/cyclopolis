@@ -19,7 +19,7 @@ Vous êtes une association, ou un particulier ? Il y a un projet de réseau cycl
 Cyclopolis :
 - est open source, le code est entièrement disponible sur Github.
 - a une licence ouverte, vous avez donc le droit de réutiliser le code pour votre projet.
-- est gratuit a opérer (pas de base de données, pas de serveur dédié, pas de coût de maintenance).
+- est gratuit à opérer (pas de base de données, pas de serveur dédié, pas de coût de maintenance).
 
 ## Aide aux contributeurs/trices non développeurs/euses
 
@@ -29,7 +29,7 @@ le `type` de chaque tronçon peut prendre les valeurs définies [ici](types/inde
 
 
 ## Quelques détails techniques
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Look at the [nuxt 4 documentation](https://nuxt.com/docs/4.x/getting-started/introduction) to learn more.
 
 ## Setup
 
