@@ -1,6 +1,10 @@
 <template>
   <div class="flex h-screen w-screen">
-    <ClientOnly>
+    <ClientOnly fallback-tag="div">
+      <template #fallback>
+        <MapPlaceholder />
+      </template>
+
       <Map
         :features="filteredFeatures"
         :options="{ geolocation: true, canUseSidePanel: true, showLineFilters: true }"
@@ -16,6 +20,7 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
+import MapPlaceholder from "~/components/MapPlaceholder.vue";
 
 const { getRevName } = useConfig();
 

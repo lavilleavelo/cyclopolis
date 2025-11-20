@@ -1,6 +1,10 @@
 <template>
   <div class="h-full w-full flex flex-col">
-    <ClientOnly>
+    <ClientOnly fallback-tag="div">
+      <template #fallback>
+        <MapPlaceholder />
+      </template>
+
       <Map :features="features" :options="{ logo: false, showLineFilters: true }" class="flex-1" />
     </ClientOnly>
     <div>
@@ -8,7 +12,7 @@
         {{ doneDistance }} km de {{ getRevName() }} réalisés
       </div>
       <div class="py-5 px-5 md:px-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
-        <div v-for="year in years" :key="year.label" @click="year.isChecked = !year.isChecked">
+        <div v-for="year in years" :key="year.label" @click="toggleYear(year.label)">
           <div
             class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
             :class="{
@@ -29,6 +33,9 @@
 </template>
 
 <script setup lang="ts">
+
+import MapPlaceholder from "~/components/MapPlaceholder.vue";
+
 const { getAllUniqLineStrings, getDistance } = useStats();
 const { getRevName } = useConfig();
 
@@ -42,26 +49,63 @@ const { data: geojsons } = await useAsyncData(() => {
   return queryCollection('voiesCyclablesGeojson').all();
 });
 
-const years = ref([
-  { label: '< 2021', match: (year: number) => year < 2021, isChecked: true, distance: '' },
-  { label: '2021', match: (year: number) => year === 2021, isChecked: false },
-  { label: '2022', match: (year: number) => year === 2022, isChecked: false },
-  { label: '2023', match: (year: number) => year === 2023, isChecked: false },
-  { label: '2024', match: (year: number) => year === 2024, isChecked: false },
-  { label: '2025', match: (year: number) => year === 2025, isChecked: false }
-]);
+const yearConfigs = [
+  { label: '< 2021', param: 'before2021', match: (year: number) => year < 2021 },
+  { label: '2021', param: '2021', match: (year: number) => year === 2021 },
+  { label: '2022', param: '2022', match: (year: number) => year === 2022 },
+  { label: '2023', param: '2023', match: (year: number) => year === 2023 },
+  { label: '2024', param: '2024', match: (year: number) => year === 2024 },
+  { label: '2025', param: '2025', match: (year: number) => year === 2025 }
+];
 
-years.value.forEach((year, index) =>
-  year.distance = `${index === 0 ? '' : '+'}${computeDistance(filterFeatures(geojsons.value, [year]))}km`
-);
+const route = useRoute();
+const router = useRouter();
 
-const features = computed(() => {
-  return filterFeatures(geojsons.value, years.value.filter(year => year.isChecked));
+const selectedYearParams = ref<string[]>(['before2021']);
+
+onMounted(() => {
+  const yearsParam = typeof route.query.years === 'string' ? route.query.years : 'before2021';
+  selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : ['before2021'];
 });
+
+watch(() => route.query.years, (newYears) => {
+  const yearsParam = newYears ? newYears.toString() : '';
+  selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [];
+});
+
+const years = computed(() => {
+  return yearConfigs.map((config, index) => ({
+    ...config,
+    isChecked: selectedYearParams.value.includes(config.param),
+    distance: `${index === 0 ? '' : '+'}${computeDistance(filterFeatures(geojsons.value, [config]))}km`
+  }));
+});
+
+function toggleYear(label: string) {
+  const config = yearConfigs.find(c => c.label === label);
+  if (!config) return;
+
+  const selected = selectedYearParams.value;
+  const newSelection = selected.includes(config.param)
+    ? selected.filter(y => y !== config.param)
+    : [...selected, config.param];
+
+  router.push({
+    query: {
+      ...route.query,
+      years: newSelection.length > 0 ? newSelection.join(',') : ''
+    }
+  });
+}
+
+const features = computed(() =>
+    filterFeatures(geojsons.value, yearConfigs.filter(config =>
+        selectedYearParams.value.includes(config.param)
+    )));
 
 const doneDistance = computed(() => computeDistance(features.value));
 
-function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof years.value) {
+function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof yearConfigs) {
   if (!jsons) return [];
   return jsons
     .flatMap(json => json.features)
@@ -74,7 +118,7 @@ function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof year
 }
 
 function computeDistance(selectedFeatures: typeof features.value) {
-  if (!geojsons.value) return 0;
+  if (!geojsons.value || !geojsons.value.length) return 0;
   const allUniqFeatures = getAllUniqLineStrings([{ ...geojsons.value[0], features: selectedFeatures }]);
   const doneDistance = getDistance({ features: allUniqFeatures });
   return Math.round(doneDistance / 100) / 10;
