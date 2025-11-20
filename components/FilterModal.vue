@@ -21,7 +21,7 @@
     </Dialog>
 
     <!-- Sidebar on large screens -->
-    <div v-if="isOpen && props.canUseSidePanel && isLargeScreen" class="hidden lg:flex flex-col h-full w-96 p-4 overflow-y-auto bg-white border-l">
+    <div v-if="isOpen && props.canUseSidePanel && isLargeScreen" class="hidden lg:flex flex-col w-96 p-4 overflow-y-auto bg-white border-l h-[calc(100vh-100px)] pb-20 overflow-auto">
       <h2 class="text-lg font-medium leading-6 text-gray-900 mb-4"> Filtres </h2>
       <FilterForm :show-line-filters="showLineFilters" :show-date-filter="showDateFilter" :geojsons="geojsons" @update="handleUpdate" />
     </div>

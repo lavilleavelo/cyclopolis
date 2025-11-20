@@ -37,7 +37,7 @@
 
     <div v-if="options.showDateFilter && minDate !== maxDate" class="mt-2">
       <h3 class="text-base font-medium mb-4">Filtrer par date de réalisation</h3>
-      <div class="px-2">
+      <div>
         <DoubleRangeSlider
           v-model="dateRange"
           :min="minDate"
