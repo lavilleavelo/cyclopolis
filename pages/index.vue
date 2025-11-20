@@ -18,6 +18,12 @@
       <StatsQuality v-if="displayQuality() && displayQualityOnHomePage()" :voies="voies" class="mt-8" />
       <Typology :voies="voies" class="mt-8 max-w-2xl mx-auto" />
     </div>
+    <div>
+      <NuxtLink href="/tableau-de-bord" class="flex items-center justify-center text-lvv-blue-600  hover:underline">
+        Voir le tableau de bord complet
+        <Icon name="heroicons:arrow-right" class="ml-1 h-5 w-5" />
+      </NuxtLink>
+    </div>
     <div class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 lg:mt-24">
       <div class="space-y-8 sm:space-y-12">
         <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center">
