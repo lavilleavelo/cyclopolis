@@ -19,6 +19,7 @@
     "dayjs": "^1.11.19",
     "eslint": "^9.39.1",
     "nuxt": "^4.2.1",
+    "nuxt-umami": "^3.2.1",
     "patch-package": "^8.0.1",
     "prettier": "^3.6.2",
     "sitemap": "^9.0.0",
