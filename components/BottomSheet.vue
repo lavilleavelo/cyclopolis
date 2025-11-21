@@ -85,6 +85,12 @@ watch(() => props.open, (isOpen) => {
 });
 
 function handleDragStart(e: MouseEvent | TouchEvent) {
+  const target = e.target as HTMLElement;
+
+  if (target.closest('button[type="button"]')) {
+    return;
+  }
+
   const clientY = 'touches' in e ? e.touches[0]?.clientY : e.clientY;
   if (clientY === undefined) return;
 
