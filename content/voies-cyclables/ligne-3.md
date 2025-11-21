@@ -104,7 +104,7 @@ Les travaux ont lieu entre mi-juillet et novembre 2025.
 ::
 
 #### Rue Antonin Laborde au pont Clémenceau
-Une piste cyclable bidirectionnelle de 2.50 à 4.00m de large existe déjà sur ce tronçon, créée progressivement entre 2013 et 2020. Elle sera élargie et améliorée entre le pont Clémenceau et le pont Schuman, là où elle était la plus étroite. 
+Une piste cyclable bidirectionnelle de 2.50 à 4.00m de large existe déjà sur ce tronçon, créée progressivement entre 2013 et 2020. Elle a été élargie et améliorée entre le pont Clémenceau et le pont Masaryk, là où elle était la plus étroite. 
 
 La concertation a aussi fait remonter le besoin de supprimer la chicane en voie verte au niveau du n°16 du quai du Commerce. La Métropole de Lyon a étudié la solution la plus pertinente pour améliorer ce point noir, mais a reporté son traitement à un mandat ultérieur suite aux contraintes budgétaires de la fin du mandat 2020-2026.
 
@@ -117,7 +117,11 @@ streetView: 45.7849251,4.8127776,3a,75y,201.14h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux entre le pont Clémenceau et le pont Schuman ont lieu entre septembre 2025 et février 2026.
+Les travaux entre le pont Clémenceau et le pont Masaryk ont eu lieu entre septembre et fin novembre 2025.
+::
+
+::banner{type="postponed"}
+Initialement prévu dans le projet, la végétalisation et l'élargissement de la piste cyclable entre les ponts Masaryk et Schuman ont finalement été reportés sine die.
 ::
 
 #### Pont Clémenceau au pont Koenig

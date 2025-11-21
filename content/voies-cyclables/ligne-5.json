@@ -2680,7 +2680,8 @@
         "id": "Jayr-commun",
         "line": 5,
         "name": "Quai Jaÿr Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#quais-de-saône"

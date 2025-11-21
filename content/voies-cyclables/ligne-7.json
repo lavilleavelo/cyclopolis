@@ -175,7 +175,8 @@
       "properties": {
         "line": 7,
         "name": "Franchissement A46",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "04/11/2025",
         "type": "bidirectionnelle",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -463,7 +464,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Carrefour Mercières",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "31/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -972,7 +974,8 @@
       "properties": {
         "line": 7,
         "name": "Boulevard des Canuts Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#boulevard-des-canuts"
@@ -1147,7 +1150,8 @@
       "properties": {
         "line": 7,
         "name": "Carrefour Boucle/Canuts",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#montée-de-la-boucle"

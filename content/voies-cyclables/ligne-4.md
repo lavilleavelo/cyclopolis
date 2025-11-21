@@ -238,7 +238,12 @@ Ce projet nécessite la suppression du stationnement du côté de la piste cycla
 
 ::banner{type="wip"}
 Les travaux entre le cours de la République et Flachet ont lieu entre janvier et décembre 2025 de l'Est vers l'Ouest.
-Les travaux entre le cours de la République et l'avenue Verguin auront lieu entre juillet 2025 et mars 2026, en commençant par le carrefour Stalingrad/Verguin de juillet à septembre, puis le rond-point des Charpennes de octobre à décembre. En parallèle, le reste du linéaire sera en travaux entre mi-novembre 2025 et mars 2026.
+Les travaux entre le cours de la République et la rue Bat Yam auront lieu entre octobre 2025 et mars 2026, en commençant par le rond-point des Charpennes de octobre à décembre. En parallèle, le reste du linéaire sera en travaux entre mi-novembre 2025 et mars 2026.
+Les travaux sur le carrefour Stalingrad/Verguin ont eu lieu de juillet à septembre 2025.
+::
+
+::banner{type="postponed"}
+Intialement prévu en fin de mandat, l'aménagement de la rue André Philip entre le boulevard Stalingrad et la rue Bat Yam a été reporté à la demande de la mairie de Villeurbanne. Alors que l'amorce de l'aménagement a pourtant été construite au carrefour Verguin, les cyclistes devront continuer à circuler sur des voies de bus bilatérales mal reliées aux aménagements bidirectionnels aux extremités.
 ::
 
 ::banner{type="info"}

@@ -895,7 +895,8 @@
       "properties": {
         "line": 3,
         "name": "Quai Jaÿr Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "28/10/2016",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"
@@ -903,8 +904,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.80777915558761,45.77690650986693],
-          [4.807823745796426, 45.77742243335835],
           [4.80802059173584, 45.7785534770772],
           [4.808217958894886, 45.77898288770718],
           [4.808694642242557, 45.77974257681935],
@@ -918,10 +917,31 @@
     {
       "type": "Feature",
       "properties": {
+        "line": 3,
+        "name": "Quai Jaÿr Masaryk",
+        "status": "done",
+        "doneAt": "20/11/2025",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.80777915558761,45.77690650986693],
+          [4.807823745796426, 45.77742243335835],
+          [4.80802059173584, 45.7785534770772]
+        ]
+      }
+    },    
+    {
+      "type": "Feature",
+      "properties": {
         "id" :"Jayr-commun",
         "line": 3,
         "name": "Quai Jaÿr Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#rue-antonin-laborde-au-pont-clémenceau"

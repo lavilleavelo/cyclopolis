@@ -580,7 +580,8 @@
         "line": 8,
         "id": "Nd-Valvert-commun",
         "name": "Noeud du Valvert",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "14/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-valvert-à-victor-hugo"

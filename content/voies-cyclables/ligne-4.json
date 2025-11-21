@@ -671,7 +671,8 @@
         "id": "Jayr-commun",
         "line": 4,
         "name": "Quai Jaÿr Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#quais-de-saône"
@@ -838,9 +839,9 @@
       "properties": {
         "line": 4,
         "name": "Villeurbanne - André Philip Ouest",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
       },
       "geometry": {

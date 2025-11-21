@@ -155,7 +155,8 @@
         "line": 10,
         "id": "Nd-Valvert-commun",
         "name": "Noeud du Valvert",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "14/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
@@ -515,7 +516,8 @@
         "id" :"Jayr-commun",
         "line": 10,
         "name": "Quai Jaÿr Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
