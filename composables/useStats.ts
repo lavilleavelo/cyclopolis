@@ -142,10 +142,8 @@ export const useStats = () => {
     }
 
     const generateLink = (statuses: LaneStatus[]) => {
-      let link = `/carte-interactive?statuses=${statuses.join(',')}`;
-      if (window?.innerWidth > 1024) {
-          link += '&modal=filters'
-      }
+      let link = `/carte-interactive?statuses=${statuses.join(',')}&modal=filters`;
+
       if (voies.length === 1) {
         const voie = voies[0]?.features[0]?.properties?.line
         if (voie) {

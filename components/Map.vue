@@ -4,7 +4,7 @@
 
     <div class="flex rounded-lg h-full w-full">
       <div id="map" class="rounded-lg h-full w-full" />
-      <FilterModal
+      <FilterPanel
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"
@@ -42,6 +42,7 @@ import ShrinkControl from '@/maplibre/ShrinkControl';
 
 import type { CompteurFeature, } from '~/types';
 import config from '~/config.json';
+import FilterPanel from "~/components/FilterPanel.vue";
 const { displayDistanceInKm, displayPercent } = useStats();
 
 const defaultOptions = {
@@ -164,7 +165,11 @@ onMounted(() => {
   });
 
   watch(() => props.features, newFeatures => {
-    plotFeatures({ map, features: newFeatures });
+    try {
+      plotFeatures({ map, features: newFeatures });
+    } catch (e) {
+      console.warn('not able to plot features', e);
+    }
   });
 
   map.on('click', clickEvent => {
