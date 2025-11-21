@@ -52,9 +52,16 @@
               class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0"
             >
               <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                <NuxtLink :to="linkToMap" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-lvv-blue-600 hover:shadow-lg sm:px-8 transition duration-300 transform hover:scale-105">
-                  Carte interactive
-                </NuxtLink>
+                <ClientOnly>
+                  <template #fallback>
+                    <div class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-lvv-blue-600 sm:px-8">
+                      Carte interactive
+                    </div>
+                  </template>
+                  <NuxtLink :to="linkToMap" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-lvv-blue-600 hover:shadow-lg sm:px-8 transition duration-300 transform hover:scale-105">
+                    Carte interactive
+                  </NuxtLink>
+                </ClientOnly>
                 <NuxtLink to="/plan-officiel" class="flex items-center justify-center px-4 py-3 text-base font-medium rounded-md shadow-sm text-lvv-blue-600 border border-lvv-blue-600 hover:shadow-lg sm:px-8 transition duration-300 transform hover:scale-105">
                   Plan officiel
                 </NuxtLink>

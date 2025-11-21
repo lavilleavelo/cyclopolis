@@ -18,7 +18,7 @@
         <template #fallback>
           <MapPlaceholder :custom-style="{ height: '40vh' }" />
         </template>
-        <Map :features="features" :options="mapOptions" style="height: 40vh" />
+        <Map :features="filteredFeatures" :options="mapOptions" style="height: 40vh" @update="refreshFilters" :total-distance="totalDistance" :filtered-distance="filteredDistance" />
       </ClientOnly>
 
       <div class="mt-2 flex justify-end gap-4">
@@ -50,6 +50,7 @@
 import type { Collections } from '@nuxt/content';
 import GeoJsonToGpx from '@dwayneparton/geojson-to-gpx';
 import MapPlaceholder from "~/components/MapPlaceholder.vue";
+import {useBikeLaneFilters} from "~/composables/useBikeLaneFilters";
 
 const { path } = useRoute();
 const { getLineColor } = useColors();
@@ -71,6 +72,9 @@ const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
 });
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
+
+const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
+
 
 const color = getLineColor(Number(voie.line));
 const distance = geojson.value ? getTotalDistance([geojson.value]) : 0;
