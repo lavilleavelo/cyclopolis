@@ -19,7 +19,7 @@ function checkJsonFilesAreValid(directory = 'content') {
       try {
         JSON.parse(fs.readFileSync(filePath));
       } catch (error) {
-        console.error(`Invalid JSON file: ${filePath}`);
+        console.error(`Invalid JSON file: ${filePath}`, error);
         process.exit(1);
       }
     }
@@ -78,7 +78,7 @@ function checkGeoJsonDataHealth({ links }) {
               const properties = feature.properties || {};
               const requiredKeys = ['line', 'name', 'status', 'quality'];
               for (const key of requiredKeys) {
-                if (!properties.hasOwnProperty(key)) {
+                if (!Object.hasOwn(properties, key)) {
                   console.error(`Missing key '${key}' in LineString properties of file: ${filePath}`);
                   process.exit(1);
                 }
@@ -109,7 +109,7 @@ function checkGeoJsonDataHealth({ links }) {
 
               if (properties.status === 'done') {
                 // 4.1 - Check if all done section have a doneAt property
-                if (!properties.hasOwnProperty('doneAt')) {
+                if (!Object.hasOwn(properties, 'doneAt')) {
                   console.error(`Missing key 'doneAt' in VL ${properties.line}, tronçon: ${properties.name}`);
                   process.exit(1);
                 }
@@ -158,7 +158,7 @@ function checkGeoJsonDataHealth({ links }) {
                 // danger icons added to the map at high zoom level
                 const requiredKeys = ['type', 'name'];
                 for (const key of requiredKeys) {
-                  if (!properties.hasOwnProperty(key)) {
+                  if (!Object.hasOwn(properties, key)) {
                     console.error(`Missing key '${key}' in danger properties of file: ${filePath}`);
                     process.exit(1);
                   }
@@ -167,7 +167,7 @@ function checkGeoJsonDataHealth({ links }) {
                 // perspective images added to the map at high zoom level
                 const requiredKeys = ['type', 'line', 'name', 'imgUrl'];
                 for (const key of requiredKeys) {
-                  if (!properties.hasOwnProperty(key)) {
+                  if (!Object.hasOwn(properties, key)) {
                     console.error(`Missing key '${key}' in perspective properties of file: ${filePath}`);
                     process.exit(1);
                   }
@@ -180,7 +180,7 @@ function checkGeoJsonDataHealth({ links }) {
           }
         }
       } catch (error) {
-        console.error(`Error parsing GeoJSON file: ${filePath}`);
+        console.error(`Error parsing GeoJSON file: ${filePath}`, error);
         process.exit(1);
       }
     }
@@ -224,7 +224,7 @@ function checkCompteursDataHealth() {
       const compteur = JSON.parse(content);
       const requiredKeys = ['name', 'description', 'arrondissement', 'idPdc', 'coordinates', 'counts'];
       for (const key of requiredKeys) {
-        if (!compteur.hasOwnProperty(key)) {
+        if (!Object.hasOwn(compteur, key)) {
           console.error(`Missing key '${key}' in Compteur properties of file: ${filePath}`);
           process.exit(1);
         }
