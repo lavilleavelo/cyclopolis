@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - pull_request
 
 jobs:
   syntax_check:
@@ -11,15 +12,16 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Check Data Health
         run: node .github/scripts/check_data_health.js
