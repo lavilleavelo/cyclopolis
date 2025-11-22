@@ -86,6 +86,7 @@ const props = defineProps<{
 const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
+const filterControl = ref<FilterControl | null>(null);
 
 const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap();
 
@@ -156,12 +157,12 @@ onMounted(() => {
   }
 
   if (options.filter) {
-    const filterControl = new FilterControl({
+    filterControl.value = new FilterControl({
       onClick: () => {
         toggleFilterSidebar();
       },
     });
-    map.addControl(filterControl, 'top-right');
+    map.addControl(filterControl.value, 'top-right');
   }
 
   map.on('load', async () => {
@@ -183,6 +184,16 @@ onMounted(() => {
         console.warn('not able to plot features', e);
       }
     },
+  );
+
+  watch(
+    () => [props.totalDistance, props.filteredDistance],
+    ([totalDistance, filteredDistance]) => {
+      if (filterControl.value && totalDistance && filteredDistance !== undefined) {
+        filterControl.value.setActive(totalDistance - filteredDistance > 0);
+      }
+    },
+    { immediate: true },
   );
 
   map.on('click', (clickEvent) => {
