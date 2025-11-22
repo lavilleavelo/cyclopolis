@@ -11,9 +11,6 @@
         <p class="mt-8 text-xl text-gray-500 leading-8">
           Cette page permet de comparer l'évolution des fréquentations cyclistes et automobiles sur un même axe.
         </p>
-        <!-- <ClientOnly>
-          <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
-        </ClientOnly> -->
       </div>
 
       <!-- liste des compteurs -->

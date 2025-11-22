@@ -319,7 +319,7 @@ const navItems = computed(() => [
   { name: 'Baromètre FUB Lyon', path: barometreVeloLink, target: '_blank' }
 ]);
 
-const { data: voies } = await useAsyncData(() => {
+const { data: voies } = await useAsyncData('voiesCyclablesPages', () => {
   return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
 });
 </script>

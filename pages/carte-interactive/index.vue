@@ -12,7 +12,8 @@
         :total-distance="totalDistance"
         :filtered-distance="filteredDistance"
         :geojsons="geojsons"
-        @update="refreshFilters"
+        :filters="filters"
+        :actions="actions"
       />
     </ClientOnly>
   </div>
@@ -31,8 +32,12 @@ definePageMeta({
   layout: 'fullscreen'
 });
 
-const { data: geojsons } = await useAsyncData(() => {
+const { data: geojsons } = await useAsyncData('geojsons', () => {
   return queryCollection('voiesCyclablesGeojson').all();
+});
+
+const { data: voiesCyclablesPages } = await useAsyncData('voiesCyclablesPages', () => {
+  return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
 });
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
@@ -40,7 +45,11 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
   return geojsons.value.flatMap(geojson => geojson.features);
 });
 
-const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
+const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
+  allFeatures: features,
+  allGeojsons: computed(() => geojsons.value),
+  allLines: computed(() => voiesCyclablesPages.value)
+});
 
 const description =
   `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;

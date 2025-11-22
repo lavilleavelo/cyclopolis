@@ -6,9 +6,6 @@
     :sub-title="veloCounter.arrondissement"
     description=""
   >
-    <!-- <ClientOnly>
-      <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
-    </ClientOnly> -->
     <h2>Total des passages par année</h2>
     <p>Comparaison de la fréquentation annuelle entre les vélos et les voitures. Ceci est possible grâce à la présence de compteurs automatiques sur les différentes voies.</p>
     <ChartLine :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />

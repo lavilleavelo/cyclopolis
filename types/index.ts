@@ -1,4 +1,5 @@
 import type { Collections } from '@nuxt/content';
+import type { Ref } from 'vue';
 
 export type LaneType =
 | 'bidirectionnelle'
@@ -110,4 +111,44 @@ export function isDangerFeature(feature: Collections['voiesCyclablesGeojson']['f
 
 export function isCompteurFeature(feature: Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature): feature is CompteurFeature {
   return isPointFeature(feature) && ['compteur-velo', 'compteur-voiture'].includes(feature.properties.type);
+}
+
+export interface BaseFilterItem {
+  label: string;
+  isEnabled: boolean;
+}
+
+export interface StatusTypeQualityFilterItem extends BaseFilterItem {
+  statuses?: string[];
+  types?: string[];
+  qualities?: string[];
+}
+
+export interface LineFilterItem extends BaseFilterItem {
+  line: number;
+}
+
+export interface FiltersState {
+  statusFilters: Ref<Array<StatusTypeQualityFilterItem>>;
+  typeFilters: Ref<Array<StatusTypeQualityFilterItem>>;
+  qualityFilters: Ref<Array<StatusTypeQualityFilterItem>>;
+  lineFilters: Ref<Array<LineFilterItem>>;
+  dateRange: Ref<[number, number]>;
+  minDate: Ref<number>;
+  maxDate: Ref<number>;
+  dateSteps: Ref<number[]>;
+}
+
+export interface FilterActions {
+  toggleStatusFilter: (index: number) => void;
+  toggleTypeFilter: (index: number) => void;
+  toggleQualityFilter: (index: number) => void;
+  toggleLineFilter: (index: number) => void;
+  setDateRange: (newDateRange: [number, number]) => void;
+}
+
+export interface UseBikeLaneFiltersOptions {
+  allFeatures: Ref<Collections['voiesCyclablesGeojson']['features']>;
+  allGeojsons?: Ref<Collections['voiesCyclablesGeojson'][] | undefined | null>;
+  allLines?: Ref<any[] | undefined | null>;
 }

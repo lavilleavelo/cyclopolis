@@ -18,7 +18,7 @@
         <template #fallback>
           <MapPlaceholder :custom-style="{ height: '40vh' }" />
         </template>
-        <Map :features="filteredFeatures" :options="mapOptions" style="height: 40vh" @update="refreshFilters" :total-distance="totalDistance" :filtered-distance="filteredDistance" />
+        <Map :features="filteredFeatures" :options="mapOptions" style="height: 40vh" :total-distance="totalDistance" :filtered-distance="filteredDistance" :filters="filters" :actions="actions" />
       </ClientOnly>
 
       <div class="mt-2 flex justify-end gap-4">
@@ -73,7 +73,7 @@ const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
 
-const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
+const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({ allFeatures: features });
 
 
 const color = getLineColor(Number(voie.line));

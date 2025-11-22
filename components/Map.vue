@@ -9,15 +9,17 @@
         :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"
         :geojsons="geojsons"
-        @update="handleUpdate"
+        :filters="filters"
+        :actions="actions"
         :filter-style="options.filterStyle"
       />
     </div>
 
     <div
+      @click="toggleFilterSidebar"
       v-if="totalDistance"
-      class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow">
-      Réseau affiché: {{ displayDistanceInKm(filteredDistance || 0) }} ({{ displayPercent(Math.round((filteredDistance || 0) / totalDistance * 100)) }})
+      class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow cursor-pointer select-none">
+      Réseau affiché: {{ displayDistanceInKm(filteredDistance || 0, 1) }} ({{ displayPercent(Math.round((filteredDistance || 0) / totalDistance * 100)) }})
     </div>
 
     <img
@@ -41,7 +43,7 @@ import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
 
-import type { CompteurFeature, } from '~/types';
+import type { CompteurFeature, FiltersState, FilterActions } from '~/types';
 import config from '~/config.json';
 import FilterPanel from "~/components/FilterPanel.vue";
 const { displayDistanceInKm, displayPercent } = useStats();
@@ -67,16 +69,13 @@ const props = defineProps<{
   totalDistance?: number;
   filteredDistance?: number;
   geojsons?: Collections['voiesCyclablesGeojson'][];
+  filters?: FiltersState;
+  actions?: FilterActions;
 }>();
 
 const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
-
-const emit = defineEmits(['update']);
-function handleUpdate(payload: { lines: number[]; years: number[]; visibleDateRange?: [number, number] }) {
-  emit('update', payload);
-}
 
 const {
   loadImages,
@@ -89,6 +88,10 @@ const router = useRouter();
 const route = useRoute();
 
 function toggleFilterSidebar() {
+  if (!props.filters || !props.actions) {
+    return;
+  }
+
   const query = { ...route.query };
   if (query.modal === 'filters') {
     delete query.modal;

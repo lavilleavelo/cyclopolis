@@ -11,7 +11,10 @@
         <p class="mt-8 text-xl text-gray-500 leading-8">
           Chaque début de mois, nous remontons les données de {{ counters.length }} compteurs à vélo de l'agglomération lyonnaise.
         </p>
-        <ClientOnly>
+        <ClientOnly fallback-tag="div">
+          <template #fallback>
+            <MapPlaceholder style="height: 40vh" />
+          </template>
           <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
         </ClientOnly>
       </div>
@@ -38,6 +41,7 @@
 <script setup lang="ts">
 import { removeDiacritics } from '~/helpers/helpers';
 import type { CompteurFeature } from '~/types';
+import MapPlaceholder from "~/components/MapPlaceholder.vue";
 
 const { getCompteursFeatures } = useMap();
 

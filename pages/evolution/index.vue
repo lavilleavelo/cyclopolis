@@ -7,8 +7,12 @@
 
       <Map :features="filteredFeatures"
            :options="{ logo: false, showLineFilters: true, canUseSidePanel: true, filterStyle: 'height: calc(100vh - 240px)' }"
-           class="flex-1" @update="refreshFilters" :total-distance="totalDistance"
-           :filtered-distance="filteredDistance"/>
+           class="flex-1"
+           :total-distance="totalDistance"
+           :filtered-distance="filteredDistance"
+           :filters="filters"
+           :actions="actions"
+      />
     </ClientOnly>
     <div>
       <div class="py-2 px-5 md:px-8 text-white bg-lvv-blue-600 font-semibold text-base">
@@ -49,8 +53,12 @@ definePageMeta({
   layout: 'fullscreen'
 });
 
-const { data: geojsons } = await useAsyncData(() => {
+const { data: geojsons } = await useAsyncData('evolutionGeojsons', () => {
   return queryCollection('voiesCyclablesGeojson').all();
+});
+
+const { data: voiesCyclablesPages } = await useAsyncData('voiesCyclablesPages', () => {
+  return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
 });
 
 const yearConfigs = [
@@ -128,6 +136,9 @@ function computeDistance(selectedFeatures: typeof features.value) {
   return Math.round(doneDistance / 100) / 10;
 }
 
-const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
+const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
+    allFeatures: features,
+    allLines: computed(() => voiesCyclablesPages.value) // Pass lines data for line filters
+});
 
 </script>

@@ -6,7 +6,7 @@
         v-for="(filter, index) in filters"
         :key="filter.label"
         :label="filter.label"
-        :is-enabled="filter.isEnable"
+        :is-enabled="filter.isEnabled"
         @click="emit('toggleFilter', index)"
       />
     </div>
@@ -14,8 +14,8 @@
       <button
         type="button"
         class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
-        :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => !filter.isEnable) }"
-        :disabled="filters.every(filter => !filter.isEnable)"
+        :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => !filter.isEnabled) }"
+        :disabled="filters.every(filter => !filter.isEnabled)"
         @click="emit('deselectAll')"
       >
         Désélectionner tout
@@ -23,8 +23,8 @@
       <button
         type="button"
         class="inline-flex justify-center bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
-        :disabled="filters.every(filter => filter.isEnable)"
-        :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => filter.isEnable) }"
+        :disabled="filters.every(filter => filter.isEnabled)"
+        :class="{ 'opacity-50 cursor-not-allowed': filters.every(filter => filter.isEnabled) }"
         @click="emit('selectAll')"
       >
         Tout sélectionner
@@ -38,7 +38,7 @@ import FilterButton from '~/components/filter/FilterButton.vue';
 
 defineProps<{
   title: string;
-  filters: { label: string; isEnable: boolean }[];
+  filters: { label: string; isEnabled: boolean }[];
   showSelectionButtons: boolean;
 }>();
 

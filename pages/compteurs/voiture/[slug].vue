@@ -7,7 +7,10 @@
     :description="counter.description"
     :image-url="counter.imageUrl"
   >
-    <ClientOnly>
+    <ClientOnly fallback-tag="div">
+      <template #fallback>
+        <MapPlaceholder style="height: 40vh" />
+      </template>
       <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
     </ClientOnly>
     <h2>Total des passages par année</h2>
@@ -29,6 +32,8 @@
 </template>
 
 <script setup>
+import MapPlaceholder from "~/components/MapPlaceholder.vue";
+
 const { path } = useRoute();
 const { withoutTrailingSlash } = useUrl();
 const { getCompteursFeatures } = useMap();
