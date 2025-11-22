@@ -18,6 +18,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   const { getAllUniqLineStrings, getDistance } = useStats();
   const route = useRoute();
   const router = useRouter();
+  const currentPage = route.name;
 
   const statusFilters = ref([
     { label: 'Terminé', isEnabled: true, statuses: ['done', 'variante'] },
@@ -227,6 +228,9 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
         delete newQuery.end;
       }
 
+      if (currentPage !== route.name) {
+        return;
+      }
       void router.replace({ query: newQuery });
     },
     { deep: true },

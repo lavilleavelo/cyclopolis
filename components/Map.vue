@@ -8,7 +8,6 @@
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"
-        :geojsons="geojsons"
         :filters="filters"
         :actions="actions"
         :filter-style="options.filterStyle"
