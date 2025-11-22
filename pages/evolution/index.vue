@@ -49,6 +49,7 @@
 <script setup lang="ts">
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
+import { useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { getAllUniqLineStrings, getDistance } = useStats();
 const { getRevName } = useConfig();
@@ -59,13 +60,9 @@ definePageMeta({
   layout: 'fullscreen',
 });
 
-const { data: geojsons } = await useAsyncData('evolutionGeojsons', () => {
-  return queryCollection('voiesCyclablesGeojson').all();
-});
+const { geojsons } = await useVoiesCyclablesGeojson();
 
-const { data: voiesCyclablesPages } = await useAsyncData('voiesCyclablesPages', () => {
-  return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
-});
+const { voies } = await useGetVoiesCyclablesNums();
 
 const yearConfigs = [
   { label: '< 2021', param: 'before2021', match: (year: number) => year < 2021 },
@@ -151,6 +148,6 @@ function computeDistance(selectedFeatures: typeof features.value) {
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,
-  allLines: computed(() => voiesCyclablesPages.value), // Pass lines data for line filters
+  allLines: computed(() => voies.value),
 });
 </script>

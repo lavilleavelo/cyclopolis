@@ -6,6 +6,7 @@
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
+import { useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { getRevName } = useConfig();
 
@@ -15,9 +16,7 @@ definePageMeta({
   layout: 'embed',
 });
 
-const { data: geojsons } = await useAsyncData(() => {
-  return queryCollection('voiesCyclablesGeojson').all();
-});
+const { geojsons } = await useVoiesCyclablesGeojson();
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
   if (!geojsons.value) return [];
