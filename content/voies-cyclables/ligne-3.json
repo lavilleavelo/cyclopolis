@@ -789,7 +789,7 @@
         "name": "Variante - Gde Rue de Saint Rambert & Termier",
         "status": "variante",
         "type": "velorue",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#saint-rambert-à-pont-de-lîle-barbe"
       },
       "geometry": {
@@ -959,10 +959,11 @@
     {
       "type": "Feature",
       "properties": {
+        "id" :"JayrTremie-commun",
         "line": 3,
         "name": "Quai Jaÿr Trémie",
         "link": "/voie-lyonnaise-3#pont-clémenceau-au-pont-koenig",
-        "type": "bilaterale",
+        "type": "voie-bus",
         "quality": "unsatisfactory",
         "status": "postponed"
       },

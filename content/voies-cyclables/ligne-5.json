@@ -2711,11 +2711,11 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Jayr-commun",
+        "id": "JayrTremie-commun",
         "line": 5,
         "name": "Quai Jaÿr Trémie",
         "link": "/voie-lyonnaise-5#quais-de-saône",
-        "type": "bilaterale",
+        "type": "voie-bus",
         "quality": "unsatisfactory",
         "status": "postponed"
       },

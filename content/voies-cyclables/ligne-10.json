@@ -535,11 +535,11 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Jayr-commun",
+        "id": "JayrTremie-commun",
         "line": 10,
         "name": "Quai Jaÿr Trémie",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin",
-        "type": "bilaterale",
+        "type": "voie-bus",
         "quality": "unsatisfactory",
         "status": "postponed"
       },

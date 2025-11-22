@@ -216,7 +216,7 @@
         "status": "variante",
         "type": "velorue",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",
