@@ -1,9 +1,9 @@
 export default class FullscreenControl {
   _btn: HTMLButtonElement;
   _container: HTMLDivElement;
-  _onClick: Function;
+  _onClick: () => void;
 
-  constructor({ onClick }: { onClick: Function }) {
+  constructor({ onClick }: { onClick: () => void }) {
     this._onClick = onClick;
   }
 

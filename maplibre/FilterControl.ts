@@ -1,10 +1,10 @@
 export default class FilterControl {
   _btn: HTMLButtonElement;
   _container: HTMLDivElement;
-  _onClick: Function;
+  _onClick: () => void;
   _indicator: HTMLSpanElement;
 
-  constructor({ onClick }: { onClick: Function }) {
+  constructor({ onClick }: { onClick: () => void }) {
     this._onClick = onClick;
   }
 

@@ -24,7 +24,7 @@
 import type { Collections } from '@nuxt/content';
 const { getStats, displayDistanceInKm, displayPercent } = useStats();
 
-const { voies, precision } = defineProps<{
+const { voies, precision = 0 } = defineProps<{
   voies: Collections['voiesCyclablesGeojson'][];
   precision?: number;
 }>();

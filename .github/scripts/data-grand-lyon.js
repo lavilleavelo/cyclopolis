@@ -15,7 +15,7 @@
  * info
  * https://data.grandlyon.com/portail/fr/jeux-de-donnees/channels-sites-comptage-metropole-lyon/info
  */
-async function getAllCarCompteurs() {
+/*async function getAllCarCompteurs() {
   const URL =
     'https://data.grandlyon.com/fr/datapusher/ws/rdata/pvo_patrimoine_voirie.pvocomptagechannel/all.json?maxfeatures=-1&start=1';
   const res = await fetch(URL);
@@ -34,7 +34,7 @@ async function getAllCarCompteurs() {
     console.error('[getAllCounters] An error happened while fetching counters');
     process.exit(1);
   }
-}
+}*/
 
 /**
  * info

@@ -171,5 +171,5 @@ export interface FilterActions {
 export interface UseBikeLaneFiltersOptions {
   allFeatures: Ref<Collections['voiesCyclablesGeojson']['features']>;
   allGeojsons?: Ref<Collections['voiesCyclablesGeojson'][] | undefined | null>;
-  allLines?: Ref<any[] | undefined | null>;
+  allLines?: Ref<LineStringFeature[] | undefined | null>;
 }
