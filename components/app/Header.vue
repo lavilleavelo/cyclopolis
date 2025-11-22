@@ -1,7 +1,7 @@
 <template>
   <Popover id="navigation-header" class="relative z-50 bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex justify-between items-center py-3 sm:py-6 md:justify-start md:space-x-10">
+      <div class="flex justify-between items-center py-3 sm:py-6 lg:justify-start lg:space-x-10">
         <div class="flex justify-start items-center lg:w-0 lg:flex-1">
           <NuxtLink to="/" class="flex space-x-2">
             <span class="sr-only">Cyclopolis</span>
@@ -17,7 +17,7 @@
             />
           </NuxtLink>
         </div>
-        <div class="-mr-2 -my-2 md:hidden">
+        <div class="-mr-2 -my-2 lg:hidden">
           <PopoverButton
             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
           >
@@ -25,7 +25,7 @@
             <Icon name="mdi:menu" class="h-6 w-6" aria-hidden="true" />
           </PopoverButton>
         </div>
-        <PopoverGroup as="nav" class="hidden md:flex space-x-10">
+        <PopoverGroup as="nav" class="hidden lg:flex space-x-10">
           <Popover v-slot="{ open }" class="relative">
             <PopoverButton
               :class="[
@@ -50,7 +50,7 @@
             >
               <PopoverPanel
                 v-slot="{ close }"
-                class="absolute left-1/2 z-10 mt-3 w-screen md:w-max max-w-md -translate-x-1/2 transform px-2 sm:px-0"
+                class="absolute left-1/2 z-10 mt-3 w-screen lg:w-max max-w-md -translate-x-1/2 transform px-2 sm:px-0"
               >
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white">
                   <div class="p-4 flex flex-col gap-2">
@@ -172,7 +172,7 @@
             >
               <PopoverPanel
                 v-slot="{ close }"
-                class="absolute left-1/2 z-10 mt-3 w-screen md:w-max max-w-md -translate-x-1/2 transform px-2 sm:px-0"
+                class="absolute left-1/2 z-10 mt-3 w-screen lg:w-max max-w-md -translate-x-1/2 transform px-2 sm:px-0"
               >
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white">
                   <div class="p-4 flex flex-col gap-2">
@@ -203,7 +203,13 @@
             </transition>
           </Popover>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="hidden lg:flex items-center justify-end lg:flex-1 lg:w-0">
+          <NuxtLink
+            to="/historique"
+            class="whitespace-nowrap space-x-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-lvv-blue-600 rounded-md text-base font-medium transition duration-300 transform hover:scale-105"
+          >
+            Historique
+          </NuxtLink>
           <NuxtLink
             to="/blog"
             class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lvv-blue-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
@@ -227,7 +233,7 @@
       <PopoverPanel
         v-slot="{ close }"
         focus
-        class="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right md:hidden"
+        class="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right lg:hidden"
       >
         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
           <div class="pt-5 pb-6 px-5">
@@ -292,15 +298,22 @@
                 <!-- Autres -->
                 <hr class="h-px bg-gray-200 border-0" />
 
-                <NuxtLink to="/blog" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" @click="close()">
-                  <span class="ml-3 text-base font-medium text-gray-900"> Blog </span>
-                </NuxtLink>
                 <NuxtLink
                   to="/tableau-de-bord"
                   class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   @click="close()"
                 >
                   <span class="ml-3 text-base font-medium text-gray-900"> Tableau de bord </span>
+                </NuxtLink>
+                <NuxtLink
+                  to="/historique"
+                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  @click="close()"
+                >
+                  <span class="ml-3 text-base font-medium text-gray-900"> Historique </span>
+                </NuxtLink>
+                <NuxtLink to="/blog" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" @click="close()">
+                  <span class="ml-3 text-base font-medium text-gray-900"> Blog </span>
                 </NuxtLink>
               </nav>
             </div>
