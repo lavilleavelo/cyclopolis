@@ -122,29 +122,3 @@ function updateFile({ file, counter }) {
   const filePath = path.join('content/compteurs/voiture', file);
   fs.writeFileSync(filePath, JSON.stringify(counter, null, 2));
 }
-
-/**
- * récupération de tous les compteurs de la métropole de Lyon
- */
-async function getAllCeremaCounters() {
-  const params = new URLSearchParams({
-    offset: 3, // les compteurs lyonnais sont 3ème dans la liste
-    limit: 1,
-    include_count_points: true
-  });
-  const URL = 'https://avatar.cerema.fr/api/operators?' + params.toString();
-  const res = await fetch(URL);
-  if (res.ok) {
-    const data = await res.json();
-    const compteurs = data[0].count_points.map(item => ({
-      id: item.id,
-      count_point_name: item.count_point_name,
-      station_name: item.station_name,
-      op_road_name: item.op_road_name
-    }));
-    console.log(JSON.stringify(compteurs, null, 2));
-  } else {
-    console.error('[getAllCeremaCounters] An error happened while fetching counters');
-    process.exit(1);
-  }
-}

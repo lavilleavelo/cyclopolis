@@ -13,9 +13,7 @@
         >
           <Icon name="mdi:close" class="h-6 w-6" aria-hidden="true" />
         </button>
-        <DialogTitle class="text-lg font-medium leading-6 text-gray-900">
-          Légende
-        </DialogTitle>
+        <DialogTitle class="text-lg font-medium leading-6 text-gray-900"> Légende </DialogTitle>
         <div class="mt-2">
           <div class="grid grid-cols-[64px_1fr] gap-x-4">
             <div class="my-auto rounded-md border-gray-500 border">
@@ -25,16 +23,12 @@
                 </div>
               </div>
             </div>
-            <div>
-              prévu pour 2026
-            </div>
+            <div>prévu pour 2026</div>
 
             <div class="my-auto rounded-md border-gray-500 border">
               <div class="h-1 bg-lvv-blue-600" />
             </div>
-            <div>
-              terminé
-            </div>
+            <div>terminé</div>
 
             <div class="my-auto rounded-md border-gray-500 border">
               <div class="h-1 relative">
@@ -43,28 +37,20 @@
                 </div>
               </div>
             </div>
-            <div>
-              en travaux
-            </div>
+            <div>en travaux</div>
 
             <div class="my-auto h-4 rounded-md bg-lvv-blue-600 opacity-20 px-1">
               <div class="flex items-center justify-center h-full">
                 <div class="h-1 w-full rounded-md border-2 border-gray-500" />
               </div>
             </div>
-            <div>
-              linéaire inconnu
-            </div>
+            <div>linéaire inconnu</div>
 
             <div class="my-auto rounded-md border-gray-500 border relative">
               <div class="h-1 bg-white" />
-              <div class="text-lvv-blue-600 font-bold leading-none absolute -top-2 leading-none">
-                x x x x x
-              </div>
+              <div class="text-lvv-blue-600 font-bold leading-none absolute -top-2 leading-none">x x x x x</div>
             </div>
-            <div>
-              reporté après 2026
-            </div>
+            <div>reporté après 2026</div>
           </div>
         </div>
       </DialogPanel>

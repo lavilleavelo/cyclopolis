@@ -1,19 +1,10 @@
 <template>
   <figure class="grid grid-cols-1 justify-items-center">
-    <video
-      controls
-      class="w-full rounded-lg"
-      :src="videoUrl"
-      :alt="caption"
-      width="1310"
-      height="873"
-    />
+    <video controls class="w-full rounded-lg" :src="videoUrl" :alt="caption" width="1310" height="873" />
     <figcaption v-if="caption" class="text-center">
       {{ caption }}
     </figcaption>
-    <div v-if="credit" class="text-base text-center italic">
-      Crédit vidéo : {{ credit }}
-    </div>
+    <div v-if="credit" class="text-base text-center italic">Crédit vidéo : {{ credit }}</div>
   </figure>
 </template>
 

@@ -9,7 +9,8 @@
           Suivi des compteurs vélo de l'agglomération lyonnaise
         </h2>
         <p class="mt-8 text-xl text-gray-500 leading-8">
-          Chaque début de mois, nous remontons les données de {{ counters.length }} compteurs à vélo de l'agglomération lyonnaise.
+          Chaque début de mois, nous remontons les données de {{ counters.length }} compteurs à vélo de l'agglomération
+          lyonnaise.
         </p>
         <ClientOnly fallback-tag="div">
           <template #fallback>
@@ -26,7 +27,13 @@
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
           </div>
-          <input id="compteur" v-model="searchText" type="text" class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md" placeholder="Chercher un compteur...">
+          <input
+            id="compteur"
+            v-model="searchText"
+            type="text"
+            class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md"
+            placeholder="Chercher un compteur..."
+          />
         </div>
       </div>
 
@@ -41,33 +48,35 @@
 <script setup lang="ts">
 import { removeDiacritics } from '~/helpers/helpers';
 import type { CompteurFeature } from '~/types';
-import MapPlaceholder from "~/components/MapPlaceholder.vue";
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { getCompteursFeatures } = useMap();
 
 const { data: allCounters } = await useAsyncData(() => {
-  return queryCollection('compteurs')
-    .where('path', 'LIKE', '/compteurs/velo%')
-    .all();
+  return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
 });
 
 const searchText = ref('');
 
 const counters = computed(() => {
-  if (!allCounters.value) { return []; }
+  if (!allCounters.value) {
+    return [];
+  }
   return [...allCounters.value]
     .sort((counter1, counter2) => {
       const count1 = counter1.counts.at(-1)?.count ?? 0;
       const count2 = counter2.counts.at(-1)?.count ?? 0;
       return count2 - count1;
     })
-    .filter(counter => removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)))
+    .filter(counter =>
+      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value))
+    )
     .map(counter => ({
       ...counter,
       counts: counter.counts.map(count => ({
         month: count.month,
-        veloCount: count.count,
-      })),
+        veloCount: count.count
+      }))
     }));
 });
 

@@ -1,8 +1,15 @@
 import type { Collections } from '@nuxt/content';
-import type { GeoJSONSource, Map} from 'maplibre-gl';
+import type { GeoJSONSource, Map } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
 import { createApp, defineComponent, h, Suspense } from 'vue';
-import { isCompteurFeature, isDangerFeature, isLineStringFeature, isPerspectiveFeature, isPointFeature, type CompteurFeature } from '~/types';
+import {
+  isCompteurFeature,
+  isDangerFeature,
+  isLineStringFeature,
+  isPerspectiveFeature,
+  isPointFeature,
+  type CompteurFeature
+} from '~/types';
 
 // Tooltips
 import PerspectiveTooltip from '~/components/tooltips/PerspectiveTooltip.vue';
@@ -10,13 +17,19 @@ import CounterTooltip from '~/components/tooltips/CounterTooltip.vue';
 import DangerTooltip from '~/components/tooltips/DangerTooltip.vue';
 import LineTooltip from '~/components/tooltips/LineTooltip.vue';
 
-type ColoredLineStringFeature = Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: "LineString" } }> & { properties: { color: string } };
+type ColoredLineStringFeature = Extract<
+  Collections['voiesCyclablesGeojson']['features'][0],
+  { geometry: { type: 'LineString' } }
+> & { properties: { color: string } };
 const { getNbVoiesCyclables } = useConfig();
 
 // features plotted last are on top
 const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11].reverse();
 
-function sortByLine(featureA: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: "LineString" } }>, featureB: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: "LineString" } }>) {
+function sortByLine(
+  featureA: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
+  featureB: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>
+) {
   const lineA = featureA.properties.line;
   const lineB = featureB.properties.line;
   return sortOrder.indexOf(lineA) - sortOrder.indexOf(lineB);
@@ -65,7 +78,9 @@ function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
 export const useMap = () => {
   const { getLineColor } = useColors();
 
-  function addLineColor(feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: "LineString" } }>): ColoredLineStringFeature {
+  function addLineColor(
+    feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>
+  ): ColoredLineStringFeature {
     return {
       ...feature,
       properties: {
@@ -75,7 +90,11 @@ export const useMap = () => {
     };
   }
 
-  function upsertMapSource(map: Map, sourceName: string, features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[] ) {
+  function upsertMapSource(
+    map: Map,
+    sourceName: string,
+    features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]
+  ) {
     const source = map.getSource(sourceName) as GeoJSONSource;
     if (source) {
       source.setData({ type: 'FeatureCollection', features });
@@ -103,12 +122,20 @@ export const useMap = () => {
     map.addImage('cross-icon', cross.data, { sdf: true });
   }
 
-  function plotUnsatisfactorySections({ map, features }: { map: Map; features: Collections['voiesCyclablesGeojson']['features'] }) {
+  function plotUnsatisfactorySections({
+    map,
+    features
+  }: {
+    map: Map;
+    features: Collections['voiesCyclablesGeojson']['features'];
+  }) {
     const sections = features.filter(feature => {
-      return 'quality' in feature.properties &&
+      return (
+        'quality' in feature.properties &&
         feature.properties.quality === 'unsatisfactory' &&
         'status' in feature.properties &&
-        feature.properties.status !== 'postponed';
+        feature.properties.status !== 'postponed'
+      );
     });
 
     if (sections.length === 0 && !map.getLayer('unsatisfactory-sections')) {
@@ -132,7 +159,13 @@ export const useMap = () => {
     });
   }
 
-  function plotUnderlinedSections({ map, features }: { map: Map; features: Collections['voiesCyclablesGeojson']['features'] }) {
+  function plotUnderlinedSections({
+    map,
+    features
+  }: {
+    map: Map;
+    features: Collections['voiesCyclablesGeojson']['features'];
+  }) {
     const sections = features.map((feature, index) => ({ id: index, ...feature }));
 
     if (sections.length === 0 && !map.getLayer('highlight')) {
@@ -225,7 +258,10 @@ export const useMap = () => {
   function plotWipSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(feature => {
       // on considère les sections en test comme en travaux
-      return 'status' in feature.properties && (feature.properties.status === 'wip' || feature.properties.status === 'tested');
+      return (
+        'status' in feature.properties &&
+        (feature.properties.status === 'wip' || feature.properties.status === 'tested')
+      );
     });
 
     if (sections.length === 0 && !map.getLayer('wip-sections')) {
@@ -274,7 +310,9 @@ export const useMap = () => {
   }
 
   function plotPlannedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'planned');
+    const sections = features.filter(
+      feature => 'status' in feature.properties && feature.properties.status === 'planned'
+    );
 
     if (sections.length === 0 && !map.getLayer('planned-sections')) {
       return;
@@ -296,7 +334,9 @@ export const useMap = () => {
   }
 
   function plotVarianteSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'variante');
+    const sections = features.filter(
+      feature => 'status' in feature.properties && feature.properties.status === 'variante'
+    );
 
     if (sections.length === 0 && !map.getLayer('variante-sections')) {
       return;
@@ -338,7 +378,9 @@ export const useMap = () => {
   }
 
   function plotVariantePostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'variante-postponed');
+    const sections = features.filter(
+      feature => 'status' in feature.properties && feature.properties.status === 'variante-postponed'
+    );
 
     if (sections.length === 0 && !map.getLayer('variante-postponed-sections')) {
       return;
@@ -380,7 +422,9 @@ export const useMap = () => {
   }
 
   function plotUnknownSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'unknown');
+    const sections = features.filter(
+      feature => 'status' in feature.properties && feature.properties.status === 'unknown'
+    );
 
     if (sections.length === 0 && !map.getLayer('unknown-sections')) {
       return;
@@ -440,7 +484,9 @@ export const useMap = () => {
   }
 
   function plotPostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(feature => 'status' in feature.properties && feature.properties.status === 'postponed');
+    const sections = features.filter(
+      feature => 'status' in feature.properties && feature.properties.status === 'postponed'
+    );
     const featuresByColor = groupFeaturesByColor(sections);
 
     for (let line = 1; line <= getNbVoiesCyclables(); line++) {
@@ -496,7 +542,13 @@ export const useMap = () => {
     }
   }
 
-  function plotPerspective({ map, features }: { map: Map; features: Collections['voiesCyclablesGeojson']['features'] }) {
+  function plotPerspective({
+    map,
+    features
+  }: {
+    map: Map;
+    features: Collections['voiesCyclablesGeojson']['features'];
+  }) {
     const perspectives = features.filter(isPerspectiveFeature).map(feature => ({
       ...feature,
       properties: {
@@ -615,8 +667,12 @@ export const useMap = () => {
     counters: Collections['compteurs'][] | null;
     type: 'compteur-velo' | 'compteur-voiture';
   }): CompteurFeature[] {
-    if (!counters) { return []; }
-    if (counters.length === 0) { return []; }
+    if (!counters) {
+      return [];
+    }
+    if (counters.length === 0) {
+      return [];
+    }
 
     return counters.map(counter => ({
       type: 'Feature',
@@ -633,13 +689,21 @@ export const useMap = () => {
     }));
   }
 
-  function fitBounds({ map, features }: { map: Map; features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature> }) {
+  function fitBounds({
+    map,
+    features
+  }: {
+    map: Map;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+  }) {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
       .flatMap(feature => feature.geometry.coordinates);
     if (allLineStringsCoordinates.length === 0) return;
 
-    const allPointsCoordinates: [number, number][] = features.filter(isPointFeature).map(feature => feature.geometry.coordinates);
+    const allPointsCoordinates: [number, number][] = features
+      .filter(isPointFeature)
+      .map(feature => feature.geometry.coordinates);
     if (allPointsCoordinates.length === 0) return;
 
     if (features.length === 1 && allPointsCoordinates.length === 1) {
@@ -653,7 +717,13 @@ export const useMap = () => {
     }
   }
 
-  function plotFeatures({ map, features }: { map: Map; features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature> }) {
+  function plotFeatures({
+    map,
+    features
+  }: {
+    map: Map;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+  }) {
     const lineStringFeatures = features.filter(isLineStringFeature).sort(sortByLine).map(addLineColor);
     plotUnderlinedSections({ map, features: lineStringFeatures });
     plotUnsatisfactorySections({ map, features: lineStringFeatures });
@@ -665,7 +735,6 @@ export const useMap = () => {
     plotUnknownSections({ map, features: lineStringFeatures });
     plotPostponedSections({ map, features: lineStringFeatures });
 
-
     const compteurFeature = features.filter(isCompteurFeature);
     plotCompteurs({ map, features: compteurFeature });
 
@@ -676,12 +745,22 @@ export const useMap = () => {
     plotPerspective({ map, features: perspectiveFeatures });
   }
 
-  function handleMapClick({ map, features, clickEvent }: { map: Map; features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>; clickEvent: maplibregl.MapMouseEvent }) {
+  function handleMapClick({
+    map,
+    features,
+    clickEvent
+  }: {
+    map: Map;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    clickEvent: maplibregl.MapMouseEvent;
+  }) {
     const layers = [
       {
         id: 'dangers',
         isClicked: () => {
-          if (!map.getLayer('dangers')) { return false; }
+          if (!map.getLayer('dangers')) {
+            return false;
+          }
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['dangers'] });
           return mapFeature.length > 0;
         },
@@ -695,16 +774,20 @@ export const useMap = () => {
       {
         id: 'perspectives',
         isClicked: () => {
-          if (!map.getLayer('perspectives')) { return false; }
+          if (!map.getLayer('perspectives')) {
+            return false;
+          }
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['perspectives'] });
           return mapFeature.length > 0;
         },
         getTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['perspectives'] })[0];
           const feature = features.find(f => {
-            return f.properties.type === 'perspective' &&
-            f.properties.line === mapFeature.properties.line &&
-            f.properties.imgUrl === mapFeature.properties.imgUrl;
+            return (
+              f.properties.type === 'perspective' &&
+              f.properties.line === mapFeature.properties.line &&
+              f.properties.imgUrl === mapFeature.properties.imgUrl
+            );
           });
 
           return { feature };
@@ -739,15 +822,18 @@ export const useMap = () => {
 
           const lineStringFeatures = features.filter(isLineStringFeature);
 
-          const feature = lineStringFeatures
-            .find(f => f.properties.line === line && f.properties.name === name);
+          const feature = lineStringFeatures.find(f => f.properties.line === line && f.properties.name === name);
 
           if (!feature) {
             return;
           }
 
           const lines = feature.properties.id
-            ? [...new Set(lineStringFeatures.filter(f => f.properties.id === feature!.properties.id).map(f => f.properties.line))]
+            ? [
+                ...new Set(
+                  lineStringFeatures.filter(f => f.properties.id === feature!.properties.id).map(f => f.properties.line)
+                )
+              ]
             : [feature!.properties.line];
 
           return { feature, lines };
@@ -757,7 +843,9 @@ export const useMap = () => {
       {
         id: 'compteurs',
         isClicked: () => {
-          if (!map.getLayer('compteurs')) { return false; }
+          if (!map.getLayer('compteurs')) {
+            return false;
+          }
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['compteurs'] });
           return mapFeature.length > 0;
         },
@@ -771,7 +859,9 @@ export const useMap = () => {
     ];
 
     const clickedLayer = layers.find(layer => layer.isClicked());
-    if (!clickedLayer) { return; }
+    if (!clickedLayer) {
+      return;
+    }
 
     const props = clickedLayer.getTooltipProps();
     if (!props) {
@@ -790,10 +880,11 @@ export const useMap = () => {
     const component = defineComponent(clickedLayer.component);
     nextTick(() => {
       createApp({
-        render: () => h(Suspense, null, {
-          default: h(component, props),
-          fallback: 'Chargement...'
-        })
+        render: () =>
+          h(Suspense, null, {
+            default: h(component, props),
+            fallback: 'Chargement...'
+          })
       }).mount(`#${tooltipContentId}`);
 
       // reset dimensions set initially to position the popup in case the popup content ends up being smaller than the initial min dimensions

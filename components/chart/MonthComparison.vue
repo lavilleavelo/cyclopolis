@@ -16,7 +16,9 @@
           leave-from-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <ListboxOptions class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm list-none list-outside pl-0">
+          <ListboxOptions
+            class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm list-none list-outside pl-0"
+          >
             <ListboxOption
               v-for="month in months"
               v-slot="{ active, selected }"
@@ -27,19 +29,11 @@
               <li
                 :class="[
                   active ? 'bg-lvv-blue-300 text-lvv-blue-400' : 'text-gray-900',
-                  'relative cursor-default select-none py-2 pl-10 pr-4',
+                  'relative cursor-default select-none py-2 pl-10 pr-4'
                 ]"
               >
-                <span
-                  :class="[
-                    selected ? 'font-medium' : 'font-normal',
-                    'block truncate',
-                  ]"
-                >{{ month.name }}</span>
-                <span
-                  v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-lvv-blue-600"
-                >
+                <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">{{ month.name }}</span>
+                <span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3 text-lvv-blue-600">
                   <Icon name="mdi:check" class="h-5 w-5" aria-hidden="true" />
                 </span>
               </li>
@@ -55,13 +49,8 @@
   </div>
 </template>
 
-<script setup lang='ts'>
-import {
-  Listbox,
-  ListboxButton,
-  ListboxOptions,
-  ListboxOption
-} from '@headlessui/vue';
+<script setup lang="ts">
+import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue';
 import type { Count } from '~/types';
 
 const props = defineProps({
@@ -90,15 +79,19 @@ const lastRecordMonth = new Date(lastRecord.month).getMonth();
 const selectedMonth = ref(months.find(month => month.value === lastRecordMonth));
 
 const counts = computed(() => {
-  return props.data.counts.filter((count: Count) => {
-    const date = new Date(count.month);
-    const month = date.getMonth();
-    return month === selectedMonth.value!.value;
-  }).sort((count1: Count, count2: Count) => new Date(count1.month).getTime() - new Date(count2.month).getTime());
+  return props.data.counts
+    .filter((count: Count) => {
+      const date = new Date(count.month);
+      const month = date.getMonth();
+      return month === selectedMonth.value!.value;
+    })
+    .sort((count1: Count, count2: Count) => new Date(count1.month).getTime() - new Date(count2.month).getTime());
 });
 
 const years = computed(() => {
-  return counts.value.map((count: Count) => new Date(count.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' }));
+  return counts.value.map((count: Count) =>
+    new Date(count.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' })
+  );
 });
 
 const chartOptions = computed(() => {
@@ -120,13 +113,15 @@ const chartOptions = computed(() => {
         }
       }
     },
-    series: [{
-      name: 'fréquentation',
-      data: countsValues.map((y: number) => {
-        const color = y === max ? '#C84271' : '#152B68';
-        return { y, color, dataLabels: { color } };
-      })
-    }]
+    series: [
+      {
+        name: 'fréquentation',
+        data: countsValues.map((y: number) => {
+          const color = y === max ? '#C84271' : '#152B68';
+          return { y, color, dataLabels: { color } };
+        })
+      }
+    ]
   };
 });
 </script>

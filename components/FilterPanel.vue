@@ -1,26 +1,28 @@
 <template>
-    <!-- Bottom Sheet for small screens -->
+  <!-- Bottom Sheet for small screens -->
   <ClientOnly>
     <BottomSheet
-    v-if="(!isLargeScreen || !props.canUseSidePanel) && filters && actions"
-    :open="isOpen"
-    title="Filtres"
-    @close="closeModal"
-  >
-    <FilterForm
-      :show-line-filters="showLineFilters"
-      :show-date-filter="showDateFilter"
-      :filters="filters"
-      :actions="actions"
-    />
-  </BottomSheet>
+      v-if="(!isLargeScreen || !props.canUseSidePanel) && filters && actions"
+      :open="isOpen"
+      title="Filtres"
+      @close="closeModal"
+    >
+      <FilterForm
+        :show-line-filters="showLineFilters"
+        :show-date-filter="showDateFilter"
+        :filters="filters"
+        :actions="actions"
+      />
+    </BottomSheet>
   </ClientOnly>
 
   <!-- Sidebar on large screens -->
-  <div v-if="isOpen && props.canUseSidePanel && isLargeScreen && filters && actions"
-       :style="props.filterStyle"
-       class="hidden lg:flex flex-col w-96 p-4 overflow-y-auto bg-white border-l pb-20 overflow-auto">
-    <h2 class="text-lg font-medium leading-6 text-gray-900 mb-4"> Filtres </h2>
+  <div
+    v-if="isOpen && props.canUseSidePanel && isLargeScreen && filters && actions"
+    :style="props.filterStyle"
+    class="hidden lg:flex flex-col w-96 p-4 overflow-y-auto bg-white border-l pb-20 overflow-auto"
+  >
+    <h2 class="text-lg font-medium leading-6 text-gray-900 mb-4">Filtres</h2>
     <FilterForm
       :show-line-filters="showLineFilters"
       :show-date-filter="showDateFilter"
@@ -38,12 +40,12 @@ import { useMediaQuery } from '@vueuse/core';
 import type { FiltersState, FilterActions } from '~/types';
 
 const props = defineProps<{
-  showLineFilters: boolean
-  showDateFilter?: boolean
-  canUseSidePanel?: boolean
-  filterStyle: string,
-  filters?: FiltersState,
-  actions?: FilterActions
+  showLineFilters: boolean;
+  showDateFilter?: boolean;
+  canUseSidePanel?: boolean;
+  filterStyle: string;
+  filters?: FiltersState;
+  actions?: FilterActions;
 }>();
 
 const route = useRoute();
@@ -59,8 +61,11 @@ function closeModal() {
   router.replace({ query });
 }
 
-watch(() => route.query.modal, (newVal) => {
-  isOpen.value = newVal === 'filters';
-}, { immediate: true });
-
+watch(
+  () => route.query.modal,
+  newVal => {
+    isOpen.value = newVal === 'filters';
+  },
+  { immediate: true }
+);
 </script>

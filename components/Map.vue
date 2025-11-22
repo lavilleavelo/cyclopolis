@@ -16,10 +16,13 @@
     </div>
 
     <div
-      @click="toggleFilterSidebar"
       v-if="totalDistance"
-      class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow cursor-pointer select-none">
-      Réseau affiché: {{ displayDistanceInKm(filteredDistance || 0, 1) }} ({{ displayPercent(Math.round((filteredDistance || 0) / totalDistance * 100)) }})
+      class="absolute top-3 left-12 bg-white p-1 text-sm rounded-md shadow cursor-pointer select-none"
+      @click="toggleFilterSidebar"
+    >
+      Réseau affiché: {{ displayDistanceInKm(filteredDistance || 0, 1) }} ({{
+        displayPercent(Math.round(((filteredDistance || 0) / totalDistance) * 100))
+      }})
     </div>
 
     <img
@@ -29,13 +32,20 @@
       width="75"
       height="75"
       :alt="`logo ${config.assoName}`"
-    >
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
-import { Map, AttributionControl, GeolocateControl, NavigationControl, type StyleSpecification, type LngLatLike } from 'maplibre-gl';
+import {
+  Map,
+  AttributionControl,
+  GeolocateControl,
+  NavigationControl,
+  type StyleSpecification,
+  type LngLatLike
+} from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
 import LegendControl from '@/maplibre/LegendControl';
@@ -45,7 +55,7 @@ import ShrinkControl from '@/maplibre/ShrinkControl';
 
 import type { CompteurFeature, FiltersState, FilterActions } from '~/types';
 import config from '~/config.json';
-import FilterPanel from "~/components/FilterPanel.vue";
+import FilterPanel from '~/components/FilterPanel.vue';
 const { displayDistanceInKm, displayPercent } = useStats();
 
 const defaultOptions = {
@@ -54,17 +64,17 @@ const defaultOptions = {
   filter: true,
   geolocation: false,
   fullscreen: false,
-  onFullscreenControlClick: () => { },
+  onFullscreenControlClick: () => {},
   shrink: false,
   showLineFilters: false,
   showDateFilter: false,
   canUseSidePanel: false,
-  onShrinkControlClick: () => { },
+  onShrinkControlClick: () => {},
   filterStyle: 'height: calc(100vh - 100px)'
 };
 
 const props = defineProps<{
-  features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]
+  features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[];
   options?: Partial<typeof defaultOptions>;
   totalDistance?: number;
   filteredDistance?: number;
@@ -77,12 +87,7 @@ const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 
-const {
-  loadImages,
-  plotFeatures,
-  fitBounds,
-  handleMapClick
-} = useMap();
+const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap();
 
 const router = useRouter();
 const route = useRoute();
@@ -143,7 +148,7 @@ onMounted(() => {
     const legendControl = new LegendControl({
       onClick: () => {
         if (legendModalComponent.value) {
-          (legendModalComponent.value).openModal();
+          legendModalComponent.value.openModal();
         }
       }
     });
@@ -159,7 +164,7 @@ onMounted(() => {
     map.addControl(filterControl, 'top-right');
   }
 
-  map.on('load', async() => {
+  map.on('load', async () => {
     await loadImages({ map });
     plotFeatures({ map, features: props.features });
 
@@ -169,13 +174,16 @@ onMounted(() => {
     }
   });
 
-  watch(() => props.features, newFeatures => {
-    try {
-      plotFeatures({ map, features: newFeatures });
-    } catch (e) {
-      console.warn('not able to plot features', e);
+  watch(
+    () => props.features,
+    newFeatures => {
+      try {
+        plotFeatures({ map, features: newFeatures });
+      } catch (e) {
+        console.warn('not able to plot features', e);
+      }
     }
-  });
+  );
 
   map.on('click', clickEvent => {
     handleMapClick({ map, features: props.features, clickEvent });

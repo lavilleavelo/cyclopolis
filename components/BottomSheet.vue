@@ -7,19 +7,10 @@
     leave-from-class="translate-y-0"
     leave-to-class="translate-y-full"
   >
-    <div
-      v-if="open"
-      class="fixed inset-x-0 bottom-0 z-50 pointer-events-none 2xl:container mx-auto"
-    >
+    <div v-if="open" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none 2xl:container mx-auto">
       <div
         ref="sheetRef"
-        class="
-        pointer-events-auto
-        flex flex-col
-        bg-white
-        shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-1px_rgba(0,0,0,0.06)]
-        2xl:shadow-md
-        rounded-t-2xl"
+        class="pointer-events-auto flex flex-col bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-1px_rgba(0,0,0,0.06)] 2xl:shadow-md rounded-t-2xl"
         :style="sheetStyle"
       >
         <div
@@ -59,14 +50,14 @@
 import { computed, ref, onBeforeUnmount, watch } from 'vue';
 
 const props = defineProps<{
-  open: boolean
-  title?: string
+  open: boolean;
+  title?: string;
 }>();
 
 const closeThreshold = 150;
 
 const emit = defineEmits<{
-  close: []
+  close: [];
 }>();
 
 const getMaxHeightPx = () => window.innerHeight * 0.7;
@@ -78,11 +69,14 @@ const startHeight = ref(0);
 const currentHeight = ref(getDefaultHeightPx());
 const sheetRef = ref<HTMLElement | null>(null);
 
-watch(() => props.open, (isOpen) => {
-  if (isOpen && !currentHeight.value) {
-    currentHeight.value = getDefaultHeightPx();
+watch(
+  () => props.open,
+  isOpen => {
+    if (isOpen && !currentHeight.value) {
+      currentHeight.value = getDefaultHeightPx();
+    }
   }
-});
+);
 
 function handleDragStart(e: MouseEvent | TouchEvent) {
   const target = e.target as HTMLElement;
@@ -139,7 +133,6 @@ function handleDragEnd() {
   document.removeEventListener('touchend', handleDragEnd);
   document.removeEventListener('touchcancel', handleDragEnd);
 
-
   if (currentHeight.value < closeThreshold) {
     emit('close');
     setTimeout(() => {
@@ -173,4 +166,3 @@ onBeforeUnmount(() => {
   currentHeight.value = 0;
 });
 </script>
-

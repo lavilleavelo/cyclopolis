@@ -5,13 +5,19 @@
         <MapPlaceholder />
       </template>
 
-      <Map :features="filteredFeatures"
-           :options="{ logo: false, showLineFilters: true, canUseSidePanel: true, filterStyle: 'height: calc(100vh - 240px)' }"
-           class="flex-1"
-           :total-distance="totalDistance"
-           :filtered-distance="filteredDistance"
-           :filters="filters"
-           :actions="actions"
+      <Map
+        :features="filteredFeatures"
+        :options="{
+          logo: false,
+          showLineFilters: true,
+          canUseSidePanel: true,
+          filterStyle: 'height: calc(100vh - 240px)'
+        }"
+        class="flex-1"
+        :total-distance="totalDistance"
+        :filtered-distance="filteredDistance"
+        :filters="filters"
+        :actions="actions"
       />
     </ClientOnly>
     <div>
@@ -25,7 +31,8 @@
             :class="{
               'bg-lvv-blue-600 border-transparent text-white hover:bg-lvv-blue-500': year.isChecked,
               'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !year.isChecked
-            }">
+            }"
+          >
             <div class="text-center">
               <div class="whitespace-nowrap font-bold">{{ year.label }}</div>
               <div class="text-xs" :class="{ 'text-gray-500': !year.isChecked }">
@@ -40,9 +47,8 @@
 </template>
 
 <script setup lang="ts">
-
-import MapPlaceholder from "~/components/MapPlaceholder.vue";
-import {useBikeLaneFilters} from "~/composables/useBikeLaneFilters";
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 
 const { getAllUniqLineStrings, getDistance } = useStats();
 const { getRevName } = useConfig();
@@ -80,10 +86,13 @@ onMounted(() => {
   selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : ['before2021'];
 });
 
-watch(() => route.query.years, (newYears) => {
-  const yearsParam = newYears ? newYears.toString() : '';
-  selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [];
-});
+watch(
+  () => route.query.years,
+  newYears => {
+    const yearsParam = newYears ? newYears.toString() : '';
+    selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [];
+  }
+);
 
 const years = computed(() => {
   return yearConfigs.map((config, index) => ({
@@ -111,9 +120,11 @@ function toggleYear(label: string) {
 }
 
 const features = computed(() =>
-    filterFeatures(geojsons.value, yearConfigs.filter(config =>
-        selectedYearParams.value.includes(config.param)
-    )));
+  filterFeatures(
+    geojsons.value,
+    yearConfigs.filter(config => selectedYearParams.value.includes(config.param))
+  )
+);
 
 const doneDistance = computed(() => computeDistance(features.value));
 
@@ -123,7 +134,9 @@ function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof year
     .flatMap(json => json.features)
     .filter(feature => 'status' in feature.properties && feature.properties.status === 'done')
     .filter(feature => {
-      if (!('status' in feature.properties) || !feature.properties.doneAt) { return false; }
+      if (!('status' in feature.properties) || !feature.properties.doneAt) {
+        return false;
+      }
       const [, , featureYear] = feature.properties.doneAt.split('/');
       return selectedYears.some(year => year.match(Number(featureYear)));
     });
@@ -137,8 +150,7 @@ function computeDistance(selectedFeatures: typeof features.value) {
 }
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
-    allFeatures: features,
-    allLines: computed(() => voiesCyclablesPages.value) // Pass lines data for line filters
+  allFeatures: features,
+  allLines: computed(() => voiesCyclablesPages.value) // Pass lines data for line filters
 });
-
 </script>

@@ -1,5 +1,5 @@
-import HighchartsVue from 'highcharts-vue'
+import HighchartsVue from 'highcharts-vue';
 
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(HighchartsVue)
-})
+export default defineNuxtPlugin(nuxtApp => {
+  nuxtApp.vueApp.use(HighchartsVue);
+});

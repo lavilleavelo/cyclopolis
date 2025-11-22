@@ -20,9 +20,7 @@
           <th class="w-1/4">
             {{ formatRecordYear(lastRecord) }}
           </th>
-          <th class="w-1/4 italic font-normal border-l-2 border-lvv-blue-600">
-            évolution
-          </th>
+          <th class="w-1/4 italic font-normal border-l-2 border-lvv-blue-600">évolution</th>
         </tr>
       </thead>
       <tbody>
@@ -72,12 +70,12 @@
 import type { Collections } from '@nuxt/content';
 
 type Counter = Omit<Collections['compteurs'], 'counts'> & {
-    counts: {
-      month: string;
-      veloCount?: number;
-      voitureCount?: number
-    }[]
-  }
+  counts: {
+    month: string;
+    veloCount?: number;
+    voitureCount?: number;
+  }[];
+};
 
 const props = defineProps<{
   counter: Counter;
@@ -105,7 +103,9 @@ function formatRecordYear(record: Counter['counts'][0]): number {
 }
 
 function formatRecordCount(count?: number) {
-  if (count === undefined) { return 'N/A'; }
+  if (count === undefined) {
+    return 'N/A';
+  }
   return count.toLocaleString('fr-FR') ?? 0;
 }
 
@@ -116,9 +116,7 @@ function getSameRecordPreviousYear(record: Counter['counts'][0]): Counter['count
   const recordMonth = new Date(record.month).getMonth();
   const recordYear = new Date(record.month).getFullYear();
   return props.counter.counts.find(count => {
-    return new Date(count.month).getMonth() === recordMonth &&
-      new Date(count.month).getFullYear() === recordYear - 1;
+    return new Date(count.month).getMonth() === recordMonth && new Date(count.month).getFullYear() === recordYear - 1;
   });
 }
-
 </script>

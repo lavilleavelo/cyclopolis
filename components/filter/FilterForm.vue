@@ -5,15 +5,19 @@
       :filters="filters.statusFilters.value"
       :show-selection-buttons="true"
       @toggle-filter="actions.toggleStatusFilter"
-      @select-all="filters.statusFilters.value.forEach((status: StatusTypeQualityFilterItem) => (status.isEnabled = true))"
-      @deselect-all="filters.statusFilters.value.forEach((status: StatusTypeQualityFilterItem) => (status.isEnabled = false))"
+      @select-all="
+        filters.statusFilters.value.forEach((status: StatusTypeQualityFilterItem) => (status.isEnabled = true))
+      "
+      @deselect-all="
+        filters.statusFilters.value.forEach((status: StatusTypeQualityFilterItem) => (status.isEnabled = false))
+      "
     />
 
     <FilterSection
-        title="Filtrer par qualité d'aménagement"
-        :filters="filters.qualityFilters.value"
-        :show-selection-buttons="false"
-        @toggle-filter="actions.toggleQualityFilter"
+      title="Filtrer par qualité d'aménagement"
+      :filters="filters.qualityFilters.value"
+      :show-selection-buttons="false"
+      @toggle-filter="actions.toggleQualityFilter"
     />
 
     <FilterSection
@@ -40,10 +44,10 @@
       <div>
         <DoubleRangeSlider
           :model-value="filters.dateRange.value"
-          @update:model-value="actions.setDateRange"
           :min="filters.minDate.value"
           :max="filters.maxDate.value"
           :step="1"
+          @update:model-value="actions.setDateRange"
         />
         <div class="flex justify-between text-xs text-gray-500 mt-2">
           <span>{{ formatMonthYear(filters.dateRange.value[0]) }}</span>
@@ -59,14 +63,14 @@ import FilterSection from '~/components/filter/FilterSection.vue';
 import DoubleRangeSlider from '~/components/DoubleRangeSlider.vue';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
-dayjs.locale('fr');
 import type { FiltersState, FilterActions, StatusTypeQualityFilterItem, LineFilterItem } from '~/types';
+dayjs.locale('fr');
 
 const props = defineProps<{
   showLineFilters: boolean;
   showDateFilter?: boolean;
-  filters: FiltersState,
-  actions: FilterActions
+  filters: FiltersState;
+  actions: FilterActions;
 }>();
 const defaultOptions = { showLineFilters: false, showDateFilter: false };
 const options = { ...defaultOptions, ...props };
@@ -75,12 +79,12 @@ function formatMonthYear(stepIndex: number) {
   if (stepIndex >= props.filters.dateSteps.value.length || stepIndex < 0) {
     return '2026+';
   }
-  
+
   const monthIndex = props.filters.dateSteps.value[stepIndex];
   if (monthIndex === undefined || monthIndex >= 999999) {
     return '2026+';
   }
-  
+
   const year = Math.floor(monthIndex / 12);
   const month = monthIndex % 12;
   return dayjs(new Date(year, month)).format('MMM YYYY');

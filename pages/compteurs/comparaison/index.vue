@@ -42,26 +42,38 @@ const { data: allVoitureCounters } = await useAsyncData(() => {
 });
 
 const counters = computed(() => {
-  if (!allVeloCounters.value) { return []; }
+  if (!allVeloCounters.value) {
+    return [];
+  }
 
-  return allVeloCounters.value.map(veloCounter => {
-    if (!veloCounter.cyclopolisId) { return undefined; }
-    if (!allVoitureCounters.value) { return undefined; }
+  return allVeloCounters.value
+    .map(veloCounter => {
+      if (!veloCounter.cyclopolisId) {
+        return undefined;
+      }
+      if (!allVoitureCounters.value) {
+        return undefined;
+      }
 
-    const voitureCounter = allVoitureCounters.value.find(voitureCounter => voitureCounter.cyclopolisId === veloCounter.cyclopolisId);
-    if (!voitureCounter) { return undefined; }
-    return {
-      ...veloCounter,
-      path: `/compteurs/comparaison/${veloCounter.cyclopolisId}`,
-      counts: voitureCounter.counts.map(voitureCount => {
-        const veloCount = veloCounter.counts.find(veloCount => veloCount.month === voitureCount.month);
-        return {
-          month: voitureCount.month,
-          veloCount: veloCount?.count || 0,
-          voitureCount: voitureCount.count
-        };
-      })
-    };
-  }).filter((counter): counter is NonNullable<typeof counter> => !!counter);
+      const voitureCounter = allVoitureCounters.value.find(
+        voitureCounter => voitureCounter.cyclopolisId === veloCounter.cyclopolisId
+      );
+      if (!voitureCounter) {
+        return undefined;
+      }
+      return {
+        ...veloCounter,
+        path: `/compteurs/comparaison/${veloCounter.cyclopolisId}`,
+        counts: voitureCounter.counts.map(voitureCount => {
+          const veloCount = veloCounter.counts.find(veloCount => veloCount.month === voitureCount.month);
+          return {
+            month: voitureCount.month,
+            veloCount: veloCount?.count || 0,
+            voitureCount: voitureCount.count
+          };
+        })
+      };
+    })
+    .filter((counter): counter is NonNullable<typeof counter> => !!counter);
 });
 </script>

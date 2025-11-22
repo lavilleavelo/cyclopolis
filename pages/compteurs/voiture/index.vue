@@ -9,7 +9,7 @@
           Suivi des compteurs voiture de l'agglomération lyonnaise
         </h2>
         <ClientOnly>
-          <Map :features="features" :options="{ legend: false , filter: false}" class="mt-12" style="height: 40vh" />
+          <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
         </ClientOnly>
       </div>
 
@@ -20,7 +20,13 @@
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
           </div>
-          <input id="compteur" v-model="searchText" type="text" class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md" placeholder="Chercher un compteur...">
+          <input
+            id="compteur"
+            v-model="searchText"
+            type="text"
+            class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md"
+            placeholder="Chercher un compteur..."
+          />
         </div>
       </div>
 
@@ -38,28 +44,30 @@ import { removeDiacritics } from '~/helpers/helpers';
 const { getCompteursFeatures } = useMap();
 
 const { data: allCounters } = await useAsyncData(() => {
-  return queryCollection('compteurs')
-    .where('path', 'LIKE', '/compteurs/voiture%')
-    .all();
+  return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
 });
 
 const searchText = ref('');
 
 const counters = computed(() => {
-  if (!allCounters.value) { return []; }
+  if (!allCounters.value) {
+    return [];
+  }
   return [...allCounters.value]
     .sort((counter1, counter2) => {
       const count1 = counter1.counts.at(-1)?.count ?? 0;
       const count2 = counter2.counts.at(-1)?.count ?? 0;
       return count2 - count1;
     })
-    .filter(counter => removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)))
+    .filter(counter =>
+      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value))
+    )
     .map(counter => ({
       ...counter,
       counts: counter.counts.map(count => ({
         month: count.month,
-        voitureCount: count.count,
-      })),
+        voitureCount: count.count
+      }))
     }));
 });
 

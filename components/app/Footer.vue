@@ -10,7 +10,13 @@
       </nav>
       <div class="mt-4 border-t border-gray-200 pt-4 md:flex md:items-center md:justify-between">
         <div class="flex justify-center space-x-6 md:order-2">
-          <a v-for="item in socials" :key="item.name" :href="item.href" target="_blank" class="text-gray-500 hover:text-gray-500">
+          <a
+            v-for="item in socials"
+            :key="item.name"
+            :href="item.href"
+            target="_blank"
+            class="text-gray-500 hover:text-gray-500"
+          >
             <span class="sr-only">{{ item.name }}</span>
             <Icon :name="item.icon" class="h-6 w-6" aria-hidden="true" />
           </a>

@@ -7,12 +7,21 @@
     description=""
   >
     <h2>Total des passages par année</h2>
-    <p>Comparaison de la fréquentation annuelle entre les vélos et les voitures. Ceci est possible grâce à la présence de compteurs automatiques sur les différentes voies.</p>
+    <p>
+      Comparaison de la fréquentation annuelle entre les vélos et les voitures. Ceci est possible grâce à la présence de
+      compteurs automatiques sur les différentes voies.
+    </p>
     <ChartLine :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
     <h2>Source des données</h2>
-    <p>Les données des compteurs vélo proviennent de <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.</p>
-    <p>Les données des compteurs voiture proviennent du <a href="https://avatar.cerema.fr/cartographie" target="_blank">cerema</a>.</p>
+    <p>
+      Les données des compteurs vélo proviennent de
+      <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
+    </p>
+    <p>
+      Les données des compteurs voiture proviennent du
+      <a href="https://avatar.cerema.fr/cartographie" target="_blank">cerema</a>.
+    </p>
   </ContentFrame>
 </template>
 

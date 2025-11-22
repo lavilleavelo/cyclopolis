@@ -14,7 +14,7 @@
 <script setup lang="ts">
 type Type = 'modified' | 'postponed' | 'unsecured' | 'wip' | 'info';
 const { type } = defineProps<{
-  type: Type
+  type: Type;
 }>();
 
 type Banner = {
@@ -25,9 +25,9 @@ type Banner = {
       banner: string;
       logo: string;
       text: string;
-    }
-  }
-}
+    };
+  };
+};
 const banners: Banner = {
   modified: {
     title: 'Modification après concertation',

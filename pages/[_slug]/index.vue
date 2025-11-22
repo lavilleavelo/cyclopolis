@@ -1,9 +1,6 @@
 <template>
   <div v-if="voie">
-    <ContentFrame
-      :description="voie.description"
-      :image-url="voie.cover"
-    >
+    <ContentFrame :description="voie.description" :image-url="voie.cover">
       <template #header>
         <h1 class="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           {{ getRevName('singular') }}
@@ -40,9 +37,7 @@ definePageMeta({
 });
 
 const { data: voie } = await useAsyncData(path, () => {
-  return queryCollection('voiesCyclablesPage')
-    .where('line', '=', Number(line))
-    .first();
+  return queryCollection('voiesCyclablesPage').where('line', '=', Number(line)).first();
 });
 
 const description = `Tout savoir sur la ${getRevName('singular')} ${line}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
@@ -56,7 +51,7 @@ useHead({
     { key: 'twitter:description', name: 'twitter:description', content: description },
     // cover image
     ...(voie.value?.cover ? [{ key: 'og:image', property: 'og:image', content: voie.value.cover }] : []),
-    ...(voie.value?.cover ? [{ key: 'twitter:image', property: 'twitter:image', content: voie.value.cover }] : []),
+    ...(voie.value?.cover ? [{ key: 'twitter:image', property: 'twitter:image', content: voie.value.cover }] : [])
   ]
 });
 </script>

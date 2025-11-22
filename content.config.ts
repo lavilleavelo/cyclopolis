@@ -1,5 +1,5 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content';
-import { z } from 'zod'
+import { z } from 'zod';
 
 export default defineContentConfig({
   collections: {
@@ -8,7 +8,7 @@ export default defineContentConfig({
       type: 'page',
       schema: z.object({
         date: z.string(),
-        newsBannerText: z.string(),
+        newsBannerText: z.string()
       })
     }),
     blog: defineCollection({
@@ -17,7 +17,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string(),
         description: z.string(),
-        imageUrl: z.string().url(),
+        imageUrl: z.string().url()
       })
     }),
     voiesCyclablesPage: defineCollection({
@@ -30,7 +30,7 @@ export default defineContentConfig({
         to: z.string(),
         description: z.string(),
         trafic: z.string(),
-        cover: z.string(),
+        cover: z.string()
       })
     }),
     voiesCyclablesGeojson: defineCollection({
@@ -41,59 +41,68 @@ export default defineContentConfig({
         features: z.array(
           z.union([
             z.object({
-              type: z.enum(["Feature"]),
+              type: z.enum(['Feature']),
               properties: z.object({
                 id: z.string().optional(),
                 line: z.number(),
                 name: z.string(),
-                status: z.enum(["planned", "postponed", "variante-postponed", "done", "wip", "variante", "tested", "unknown"]),
+                status: z.enum([
+                  'planned',
+                  'postponed',
+                  'variante-postponed',
+                  'done',
+                  'wip',
+                  'variante',
+                  'tested',
+                  'unknown'
+                ]),
                 type: z.enum([
-                  "bidirectionnelle",
-                  "bilaterale",
-                  "voie-bus",
-                  "voie-bus-elargie",
-                  "velorue",
-                  "voie-verte",
-                  "bandes-cyclables",
-                  "zone-de-rencontre",
-                  "aucun",
-                  "inconnu"
+                  'bidirectionnelle',
+                  'bilaterale',
+                  'voie-bus',
+                  'voie-bus-elargie',
+                  'velorue',
+                  'voie-verte',
+                  'bandes-cyclables',
+                  'zone-de-rencontre',
+                  'aucun',
+                  'inconnu'
                 ]),
                 link: z.string().optional(),
-                quality: z.enum(["satisfactory", "unsatisfactory"]),
+                quality: z.enum(['satisfactory', 'unsatisfactory']),
                 text: z.string().optional(),
-                doneAt: z.string().optional(),
+                doneAt: z.string().optional()
               }),
               geometry: z.object({
-                type: z.enum(["LineString"]),
-                coordinates: z.array(z.tuple([z.number(), z.number()])),
-              }),
+                type: z.enum(['LineString']),
+                coordinates: z.array(z.tuple([z.number(), z.number()]))
+              })
             }),
             z.object({
-              type: z.enum(["Feature"]),
+              type: z.enum(['Feature']),
               properties: z.object({
-                type: z.enum(["perspective"]),
+                type: z.enum(['perspective']),
                 name: z.string(),
                 line: z.number(),
-                imgUrl: z.string().url(),
+                imgUrl: z.string().url()
               }),
               geometry: z.object({
                 type: z.enum(['Point']),
                 coordinates: z.tuple([z.number(), z.number()])
-              }),
+              })
             }),
             z.object({
-              type: z.enum(["Feature"]),
+              type: z.enum(['Feature']),
               properties: z.object({
                 type: z.enum(['danger']),
                 name: z.string(),
                 description: z.string(),
-                danger: z.string(),
+                danger: z.string()
               }),
               geometry: z.object({
                 type: z.enum(['Point']),
-                coordinates: z.tuple([z.number(), z.number()]),
-              }),
+                coordinates: z.tuple([z.number(), z.number()])
+              })
             })
           ])
         )
@@ -113,7 +122,7 @@ export default defineContentConfig({
         counts: z.array(
           z.object({
             month: z.string(),
-            count: z.number(),
+            count: z.number()
           })
         )
       })
@@ -127,7 +136,7 @@ export default defineContentConfig({
         description: z.string(),
         city: z.string(),
         link: z.string().url(),
-        index: z.number(),
+        index: z.number()
       })
     }),
     cartesMinutes: defineCollection({
@@ -138,7 +147,7 @@ export default defineContentConfig({
         title: z.string(),
         description: z.string(),
         link: z.string().url(),
-        index: z.number(),
+        index: z.number()
       })
     })
   }

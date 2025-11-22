@@ -18,25 +18,33 @@
         <template #fallback>
           <MapPlaceholder :custom-style="{ height: '40vh' }" />
         </template>
-        <Map :features="filteredFeatures" :options="mapOptions" style="height: 40vh" :total-distance="totalDistance" :filtered-distance="filteredDistance" :filters="filters" :actions="actions" />
+        <Map
+          :features="filteredFeatures"
+          :options="mapOptions"
+          style="height: 40vh"
+          :total-distance="totalDistance"
+          :filtered-distance="filteredDistance"
+          :filters="filters"
+          :actions="actions"
+        />
       </ClientOnly>
 
       <div class="mt-2 flex justify-end gap-4">
         <button
-            type="button"
-            title="Télécharger le tracé au format GPX"
-            class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
-            @click="downloadGpx"
+          type="button"
+          title="Télécharger le tracé au format GPX"
+          class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
+          @click="downloadGpx"
         >
           <span>GPX</span>
           <Icon name="mdi:download" class="h-5 w-5" aria-hidden="true" />
         </button>
         <a
-            :href="linkToGeoJSON"
-            target="_blank"
-            title="Voir le fichier GEOJSON sur GitHub"
-            class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
-            rel="noopener noreferrer"
+          :href="linkToGeoJSON"
+          target="_blank"
+          title="Voir le fichier GEOJSON sur GitHub"
+          class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
+          rel="noopener noreferrer"
         >
           <span>GEOJSON</span>
           <Icon name="mdi:open-in-new" class="h-5 w-5" aria-hidden="true" />
@@ -49,8 +57,8 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import GeoJsonToGpx from '@dwayneparton/geojson-to-gpx';
-import MapPlaceholder from "~/components/MapPlaceholder.vue";
-import {useBikeLaneFilters} from "~/composables/useBikeLaneFilters";
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 
 const { path } = useRoute();
 const { getLineColor } = useColors();
@@ -73,8 +81,9 @@ const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
 
-const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({ allFeatures: features });
-
+const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
+  allFeatures: features
+});
 
 const color = getLineColor(Number(voie.line));
 const distance = geojson.value ? getTotalDistance([geojson.value]) : 0;

@@ -72,14 +72,14 @@ async function getUpdatedCounts({ idPdc, flowIds }) {
   const URL = `https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/${idPdc}?`;
   const res = await fetch(
     URL +
-    new URLSearchParams({
-      idOrganisme: '3902',
-      idPdc,
-      flowIds,
-      debut: '01/01/2015',
-      fin: dayjs().startOf('month').format('DD/MM/YYYY'),
-      interval: '6' // month
-    })
+      new URLSearchParams({
+        idOrganisme: '3902',
+        idPdc,
+        flowIds,
+        debut: '01/01/2015',
+        fin: dayjs().startOf('month').format('DD/MM/YYYY'),
+        interval: '6' // month
+      })
   );
   if (res.ok) {
     const counts = await res.json();

@@ -17,7 +17,7 @@ const path = require('path');
   }
 })();
 
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
 
 /**
  * Suite aux échanges avec le Cerema, utilisation de l'API aggregated_measures.
@@ -32,7 +32,7 @@ async function getCompteurData({ idsPdc }) {
   const startTime = '2018-01-01T00:00:00';
   const endTime = getLastDayOfPreviousMonth();
 
-  const resByIdPdc = {}
+  const resByIdPdc = {};
 
   for (const idPdc of idsPdc) {
     const params = new URLSearchParams({
@@ -61,7 +61,7 @@ async function getCompteurData({ idsPdc }) {
       process.exit(1);
     }
     // petite pause pour ne pas se faire jeter avec un "TOO MANY REQUESTS"
-    await sleep(15000); 
+    await sleep(15000);
   }
 
   if (idsPdc.length === 1) return resByIdPdc[idsPdc[0]];

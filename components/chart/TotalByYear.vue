@@ -15,7 +15,7 @@ const props = defineProps({
 });
 
 const years = [...new Set(props.data.counts.map((item: Count) => new Date(item.month).getFullYear()))].sort();
-const countsValues = years.map((year) => {
+const countsValues = years.map(year => {
   return props.data.counts
     .filter((item: Count) => new Date(item.month).getFullYear() === year)
     .reduce((acc: number, item: Count) => acc + item.count, 0);
@@ -37,13 +37,15 @@ const chartOptions = {
       }
     }
   },
-  series: [{
-    name: 'passages',
-    data: countsValues.map(y => {
-      const color = y === max ? '#C84271' : '#152B68';
-      return { y, color, dataLabels: { color } };
-    })
-  }],
+  series: [
+    {
+      name: 'passages',
+      data: countsValues.map(y => {
+        const color = y === max ? '#C84271' : '#152B68';
+        return { y, color, dataLabels: { color } };
+      })
+    }
+  ],
   responsive: {
     rules: [
       {

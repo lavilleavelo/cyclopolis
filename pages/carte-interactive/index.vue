@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
-import MapPlaceholder from "~/components/MapPlaceholder.vue";
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { getRevName } = useConfig();
 
@@ -51,8 +51,7 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allLines: computed(() => voiesCyclablesPages.value)
 });
 
-const description =
-  `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;
+const description = `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
 useHead({
   title: `Carte à jour des ${getRevName()}`,

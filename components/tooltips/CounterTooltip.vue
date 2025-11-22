@@ -26,9 +26,7 @@
           <Icon :name="icon" />
         </div>
         <div class="text-left leading-3">
-          <div class="font-bold">
-            par jour
-          </div>
+          <div class="font-bold">par jour</div>
           <div>en moyenne</div>
         </div>
       </div>
@@ -55,26 +53,27 @@
 import type { CompteurFeature } from '~/types';
 
 const { feature } = defineProps<{
-  feature: CompteurFeature
+  feature: CompteurFeature;
 }>();
 
-const title = computed(() => feature.properties.type === 'compteur-velo' ? 'Compteur vélo' : 'Compteur voiture');
+const title = computed(() => (feature.properties.type === 'compteur-velo' ? 'Compteur vélo' : 'Compteur voiture'));
 const countIndex = ref(feature.properties.counts.length - 1);
 const count = computed(() => feature.properties.counts.at(countIndex.value)!);
 const isFirstMonth = computed(() => countIndex.value === 0);
 const isLastMonth = computed(() => countIndex.value === feature.properties.counts.length - 1);
-const humanDate = computed(() => new Date(count.value.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' }));
+const humanDate = computed(() =>
+  new Date(count.value.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' })
+);
 const averageDailyTraffic = computed(() => getAverageDailyTraffic(count.value));
-const icon = computed(() => feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular');
+const icon = computed(() =>
+  feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular'
+);
 // const monthBests = findMonthBests(feature.properties.counts);
 // const absoluteBest = findAbsoluteBest(feature.properties.counts)!;
 // const isMonthBest = computed(() => monthBests.get(new Date(count.value.month).getMonth()));
 // const isAbsoluteBest = computed(() => count.value.month === absoluteBest.month);
 
-function getAverageDailyTraffic({ month, count }: {
-  month: string,
-  count: number
-}) {
+function getAverageDailyTraffic({ month, count }: { month: string; count: number }) {
   const date = new Date(month);
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   return Math.round(count / daysInMonth);

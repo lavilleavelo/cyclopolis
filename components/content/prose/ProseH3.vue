@@ -1,10 +1,6 @@
 <template>
   <h3 :id="id">
-    <a
-      v-if="id && generate"
-      class="not-prose"
-      :href="`#${id}`"
-    >
+    <a v-if="id && generate" class="not-prose" :href="`#${id}`">
       <slot />
     </a>
     <slot v-else />

@@ -2,9 +2,7 @@
   <div class="relative">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="relative mx-auto pt-20 text-center pb-20">
-        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-          Historique des changements
-        </h1>
+        <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Historique des changements</h1>
         <div class="mx-auto mt-4 text-gray-500 prose prose-lg text-center">
           Suivez tous les changements qui sont réalisés sur la plateforme.
         </div>
@@ -18,7 +16,9 @@
 
         <div class="relative pl-7 pt-2 md:w-3/4 md:pl-12 md:pt-0 pb-16">
           <div class="absolute bottom-0 left-0 w-px bg-slate-200 -top-3 md:top-2.5" />
-          <div class="absolute -left-1 -top-[1.0625rem] h-[0.5625rem] w-[0.5625rem] rounded-full border-2 border-slate-300 bg-white md:top-[0.4375rem]" />
+          <div
+            class="absolute -left-1 -top-[1.0625rem] h-[0.5625rem] w-[0.5625rem] rounded-full border-2 border-slate-300 bg-white md:top-[0.4375rem]"
+          />
           <div class="max-w-none prose-h3:mb-4 prose-h3:mt-0 prose prose-lg text-gray-500">
             <ContentRenderer :value="newsItem" />
           </div>
@@ -30,9 +30,7 @@
 
 <script setup lang="ts">
 const { data: news } = await useAsyncData(() => {
-  return queryCollection('news')
-    .order('date', 'DESC')
-    .all()
+  return queryCollection('news').order('date', 'DESC').all();
 });
 
 function formatDate(date: string) {

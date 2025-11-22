@@ -2,31 +2,39 @@ import type { Collections } from '@nuxt/content';
 import { groupBy } from '~/helpers/helpers';
 import { isLineStringFeature, type LaneType, type LaneQuality, isDangerFeature, type LaneStatus } from '~/types';
 
-const featureStatusOrder = ['done', 'variante', 'tested', 'wip', 'planned', 'postponed', 'variante-postponed', 'unknown',];
+const featureStatusOrder = [
+  'done',
+  'variante',
+  'tested',
+  'wip',
+  'planned',
+  'postponed',
+  'variante-postponed',
+  'unknown'
+];
 
 const getFeatureSortKey = (feature: Collections['voiesCyclablesGeojson']['features'][0]) => {
-    const id = feature.properties.id ?? '';
-    const line = feature.properties.line ?? 0;
-    const status = featureStatusOrder.indexOf(feature.properties.status);
-    return [status, id, line].join('|');
-}
+  const id = feature.properties.id ?? '';
+  const line = feature.properties.line ?? 0;
+  const status = featureStatusOrder.indexOf(feature.properties.status);
+  return [status, id, line].join('|');
+};
 
 export const useStats = () => {
   function getAllUniqLineStrings(voies: Collections['voiesCyclablesGeojson'][]) {
-      const lineStrings = voies
-        .flatMap(voie => voie.features)
-        .filter(feature => isLineStringFeature(feature))
-        .sort((a, b) => getFeatureSortKey(a).localeCompare(getFeatureSortKey(b)))
+    const lineStrings = voies
+      .flatMap(voie => voie.features)
+      .filter(feature => isLineStringFeature(feature))
+      .sort((a, b) => getFeatureSortKey(a).localeCompare(getFeatureSortKey(b)));
 
-      const seen = new Set<string>();
-      return lineStrings
-        .filter(feature => {
-          const id = feature.properties.id;
-          if (id === undefined) return true;
-          if (seen.has(id)) return false;
-          seen.add(id);
-          return true;
-        });
+    const seen = new Set<string>();
+    return lineStrings.filter(feature => {
+      const id = feature.properties.id;
+      if (id === undefined) return true;
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    });
   }
 
   function getAllUniqDangers(voies: Collections['voiesCyclablesGeojson'][]) {
@@ -118,9 +126,9 @@ export const useStats = () => {
   }
 
   function getStats(voies: Collections['voiesCyclablesGeojson'][]) {
-      const features = getAllUniqLineStrings(voies);
-        const doneFeatures = features.filter(feature => {
-        return feature.properties.status === 'variante' || feature.properties.status === 'done';
+    const features = getAllUniqLineStrings(voies);
+    const doneFeatures = features.filter(feature => {
+      return feature.properties.status === 'variante' || feature.properties.status === 'done';
     });
 
     const wipFeatures = features.filter(feature => ['wip', 'tested'].includes(feature.properties.status ?? ''));
@@ -145,13 +153,13 @@ export const useStats = () => {
       let link = `/carte-interactive?statuses=${statuses.join(',')}&modal=filters`;
 
       if (voies.length === 1) {
-        const voie = voies[0]?.features[0]?.properties?.line
+        const voie = voies[0]?.features[0]?.properties?.line;
         if (voie) {
-            link += `&lines=${voie}`;
+          link += `&lines=${voie}`;
         }
       }
       return link;
-    }
+    };
 
     return {
       done: {
@@ -185,7 +193,12 @@ export const useStats = () => {
     };
   }
 
-  function getStatsQuality(voies: Collections['voiesCyclablesGeojson'][]): { distance: number; postponed: boolean; percent: number; dangerCount: number } {
+  function getStatsQuality(voies: Collections['voiesCyclablesGeojson'][]): {
+    distance: number;
+    postponed: boolean;
+    percent: number;
+    dangerCount: number;
+  } {
     const features = getAllUniqLineStrings(voies);
     const dangers = getAllUniqDangers(voies);
     const totalDistance = getDistance({ features });
@@ -228,7 +241,10 @@ export const useStats = () => {
       return Math.round((distance / totalDistance) * 100);
     }
 
-    const featuresByType = groupBy<Collections['voiesCyclablesGeojson']['features'][0], Collections['voiesCyclablesGeojson']['features'][0]['properties']['type']>(lineStringFeatures, feature => feature.properties.type);
+    const featuresByType = groupBy<
+      Collections['voiesCyclablesGeojson']['features'][0],
+      Collections['voiesCyclablesGeojson']['features'][0]['properties']['type']
+    >(lineStringFeatures, feature => feature.properties.type);
 
     return Object.entries(featuresByType)
       .map(([type, features]) => {

@@ -6,10 +6,7 @@
   "assoName": "La Ville à Vélo",
   "assoLink": "https://lavilleavelo.org",
   "slug": "voie-lyonnaise",
-  "center": [
-    4.878973368615107,
-    45.746703113094895
-  ],
+  "center": [4.878973368615107, 45.746703113094895],
   "zoom": 10.331154971672706,
   "nbVoiesCyclables": 12,
   "colors": [

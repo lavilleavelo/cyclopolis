@@ -1,14 +1,20 @@
-import { isLineStringFeature, isPointFeature, type LaneQuality, type LaneStatus, type LaneType, type UseBikeLaneFiltersOptions } from '~/types';
+import {
+  type FiltersState,
+  type FilterActions,
+  isLineStringFeature,
+  isPointFeature,
+  type LaneQuality,
+  type LaneStatus,
+  type LaneType,
+  type UseBikeLaneFiltersOptions
+} from '~/types';
 import type { Collections } from '@nuxt/content';
 import { useRoute, useRouter } from 'vue-router';
-import type { FiltersState, FilterActions } from '~/types';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-export function useBikeLaneFilters(
-  { allFeatures, allGeojsons, allLines }: UseBikeLaneFiltersOptions
-) {
+export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
   const route = useRoute();
   const router = useRouter();
@@ -49,20 +55,21 @@ export function useBikeLaneFilters(
 
   if (Object.hasOwn(query, 'statuses')) {
     const statusesQuery = query.statuses;
-    const enabled = (statusesQuery && (statusesQuery as string).length > 0) ? (statusesQuery as string).split(',') : [];
-    statusFilters.value.forEach(f => f.isEnabled = f.statuses.every(s => enabled.includes(s)));
+    const enabled = statusesQuery && (statusesQuery as string).length > 0 ? (statusesQuery as string).split(',') : [];
+    statusFilters.value.forEach(f => (f.isEnabled = f.statuses.every(s => enabled.includes(s))));
   }
 
   if (Object.hasOwn(query, 'types')) {
     const typesQuery = query.types;
-    const enabled = (typesQuery && (typesQuery as string).length > 0) ? (typesQuery as string).split(',') : [];
-    typeFilters.value.forEach(f => f.isEnabled = f.types.every(t => enabled.includes(t)));
+    const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
+    typeFilters.value.forEach(f => (f.isEnabled = f.types.every(t => enabled.includes(t))));
   }
 
   if (Object.hasOwn(query, 'qualities')) {
     const qualitiesQuery = query.qualities;
-    const enabled = (qualitiesQuery && (qualitiesQuery as string).length > 0) ? (qualitiesQuery as string).split(',') : [];
-    qualityFilters.value.forEach(f => f.isEnabled = f.qualities.every(q => enabled.includes(q)));
+    const enabled =
+      qualitiesQuery && (qualitiesQuery as string).length > 0 ? (qualitiesQuery as string).split(',') : [];
+    qualityFilters.value.forEach(f => (f.isEnabled = f.qualities.every(q => enabled.includes(q))));
   }
 
   function processDateData(geojsonData: Collections['voiesCyclablesGeojson'][] | undefined | null) {
@@ -107,10 +114,7 @@ export function useBikeLaneFilters(
         const endMonth = parseYearMonth(route.query.end as string);
         const startIdx = dateSteps.value.findIndex(m => m >= startMonth);
         const endIdx = dateSteps.value.findIndex(m => m >= endMonth);
-        dateRange.value = [
-          startIdx >= 0 ? startIdx : 0,
-          endIdx >= 0 ? endIdx : maxDate.value
-        ];
+        dateRange.value = [startIdx >= 0 ? startIdx : 0, endIdx >= 0 ? endIdx : maxDate.value];
       } else {
         dateRange.value = [0, maxDate.value];
       }
@@ -128,10 +132,10 @@ export function useBikeLaneFilters(
   if (allLines) {
     watch(
       allLines,
-      (newLines) => {
+      newLines => {
         if (newLines) {
           const linesSet = new Set<number>();
-          newLines.forEach((voie) => {
+          newLines.forEach(voie => {
             if (voie.line) linesSet.add(voie.line);
           });
 
@@ -141,10 +145,9 @@ export function useBikeLaneFilters(
 
           if (Object.hasOwn(route.query, 'lines')) {
             const linesQuery = route.query.lines;
-            const enabled = (linesQuery && (linesQuery as string).length > 0)
-              ? (linesQuery as string).split(',').map(l => +l)
-              : [];
-            lineFilters.value.forEach(f => f.isEnabled = enabled.includes(f.line));
+            const enabled =
+              linesQuery && (linesQuery as string).length > 0 ? (linesQuery as string).split(',').map(l => +l) : [];
+            lineFilters.value.forEach(f => (f.isEnabled = enabled.includes(f.line)));
           }
         }
       },
@@ -152,17 +155,23 @@ export function useBikeLaneFilters(
     );
   }
 
-  const visibleStatuses = computed(() => statusFilters.value.filter(item => item.isEnabled).flatMap(item => item.statuses as LaneStatus[]));
-  const visibleTypes = computed(() => typeFilters.value.filter(item => item.isEnabled).flatMap(item => item.types as LaneType[]));
-  const visibleQualities = computed(() => qualityFilters.value.filter(item => item.isEnabled).flatMap(item => item.qualities as LaneQuality[]));
+  const visibleStatuses = computed(() =>
+    statusFilters.value.filter(item => item.isEnabled).flatMap(item => item.statuses as LaneStatus[])
+  );
+  const visibleTypes = computed(() =>
+    typeFilters.value.filter(item => item.isEnabled).flatMap(item => item.types as LaneType[])
+  );
+  const visibleQualities = computed(() =>
+    qualityFilters.value.filter(item => item.isEnabled).flatMap(item => item.qualities as LaneQuality[])
+  );
   const visibleLines = computed(() => lineFilters.value.filter(item => item.isEnabled).map(item => item.line));
   const visibleDateRange = computed(() => {
-      if (dateSteps.value.length > 0) {
-          const startMonth = dateSteps.value[dateRange.value[0]] || 0;
-          const endMonth = dateSteps.value[dateRange.value[1]] || 999999;
-          return [startMonth, endMonth] as [number, number];
-      }
-      return undefined;
+    if (dateSteps.value.length > 0) {
+      const startMonth = dateSteps.value[dateRange.value[0]] || 0;
+      const endMonth = dateSteps.value[dateRange.value[1]] || 999999;
+      return [startMonth, endMonth] as [number, number];
+    }
+    return undefined;
   });
 
   watch(
@@ -201,21 +210,21 @@ export function useBikeLaneFilters(
       }
 
       if (visibleDateRange.value && (dateRange.value[0] !== minDate.value || dateRange.value[1] !== maxDate.value)) {
-          const formatMonthIndex = (monthIndex: number): string => {
-            if (monthIndex >= 999999) {
-              return '2026+';
-            }
+        const formatMonthIndex = (monthIndex: number): string => {
+          if (monthIndex >= 999999) {
+            return '2026+';
+          }
 
-            const year = Math.floor(monthIndex / 12);
-            const month = (monthIndex % 12) + 1;
-            return `${year}-${month.toString().padStart(2, '0')}`;
-          };
-          
-          newQuery.start = formatMonthIndex(visibleDateRange.value[0]);
-          newQuery.end = formatMonthIndex(visibleDateRange.value[1]);
+          const year = Math.floor(monthIndex / 12);
+          const month = (monthIndex % 12) + 1;
+          return `${year}-${month.toString().padStart(2, '0')}`;
+        };
+
+        newQuery.start = formatMonthIndex(visibleDateRange.value[0]);
+        newQuery.end = formatMonthIndex(visibleDateRange.value[1]);
       } else {
-          delete newQuery.start;
-          delete newQuery.end;
+        delete newQuery.start;
+        delete newQuery.end;
       }
 
       void router.replace({ query: newQuery });
@@ -226,7 +235,11 @@ export function useBikeLaneFilters(
   const filteredFeatures = computed(() => {
     return (allFeatures.value ?? []).filter(feature => {
       if (isLineStringFeature(feature) || isPointFeature(feature)) {
-        if (lineFilters.value.length > 0 && feature.properties.line && !visibleLines.value.includes(feature.properties.line)) {
+        if (
+          lineFilters.value.length > 0 &&
+          feature.properties.line &&
+          !visibleLines.value.includes(feature.properties.line)
+        ) {
           return false;
         }
       }
@@ -248,9 +261,11 @@ export function useBikeLaneFilters(
           }
         }
 
-        return visibleStatuses.value.includes(feature.properties.status)
-          && visibleTypes.value.includes(feature.properties.type)
-          && visibleQualities.value.includes(feature.properties.quality);
+        return (
+          visibleStatuses.value.includes(feature.properties.status) &&
+          visibleTypes.value.includes(feature.properties.type) &&
+          visibleQualities.value.includes(feature.properties.quality)
+        );
       }
 
       return true;
@@ -278,7 +293,7 @@ export function useBikeLaneFilters(
     minDate,
     maxDate,
     dateSteps
-  }
+  };
 
   const actions: FilterActions = {
     toggleStatusFilter(index: number) {
@@ -294,9 +309,9 @@ export function useBikeLaneFilters(
       lineFilters.value[index].isEnabled = !lineFilters.value[index].isEnabled;
     },
     setDateRange(newDateRange: [number, number]) {
-      dateRange.value = newDateRange
+      dateRange.value = newDateRange;
     }
-  }
+  };
 
   return {
     filters,

@@ -1,30 +1,13 @@
 <template>
   <figure class="grid grid-cols-1 justify-items-center">
     <NuxtLink v-if="link" :to="link" target="_blank" class="not-prose">
-      <img
-        class="w-full rounded-lg"
-        :src="imageUrl"
-        :alt="caption"
-        loading="lazy"
-        width="1310"
-        height="873"
-      >
+      <img class="w-full rounded-lg" :src="imageUrl" :alt="caption" loading="lazy" width="1310" height="873" />
     </NuxtLink>
-    <img
-      v-else
-      class="w-full rounded-lg"
-      :src="imageUrl"
-      :alt="caption"
-      loading="lazy"
-      width="1310"
-      height="873"
-    >
+    <img v-else class="w-full rounded-lg" :src="imageUrl" :alt="caption" loading="lazy" width="1310" height="873" />
     <figcaption v-if="caption" class="text-center">
       {{ caption }}
     </figcaption>
-    <div v-if="credit" class="text-base text-center italic">
-      Crédit image : {{ credit }}
-    </div>
+    <div v-if="credit" class="text-base text-center italic">Crédit image : {{ credit }}</div>
     <div v-if="streetView">
       <StreetViewLink :params="streetView" />
     </div>

@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
-import MapPlaceholder from "~/components/MapPlaceholder.vue";
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { path } = useRoute();
 const { getVoieCyclableRegex } = useUrl();
@@ -47,9 +47,7 @@ const mapOptions = {
 };
 
 const { data: geojson } = await useAsyncData(() => {
-  return queryCollection('voiesCyclablesGeojson')
-    .path(`/voies-cyclables/ligne-${line}`)
-    .first();
+  return queryCollection('voiesCyclablesGeojson').path(`/voies-cyclables/ligne-${line}`).first();
 });
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
@@ -57,7 +55,9 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
   return geojson.value.features;
 });
 
-const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({ allFeatures: features });
+const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
+  allFeatures: features
+});
 
 const description = `Carte de la ${getRevName('singular')} ${line}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés après 2026.`;
 useHead({

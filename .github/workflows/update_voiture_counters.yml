@@ -27,9 +27,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: "[Automatique] Mise à jour des compteurs voiture"
-          title: "Compteurs - Mise à jour automatique des compteurs voiture"
-          body: "Mise à jour automatique des compteurs via une github action."
+          commit-message: '[Automatique] Mise à jour des compteurs voiture'
+          title: 'Compteurs - Mise à jour automatique des compteurs voiture'
+          body: 'Mise à jour automatique des compteurs via une github action.'
           base: main
           branch: update-counters-${{ github.run_id }}
           delete-branch: true

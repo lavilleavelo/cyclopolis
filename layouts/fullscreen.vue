@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { useEventListener } from "@vueuse/core";
+import { useEventListener } from '@vueuse/core';
 
 const setVH = () => {
   document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
@@ -19,7 +19,6 @@ onBeforeMount(() => {
 useEventListener(window, 'resize', () => {
   setVH();
 });
-
 </script>
 
 <style scoped>
