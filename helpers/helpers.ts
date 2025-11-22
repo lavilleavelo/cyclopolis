@@ -7,7 +7,7 @@ export function groupBy<T, K extends string>(array: T[], predicate: (value: T, i
       (acc[predicate(value, index, array)] ||= []).push(value);
       return acc;
     },
-    {} as Record<K, T[]>
+    {} as Record<K, T[]>,
   );
 }
 

@@ -71,11 +71,11 @@ const sheetRef = ref<HTMLElement | null>(null);
 
 watch(
   () => props.open,
-  isOpen => {
+  (isOpen) => {
     if (isOpen && !currentHeight.value) {
       currentHeight.value = getDefaultHeightPx();
     }
-  }
+  },
 );
 
 function handleDragStart(e: MouseEvent | TouchEvent) {
@@ -150,7 +150,7 @@ const sheetStyle = computed(() => {
   return {
     height: currentHeight.value ? `${currentHeight.value}px` : 'auto',
     maxHeight: '95vh',
-    transition: isDragging.value ? 'none' : 'height 0.2s ease-out'
+    transition: isDragging.value ? 'none' : 'height 0.2s ease-out',
   };
 });
 

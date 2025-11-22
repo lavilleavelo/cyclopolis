@@ -47,7 +47,7 @@ const counters = computed(() => {
   }
 
   return allVeloCounters.value
-    .map(veloCounter => {
+    .map((veloCounter) => {
       if (!veloCounter.cyclopolisId) {
         return undefined;
       }
@@ -56,7 +56,7 @@ const counters = computed(() => {
       }
 
       const voitureCounter = allVoitureCounters.value.find(
-        voitureCounter => voitureCounter.cyclopolisId === veloCounter.cyclopolisId
+        (voitureCounter) => voitureCounter.cyclopolisId === veloCounter.cyclopolisId,
       );
       if (!voitureCounter) {
         return undefined;
@@ -64,14 +64,14 @@ const counters = computed(() => {
       return {
         ...veloCounter,
         path: `/compteurs/comparaison/${veloCounter.cyclopolisId}`,
-        counts: voitureCounter.counts.map(voitureCount => {
-          const veloCount = veloCounter.counts.find(veloCount => veloCount.month === voitureCount.month);
+        counts: voitureCounter.counts.map((voitureCount) => {
+          const veloCount = veloCounter.counts.find((veloCount) => veloCount.month === voitureCount.month);
           return {
             month: voitureCount.month,
             veloCount: veloCount?.count || 0,
-            voitureCount: voitureCount.count
+            voitureCount: voitureCount.count,
           };
-        })
+        }),
       };
     })
     .filter((counter): counter is NonNullable<typeof counter> => !!counter);

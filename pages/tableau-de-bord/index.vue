@@ -70,7 +70,7 @@ function getLine(geojson: Collections['voiesCyclablesGeojson']): number {
 
 function getTrafic(geojson: Collections['voiesCyclablesGeojson']): string {
   const line = getLine(geojson);
-  const trafic = mds.value?.find(md => md.line === line)?.trafic;
+  const trafic = mds.value?.find((md) => md.line === line)?.trafic;
   return trafic || 'Inconnu';
 }
 
@@ -80,7 +80,7 @@ useHead({
   meta: [
     { key: 'description', name: 'description', content: description },
     { key: 'og:description', property: 'og:description', content: description },
-    { key: 'twitter:description', name: 'twitter:description', content: description }
-  ]
+    { key: 'twitter:description', name: 'twitter:description', content: description },
+  ],
 });
 </script>

@@ -5,7 +5,7 @@ import {
   vl2StRambertCommun,
   vl3StRambertCommun,
   vl5PierreBeniteNordCommun,
-  vl6CoursHerbouville
+  vl6CoursHerbouville,
 } from './useStats.fixtures';
 const { getAllUniqLineStrings, getStatsByTypology } = useStats();
 
@@ -15,7 +15,7 @@ describe('useStats', () => {
       it('should only keep the 1st feature with that id. id are used to handle common section between lines. We should use one and only one id (deduplicate) when computing distances', () => {
         const voies = [
           { type: 'FeatureCollection', features: [vl2StRambertCommun] },
-          { type: 'FeatureCollection', features: [vl3StRambertCommun] }
+          { type: 'FeatureCollection', features: [vl3StRambertCommun] },
         ];
         const uniqLineStrings = getAllUniqLineStrings(voies);
         assert.deepEqual(uniqLineStrings, [vl2StRambertCommun]);
@@ -37,19 +37,19 @@ describe('useStats', () => {
         const stats = getStatsByTypology(voies);
         assert.deepEqual(stats, [
           { name: 'Inconnu', percent: 50 },
-          { name: 'Piste bilatérale', percent: 50 }
+          { name: 'Piste bilatérale', percent: 50 },
         ]);
       });
     });
     describe('When there are 3 sections with 2 types of cycle lane, all having same coordinates', () => {
       it('should return 33% and 67%', () => {
         const voies = [
-          { type: 'FeatureCollection', features: [vl2StRambertCommun, vl5PierreBeniteNordCommun, vl6CoursHerbouville] }
+          { type: 'FeatureCollection', features: [vl2StRambertCommun, vl5PierreBeniteNordCommun, vl6CoursHerbouville] },
         ];
         const stats = getStatsByTypology(voies);
         assert.deepEqual(stats, [
           { name: 'Piste bilatérale', percent: 67 },
-          { name: 'Inconnu', percent: 33 }
+          { name: 'Inconnu', percent: 33 },
         ]);
       });
     });

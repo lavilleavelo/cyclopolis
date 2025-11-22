@@ -69,7 +69,7 @@ if (!counter.value) {
 
 const graphTitles = {
   totalByYear: `Fréquentation cycliste annuelle - ${counter.value.name}`,
-  monthComparison: `Fréquentation cycliste - ${counter.value.name}`
+  monthComparison: `Fréquentation cycliste - ${counter.value.name}`,
 };
 
 const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-velo' });
@@ -84,7 +84,7 @@ useHead({
     { hid: 'twitter:description', name: 'twitter:description', DESCRIPTION },
     // cover image
     { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
-    { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL }
-  ]
+    { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL },
+  ],
 });
 </script>

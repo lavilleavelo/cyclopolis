@@ -6,7 +6,7 @@ import {
   type LaneQuality,
   type LaneStatus,
   type LaneType,
-  type UseBikeLaneFiltersOptions
+  type UseBikeLaneFiltersOptions,
 } from '~/types';
 import type { Collections } from '@nuxt/content';
 import { useRoute, useRouter } from 'vue-router';
@@ -24,7 +24,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     { label: 'En travaux', isEnabled: true, statuses: ['wip', 'tested'] },
     { label: 'Prévu pour 2026', isEnabled: true, statuses: ['planned'] },
     { label: 'Reporté', isEnabled: true, statuses: ['postponed', 'variante-postponed'] },
-    { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] }
+    { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] },
   ]);
 
   const typeFilters = ref([
@@ -36,12 +36,12 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     { label: 'Bandes cyclables', isEnabled: true, types: ['bandes-cyclables'] },
     { label: 'Zone de rencontre', isEnabled: true, types: ['zone-de-rencontre'] },
     { label: 'Inconnu', isEnabled: true, types: ['inconnu'] },
-    { label: 'Aucun', isEnabled: true, types: ['aucun'] }
+    { label: 'Aucun', isEnabled: true, types: ['aucun'] },
   ]);
 
   const qualityFilters = ref([
     { label: 'Satisfaisant', isEnabled: true, qualities: ['satisfactory'] },
-    { label: 'Non satisfaisant', isEnabled: true, qualities: ['unsatisfactory'] }
+    { label: 'Non satisfaisant', isEnabled: true, qualities: ['unsatisfactory'] },
   ]);
 
   const lineFilters = ref<{ label: string; isEnabled: boolean; line: number }[]>([]);
@@ -56,20 +56,20 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   if (Object.hasOwn(query, 'statuses')) {
     const statusesQuery = query.statuses;
     const enabled = statusesQuery && (statusesQuery as string).length > 0 ? (statusesQuery as string).split(',') : [];
-    statusFilters.value.forEach(f => (f.isEnabled = f.statuses.every(s => enabled.includes(s))));
+    statusFilters.value.forEach((f) => (f.isEnabled = f.statuses.every((s) => enabled.includes(s))));
   }
 
   if (Object.hasOwn(query, 'types')) {
     const typesQuery = query.types;
     const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
-    typeFilters.value.forEach(f => (f.isEnabled = f.types.every(t => enabled.includes(t))));
+    typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
   }
 
   if (Object.hasOwn(query, 'qualities')) {
     const qualitiesQuery = query.qualities;
     const enabled =
       qualitiesQuery && (qualitiesQuery as string).length > 0 ? (qualitiesQuery as string).split(',') : [];
-    qualityFilters.value.forEach(f => (f.isEnabled = f.qualities.every(q => enabled.includes(q))));
+    qualityFilters.value.forEach((f) => (f.isEnabled = f.qualities.every((q) => enabled.includes(q))));
   }
 
   function processDateData(geojsonData: Collections['voiesCyclablesGeojson'][] | undefined | null) {
@@ -77,8 +77,8 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
     const uniqueDates = new Set<number>();
 
-    geojsonData.forEach(geojson => {
-      geojson.features.forEach(feature => {
+    geojsonData.forEach((geojson) => {
+      geojson.features.forEach((feature) => {
         if ('doneAt' in feature.properties && feature.properties.doneAt) {
           const parts = feature.properties.doneAt.split('/');
           if (parts.length === 3) {
@@ -112,8 +112,8 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
         const startMonth = parseYearMonth(route.query.start as string);
         const endMonth = parseYearMonth(route.query.end as string);
-        const startIdx = dateSteps.value.findIndex(m => m >= startMonth);
-        const endIdx = dateSteps.value.findIndex(m => m >= endMonth);
+        const startIdx = dateSteps.value.findIndex((m) => m >= startMonth);
+        const endIdx = dateSteps.value.findIndex((m) => m >= endMonth);
         dateRange.value = [startIdx >= 0 ? startIdx : 0, endIdx >= 0 ? endIdx : maxDate.value];
       } else {
         dateRange.value = [0, maxDate.value];
@@ -132,39 +132,39 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   if (allLines) {
     watch(
       allLines,
-      newLines => {
+      (newLines) => {
         if (newLines) {
           const linesSet = new Set<number>();
-          newLines.forEach(voie => {
+          newLines.forEach((voie) => {
             if (voie.line) linesSet.add(voie.line);
           });
 
           lineFilters.value = Array.from(linesSet)
             .sort((a, b) => a - b)
-            .map(line => ({ label: `VL ${line}`, isEnabled: true, line }));
+            .map((line) => ({ label: `VL ${line}`, isEnabled: true, line }));
 
           if (Object.hasOwn(route.query, 'lines')) {
             const linesQuery = route.query.lines;
             const enabled =
-              linesQuery && (linesQuery as string).length > 0 ? (linesQuery as string).split(',').map(l => +l) : [];
-            lineFilters.value.forEach(f => (f.isEnabled = enabled.includes(f.line)));
+              linesQuery && (linesQuery as string).length > 0 ? (linesQuery as string).split(',').map((l) => +l) : [];
+            lineFilters.value.forEach((f) => (f.isEnabled = enabled.includes(f.line)));
           }
         }
       },
-      { immediate: true }
+      { immediate: true },
     );
   }
 
   const visibleStatuses = computed(() =>
-    statusFilters.value.filter(item => item.isEnabled).flatMap(item => item.statuses as LaneStatus[])
+    statusFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.statuses as LaneStatus[]),
   );
   const visibleTypes = computed(() =>
-    typeFilters.value.filter(item => item.isEnabled).flatMap(item => item.types as LaneType[])
+    typeFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.types as LaneType[]),
   );
   const visibleQualities = computed(() =>
-    qualityFilters.value.filter(item => item.isEnabled).flatMap(item => item.qualities as LaneQuality[])
+    qualityFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.qualities as LaneQuality[]),
   );
-  const visibleLines = computed(() => lineFilters.value.filter(item => item.isEnabled).map(item => item.line));
+  const visibleLines = computed(() => lineFilters.value.filter((item) => item.isEnabled).map((item) => item.line));
   const visibleDateRange = computed(() => {
     if (dateSteps.value.length > 0) {
       const startMonth = dateSteps.value[dateRange.value[0]] || 0;
@@ -179,21 +179,21 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     () => {
       const newQuery = { ...route.query };
 
-      const allStatuses = statusFilters.value.flatMap(f => f.statuses);
+      const allStatuses = statusFilters.value.flatMap((f) => f.statuses);
       if (visibleStatuses.value.length < allStatuses.length) {
         newQuery.statuses = visibleStatuses.value.join(',');
       } else {
         delete newQuery.statuses;
       }
 
-      const allTypes = typeFilters.value.flatMap(f => f.types);
+      const allTypes = typeFilters.value.flatMap((f) => f.types);
       if (visibleTypes.value.length < allTypes.length) {
         newQuery.types = visibleTypes.value.join(',');
       } else {
         delete newQuery.types;
       }
 
-      const allQualities = qualityFilters.value.flatMap(f => f.qualities);
+      const allQualities = qualityFilters.value.flatMap((f) => f.qualities);
       if (visibleQualities.value.length < allQualities.length) {
         newQuery.qualities = visibleQualities.value.join(',');
       } else {
@@ -201,7 +201,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
       }
 
       if (lineFilters.value.length > 0) {
-        const allLines = lineFilters.value.map(f => f.line);
+        const allLines = lineFilters.value.map((f) => f.line);
         if (visibleLines.value.length < allLines.length) {
           newQuery.lines = visibleLines.value.join(',');
         } else {
@@ -229,11 +229,11 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
       void router.replace({ query: newQuery });
     },
-    { deep: true }
+    { deep: true },
   );
 
   const filteredFeatures = computed(() => {
-    return (allFeatures.value ?? []).filter(feature => {
+    return (allFeatures.value ?? []).filter((feature) => {
       if (isLineStringFeature(feature) || isPointFeature(feature)) {
         if (
           lineFilters.value.length > 0 &&
@@ -292,7 +292,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     dateRange,
     minDate,
     maxDate,
-    dateSteps
+    dateSteps,
   };
 
   const actions: FilterActions = {
@@ -310,7 +310,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     },
     setDateRange(newDateRange: [number, number]) {
       dateRange.value = newDateRange;
-    }
+    },
   };
 
   return {
@@ -318,6 +318,6 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     actions,
     filteredFeatures,
     totalDistance,
-    filteredDistance
+    filteredDistance,
   };
 }

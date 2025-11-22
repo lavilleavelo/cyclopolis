@@ -108,38 +108,38 @@ function getStatus(properties: LineStringFeature['properties']): { label: string
     done: {
       label: 'terminé',
       date: properties.doneAt && getDoneAtText(properties.doneAt),
-      class: 'text-white bg-lvv-blue-600 rounded-xl px-2 w-fit'
+      class: 'text-white bg-lvv-blue-600 rounded-xl px-2 w-fit',
     },
     wip: {
       label: 'en travaux',
-      class: 'text-lvv-blue-600 rounded-xl px-2 border border-dashed border-lvv-blue-600'
+      class: 'text-lvv-blue-600 rounded-xl px-2 border border-dashed border-lvv-blue-600',
     },
     planned: {
       label: 'prévu',
-      class: 'text-lvv-blue-600 rounded-xl px-2 border border-lvv-blue-600'
+      class: 'text-lvv-blue-600 rounded-xl px-2 border border-lvv-blue-600',
     },
     tested: {
       label: 'en test',
-      class: 'text-lvv-blue-600 rounded-xl px-2 border border-dashed border-lvv-blue-600'
+      class: 'text-lvv-blue-600 rounded-xl px-2 border border-dashed border-lvv-blue-600',
     },
     postponed: {
       label: 'reporté',
       date: 'après 2026',
-      class: 'text-white bg-lvv-pink rounded-xl px-2'
+      class: 'text-white bg-lvv-pink rounded-xl px-2',
     },
     variante: {
       label: 'variante',
-      class: ''
+      class: '',
     },
     'variante-postponed': {
       label: 'variante reportée',
       date: 'après 2026',
-      class: 'text-white bg-lvv-pink rounded-xl px-2'
+      class: 'text-white bg-lvv-pink rounded-xl px-2',
     },
     unknown: {
       label: 'à définir',
-      class: 'text-gray-900 bg-gray-200 rounded-xl px-2'
-    }
+      class: 'text-gray-900 bg-gray-200 rounded-xl px-2',
+    },
   };
   return statusMapping[properties.status];
 }
@@ -150,14 +150,14 @@ function getQuality(quality: LaneQuality): { label: string; class: string; icon:
       label: qualityNames.unsatisfactory,
       class: 'rounded-xl px-1 border border-red-600',
       classIcon: 'text-red-600',
-      icon: 'mdi:close'
+      icon: 'mdi:close',
     },
     satisfactory: {
       label: qualityNames.satisfactory,
       class: 'rounded-xl px-1 border border-green-600',
       classIcon: 'text-green-600',
-      icon: 'mdi:check'
-    }
+      icon: 'mdi:check',
+    },
   };
   return statusMapping[quality];
 }

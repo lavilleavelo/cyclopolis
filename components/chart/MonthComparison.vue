@@ -29,7 +29,7 @@
               <li
                 :class="[
                   active ? 'bg-lvv-blue-300 text-lvv-blue-400' : 'text-gray-900',
-                  'relative cursor-default select-none py-2 pl-10 pr-4'
+                  'relative cursor-default select-none py-2 pl-10 pr-4',
                 ]"
               >
                 <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">{{ month.name }}</span>
@@ -55,7 +55,7 @@ import type { Count } from '~/types';
 
 const props = defineProps({
   title: { type: String, required: true },
-  data: { type: Object, required: true }
+  data: { type: Object, required: true },
 });
 
 const months = [
@@ -70,13 +70,13 @@ const months = [
   { name: 'Septembre', value: 8 },
   { name: 'Octobre', value: 9 },
   { name: 'Novembre', value: 10 },
-  { name: 'Décembre', value: 11 }
+  { name: 'Décembre', value: 11 },
 ];
 
 const lastRecord = props.data.counts[props.data.counts.length - 1];
 const lastRecordMonth = new Date(lastRecord.month).getMonth();
 
-const selectedMonth = ref(months.find(month => month.value === lastRecordMonth));
+const selectedMonth = ref(months.find((month) => month.value === lastRecordMonth));
 
 const counts = computed(() => {
   return props.data.counts
@@ -90,7 +90,7 @@ const counts = computed(() => {
 
 const years = computed(() => {
   return counts.value.map((count: Count) =>
-    new Date(count.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' })
+    new Date(count.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' }),
   );
 });
 
@@ -109,9 +109,9 @@ const chartOptions = computed(() => {
       column: { pointPadding: 0.2, borderWidth: 0 },
       series: {
         dataLabels: {
-          enabled: true
-        }
-      }
+          enabled: true,
+        },
+      },
     },
     series: [
       {
@@ -119,9 +119,9 @@ const chartOptions = computed(() => {
         data: countsValues.map((y: number) => {
           const color = y === max ? '#C84271' : '#152B68';
           return { y, color, dataLabels: { color } };
-        })
-      }
-    ]
+        }),
+      },
+    ],
   };
 });
 </script>

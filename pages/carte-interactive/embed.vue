@@ -12,7 +12,7 @@ const { getRevName } = useConfig();
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
   pageTransition: false,
-  layout: 'embed'
+  layout: 'embed',
 });
 
 const { data: geojsons } = await useAsyncData(() => {
@@ -21,7 +21,7 @@ const { data: geojsons } = await useAsyncData(() => {
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
   if (!geojsons.value) return [];
-  return geojsons.value.flatMap(geojson => geojson.features);
+  return geojsons.value.flatMap((geojson) => geojson.features);
 });
 
 const description = `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;
@@ -35,7 +35,7 @@ useHead({
     { key: 'twitter:description', name: 'twitter:description', content: description },
     // cover image
     { key: 'og:image', property: 'og:image', content: COVER_IMAGE_URL },
-    { key: 'twitter:image', name: 'twitter:image', content: COVER_IMAGE_URL }
-  ]
+    { key: 'twitter:image', name: 'twitter:image', content: COVER_IMAGE_URL },
+  ],
 });
 </script>

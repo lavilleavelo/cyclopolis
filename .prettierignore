@@ -14,3 +14,4 @@ dist
 content/
 public/
 assets/style.json
+package-lock.json

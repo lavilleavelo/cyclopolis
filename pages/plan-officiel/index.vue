@@ -23,7 +23,7 @@ useHead({
     { hid: 'twitter:description', name: 'twitter:description', content: description },
     // cover image
     { hid: 'og:image', property: 'og:image', content: COVER_IMAGE_URL },
-    { hid: 'twitter:image', name: 'twitter:image', content: COVER_IMAGE_URL }
-  ]
+    { hid: 'twitter:image', name: 'twitter:image', content: COVER_IMAGE_URL },
+  ],
 });
 </script>

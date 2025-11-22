@@ -37,49 +37,49 @@ const { getAssoName, getAssoLink } = useConfig();
 const links = [
   { name: 'Mentions légales', path: '/mentions-legales' },
   { name: 'Historique', path: '/historique' },
-  { name: 'Sites partenaires', path: '/sites-partenaires' }
+  { name: 'Sites partenaires', path: '/sites-partenaires' },
 ];
 
 const socials = [
   {
     name: 'Bluesky',
     href: 'https://bsky.app/profile/lavilleavelo.bsky.social',
-    icon: 'fa6-brands:bluesky'
+    icon: 'fa6-brands:bluesky',
   },
   {
     name: 'Mastodon',
     href: 'https://masto.bike/@lavilleavelo',
-    icon: 'mdi:mastodon'
+    icon: 'mdi:mastodon',
   },
   {
     name: 'Facebook',
     href: 'https://www.facebook.com/lavilleavelolyon/',
-    icon: 'mdi:facebook'
+    icon: 'mdi:facebook',
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/company/la-ville-%C3%A0-v%C3%A9lo',
-    icon: 'mdi:linkedin'
+    icon: 'mdi:linkedin',
   },
   {
     name: 'Instagram',
     href: 'https://www.instagram.com/lavilleavelolyon',
-    icon: 'mdi:instagram'
+    icon: 'mdi:instagram',
   },
   {
     name: 'Github',
     href: 'https://github.com/lavilleavelo/cyclopolis',
-    icon: 'mdi:github'
+    icon: 'mdi:github',
   },
   {
     name: 'Site web',
     href: 'https://lavilleavelo.org/',
-    icon: 'mdi:link'
+    icon: 'mdi:link',
   },
   {
     name: 'Email',
     href: 'mailto:contact_at_lavilleavelo.org',
-    icon: 'mdi:email-outline'
-  }
+    icon: 'mdi:email-outline',
+  },
 ];
 </script>

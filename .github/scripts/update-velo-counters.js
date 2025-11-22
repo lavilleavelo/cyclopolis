@@ -15,7 +15,7 @@ dayjs().format();
   const trackedCounters = getTrackedCounters();
   for (const { file, counter: trackCounter } of trackedCounters) {
     console.log(`<<<<<<< ${trackCounter.name} >>>>>>>`);
-    const counter = allCounters.find(c => c.idPdc === trackCounter.idPdc);
+    const counter = allCounters.find((c) => c.idPdc === trackCounter.idPdc);
     if (!counter) {
       console.error('counter not found', { trackCounter });
       continue;
@@ -28,7 +28,7 @@ dayjs().format();
   if (allCounters.length !== trackedCounters.length) {
     console.log(`\n${allCounters.length - trackedCounters.length} counters not tracked yet:`);
     for (const counter of allCounters) {
-      if (!trackedCounters.find(c => c.counter.idPdc === counter.idPdc)) {
+      if (!trackedCounters.find((c) => c.counter.idPdc === counter.idPdc)) {
         console.log(counter.name);
       }
     }
@@ -46,10 +46,10 @@ async function getAllCounters() {
   const res = await fetch(URL);
   if (res.ok) {
     const allCounters = await res.json();
-    return allCounters.map(counter => ({
+    return allCounters.map((counter) => ({
       name: counter.nom,
       idPdc: counter.idPdc,
-      flowIds: counter.pratique.map(item => item.id).join(';')
+      flowIds: counter.pratique.map((item) => item.id).join(';'),
     }));
   } else {
     console.error('[getAllCounters] An error happened while fetching counters');
@@ -58,12 +58,12 @@ async function getAllCounters() {
 }
 function getTrackedCounters() {
   const files = fs.readdirSync('content/compteurs/velo');
-  return files.map(file => {
+  return files.map((file) => {
     const filePath = path.join('content/compteurs/velo', file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     return {
       file,
-      counter: data
+      counter: data,
     };
   });
 }
@@ -78,18 +78,18 @@ async function getUpdatedCounts({ idPdc, flowIds }) {
         flowIds,
         debut: '01/01/2015',
         fin: dayjs().startOf('month').format('DD/MM/YYYY'),
-        interval: '6' // month
-      })
+        interval: '6', // month
+      }),
   );
   if (res.ok) {
     const counts = await res.json();
-    return counts.map(count => {
+    return counts.map((count) => {
       const date = new Date(count[0]);
       const year = date.toLocaleDateString('fr-FR', { year: 'numeric' });
       const month = date.toLocaleDateString('fr-FR', { month: '2-digit' });
       return {
         month: `${year}-${month}-01`,
-        count: Number(count[1])
+        count: Number(count[1]),
       };
     });
   } else {

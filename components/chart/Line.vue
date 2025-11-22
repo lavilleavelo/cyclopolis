@@ -23,14 +23,14 @@ const data = props.data.reduce(
     acc[year].voiture += item.voitureCount;
     return acc;
   },
-  {} as Record<string, { velo: number; voiture: number }>
+  {} as Record<string, { velo: number; voiture: number }>,
 );
 
 const chartData = Object.entries(data)
   .map(([year, { velo, voiture }]) => ({
     year: parseInt(year),
     velo,
-    voiture
+    voiture,
   }))
   .sort((a, b) => a.year - b.year);
 
@@ -38,21 +38,21 @@ const chartOptions = {
   title: { text: `Fréquentation vélo & voiture - ${props.name}` },
   credits: { enabled: false },
   yAxis: { title: { text: 'Passages' } },
-  xAxis: { categories: chartData.map(item => item.year) },
+  xAxis: { categories: chartData.map((item) => item.year) },
   series: [
     {
       name: 'Voitures',
       color: '#152B68',
-      data: chartData.map(item => item.voiture)
+      data: chartData.map((item) => item.voiture),
     },
     {
       name: 'Vélos',
       color: '#C84271',
-      data: chartData.map(item => item.velo)
-    }
+      data: chartData.map((item) => item.velo),
+    },
   ],
   responsive: {
-    rules: [{ condition: { maxWidth: 500 } }]
-  }
+    rules: [{ condition: { maxWidth: 500 } }],
+  },
 };
 </script>

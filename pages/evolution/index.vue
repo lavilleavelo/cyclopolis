@@ -11,7 +11,7 @@
           logo: false,
           showLineFilters: true,
           canUseSidePanel: true,
-          filterStyle: 'height: calc(100vh - 240px)'
+          filterStyle: 'height: calc(100vh - 240px)',
         }"
         class="flex-1"
         :total-distance="totalDistance"
@@ -30,7 +30,7 @@
             class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
             :class="{
               'bg-lvv-blue-600 border-transparent text-white hover:bg-lvv-blue-500': year.isChecked,
-              'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !year.isChecked
+              'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': !year.isChecked,
             }"
           >
             <div class="text-center">
@@ -56,7 +56,7 @@ const { getRevName } = useConfig();
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
   pageTransition: false,
-  layout: 'fullscreen'
+  layout: 'fullscreen',
 });
 
 const { data: geojsons } = await useAsyncData('evolutionGeojsons', () => {
@@ -73,7 +73,7 @@ const yearConfigs = [
   { label: '2022', param: '2022', match: (year: number) => year === 2022 },
   { label: '2023', param: '2023', match: (year: number) => year === 2023 },
   { label: '2024', param: '2024', match: (year: number) => year === 2024 },
-  { label: '2025', param: '2025', match: (year: number) => year === 2025 }
+  { label: '2025', param: '2025', match: (year: number) => year === 2025 },
 ];
 
 const route = useRoute();
@@ -88,42 +88,42 @@ onMounted(() => {
 
 watch(
   () => route.query.years,
-  newYears => {
+  (newYears) => {
     const yearsParam = newYears ? newYears.toString() : '';
     selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [];
-  }
+  },
 );
 
 const years = computed(() => {
   return yearConfigs.map((config, index) => ({
     ...config,
     isChecked: selectedYearParams.value.includes(config.param),
-    distance: `${index === 0 ? '' : '+'}${computeDistance(filterFeatures(geojsons.value, [config]))}km`
+    distance: `${index === 0 ? '' : '+'}${computeDistance(filterFeatures(geojsons.value, [config]))}km`,
   }));
 });
 
 function toggleYear(label: string) {
-  const config = yearConfigs.find(c => c.label === label);
+  const config = yearConfigs.find((c) => c.label === label);
   if (!config) return;
 
   const selected = selectedYearParams.value;
   const newSelection = selected.includes(config.param)
-    ? selected.filter(y => y !== config.param)
+    ? selected.filter((y) => y !== config.param)
     : [...selected, config.param];
 
   router.push({
     query: {
       ...route.query,
-      years: newSelection.length > 0 ? newSelection.join(',') : ''
-    }
+      years: newSelection.length > 0 ? newSelection.join(',') : '',
+    },
   });
 }
 
 const features = computed(() =>
   filterFeatures(
     geojsons.value,
-    yearConfigs.filter(config => selectedYearParams.value.includes(config.param))
-  )
+    yearConfigs.filter((config) => selectedYearParams.value.includes(config.param)),
+  ),
 );
 
 const doneDistance = computed(() => computeDistance(features.value));
@@ -131,14 +131,14 @@ const doneDistance = computed(() => computeDistance(features.value));
 function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof yearConfigs) {
   if (!jsons) return [];
   return jsons
-    .flatMap(json => json.features)
-    .filter(feature => 'status' in feature.properties && feature.properties.status === 'done')
-    .filter(feature => {
+    .flatMap((json) => json.features)
+    .filter((feature) => 'status' in feature.properties && feature.properties.status === 'done')
+    .filter((feature) => {
       if (!('status' in feature.properties) || !feature.properties.doneAt) {
         return false;
       }
       const [, , featureYear] = feature.properties.doneAt.split('/');
-      return selectedYears.some(year => year.match(Number(featureYear)));
+      return selectedYears.some((year) => year.match(Number(featureYear)));
     });
 }
 
@@ -151,6 +151,6 @@ function computeDistance(selectedFeatures: typeof features.value) {
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,
-  allLines: computed(() => voiesCyclablesPages.value) // Pass lines data for line filters
+  allLines: computed(() => voiesCyclablesPages.value), // Pass lines data for line filters
 });
 </script>

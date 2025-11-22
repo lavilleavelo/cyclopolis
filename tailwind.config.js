@@ -11,16 +11,16 @@ module.exports = {
         'lvv-blue-200': '#DEDBDD',
         'lvv-blue-100': '#EFEDF1',
         'lvv-pink': '#C84271',
-        'lvv-green': '#83C0B7'
+        'lvv-green': '#83C0B7',
       },
       typography: {
         DEFAULT: {
           css: {
-            a: { color: '#152B68' }
-          }
-        }
-      }
-    }
+            a: { color: '#152B68' },
+          },
+        },
+      },
+    },
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')],
 };

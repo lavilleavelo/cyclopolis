@@ -85,8 +85,8 @@ const arrondissement = props.counter.arrondissement;
 const name = props.counter.name;
 const link = props.counter.path;
 
-const isTrackingVelo = props.counter.counts.every(count => count.veloCount !== undefined);
-const isTrackingVoiture = props.counter.counts.every(count => count.voitureCount !== undefined);
+const isTrackingVelo = props.counter.counts.every((count) => count.veloCount !== undefined);
+const isTrackingVoiture = props.counter.counts.every((count) => count.voitureCount !== undefined);
 
 const lastRecord = props.counter.counts[props.counter.counts.length - 1];
 const lastRecordPreviousYear = getSameRecordPreviousYear(lastRecord);
@@ -115,7 +115,7 @@ function formatRecordCount(count?: number) {
 function getSameRecordPreviousYear(record: Counter['counts'][0]): Counter['counts'][0] | undefined {
   const recordMonth = new Date(record.month).getMonth();
   const recordYear = new Date(record.month).getFullYear();
-  return props.counter.counts.find(count => {
+  return props.counter.counts.find((count) => {
     return new Date(count.month).getMonth() === recordMonth && new Date(count.month).getFullYear() === recordYear - 1;
   });
 }

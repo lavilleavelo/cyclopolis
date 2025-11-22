@@ -10,7 +10,7 @@ const config = require('../../config.json');
 })();
 
 function checkJsonFilesAreValid(directory = 'content') {
-  fs.readdirSync(directory).forEach(file => {
+  fs.readdirSync(directory).forEach((file) => {
     const filePath = path.join(directory, file);
 
     if (fs.statSync(filePath).isDirectory()) {
@@ -30,7 +30,7 @@ function getAllLinks() {
   const links = [];
   const titleRegex = /^(#+)\s+(.*)/gm;
 
-  fs.readdirSync('content/voies-cyclables').forEach(file => {
+  fs.readdirSync('content/voies-cyclables').forEach((file) => {
     if (file.endsWith('.md')) {
       const voieLyonnaiseNumber = file.match(/\d+/g);
 
@@ -63,7 +63,7 @@ function getAllLinks() {
 
 function checkGeoJsonDataHealth({ links }) {
   const allLineStrings = [];
-  fs.readdirSync('content/voies-cyclables').forEach(file => {
+  fs.readdirSync('content/voies-cyclables').forEach((file) => {
     if (file.endsWith('.json')) {
       const filePath = path.join('content/voies-cyclables', file);
       const content = fs.readFileSync(filePath, 'utf8');
@@ -93,7 +93,7 @@ function checkGeoJsonDataHealth({ links }) {
                 'postponed',
                 'unknown',
                 'variante',
-                'variante-postponed'
+                'variante-postponed',
               ];
               if (!validStatus.includes(properties.status)) {
                 console.error(`Invalid status '${properties.status}' in LineString properties of file: ${filePath}`);
@@ -118,7 +118,7 @@ function checkGeoJsonDataHealth({ links }) {
                 const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
                 if (!dateRegex.test(properties.doneAt)) {
                   console.error(
-                    `Invalid doneAt format '${properties.doneAt}' in VL ${properties.line}, tronçon: ${properties.name}`
+                    `Invalid doneAt format '${properties.doneAt}' in VL ${properties.line}, tronçon: ${properties.name}`,
                   );
                   process.exit(1);
                 }
@@ -135,7 +135,7 @@ function checkGeoJsonDataHealth({ links }) {
                 'bandes-cyclables',
                 'zone-de-rencontre',
                 'inconnu',
-                'aucun'
+                'aucun',
               ];
               if (!validTypes.includes(properties.type)) {
                 console.error(`Invalid type '${properties.type}' in LineString properties of file: ${filePath}`);
@@ -216,7 +216,7 @@ function checkGeoJsonDataHealth({ links }) {
 }
 
 function checkCompteursDataHealth() {
-  fs.readdirSync('content/compteurs').forEach(file => {
+  fs.readdirSync('content/compteurs').forEach((file) => {
     if (file.endsWith('.json')) {
       const filePath = path.join('content/compteurs', file);
       const content = fs.readFileSync(filePath, 'utf8');

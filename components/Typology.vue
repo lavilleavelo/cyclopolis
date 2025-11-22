@@ -24,7 +24,7 @@
 const { getStatsByTypology } = useStats();
 
 const { voies } = defineProps({
-  voies: { type: Array, required: true }
+  voies: { type: Array, required: true },
 });
 
 const stats = getStatsByTypology(voies);

@@ -32,8 +32,8 @@ if (article.value) {
       { key: 'twitter:description', name: 'twitter:description', content: article.value.description },
       // cover image
       { key: 'og:image', property: 'og:image', content: article.value.imageUrl },
-      { key: 'twitter:image', name: 'twitter:image', content: article.value.imageUrl }
-    ]
+      { key: 'twitter:image', name: 'twitter:image', content: article.value.imageUrl },
+    ],
   });
 }
 </script>

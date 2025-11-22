@@ -56,7 +56,7 @@ if (!counter.value) {
 
 const graphTitles = {
   totalByYear: `Fréquentation voiture annuelle - ${counter.value.name}`,
-  monthComparison: `Fréquentation voiture - ${counter.value.name}`
+  monthComparison: `Fréquentation voiture - ${counter.value.name}`,
 };
 
 const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-voiture' });
@@ -71,7 +71,7 @@ useHead({
     { hid: 'twitter:description', name: 'twitter:description', DESCRIPTION },
     // cover image
     { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
-    { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL }
-  ]
+    { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL },
+  ],
 });
 </script>

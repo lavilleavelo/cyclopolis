@@ -34,7 +34,7 @@ const line = match ? match[1] : '';
 definePageMeta({
   pageTransition: false,
   layout: 'fullscreen',
-  middleware: 'voie-cyclable'
+  middleware: 'voie-cyclable',
 });
 
 const mapOptions = {
@@ -43,7 +43,7 @@ const mapOptions = {
   onShrinkControlClick: () => {
     const route = useRoute();
     return navigateTo({ path: `/${route.params._slug}` });
-  }
+  },
 };
 
 const { data: geojson } = await useAsyncData(() => {
@@ -56,7 +56,7 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
 });
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
-  allFeatures: features
+  allFeatures: features,
 });
 
 const description = `Carte de la ${getRevName('singular')} ${line}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés après 2026.`;
@@ -66,7 +66,7 @@ useHead({
     // description
     { key: 'description', name: 'description', content: description },
     { key: 'og:description', property: 'og:description', content: description },
-    { key: 'twitter:description', name: 'twitter:description', content: description }
-  ]
+    { key: 'twitter:description', name: 'twitter:description', content: description },
+  ],
 });
 </script>
