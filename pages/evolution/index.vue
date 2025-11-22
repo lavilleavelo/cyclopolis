@@ -5,7 +5,10 @@
         <MapPlaceholder />
       </template>
 
-      <Map :features="features" :options="{ logo: false, showLineFilters: true }" class="flex-1" />
+      <Map :features="filteredFeatures"
+           :options="{ logo: false, showLineFilters: true, canUseSidePanel: true, filterStyle: 'height: calc(100vh - 240px)' }"
+           class="flex-1" @update="refreshFilters" :total-distance="totalDistance"
+           :filtered-distance="filteredDistance"/>
     </ClientOnly>
     <div>
       <div class="py-2 px-5 md:px-8 text-white bg-lvv-blue-600 font-semibold text-base">
@@ -35,6 +38,7 @@
 <script setup lang="ts">
 
 import MapPlaceholder from "~/components/MapPlaceholder.vue";
+import {useBikeLaneFilters} from "~/composables/useBikeLaneFilters";
 
 const { getAllUniqLineStrings, getDistance } = useStats();
 const { getRevName } = useConfig();
@@ -123,4 +127,7 @@ function computeDistance(selectedFeatures: typeof features.value) {
   const doneDistance = getDistance({ features: allUniqFeatures });
   return Math.round(doneDistance / 100) / 10;
 }
+
+const { refreshFilters, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters(features);
+
 </script>

@@ -10,19 +10,19 @@
     />
 
     <FilterSection
+        title="Filtrer par qualité d'aménagement"
+        :filters="qualityFilters"
+        :show-selection-buttons="false"
+        @toggle-filter="toggleQualityFilter"
+    />
+
+    <FilterSection
       title="Filtrer par type d'aménagement"
       :filters="typeFilters"
       :show-selection-buttons="true"
       @toggle-filter="toggleTypeFilter"
       @select-all="typeFilters.forEach(type => (type.isEnable = true))"
       @deselect-all="typeFilters.forEach(type => (type.isEnable = false))"
-    />
-
-    <FilterSection
-      title="Filtrer par qualité d'aménagement"
-      :filters="qualityFilters"
-      :show-selection-buttons="false"
-      @toggle-filter="toggleQualityFilter"
     />
 
     <FilterSection

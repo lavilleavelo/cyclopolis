@@ -10,6 +10,7 @@
         :can-use-side-panel="options.canUseSidePanel"
         :geojsons="geojsons"
         @update="handleUpdate"
+        :filter-style="options.filterStyle"
       />
     </div>
 
@@ -56,7 +57,8 @@ const defaultOptions = {
   showLineFilters: false,
   showDateFilter: false,
   canUseSidePanel: false,
-  onShrinkControlClick: () => { }
+  onShrinkControlClick: () => { },
+  filterStyle: 'height: calc(100vh - 100px)'
 };
 
 const props = defineProps<{
