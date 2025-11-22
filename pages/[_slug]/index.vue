@@ -33,7 +33,7 @@ const line = path.match(regex)?.[1] ?? '';
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
   pageTransition: false,
-  middleware: 'voie-cyclable'
+  middleware: 'voie-cyclable',
 });
 
 const { data: voie } = await useAsyncData(path, () => {
@@ -51,7 +51,7 @@ useHead({
     { key: 'twitter:description', name: 'twitter:description', content: description },
     // cover image
     ...(voie.value?.cover ? [{ key: 'og:image', property: 'og:image', content: voie.value.cover }] : []),
-    ...(voie.value?.cover ? [{ key: 'twitter:image', property: 'twitter:image', content: voie.value.cover }] : [])
-  ]
+    ...(voie.value?.cover ? [{ key: 'twitter:image', property: 'twitter:image', content: voie.value.cover }] : []),
+  ],
 });
 </script>

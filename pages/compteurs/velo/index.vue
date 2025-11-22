@@ -68,15 +68,15 @@ const counters = computed(() => {
       const count2 = counter2.counts.at(-1)?.count ?? 0;
       return count2 - count1;
     })
-    .filter(counter =>
-      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value))
+    .filter((counter) =>
+      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)),
     )
-    .map(counter => ({
+    .map((counter) => ({
       ...counter,
-      counts: counter.counts.map(count => ({
+      counts: counter.counts.map((count) => ({
         month: count.month,
-        veloCount: count.count
-      }))
+        veloCount: count.count,
+      })),
     }));
 });
 

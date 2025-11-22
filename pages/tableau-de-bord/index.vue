@@ -45,32 +45,21 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import config from '../../config.json';
-import { isLineStringFeature } from '~/types';
+import { getLine, useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
 const { displayQuality } = useConfig();
 
-const { data: geojsons } = await useAsyncData(async () => {
-  const lines = await queryCollection('voiesCyclablesGeojson').all();
-  return lines.toSorted((a, b) => {
-    const lineA = getLine(a);
-    const lineB = getLine(b);
-    return lineA - lineB;
-  });
-});
+const { geojsons } = await useVoiesCyclablesGeojson();
+
 const { data: mds } = await useAsyncData(() => {
   return queryCollection('voiesCyclablesPage').all();
 });
 
-function getLine(geojson: Collections['voiesCyclablesGeojson']): number {
-  const lineStringFeature = geojson.features.find(isLineStringFeature);
-  return lineStringFeature?.properties.line as number;
-}
-
 function getTrafic(geojson: Collections['voiesCyclablesGeojson']): string {
   const line = getLine(geojson);
-  const trafic = mds.value?.find(md => md.line === line)?.trafic;
+  const trafic = mds.value?.find((md) => md.line === line)?.trafic;
   return trafic || 'Inconnu';
 }
 
@@ -80,7 +69,7 @@ useHead({
   meta: [
     { key: 'description', name: 'description', content: description },
     { key: 'og:description', property: 'og:description', content: description },
-    { key: 'twitter:description', name: 'twitter:description', content: description }
-  ]
+    { key: 'twitter:description', name: 'twitter:description', content: description },
+  ],
 });
 </script>

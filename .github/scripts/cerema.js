@@ -27,12 +27,12 @@ const path = require('path');
 
 function getTrackedCounters() {
   const files = fs.readdirSync('content/compteurs/voiture');
-  return files.map(file => {
+  return files.map((file) => {
     const filePath = path.join('content/compteurs/voiture', file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     return {
       file,
-      counter: data
+      counter: data,
     };
   });
 }
@@ -52,18 +52,18 @@ async function getCompteurData({ idPdc }) {
       start_time: month.start_time,
       end_time: month.end_time,
       time_zone: 'Europe/Paris',
-      limit: 10000 // un point toutes les 6 minutes
+      limit: 10000, // un point toutes les 6 minutes
     });
     const URL = 'https://avatar.cerema.fr/api/fixed_measures/?' + params.toString();
     const res = await fetch(URL, {
-      headers: { 'X-Fields': 'id,count_point_name,station_name,op_road_name' }
+      headers: { 'X-Fields': 'id,count_point_name,station_name,op_road_name' },
     });
     if (res.ok) {
       const data = await res.json();
       const count = data.reduce((acc, item) => acc + item.q, 0);
       console.log({ month: getFirstDayOfMonth(month.start_time), count });
       counts.push({ month: getFirstDayOfMonth(month.start_time), count });
-      await new Promise(resolve => setTimeout(resolve, 60000));
+      await new Promise((resolve) => setTimeout(resolve, 60000));
     } else {
       console.log(res.statusText);
       console.error('[getCompteurData] An error happened while fetching counter data');
@@ -87,7 +87,7 @@ function getAllMonths() {
 
     result.push({
       start_time: convertDate(startOfMonth.toISOString()),
-      end_time: convertDate(endOfMonth.toISOString())
+      end_time: convertDate(endOfMonth.toISOString()),
     });
 
     currentDate.setMonth(currentDate.getMonth() + 1);

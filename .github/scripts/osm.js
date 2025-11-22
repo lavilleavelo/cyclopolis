@@ -32,20 +32,20 @@ function formatPumps(data) {
   return {
     type: 'FeatureCollection',
     features: data.elements
-      .filter(item => item.lon && item.lat)
-      .map(item => {
+      .filter((item) => item.lon && item.lat)
+      .map((item) => {
         return {
           type: 'Feature',
           properties: {
             type: 'pump',
             id: item.id,
-            name: item.tags.name
+            name: item.tags.name,
           },
           geometry: {
             type: 'Point',
-            coordinates: [item.lon, item.lat]
-          }
+            coordinates: [item.lon, item.lat],
+          },
         };
-      })
+      }),
   };
 }

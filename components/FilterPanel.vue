@@ -63,9 +63,9 @@ function closeModal() {
 
 watch(
   () => route.query.modal,
-  newVal => {
+  (newVal) => {
     isOpen.value = newVal === 'filters';
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>

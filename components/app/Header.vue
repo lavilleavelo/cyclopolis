@@ -30,7 +30,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2'
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
               ]"
             >
               <span>Cartes détaillées</span>
@@ -96,7 +96,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2'
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
               ]"
             >
               <span>Lignes</span>
@@ -152,7 +152,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2'
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
               ]"
             >
               <span>Compteurs</span>
@@ -350,10 +350,8 @@ const navItems = computed(() => [
   { name: 'Carte interactive', path: linkToMap.value, target: '_self' },
   { name: 'Plan officiel', path: '/plan-officiel', target: '_self' },
   { name: 'Évolution du réseau', path: '/evolution', target: '_self' },
-  { name: 'Baromètre FUB Lyon', path: barometreVeloLink, target: '_blank' }
+  { name: 'Baromètre FUB Lyon', path: barometreVeloLink, target: '_blank' },
 ]);
 
-const { data: voies } = await useAsyncData('voiesCyclablesPages', () => {
-  return queryCollection('voiesCyclablesPage').order('line', 'ASC').all();
-});
+const { voies } = await useGetVoiesCyclablesNums();
 </script>

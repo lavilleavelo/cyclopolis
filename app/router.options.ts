@@ -13,7 +13,7 @@ export default <RouterConfig>{
       return {
         el: to.hash,
         top: navbarOffset,
-        behavior: 'smooth'
+        behavior: 'smooth',
       };
     }
 
@@ -26,5 +26,5 @@ export default <RouterConfig>{
     }
 
     return { top: 0, behavior: 'smooth' };
-  }
+  },
 };

@@ -34,7 +34,7 @@ async function getCompteur({ idPdc }) {
       description: '',
       arrondissement: 'Lyon xxx',
       idPdc,
-      coordinates: getCompteurCoordinates({ position: data.punctual_position })
+      coordinates: getCompteurCoordinates({ position: data.punctual_position }),
     };
   } else {
     console.log(res.statusText);
@@ -52,7 +52,7 @@ function getCompteurCoordinates({ position }) {
     .replace('POINT (', '')
     .replace(')', '')
     .split(' ')
-    .map(coordinateString => parseFloat(coordinateString));
+    .map((coordinateString) => parseFloat(coordinateString));
 }
 
 async function getCompteurCounts({ idPdc }) {
@@ -64,17 +64,17 @@ async function getCompteurCounts({ idPdc }) {
     end_time: endTime,
     time_zone: 'Europe/Paris',
     aggregation_period: 'month',
-    limit: 1000 // default 10
+    limit: 1000, // default 10
   });
   const URL = 'https://avatar.cerema.fr/api/aggregated_measures/?' + params.toString();
   const res = await fetch(URL);
   if (res.ok) {
     const countPoints = await res.json();
-    return countPoints.map(countPoint => {
+    return countPoints.map((countPoint) => {
       const daysInMonth = getDaysInMonth(countPoint.dt);
       return {
         month: countPoint.dt.slice(0, 10),
-        count: Math.round(countPoint.q * daysInMonth)
+        count: Math.round(countPoint.q * daysInMonth),
       };
     });
   } else {

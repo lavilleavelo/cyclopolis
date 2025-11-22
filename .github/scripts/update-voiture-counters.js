@@ -17,7 +17,7 @@ const path = require('path');
   }
 })();
 
-const sleep = delay => new Promise(resolve => setTimeout(resolve, delay));
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 /**
  * Suite aux échanges avec le Cerema, utilisation de l'API aggregated_measures.
@@ -41,18 +41,18 @@ async function getCompteurData({ idsPdc }) {
       end_time: endTime,
       time_zone: 'Europe/Paris',
       aggregation_period: 'month',
-      limit: 1000 // default 10
+      limit: 1000, // default 10
     });
     const URL = 'https://avatar.cerema.fr/api/aggregated_measures/?' + params.toString();
     const res = await fetch(URL);
     if (res.ok) {
       const countPoints = await res.json();
 
-      resByIdPdc[idPdc] = countPoints.map(countPoint => {
+      resByIdPdc[idPdc] = countPoints.map((countPoint) => {
         const daysInMonth = getDaysInMonth(countPoint.dt);
         return {
           month: countPoint.dt.slice(0, 10),
-          count: Math.round(countPoint.q * daysInMonth)
+          count: Math.round(countPoint.q * daysInMonth),
         };
       });
     } else {
@@ -97,8 +97,8 @@ function mergeCountersData(input) {
   const data = new Map();
 
   // Iterate through each key in the input object
-  Object.values(input).forEach(dataArray => {
-    dataArray.forEach(item => {
+  Object.values(input).forEach((dataArray) => {
+    dataArray.forEach((item) => {
       const { month, count } = item;
       if (data.has(month)) {
         // If the month already exists, add the count
@@ -134,12 +134,12 @@ function getDaysInMonth(date) {
 
 function getTrackedCounters() {
   const files = fs.readdirSync('content/compteurs/voiture');
-  return files.map(file => {
+  return files.map((file) => {
     const filePath = path.join('content/compteurs/voiture', file);
     const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
     return {
       file,
-      counter: data
+      counter: data,
     };
   });
 }

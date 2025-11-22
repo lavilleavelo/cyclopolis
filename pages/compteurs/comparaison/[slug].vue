@@ -57,7 +57,7 @@ const data = computed(() => {
     return {
       month: voitureCount.month,
       veloCount: veloCount?.count || 0,
-      voitureCount: voitureCount.count
+      voitureCount: voitureCount.count,
     };
   });
 });

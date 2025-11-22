@@ -47,9 +47,6 @@ import type { Collections } from '@nuxt/content';
 
 const { getRevName, displayQuality, displayQualityOnHomePage } = useConfig();
 
-const { data } = await useAsyncData(() => {
-  return queryCollection('voiesCyclablesGeojson').all();
-});
-
-const voies: Ref<Collections['voiesCyclablesGeojson'][]> = computed(() => data.value || []);
+const { geojsons } = await useVoiesCyclablesGeojson();
+const voies: Ref<Collections['voiesCyclablesGeojson'][]> = computed(() => geojsons.value || []);
 </script>

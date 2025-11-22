@@ -15,7 +15,7 @@
  * info
  * https://data.grandlyon.com/portail/fr/jeux-de-donnees/channels-sites-comptage-metropole-lyon/info
  */
-async function getAllCarCompteurs() {
+/*async function getAllCarCompteurs() {
   const URL =
     'https://data.grandlyon.com/fr/datapusher/ws/rdata/pvo_patrimoine_voirie.pvocomptagechannel/all.json?maxfeatures=-1&start=1';
   const res = await fetch(URL);
@@ -23,18 +23,18 @@ async function getAllCarCompteurs() {
     const data = await res.json();
     return data.values
       .filter(({ mobility_type }) => mobility_type === 'CAR')
-      .map(item => ({
+      .map((item) => ({
         channel_id: item.channel_id,
         site_id: item.site_id,
         comment: item.comment,
         data_provider_name: item.data_provider_name,
-        temporality: item.temporality
+        temporality: item.temporality,
       }));
   } else {
     console.error('[getAllCounters] An error happened while fetching counters');
     process.exit(1);
   }
-}
+}*/
 
 /**
  * info
@@ -47,11 +47,11 @@ async function getOneCarCompteurData() {
   if (res.ok) {
     const data = await res.json();
     return data.values
-      .map(item => ({
+      .map((item) => ({
         channel_id: item.channel_id,
         count: item.count,
         start_datetime: item.start_datetime,
-        end_datetime: item.end_datetime
+        end_datetime: item.end_datetime,
       }))
       .sort((a, b) => a.start_datetime.localeCompare(b.start_datetime));
   } else {

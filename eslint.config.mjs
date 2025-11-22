@@ -9,8 +9,8 @@ export default withNuxt(
       semi: ['error', 'always'],
       'space-before-function-paren': ['error', 'never'],
       'no-template-curly-in-string': 'off',
-      'vue/multi-word-component-names': 'off'
-    }
+      'vue/multi-word-component-names': 'off',
+    },
   },
-  eslintPluginPrettierRecommended
+  eslintPluginPrettierRecommended,
 );

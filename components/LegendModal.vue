@@ -71,7 +71,7 @@ function openModal() {
 }
 
 defineExpose({
-  openModal
+  openModal,
 });
 </script>
 

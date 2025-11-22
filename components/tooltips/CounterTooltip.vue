@@ -62,11 +62,11 @@ const count = computed(() => feature.properties.counts.at(countIndex.value)!);
 const isFirstMonth = computed(() => countIndex.value === 0);
 const isLastMonth = computed(() => countIndex.value === feature.properties.counts.length - 1);
 const humanDate = computed(() =>
-  new Date(count.value.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' })
+  new Date(count.value.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' }),
 );
 const averageDailyTraffic = computed(() => getAverageDailyTraffic(count.value));
 const icon = computed(() =>
-  feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular'
+  feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular',
 );
 // const monthBests = findMonthBests(feature.properties.counts);
 // const absoluteBest = findAbsoluteBest(feature.properties.counts)!;

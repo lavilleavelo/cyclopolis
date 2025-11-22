@@ -1,19 +1,4 @@
 {
   "printWidth": 120,
-  "singleQuote": true,
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "endOfLine": "auto",
-  "overrides": [
-    {
-      "files": "*.json",
-      "options": {
-        "parser": "json",
-        "tabWidth": 2,
-        "useTabs": false,
-        "printWidth": 120
-      }
-    }
-  ]
+  "singleQuote": true
 }

@@ -8,7 +8,6 @@
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"
-        :geojsons="geojsons"
         :filters="filters"
         :actions="actions"
         :filter-style="options.filterStyle"
@@ -44,7 +43,7 @@ import {
   GeolocateControl,
   NavigationControl,
   type StyleSpecification,
-  type LngLatLike
+  type LngLatLike,
 } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
@@ -70,7 +69,7 @@ const defaultOptions = {
   showDateFilter: false,
   canUseSidePanel: false,
   onShrinkControlClick: () => {},
-  filterStyle: 'height: calc(100vh - 100px)'
+  filterStyle: 'height: calc(100vh - 100px)',
 };
 
 const props = defineProps<{
@@ -86,6 +85,7 @@ const props = defineProps<{
 const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
+const filterControl = ref<FilterControl | null>(null);
 
 const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap();
 
@@ -113,7 +113,7 @@ onMounted(() => {
     // style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
     center: config.center as LngLatLike,
     zoom: config.zoom,
-    attributionControl: false
+    attributionControl: false,
   });
 
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
@@ -121,7 +121,7 @@ onMounted(() => {
 
   if (options.fullscreen) {
     const fullscreenControl = new FullscreenControl({
-      onClick: () => options.onFullscreenControlClick()
+      onClick: () => options.onFullscreenControlClick(),
     });
     map.addControl(fullscreenControl, 'top-right');
   }
@@ -131,15 +131,15 @@ onMounted(() => {
       new GeolocateControl({
         positionOptions: { enableHighAccuracy: true },
         // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true
+        trackUserLocation: true,
       }),
-      'top-right'
+      'top-right',
     );
   }
 
   if (options.shrink) {
     const shrinkControl = new ShrinkControl({
-      onClick: () => options.onShrinkControlClick()
+      onClick: () => options.onShrinkControlClick(),
     });
     map.addControl(shrinkControl, 'top-right');
   }
@@ -150,18 +150,18 @@ onMounted(() => {
         if (legendModalComponent.value) {
           legendModalComponent.value.openModal();
         }
-      }
+      },
     });
     map.addControl(legendControl, 'top-right');
   }
 
   if (options.filter) {
-    const filterControl = new FilterControl({
+    filterControl.value = new FilterControl({
       onClick: () => {
         toggleFilterSidebar();
-      }
+      },
     });
-    map.addControl(filterControl, 'top-right');
+    map.addControl(filterControl.value, 'top-right');
   }
 
   map.on('load', async () => {
@@ -176,16 +176,26 @@ onMounted(() => {
 
   watch(
     () => props.features,
-    newFeatures => {
+    (newFeatures) => {
       try {
         plotFeatures({ map, features: newFeatures });
       } catch (e) {
         console.warn('not able to plot features', e);
       }
-    }
+    },
   );
 
-  map.on('click', clickEvent => {
+  watch(
+    () => [props.totalDistance, props.filteredDistance],
+    ([totalDistance, filteredDistance]) => {
+      if (filterControl.value && totalDistance && filteredDistance !== undefined) {
+        filterControl.value.setActive(totalDistance - filteredDistance > 0);
+      }
+    },
+    { immediate: true },
+  );
+
+  map.on('click', (clickEvent) => {
     handleMapClick({ map, features: props.features, clickEvent });
   });
 });
