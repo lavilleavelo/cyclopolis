@@ -8,7 +8,7 @@
       <Map
         :features="filteredFeatures"
         :options="{
-          logo: false,
+          logo: true,
           showLineFilters: true,
           canUseSidePanel: true,
           filterStyle: 'height: calc(100vh - 240px)',

@@ -8,8 +8,16 @@
         <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
           Suivi des compteurs voiture de l'agglomération lyonnaise
         </h2>
-        <ClientOnly>
-          <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
+        <ClientOnly fallback-tag="div">
+          <template #fallback>
+            <MapPlaceholder style="height: 40vh" additional-class="mt-12" />
+          </template>
+          <Map
+            :features="features"
+            :options="{ roundedCorners: true, legend: false, filter: false }"
+            class="mt-12"
+            style="height: 40vh"
+          />
         </ClientOnly>
       </div>
 
@@ -40,6 +48,7 @@
 
 <script setup lang="ts">
 import { removeDiacritics } from '~/helpers/helpers';
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { getCompteursFeatures } = useMap();
 

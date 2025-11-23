@@ -69,6 +69,7 @@ const { voie } = defineProps<{ voie: Collections['voiesCyclablesPage'] }>();
 
 const mapOptions = {
   fullscreen: true,
+  roundedCorners: true,
   onFullscreenControlClick: () => {
     const route = useRoute();
     return navigateTo({ path: `${route.params._slug}/carte` });

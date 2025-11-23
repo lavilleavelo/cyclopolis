@@ -14,9 +14,14 @@
         </p>
         <ClientOnly fallback-tag="div">
           <template #fallback>
-            <MapPlaceholder style="height: 40vh" />
+            <MapPlaceholder style="height: 40vh" additional-class="mt-12" />
           </template>
-          <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
+          <Map
+            :features="features"
+            :options="{ roundedCorners: true, legend: false, filter: false }"
+            class="mt-12"
+            style="height: 40vh"
+          />
         </ClientOnly>
       </div>
 

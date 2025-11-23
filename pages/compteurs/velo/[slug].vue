@@ -9,9 +9,14 @@
   >
     <ClientOnly fallback-tag="div">
       <template #fallback>
-        <MapPlaceholder style="height: 40vh" />
+        <MapPlaceholder style="height: 40vh" additional-class="mt-6" />
       </template>
-      <Map :features="features" :options="{ legend: false, filter: false }" class="mt-12" style="height: 40vh" />
+      <Map
+        :features="features"
+        :options="{ roundedCorners: true, legend: false, filter: false }"
+        class="mt-6"
+        style="height: 40vh"
+      />
     </ClientOnly>
     <h2>Total des passages par année</h2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur vélo chaque année.</p>

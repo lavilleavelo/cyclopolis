@@ -3,7 +3,7 @@
     <LegendModal ref="legendModalComponent" />
 
     <div class="flex rounded-lg h-full w-full">
-      <div id="map" class="rounded-lg h-full w-full" />
+      <div id="map" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
       <FilterPanel
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
@@ -23,15 +23,6 @@
         displayPercent(Math.round(((filteredDistance || 0) / totalDistance) * 100))
       }})
     </div>
-
-    <img
-      v-if="options.logo"
-      class="my-0 absolute bottom-0 right-0 z-10"
-      src="https://cyclopolis.lavilleavelo.org/logo-lvv-carte.png"
-      width="75"
-      height="75"
-      :alt="`logo ${config.assoName}`"
-    />
   </div>
 </template>
 
@@ -51,6 +42,7 @@ import LegendControl from '@/maplibre/LegendControl';
 import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
+import LogoControl from '@/maplibre/LogoControl';
 
 import type { CompteurFeature, FiltersState, FilterActions } from '~/types';
 import config from '~/config.json';
@@ -70,6 +62,7 @@ const defaultOptions = {
   canUseSidePanel: false,
   onShrinkControlClick: () => {},
   filterStyle: 'height: calc(100vh - 100px)',
+  roundedCorners: false,
 };
 
 const props = defineProps<{
@@ -164,6 +157,16 @@ onMounted(() => {
     map.addControl(filterControl.value, 'top-right');
   }
 
+  if (options.logo) {
+    const logoControl = new LogoControl({
+      src: 'https://cyclopolis.lavilleavelo.org/logo-lvv-carte.png',
+      alt: `logo ${config.assoName}`,
+      width: 75,
+      height: 75,
+    });
+    map.addControl(logoControl, 'bottom-right');
+  }
+
   map.on('load', async () => {
     await loadImages({ map });
     plotFeatures({ map, features: props.features });
@@ -254,5 +257,18 @@ onMounted(() => {
 
 .maplibregl-popup-anchor-right .maplibregl-popup-tip {
   border-left-color: transparent;
+}
+
+.maplibregl-logo-control {
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+  margin: 0 !important;
+}
+
+.maplibregl-logo-control img {
+  display: block;
+  margin: 0;
+  pointer-events: auto;
 }
 </style>
