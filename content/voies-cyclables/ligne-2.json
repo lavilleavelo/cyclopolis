@@ -543,8 +543,9 @@
         "id": "variantePoincaré",
         "line": 2,
         "name": "Détour via Passerelle de la Paix",
-        "status": "wip",
-        "type": "bidirectionnelle",
+        "status": "done",
+        "doneAt": "20/11/2025",
+        "type": "voie-verte",
         "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
         "quality": "satisfactory"
       },
@@ -607,7 +608,7 @@
         "status": "variante-postponed",
         "type": "aucun",
         "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",

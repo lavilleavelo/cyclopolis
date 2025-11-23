@@ -536,7 +536,7 @@
       "properties": {
         "line": 8,
         "name": "Tassin - Route de Paris",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-montcelard-à-valvert"
