@@ -39,6 +39,6 @@
     "highcharts": "^12.4.0",
     "highcharts-vue": "^2.0.1",
     "maplibre-gl": "^5.13.0",
-    "zod": "^4.1.12"
+    "zod": "^4.1.13"
   }
 }
