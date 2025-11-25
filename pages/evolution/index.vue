@@ -9,8 +9,10 @@
         :features="filteredFeatures"
         :options="{
           logo: true,
+          legend: false,
           showLineFilters: true,
           canUseSidePanel: true,
+          updateUrlOnFeatureClick: true,
           filterStyle: 'height: calc(100vh - 240px)',
         }"
         class="flex-1"

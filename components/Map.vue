@@ -40,6 +40,7 @@ import {
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
 import LegendControl from '@/maplibre/LegendControl';
+import LegendInlineControl from '@/maplibre/LegendInlineControl';
 import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
@@ -48,6 +49,7 @@ import LogoControl from '@/maplibre/LogoControl';
 import type { CompteurFeature, FiltersState, FilterActions } from '~/types';
 import config from '~/config.json';
 import FilterPanel from '~/components/FilterPanel.vue';
+import LegendInline from '~/components/LegendInline.vue';
 const { displayDistanceInKm, displayPercent } = useStats();
 
 const defaultOptions = {
@@ -64,6 +66,7 @@ const defaultOptions = {
   onShrinkControlClick: () => {},
   filterStyle: 'height: calc(100vh - 100px)',
   roundedCorners: false,
+  updateUrlOnFeatureClick: false,
 };
 
 const props = defineProps<{
@@ -81,7 +84,9 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 
-const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap();
+const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap({
+  updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
+});
 
 const router = useRouter();
 const route = useRoute();
@@ -142,14 +147,25 @@ onMounted(() => {
   }
 
   if (options.legend) {
-    const legendControl = new LegendControl({
-      onClick: () => {
-        if (legendModalComponent.value) {
-          legendModalComponent.value.openModal();
-        }
-      },
-    });
-    map.addControl(legendControl, 'top-right');
+    // Define breakpoint for showing inline legend (e.g., 1024px = large screens)
+    const legendInlineBreakpoint = 1024;
+    const isLargeMap = window.innerWidth >= legendInlineBreakpoint && !options.fullscreen;
+
+    if (isLargeMap) {
+      // Show inline legend in bottom-left corner for large screens
+      const legendInlineControl = new LegendInlineControl(LegendInline);
+      map.addControl(legendInlineControl, 'bottom-left');
+    } else {
+      // Show legend button for smaller screens
+      const legendControl = new LegendControl({
+        onClick: () => {
+          if (legendModalComponent.value) {
+            legendModalComponent.value.openModal();
+          }
+        },
+      });
+      map.addControl(legendControl, 'top-right');
+    }
   }
 
   if (options.filter) {

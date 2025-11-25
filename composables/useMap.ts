@@ -75,7 +75,7 @@ function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
   return featuresByColor;
 }
 
-export const useMap = () => {
+export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
   const { getLineColor } = useColors();
 
   function addLineColor(
@@ -718,7 +718,7 @@ export const useMap = () => {
       for (const coord of allCoordinates) {
         bounds.extend(coord);
       }
-      map.fitBounds(bounds, { padding: 200, maxZoom: 14 });
+      map.fitBounds(bounds, { padding: 20, maxZoom: 14 });
     }
   }
 
@@ -875,7 +875,12 @@ export const useMap = () => {
       return;
     }
 
-    if (props.feature && 'name' in props.feature.properties && 'line' in props.feature.properties) {
+    if (
+      updateUrlOnFeatureClick &&
+      props.feature &&
+      'name' in props.feature.properties &&
+      'line' in props.feature.properties
+    ) {
       const url = new URL(window.location.href);
       url.searchParams.set('line', String(props.feature.properties.line));
       url.searchParams.set('sectionName', props.feature.properties.name);
