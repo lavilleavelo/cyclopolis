@@ -137,6 +137,13 @@ export function isCompteurFeature(
 export interface BaseFilterItem {
   label: string;
   isEnabled: boolean;
+  customStyle?: {
+    backgroundColor?: string;
+    borderColor?: string;
+    borderStyle?: 'solid' | 'dashed' | 'dotted';
+    borderWidth?: string;
+    textColor?: string;
+  };
 }
 
 export interface StatusTypeQualityFilterItem extends BaseFilterItem {
@@ -147,6 +154,7 @@ export interface StatusTypeQualityFilterItem extends BaseFilterItem {
 
 export interface LineFilterItem extends BaseFilterItem {
   line: number;
+  color?: string;
 }
 
 export interface FiltersState {
