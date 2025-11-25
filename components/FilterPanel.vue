@@ -20,7 +20,7 @@
   <div
     v-if="isOpen && props.canUseSidePanel && isLargeScreen && filters && actions"
     :style="props.filterStyle"
-    class="hidden lg:flex flex-col min-w-[400px] max-w-[500px] w-[40vw] p-4 overflow-y-auto bg-white border-l overflow-auto"
+    class="hidden lg:flex flex-col min-w-[415px] w-[415px] p-4 overflow-y-auto bg-white border-l overflow-auto"
   >
     <h2 class="text-lg font-medium leading-6 text-gray-900 mb-4">Filtres</h2>
     <FilterForm
