@@ -25,7 +25,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     { label: 'En travaux', isEnabled: true, statuses: ['wip', 'tested'] },
     { label: 'Prévu pour 2026', isEnabled: true, statuses: ['planned'] },
     { label: 'Reporté', isEnabled: true, statuses: ['postponed', 'variante-postponed'] },
-    { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] },
+    // { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] },
   ]);
 
   const typeFilters = ref([
@@ -36,7 +36,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     { label: 'Vélorue', isEnabled: true, types: ['velorue'] },
     { label: 'Bandes cyclables', isEnabled: true, types: ['bandes-cyclables'] },
     { label: 'Zone de rencontre', isEnabled: true, types: ['zone-de-rencontre'] },
-    { label: 'Inconnu', isEnabled: true, types: ['inconnu'] },
+    // { label: 'Inconnu', isEnabled: true, types: ['inconnu'] },
     { label: 'Aucun', isEnabled: true, types: ['aucun'] },
   ]);
 
