@@ -16,15 +16,49 @@ dayjs.locale('fr');
 
 export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
+  const { getLineColor } = useColors();
   const route = useRoute();
   const router = useRouter();
   const currentPage = route.name;
 
   const statusFilters = ref([
-    { label: 'Terminé', isEnabled: true, statuses: ['done', 'variante'] },
-    { label: 'En travaux', isEnabled: true, statuses: ['wip', 'tested'] },
-    { label: 'Prévu pour 2026', isEnabled: true, statuses: ['planned'] },
-    { label: 'Reporté', isEnabled: true, statuses: ['postponed', 'variante-postponed'] },
+    {
+      label: 'Terminé',
+      isEnabled: true,
+      statuses: ['done', 'variante'],
+    },
+    {
+      label: 'En travaux',
+      isEnabled: true,
+      statuses: ['wip', 'tested'],
+      customStyle: {
+        backgroundColor: '#152B68',
+        borderColor: '#FFFFFF',
+        borderStyle: 'dashed' as const,
+        borderWidth: '2px',
+        textColor: '#FFFFFF',
+      },
+    },
+    {
+      label: 'Prévu pour 2026',
+      isEnabled: true,
+      statuses: ['planned'],
+      customStyle: {
+        backgroundColor: '#8B7FA0',
+        borderColor: '#8B7FA0',
+        textColor: '#FFFFFF',
+      },
+    },
+    {
+      label: 'Reporté',
+      isEnabled: true,
+      statuses: ['postponed', 'variante-postponed'],
+      customStyle: {
+        backgroundColor: '#C84271',
+        borderColor: '#C84271',
+        textColor: '#FFFFFF',
+      },
+    },
     // { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] },
   ]);
 
@@ -41,8 +75,23 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   ]);
 
   const qualityFilters = ref([
-    { label: 'Satisfaisant', isEnabled: true, qualities: ['satisfactory'] },
-    { label: 'Non satisfaisant', isEnabled: true, qualities: ['unsatisfactory'] },
+    {
+      label: 'Satisfaisant',
+      isEnabled: true,
+      qualities: ['satisfactory'],
+    },
+    {
+      label: 'Non satisfaisant',
+      isEnabled: true,
+      qualities: ['unsatisfactory'],
+      customStyle: {
+        backgroundColor: '#C84271',
+        borderColor: '#fff',
+        borderStyle: 'dashed' as const,
+        borderWidth: '2px',
+        textColor: '#FFFFFF',
+      },
+    },
   ]);
 
   const lineFilters = ref<{ label: string; isEnabled: boolean; line: number }[]>([]);
@@ -142,7 +191,20 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
           lineFilters.value = Array.from(linesSet)
             .sort((a, b) => a - b)
-            .map((line) => ({ label: `VL ${line}`, isEnabled: true, line }));
+            .map((line) => {
+              const color = getLineColor(line);
+              return {
+                label: `VL ${line}`,
+                isEnabled: true,
+                line,
+                color,
+                customStyle: {
+                  backgroundColor: color,
+                  borderColor: color,
+                  textColor: '#FFFFFF',
+                },
+              };
+            });
 
           if (Object.hasOwn(route.query, 'lines')) {
             const linesQuery = route.query.lines;

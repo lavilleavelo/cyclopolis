@@ -7,6 +7,7 @@
         :key="filter.label"
         :label="filter.label"
         :is-enabled="filter.isEnabled"
+        :custom-style="filter.customStyle"
         @click="emit('toggleFilter', index)"
       />
     </div>
@@ -35,10 +36,11 @@
 
 <script setup lang="ts">
 import FilterButton from '~/components/filter/FilterButton.vue';
+import type { BaseFilterItem } from '~/types';
 
 defineProps<{
   title: string;
-  filters: { label: string; isEnabled: boolean }[];
+  filters: BaseFilterItem[];
   showSelectionButtons: boolean;
 }>();
 
