@@ -1,6 +1,7 @@
 import type { Collections } from '@nuxt/content';
 import { groupBy } from '~/helpers/helpers';
-import { isLineStringFeature, type LaneType, type LaneQuality, isDangerFeature, type LaneStatus } from '~/types';
+import { isLineStringFeature, type LaneType, isDangerFeature, type LaneStatus } from '~/types';
+import { typeLabels, qualityLabels } from '~/composables/useStatusLabels';
 
 const featureStatusOrder = [
   'done',
@@ -215,24 +216,6 @@ export const useStats = () => {
     };
   }
 
-  const typologyNames: Record<LaneType, string> = {
-    bidirectionnelle: 'Piste bidirectionnelle',
-    bilaterale: 'Piste bilatérale',
-    'voie-bus': 'Voie bus',
-    'voie-bus-elargie': 'Voie bus élargie',
-    velorue: 'Vélorue',
-    'voie-verte': 'Voie verte',
-    'bandes-cyclables': 'Bandes cyclables',
-    'zone-de-rencontre': 'Zone de rencontre',
-    aucun: 'Aucun',
-    inconnu: 'Inconnu',
-  };
-
-  const qualityNames: Record<LaneQuality, string> = {
-    unsatisfactory: 'Non satisfaisant',
-    satisfactory: 'Satisfaisant',
-  };
-
   function getStatsByTypology(voies: Collections['voiesCyclablesGeojson'][]) {
     const lineStringFeatures = getAllUniqLineStrings(voies);
     const totalDistance = getDistance({ features: lineStringFeatures });
@@ -251,7 +234,7 @@ export const useStats = () => {
         const distance = getDistance({ features });
         const percent = getPercent(distance);
         return {
-          name: typologyNames[type as LaneType],
+          name: typeLabels[type as LaneType],
           percent,
         };
       })
@@ -267,8 +250,8 @@ export const useStats = () => {
     getStatsByTypology,
     displayDistanceInKm,
     displayPercent,
-    typologyNames,
-    qualityNames,
+    typologyNames: typeLabels,
+    qualityNames: qualityLabels,
     getStatsQuality,
   };
 };

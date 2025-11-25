@@ -14,7 +14,7 @@
       </template>
       <h2>Aperçu</h2>
       <Overview :voie="voie" />
-      <ContentRenderer :value="voie" />
+      <ContentRenderer v-if="voie" :value="voie" />
     </ContentFrame>
 
     <LvvCta class="pb-10" />
@@ -22,6 +22,10 @@
 </template>
 
 <script setup lang="ts">
+import { useVoiesCyclablesGeojson, getLine } from '~/composables/useVoiesCyclables';
+import type { Collections } from '@nuxt/content';
+import type { LineStringFeature } from '~/types';
+
 const { path } = useRoute();
 const { getLineColor } = useColors();
 const { getRevName } = useConfig();
@@ -36,9 +40,49 @@ definePageMeta({
   middleware: 'voie-cyclable',
 });
 
+function createAnchorMap(geojsonData: Collections['voiesCyclablesGeojson']) {
+  const anchorMap = new Map<string, LineStringFeature['properties'][]>();
+
+  if (!geojsonData?.features) {
+    return anchorMap;
+  }
+
+  for (const feature of geojsonData.features) {
+    if (
+      feature.type === 'Feature' &&
+      feature.geometry.type === 'LineString' &&
+      'link' in feature.properties &&
+      feature.properties.link
+    ) {
+      const anchor = feature.properties.link.split('#')[1];
+      if (anchor) {
+        const existing = anchorMap.get(anchor);
+        if (existing) {
+          existing.push(feature.properties as LineStringFeature['properties']);
+        } else {
+          anchorMap.set(anchor, [feature.properties as LineStringFeature['properties']]);
+        }
+      }
+    }
+  }
+
+  return anchorMap;
+}
+
 const { data: voie } = await useAsyncData(path, () => {
   return queryCollection('voiesCyclablesPage').where('line', '=', Number(line)).first();
 });
+
+const { geojsons } = await useVoiesCyclablesGeojson();
+
+const geojson = computed(() => geojsons.value?.find((g) => getLine(g) === Number(line)));
+
+const sectionProperties = computed(() => {
+  if (!geojson.value) return new Map();
+  return createAnchorMap(geojson.value);
+});
+
+provide('sectionProperties', sectionProperties);
 
 const description = `Tout savoir sur la ${getRevName('singular')} ${line}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
 

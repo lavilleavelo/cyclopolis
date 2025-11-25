@@ -1,15 +1,12 @@
 <template>
-  <h3 :id="id">
-    <a v-if="id && generate" class="not-prose" :href="`#${id}`">
-      <slot />
-    </a>
-    <slot v-else />
-  </h3>
+  <SectionHeading :id="id" tag="h3">
+    <slot />
+  </SectionHeading>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ id?: string }>();
+import SectionHeading from '~/components/content/prose/SectionHeading.vue';
 
-const { headings } = useRuntimeConfig().public.mdc;
-const generate = computed(() => props.id && headings?.anchorLinks?.h3);
+defineProps<{ id?: string; }>();
 </script>
+
