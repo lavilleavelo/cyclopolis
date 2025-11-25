@@ -35,6 +35,7 @@ import {
   NavigationControl,
   type StyleSpecification,
   type LngLatLike,
+  LngLat,
 } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
@@ -84,6 +85,9 @@ const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap();
 
 const router = useRouter();
 const route = useRoute();
+
+const highlightLine = route.query.line ? Number(route.query.line) : undefined;
+const highlightSection = route.query.sectionName as string | undefined;
 
 function toggleFilterSidebar() {
   if (!props.filters || !props.actions) {
@@ -171,9 +175,65 @@ onMounted(() => {
     await loadImages({ map });
     plotFeatures({ map, features: props.features });
 
-    const tailwindMdBreakpoint = 768;
-    if (window.innerWidth > tailwindMdBreakpoint) {
-      fitBounds({ map, features: props.features });
+    if (highlightLine && highlightSection) {
+      const section = props.features.find((f) => {
+        if (f.geometry.type !== 'LineString') {
+          return false;
+        }
+        if (!('line' in f.properties) || f.properties.line !== highlightLine) {
+          return false;
+        }
+        return 'name' in f.properties && f.properties.name === highlightSection;
+      });
+
+      if (section?.geometry?.type === 'LineString') {
+        fitBounds({ map, features: [section] });
+
+        map.once('moveend', () => {
+          const coordinates = section.geometry.coordinates;
+          const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
+          const point = map.project(midPoint);
+
+          const renderedFeatures = map.queryRenderedFeatures(point, {
+            layers: ['highlight'],
+            filter: [
+              'all',
+              ['==', ['get', 'line'], section.properties.line],
+              ['==', ['get', 'name'], section.properties.name],
+            ],
+          });
+
+          const firstFeatureId = renderedFeatures?.[0].id;
+          if (firstFeatureId !== undefined) {
+            map.setFeatureState({ source: 'all-sections', id: firstFeatureId }, { hover: true });
+          }
+
+          if (!midPoint || midPoint?.length !== 2) {
+            return;
+          }
+
+          // small hack: simulate a click event to open the popup
+          handleMapClick({
+            map,
+            features: props.features,
+            clickEvent: {
+              lngLat: new LngLat(midPoint[0], midPoint[1]),
+              point,
+              originalEvent: new MouseEvent('click'),
+              target: map,
+              type: 'click',
+              preventDefault: () => {},
+              defaultPrevented: false,
+              _defaultPrevented: false,
+            },
+          });
+        });
+      }
+    } else {
+      const tailwindMdBreakpoint = 768;
+      if (window.innerWidth > tailwindMdBreakpoint) {
+        fitBounds({ map, features: props.features });
+      }
     }
   });
 

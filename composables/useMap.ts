@@ -701,21 +701,24 @@ export const useMap = () => {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
       .flatMap((feature) => feature.geometry.coordinates);
-    if (allLineStringsCoordinates.length === 0) return;
 
     const allPointsCoordinates: [number, number][] = features
       .filter(isPointFeature)
       .map((feature) => feature.geometry.coordinates);
-    if (allPointsCoordinates.length === 0) return;
 
-    if (features.length === 1 && allPointsCoordinates.length === 1) {
-      map.flyTo({ center: allPointsCoordinates[0] as [number, number] });
+    if (allLineStringsCoordinates.length === 0 && allPointsCoordinates.length === 0) {
+      return;
+    }
+
+    if (features.length === 1 && allPointsCoordinates.length === 1 && allLineStringsCoordinates.length === 0) {
+      map.flyTo({ center: allPointsCoordinates[0] as [number, number], zoom: 14 });
     } else {
-      const bounds = new LngLatBounds(allLineStringsCoordinates[0], allLineStringsCoordinates[0]);
-      for (const coord of [...allLineStringsCoordinates, ...allPointsCoordinates]) {
+      const allCoordinates = [...allLineStringsCoordinates, ...allPointsCoordinates];
+      const bounds = new LngLatBounds(allCoordinates[0], allCoordinates[0]);
+      for (const coord of allCoordinates) {
         bounds.extend(coord);
       }
-      map.fitBounds(bounds, { padding: 20 });
+      map.fitBounds(bounds, { padding: 200, maxZoom: 14 });
     }
   }
 
@@ -872,13 +875,33 @@ export const useMap = () => {
       return;
     }
 
+    if (props.feature && 'name' in props.feature.properties && 'line' in props.feature.properties) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('line', String(props.feature.properties.line));
+      url.searchParams.set('sectionName', props.feature.properties.name);
+      window.history.replaceState({}, '', url.toString());
+    }
+
     const tooltipContentId = `${clickedLayer.id}-tooltip`;
-    new Popup({ closeButton: false, closeOnClick: true })
+    const popup = new Popup({ closeButton: false, closeOnClick: true })
       .setLngLat(clickEvent.lngLat)
       // set min dimensions so that the tooltip has some height/width before Vue mounts the component
       // otherwise, if the popup is too close to the top of the map, it is not fully visible
       .setHTML(`<div style="min-height: 500px; min-width: 100px" id="${tooltipContentId}"></div>`)
       .addTo(map);
+
+    popup.on('close', () => {
+      // when the popup is closed, only remove the URL params if there is no other popup open
+      setTimeout(() => {
+        const popups = document.querySelectorAll('.maplibregl-popup');
+        if (popups.length === 0) {
+          const url = new URL(window.location.href);
+          url.searchParams.delete('line');
+          url.searchParams.delete('sectionName');
+          window.history.replaceState({}, '', url.toString());
+        }
+      }, 50);
+    });
 
     // @ts-expect-error:next - The component type is dynamically determined and may not match the expected type
     const component = defineComponent(clickedLayer.component);
