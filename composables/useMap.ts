@@ -912,8 +912,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         sectionName: props.feature.properties.name,
       };
 
-      if (route.query.modal === 'details' && link) {
+      if (link) {
         const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(link);
+        query.modal = 'details';
         query.line = extractedLine ?? query.line;
         query.sectionAnchor = anchor ?? null;
       }

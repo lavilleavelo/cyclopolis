@@ -19,7 +19,7 @@
     </div>
     <div class="px-2 divide-y">
       <div class="py-1 flex flex-col items-center">
-        <div class="text-base font-bold">Tronçon</div>
+        <div class="text-sm font-bold">Tronçon</div>
         <div class="text-sm text-center">
           {{ feature.properties.name }}
         </div>
@@ -57,13 +57,13 @@
         </div>
       </div>
     </div>
-    <div class="bg-lvv-blue-600 flex justify-center">
+    <div v-if="!handleDetailClick" class="bg-lvv-blue-600 flex justify-center">
       <a
         class="p-1 text-white text-base italic hover:underline"
         :href="getSectionDetailsUrl(feature.properties)"
         @click="handleDetailClick"
       >
-        voir le détail <Icon v-if="!handleDetailClick" name="mdi:link-variant" class="h-4 w-4 text-white" />
+        voir le détail <Icon name="mdi:link-variant" class="h-4 w-4 text-white" />
       </a>
     </div>
   </div>

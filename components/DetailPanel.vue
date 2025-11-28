@@ -48,8 +48,6 @@
 import { useMediaQuery } from '@vueuse/core';
 import { computed, ref, watch } from 'vue';
 
-const router = useRouter();
-
 const props = defineProps<{
   open: boolean;
   line: number | string | null;

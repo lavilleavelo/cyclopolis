@@ -40,6 +40,8 @@ definePageMeta({
 const mapOptions = {
   shrink: true,
   canUseSidePanel: true,
+  showDetailsPanel: true,
+  updateUrlOnFeatureClick: true,
   onShrinkControlClick: () => {
     const route = useRoute();
     return navigateTo({ path: `/${route.params._slug}` });
