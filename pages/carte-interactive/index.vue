@@ -12,6 +12,7 @@
           updateUrlOnFeatureClick: true,
           canUseSidePanel: true,
           showLineFilters: true,
+          showDetailsPanel: true,
           showDateFilter: true,
         }"
         class="h-full flex-1"

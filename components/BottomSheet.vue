@@ -49,10 +49,19 @@
 <script setup lang="ts">
 import { computed, ref, onBeforeUnmount, watch } from 'vue';
 
-const props = defineProps<{
-  open: boolean;
-  title?: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    open: boolean;
+    title?: string;
+    getMaxHeightPx?: () => number;
+    getDefaultHeightPx?: () => number;
+  }>(),
+  {
+    title: 'Details',
+    getDefaultHeightPx: () => window.innerHeight * 0.3,
+    getMaxHeightPx: () => window.innerHeight * 0.7,
+  },
+);
 
 const closeThreshold = 150;
 
@@ -60,20 +69,17 @@ const emit = defineEmits<{
   close: [];
 }>();
 
-const getMaxHeightPx = () => window.innerHeight * 0.7;
-const getDefaultHeightPx = () => window.innerHeight * 0.3;
-
 const isDragging = ref(false);
 const startY = ref(0);
 const startHeight = ref(0);
-const currentHeight = ref(getDefaultHeightPx());
+const currentHeight = ref(props.getDefaultHeightPx());
 const sheetRef = ref<HTMLElement | null>(null);
 
 watch(
   () => props.open,
   (isOpen) => {
     if (isOpen && !currentHeight.value) {
-      currentHeight.value = getDefaultHeightPx();
+      currentHeight.value = props.getDefaultHeightPx();
     }
   },
 );
@@ -81,7 +87,7 @@ watch(
 function handleDragStart(e: MouseEvent | TouchEvent) {
   const target = e.target as HTMLElement;
 
-  if (target.closest('button[type="button"]')) {
+  if (target.closest('button') || target.closest('a')) {
     return;
   }
 
@@ -90,7 +96,7 @@ function handleDragStart(e: MouseEvent | TouchEvent) {
 
   isDragging.value = true;
   startY.value = clientY;
-  startHeight.value = currentHeight.value || getDefaultHeightPx();
+  startHeight.value = currentHeight.value || props.getDefaultHeightPx();
 
   if ('touches' in e) {
     document.addEventListener('touchmove', handleDragMove, { passive: false });
@@ -113,7 +119,7 @@ function handleDragMove(e: MouseEvent | TouchEvent) {
 
   const newHeight = startHeight.value - deltaY;
   const minHeight = -1;
-  const maxHeight = getMaxHeightPx();
+  const maxHeight = props.getMaxHeightPx();
 
   currentHeight.value = Math.max(minHeight, Math.min(newHeight, maxHeight));
 
@@ -136,7 +142,7 @@ function handleDragEnd() {
   if (currentHeight.value < closeThreshold) {
     emit('close');
     setTimeout(() => {
-      currentHeight.value = getDefaultHeightPx();
+      currentHeight.value = props.getDefaultHeightPx();
     }, 200);
   } else {
     const minHeight = 200;

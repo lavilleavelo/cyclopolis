@@ -12,6 +12,12 @@
         :actions="actions"
         :filter-style="options.filterStyle"
       />
+      <DetailPanel
+        v-if="options.showDetailsPanel"
+        :open="route.query.modal === 'details'"
+        :line="route.query.line ? +route.query.line : null"
+        @close="closeSidebar"
+      />
     </div>
 
     <div
@@ -29,13 +35,13 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import {
-  Map,
   AttributionControl,
   GeolocateControl,
+  LngLat,
+  type LngLatLike,
+  Map,
   NavigationControl,
   type StyleSpecification,
-  type LngLatLike,
-  LngLat,
 } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
@@ -44,12 +50,14 @@ import LegendInlineControl from '@/maplibre/LegendInlineControl';
 import FilterControl from '@/maplibre/FilterControl';
 import FullscreenControl from '@/maplibre/FullscreenControl';
 import ShrinkControl from '@/maplibre/ShrinkControl';
+import DetailPanel from '~/components/DetailPanel.vue';
 import LogoControl from '@/maplibre/LogoControl';
 
-import type { CompteurFeature, FiltersState, FilterActions } from '~/types';
+import type { CompteurFeature, FilterActions, FiltersState } from '~/types';
 import config from '~/config.json';
 import FilterPanel from '~/components/FilterPanel.vue';
 import LegendInline from '~/components/LegendInline.vue';
+
 const { displayDistanceInKm, displayPercent } = useStats();
 
 const defaultOptions = {
@@ -60,6 +68,7 @@ const defaultOptions = {
   fullscreen: false,
   onFullscreenControlClick: () => {},
   shrink: false,
+  showDetailsPanel: false,
   showLineFilters: false,
   showDateFilter: false,
   canUseSidePanel: false,
@@ -90,8 +99,38 @@ const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap({
 
 const router = useRouter();
 const route = useRoute();
+const { extractLineAndAnchorFromPath } = useUrl();
 
-const highlightLine = route.query.line ? Number(route.query.line) : undefined;
+function handleDetailClick(
+  line: number,
+  sectionName: string,
+  feature?: Collections['voiesCyclablesGeojson']['features'][0],
+) {
+  if (!options.showDetailsPanel) {
+    router.go(feature?.properties.link);
+    return;
+  }
+
+  const query = { ...route.query };
+  if (query.modal === 'filters') {
+    delete query.modal;
+  }
+
+  const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(feature?.properties.link);
+  query.modal = 'details';
+  query.line = extractedLine ? extractedLine : String(line);
+  query.sectionName = sectionName;
+  query.sectionAnchor = anchor ?? null;
+  router.replace({ query });
+}
+
+function closeSidebar() {
+  const query = { ...route.query };
+  delete query.sectionAnchor;
+  delete query.modal;
+  router.replace({ query });
+}
+
 const highlightSection = route.query.sectionName as string | undefined;
 
 function toggleFilterSidebar() {
@@ -147,16 +186,13 @@ onMounted(() => {
   }
 
   if (options.legend) {
-    // Define breakpoint for showing inline legend (e.g., 1024px = large screens)
     const legendInlineBreakpoint = 1024;
     const isLargeMap = window.innerWidth >= legendInlineBreakpoint && !options.fullscreen;
 
     if (isLargeMap) {
-      // Show inline legend in bottom-left corner for large screens
       const legendInlineControl = new LegendInlineControl(LegendInline);
       map.addControl(legendInlineControl, 'bottom-left');
     } else {
-      // Show legend button for smaller screens
       const legendControl = new LegendControl({
         onClick: () => {
           if (legendModalComponent.value) {
@@ -191,65 +227,64 @@ onMounted(() => {
     await loadImages({ map });
     plotFeatures({ map, features: props.features });
 
-    if (highlightLine && highlightSection) {
-      const section = props.features.find((f) => {
-        if (f.geometry.type !== 'LineString') {
-          return false;
-        }
-        if (!('line' in f.properties) || f.properties.line !== highlightLine) {
-          return false;
-        }
-        return 'name' in f.properties && f.properties.name === highlightSection;
-      });
+    if (!+(route.query.line || -1) || !highlightSection) {
+      fitBounds({ map, features: props.features });
+      return;
+    }
 
-      if (section?.geometry?.type === 'LineString') {
-        fitBounds({ map, features: [section] });
+    const section = props.features.find((f) => {
+      if (f.geometry.type !== 'LineString') {
+        return false;
+      }
+      if (!('line' in f.properties) || f.properties.line !== +(route.query.line || -1)) {
+        return false;
+      }
+      return 'name' in f.properties && f.properties.name === highlightSection;
+    });
 
-        map.once('moveend', () => {
-          const coordinates = section.geometry.coordinates;
-          const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
-          const point = map.project(midPoint);
+    if (section?.geometry?.type === 'LineString') {
+      fitBounds({ map, features: [section] });
 
-          const renderedFeatures = map.queryRenderedFeatures(point, {
-            layers: ['highlight'],
-            filter: [
-              'all',
-              ['==', ['get', 'line'], section.properties.line],
-              ['==', ['get', 'name'], section.properties.name],
-            ],
-          });
+      map.once('moveend', () => {
+        const coordinates = section.geometry.coordinates;
+        const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
+        const point = map.project(midPoint);
 
-          const firstFeatureId = renderedFeatures?.[0].id;
-          if (firstFeatureId !== undefined) {
-            map.setFeatureState({ source: 'all-sections', id: firstFeatureId }, { hover: true });
-          }
-
-          if (!midPoint || midPoint?.length !== 2) {
-            return;
-          }
-
-          // small hack: simulate a click event to open the popup
-          handleMapClick({
-            map,
-            features: props.features,
-            clickEvent: {
-              lngLat: new LngLat(midPoint[0], midPoint[1]),
-              point,
-              originalEvent: new MouseEvent('click'),
-              target: map,
-              type: 'click',
-              preventDefault: () => {},
-              defaultPrevented: false,
-              _defaultPrevented: false,
-            },
-          });
+        const renderedFeatures = map.queryRenderedFeatures(point, {
+          layers: ['highlight'],
+          filter: [
+            'all',
+            ['==', ['get', 'line'], section.properties.line],
+            ['==', ['get', 'name'], section.properties.name],
+          ],
         });
-      }
-    } else {
-      const tailwindMdBreakpoint = 768;
-      if (window.innerWidth > tailwindMdBreakpoint) {
-        fitBounds({ map, features: props.features });
-      }
+
+        const firstFeatureId = renderedFeatures?.[0]?.id;
+        if (firstFeatureId !== undefined) {
+          map.setFeatureState({ source: 'all-sections', id: firstFeatureId }, { hover: true });
+        }
+
+        if (!midPoint || midPoint?.length !== 2) {
+          return;
+        }
+
+        // small hack: simulate a click event to open the popup
+        handleMapClick({
+          map,
+          features: props.features,
+          onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
+          clickEvent: {
+            lngLat: new LngLat(midPoint[0], midPoint[1]),
+            point,
+            originalEvent: new MouseEvent('click'),
+            target: map,
+            type: 'click',
+            preventDefault: () => {},
+            defaultPrevented: false,
+            _defaultPrevented: false,
+          },
+        });
+      });
     }
   });
 
@@ -275,7 +310,12 @@ onMounted(() => {
   );
 
   map.on('click', (clickEvent) => {
-    handleMapClick({ map, features: props.features, clickEvent });
+    handleMapClick({
+      map,
+      features: props.features,
+      clickEvent,
+      onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
+    });
   });
 });
 </script>

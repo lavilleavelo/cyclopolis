@@ -13,7 +13,7 @@
       <StatsQuality v-if="displayQuality()" :voies="[geojson]" :precision="1" />
       <Typology :voies="[geojson]" />
     </div>
-    <section aria-labelledby="shipping-heading" class="mt-10">
+    <section v-if="showMap" aria-labelledby="shipping-heading" class="mt-10">
       <ClientOnly fallback-tag="div">
         <template #fallback>
           <MapPlaceholder :custom-style="{ height: '40vh' }" />
@@ -65,7 +65,12 @@ const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
 const { displayQuality } = useConfig();
 
-const { voie } = defineProps<{ voie: Collections['voiesCyclablesPage'] }>();
+const props = withDefaults(defineProps<{
+  voie: Collections['voiesCyclablesPage'];
+  showMap?: boolean;
+}>(), {
+  showMap: true
+});
 
 const mapOptions = {
   fullscreen: true,
@@ -77,7 +82,7 @@ const mapOptions = {
 };
 
 const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
-  return queryCollection('voiesCyclablesGeojson').path(voie.path).first();
+  return queryCollection('voiesCyclablesGeojson').path(props.voie.path).first();
 });
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
@@ -86,10 +91,10 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allFeatures: features
 });
 
-const color = getLineColor(Number(voie.line));
+const color = getLineColor(Number(props.voie.line));
 const distance = geojson.value ? getTotalDistance([geojson.value]) : 0;
 
-const linkToGeoJSON = `https://github.com/lavilleavelo/cyclopolis/blob/main/content/voies-cyclables/ligne-${voie.line}.json`;
+const linkToGeoJSON = `https://github.com/lavilleavelo/cyclopolis/blob/main/content/voies-cyclables/ligne-${props.voie.line}.json`;
 
 function downloadGpx() {
   if (!geojson.value) {
@@ -99,12 +104,12 @@ function downloadGpx() {
   const gpx = GeoJsonToGpx(geojson.value, {
     creator: 'Cyclopolis - La Ville à Vélo',
     metadata: {
-      name: `Voie Lyonnaise ${voie.line}`,
-      desc: `Tracé de la voie lyonnaise ${voie.line} - Source: La Ville à Vélo`,
+      name: `Voie Lyonnaise ${props.voie.line}`,
+      desc: `Tracé de la voie lyonnaise ${props.voie.line} - Source: La Ville à Vélo`,
       author: {
         name: 'Cyclopolis - La Ville à Vélo',
         link: {
-          href: `https://cyclopolis.fr/voie-lyonnaise-${voie.line}`,
+          href: `https://cyclopolis.fr/voie-lyonnaise-${props.voie.line}`,
           text: 'Cyclopolis - La Ville à Vélo'
         }
       }
@@ -116,7 +121,7 @@ function downloadGpx() {
 
   const downloadAnchorNode = document.createElement('a');
   downloadAnchorNode.setAttribute('href', dataStr);
-  downloadAnchorNode.setAttribute('download', `voie-lyonaise-${voie.line}.gpx`);
+  downloadAnchorNode.setAttribute('download', `voie-lyonaise-${props.voie.line}.gpx`);
   document.body.appendChild(downloadAnchorNode);
   downloadAnchorNode.click();
   downloadAnchorNode.remove();

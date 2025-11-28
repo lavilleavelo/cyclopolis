@@ -58,8 +58,12 @@
       </div>
     </div>
     <div class="bg-lvv-blue-600 flex justify-center">
-      <a class="p-1 text-white text-base italic hover:underline" :href="getSectionDetailsUrl(feature.properties)">
-        voir le détail <Icon name="mdi:link-variant" class="h-4 w-4 text-white" />
+      <a
+        class="p-1 text-white text-base italic hover:underline"
+        :href="getSectionDetailsUrl(feature.properties)"
+        @click="handleDetailClick"
+      >
+        voir le détail <Icon v-if="!handleDetailClick" name="mdi:link-variant" class="h-4 w-4 text-white" />
       </a>
     </div>
   </div>
@@ -67,20 +71,39 @@
 
 <script setup lang="ts">
 import type { LaneQuality, LineStringFeature } from '~/types';
+import type { Collections } from '@nuxt/content';
 
 const { getLineColor } = useColors();
 const { getRevName, displayQuality } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
 const { getVoieCyclablePath } = useUrl();
 
-const { feature, lines } = defineProps<{
+const {
+  feature,
+  lines,
+  onDetailClick = undefined,
+} = defineProps<{
   feature: LineStringFeature;
   lines: number[];
+  onDetailClick?: (line: number, name: string, feature?: Collections['voiesCyclablesGeojson']['features'][0]) => void;
 }>();
 
 const title = computed(() => {
   return lines.length > 1 ? getRevName() : getRevName('singular');
 });
+
+const handleDetailClick = computed(() =>
+  onDetailClick
+    ? (event: Event) => {
+        event.preventDefault();
+        onDetailClick(
+          feature.properties.line,
+          feature.properties.name,
+          feature as Collections['voiesCyclablesGeojson']['features'][0],
+        );
+      }
+    : undefined,
+);
 
 function getSectionDetailsUrl(properties: LineStringFeature['properties']): string {
   if (properties.link) {
