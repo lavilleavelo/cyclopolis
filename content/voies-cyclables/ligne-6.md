@@ -47,9 +47,9 @@ streetView: 45.7876834,4.8548565,3a,75y,253.07h,90t
 
 #### Cours Aristide Briand
 Trois variantes sont ici proposées à la concertation :
- - 1) le maintien de la zone de rencontre existante le long de deux files de stationnement, en mixité avec les voitures et les piétons.
- - 2) l'aménagement du quai Bellevue avec une piste cyclable bidirectionnelle à la place d'une des deux voies de circulation côté Ouest, mais qui nécessiterait un détour important pour rejoindre le carrefour de la montée de la Boucle.
- - 3) la création d'une piste bidirectionnelle à la place de la voie de circulation Sud>Nord du cours Aristide Briand. Celle-ci serait déplacée dans la zone de rencontre actuelle qui deviendrait une voie de circulation à part entière. Le stationnement en épi côté Rhône serait aligné longitudinalement pour créer un cheminement piéton aujourd'hui inexistant sous l'alignement d'arbres à l'Ouest.  **Cette variante est privilégiée par La Ville à Vélo**
+1. le maintien de la zone de rencontre existante le long de deux files de stationnement, en mixité avec les voitures et les piétons.
+2. l'aménagement du quai Bellevue avec une piste cyclable bidirectionnelle à la place d'une des deux voies de circulation côté Ouest, mais qui nécessiterait un détour important pour rejoindre le carrefour de la montée de la Boucle.
+3. la création d'une piste bidirectionnelle à la place de la voie de circulation Sud>Nord du cours Aristide Briand. Celle-ci serait déplacée dans la zone de rencontre actuelle qui deviendrait une voie de circulation à part entière. Le stationnement en épi côté Rhône serait aligné longitudinalement pour créer un cheminement piéton aujourd'hui inexistant sous l'alignement d'arbres à l'Ouest.  **Cette variante est privilégiée par La Ville à Vélo**
 
 ::banner{type="info"}
 Suite à la concertation, la Métropole a annoncé avoir retenu la variante 2. La desserte cyclable du cours Aristide Briand continuera donc à se faire via le parking automobile actuel sur le quai haut.
@@ -70,8 +70,8 @@ streetView: 45.7819916,4.843188,3a,75y,186.19h,90t
 
 #### Cours d'Herbouville
 Dans le sens Sud>Nord, deux variantes sont proposées à la concertation :
- - 1) via la contre-allée de stationnement et la voie verte actuelle, située au centre de la chaussée sous un alignement d'arbre. Elles seraient réaménagées en une piste cyclable unidirectionnelle de 1.5m de large et un cheminement piéton de 1.5m de large.
- - 2) via les voies de circulation générale à l'Est avec la création d'une piste cyclable unidirectionnelle de 2.5 à 3m de large côté Ouest de la chaussée à la place d'une voie de circulation.
+1. via la contre-allée de stationnement et la voie verte actuelle, située au centre de la chaussée sous un alignement d'arbre. Elles seraient réaménagées en une piste cyclable unidirectionnelle de 1.5m de large et un cheminement piéton de 1.5m de large.
+2. via les voies de circulation générale à l'Est avec la création d'une piste cyclable unidirectionnelle de 2.5 à 3m de large côté Ouest de la chaussée à la place d'une voie de circulation.
 
 Dans le sens Nord>Sud, le projet prévoit la création d'une piste cyclable unidirectionnelle de 2m à 2.25m de large à la place d'une voie de circulation côté Est de la chaussée.
 
