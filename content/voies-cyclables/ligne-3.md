@@ -29,7 +29,7 @@ streetView: 45.885026,4.8102775,3a,75y,162.21h,90t
 ::
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et le tronçon au nord de la gare de St-Germain ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises et le tronçon au nord du pont de Neuville ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur.
 ::
 
 #### Massieux à Neuville
@@ -57,7 +57,11 @@ La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51
 La section sur la commune d'Albigny est réalisée entre février et juillet 2025 au nord du giratoire, puis entre octobre 2025 et janvier 2026 au Sud. Le traitement des entrées charretières en "bateau" sur la partie en voie verte n'est pas satisfaisant et aurait pu être traité avec des rampants de manière à conserver un cheminement sans ressauts.\
 La section sur la commune de Couzon a été réalisée en deux phases : Sud de l'avenue De Gaulle à l'automne 2019 et Nord de l'avenue de juin à décembre 2022.\
 La section sur la commune de St-Romain a été réalisée entre février et juillet 2024.\
-Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud seront en travaux entre le début d'hiver 2025 et l'été 2026. Entre les ponts Bocuse et Leclerc, le quai est en travaux entre juin et décembre 2025 tandis qu'entre le pont Bocuse et St-Rambert les travaux se limiteront en une pérénisation de la piste cyclable transitoire au printemps 2026.
+Sur la commune de Collonges, seul le nord du quai d'Illhausern, entre la rue d'Island et le Sud du pont Leclerc a été aménagé avec un séparateur haut entre août et septembre 2025.
+::
+
+::banner{type="postponed"}
+Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud devaient être en travaux entre le début d'hiver 2025 et l'été 2026. Le sud du quai d'Illhausern ainsi que le quai de la Jonchère devaient bénéficier d'un large séparateur comme à St-Romain, mais les contraintes financières de la fin du mandat et la frilosité des élus à l'approche des élections a conduit au report de ces 3.5km de linéaire à l'automne 2025.
 ::
 
 ::content-image
@@ -86,7 +90,7 @@ Entre Saint-Romain et Saint-Rambert, une piste cyclable bidirectionnelle transit
 Cette section de 900m a l'inconvénient d'être particulièrement étroite et de ne pas pouvoir accueillir d'aménagements séparatifs sans travaux lourd. Plusieurs hypothèses techniques ont été étudiées par la Métropole de Lyon : alternat routier, encorbellement ou encore détour par la Grande Rue de St-Rambert transformée en vélorue. L'objectif est de proposer un cheminement sécurisé pour les cyclistes les moins aguerris.
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et l'ensemble du quai Raoul Carrié ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur. La Métropole étudie cependant le jalonnement d'une continuité cyclable pour éviter ce quai, qui passerait par la Grande Rue de St-Rambert et la rue Pierre Termier avec des marquages en continuité cyclable et quelques aménagements légers. Les travaux sont prévus début 2026.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et l'ensemble du quai Raoul Carrié ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Nous le considérons donc comme reporté à un mandat ultérieur. La Métropole étudie cependant le jalonnement d'une continuité cyclable pour éviter ce quai, qui passerait par la Grande Rue de St-Rambert et la rue Pierre Termier avec des marquages en continuité cyclable et quelques aménagements légers. Les travaux initialement prévus début 2026 ont finalement été reportés eux aussi, et une (dis)continuité cyclable sera fléchée sur le dangereux quai Termier.
 ::
 
 #### *Concertation*

@@ -84,10 +84,11 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Illhaeusern-commun",
+        "id": "IllhaeusernN-commun",
         "line": 2,
-        "name": "Collonges - Quai d'Illhaeusern",
-        "status": "wip",
+        "name": "Collonges - Quai d'Illhaeusern Nord",
+        "status": "done",
+        "doneAt": "03/10/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
@@ -101,7 +102,26 @@
           [4.850974901454464, 45.8284824850473],
           [4.85137145058286, 45.828050365464975],
           [4.852147785532054, 45.82704758501484],
-          [4.8528242111206055, 45.826077956702385],
+          [4.85309272299429, 45.82567933085203]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "IllhaeusernS-commun",
+        "line": 2,
+        "name": "Collonges - Quai d'Illhaeusern Sud",
+        "status": "done",
+        "doneAt": "01/09/2020",
+        "type": "bidirectionnelle",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.85309272299429, 45.82567933085203],
           [4.8538498293577845, 45.824539678825126],
           [4.8542129883838925, 45.82383381936725],
           [4.8545538439518054, 45.82296914802767],
@@ -128,9 +148,9 @@
         "id": "Bocuse-commun",
         "line": 2,
         "name": "Giratoire Pont Bocuse",
-        "status": "planned",
-        "type": "voie-verte",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
       },
       "geometry": {
@@ -152,9 +172,10 @@
         "id": "Jonchère-commun",
         "line": 2,
         "name": "Collonges - Quai de la Jonchère",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "01/09/2020",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
       },
       "geometry": {
@@ -214,7 +235,7 @@
         "line": 2,
         "name": "Variante - Gde Rue de Saint Rambert & Termier",
         "status": "variante",
-        "type": "velorue",
+        "type": "aucun",
         "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
         "quality": "unsatisfactory"
       },

@@ -93,7 +93,7 @@ Après des études complémentaires de la Métropole, le scénario initial de cr
 ::
 
 ::banner{type="wip"}
-Le changement de revêtement sur la partie Sud aura lieu en novembre 2025.
+Le changement de revêtement sur la partie Sud a eu lieu en novembre 2025.
 ::
 
 #### Quai de Grande-Bretagne et Quai de Serbie
