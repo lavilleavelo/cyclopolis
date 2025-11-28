@@ -68,22 +68,6 @@
     {
       "type": "Feature",
       "properties": {
-        "type": "danger",
-        "name": "46, boulevard Niels Bohr",
-        "description": "Pincement à moins de 2m au droit d'un transformateur",
-        "danger": "Croisement inconfortable entre cyclistes et piétons"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.869523,
-          45.784801
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "Valmy-commun",
         "type": "danger",
         "name": "Place Valmy",
