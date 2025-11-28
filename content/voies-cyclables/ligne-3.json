@@ -658,7 +658,7 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Illhaeusern-commun",
+        "id": "IllhaeusernN-commun",
         "line": 3,
         "name": "Collonges - Quai d'Illhaeusern Nord",
         "status": "done",
@@ -749,7 +749,7 @@
         "status": "done",
         "doneAt":"01/09/2020",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
       },
       "geometry": {
