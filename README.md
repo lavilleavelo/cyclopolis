@@ -39,7 +39,7 @@ Look at the [nuxt 4 documentation](https://nuxt.com/docs/4.x/getting-started/int
 Make sure to install the dependencies:
 
 ```bash
-npm install
+npm ci
 ```
 
 ## Development Server
