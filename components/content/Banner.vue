@@ -35,8 +35,8 @@ const banners: Banner = {
     color: {
       banner: 'border-[#79C2BE] bg-[#F0FDFA]',
       logo: 'text-[#79C2BE]',
-      text: 'text-[#0F766E]'
-    }
+      text: 'text-[#0F766E]',
+    },
   },
   postponed: {
     title: 'Reporté',
@@ -44,8 +44,8 @@ const banners: Banner = {
     color: {
       banner: 'border-[#DB3E79] bg-[#FDF2F8]',
       logo: 'text-[#DB3E79]',
-      text: 'text-[#BE185D]'
-    }
+      text: 'text-[#BE185D]',
+    },
   },
   unsecured: {
     title: 'Non sécurisé',
@@ -53,8 +53,8 @@ const banners: Banner = {
     color: {
       banner: 'border-[#23356B] bg-[#EEEDF6]',
       logo: 'text-[#23356B]',
-      text: 'text-[#4B4475]'
-    }
+      text: 'text-[#4B4475]',
+    },
   },
   wip: {
     title: 'Travaux en cours',
@@ -62,8 +62,8 @@ const banners: Banner = {
     color: {
       banner: 'border-[#F99D1C] bg-[#FFF7EC]',
       logo: 'text-[#F99D1C]',
-      text: 'text-[#A27233]'
-    }
+      text: 'text-[#A27233]',
+    },
   },
   info: {
     title: 'Informations',
@@ -71,8 +71,8 @@ const banners: Banner = {
     color: {
       banner: 'border-[#C5C4C4] bg-[#F9FAFB]',
       logo: 'text-[#C5C4C4]',
-      text: 'text-[#646464]'
-    }
-  }
+      text: 'text-[#646464]',
+    },
+  },
 };
 </script>

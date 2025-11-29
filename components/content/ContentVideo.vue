@@ -13,6 +13,6 @@ defineProps({
   videoUrl: { type: String, required: true },
   link: { type: String, required: false, default: undefined },
   caption: { type: String, required: false, default: undefined },
-  credit: { type: String, required: false, default: undefined }
+  credit: { type: String, required: false, default: undefined },
 });
 </script>

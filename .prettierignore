@@ -12,6 +12,7 @@ dist
 .vscode/
 
 content/
+!components/content/
 public/
 assets/style.json
 package-lock.json

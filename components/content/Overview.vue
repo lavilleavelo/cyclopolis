@@ -65,12 +65,15 @@ const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
 const { displayQuality } = useConfig();
 
-const props = withDefaults(defineProps<{
-  voie: Collections['voiesCyclablesPage'];
-  showMap?: boolean;
-}>(), {
-  showMap: true
-});
+const props = withDefaults(
+  defineProps<{
+    voie: Collections['voiesCyclablesPage'];
+    showMap?: boolean;
+  }>(),
+  {
+    showMap: true,
+  },
+);
 
 const mapOptions = {
   fullscreen: true,
@@ -78,7 +81,7 @@ const mapOptions = {
   onFullscreenControlClick: () => {
     const route = useRoute();
     return navigateTo({ path: `${route.params._slug}/carte` });
-  }
+  },
 };
 
 const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
@@ -88,7 +91,7 @@ const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
-  allFeatures: features
+  allFeatures: features,
 });
 
 const color = getLineColor(Number(props.voie.line));
@@ -110,10 +113,10 @@ function downloadGpx() {
         name: 'Cyclopolis - La Ville à Vélo',
         link: {
           href: `https://cyclopolis.fr/voie-lyonnaise-${props.voie.line}`,
-          text: 'Cyclopolis - La Ville à Vélo'
-        }
-      }
-    }
+          text: 'Cyclopolis - La Ville à Vélo',
+        },
+      },
+    },
   });
 
   const gpxString = new XMLSerializer().serializeToString(gpx);

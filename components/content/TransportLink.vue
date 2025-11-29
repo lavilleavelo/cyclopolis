@@ -21,7 +21,7 @@ const { getTransport } = useTransports();
 
 const { type, line } = defineProps({
   type: { type: String, required: true },
-  line: { type: String, required: true }
+  line: { type: String, required: true },
 });
 
 const transport = getTransport(type, line);
