@@ -194,10 +194,11 @@ export const useStats = () => {
   }
 
   function getStatsQuality(voies: Collections['voiesCyclablesGeojson'][]): {
-    distance: number;
+    unsatisfactoryDistance: number;
     postponed: boolean;
     percent: number;
     dangerCount: number;
+    unsatisfactoryLink: string;
   } {
     const features = getAllUniqLineStrings(voies);
     const dangers = getAllUniqDangers(voies);
@@ -207,11 +208,25 @@ export const useStats = () => {
     const postponedFeatures = features.filter((feature) => feature.properties.status === 'postponed');
     const postponedDistance = getDistance({ features: postponedFeatures });
 
+    const percent = totalDistance === 0 ? 0 : Math.round((unsatisfactoryDistance / totalDistance) * 100);
+
+    const generateUnsatisfactoryLink = () => {
+      let link = '/carte-interactive?modal=filters&qualities=unsatisfactory';
+      if (voies.length === 1) {
+        const voie = voies[0]?.features[0]?.properties?.line;
+        if (voie) {
+          link += `&lines=${voie}`;
+        }
+      }
+      return link;
+    };
+
     return {
-      distance: unsatisfactoryDistance,
+      unsatisfactoryDistance,
       postponed: unsatisfactoryDistance === postponedDistance,
-      percent: Math.round((unsatisfactoryDistance / totalDistance) * 100),
+      percent,
       dangerCount: dangers.length,
+      unsatisfactoryLink: generateUnsatisfactoryLink(),
     };
   }
 

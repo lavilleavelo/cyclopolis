@@ -1,6 +1,10 @@
 <template>
   <div class="grid grid-cols-2 rounded-lg overflow-hidden shadow bg-gray-200 gap-px md:grid-cols-4">
-    <div v-for="item in stats" :key="item.name" class="px-4 py-5 sm:p-6 bg-white">
+    <div
+      v-for="item in stats"
+      :key="item.name"
+      class="px-4 py-5 sm:p-6 bg-white hover:bg-gray-50 transition-colors cursor-pointer"
+    >
       <NuxtLink :to="item.link" class="no-underline">
         <div class="flex justify-between">
           <div class="text-base font-normal text-gray-900">
