@@ -57,6 +57,12 @@ La Métropole de Lyon a annoncé le 05/12/2024 que l'aménagement de l'avenue Ei
 De manière transitoire, la VL1 empruntera les aménagements de l'avenue Jean Capelle à partir de la rue des Sports. Elle pourrait être déplacée sur l'avenue Einstein à l'horizon 2030, le temps de la démolition de certains bâtiments désaffectés côté Sud de l'avenue à condition que la volonté politique perdure à ce moment-là.
 ::
 
+::content-image
+---
+panoramax: seq=363d1d1f-13c0-49a5-901a-a2c5edc362a6;pic=45aff885-5398-43d4-bd08-3643f779ef2c;open=true
+--- 
+::
+
 #### Boulevard du 11 Novembre
 Une nouvelle piste cyclable bidirectionnelle de 3.00 à 3.50m de large devait être créée au nord du Boulevard du 11 novembre et de l'Avenue Albert Einstein à la place d'une voie de circulation.\
 Le trottoir actuellement partagé avec les vélos aurait alors été rendu aux seuls piétons.

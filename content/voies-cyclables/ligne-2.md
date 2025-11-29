@@ -50,15 +50,22 @@ Les travaux entre le Transbordeur et la passerelle de la Paix ont lieu en octobr
 
 *entre Pont Poincaré et boulevard du 11 Novembre 1918*
 
-Une piste cyclable bidirectionnelle de 4m de large devait être aménagée à l'Est derrière le Transbordeur, en lieu et place d'une des deux voies de circulation.\
+Une piste cyclable bidirectionnelle de 4m de large a été aménagée à l'Est derrière le Transbordeur, en lieu et place d'une des deux voies de circulation.\
 Au sud, la Métropole de Lyon a étudié deux variantes d'insertion d'une piste bidirectionnelle : à l'Ouest côté parc de la Tête d'Or à la place d'une voie de circulation ou à l'Est en réaménageant la voie verte actuelle.
 
 ::banner{type="info"}
 Après des études complémentaires de la Métropole, l'option voie verte à l'Est s'est avérée bien plus crédible, évitant notamment une double traversée du boulevard Stalingrad pour les usagers de la Voie Lyonnaise 1. En revanche, ce choix a exclut le traitement du carrefour 11 Novembre/Stalingrad qui restera peu sécurisé et lisible pendant un moment.
 ::
 
+::content-image
+---
+panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=bf8dbe5e-0a35-4a43-80c4-cd7463a89307;open=true
+---
+::
+
+
 ::banner{type="wip"}
-Les travaux sur cette section ont lieu entre mi-juillet et fin octobre 2025.
+Les travaux sur cette section ont eu lieu entre mi-juillet et fin octobre 2025.
 ::
 
 #### Boulevard Stalingrad Sud
@@ -73,6 +80,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl2/VL2_Stalingrad.jpg
 caption: Photo de la Voie Lyonnaise 2 - boulevard Stalingrad (Villeurbanne)
 credit: Métropole de Lyon
 streetView: 45.7792708,4.8595317,3a,75y,208.73h,90t
+panoramax: seq=b6d7ab97-d8ac-4ad4-be31-474366d6da46;pic=4db7f08a-cb77-44ab-bfa5-f156bd0ba936;open=true;before-pic=40654e13-a2fb-48c7-a327-3283864f684e;before-seq=839e4707-0c49-4ccd-ab1a-86a91be21ce7
 ---
 ::
 
