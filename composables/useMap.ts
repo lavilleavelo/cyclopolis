@@ -115,17 +115,16 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   async function loadImages({ map }: { map: Map }) {
-    const camera = await map.loadImage('/icons/camera.png');
+    const [camera, pump, danger, cross] = await Promise.all([
+      map.loadImage('/icons/camera.png'),
+      map.loadImage('/icons/pump.png'),
+      map.loadImage('/icons/danger.png'),
+      map.loadImage(getCrossIconUrl()),
+    ]);
+
     map.addImage('camera-icon', camera.data, { sdf: true });
-
-    const pump = await map.loadImage('/icons/pump.png');
     map.addImage('pump-icon', pump.data, { sdf: true });
-
-    const danger = await map.loadImage('/icons/danger.png');
     map.addImage('danger-icon', danger.data, { sdf: false });
-
-    const crossIconUrl = getCrossIconUrl();
-    const cross = await map.loadImage(crossIconUrl);
     map.addImage('cross-icon', cross.data, { sdf: true });
   }
 
