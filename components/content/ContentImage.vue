@@ -1,5 +1,5 @@
 <template>
-  <figure class="grid grid-cols-1 justify-items-center">
+  <figure v-if="imageUrl" class="grid grid-cols-1 m-0 justify-items-center">
     <NuxtLink v-if="link" :to="link" target="_blank" class="not-prose">
       <img class="w-full rounded-lg" :src="imageUrl" :alt="caption" loading="lazy" width="1310" height="873" />
     </NuxtLink>
@@ -7,19 +7,36 @@
     <figcaption v-if="caption" class="text-center">
       {{ caption }}
     </figcaption>
-    <div v-if="credit" class="text-base text-center italic">Crédit image : {{ credit }}</div>
-    <div v-if="streetView">
-      <StreetViewLink :params="streetView" />
+    <div v-if="credit" class="text-base italic">Crédit image : {{ credit }}</div>
+    <div
+      :class="{
+        'grid-cols-2': streetView && panoramax,
+        'grid-cols-1': (streetView && !panoramax) || (!streetView && panoramax),
+      }"
+      class="grid w-full justify-items-center"
+    >
+      <div v-if="streetView">
+        <StreetViewLink :params="streetView" />
+      </div>
+      <ClientOnly>
+        <PanoramaxLink v-if="panoramax" :params="panoramax" />
+      </ClientOnly>
     </div>
   </figure>
+  <div v-if="panoramax && !imageUrl" class="grid w-full justify-items-center grid-cols-1">
+    <ClientOnly>
+      <PanoramaxLink :params="panoramax" />
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup>
 defineProps({
-  imageUrl: { type: String, required: true },
+  imageUrl: { type: String, required: false, default: undefined },
   link: { type: String, required: false, default: undefined },
   caption: { type: String, required: false, default: undefined },
   credit: { type: String, required: false, default: undefined },
-  streetView: { type: String, required: false, default: undefined }
+  streetView: { type: String, required: false, default: undefined },
+  panoramax: { type: String, required: false, default: undefined },
 });
 </script>

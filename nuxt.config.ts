@@ -76,6 +76,12 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
 
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.includes('pnx-'),
+    },
+  },
+
   compatibilityDate: '2024-08-11',
 
   umami: {

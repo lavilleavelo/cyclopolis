@@ -1,5 +1,5 @@
 <template>
-  <a class="text-sm" :href="url.toString()">Voir sur Google Street View</a>
+  <a class="text-sm" target="_blank" rel="noopener noreferrer" :href="url.toString()">Voir sur Google Street View</a>
 </template>
 
 <script setup>
@@ -14,7 +14,7 @@
  * - pitch 90
  */
 const { params } = defineProps({
-  params: { type: String, required: true }
+  params: { type: String, required: true },
 });
 
 const url = new URL('https://www.google.com/maps/@?api=1&map_action=pano');
