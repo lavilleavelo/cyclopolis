@@ -81,6 +81,31 @@ Cette section est en tronçon commun avec la :line-link{line=1}.
 ### Traversée du campus de la Doua
 La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccorde ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé a été recouvert d'un enrobé lisse en octobre 2025. Enfin, le long du boulevard Laurent Bonnevay, une nouvelle voie verte de 4m de large a été créée en même temps sur l'ancien cheminement piéton stabilisé côté Sud.
 
+#### Rue des Sports
+
+::content-image
+---
+panoramax: seq=f31786be-f8ef-4890-83e8-11e8d067595d;pic=6e8f14a3-9075-4be7-ab16-dbc11e9a0664;open=true
+---
+::
+
+#### Boulevard Niels Bohr
+
+::content-image
+---
+panoramax: seq=deabc4bf-bfe8-4059-84ac-2ed98dba489e;pic=ded813e2-ef7d-4d7f-9a59-8f1dd62a1513;open=true
+---
+::
+
+#### Transbordeur Nord
+
+::content-image
+---
+panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=3c277339-5797-4fae-8703-958e550da48c;open=true
+---
+::
+
+
 #### *Concertation*
 La concertation sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 [Voir le dossier de concertation (p. 14 à 16)](https://cyclopolis.lavilleavelo.org/vl5/VL5Est_Poincar%c3%a9_Bron%20A%c3%a9roport.pdf)

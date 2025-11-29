@@ -3090,7 +3090,7 @@
         "doneAt": "24/10/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"
+        "link": "/voie-lyonnaise-5#transbordeur-nord"
       },
       "geometry": {
         "type": "LineString",
@@ -3183,7 +3183,7 @@
         "doneAt": "31/08/2021",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"
+        "link": "/voie-lyonnaise-5#boulevard-niels-bohr"
       },
       "geometry": {
         "type": "LineString",
@@ -3236,7 +3236,7 @@
         "doneAt": "31/08/2021",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"
+        "link": "/voie-lyonnaise-5#rue-des-sports"
       },
       "geometry": {
         "type": "LineString",
