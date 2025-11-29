@@ -247,8 +247,13 @@ onMounted(() => {
       fitBounds({ map, features: [section], padding });
 
       map.once('moveend', () => {
-        const coordinates = section.geometry.coordinates;
+        const coordinates = structuredClone(section.geometry.coordinates);
         const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
+        if (coordinates.length == 2 && Array.isArray(coordinates[0]) && Array.isArray(coordinates[1])) {
+          midPoint[0] = (coordinates[0][0] + coordinates[1][0]) / 2;
+          midPoint[1] = (coordinates[0][1] + coordinates[1][1]) / 2;
+        }
+
         const point = map.project(midPoint);
 
         const renderedFeatures = map.queryRenderedFeatures(point, {
