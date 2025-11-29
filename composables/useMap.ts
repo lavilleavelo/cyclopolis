@@ -229,7 +229,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       },
     });
 
-    map.setPaintProperty('contour-layer', 'line-color', 'rgba(13, 0, 0, 0.68)');
+    map.setPaintProperty('contour-layer', 'line-color', '#000');
 
     let hoveredLineId: string | number | null = null;
     map.on('mousemove', 'highlight-layer', (e: maplibregl.MapMouseEvent) => {
@@ -919,7 +919,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       .setLngLat(clickEvent.lngLat)
       // set min dimensions so that the tooltip has some height/width before Vue mounts the component
       // otherwise, if the popup is too close to the top of the map, it is not fully visible
-      .setHTML(`<div style="min-height: 500px; min-width: 100px" id="${tooltipContentId}"></div>`)
+      .setHTML(`<div style="min-height: 200px; min-width: 100px" id="${tooltipContentId}"></div>`)
       .addTo(map);
 
     popup.on('close', () => {
