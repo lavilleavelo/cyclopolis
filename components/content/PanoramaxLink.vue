@@ -4,13 +4,21 @@
       {{ isRevealed ? 'Masquer Panoramax' : 'Voir sur Panoramax' }}
     </a>
   </div>
-
-  <ClientOnly>
-    <div
-      v-if="isRevealed && hasBeforeAfter"
-      style="width: 100%; height: 500px; grid-column: span 2; overflow: hidden"
-      class="relative"
-    >
+  <div
+    v-if="isRevealed && hasBeforeAfter"
+    style="width: 100%; min-height: 500px; height: 500px; grid-column: span 2; overflow: hidden"
+    class="relative"
+  >
+    <ClientOnly>
+      <template #fallback>
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
+          style="width: 100%; min-height: 500px"
+        >
+          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+          <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
+        </div>
+      </template>
       <PanoramaxBeforeAfterSlider
         :sequence="sequence"
         :picture="picture"
@@ -19,31 +27,50 @@
         :initial-position="5"
         @expand="isDialogOpen = true"
       />
-    </div>
+    </ClientOnly>
+  </div>
 
-    <PanoramaxViewer
-      v-else-if="isRevealed"
-      :sequence="sequence"
-      :picture="picture"
-      style="width: 100%; height: 500px; grid-column: span 2"
-    />
+  <div
+    v-else-if="isRevealed"
+    style="width: 100%; min-height: 500px; height: 500px; grid-column: span 2; overflow: hidden"
+    class="relative"
+  >
+    <ClientOnly>
+      <template #fallback>
+        <div
+          class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
+          style="width: 100%; min-height: 500px"
+        >
+          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+          <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
+        </div>
+      </template>
+      <PanoramaxViewer
+        :sequence="sequence"
+        :picture="picture"
+        style="width: 100%; height: 500px; grid-column: span 2"
+      />
+    </ClientOnly>
+  </div>
 
-    <Teleport to="body">
-      <div
-        v-if="isDialogOpen"
-        class="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-75"
-        @click.self="isDialogOpen = false"
-      >
-        <div class="relative w-full h-full max-w-[95vw] max-h-[95vh] bg-white rounded-lg shadow-xl overflow-hidden">
-          <button
-            class="absolute top-4 right-4 z-10 px-3 py-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
-            title="Fermer"
-            @click="isDialogOpen = false"
-          >
-            ✕
-          </button>
+  <Teleport to="body">
+    <div
+      v-if="isDialogOpen"
+      class="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-75"
+      @click.self="isDialogOpen = false"
+    >
+      <div class="relative w-full h-full max-w-[95vw] max-h-[95vh] rounded-lg shadow-xl overflow-hidden">
+        <button
+          class="fixed top-4 right-4 z-[1001] flex items-center justify-center p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white hover:scale-110 active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2"
+          title="Fermer"
+          aria-label="Fermer"
+          @click="isDialogOpen = false"
+        >
+          <Icon name="mdi:close" class="w-6 h-6 text-gray-700" />
+        </button>
 
-          <div class="p-6 h-full">
+        <div class="h-full">
+          <ClientOnly>
             <PanoramaxBeforeAfterSlider
               v-if="hasBeforeAfter"
               :sequence="sequence"
@@ -54,11 +81,11 @@
               :is-dialog="true"
             />
             <PanoramaxViewer v-else :sequence="sequence" :picture="picture" />
-          </div>
+          </ClientOnly>
         </div>
       </div>
-    </Teleport>
-  </ClientOnly>
+    </div>
+  </Teleport>
 </template>
 
 <script setup lang="ts">

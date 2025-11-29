@@ -18,15 +18,11 @@
       <div v-if="streetView">
         <StreetViewLink :params="streetView" />
       </div>
-      <ClientOnly>
-        <PanoramaxLink v-if="panoramax" :params="panoramax" />
-      </ClientOnly>
+      <PanoramaxLink v-if="panoramax" :params="panoramax" />
     </div>
   </figure>
   <div v-if="panoramax && !imageUrl" class="grid w-full justify-items-center grid-cols-1">
-    <ClientOnly>
-      <PanoramaxLink :params="panoramax" />
-    </ClientOnly>
+    <PanoramaxLink :params="panoramax" />
   </div>
 </template>
 

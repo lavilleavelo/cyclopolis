@@ -1,11 +1,16 @@
 <template>
   <div ref="sliderContainer" class="relative w-full h-full" @mousemove="onMouseMove" @touchmove="onTouchMove">
     <div class="absolute inset-0">
-      <PanoramaxViewer :sequence="sequence" :picture="picture" />
+      <PanoramaxViewer :sequence="sequence" :picture="picture" :zoom-with-ctrl="!isDialog" />
     </div>
 
     <div class="absolute inset-0" :style="{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }">
-      <PanoramaxViewer :sequence="beforeSequence" :picture="beforePicture" legend-slot="bottom-left" />
+      <PanoramaxViewer
+        :sequence="beforeSequence"
+        :picture="beforePicture"
+        :zoom-with-ctrl="!isDialog"
+        legend-slot="bottom-left"
+      />
     </div>
 
     <div
