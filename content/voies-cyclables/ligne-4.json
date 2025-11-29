@@ -842,7 +842,7 @@
         "status": "postponed",
         "type": "voie-bus",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+        "link": "/voie-lyonnaise-4#boulevard-stalingrad-%C3%A0-cours-andr%C3%A9-philip"
       },
       "geometry": {
         "type": "LineString",
