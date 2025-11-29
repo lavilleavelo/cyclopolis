@@ -118,6 +118,12 @@ La modification du marquage au sol a été réalisée pendant les vacances scola
 La Voie Lyonnaise 2 passe dans le tunnel routier sous le pole multimodal de la gare de la Part-Dieu qui a ouvert en 2020. Une des deux voies de circulation d'origine, côté Ouest, a été transformée en piste cyclable bidirectionnelle de 3 à 4m de large, séparée de la circulation en étant réhaussée de 22cm au niveau du passe-pied d'origine pour maximiser sa largeur.\
 Il sera néanmoins possible pour les cyclistes d'accéder au pole multimodal en surface en utilisant l'aménagement de la SPL Part-Dieu livré entre début 2023 et l'été 2025 et qui comporte principalement de larges voies de bus partagées avec les cyclistes.
 
+::content-image
+---
+panoramax: seq=fb205ef7-305b-4614-bf54-7a859517ae7f;pic=6788016c-e8b2-441d-9e6a-0d2adc9737a1;open=true
+---
+::
+
 ::banner{type="wip"}
 Les travaux ont eu lieu de fin septembre à novembre 2024, mais la piste cyclable a seulement été ouverte mi-avril 2025 le temps de mettre en conformité les équipements de sécurité du tunnel et de terminer le tronçon manquant jusqu'à l'avenue Félix Faure.
 ::
@@ -135,6 +141,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl2/bd-vivier-merle.jpg
 caption: Aperçu de la Voie Lyonnaise 2 - boulevard Vivier Merle (Lyon 3)
 credit: Métropole de Lyon
 streetView: 45.7533388,4.8593519,3a,75y,175.99h,90t
+panoramax: seq=ff94beab-1862-4707-8ef8-4dc0d4f230d9;pic=1b1fcb42-5a0b-48fc-a7db-bc526c9de77a;open=true
 ---
 ::
 

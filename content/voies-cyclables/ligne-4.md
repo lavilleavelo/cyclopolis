@@ -171,7 +171,7 @@ Les travaux devraient avoir lieu entre avril et novembre 2025, d'abord sur la ru
 
 ### Pont Clémenceau à Boulevard des Belges
 
-*via Tunnel mode doux et avenue Duquesne*
+*via Tunnel mode doux de la Croix-Rousse et avenue Duquesne*
 
 Le **pont Clémenceau** avait été initialement réaménagé en 2013 avec deux pistes cyclables étroites unidirectionnelles sur trottoir. Celles-ci ne répondaient pas aux besoin des cyclistes car la traversée difficile de cette avenue à 5 voies très routières les obligeait à utiliser les pistes à contre-sens. En 2022, la situation a été sensiblement améliorée et deux larges pistes cyclables bidirectionnelles ont été créées de chaque côté du pont.
 
