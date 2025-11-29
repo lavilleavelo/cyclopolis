@@ -1025,8 +1025,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      map.moveLayer('dangers');
-      map.moveLayer('perspectives');
+      if (map.getLayer('dangers')) {
+        map.moveLayer('dangers');
+      }
+      if (map.getLayer('perspectives')) {
+        map.moveLayer('perspectives');
+      }
     } else {
       const selectedLines = [...new Set(selections.map((s) => s.line))];
       const selectionsWithSections = selections.filter((s) => s.sectionName);
@@ -1162,8 +1166,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      map.moveLayer('dangers');
-      map.moveLayer('perspectives');
+      if (map.getLayer('dangers')) {
+        map.moveLayer('dangers');
+      }
+      if (map.getLayer('perspectives')) {
+        map.moveLayer('perspectives');
+      }
     }
   }
 
