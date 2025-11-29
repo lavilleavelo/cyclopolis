@@ -1,7 +1,8 @@
 <template>
   <div
     id="loader"
-    class="sticky top-0 left-0 bottom-0 flex-1 flex bg-white items-center opacity-50 right-0 w-full justify-center h-full z-[1000] transition-opacity hidden"
+    class="sticky top-0 left-0 bottom-0 flex-1 flex bg-white items-center opacity-50 right-0 w-full justify-center h-full z-[1000] transition-opacity"
+    :class="{ hidden: !loaderVisible }"
   >
     <Icon name="svg-spinners:ring-resize" class="w-16 h-16 text-lvv-blue-600" />
   </div>
@@ -28,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+import { waitForElement } from '~/helpers/helpers';
+
 const props = withDefaults(
   defineProps<{
     line: string | number;
@@ -65,37 +68,41 @@ const { data: voie } = useAsyncData(
 const route = useRoute();
 const router = useRouter();
 
+const loaderVisible = ref(false);
+
 async function scrollToSection(sectionAnchor: string, { delay = 300 } = {}) {
-  document.querySelector('#loader')?.classList.remove('hidden');
-  document.location.replace('#');
-  await new Promise((resolve) => setTimeout(resolve, delay));
-  const query = { ...route.query };
-  delete query.sectionAnchor;
-  await router.replace({ query });
-  document.location.replace(`#${sectionAnchor}`);
-  document.querySelector('#loader')?.classList.add('hidden');
+  loaderVisible.value = true;
+  try {
+    document.location.replace('#');
+    await waitForElement(`#${decodeURIComponent(sectionAnchor)}`, 3000);
+    await new Promise((resolve) => setTimeout(resolve, delay));
+    const query = { ...route.query };
+    delete query.sectionAnchor;
+    await router.replace({ query });
+    document.location.replace(`#${sectionAnchor}`);
+  } finally {
+    loaderVisible.value = false;
+  }
 }
 
 watch(
-  () => route.query.sectionAnchor,
-  (anchor) => {
+  [() => route.query.sectionAnchor, () => voie.value],
+  ([anchor, currentVoie], [, prevVoie]) => {
+    if (!currentVoie) {
+      return;
+    }
+
+    loaderVisible.value = false;
+
     const sectionAnchor = anchor ? String(anchor) : null;
     if (!sectionAnchor) {
       return;
     }
-    void scrollToSection(String(anchor));
+
+    void scrollToSection(sectionAnchor, {
+      delay: prevVoie !== currentVoie ? 300 : 0,
+    });
   },
   { immediate: true },
-);
-
-watch(
-  () => voie.value,
-  (newVoie) => {
-    if (!newVoie || !route.query.sectionAnchor) {
-      return;
-    }
-
-    void scrollToSection(String(route.query.sectionAnchor));
-  },
 );
 </script>

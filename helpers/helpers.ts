@@ -20,3 +20,19 @@ export function removeDiacritics(string: string) {
     .replace(/[\u0300-\u036F]/g, '')
     .toLowerCase();
 }
+
+export async function waitForElement(selector: string, timeout = 5000): Promise<HTMLElement | null> {
+  const startTime = Date.now();
+  return new Promise((resolve) => {
+    const checkExist = setInterval(() => {
+      const element = document.querySelector<HTMLElement>(selector);
+      if (element) {
+        clearInterval(checkExist);
+        resolve(element);
+      } else if (Date.now() - startTime > timeout) {
+        clearInterval(checkExist);
+        resolve(null);
+      }
+    }, 100);
+  });
+}
