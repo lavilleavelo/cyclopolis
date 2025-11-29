@@ -1,7 +1,7 @@
 <template>
   <!-- Large screen: Sidebar -->
   <div
-    v-if="isOpen && isLargeScreen && selectedLine"
+    v-if="isPanelOpen && isLargeScreen"
     class="relative hidden lg:flex flex-col min-w-[700px] w-[1015px] bg-white border-l overflow-auto"
   >
     <div class="relative overflow-y-auto max-h-[calc(100dvh-90px)]">
@@ -26,7 +26,12 @@
   </div>
 
   <!-- Small screen: Bottom Sheet -->
-  <BottomSheet v-if="!isLargeScreen" :open="isOpen" :get-default-height-px="getDefaultBottomSheetHeight" @close="close">
+  <BottomSheet
+    v-if="!isLargeScreen"
+    :open="isPanelOpen"
+    :get-default-height-px="getDefaultBottomSheetHeight"
+    @close="close"
+  >
     <template #title>
       <div class="flex gap-2 align-middle items-center">
         <h2 class="text-lg font-medium leading-6">Voie Lyonnaise {{ selectedLine }}</h2>
@@ -75,6 +80,8 @@ const selectedLine = computed(() => {
   return null;
 });
 
+const isPanelOpen = computed(() => props.open && ((isLargeScreen.value && !!selectedLine.value) || props.line));
+
 watch(
   () => props.line,
   (newVal) => {
@@ -88,8 +95,6 @@ watch(
 );
 
 const pathToLine = computed(() => (selectedLine.value ? `/voie-lyonnaise-${selectedLine.value}` : null));
-
-const isOpen = computed(() => props.open);
 
 function getFirstVisibleAnchor(): string | null {
   const container = document.querySelector('.overflow-y-auto');

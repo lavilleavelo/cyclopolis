@@ -37,6 +37,14 @@ function getAllLinks() {
       const filePath = path.join('content/voies-cyclables', file);
       const markdownContent = fs.readFileSync(filePath, 'utf8');
 
+      // extract html headings with id="..."
+      const htmlTitleRegex = /<h[1-6]\s+id="([^"]+)"[^>]*>(.*?)<\/h[1-6]>/gm;
+      let htmlMatch;
+      while ((htmlMatch = htmlTitleRegex.exec(markdownContent)) !== null) {
+        const link = htmlMatch[1];
+        links.push(`/${config.slug}-${voieLyonnaiseNumber}#${link}`);
+      }
+
       let match;
       while ((match = titleRegex.exec(markdownContent)) !== null) {
         // Extracting the title

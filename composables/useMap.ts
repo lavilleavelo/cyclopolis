@@ -3,20 +3,23 @@ import type { GeoJSONSource, Map } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
 import { createApp, defineComponent, h, Suspense } from 'vue';
 import {
+  type CompteurFeature,
   isCompteurFeature,
   isDangerFeature,
   isLineStringFeature,
   isPerspectiveFeature,
   isPointFeature,
-  type CompteurFeature,
 } from '~/types';
-
 // Tooltips
 import PerspectiveTooltip from '~/components/tooltips/PerspectiveTooltip.vue';
 import CounterTooltip from '~/components/tooltips/CounterTooltip.vue';
 import DangerTooltip from '~/components/tooltips/DangerTooltip.vue';
 import LineTooltip from '~/components/tooltips/LineTooltip.vue';
 import type { LocationQueryRaw } from 'vue-router';
+
+const DIMMED_OPACITY = 0.2;
+const NORMAL_OPACITY = 1;
+const HIGHLIGHTED_SECTION_OPACITY = 1;
 
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
@@ -172,37 +175,52 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }) {
     const sections = features.map((feature, index) => ({ id: index, ...feature }));
 
-    if (sections.length === 0 && !map.getLayer('highlight')) {
+    if (sections.length === 0 && !map.getLayer('highlight-layer')) {
       return;
     }
+
     if (upsertMapSource(map, 'all-sections', sections)) {
       return;
     }
 
     map.addLayer({
-      id: 'highlight',
+      id: 'selected-layer',
       type: 'line',
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
-        'line-color': ['case', ['boolean', ['feature-state', 'hover'], false], '#9ca3af', '#FFFFFF'],
+        'line-color': 'rgba(0, 0, 0, 0.0)',
       },
     });
+
     map.addLayer({
-      id: 'contour',
+      id: 'highlight-layer',
+      type: 'line',
+      source: 'all-sections',
+      layout: { 'line-cap': 'round' },
+      paint: {
+        'line-gap-width': 5,
+        'line-width': 4,
+        'line-color': ['case', ['boolean', ['feature-state', 'hover'], false], '#433E61', 'rgba(255,255,255,0)'],
+      },
+    });
+
+    map.addLayer({
+      id: 'contour-layer',
       type: 'line',
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
         'line-gap-width': 4,
         'line-width': 1,
-        'line-color': '#6b7280',
+        'line-color': 'rgba(0, 0, 0, 0.0)',
       },
     });
+
     map.addLayer({
-      id: 'underline',
+      id: 'underline-layer',
       type: 'line',
       source: 'all-sections',
       paint: {
@@ -211,10 +229,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       },
     });
 
+    map.setPaintProperty('contour-layer', 'line-color', 'rgba(13, 0, 0, 0.68)');
+
     let hoveredLineId: string | number | null = null;
-    map.on('mousemove', 'highlight', (e: maplibregl.MapMouseEvent) => {
+    map.on('mousemove', 'highlight-layer', (e: maplibregl.MapMouseEvent) => {
       map.getCanvas().style.cursor = 'pointer';
-      const features = map.queryRenderedFeatures(e.point, { layers: ['highlight'] });
+      const features = map.queryRenderedFeatures(e.point, { layers: ['highlight-layer'] });
       if (features.length > 0) {
         if (hoveredLineId !== null) {
           map.setFeatureState({ source: 'all-sections', id: hoveredLineId }, { hover: false });
@@ -227,7 +247,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         }
       }
     });
-    map.on('mouseleave', 'highlight', () => {
+    map.on('mouseleave', 'highlight-layer', () => {
       map.getCanvas().style.cursor = '';
       if (hoveredLineId !== null) {
         map.setFeatureState({ source: 'all-sections', id: hoveredLineId }, { hover: false });
@@ -290,22 +310,35 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
     const dashArraySequence = [
       [0, 2, 2],
+      [0.25, 2, 1.75],
       [0.5, 2, 1.5],
+      [0.75, 2, 1.25],
       [1, 2, 1],
+      [1.25, 2, 0.75],
       [1.5, 2, 0.5],
+      [1.75, 2, 0.25],
       [2, 2, 0],
+      [0, 0.25, 2, 1.75],
       [0, 0.5, 2, 1.5],
+      [0, 0.75, 2, 1.25],
       [0, 1, 2, 1],
+      [0, 1.25, 2, 0.75],
       [0, 1.5, 2, 0.5],
+      [0, 1.75, 2, 0.25],
     ];
     let step = 0;
     function animateDashArray(timestamp: number) {
       // Update line-dasharray using the next value in dashArraySequence. The
       // divisor in the expression `timestamp / 45` controls the animation speed.
-      const newStep = Math.floor((timestamp / 45) % dashArraySequence.length);
+      const newStep = Math.floor((timestamp / 60) % dashArraySequence.length);
 
       if (newStep !== step) {
-        map.setPaintProperty('wip-sections', 'line-dasharray', dashArraySequence[step]);
+        if (window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
+          map.setPaintProperty('wip-sections', 'line-opacity', newStep <= 12 ? 0.8 : 0.5);
+        } else {
+          map.setPaintProperty('wip-sections', 'line-opacity', 0.7);
+          map.setPaintProperty('wip-sections', 'line-dasharray', dashArraySequence[step]);
+        }
         step = newStep;
       }
 
@@ -425,68 +458,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
     map.on('mouseenter', 'variante-postponed-sections', () => (map.getCanvas().style.cursor = 'pointer'));
     map.on('mouseleave', 'variante-postponed-sections', () => (map.getCanvas().style.cursor = ''));
-  }
-
-  function plotUnknownSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'unknown',
-    );
-
-    if (sections.length === 0 && !map.getLayer('unknown-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'unknown-sections', sections)) {
-      return;
-    }
-
-    map.addLayer({
-      id: 'unknown-sections',
-      type: 'line',
-      source: 'unknown-sections',
-      layout: {
-        'line-cap': 'round',
-      },
-      paint: {
-        'line-width': [
-          'interpolate',
-          ['linear'],
-          ['zoom'],
-          11,
-          4, // width 4 at low zoom
-          14,
-          25, // progressively reach width 25 at high zoom
-        ],
-        'line-color': ['get', 'color'],
-        'line-opacity': [
-          'interpolate',
-          ['linear'],
-          ['zoom'],
-          11,
-          0.5, // opacity 0.4 at low zoom
-          14,
-          0.35, // opacity 0.35 at high zoom
-        ],
-      },
-    });
-    map.addLayer({
-      id: 'unknown-symbols',
-      type: 'symbol',
-      source: 'unknown-sections',
-      paint: {
-        'text-halo-color': '#fff',
-        'text-halo-width': 3,
-      },
-      layout: {
-        'symbol-placement': 'line',
-        'symbol-spacing': 120,
-        'text-font': ['Open Sans Regular'],
-        'text-field': 'tracé à définir',
-        'text-size': 14,
-      },
-    });
-
-    map.on('mouseenter', 'unknown-sections', () => (map.getCanvas().style.cursor = 'pointer'));
-    map.on('mouseleave', 'unknown-sections', () => (map.getCanvas().style.cursor = ''));
   }
 
   function plotPostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
@@ -743,7 +714,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     plotVarianteSections({ map, features: lineStringFeatures });
     plotVariantePostponedSections({ map, features: lineStringFeatures });
     plotWipSections({ map, features: lineStringFeatures });
-    plotUnknownSections({ map, features: lineStringFeatures });
     plotPostponedSections({ map, features: lineStringFeatures });
 
     const compteurFeature = features.filter(isCompteurFeature);
@@ -891,6 +861,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
     const clickedLayer = layers.find((layer) => layer.isClicked());
     if (!clickedLayer) {
+      highlightLines({ map, selections: null });
       return;
     }
 
@@ -913,6 +884,26 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         line: String(props.feature.properties.line),
         sectionName: props.feature.properties.name,
       };
+
+      const mapFeatures = map.queryRenderedFeatures(clickEvent.point, {
+        filter: [
+          'all',
+          ['==', ['geometry-type'], 'LineString'],
+          ['!=', ['get', 'source'], 'openmaptiles'], // Exclude base map features
+          ['has', 'status'], // All sections in geojson LineStrings have a status
+        ],
+      });
+
+      const selectedLinesAndSections: Array<{ line: number; sectionName?: string | null }> = [];
+      for (const mapFeature of mapFeatures) {
+        const line = mapFeature.properties.line;
+        selectedLinesAndSections.push({ line: +line, sectionName: mapFeature.properties.name });
+      }
+
+      highlightLines({
+        map,
+        selections: query.line ? selectedLinesAndSections : null,
+      });
 
       if (link) {
         const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(link);
@@ -967,11 +958,221 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
+  function highlightLines({
+    map,
+    selections,
+  }: {
+    map: Map;
+    selections: Array<{ line: number; sectionName?: string | null }> | null;
+  }) {
+    // highlight-layer is used for hover effect only, so we don't need to handle it here
+    const layerIds = [
+      'done-sections',
+      'wip-sections',
+      'planned-sections',
+      'variante-sections',
+      'variante-postponed-sections',
+      'unsatisfactory-sections',
+      'selected-layer',
+      'contour-layer',
+      'underline-layer',
+      'perspectives',
+      'dangers',
+      'compteurs',
+    ];
+
+    const { getLineColor } = useColors();
+    const { getNbVoiesCyclables } = useConfig();
+    const postponedLayerIds: string[] = [];
+    for (let line = 1; line <= getNbVoiesCyclables(); line++) {
+      const lineColor = getLineColor(line);
+      postponedLayerIds.push(`postponed-symbols-${lineColor}`, `postponed-text-${lineColor}`);
+    }
+
+    const allLayerIds = [...layerIds, ...postponedLayerIds];
+
+    if (!selections || selections.length === 0) {
+      for (const layerId of allLayerIds) {
+        if (!map.getLayer(layerId)) continue;
+
+        const layer = map.getLayer(layerId);
+        const layerType = layer?.type;
+
+        if (layerType === 'line') {
+          map.setPaintProperty(
+            layerId,
+            'line-opacity',
+            ['variante-sections', 'variante-postponed-sections'].includes(layerId) ? 0.5 : NORMAL_OPACITY,
+          );
+          if (layerId === 'selected-layer') {
+            map.setPaintProperty(layerId, 'line-color', 'rgba(255,255,255,0)');
+          }
+        } else if (layerType === 'symbol') {
+          map.setPaintProperty(layerId, 'icon-opacity', NORMAL_OPACITY);
+          map.setPaintProperty(layerId, 'text-opacity', NORMAL_OPACITY);
+        } else if (layerType === 'circle') {
+          map.setPaintProperty(layerId, 'circle-opacity', NORMAL_OPACITY);
+          map.setPaintProperty(layerId, 'circle-stroke-opacity', NORMAL_OPACITY);
+        }
+      }
+
+      const colors = Array.from({ length: getNbVoiesCyclables() }, (_, i) => getLineColor(i + 1)).reverse();
+
+      for (const color of colors) {
+        if (!map.getLayer(`postponed-text-${color}`)) {
+          continue;
+        }
+        map.moveLayer(`postponed-symbols-${color}`);
+        map.moveLayer(`postponed-text-${color}`);
+      }
+      map.moveLayer('dangers');
+      map.moveLayer('perspectives');
+    } else {
+      const selectedLines = [...new Set(selections.map((s) => s.line))];
+      const selectionsWithSections = selections.filter((s) => s.sectionName);
+
+      const isSelectedLineExpression =
+        selectedLines.length === 1
+          ? ['==', ['get', 'line'], selectedLines[0]]
+          : ['in', ['get', 'line'], ['literal', selectedLines]];
+
+      const isSelectedSectionExpression =
+        selectionsWithSections.length > 0
+          ? [
+              'any',
+              ...selectionsWithSections.map((s) => [
+                'all',
+                ['==', ['get', 'line'], s.line],
+                ['==', ['get', 'name'], s.sectionName],
+              ]),
+            ]
+          : null;
+
+      for (const layerId of allLayerIds) {
+        if (!map.getLayer(layerId)) continue;
+
+        const layer = map.getLayer(layerId);
+        const layerType = layer?.type;
+
+        if (layerType === 'line') {
+          const currentOpacity = map.getPaintProperty(layerId, 'line-opacity');
+          const baseOpacity = typeof currentOpacity === 'number' ? currentOpacity : NORMAL_OPACITY;
+
+          if (isSelectedSectionExpression) {
+            map.setPaintProperty(layerId, 'line-opacity', [
+              'case',
+              isSelectedSectionExpression,
+              HIGHLIGHTED_SECTION_OPACITY,
+              isSelectedLineExpression,
+              baseOpacity,
+              DIMMED_OPACITY,
+            ]);
+
+            if (layerId === 'selected-layer') {
+              map.setPaintProperty(layerId, 'line-color', ['case', isSelectedSectionExpression, '#665E7B', '#FFFFFF']);
+            }
+          } else {
+            map.setPaintProperty(layerId, 'line-opacity', [
+              'case',
+              isSelectedLineExpression,
+              baseOpacity,
+              DIMMED_OPACITY,
+            ]);
+          }
+        } else if (layerType === 'symbol') {
+          const currentIconOpacity = map.getPaintProperty(layerId, 'icon-opacity');
+          const baseIconOpacity = typeof currentIconOpacity === 'number' ? currentIconOpacity : NORMAL_OPACITY;
+
+          const currentTextOpacity = map.getPaintProperty(layerId, 'text-opacity');
+          const baseTextOpacity = typeof currentTextOpacity === 'number' ? currentTextOpacity : NORMAL_OPACITY;
+
+          if (isSelectedSectionExpression) {
+            map.setPaintProperty(layerId, 'icon-opacity', [
+              'case',
+              isSelectedSectionExpression,
+              baseIconOpacity,
+              isSelectedLineExpression,
+              baseIconOpacity,
+              DIMMED_OPACITY,
+            ]);
+            map.setPaintProperty(layerId, 'text-opacity', [
+              'case',
+              isSelectedSectionExpression,
+              baseTextOpacity,
+              isSelectedLineExpression,
+              baseTextOpacity,
+              DIMMED_OPACITY,
+            ]);
+          } else {
+            map.setPaintProperty(layerId, 'icon-opacity', [
+              'case',
+              isSelectedLineExpression,
+              baseIconOpacity,
+              DIMMED_OPACITY,
+            ]);
+            map.setPaintProperty(layerId, 'text-opacity', [
+              'case',
+              isSelectedLineExpression,
+              baseTextOpacity,
+              DIMMED_OPACITY,
+            ]);
+          }
+        } else if (layerType === 'circle') {
+          if (isSelectedSectionExpression) {
+            map.setPaintProperty(layerId, 'circle-opacity', [
+              'case',
+              isSelectedSectionExpression,
+              NORMAL_OPACITY,
+              isSelectedLineExpression,
+              NORMAL_OPACITY,
+              DIMMED_OPACITY,
+            ]);
+            map.setPaintProperty(layerId, 'circle-stroke-opacity', [
+              'case',
+              isSelectedSectionExpression,
+              NORMAL_OPACITY,
+              isSelectedLineExpression,
+              NORMAL_OPACITY,
+              DIMMED_OPACITY,
+            ]);
+          } else {
+            map.setPaintProperty(layerId, 'circle-opacity', [
+              'case',
+              isSelectedLineExpression,
+              NORMAL_OPACITY,
+              DIMMED_OPACITY,
+            ]);
+            map.setPaintProperty(layerId, 'circle-stroke-opacity', [
+              'case',
+              isSelectedLineExpression,
+              NORMAL_OPACITY,
+              DIMMED_OPACITY,
+            ]);
+          }
+        }
+      }
+
+      // we need to bring highlighted postponed layers to the front otherwise they are hidden under dimmed layers
+      const colors = selectedLines.map((line) => getLineColor(line));
+
+      for (const color of colors.reverse()) {
+        if (!map.getLayer(`postponed-text-${color}`)) {
+          continue;
+        }
+        map.moveLayer(`postponed-symbols-${color}`);
+        map.moveLayer(`postponed-text-${color}`);
+      }
+      map.moveLayer('dangers');
+      map.moveLayer('perspectives');
+    }
+  }
+
   return {
     loadImages,
     plotFeatures,
     getCompteursFeatures,
     fitBounds,
     handleMapClick,
+    highlightLines,
   };
 };

@@ -14,7 +14,7 @@
       />
       <DetailPanel
         v-if="options.showDetailsPanel"
-        :open="route.query.modal === 'details'"
+        :open="route.query.modal === 'details' && mapReady"
         :line="route.query.line ? +route.query.line : null"
         @close="closeSidebar"
       />
@@ -93,7 +93,7 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 
-const { loadImages, plotFeatures, fitBounds, handleMapClick } = useMap({
+const { loadImages, plotFeatures, fitBounds, handleMapClick, highlightLines } = useMap({
   updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
 });
 
@@ -146,6 +146,8 @@ function toggleFilterSidebar() {
   }
   router.replace({ query });
 }
+
+const mapReady = ref(false);
 
 onMounted(() => {
   const map = new Map({
@@ -223,9 +225,10 @@ onMounted(() => {
     map.addControl(logoControl, 'bottom-right');
   }
 
-  map.on('load', async () => {
+  async function onMapLoaded() {
     await loadImages({ map });
     plotFeatures({ map, features: props.features });
+    highlightLines({ map, selections: null });
 
     if (!+(route.query.line || -1) || !highlightSection) {
       fitBounds({ map, features: props.features });
@@ -241,11 +244,11 @@ onMounted(() => {
       }
       return 'name' in f.properties && f.properties.name === highlightSection;
     });
+    if (section?.geometry?.type !== 'LineString') {
+      return;
+    }
 
-    if (section?.geometry?.type === 'LineString') {
-      const padding = window.innerWidth < 1024 ? { bottom: window.innerHeight / 2, top: 0, left: 20, right: 20 } : 20;
-      fitBounds({ map, features: [section], padding });
-
+    return new Promise<void>((resolve) => {
       map.once('moveend', () => {
         const coordinates = structuredClone(section.geometry.coordinates);
         const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
@@ -256,22 +259,8 @@ onMounted(() => {
 
         const point = map.project(midPoint);
 
-        const renderedFeatures = map.queryRenderedFeatures(point, {
-          layers: ['highlight'],
-          filter: [
-            'all',
-            ['==', ['get', 'line'], section.properties.line],
-            ['==', ['get', 'name'], section.properties.name],
-          ],
-        });
-
-        const firstFeatureId = renderedFeatures?.[0]?.id;
-        if (firstFeatureId !== undefined) {
-          map.setFeatureState({ source: 'all-sections', id: firstFeatureId }, { hover: true });
-        }
-
         if (!midPoint || midPoint?.length !== 2) {
-          return;
+          return resolve();
         }
 
         // small hack: simulate a click event to open the popup
@@ -290,7 +279,32 @@ onMounted(() => {
             _defaultPrevented: false,
           },
         });
+        resolve();
       });
+
+      fitBounds({
+        map,
+        features: [section],
+        padding:
+          window.innerWidth < 1024
+            ? {
+                bottom: window.innerHeight * 0.75,
+                top: 0,
+                left: 20,
+                right: 20,
+              }
+            : 20,
+      });
+    });
+  }
+
+  map.on('load', async () => {
+    try {
+      await onMapLoaded();
+    } catch (e) {
+      console.error('Error during map load', e);
+    } finally {
+      mapReady.value = true;
     }
   });
 
