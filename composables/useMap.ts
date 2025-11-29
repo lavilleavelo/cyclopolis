@@ -16,6 +16,7 @@ import PerspectiveTooltip from '~/components/tooltips/PerspectiveTooltip.vue';
 import CounterTooltip from '~/components/tooltips/CounterTooltip.vue';
 import DangerTooltip from '~/components/tooltips/DangerTooltip.vue';
 import LineTooltip from '~/components/tooltips/LineTooltip.vue';
+import type { LocationQueryRaw } from 'vue-router';
 
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
@@ -77,6 +78,9 @@ function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
 
 export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
   const { getLineColor } = useColors();
+  const router = useRouter();
+  const route = useRoute();
+  const { extractLineAndAnchorFromPath } = useUrl();
 
   function addLineColor(
     feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -754,10 +758,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     features,
     clickEvent,
+    onDetailClick,
   }: {
     map: Map;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
     clickEvent: maplibregl.MapMouseEvent;
+    onDetailClick?: (line: number, name: string, feature?: Collections['voiesCyclablesGeojson']['features'][0]) => void;
   }) {
     const layers = [
       {
@@ -771,6 +777,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         },
         getTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['dangers'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
           const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
           return { feature };
         },
@@ -787,6 +797,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         },
         getTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['perspectives'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
           const feature = features.find((f) => {
             return (
               f.properties.type === 'perspective' &&
@@ -822,6 +836,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
             ],
           })[0];
 
+          if (!mapFeature) {
+            return;
+          }
+
           const line = mapFeature.properties.line;
           const name = mapFeature.properties.name;
 
@@ -843,7 +861,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
               ]
             : [feature!.properties.line];
 
-          return { feature, lines };
+          return { feature, lines, onDetailClick };
         },
         component: LineTooltip,
       },
@@ -858,6 +876,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         },
         getTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['compteurs'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
           const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
           return { feature };
         },
@@ -878,13 +900,25 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     if (
       updateUrlOnFeatureClick &&
       props.feature &&
+      !['danger', 'perspective'].includes(props.feature.properties.type) &&
       'name' in props.feature.properties &&
       'line' in props.feature.properties
     ) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('line', String(props.feature.properties.line));
-      url.searchParams.set('sectionName', props.feature.properties.name);
-      window.history.replaceState({}, '', url.toString());
+      const link = props.feature?.properties.link;
+
+      const query: LocationQueryRaw = {
+        ...route.query,
+        line: String(props.feature.properties.line),
+        sectionName: props.feature.properties.name,
+      };
+
+      if (link) {
+        const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(link);
+        query.modal = 'details';
+        query.line = extractedLine ?? query.line;
+        query.sectionAnchor = anchor ?? null;
+      }
+      void router.replace({ query });
     }
 
     const tooltipContentId = `${clickedLayer.id}-tooltip`;
@@ -900,10 +934,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       setTimeout(() => {
         const popups = document.querySelectorAll('.maplibregl-popup');
         if (popups.length === 0) {
-          const url = new URL(window.location.href);
-          url.searchParams.delete('line');
-          url.searchParams.delete('sectionName');
-          window.history.replaceState({}, '', url.toString());
+          void router.replace({
+            query: {
+              ...route.query,
+              line: undefined,
+              sectionName: undefined,
+            },
+          });
         }
       }, 50);
     });
