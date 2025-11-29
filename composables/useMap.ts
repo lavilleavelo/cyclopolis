@@ -698,9 +698,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   function fitBounds({
     map,
     features,
+    padding = 20,
   }: {
     map: Map;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    padding?: number | { top: number; bottom: number; left: number; right: number };
   }) {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
@@ -722,7 +724,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       for (const coord of allCoordinates) {
         bounds.extend(coord);
       }
-      map.fitBounds(bounds, { padding: 20, maxZoom: 14 });
+      map.fitBounds(bounds, { padding, maxZoom: 14 });
     }
   }
 

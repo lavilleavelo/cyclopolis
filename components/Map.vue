@@ -243,7 +243,8 @@ onMounted(() => {
     });
 
     if (section?.geometry?.type === 'LineString') {
-      fitBounds({ map, features: [section] });
+      const padding = window.innerWidth < 1024 ? { bottom: window.innerHeight / 2, top: 0, left: 20, right: 20 } : 20;
+      fitBounds({ map, features: [section], padding });
 
       map.once('moveend', () => {
         const coordinates = section.geometry.coordinates;
