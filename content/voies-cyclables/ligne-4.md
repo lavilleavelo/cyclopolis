@@ -229,25 +229,27 @@ streetView: 45.7725923,4.8562026,3a,75y,270.71h,90t
 Les travaux ont lieu entre fin juin et décembre 2025.
 ::
 
-#### Cours André Philip et rue Francis de Pressensé
-Les deux pistes unidirectionnelles de chaque côté de l'alignement d'arbres se prolongent côté Villeurbanne sur le début du cours André Philip. Elles se rassemblent en une piste bidirectionnelle de 3.50m de large après la traversée des rails de tramway. La Voie Lyonnaise 4 se prolonge ensuite sous la forme d'une piste bidirectionnelle de 3 à 4m de large sur la rue Francis de Pressensé, hormis un pincement entre 2m50 et 3m entre les rues Branly et Bernoux.
+#### Boulevard Stalingrad à Cours André Philip 
+Les deux pistes unidirectionnelles de chaque côté de l'alignement d'arbres se prolongent côté Villeurbanne sur le début du cours André Philip. Elles se rassemblent en une piste bidirectionnelle de 3.50m de large après la traversée des rails de tramway.
+
+::banner{type="postponed"}
+Initialement prévu en fin de mandat, l'aménagement de la rue André Philip entre le boulevard Stalingrad et la rue Bat Yam a été reporté à la demande de la mairie de Villeurbanne. Alors que l'amorce de l'aménagement a pourtant été construite au carrefour Verguin, les cyclistes devront continuer à circuler sur des voies de bus bilatérales mal reliées aux aménagements bidirectionnels aux extrémités.
+::
+
+<h4 id="cours-andré-philip-et-rue-francis-de-pressensé">Rue Francis de Pressensé</h4>
+La Voie Lyonnaise 4 se prolonge ensuite sous la forme d'une piste bidirectionnelle de 3 à 4m de large sur la rue Francis de Pressensé, hormis un pincement entre 2m50 et 3m entre les rues Branly et Bernoux.
 
 Les carrefours dangereux seront sécurisés : le giratoire des Charpennes sera réaménagé avec un demi-anneau cyclable côté Nord, tandis que le giratoire de la rue d'Alsace et du cours de la République seront transformés en carrefours à feux.
 
-Ce projet nécessite la suppression du stationnement du côté de la piste cyclable sur l'ensemble du linéaire de tronçon. En outre, il implique la  mise en sens unique du cours André Philip à l'Est de la rue Bât Yam et sur l'ensemble de la rue Francis de Pressensé. Les sens de circulation définitifs retenus par la Métropole convergent vers le cours de la République.
+Ce projet nécessite la suppression du stationnement du côté de la piste cyclable sur l'ensemble du linéaire de tronçon. En outre, il implique la mise en sens unique du cours André Philip à l'est de la rue Bât Yam et sur l'ensemble de la rue Francis de Pressensé. Les sens de circulation définitifs retenus par la Métropole convergent vers le cours de la République.
 
 ::banner{type="wip"}
 Les travaux entre le cours de la République et Flachet ont lieu entre janvier et décembre 2025 de l'Est vers l'Ouest.
-Les travaux entre le cours de la République et la rue Bat Yam auront lieu entre octobre 2025 et mars 2026, en commençant par le rond-point des Charpennes de octobre à décembre. En parallèle, le reste du linéaire sera en travaux entre mi-novembre 2025 et mars 2026.
-Les travaux sur le carrefour Stalingrad/Verguin ont eu lieu de juillet à septembre 2025.
-::
-
-::banner{type="postponed"}
-Intialement prévu en fin de mandat, l'aménagement de la rue André Philip entre le boulevard Stalingrad et la rue Bat Yam a été reporté à la demande de la mairie de Villeurbanne. Alors que l'amorce de l'aménagement a pourtant été construite au carrefour Verguin, les cyclistes devront continuer à circuler sur des voies de bus bilatérales mal reliées aux aménagements bidirectionnels aux extremités.
+Les travaux entre le cours de la République et la rue Bat Yam auront lieu entre octobre 2025 et mars 2026, en commençant par le rond-point des Charpennes d'octobre à décembre. En parallèle, le reste du linéaire sera en travaux entre mi-novembre 2025 et mars 2026.
 ::
 
 ::banner{type="info"}
-Entre les rues Mauvert et Edouard Vaillant, le grand chantier de la ZAC Gratte-Ciel necéssitera un aménagement provisoire de la piste bidirectionnelle côté Nord, avant une bascule définitive au Sud prévue au premier semestre 2028.
+Entre les rues Mauvert et Edouard Vaillant, le grand chantier de la ZAC Gratte-Ciel nécessitera un aménagement provisoire de la piste bidirectionnelle côté Nord, avant une bascule définitive au sud prévue au premier semestre 2028.
 ::
 
 #### *Concertation*
