@@ -731,11 +731,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     features,
     clickEvent,
     onDetailClick,
+    updateSectionAnchor = true,
   }: {
     map: Map;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
     clickEvent: maplibregl.MapMouseEvent;
     onDetailClick?: (line: number, name: string, feature?: Collections['voiesCyclablesGeojson']['features'][0]) => void;
+    updateSectionAnchor?: boolean;
   }) {
     const layers = [
       {
@@ -909,7 +911,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(link);
         query.modal = 'details';
         query.line = extractedLine ?? query.line;
-        query.sectionAnchor = anchor ?? null;
+        if (updateSectionAnchor) {
+          query.sectionAnchor = anchor ?? null;
+        }
       }
       void router.replace({ query });
     }

@@ -148,6 +148,80 @@ function toggleFilterSidebar() {
 }
 
 const mapReady = ref(false);
+const mapInstance = ref<Map | null>(null);
+
+function zoomToSection(lineNumber: number | null, sectionName: string | null): Promise<void> | void {
+  if (!lineNumber || !sectionName || !mapInstance.value) {
+    return;
+  }
+
+  const map = mapInstance.value;
+  const section = props.features.find((f) => {
+    if (f.geometry.type !== 'LineString') {
+      return false;
+    }
+    if (!('line' in f.properties) || f.properties.line !== lineNumber) {
+      return false;
+    }
+    return 'name' in f.properties && f.properties.name === sectionName;
+  });
+
+  if (section?.geometry?.type !== 'LineString') {
+    return;
+  }
+
+  return new Promise<void>((resolve) => {
+    map.once('moveend', () => {
+      const coordinates = structuredClone(section.geometry.coordinates);
+      const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
+      if (coordinates.length == 2 && Array.isArray(coordinates[0]) && Array.isArray(coordinates[1])) {
+        midPoint[0] = (coordinates[0][0] + coordinates[1][0]) / 2;
+        midPoint[1] = (coordinates[0][1] + coordinates[1][1]) / 2;
+      }
+
+      const point = map.project(midPoint);
+
+      if (!midPoint || midPoint?.length !== 2) {
+        return resolve();
+      }
+
+      const popups = document.querySelectorAll('.maplibregl-popup');
+      popups.forEach((popup) => {
+        const closeButton = popup.querySelector('.maplibregl-popup-close-button');
+        if (closeButton) {
+          (closeButton as HTMLElement).click();
+        } else {
+          popup.remove();
+        }
+      });
+
+      // small hack: simulate a click event to open the popup
+      handleMapClick({
+        map,
+        features: props.features,
+        onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
+        updateSectionAnchor: route.query.line !== String(lineNumber),
+        clickEvent: {
+          lngLat: new LngLat(midPoint[0], midPoint[1]),
+          point,
+          originalEvent: new MouseEvent('click'),
+          target: map,
+          type: 'click',
+          preventDefault: () => {},
+          defaultPrevented: false,
+          _defaultPrevented: false,
+        },
+      });
+      resolve();
+    });
+
+    fitBounds({
+      map,
+      features: [section],
+      padding: window.innerWidth < 1024 ? { bottom: window.innerHeight * 0.75, top: 0, left: 20, right: 20 } : 20,
+    });
+  });
+}
 
 onMounted(() => {
   const map = new Map({
@@ -158,6 +232,8 @@ onMounted(() => {
     zoom: config.zoom,
     attributionControl: false,
   });
+
+  mapInstance.value = map;
 
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
   map.addControl(new AttributionControl({ compact: false }), 'bottom-left');
@@ -235,67 +311,7 @@ onMounted(() => {
       return;
     }
 
-    const section = props.features.find((f) => {
-      if (f.geometry.type !== 'LineString') {
-        return false;
-      }
-      if (!('line' in f.properties) || f.properties.line !== +(route.query.line || -1)) {
-        return false;
-      }
-      return 'name' in f.properties && f.properties.name === highlightSection;
-    });
-    if (section?.geometry?.type !== 'LineString') {
-      return;
-    }
-
-    return new Promise<void>((resolve) => {
-      map.once('moveend', () => {
-        const coordinates = structuredClone(section.geometry.coordinates);
-        const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
-        if (coordinates.length == 2 && Array.isArray(coordinates[0]) && Array.isArray(coordinates[1])) {
-          midPoint[0] = (coordinates[0][0] + coordinates[1][0]) / 2;
-          midPoint[1] = (coordinates[0][1] + coordinates[1][1]) / 2;
-        }
-
-        const point = map.project(midPoint);
-
-        if (!midPoint || midPoint?.length !== 2) {
-          return resolve();
-        }
-
-        // small hack: simulate a click event to open the popup
-        handleMapClick({
-          map,
-          features: props.features,
-          onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
-          clickEvent: {
-            lngLat: new LngLat(midPoint[0], midPoint[1]),
-            point,
-            originalEvent: new MouseEvent('click'),
-            target: map,
-            type: 'click',
-            preventDefault: () => {},
-            defaultPrevented: false,
-            _defaultPrevented: false,
-          },
-        });
-        resolve();
-      });
-
-      fitBounds({
-        map,
-        features: [section],
-        padding:
-          window.innerWidth < 1024
-            ? {
-                bottom: window.innerHeight * 0.75,
-                top: 0,
-                left: 20,
-                right: 20,
-              }
-            : 20,
-      });
-    });
+    return zoomToSection(+(route.query.line || -1), highlightSection);
   }
 
   map.on('load', async () => {
@@ -318,6 +334,28 @@ onMounted(() => {
       }
     },
   );
+
+  const handleHeadingClick = (event: Event) => {
+    const customEvent = event as CustomEvent<{ hash: string; element: HTMLElement }>;
+    const hash = customEvent.detail.hash;
+
+    for (const feature of props.features) {
+      if (
+        feature.properties?.link?.split('#')?.[1] === hash &&
+        (!route.query.line || route.query.line === String(feature.properties?.line))
+      ) {
+        zoomToSection('line' in feature.properties ? feature.properties.line : null, feature.properties?.name || null);
+        break;
+      }
+    }
+  };
+
+  if (options.showDetailsPanel) {
+    window.addEventListener('heading-anchor-click', handleHeadingClick);
+    onBeforeUnmount(() => {
+      window.removeEventListener('heading-anchor-click', handleHeadingClick);
+    });
+  }
 
   watch(
     () => [props.totalDistance, props.filteredDistance],
