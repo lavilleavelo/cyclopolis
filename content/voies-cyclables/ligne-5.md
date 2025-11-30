@@ -76,7 +76,7 @@ Les travaux préparatoires sur les réseaux ont lieu entre février 2024 et le p
 ::
 
 ### Vaulx-en-Velin Ouest
-Cette section est en tronçon commun avec la :line-link{line=1}.
+Cette section est en tronçon commun avec la :line-link{line=1 anchor=vaulx-en-velin-gabriel-péri-à-la-doua-croix-luizet}.
 
 ### Traversée du campus de la Doua
 La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccorde ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé a été recouvert d'un enrobé lisse en octobre 2025. Enfin, le long du boulevard Laurent Bonnevay, une nouvelle voie verte de 4m de large a été créée en même temps sur l'ancien cheminement piéton stabilisé côté Sud.
@@ -111,14 +111,14 @@ La concertation sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 [Voir le dossier de concertation (p. 14 à 16)](https://cyclopolis.lavilleavelo.org/vl5/VL5Est_Poincar%c3%a9_Bron%20A%c3%a9roport.pdf)
 
 ### Pont Poincaré à Pont De Lattre de Tassigny
-Cette section est en tronçon commun avec la :line-link{line=1}.
+Cette section est en tronçon commun avec la :line-link{line=1 anchor=allée-achille-lignon}.
 
 ### Pont De Lattre de Tassigny à Pont Clémenceau
-Cette section est en tronçon commun avec la :line-link{line=4}.
+Cette section est en tronçon commun avec la :line-link{line=4 anchor=pont-clémenceau-à-boulevard-des-belges}.
 
 ### Traversée de Vaise
 #### Quais de Saône
-Le lien entre le pont Clémenceau et le centre de Vaise sera assuré en tronc commun avec la :line-link{line=3} sur les quais de Saône, via le franchissement du carrefour des Monts d'Or avec la création d'une nouvelle traversée cyclable directe.
+Le lien entre le pont Clémenceau et le centre de Vaise sera assuré en tronc commun avec la :line-link{line=3 anchor=rue-antonin-laborde-au-pont-clémenceau} sur les quais de Saône, via le franchissement du carrefour des Monts d'Or avec la création d'une nouvelle traversée cyclable directe.
 
 #### Rue Roquette
 Le projet prévoit d'aménager une piste cyclable bidirectionnelle de 3m de large côté Nord à la place d'une des deux voies de circulation et d'une rangée de stationnement. Le trottoir adjacent le long du parc sera aussi élargi.
@@ -152,7 +152,7 @@ Pour éviter le détour peu réaliste et crédible via le point noir du giratoir
 ::
 
 #### Rue du Sergent Michel Berthet, le long de la place Valmy
-Cette section est en tronçon commun avec la :line-link{line=12}.
+Cette section est en tronçon commun avec la :line-link{line=12 anchor=rue-du-sergent-michel-berthet}.
 
 #### Rue du Bourbonnais et rue du Souvenir
 La Voie Lyonnaise 5 empruntera la parallèle à la rue Marietton très routière via les rues du Bourbonnais puis du Souvenir. L'aménagement est prévu se faire en vélorue via la forte baisse du trafic automobile en :
@@ -262,7 +262,7 @@ Lors du conseil métropolitain du 24/06/2024, il a été indiqué que la concert
 ::
 
 ### Gare d'Oullins à Pierre-Bénite Barrage
-Cette section est en tronçon commun avec la :line-link{line=3}.
+Cette section est en tronçon commun avec la :line-link{line=3 anchor=quartier-de-la-saulaie}.
 
 ### Traversée Vallée de la Chimie
 La Voie Lyonnaise 5 empruntera :

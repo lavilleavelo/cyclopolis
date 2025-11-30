@@ -401,7 +401,7 @@
         "doneAt": "08/07/2005",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-1#stalingrad-nord"
+        "link": "/voie-lyonnaise-1#boulevard-du-11-novembre"
       },
       "geometry": {
         "type": "LineString",

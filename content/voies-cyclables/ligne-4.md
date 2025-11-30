@@ -158,7 +158,7 @@ Cette rue sera mise en sens unique (vers Ouest) pour y créer une piste cyclable
 
 
 #### Quais de Saône
-Le lien entre la rue de la Corderie et le pont Clémenceau sera assuré en tronc commun avec la :line-link{line=3} sur les quais de Saône, après le franchissement du carrefour des Monts d'Or via la création d'une nouvelle traversée cyclable directe.
+Le lien entre la rue de la Corderie et le pont Clémenceau sera assuré en tronc commun avec la :line-link{line=3 anchor=rue-antonin-laborde-au-pont-clémenceau} sur les quais de Saône, après le franchissement du carrefour des Monts d'Or via la création d'une nouvelle traversée cyclable directe.
 
 #### *Concertation*
 La concertation publique sur ce tronçon se tenait du 29/01 au 11/03/2024 dans le cadre du grand projet "Les mobilités évoluent à Vaise".\

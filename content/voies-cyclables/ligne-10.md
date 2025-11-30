@@ -12,9 +12,9 @@ cover: https://cyclopolis.lavilleavelo.org/vl10/voie-lyonnaise-10.png
 
 ### Tassin - Valvert à Tête d'Or - Verguin
 Sur toute la moitié Ouest de son itinéraire, la Voie Lyonnaise 10 est en tronçon commun avec d'autres Voies Lyonnaises :
- - :line-link{line=8} du boulevard du Valvert à l'avenue Victor Hugo
- - :line-link{line=5} pour la traversée de Vaise
- - :line-link{line=4} du pont Clémenceau à l'avenue Verguin
+ - :line-link{line=8 anchor=tassin-valvert-à-victor-hugo} du boulevard du Valvert à l'avenue Victor Hugo
+ - :line-link{line=5 anchor=traversée-de-vaise} pour la traversée de Vaise
+ - :line-link{line=4 anchor=pont-clémenceau-à-boulevard-des-belges} du pont Clémenceau à l'avenue Verguin
 
 Se référer à la page de chaque ligne pour davantage d'informations.
 
@@ -31,7 +31,7 @@ L'élargissement des couloirs bus nécessitait de gratter les marquages sur la c
 ::
 
 ### Boulevard des Belges - de Waldeck Rousseau à Lafayette
-Cette section est en tronçon commun avec la :line-link{line=2}.
+Cette section est en tronçon commun avec la :line-link{line=2 anchor=boulevard-des-belges}.
 
 ### Pôle d'échange Part-Dieu
 Sur ce tronçon entre la rue Lafayette et l'avenue Georges Pompidou, la Voie Lyonnaise 10 empruntera le boulevard Vivier-Merle en surface au sein du pôle d'échange de la gare Part-Dieu.

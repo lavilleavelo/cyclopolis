@@ -1481,7 +1481,7 @@
         "doneAt": "31/12/2019",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#rue-garibaldi-bonnel-à-paul-bert"
+        "link": "/voie-lyonnaise-7#rue-garibaldi-vauban-à-arménie"
       },
       "geometry": {
         "type": "LineString",

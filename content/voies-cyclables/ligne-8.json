@@ -1205,7 +1205,7 @@
         "status": "postponed",
         "type": "voie-bus",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
+        "link": "/voie-lyonnaise-8#pont-université-à-mermoz-pinel"
       },
       "geometry": {
         "type": "LineString",

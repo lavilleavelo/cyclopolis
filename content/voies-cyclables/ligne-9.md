@@ -10,9 +10,12 @@ cover: https://cyclopolis.lavilleavelo.org/vl9/voie-lyonnaise-9.jpg
 
 ## Les tronçons (d'Ouest en Est)
 ### Traversée d'Oullins
-Depuis le quartier de Beaunant et la route de Brignais, la Voie Lyonnaise 9 traversera Oullins d'Ouest en Est en tronçon commun avec la :line-link{line=5}.
+Depuis le quartier de Beaunant et la route de Brignais, la Voie Lyonnaise 9 traversera Oullins d'Ouest en Est en tronçon commun avec la :line-link{line=5 anchor=traversée-ouest-est-doullins}.
 
 ### Franchissement du Rhône
+
+*Passerelle Oullins-Gerland*
+
 La Voie Lyonnaise 9 passera des berges de l'Yzeron au parc de Gerland via une nouvelle passerelle mode actifs qui traversera la M7 et le Rhône. Alors qu'elle devait faire 7m de large, avec une piste cyclable bidirectionnelle de 4m de large pour les cyclistes et un cheminement de 3m pour les piétons, elle fera finalement 6m de large (piétons 2m50 et cyclistes 3m50) pour des raisons de maitrise des risques techniques et financiers. Plusieurs scénarios de raccordement aux berges ont été proposés à la concertation, avec des rampes de 4 à 6% de pente.
 
 ::content-image
@@ -48,11 +51,11 @@ La Métropole de Lyon a annoncé le 14/11/2023 que ce tronçon serait reporté �
 
 ### Jean Macé à Villeurbanne - St-Jean
 L'itinéraire est en tronçon commun avec d'autres Voies Lyonnaises :
- - :line-link{line=8} sur rue Marc Bloch
- - :line-link{line=7} sur rue Garibaldi de route de Vienne à rue Duquesne
- - :line-link{line=4} sur rue Duquesne Est, boulevard des Belges et avenue Verguin
- - :line-link{line=2} sur boulevard Stalingrad de Verguin à 11 Novembre
- - :line-link{line=1} sur boulevard du 11 Novembre 1918, avenue Einstein et franchissement du canal de Jonage
+ - :line-link{line=8 anchor=rue-de-luniversité-et-rue-marc-bloch} sur rue Marc Bloch
+ - :line-link{line=7 anchor=rue-garibaldi-vauban-à-arménie} sur rue Garibaldi de route de Vienne à rue Duquesne
+ - :line-link{line=4 anchor=avenue-verguin} sur rue Duquesne Est, boulevard des Belges et avenue Verguin
+ - :line-link{line=2 anchor=boulevard-stalingrad-nord} sur boulevard Stalingrad de Verguin à 11 Novembre
+ - :line-link{line=1 anchor=boulevard-du-11-novembre} sur boulevard du 11 Novembre 1918, avenue Einstein et franchissement du canal de Jonage
 
 Se référer à la page de chaque ligne pour davantage d'informations.
 

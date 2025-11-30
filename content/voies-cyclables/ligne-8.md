@@ -160,7 +160,7 @@ La concertation publique sur ce tronçon s'est tenue du 27/03 au 28/04/2023.\
 
 *Traversée de Saint-Just - Traversée de Saint-Jean*
 
-Cette section est en tronçon commun avec la :line-link{line=12}.
+Cette section est en tronçon commun avec la :line-link{line=12 anchor=traversée-de-saint-jean}.
 
 ### Traversée de la Presqu'Île de Lyon
 Le projet devait faire un détour par le pôle d'échange de Perrache, via le quai Fulchiron et le pont Kitchener-Marchand puis remonter sur la rive droite du Rhône.
@@ -169,10 +169,10 @@ Le projet devait faire un détour par le pôle d'échange de Perrache, via le qu
 Compte-tenu du fait que le projet "Apaisement Presqu'île" au sud de la Place Bellecour est prévu pour un mandat ultérieur, et que le trafic automobile et bus y est encore trop important, la Métropole de Lyon a décidé de reporter ce tracé dans un futur mandat.
 ::
 
-Par conséquent, la Voie Lyonnaise 8 traversera la Presqu'île en tronc commun avec la :line-link{line=12}, via le pont Bonaparte et la place Bellecour.
+Par conséquent, la Voie Lyonnaise 8 traversera la Presqu'île en tronc commun avec la :line-link{line=12 anchor=traversée-de-la-presquîle-de-lyon}, via le pont Bonaparte et la place Bellecour.
 
 ### Pont Université à Mermoz-Pinel
-Depuis la place Bellecour, la Voie Lyonnaise 8 descendra la rive droite du Rhône en tronc commun avec la :line-link{line=6} jusqu'au pont de l'Université.
+Depuis la place Bellecour, la Voie Lyonnaise 8 descendra la rive droite du Rhône en tronc commun avec la :line-link{line=6 anchor=pont-de-lattre-à-pont-gallieni-lyon-rive-droite} jusqu'au pont de l'Université.
 
 #### Pont de l'Université
 La Voie Lyonnaise 8 va totalement réaménager le pont qui sera débarrassé de ses vieilles bandes cyclables bilatérales sur trottoir. Les 4 voies de circulation actuelles seront réduites à 2, un couloir de bus à contre-sens sera créé et une large piste cyclable bidirectionnelle prendra place côté Sud.
