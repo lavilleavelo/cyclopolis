@@ -80,6 +80,7 @@ Sur ce tronçon, la voie verte d'origine qui faisait 2.50m à 3.00m de large a �
 imageUrl: https://cyclopolis.lavilleavelo.org/vl9/vaulx-en-velin-a42.jpg
 caption: Aperçu de la Voie Lyonnaise 9 - le long de l'A42 (Vaulx-en-Velin)
 credit: Métropole de Lyon
+panoramax: seq=85c8c835-d5c4-4d88-9c83-bce64f47aeec;pic=3f960148-537c-4283-994a-0416ea7add18;open=true
 ---
 ::
 
