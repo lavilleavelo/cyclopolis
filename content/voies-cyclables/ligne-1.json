@@ -292,7 +292,7 @@
         "status": "postponed",
         "type": "aucun",
         "link": "/voie-lyonnaise-1#sud-du-campus-de-la-doua",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",

@@ -814,7 +814,7 @@
         "name": "Variante Marc Sangnier Nord",
         "status": "variante-postponed",
         "type": "aucun",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombe"
       },
       "geometry": {
@@ -833,7 +833,7 @@
         "name": "Variante Rue des Combattants AfN",
         "status": "variante-postponed",
         "type": "aucun",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombe"
       },
       "geometry": {
@@ -885,7 +885,7 @@
         "name": "Avenue Marc Sangnier",
         "status": "variante-postponed",
         "type": "aucun",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombe"
       },
       "geometry": {
