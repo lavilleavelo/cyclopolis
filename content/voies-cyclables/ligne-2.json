@@ -339,7 +339,7 @@
         "status": "variante-postponed",
         "type": "aucun",
         "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "satisfactory"
+        "quality": "unsatisfactory"
       },
       "geometry": {
         "type": "LineString",
