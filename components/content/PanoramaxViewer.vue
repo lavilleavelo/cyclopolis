@@ -79,3 +79,9 @@ onMounted(() => {
   }, 5000);
 });
 </script>
+
+<style>
+.psv-overlay {
+  opacity: 0.5 !important;
+}
+</style>

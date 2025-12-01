@@ -87,7 +87,7 @@
         </p>
       </div>
       <div class="mt-6 prose prose-lg text-gray-500 mx-auto">
-        <img v-if="imageUrl" class="w-full rounded-lg" :src="imageUrl" width="1310" height="873" />
+        <FullscreenImage v-if="imageUrl" :image-url="imageUrl" :alt="title || 'Image'" image-class="w-full mb-6" />
         <slot />
       </div>
     </div>

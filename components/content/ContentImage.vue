@@ -1,9 +1,12 @@
 <template>
   <figure v-if="imageUrl" class="grid grid-cols-1 m-0 justify-items-center">
-    <NuxtLink v-if="link" :to="link" target="_blank" class="not-prose">
-      <img class="w-full rounded-lg" :src="imageUrl" :alt="caption" loading="lazy" width="1310" height="873" />
-    </NuxtLink>
-    <img v-else class="w-full rounded-lg" :src="imageUrl" :alt="caption" loading="lazy" width="1310" height="873" />
+    <FullscreenImage
+      :image-url="imageUrl"
+      :alt="caption || ''"
+      :link="link"
+      image-class="w-full rounded-lg"
+      :clickable="!link"
+    />
     <figcaption v-if="caption" class="text-center">
       {{ caption }}
     </figcaption>
