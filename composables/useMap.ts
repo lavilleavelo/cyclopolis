@@ -27,6 +27,7 @@ import {
   createDashArrayAnimator,
   generateCompositeIconCombinations,
 } from '~/helpers/map-utils';
+import LineHoverTooltip from '~/components/tooltips/LineHoverTooltip.vue';
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
@@ -44,6 +45,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   const router = useRouter();
   const route = useRoute();
   const { extractLineAndAnchorFromPath } = useUrl();
+
+  let currentHoverPopup: maplibregl.Popup | null = null;
+  let currentClickPopup: maplibregl.Popup | null = null;
+  let lastHoveredFeatureId: string | null = null;
+  let lastClickedFeatureId: string | null = null;
 
   function addLineColor(
     feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -244,7 +250,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         filter: ['>=', ['get', 'distance'], 300],
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
-          'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.5],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
           'symbol-sort-key': ['get', 'line'],
@@ -258,7 +264,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         minzoom: 17,
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
-          'icon-size': 0.5,
+          'icon-size': 0.4,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
           'symbol-sort-key': ['get', 'line'],
@@ -757,17 +763,23 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     plotPerspective({ map, features: perspectiveFeatures });
   }
 
-  function handleMapClick({
+  function createPopup({
     map,
     features,
-    clickEvent,
+    event,
     hasDetailsPanel,
+    isHover = false,
   }: {
     map: MaplibreType;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
-    clickEvent: maplibregl.MapMouseEvent;
+    event: maplibregl.MapMouseEvent;
     hasDetailsPanel: boolean;
+    isHover?: boolean;
   }) {
+    if (map.getZoom() < 11 && isHover) {
+      return;
+    }
+
     const layers = [
       {
         id: 'dangers',
@@ -775,11 +787,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           if (!map.getLayer('dangers')) {
             return false;
           }
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['dangers'] });
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['dangers'] });
           return mapFeature.length > 0;
         },
         getTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['dangers'] })[0];
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['dangers'] })[0];
           if (!mapFeature) {
             return;
           }
@@ -795,11 +807,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           if (!map.getLayer('perspectives')) {
             return false;
           }
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['perspectives'] });
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['perspectives'] });
           return mapFeature.length > 0;
         },
         getTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['perspectives'] })[0];
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['perspectives'] })[0];
           if (!mapFeature) {
             return;
           }
@@ -819,7 +831,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       {
         id: 'linestring', // not really a layer id. gather all linestrings.
         isClicked: () => {
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, {
+          const mapFeature = map.queryRenderedFeatures(event.point, {
             filter: [
               'all',
               ['==', ['geometry-type'], 'LineString'],
@@ -830,7 +842,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return mapFeature.length > 0;
         },
         getTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, {
+          const mapFeature = map.queryRenderedFeatures(event.point, {
             filter: [
               'all',
               ['==', ['geometry-type'], 'LineString'],
@@ -867,6 +879,44 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return { feature, lines, hasDetailsPanel };
         },
         component: LineTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, {
+            filter: [
+              'all',
+              ['==', ['geometry-type'], 'LineString'],
+              ['!=', ['get', 'source'], 'openmaptiles'], // Exclude base map features
+              ['has', 'status'], // All sections in geojson LineStrings have a status
+            ],
+          })[0];
+
+          if (!mapFeature) {
+            return;
+          }
+
+          const line = mapFeature.properties.line;
+          const name = mapFeature.properties.name;
+
+          const lineStringFeatures = features.filter(isLineStringFeature);
+
+          const feature = lineStringFeatures.find((f) => f.properties.line === line && f.properties.name === name);
+
+          if (!feature) {
+            return;
+          }
+
+          const lines = feature.properties.id
+            ? [
+                ...new Set(
+                  lineStringFeatures
+                    .filter((f) => f.properties.id === feature!.properties.id)
+                    .map((f) => f.properties.line),
+                ),
+              ]
+            : [feature!.properties.line];
+
+          return { feature, lines, hasDetailsPanel };
+        },
+        hoverComponent: LineHoverTooltip,
       },
       {
         id: 'compteurs',
@@ -874,11 +924,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           if (!map.getLayer('compteurs')) {
             return false;
           }
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['compteurs'] });
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] });
           return mapFeature.length > 0;
         },
         getTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(clickEvent.point, { layers: ['compteurs'] })[0];
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
           if (!mapFeature) {
             return;
           }
@@ -887,21 +937,58 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return { feature };
         },
         component: CounterTooltip,
+        hoverComponent: CounterTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
+          return { feature };
+        },
       },
     ];
 
     const clickedLayer = layers.find((layer) => layer.isClicked());
     if (!clickedLayer) {
-      highlightLines({ map, selections: null });
+      if (isHover && currentHoverPopup) {
+        currentHoverPopup.remove();
+        currentHoverPopup = null;
+        lastHoveredFeatureId = null;
+      }
+      if (!isHover) {
+        highlightLines({ map, selections: null });
+      }
       return;
     }
 
-    const props = clickedLayer.getTooltipProps();
+    const props = isHover ? clickedLayer.getHoverTooltipProps?.() : clickedLayer.getTooltipProps();
     if (!props) {
       return;
     }
 
+    const featureId = props.feature ? `${clickedLayer.id}-${JSON.stringify(props.feature.properties)}` : null;
+    if (isHover) {
+      if (featureId === lastClickedFeatureId) {
+        return;
+      }
+
+      if (featureId === lastHoveredFeatureId && currentHoverPopup) {
+        currentHoverPopup.setLngLat(event.lngLat);
+        return;
+      }
+      if (currentHoverPopup) {
+        currentHoverPopup.remove();
+        currentHoverPopup = null;
+      }
+      lastHoveredFeatureId = featureId;
+    } else {
+      lastClickedFeatureId = featureId;
+    }
+
     if (
+      !isHover &&
       updateUrlOnFeatureClick &&
       props.feature &&
       !['danger', 'perspective'].includes(props.feature.properties.type) &&
@@ -916,7 +1003,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         sectionName: props.feature.properties.name,
       };
 
-      const mapFeatures = map.queryRenderedFeatures(clickEvent.point, {
+      const mapFeatures = map.queryRenderedFeatures(event.point, {
         filter: [
           'all',
           ['==', ['geometry-type'], 'LineString'],
@@ -949,16 +1036,37 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       void router.replace({ query });
     }
 
-    const tooltipContentId = `${clickedLayer.id}-tooltip`;
-    const popup = new Popup({ closeButton: false, closeOnClick: true })
-      .setLngLat(clickEvent.lngLat)
+    const tooltipContentId = `${clickedLayer.id}-tooltip-${isHover ? 'hover' : 'click'}-${Date.now()}`;
+    const popup = new Popup({
+      closeButton: !isHover,
+      closeOnClick: !isHover,
+      closeOnMove: isHover,
+    })
+      .setLngLat(event.lngLat)
       // set min dimensions so that the tooltip has some height/width before Vue mounts the component
       // otherwise, if the popup is too close to the top of the map, it is not fully visible
       .setHTML(`<div style="min-height: 200px; min-width: 100px" id="${tooltipContentId}"></div>`)
       .addTo(map);
 
+    if (isHover) {
+      currentHoverPopup = popup;
+    } else {
+      currentClickPopup = popup;
+    }
+
     popup.on('close', () => {
-      // when the popup is closed, only remove the URL params if there is no other popup open
+      if (isHover && currentHoverPopup === popup) {
+        currentHoverPopup = null;
+        lastHoveredFeatureId = null;
+      } else if (!isHover && currentClickPopup === popup) {
+        currentClickPopup = null;
+        lastClickedFeatureId = null;
+      }
+
+      if (isHover) {
+        return;
+      }
+
       setTimeout(() => {
         const popups = document.querySelectorAll('.maplibregl-popup');
         if (popups.length === 0) {
@@ -975,8 +1083,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
 
     // @ts-expect-error:next - The component type is dynamically determined and may not match the expected type
-    const component = defineComponent(clickedLayer.component);
-    nextTick(() => {
+    const component = defineComponent(isHover ? clickedLayer.hoverComponent : clickedLayer.component);
+    if (!component) {
+      return;
+    }
+
+    void nextTick(() => {
       createApp({
         render: () =>
           h(Suspense, null, {
@@ -1214,12 +1326,41 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     }
   }
 
+  function handleMapClick({
+    map,
+    features,
+    clickEvent,
+    hasDetailsPanel,
+  }: {
+    map: MaplibreType;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    clickEvent: maplibregl.MapMouseEvent;
+    hasDetailsPanel: boolean;
+  }) {
+    createPopup({ map, features, event: clickEvent, hasDetailsPanel, isHover: false });
+  }
+
+  function handleMapHover({
+    map,
+    features,
+    hoverEvent,
+    hasDetailsPanel,
+  }: {
+    map: MaplibreType;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    hoverEvent: maplibregl.MapMouseEvent;
+    hasDetailsPanel: boolean;
+  }) {
+    createPopup({ map, features, event: hoverEvent, hasDetailsPanel, isHover: true });
+  }
+
   return {
     loadImages,
     plotFeatures,
     getCompteursFeatures,
     fitBounds,
     handleMapClick,
+    handleMapHover,
     highlightLines,
   };
 };
