@@ -1073,7 +1073,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           void router.replace({
             query: {
               ...route.query,
-              modal: sessionStorage.getItem('wasFiltersOpen') === 'true' ? 'filters' : undefined,
+              modal:
+                updateUrlOnFeatureClick && sessionStorage.getItem('wasFiltersOpen') === 'true' ? 'filters' : undefined,
               line: undefined,
               sectionName: undefined,
             },
@@ -1119,7 +1120,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       'wip-sections',
       'planned-sections',
       'variante-sections',
+      'variante-symbols',
       'variante-postponed-sections',
+      'variante-postponed-symbols',
       'unsatisfactory-sections',
       'section-names',
       'section-names-low-zoom',
@@ -1163,7 +1166,23 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           if (layerId === 'selected-layer') {
             map.setPaintProperty(layerId, 'line-color', 'rgba(255,255,255,0)');
           }
+          if (layerId === 'contour-layer') {
+            map.setLayoutProperty(layerId, 'line-cap', 'round');
+          }
         } else if (layerType === 'symbol') {
+          const filter = map.getFilter(layerId);
+          // if the filter is an all expression, remove the isSelectedLineExpression part
+          if (filter && Array.isArray(filter) && filter.length > 2 && filter[0] === 'all') {
+            map.setFilter(layerId, filter[1]);
+          } else if (
+            filter &&
+            Array.isArray(filter) &&
+            filter[0] === 'in' &&
+            JSON.stringify(filter[1]) === JSON.stringify(['get', 'line'])
+          ) {
+            map.setFilter(layerId, null);
+          }
+
           map.setPaintProperty(layerId, 'icon-opacity', NORMAL_OPACITY);
           map.setPaintProperty(layerId, 'text-opacity', NORMAL_OPACITY);
         } else if (layerType === 'circle') {
@@ -1188,51 +1207,60 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       moveLayerToTop('section-names-high-zoom');
     } else {
       const selectedLines = [...new Set(selections.map((s) => s.line))];
-      const selectionsWithSections = selections.filter((s) => s.sectionName);
-
       const isSelectedLineExpression = ['in', ['get', 'line'], ['literal', selectedLines]];
 
-      const isSelectedSectionExpression =
-        selectionsWithSections.length > 0
-          ? [
-              'any',
-              ...selectionsWithSections.map((s) => [
-                'all',
-                ['==', ['get', 'line'], s.line],
-                ['==', ['get', 'name'], s.sectionName],
-              ]),
-            ]
-          : null;
-
       for (const layerId of allLayerIds) {
-        if (!map.getLayer(layerId)) continue;
+        if (!map.getLayer(layerId)) {
+          continue;
+        }
 
-        const layer = map.getLayer(layerId);
-        const layerType = layer?.type;
+        const layerType = map.getLayer(layerId)?.type;
 
         if (layerType === 'line') {
           const currentOpacity = map.getPaintProperty(layerId, 'line-opacity');
           const baseOpacity = typeof currentOpacity === 'number' ? currentOpacity : NORMAL_OPACITY;
 
-          if (isSelectedSectionExpression) {
-            map.setPaintProperty(layerId, 'line-opacity', [
-              'case',
-              isSelectedSectionExpression,
-              HIGHLIGHTED_SECTION_OPACITY,
-              isSelectedLineExpression,
-              baseOpacity,
-              DIMMED_OPACITY,
-            ]);
+          if (layerId === 'selected-layer') {
+            const selectionsWithSections = selections.filter((s) => s.sectionName);
+            const isSelectedSectionExpression =
+              selectionsWithSections.length > 0
+                ? [
+                    'any',
+                    ...selectionsWithSections.map((s) => [
+                      'all',
+                      ['==', ['get', 'line'], s.line],
+                      ['==', ['get', 'name'], s.sectionName],
+                    ]),
+                  ]
+                : null;
 
-            if (layerId === 'selected-layer') {
+            if (isSelectedSectionExpression) {
+              map.setPaintProperty(layerId, 'line-opacity', [
+                'case',
+                isSelectedSectionExpression,
+                HIGHLIGHTED_SECTION_OPACITY,
+                isSelectedLineExpression,
+                baseOpacity,
+                DIMMED_OPACITY,
+              ]);
               map.setPaintProperty(layerId, 'line-color', ['case', isSelectedSectionExpression, '#665E7B', '#FFFFFF']);
             }
+          } else if (layerId === 'contour-layer') {
+            map.setLayoutProperty(layerId, 'line-cap', null);
+            map.setPaintProperty(layerId, 'line-opacity', [
+              'case',
+              isSelectedLineExpression,
+              HIGHLIGHTED_SECTION_OPACITY,
+              ['case', ['has', 'id'], 0.2, 0.4],
+            ]);
           } else {
+            const hasIdOpacityExpression = ['case', ['has', 'id'], DIMMED_OPACITY / 2, DIMMED_OPACITY];
+
             map.setPaintProperty(layerId, 'line-opacity', [
               'case',
               isSelectedLineExpression,
               baseOpacity,
-              DIMMED_OPACITY,
+              hasIdOpacityExpression,
             ]);
           }
         } else if (layerType === 'symbol') {
@@ -1242,69 +1270,35 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           const currentTextOpacity = map.getPaintProperty(layerId, 'text-opacity');
           const baseTextOpacity = typeof currentTextOpacity === 'number' ? currentTextOpacity : NORMAL_OPACITY;
 
-          if (isSelectedSectionExpression) {
-            map.setPaintProperty(layerId, 'icon-opacity', [
-              'case',
-              isSelectedSectionExpression,
-              baseIconOpacity,
-              isSelectedLineExpression,
-              baseIconOpacity,
-              DIMMED_OPACITY,
-            ]);
-            map.setPaintProperty(layerId, 'text-opacity', [
-              'case',
-              isSelectedSectionExpression,
-              baseTextOpacity,
-              isSelectedLineExpression,
-              baseTextOpacity,
-              DIMMED_OPACITY,
-            ]);
-          } else {
-            map.setPaintProperty(layerId, 'icon-opacity', [
-              'case',
-              isSelectedLineExpression,
-              baseIconOpacity,
-              DIMMED_OPACITY,
-            ]);
-            map.setPaintProperty(layerId, 'text-opacity', [
-              'case',
-              isSelectedLineExpression,
-              baseTextOpacity,
-              DIMMED_OPACITY,
-            ]);
-          }
+          const filter = map.getFilter(layerId);
+          // add to the existing filter to avoid showing symbols for non-selected lines
+          map.setFilter(layerId, filter ? ['all', filter, isSelectedLineExpression] : isSelectedLineExpression);
+
+          map.setPaintProperty(layerId, 'icon-opacity', [
+            'case',
+            isSelectedLineExpression,
+            baseIconOpacity,
+            DIMMED_OPACITY,
+          ]);
+          map.setPaintProperty(layerId, 'text-opacity', [
+            'case',
+            isSelectedLineExpression,
+            baseTextOpacity,
+            DIMMED_OPACITY,
+          ]);
         } else if (layerType === 'circle') {
-          if (isSelectedSectionExpression) {
-            map.setPaintProperty(layerId, 'circle-opacity', [
-              'case',
-              isSelectedSectionExpression,
-              NORMAL_OPACITY,
-              isSelectedLineExpression,
-              NORMAL_OPACITY,
-              DIMMED_OPACITY,
-            ]);
-            map.setPaintProperty(layerId, 'circle-stroke-opacity', [
-              'case',
-              isSelectedSectionExpression,
-              NORMAL_OPACITY,
-              isSelectedLineExpression,
-              NORMAL_OPACITY,
-              DIMMED_OPACITY,
-            ]);
-          } else {
-            map.setPaintProperty(layerId, 'circle-opacity', [
-              'case',
-              isSelectedLineExpression,
-              NORMAL_OPACITY,
-              DIMMED_OPACITY,
-            ]);
-            map.setPaintProperty(layerId, 'circle-stroke-opacity', [
-              'case',
-              isSelectedLineExpression,
-              NORMAL_OPACITY,
-              DIMMED_OPACITY,
-            ]);
-          }
+          map.setPaintProperty(layerId, 'circle-opacity', [
+            'case',
+            isSelectedLineExpression,
+            NORMAL_OPACITY,
+            DIMMED_OPACITY,
+          ]);
+          map.setPaintProperty(layerId, 'circle-stroke-opacity', [
+            'case',
+            isSelectedLineExpression,
+            NORMAL_OPACITY,
+            DIMMED_OPACITY,
+          ]);
         }
       }
 
