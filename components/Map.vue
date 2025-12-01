@@ -12,6 +12,7 @@
         :filters="filters"
         :actions="actions"
         :filter-style="options.filterStyle"
+        @close="closeFilterPanel"
       />
       <DetailPanel
         v-if="options.showDetailsPanel"
@@ -109,6 +110,13 @@ function closeSidebar() {
 }
 
 const highlightSection = route.query.sectionName as string | undefined;
+
+function closeFilterPanel() {
+  const query = { ...route.query };
+  delete query.modal;
+  sessionStorage.removeItem('wasFiltersOpen');
+  router.replace({ query });
+}
 
 function toggleFilterSidebar() {
   if (!props.filters || !props.actions) {
@@ -331,6 +339,18 @@ onMounted(() => {
 <style>
 .maplibregl-popup-content {
   @apply p-0 rounded-lg overflow-hidden;
+  background: unset !important;
+  transition: box-shadow 0.3s ease-in-out;
+  animation: popup-shadow 0.3s ease-in-out;
+}
+
+@keyframes popup-shadow {
+  from {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  to {
+    box-shadow: 0 1px 2px #0000001a;
+  }
 }
 
 .maplibregl-info {

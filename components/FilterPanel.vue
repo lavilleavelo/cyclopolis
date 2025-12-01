@@ -36,7 +36,6 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
 import FilterForm from '~/components/filter/FilterForm.vue';
 import BottomSheet from '~/components/BottomSheet.vue';
 import { useMediaQuery } from '@vueuse/core';
@@ -53,14 +52,13 @@ const props = defineProps<{
   actions?: FilterActions;
 }>();
 
-const route = useRoute();
-const router = useRouter();
-
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
+const emit = defineEmits<{
+  (e: 'close'): void;
+}>();
+
 function closeModal() {
-  const query = { ...route.query };
-  delete query.modal;
-  router.replace({ query });
+  emit('close');
 }
 </script>

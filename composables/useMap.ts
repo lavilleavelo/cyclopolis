@@ -15,6 +15,8 @@ import PerspectiveTooltip from '~/components/tooltips/PerspectiveTooltip.vue';
 import CounterTooltip from '~/components/tooltips/CounterTooltip.vue';
 import DangerTooltip from '~/components/tooltips/DangerTooltip.vue';
 import LineTooltip from '~/components/tooltips/LineTooltip.vue';
+import LineHoverTooltip from '~/components/tooltips/LineHoverTooltip.vue';
+
 import type { LocationQueryRaw } from 'vue-router';
 import {
   sortByLine,
@@ -27,7 +29,6 @@ import {
   createDashArrayAnimator,
   generateCompositeIconCombinations,
 } from '~/helpers/map-utils';
-import LineHoverTooltip from '~/components/tooltips/LineHoverTooltip.vue';
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
@@ -1045,7 +1046,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       .setLngLat(event.lngLat)
       // set min dimensions so that the tooltip has some height/width before Vue mounts the component
       // otherwise, if the popup is too close to the top of the map, it is not fully visible
-      .setHTML(`<div style="min-height: 200px; min-width: 100px" id="${tooltipContentId}"></div>`)
+      .setHTML(
+        `<div class="transition-all duration-100 ${isHover ? 'delay-100' : ''}"  style="opacity: 0; min-height: 200px; min-width: 100px" id="${tooltipContentId}"></div>`,
+      )
       .addTo(map);
 
     if (isHover) {
@@ -1103,6 +1106,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       if (tooltipContentEl) {
         tooltipContentEl.style.minHeight = 'initial';
         tooltipContentEl.style.minWidth = 'initial';
+        tooltipContentEl.style.opacity = '1';
       }
     });
   }

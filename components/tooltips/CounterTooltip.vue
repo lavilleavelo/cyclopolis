@@ -1,5 +1,5 @@
 <template>
-  <div class="not-prose w-48">
+  <div class="bg-white not-prose w-48">
     <div class="py-1 bg-lvv-blue-600 flex flex-col items-center justify-center text-white">
       <div class="font-bold text-base hover:underline">
         <a :href="feature.properties.link">{{ feature.properties.name }}</a>

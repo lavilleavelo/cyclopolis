@@ -1,5 +1,5 @@
 <template>
-  <div class="not-prose text-gray-900 w-48">
+  <div class="bg-white not-prose text-gray-900 w-48">
     <div class="py-1 bg-zinc-100 flex flex-col items-center justify-center">
       <div class="font-bold text-base">
         {{ title }}
