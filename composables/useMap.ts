@@ -332,12 +332,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       const newStep = Math.floor((timestamp / 60) % dashArraySequence.length);
 
       if (newStep !== step) {
-        if (window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
-          map.setPaintProperty('wip-sections', 'line-opacity', newStep <= 12 ? 0.8 : 0.5);
-        } else {
-          map.setPaintProperty('wip-sections', 'line-opacity', 0.7);
-          map.setPaintProperty('wip-sections', 'line-dasharray', dashArraySequence[step]);
-        }
+        map.setPaintProperty('wip-sections', 'line-opacity', 0.7);
+        map.setPaintProperty('wip-sections', 'line-dasharray', dashArraySequence[step]);
         step = newStep;
       }
 
