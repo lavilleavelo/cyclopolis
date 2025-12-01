@@ -38,7 +38,7 @@
           </button>
         </div>
 
-        <div class="flex-1 overflow-y-auto px-4 py-2">
+        <div :id="panelId" class="flex-1 overflow-y-auto px-4 py-2">
           <slot />
         </div>
       </div>
@@ -55,11 +55,13 @@ const props = withDefaults(
     title?: string;
     getMaxHeightPx?: () => number;
     getDefaultHeightPx?: () => number;
+    panelId?: string;
   }>(),
   {
     title: 'Details',
     getDefaultHeightPx: () => window.innerHeight * 0.3,
     getMaxHeightPx: () => window.innerHeight * 0.7,
+    panelId: 'bottom-sheet-panel',
   },
 );
 

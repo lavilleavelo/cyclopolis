@@ -1,12 +1,12 @@
 <template>
   <div
     id="loader"
-    class="sticky top-0 left-0 bottom-0 flex-1 flex bg-white items-center opacity-50 right-0 w-full justify-center h-full z-[1000] transition-opacity"
+    class="sticky top-0 left-0 bottom-0 flex-1 flex bg-white items-center opacity-50 right-0 w-full justify-center h-screen z-[1000] transition-opacity"
     :class="{ hidden: !loaderVisible }"
   >
     <Icon name="svg-spinners:ring-resize" class="w-16 h-16 text-lvv-blue-600" />
   </div>
-  <div v-if="voie">
+  <div v-if="voie" id="vl-content">
     <ContentFrame :description="voie.description" :image-url="voie.cover">
       <template #header>
         <h1 class="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -73,12 +73,16 @@ const loaderVisible = ref(false);
 async function scrollToSection(sectionAnchor: string, { delay = 300 } = {}) {
   loaderVisible.value = true;
   try {
-    document.location.replace('#');
+    const targetElement = document.querySelector(':target');
+    if (targetElement?.id === decodeURIComponent(sectionAnchor)) {
+      // Reset the :target element to force scrolling again
+      document.location.replace('#');
+    }
     await waitForElement(`#${decodeURIComponent(sectionAnchor)}`, 3000);
     await new Promise((resolve) => setTimeout(resolve, delay));
     const query = { ...route.query };
     delete query.sectionAnchor;
-    await router.replace({ query });
+    await router.replace({ query, hash: route.hash });
     document.location.replace(`#${sectionAnchor}`);
   } finally {
     loaderVisible.value = false;
