@@ -94,7 +94,7 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 
-const { loadImages, plotFeatures, fitBounds, handleMapClick, highlightLines } = useMap({
+const { loadImages, plotFeatures, fitBounds, handleMapClick, handleMapHover, highlightLines } = useMap({
   updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
 });
 
@@ -313,6 +313,15 @@ onMounted(() => {
       map,
       features: props.features,
       clickEvent,
+      hasDetailsPanel: options.showDetailsPanel,
+    });
+  });
+
+  map.on('mousemove', (hoverEvent) => {
+    handleMapHover({
+      map,
+      features: props.features,
+      hoverEvent,
       hasDetailsPanel: options.showDetailsPanel,
     });
   });
