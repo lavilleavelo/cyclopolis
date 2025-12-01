@@ -1,5 +1,5 @@
 import type { Collections } from '@nuxt/content';
-import type { GeoJSONSource, Map } from 'maplibre-gl';
+import type { GeoJSONSource, Map as MaplibreType } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
 import { createApp, defineComponent, h, Suspense } from 'vue';
 import {
@@ -16,6 +16,17 @@ import CounterTooltip from '~/components/tooltips/CounterTooltip.vue';
 import DangerTooltip from '~/components/tooltips/DangerTooltip.vue';
 import LineTooltip from '~/components/tooltips/LineTooltip.vue';
 import type { LocationQueryRaw } from 'vue-router';
+import {
+  sortByLine,
+  getCrossIconUrl,
+  groupFeaturesByColor,
+  createLineShieldIcon,
+  createCompositeLineShieldIcon,
+  normalizeLineDirection,
+  addCompositeIconNames,
+  createDashArrayAnimator,
+  generateCompositeIconCombinations,
+} from '~/helpers/map-utils';
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
@@ -27,60 +38,9 @@ type ColoredLineStringFeature = Extract<
 > & { properties: { color: string } };
 const { getNbVoiesCyclables } = useConfig();
 
-// features plotted last are on top
-const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11].reverse();
-
-function sortByLine(
-  featureA: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
-  featureB: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
-) {
-  const lineA = featureA.properties.line;
-  const lineB = featureB.properties.line;
-  return sortOrder.indexOf(lineA) - sortOrder.indexOf(lineB);
-}
-
-function getCrossIconUrl(): string {
-  const canvas = document.createElement('canvas');
-  canvas.width = 8; // Set the desired width of your icon
-  canvas.height = 8; // Set the desired height of your icon
-  const context = canvas.getContext('2d');
-  if (!context) {
-    return '';
-  }
-
-  // Draw the first diagonal line of the "X"
-  context.beginPath();
-  context.moveTo(0, 0);
-  context.lineTo(canvas.width, canvas.height);
-  context.lineWidth = 3;
-  context.stroke();
-
-  // Draw the second diagonal line of the "X"
-  context.beginPath();
-  context.moveTo(0, canvas.height);
-  context.lineTo(canvas.width, 0);
-  context.lineWidth = 3;
-  context.stroke();
-
-  return canvas.toDataURL();
-}
-
-function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
-  const featuresByColor: Record<string, ColoredLineStringFeature[]> = {};
-  for (const feature of features) {
-    const color = feature.properties.color;
-
-    if (featuresByColor[color]) {
-      featuresByColor[color].push(feature);
-    } else {
-      featuresByColor[color] = [feature];
-    }
-  }
-  return featuresByColor;
-}
-
 export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
   const { getLineColor } = useColors();
+  const { getLineStringDistance } = useStats();
   const router = useRouter();
   const route = useRoute();
   const { extractLineAndAnchorFromPath } = useUrl();
@@ -98,7 +58,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function upsertMapSource(
-    map: Map,
+    map: MaplibreType,
     sourceName: string,
     features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[],
   ) {
@@ -114,7 +74,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     return false;
   }
 
-  async function loadImages({ map }: { map: Map }) {
+  async function loadImages({ map }: { map: MaplibreType }) {
     const [camera, pump, danger, cross] = await Promise.all([
       map.loadImage('/icons/camera.png'),
       map.loadImage('/icons/pump.png'),
@@ -126,13 +86,36 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.addImage('pump-icon', pump.data, { sdf: true });
     map.addImage('danger-icon', danger.data, { sdf: false });
     map.addImage('cross-icon', cross.data, { sdf: true });
+
+    const totalLines = getNbVoiesCyclables();
+
+    for (let line = 1; line <= totalLines; line++) {
+      const color = getLineColor(line);
+      const canvas = createLineShieldIcon(line, color);
+      const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
+      if (imageData) {
+        map.addImage(`line-shield-${line}`, imageData);
+      }
+    }
+
+    const compositeIcons = generateCompositeIconCombinations(totalLines);
+
+    compositeIcons.forEach((combo) => {
+      const lineNumbers = combo.split('-').map(Number);
+      const colors = lineNumbers.map((line) => getLineColor(line));
+      const canvas = createCompositeLineShieldIcon(lineNumbers, colors);
+      const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
+      if (imageData) {
+        map.addImage(`line-shield-${combo}`, imageData);
+      }
+    });
   }
 
   function plotUnsatisfactorySections({
     map,
     features,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Collections['voiesCyclablesGeojson']['features'];
   }) {
     const sections = features.filter((feature) => {
@@ -155,7 +138,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'unsatisfactory-sections',
       type: 'line',
       source: 'unsatisfactory-sections',
-      minzoom: 14,
+      minzoom: 13,
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -169,16 +152,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     features,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Collections['voiesCyclablesGeojson']['features'];
   }) {
-    const sections = features.map((feature, index) => ({ id: index, ...feature }));
+    const processedFeatures = addCompositeIconNames(features);
+    const sections = processedFeatures.map((feature, index) => ({ id: index, ...feature }));
 
     if (sections.length === 0 && !map.getLayer('highlight-layer')) {
       return;
     }
 
-    if (upsertMapSource(map, 'all-sections', sections)) {
+    if (upsertMapSource(map, 'all-sections', sections as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -228,6 +212,60 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       },
     });
 
+    // Count unique lines to determine if section-names layers should be added
+    const uniqueLines = new Set(
+      features.map((feature) => ('line' in feature.properties ? feature.properties.line : null)).filter(Boolean),
+    );
+    const shouldAddSectionNames = uniqueLines.size > 2;
+
+    if (shouldAddSectionNames) {
+      map.addLayer({
+        id: 'section-names-low-zoom',
+        type: 'symbol',
+        source: 'all-sections',
+        maxzoom: 13,
+        filter: ['>=', ['get', 'distance'], 900],
+        layout: {
+          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-size': 0.3,
+          'symbol-spacing': 1000000,
+          'symbol-placement': 'line-center',
+          'symbol-sort-key': ['get', 'line'],
+          'icon-rotation-alignment': 'viewport',
+        },
+      });
+
+      map.addLayer({
+        id: 'section-names',
+        type: 'symbol',
+        source: 'all-sections',
+        minzoom: 13,
+        maxzoom: 17,
+        filter: ['>=', ['get', 'distance'], 300],
+        layout: {
+          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.6],
+          'symbol-spacing': 1000000,
+          'symbol-placement': 'line-center',
+          'symbol-sort-key': ['get', 'line'],
+        },
+      });
+
+      map.addLayer({
+        id: 'section-names-high-zoom',
+        type: 'symbol',
+        source: 'all-sections',
+        minzoom: 17,
+        layout: {
+          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-size': 0.7,
+          'symbol-spacing': 1000000,
+          'symbol-placement': 'line-center',
+          'symbol-sort-key': ['get', 'line'],
+        },
+      });
+    }
+
     map.setPaintProperty('contour-layer', 'line-color', '#000');
 
     let hoveredLineId: string | number | null = null;
@@ -255,7 +293,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotDoneSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotDoneSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(
       (feature) => 'status' in feature.properties && feature.properties.status === 'done',
     );
@@ -280,7 +318,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotWipSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotWipSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const sections = features.filter((feature) => {
       // on considère les sections en test comme en travaux
       return (
@@ -307,43 +345,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       },
     });
 
-    const dashArraySequence = [
-      [0, 2, 2],
-      [0.25, 2, 1.75],
-      [0.5, 2, 1.5],
-      [0.75, 2, 1.25],
-      [1, 2, 1],
-      [1.25, 2, 0.75],
-      [1.5, 2, 0.5],
-      [1.75, 2, 0.25],
-      [2, 2, 0],
-      [0, 0.25, 2, 1.75],
-      [0, 0.5, 2, 1.5],
-      [0, 0.75, 2, 1.25],
-      [0, 1, 2, 1],
-      [0, 1.25, 2, 0.75],
-      [0, 1.5, 2, 0.5],
-      [0, 1.75, 2, 0.25],
-    ];
-    let step = 0;
-    function animateDashArray(timestamp: number) {
-      // Update line-dasharray using the next value in dashArraySequence. The
-      // divisor in the expression `timestamp / 45` controls the animation speed.
-      const newStep = Math.floor((timestamp / 60) % dashArraySequence.length);
-
-      if (newStep !== step) {
-        map.setPaintProperty('wip-sections', 'line-opacity', 0.7);
-        map.setPaintProperty('wip-sections', 'line-dasharray', dashArraySequence[step]);
-        step = newStep;
-      }
-
-      // Request the next frame of the animation.
-      requestAnimationFrame(animateDashArray);
-    }
+    const animateDashArray = createDashArrayAnimator(map, 'wip-sections');
     animateDashArray(0);
   }
 
-  function plotPlannedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(
       (feature) => 'status' in feature.properties && feature.properties.status === 'planned',
     );
@@ -367,7 +373,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotVarianteSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotVarianteSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(
       (feature) => 'status' in feature.properties && feature.properties.status === 'variante',
     );
@@ -411,7 +417,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.on('mouseleave', 'variante-sections', () => (map.getCanvas().style.cursor = ''));
   }
 
-  function plotVariantePostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotVariantePostponedSections({
+    map,
+    features,
+  }: {
+    map: MaplibreType;
+    features: ColoredLineStringFeature[];
+  }) {
     const sections = features.filter(
       (feature) => 'status' in feature.properties && feature.properties.status === 'variante-postponed',
     );
@@ -455,7 +467,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.on('mouseleave', 'variante-postponed-sections', () => (map.getCanvas().style.cursor = ''));
   }
 
-  function plotPostponedSections({ map, features }: { map: Map; features: ColoredLineStringFeature[] }) {
+  function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const sections = features.filter(
       (feature) => 'status' in feature.properties && feature.properties.status === 'postponed',
     );
@@ -518,7 +530,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     features,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Collections['voiesCyclablesGeojson']['features'];
   }) {
     const perspectives = features.filter(isPerspectiveFeature).map((feature) => ({
@@ -560,7 +572,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotDangers({ map, features }: { map: Map; features: Collections['voiesCyclablesGeojson']['features'] }) {
+  function plotDangers({
+    map,
+    features,
+  }: {
+    map: MaplibreType;
+    features: Collections['voiesCyclablesGeojson']['features'];
+  }) {
     const dangers = features.filter(isDangerFeature);
     if (dangers.length === 0) {
       return;
@@ -590,7 +608,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotCompteurs({ map, features }: { map: Map; features?: CompteurFeature[] }) {
+  function plotCompteurs({ map, features }: { map: MaplibreType; features?: CompteurFeature[] }) {
     if (!features) return;
 
     const compteurs = features.filter(isCompteurFeature);
@@ -666,7 +684,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     features,
     padding = 20,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
     padding?: number | { top: number; bottom: number; left: number; right: number };
   }) {
@@ -698,10 +716,28 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     features,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
   }) {
-    const lineStringFeatures = features.filter(isLineStringFeature).sort(sortByLine).map(addLineColor);
+    const lineStringFeatures = features
+      .filter(isLineStringFeature)
+      .sort(sortByLine)
+      .map(addLineColor)
+      .map((feature) => {
+        const distance = getLineStringDistance(feature);
+        return {
+          ...feature,
+          properties: {
+            ...feature.properties,
+            distance, // distance in meters
+          },
+          geometry: {
+            ...feature.geometry,
+            coordinates: normalizeLineDirection(feature.geometry.coordinates as [number, number][]),
+          },
+        };
+      });
+
     plotUnderlinedSections({ map, features: lineStringFeatures });
     plotUnsatisfactorySections({ map, features: lineStringFeatures });
     plotDoneSections({ map, features: lineStringFeatures });
@@ -727,7 +763,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     clickEvent,
     onDetailClick,
   }: {
-    map: Map;
+    map: MaplibreType;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
     clickEvent: maplibregl.MapMouseEvent;
     onDetailClick?: (line: number, name: string, feature?: Collections['voiesCyclablesGeojson']['features'][0]) => void;
@@ -957,7 +993,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     selections,
   }: {
-    map: Map;
+    map: MaplibreType;
     selections: Array<{ line: number; sectionName?: string | null }> | null;
   }) {
     // highlight-layer is used for hover effect only, so we don't need to handle it here
@@ -968,13 +1004,21 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       'variante-sections',
       'variante-postponed-sections',
       'unsatisfactory-sections',
+      'section-names',
+      'section-names-low-zoom',
+      'section-names-high-zoom',
       'selected-layer',
       'contour-layer',
       'underline-layer',
       'perspectives',
       'dangers',
-      'compteurs',
     ];
+
+    const moveLayerToTop = (layerId: string) => {
+      if (map.getLayer(layerId)) {
+        map.moveLayer(layerId);
+      }
+    };
 
     const { getLineColor } = useColors();
     const { getNbVoiesCyclables } = useConfig();
@@ -1020,20 +1064,16 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      if (map.getLayer('dangers')) {
-        map.moveLayer('dangers');
-      }
-      if (map.getLayer('perspectives')) {
-        map.moveLayer('perspectives');
-      }
+      moveLayerToTop('dangers');
+      moveLayerToTop('perspectives');
+      moveLayerToTop('section-names');
+      moveLayerToTop('section-names-low-zoom');
+      moveLayerToTop('section-names-high-zoom');
     } else {
       const selectedLines = [...new Set(selections.map((s) => s.line))];
       const selectionsWithSections = selections.filter((s) => s.sectionName);
 
-      const isSelectedLineExpression =
-        selectedLines.length === 1
-          ? ['==', ['get', 'line'], selectedLines[0]]
-          : ['in', ['get', 'line'], ['literal', selectedLines]];
+      const isSelectedLineExpression = ['in', ['get', 'line'], ['literal', selectedLines]];
 
       const isSelectedSectionExpression =
         selectionsWithSections.length > 0
@@ -1161,12 +1201,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      if (map.getLayer('dangers')) {
-        map.moveLayer('dangers');
-      }
-      if (map.getLayer('perspectives')) {
-        map.moveLayer('perspectives');
-      }
+      moveLayerToTop('dangers');
+      moveLayerToTop('perspectives');
+      moveLayerToTop('section-names');
+      moveLayerToTop('section-names-low-zoom');
+      moveLayerToTop('section-names-high-zoom');
     }
   }
 

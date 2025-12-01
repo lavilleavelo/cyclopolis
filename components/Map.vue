@@ -5,6 +5,7 @@
     <div class="flex rounded-lg h-full w-full">
       <div id="map" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
       <FilterPanel
+        :open="route.query.modal === 'filters' && mapReady"
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
         :can-use-side-panel="options.canUseSidePanel"

@@ -277,6 +277,7 @@ export const useStats = () => {
   return {
     getAllUniqLineStrings,
     getDistance,
+    getLineStringDistance,
     getTotalDistance,
     getStats,
     getStatsByTypology,

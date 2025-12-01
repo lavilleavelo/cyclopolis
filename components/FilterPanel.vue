@@ -3,7 +3,7 @@
   <ClientOnly>
     <BottomSheet
       v-if="(!isLargeScreen || !props.canUseSidePanel) && filters && actions"
-      :open="isOpen"
+      :open="open"
       title="Filtres"
       @close="closeModal"
     >
@@ -19,7 +19,7 @@
   <!-- Sidebar on large screens -->
   <Sidebar
     v-if="props.canUseSidePanel && isLargeScreen && filters && actions"
-    :open="isOpen"
+    :open="open"
     title="Filtres"
     simple-header
     :show-close-button="false"
@@ -44,6 +44,7 @@ import type { FiltersState, FilterActions } from '~/types';
 import Sidebar from '~/components/Sidebar.vue';
 
 const props = defineProps<{
+  open: boolean;
   showLineFilters: boolean;
   showDateFilter?: boolean;
   canUseSidePanel?: boolean;
@@ -57,19 +58,9 @@ const router = useRouter();
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
-const isOpen = ref(false);
-
 function closeModal() {
   const query = { ...route.query };
   delete query.modal;
   router.replace({ query });
 }
-
-watch(
-  () => route.query.modal,
-  (newVal) => {
-    isOpen.value = newVal === 'filters';
-  },
-  { immediate: true },
-);
 </script>
