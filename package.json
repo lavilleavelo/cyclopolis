@@ -36,7 +36,7 @@
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
     "@panoramax/web-viewer": "^4.2.0",
     "@vueuse/core": "^14.0.0",
-    "better-sqlite3": "^12.4.6",
+    "better-sqlite3": "^12.5.0",
     "highcharts": "^12.4.0",
     "highcharts-vue": "^2.0.1",
     "maplibre-gl": "^5.13.0",
