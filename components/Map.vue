@@ -100,30 +100,6 @@ const { loadImages, plotFeatures, fitBounds, handleMapClick, highlightLines } = 
 
 const router = useRouter();
 const route = useRoute();
-const { extractLineAndAnchorFromPath } = useUrl();
-
-function handleDetailClick(
-  line: number,
-  sectionName: string,
-  feature?: Collections['voiesCyclablesGeojson']['features'][0],
-) {
-  if (!options.showDetailsPanel) {
-    router.go(feature?.properties.link);
-    return;
-  }
-
-  const query = { ...route.query };
-  if (query.modal === 'filters') {
-    delete query.modal;
-  }
-
-  const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(feature?.properties.link);
-  query.modal = 'details';
-  query.line = extractedLine ? extractedLine : String(line);
-  query.sectionName = sectionName;
-  query.sectionAnchor = anchor ?? null;
-  router.replace({ query });
-}
 
 function closeSidebar() {
   const query = { ...route.query };
@@ -142,8 +118,10 @@ function toggleFilterSidebar() {
   const query = { ...route.query };
   if (query.modal === 'filters') {
     delete query.modal;
+    sessionStorage.removeItem('wasFiltersOpen');
   } else {
     query.modal = 'filters';
+    sessionStorage.setItem('wasFiltersOpen', 'true');
   }
   router.replace({ query });
 }
@@ -268,7 +246,7 @@ onMounted(() => {
         handleMapClick({
           map,
           features: props.features,
-          onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
+          hasDetailsPanel: options.showDetailsPanel,
           clickEvent: {
             lngLat: new LngLat(midPoint[0], midPoint[1]),
             point,
@@ -335,7 +313,7 @@ onMounted(() => {
       map,
       features: props.features,
       clickEvent,
-      onDetailClick: options.showDetailsPanel ? handleDetailClick : undefined,
+      hasDetailsPanel: options.showDetailsPanel,
     });
   });
 });

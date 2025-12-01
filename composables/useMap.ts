@@ -244,7 +244,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         filter: ['>=', ['get', 'distance'], 300],
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
-          'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.6],
+          'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.5],
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
           'symbol-sort-key': ['get', 'line'],
@@ -258,7 +258,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         minzoom: 17,
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
-          'icon-size': 0.7,
+          'icon-size': 0.5,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
           'symbol-sort-key': ['get', 'line'],
@@ -761,12 +761,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map,
     features,
     clickEvent,
-    onDetailClick,
+    hasDetailsPanel,
   }: {
     map: MaplibreType;
     features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
     clickEvent: maplibregl.MapMouseEvent;
-    onDetailClick?: (line: number, name: string, feature?: Collections['voiesCyclablesGeojson']['features'][0]) => void;
+    hasDetailsPanel: boolean;
   }) {
     const layers = [
       {
@@ -864,7 +864,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
               ]
             : [feature!.properties.line];
 
-          return { feature, lines, onDetailClick };
+          return { feature, lines, hasDetailsPanel };
         },
         component: LineTooltip,
       },
@@ -938,6 +938,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
       if (link) {
         const { line: extractedLine, anchor } = extractLineAndAnchorFromPath(link);
+        if (query.modal === 'filters') {
+          sessionStorage.setItem('wasFiltersOpen', 'true');
+        }
+
         query.modal = 'details';
         query.line = extractedLine ?? query.line;
         query.sectionAnchor = anchor ?? null;
@@ -961,6 +965,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           void router.replace({
             query: {
               ...route.query,
+              modal: sessionStorage.getItem('wasFiltersOpen') === 'true' ? 'filters' : undefined,
               line: undefined,
               sectionName: undefined,
             },

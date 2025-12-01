@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 import { useMediaQuery } from '@vueuse/core';
-import { computed, ref, watch } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps<{
   open: boolean;
@@ -60,7 +60,6 @@ function getDefaultBottomSheetHeight() {
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
-const lastLine = ref<string | null>(null);
 const selectedLine = computed(() => {
   if (typeof props.line === 'string') {
     return props.line;
@@ -68,25 +67,10 @@ const selectedLine = computed(() => {
   if (typeof props.line === 'number') {
     return props.line.toString();
   }
-  if (lastLine.value) {
-    return lastLine.value;
-  }
   return null;
 });
 
-const isPanelOpen = computed(() => props.open && ((isLargeScreen.value && !!selectedLine.value) || !!props.line));
-
-watch(
-  () => props.line,
-  (newVal) => {
-    if (typeof newVal === 'string') {
-      lastLine.value = newVal;
-    } else if (typeof newVal === 'number') {
-      lastLine.value = newVal.toString();
-    }
-  },
-  { immediate: true },
-);
+const isPanelOpen = computed(() => props.open && !!props.line);
 
 const pathToLine = computed(() => (selectedLine.value ? `/voie-lyonnaise-${selectedLine.value}` : null));
 
@@ -99,7 +83,6 @@ function getFirstVisibleAnchor(): string | null {
   }
 
   const headings = container.querySelectorAll('h2[id], h3[id], h4[id]');
-  console.log(headings);
 
   const containerRect = container.getBoundingClientRect();
   const scrollTop = container.scrollTop;
