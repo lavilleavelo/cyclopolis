@@ -248,6 +248,14 @@ La traversée du périphérique sera reprise et sécurisée pour les cyclistes a
 
 ::content-image
 ---
+panoramax: pic=6c8b1e9e-6487-4a23-8bcf-2e1340a68e4d;seq=c2fa171d-09b2-4129-9ced-832f5252cf20;open=true;before-pic=975901df-2328-43e9-b273-836031c25f93;before-seq=203382d0-3a04-4e0f-b13a-03d54d4bcf65
+---
+::
+
+<br />
+
+::content-image
+---
 imageUrl: https://cyclopolis.lavilleavelo.org/vl7/route-de-vienne.png
 caption: Aperçu de la Voie Lyonnaise 7 - Route de Vienne (Lyon 8)
 credit: Métropole de Lyon
