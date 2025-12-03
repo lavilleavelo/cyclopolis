@@ -27,7 +27,7 @@ Voici la liste des outils tiers utilisés :
 - [GitHub](https://github.com) pour le stockage des données et du code. Gratuit.
 - [Netlify](https://www.netlify.com) pour l'hébergement du site. Gratuit (free tier très largement suffisant).
 - [openmaptiles.geo.data.gouv.fr](https://openmaptiles.geo.data.gouv.fr/) pour les cartes. Gratuit.
-- [Geojson.io](https://geojson.io) pour le tracé des pistes cyclables. Gratuit.
+- [Geojson.io](https://geojson.io) ou [placemark](https://play.placemark.io/) pour le tracé des pistes cyclables. Gratuit.
 - [Beam Analytics](https://beamanalytics.io/) ou [Umami](https://umami.is/) pour le suivi d'audience. Gratuit (free tier très largement suffisant).
 - Serveur de La Ville à Vélo pour le stockage des images. Payant, mais mutualisé avec les autres besoins de l'association. Vous pouvez également stocker les images directement dans votre dépôt GitHub.
 
@@ -95,7 +95,7 @@ Le plus intéressant ici, c'est donc le dossier **/content/voies-cyclables**. Il
 
 Il va donc vous falloir éditer tous ces fichiers pour les adapter à votre ville et à vos infrastructures cyclables.
 
-Pour modifier les tracés des pistes cyclables, vous pouvez utiliser un outil comme [geojson.io](https://geojson.io). À noter que c'est assez long et laborieux, il y a peut-être des outils plus adaptés qui existent ...
+Pour modifier les tracés des pistes cyclables, vous pouvez utiliser un outil comme [geojson.io](https://geojson.io) our [placemark](https://play.placemark.io/). À noter que c'est assez long et laborieux, il y a peut-être des outils plus adaptés qui existent…
 
 #### Déployez votre toute nouvelle plateforme
 
