@@ -98,6 +98,13 @@ Pour desservir le quartier de la Cité Internationale, une piste cyclable bidire
 Après des études complémentaires de la Métropole, le scénario initial de création d'un nouveau cheminement parallèle pour séparer piétons et cyclistes s'est avéré plus complexe que prévu. En cause : les oeuvres d'art qui ponctuent l'espace végétalisé, ainsi que l'emprise importante de l'Amphithéâtre 3000. Il a donc été décidé de conserver dans un premier temps la voie verte actuelle avec un simple changement du revêtement stabilisé côté Ouest, remplacé par un enrobé lisse plus confortable pour tous. Nous déplorons ce choix qui va maintenir un fort conflit dans une zone très fréquentée par les piétons.
 ::
 
+::content-image
+---
+panoramax: seq=d499d021-f8bd-4933-b96f-4f8c704ae067;pic=e37d3fcf-e0c2-48e7-8dfc-16a4d48e0d62;open=true
+---
+::
+
+
 ::banner{type="wip"}
 Le changement de revêtement sur la partie Sud a eu lieu en novembre 2025.
 ::
