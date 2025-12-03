@@ -4,7 +4,10 @@
       <div>
         <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Sites partenaires</h2>
         <p class="mt-3 text-xl text-gray-500 sm:mt-4">
-          Découvrez d'autres observatoires à travers le pays, dont certains sont basés sur notre travail en Open Source.
+          Découvrez d'autres observatoires à travers le pays, dont certains sont basés sur
+          <a class="text-lvv-blue-600 hover:text-lvv-blue-800 font-medium underline" href="/blog/open-source"
+            >notre travail en Open Source.</a
+          >
         </p>
       </div>
       <div class="mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-4">

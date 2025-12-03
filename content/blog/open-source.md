@@ -26,11 +26,10 @@ Aujourd'hui, le seul coût financier est le nom de domaine (~10€/an).
 Voici la liste des outils tiers utilisés :
 - [GitHub](https://github.com) pour le stockage des données et du code. Gratuit.
 - [Netlify](https://www.netlify.com) pour l'hébergement du site. Gratuit (free tier très largement suffisant).
-- [Etalab](https://openmaptiles.geo.data.gouv.fr/) pour les cartes. Gratuit.
+- [openmaptiles.geo.data.gouv.fr](https://openmaptiles.geo.data.gouv.fr/) pour les cartes. Gratuit.
 - [Geojson.io](https://geojson.io) pour le tracé des pistes cyclables. Gratuit.
-- [Beam Analytics](https://beamanalytics.io/) pour le suivi d'audience. Gratuit (free tier très largement suffisant).
-- ~[Cloudinary](https://cloudinary.com/) pour le stockage des images. Gratuit.~
-- Serveur d'image de La Ville à Vélo pour le stockage des images. Payant mais mutualisé avec les autres besoins de l'association.
+- [Beam Analytics](https://beamanalytics.io/) ou [Umami](https://umami.is/) pour le suivi d'audience. Gratuit (free tier très largement suffisant).
+- Serveur de La Ville à Vélo pour le stockage des images. Payant, mais mutualisé avec les autres besoins de l'association. Vous pouvez également stocker les images directement dans votre dépôt GitHub.
 
 ## Comment créer ma version de Cyclopolis ?
 
@@ -102,8 +101,9 @@ Pour modifier les tracés des pistes cyclables, vous pouvez utiliser un outil co
 
 Une fois que vous avez adapté les données à votre ville, vous pouvez déployer votre plateforme.
 
-On recommande d'utiliser [Netlify](https://www.netlify.com) ou [Vercel](https://vercel.com/) pour l'hébergement. L'offre gratuite de ces 2 plateformes est très généreuse et suffira largement pour ce genre de projet.
-Par ailleurs, elles offrent une excellente intégration avec Github. Ainsi, à chaque modification de vos données (ou commit), les changements seront "live" en 30-40 secondes.
+Vous pouvez utiliser une des solutions listées ici : https://nuxt.com/deploy pour l'hébergement. La plupart ont une offre gratuite largement suffisante pour faire tourner Cyclopolis.
+
+On utilise [Netlify](https://www.netlify.com) qui une offre une bonne intégration avec Github. Ainsi, à chaque modification de vos données (ou commit), les changements seront visibles après environ 1min.
 
 Voici par exemple la configuration de Cyclopolis sur Netlify (section Build & Deploy):
 ```
@@ -115,7 +115,7 @@ Et voilà!
 
 Vous pouvez ensuite :
 - acheter un nom de domaine pour votre plateforme.
-- configurer un outil de suivi d'audience (on utilise Beam Analytics, mais il y a plein d'autres solutions).
+- configurer un outil de suivi d'audience (on utilise Umami, mais il y a plein d'autres solutions).
 
 
 ## Conclusion
