@@ -879,7 +879,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
           return { feature, lines, hasDetailsPanel };
         },
-        component: LineTooltip,
+        component: window.innerWidth > 1024 ? LineTooltip : LineHoverTooltip,
         getHoverTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(event.point, {
             filter: [
@@ -1039,7 +1039,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
     const tooltipContentId = `${clickedLayer.id}-tooltip-${isHover ? 'hover' : 'click'}-${Date.now()}`;
     const popup = new Popup({
-      closeButton: !isHover,
+      closeButton: false,
       closeOnClick: !isHover,
       closeOnMove: isHover,
     })

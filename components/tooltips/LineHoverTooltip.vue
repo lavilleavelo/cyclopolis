@@ -17,18 +17,26 @@
         <div class="text-sm text-center">
           {{ feature.properties.name }}
         </div>
+        <div class="text-xs justify-center items-center flex">
+          <div class="text-xs justify-center items-center flex" :class="getQuality(feature.properties.quality).class">
+            <Icon
+              :name="getQuality(feature.properties.quality).icon"
+              class="h-4 w-4 align-middle"
+              :class="getQuality(feature.properties.quality).classIcon"
+            />
+            {{ getQuality(feature.properties.quality).label }}
+          </div>
+        </div>
       </div>
-      <div class="py-1 flex gap-2 items-center justify-center px-2 bg-lvv-blue-100">
+      <div class="py-1 flex flex-col gap-2 items-center justify-center px-2 bg-lvv-blue-100">
         <div class="text-xs text-center">
           <span
             >{{
-              feature.properties.type === 'bidirectionnelle'
-                ? 'Bidirectionnelle'
-                : feature.properties.type === 'bandes-cyclables'
-                  ? 'Bande cyclable'
-                  : ['inconnu', 'aucun'].includes(feature.properties.type)
-                    ? 'Voie'
-                    : typologyNames[feature.properties.type]
+              feature.properties.type === 'bandes-cyclables'
+                ? 'Bande cyclable'
+                : ['inconnu', 'aucun'].includes(feature.properties.type)
+                  ? 'Voie'
+                  : typologyNames[feature.properties.type]
             }}
             de {{ Math.round(getDistance({ features: [feature] }) / 25) * 25 }}m
             <br />
@@ -36,13 +44,6 @@
           <span v-if="getStatus(feature.properties).label" class="text-xm">
             {{ getStatus(feature.properties).label }} {{ getStatus(feature.properties).date }}
           </span>
-        </div>
-        <div class="text-xs" :class="getQuality(feature.properties.quality).class">
-          <Icon
-            :name="getQuality(feature.properties.quality).icon"
-            class="h-4 w-4 align-middle"
-            :class="getQuality(feature.properties.quality).classIcon"
-          />
         </div>
       </div>
     </div>
