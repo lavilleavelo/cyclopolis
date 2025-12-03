@@ -162,6 +162,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl1/VL1_Augagneur.jpg
 caption: Photo de la Voie Lyonnaise 1 - quai Augagneur (Lyon 3)
 credit: La Ville à Vélo
 streetView: 45.7573504,4.8407715,3a,75y,196.69h,85.05t
+panoramax: seq=00b4096a-24bf-4d8a-8e04-69b73baf9113;pic=1b68ec4f-570c-45e3-b2af-beb804f668c9;open=true;before-pic=e7de96ba-a7e7-4e95-9502-c1bf9a281bcc;before-seq=7caf0539-cd34-4840-bcb7-b1b4fd95f79a
 ---
 ::
 
