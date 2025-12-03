@@ -231,6 +231,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl7/rue-garibaldi.png
 caption: Aperçu de la Voie Lyonnaise 7 - Rue Garibaldi Sud (Lyon 7)
 credit: Métropole de Lyon
 streetView: 45.7486593,4.8530547,3a,75y,216.89h,90t
+panoramax: pic=84a8e240-34eb-4725-9674-f397e409b633;seq=44f4138d-acff-42e6-a1e6-65b74961db1e;open=true;
 ---
 ::
 
