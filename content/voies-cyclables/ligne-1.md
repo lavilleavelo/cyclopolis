@@ -183,6 +183,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl1/VL1_ClaudeBernard.jpg
 caption: Photo de la Voie Lyonnaise 1 - Quai Claude Bernard (Lyon 7)
 credit: Métropole de Lyon
 streetView: 45.7502784,4.8356748,3a,75y,12.37h,82.36t
+panoramax: seq=6b6d097c-114e-407a-a2f6-e9c19d05bf20;pic=a57c871e-8767-4370-a224-92b276659cc6;open=true
 ---
 ::
 
