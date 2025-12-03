@@ -109,12 +109,11 @@ panoramax: seq=d499d021-f8bd-4933-b96f-4f8c704ae067;pic=e37d3fcf-e0c2-48e7-8dfc-
 Le changement de revêtement sur la partie Sud a eu lieu en novembre 2025.
 ::
 
-#### Quai de Grande-Bretagne et Quai de Serbie
+#### Quai de Grande-Bretagne
 
 *(Tête d'Or <> Pont Morand)*
 
-Une piste cyclable de 4m de large a été créée sur une des voies de circulation du quai et l'allée cavalière a été rendue aux piétons, avec d'importants travaux de végétalisation.\
-Cette section a été aménagée entre l'automne 2022 et l'hiver 2022/2023, et le marquage au sol a été réalisé fin février 2023.
+Une piste cyclable de 4m de large a été créée sur une des voies de circulation du quai et l'allée cavalière a été rendue aux piétons, avec d'importants travaux de végétalisation.
 
 ::content-image
 ---
@@ -122,9 +121,7 @@ panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-
 ---
 ::
 
-::banner{type="info"}
-Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de Tassigny en mars-avril 2024 pour améliorer la connexion avec les rampes vers les berges du Rhône.
-::
+Cette section a été aménagée entre l'automne 2022 et l'hiver 2022/2023, et le marquage au sol a été réalisé fin février 2023.
 
 ::content-image
 ---
@@ -133,6 +130,21 @@ caption: Photo de la Voie Lyonnaise 1 - quai de Grande-Bretagne (Lyon 6)
 streetView: 45.7756491,4.8431614,3a,75y,14.38h,86.38t
 ---
 ::
+
+#### Quai de Serbie
+
+Suite du quai de Grande-Bretagne.
+
+::banner{type="info"}
+Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de Tassigny en mars-avril 2024 pour améliorer la connexion avec les rampes vers les berges du Rhône.
+::
+
+::content-image
+---
+panoramax: seq=13446dd6-ecdc-46b8-b12c-f65ad79e45c0;pic=785a8e0b-c4b6-49aa-b32f-e911bf94da97;open=true
+---
+::
+
 
 #### Quai Sarrail et Quai Augagneur
 

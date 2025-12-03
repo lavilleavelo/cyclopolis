@@ -534,7 +534,7 @@
         "status": "done",
         "doneAt": "24/10/2025",
         "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-1#quai-de-grande-bretagne-et-quai-de-serbie",
+        "link": "/voie-lyonnaise-1#quai-de-grande-bretagne",
         "quality": "satisfactory"
       },
       "geometry": {
@@ -557,7 +557,7 @@
         "status": "done",
         "doneAt": "28/03/2023",
         "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-1#quai-de-grande-bretagne-et-quai-de-serbie",
+        "link": "/voie-lyonnaise-1#quai-de-grande-bretagne",
         "quality": "satisfactory"
       },
       "geometry": {
@@ -582,7 +582,7 @@
         "status": "done",
         "doneAt": "28/03/2023",
         "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-1#quai-de-grande-bretagne-et-quai-de-serbie",
+        "link": "/voie-lyonnaise-1#quai-de-serbie",
         "quality": "satisfactory"
       },
       "geometry": {
