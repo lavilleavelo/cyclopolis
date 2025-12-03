@@ -241,6 +241,12 @@ Les travaux sur cette section ont eu lieu entre mi-avril 2024 et la fin d'année
 #### Rue Paul Duvivier
 La piste cyclable bidirectionnelle existante de 3m de large sera conservée.
 
+::content-image
+---
+panoramax: pic=13c5190c-5c52-4455-84af-a70b80991635;seq=52efade2-e4c5-492d-92d0-32aa34b5b18a;open=true;
+---
+::
+
 #### Route de Vienne
 Sur cette longue séquence aujourd'hui partiellement aménagée avec des bandes cyclables ou des couloirs bus ouverts aux vélos, il est prévu la création d'une piste cyclable bidirectionnelle de 2.5 à 4m de large côté Ouest de la chaussée, en lieu et place de la bande de stationnement actuelle.
 
