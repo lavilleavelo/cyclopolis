@@ -17,18 +17,8 @@
         <div class="text-sm text-center">
           {{ feature.properties.name }}
         </div>
-        <div class="text-xs justify-center items-center flex">
-          <div class="text-xs justify-center items-center flex" :class="getQuality(feature.properties.quality).class">
-            <Icon
-              :name="getQuality(feature.properties.quality).icon"
-              class="h-4 w-4 align-middle"
-              :class="getQuality(feature.properties.quality).classIcon"
-            />
-            {{ getQuality(feature.properties.quality).label }}
-          </div>
-        </div>
       </div>
-      <div class="py-1 flex flex-col gap-2 items-center justify-center px-2 bg-lvv-blue-100">
+      <div class="py-1 flex flex-col gap-1 items-center justify-center px-2 bg-lvv-blue-100">
         <div class="text-xs text-center">
           <span
             >{{
@@ -45,6 +35,12 @@
             {{ getStatus(feature.properties).label }} {{ getStatus(feature.properties).date }}
           </span>
         </div>
+        <div class="text-xs justify-center items-center flex">
+          <div :class="quality.class">
+            <Icon :name="quality.icon" class="h-4 w-4 align-middle" :class="quality.classIcon" />
+            {{ quality.label }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,6 +56,8 @@ const { feature, lines } = defineProps<{
   feature: LineStringFeature;
   lines: number[];
 }>();
+
+const quality = computed(() => getQuality(feature.properties.quality));
 
 function getDoneAtText(doneAt: string): string {
   const [day, month, year] = doneAt.split('/');
