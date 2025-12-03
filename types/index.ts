@@ -50,6 +50,7 @@ export type PerspectiveFeature = {
     line: number;
     name: string;
     imgUrl: string;
+    panoramaxUrl?: string;
   };
   geometry: {
     type: 'Point';

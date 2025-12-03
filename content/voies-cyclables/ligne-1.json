@@ -46,7 +46,8 @@
         "type": "perspective",
         "name": "Avenue de Grande-Bretagne",
         "line": 1,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl1/av-grande-bretagne.png"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl1/av-grande-bretagne.png",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=20.45/45.7760285/4.8433599&pic=fc1a66ee-b293-4aa8-b3f2-aab4000cba3c&speed=250&theme=default&xyz=22.89/-18.42/30"
       },
       "geometry": {
         "type": "Point",

@@ -7,7 +7,8 @@
         "type": "perspective",
         "name": "Boulevard Stalingrad",
         "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-stalingrad-2.jpeg"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-stalingrad-2.jpeg",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=17.45/45.778091/4.859263&pic=ec76fa87-345a-4c1e-aede-1eaadd3c6185"
       },
       "geometry": {
         "type": "Point",
