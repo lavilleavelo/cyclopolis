@@ -116,6 +116,12 @@ Le changement de revêtement sur la partie Sud a eu lieu en novembre 2025.
 Une piste cyclable de 4m de large a été créée sur une des voies de circulation du quai et l'allée cavalière a été rendue aux piétons, avec d'importants travaux de végétalisation.\
 Cette section a été aménagée entre l'automne 2022 et l'hiver 2022/2023, et le marquage au sol a été réalisé fin février 2023.
 
+::content-image
+---
+panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-c3c3b7a2e113;open=true
+---
+::
+
 ::banner{type="info"}
 Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de Tassigny en mars-avril 2024 pour améliorer la connexion avec les rampes vers les berges du Rhône.
 ::
@@ -125,7 +131,6 @@ Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de 
 imageUrl: https://cyclopolis.lavilleavelo.org/vl1/av-grande-bretagne.png
 caption: Photo de la Voie Lyonnaise 1 - quai de Grande-Bretagne (Lyon 6)
 streetView: 45.7756491,4.8431614,3a,75y,14.38h,86.38t
-panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-c3c3b7a2e113;open=true
 ---
 ::
 
