@@ -125,7 +125,7 @@ Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de 
 imageUrl: https://cyclopolis.lavilleavelo.org/vl1/av-grande-bretagne.png
 caption: Photo de la Voie Lyonnaise 1 - quai de Grande-Bretagne (Lyon 6)
 streetView: 45.7756491,4.8431614,3a,75y,14.38h,86.38t
-panoramax: seq=d6217eb1-bad3-44d0-9eaa-957b97b17e3a;pic=a57e53f0-e1de-4367-b532-cd0813b40a14;open=true
+panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-c3c3b7a2e113;open=true
 ---
 ::
 
