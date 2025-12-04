@@ -6,6 +6,17 @@
     :sub-title="veloCounter.arrondissement"
     description=""
   >
+    <ClientOnly fallback-tag="div">
+      <template #fallback>
+        <MapPlaceholder style="height: 40vh" additional-class="mt-6" />
+      </template>
+      <Map
+        :features="features"
+        :options="{ roundedCorners: true, legend: false, filter: false }"
+        class="mt-6"
+        style="height: 40vh"
+      />
+    </ClientOnly>
     <h2>Total des passages par année</h2>
     <p>
       Comparaison de la fréquentation annuelle entre les vélos et les voitures. Ceci est possible grâce à la présence de
@@ -27,6 +38,7 @@
 
 <script setup lang="ts">
 import type { Count } from '~/types';
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { params } = useRoute();
 
@@ -62,24 +74,38 @@ const data = computed(() => {
   });
 });
 
-// const graphTitles = {
-//   totalByYear: `Fréquentation cycliste annuelle - ${counter.value.name}`,
-//   monthComparison: `Fréquentation cycliste - ${counter.value.name}`
-// };
+const counters = computed(() => {
+  return [veloCounter.value]
+    .map((veloCounter) => {
+      if (!veloCounter?.cyclopolisId) {
+        return;
+      }
+      if (!voitureCounter.value) {
+        return;
+      }
 
-// const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-velo' });
+      return {
+        ...veloCounter,
+        path: `/compteurs/comparaison/${veloCounter.cyclopolisId}`,
+        counts: voitureCounter.value.counts.map((voitureCount) => {
+          const veloCount = veloCounter.counts.find((veloCount) => veloCount.month === voitureCount.month);
+          return {
+            month: voitureCount.month,
+            veloCount: veloCount?.count || 0,
+            voitureCount: voitureCount.count,
+          };
+        }),
+      };
+    })
+    .filter((counter): counter is NonNullable<typeof counter> => !!counter);
+});
 
-// const DESCRIPTION = `Compteur vélo ${counter.value.name}`;
-// const IMAGE_URL = counter.value.imageUrl;
-// useHead({
-//   meta: [
-//     // description
-//     { hid: 'description', name: 'description', content: DESCRIPTION },
-//     { hid: 'og:description', property: 'og:description', DESCRIPTION },
-//     { hid: 'twitter:description', name: 'twitter:description', DESCRIPTION },
-//     // cover image
-//     { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
-//     { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL }
-//   ]
-// });
+const { getCompteursFeatures } = useMap();
+
+const features = computed(() => {
+  return getCompteursFeatures({
+    counters: counters.value,
+    type: 'compteur-comparaison',
+  });
+});
 </script>
