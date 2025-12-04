@@ -19,7 +19,7 @@ caption: cartes.app est une alternative open-source à Google Maps, développée
 
 La précision des données est importante, en particulier si l'on veut obtenir un guidage détaillé qui prend en compte [les différents types d'aménagements cyclables](https://wiki.openstreetmap.org/wiki/FR:Bicycle) (pistes, bandes, zones partagées, etc.).
 
-Un exemple de guidage open-source optimisé pour le vélo est [brouter](https://docs.bikerouter.de/en/getting-started/) ([exemple d'itinéraire](https://bikerouter.de/#map=14/45.7790/4.8513/standard,Waymarked_Trails-Cycling&lonlats=4.833212%2C45.758838%7C4.887199%2C45.782652&profile=safety)), qui utilise les données OSM pour calculer des itinéraires cyclables optimisés ou sécurisés.
+Un exemple de guidage open-source optimisé pour le vélo est [Bikerouter](https://docs.bikerouter.de/en/getting-started/) ([exemple d'itinéraire](https://bikerouter.de/#map=14/45.7790/4.8513/standard,Waymarked_Trails-Cycling&lonlats=4.833212%2C45.758838%7C4.887199%2C45.782652&profile=safety)), qui utilise les données OSM pour calculer des itinéraires cyclables optimisés ou sécurisés.
 
 ### Différences entre OpenStreetMap et Cyclopolis
 
