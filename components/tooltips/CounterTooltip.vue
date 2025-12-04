@@ -18,7 +18,31 @@
           <Icon v-if="!isLastMonth" name="mdi:chevron-right" class="cursor-pointer" @click="changeMonth(+1)" />
         </div>
       </div>
-      <div class="py-1 flex items-center justify-center text-black">
+      <div v-if="isComparaison" class="py-1 flex items-center justify-center text-black">
+        <div class="text-base font-bold">
+          {{ averageDailyVeloTraffic }}
+        </div>
+        <div class="px-2 text-3xl flex items-center">
+          <Icon name="game-icons:dutch-bike" />
+        </div>
+        <div class="text-left leading-3">
+          <div class="font-bold">vélos/jour</div>
+          <div>en moyenne</div>
+        </div>
+      </div>
+      <div v-if="isComparaison" class="py-1 flex items-center justify-center text-black">
+        <div class="text-base font-bold">
+          {{ averageDailyVoitureTraffic }}
+        </div>
+        <div class="px-2 text-3xl flex items-center">
+          <Icon name="fluent:vehicle-car-profile-ltr-16-regular" />
+        </div>
+        <div class="text-left leading-3">
+          <div class="font-bold">voitures/jour</div>
+          <div>en moyenne</div>
+        </div>
+      </div>
+      <div v-if="!isComparaison" class="py-1 flex items-center justify-center text-black">
         <div class="text-base font-bold">
           {{ averageDailyTraffic }}
         </div>
@@ -41,7 +65,14 @@ const { feature } = defineProps<{
   feature: CompteurFeature;
 }>();
 
-const title = computed(() => (feature.properties.type === 'compteur-velo' ? 'Compteur vélo' : 'Compteur voiture'));
+const title = computed(() =>
+  feature.properties.type === 'compteur-comparaison'
+    ? 'Compteur traffic'
+    : feature.properties.type === 'compteur-velo'
+      ? 'Compteur vélo'
+      : 'Compteur voiture',
+);
+const isComparaison = computed(() => feature.properties.type === 'compteur-comparaison');
 const countIndex = ref(feature.properties.counts.length - 1);
 const count = computed(() => feature.properties.counts.at(countIndex.value)!);
 const isFirstMonth = computed(() => countIndex.value === 0);
@@ -49,15 +80,37 @@ const isLastMonth = computed(() => countIndex.value === feature.properties.count
 const humanDate = computed(() =>
   new Date(count.value.month).toLocaleString('fr-Fr', { month: 'long', year: 'numeric' }),
 );
-const averageDailyTraffic = computed(() => getAverageDailyTraffic(count.value));
+const averageDailyTraffic = computed(() => {
+  if ('count' in count.value) {
+    return getAverageDailyTraffic(count.value.month, count.value.count);
+  }
+  return 0;
+});
+
+const averageDailyVeloTraffic = computed(() => {
+  if ('veloCount' in count.value) {
+    return getAverageDailyTraffic(count.value.month, count.value.veloCount);
+  }
+  return 0;
+});
+
+const averageDailyVoitureTraffic = computed(() => {
+  if ('voitureCount' in count.value) {
+    return getAverageDailyTraffic(count.value.month, count.value.voitureCount);
+  }
+  return 0;
+});
+
 const icon = computed(() =>
   feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular',
 );
 
-function getAverageDailyTraffic({ month, count }: { month: string; count: number }) {
+const numberFormatter = new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 0 });
+
+function getAverageDailyTraffic(month: string, count: number) {
   const date = new Date(month);
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  return Math.round(count / daysInMonth);
+  return numberFormatter.format(count / daysInMonth);
 }
 
 const changeMonth = (offset: number) => {

@@ -61,14 +61,21 @@ export type PerspectiveFeature = {
 export type CompteurFeature = {
   type: 'Feature';
   properties: {
-    type: 'compteur-velo' | 'compteur-voiture';
+    type: 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
     line?: number;
     name: string;
     link?: string;
-    counts: Array<{
-      month: string;
-      count: number;
-    }>;
+    counts: Array<
+      | {
+          month: string;
+          count: number;
+        }
+      | {
+          month: string;
+          veloCount: number;
+          voitureCount: number;
+        }
+    >;
     /**
      * z-index like
      */
@@ -132,7 +139,10 @@ export function isDangerFeature(
 export function isCompteurFeature(
   feature: Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature,
 ): feature is CompteurFeature {
-  return isPointFeature(feature) && ['compteur-velo', 'compteur-voiture'].includes(feature.properties.type);
+  return (
+    isPointFeature(feature) &&
+    ['compteur-velo', 'compteur-voiture', 'compteur-comparaison'].includes(feature.properties.type)
+  );
 }
 
 export interface BaseFilterItem {

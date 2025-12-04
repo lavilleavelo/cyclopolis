@@ -13,6 +13,18 @@
         </p>
       </div>
 
+      <ClientOnly fallback-tag="div">
+        <template #fallback>
+          <MapPlaceholder style="height: 40vh" additional-class="mt-12" />
+        </template>
+        <Map
+          :features="features"
+          :options="{ roundedCorners: true, legend: false, filter: false }"
+          class="mt-12"
+          style="height: 40vh"
+        />
+      </ClientOnly>
+
       <!-- liste des compteurs -->
       <div class="mt-8 max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:max-w-none">
         <CounterCard v-for="counter of counters" :key="counter.name" :counter="counter" />
@@ -22,6 +34,8 @@
 </template>
 
 <script setup lang="ts">
+import MapPlaceholder from '~/components/MapPlaceholder.vue';
+
 /**
  * la clé cyclopolisId sert à faire le lien entre les compteurs vélo et voiture
  * cette page compare les 2 sur un même axe, on ne s'intéresse donc qu'à ceux qui ont
@@ -75,5 +89,13 @@ const counters = computed(() => {
       };
     })
     .filter((counter): counter is NonNullable<typeof counter> => !!counter);
+});
+
+const { getCompteursFeatures } = useMap();
+const features = computed(() => {
+  return getCompteursFeatures({
+    counters: counters.value,
+    type: 'compteur-comparaison',
+  });
 });
 </script>

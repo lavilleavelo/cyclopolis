@@ -655,7 +655,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     type,
   }: {
     counters: Collections['compteurs'][] | null;
-    type: 'compteur-velo' | 'compteur-voiture';
+    type: 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
   }): CompteurFeature[] {
     if (!counters) {
       return [];
