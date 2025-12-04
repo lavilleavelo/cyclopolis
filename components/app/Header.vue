@@ -229,7 +229,9 @@
         focus
         class="absolute top-0 inset-x-0 z-10 p-2 transition transform origin-top-right md:hidden"
       >
-        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+        <div
+          class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50 max-h-screen overflow-y-auto"
+        >
           <div class="pt-5 pb-6 px-5">
             <div class="flex items-center justify-between">
               <NuxtLink to="/" @click="close()">
@@ -264,6 +266,14 @@
                   </span>
                 </NuxtLink>
 
+                <NuxtLink
+                  to="/tableau-de-bord"
+                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  @click="close()"
+                >
+                  <span class="ml-3 text-base font-medium text-gray-900"> Tableau de bord </span>
+                </NuxtLink>
+
                 <!-- Compteurs -->
                 <hr class="h-px bg-gray-200 border-0" />
 
@@ -295,18 +305,10 @@
                 <NuxtLink to="/blog" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50" @click="close()">
                   <span class="ml-3 text-base font-medium text-gray-900"> Blog </span>
                 </NuxtLink>
-                <NuxtLink
-                  to="/tableau-de-bord"
-                  class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  @click="close()"
-                >
-                  <span class="ml-3 text-base font-medium text-gray-900"> Tableau de bord </span>
-                </NuxtLink>
               </nav>
             </div>
           </div>
           <div class="py-6 px-5 space-y-6 bg-gray-50">
-            <div class="ml-3 text-base font-medium text-gray-900">Toutes les lignes</div>
             <div class="grid grid-cols-4 gap-y-4 gap-x-8">
               <NuxtLink
                 v-for="voie in voies"

@@ -60,7 +60,7 @@
         "
       />
     </div>
-    <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+    <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
       <div class="text-sm leading-6 text-gray-900">
         <strong class="font-semibold">{{ formatDate(lastNewsItem.date) }}</strong
         ><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">

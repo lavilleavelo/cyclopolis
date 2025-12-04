@@ -12,6 +12,8 @@ Le code est directement disponible sur [GitHub](https://github.com/lavilleavelo/
 
 Une association (ou même un particulier) peut donc tout à fait copier le code de la plateforme, le modifier, l'adapter à sa ville, et le publier sous un autre nom.
 
+Vous pouvez voir plusieurs exemples de villes qui ont déjà fait cela dans la section [Sites Partenaires](/sites-partenaires/).
+
 ## Combien ça coûte d'avoir son propre Cyclopolis ?
 
 La version actuelle de Cyclopolis demande peu de ressources et coûte donc très peu cher à faire tourner.

@@ -27,6 +27,41 @@
             </p>
           </NuxtLink>
         </div>
+        <div class="p-4 rounded-lg hover:bg-gray-50">
+          <div>
+            <div class="inline-block">
+              <span
+                class="bg-lvv-blue-200 text-lvv-blue-600 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium"
+              >
+                page
+              </span>
+            </div>
+          </div>
+          <NuxtLink to="/historique" class="block mt-4">
+            <p class="text-xl font-semibold text-gray-900">Historique des changements</p>
+            <p class="mt-3 text-base text-gray-500">
+              Retrouver l'historique des mises à jour de la plateforme Cyclopolis.
+            </p>
+          </NuxtLink>
+        </div>
+        <div class="p-4 rounded-lg hover:bg-gray-50">
+          <div>
+            <div class="inline-block">
+              <span
+                class="bg-lvv-blue-200 text-lvv-blue-600 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium"
+              >
+                page
+              </span>
+            </div>
+          </div>
+          <NuxtLink to="/sites-partenaires" class="block mt-4">
+            <p class="text-xl font-semibold text-gray-900">Sites partenaires</p>
+            <p class="mt-3 text-base text-gray-500">
+              Découvrez d'autres observatoires à travers le pays, dont certains sont basés sur notre travail en Open
+              Source.
+            </p>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
