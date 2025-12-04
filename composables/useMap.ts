@@ -616,12 +616,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotCompteurs({ map, features }: { map: MaplibreType; features?: CompteurFeature[] }) {
-    if (!features) return;
-
-    const compteurs = features.filter(isCompteurFeature);
-    if (compteurs.length === 0) return;
-
-    compteurs
+    const compteurs = (features || [])
       .sort((c1, c2) => (c2.properties.counts.at(-1)?.count ?? 0) - (c1.properties.counts.at(-1)?.count ?? 0))
       .map((c, i) => {
         // top counters are bigger and drawn above others
@@ -632,13 +627,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         return c;
       });
 
-    map.addSource('compteurs', {
-      type: 'geojson',
-      data: {
-        type: 'FeatureCollection',
-        features: compteurs,
-      },
-    });
+    upsertMapSource(map, 'compteurs', compteurs);
+    if (map.getLayer('compteurs')) {
+      return;
+    }
+
     map.addLayer({
       id: 'compteurs',
       source: 'compteurs',
@@ -667,6 +660,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     if (!counters) {
       return [];
     }
+
     if (counters.length === 0) {
       return [];
     }
@@ -677,7 +671,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         type,
         name: counter.name,
         link: counter.path,
-        counts: counter.counts,
+        counts: counter.counts || [],
       },
       geometry: {
         type: 'Point',
@@ -782,6 +776,41 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     }
 
     const layers = [
+      {
+        id: 'compteurs',
+        isClicked: () => {
+          if (!map.getLayer('compteurs')) {
+            return false;
+          }
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] });
+          return mapFeature.length > 0;
+        },
+        getTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find(
+            (f) => f.properties.name === mapFeature.properties.name && isCompteurFeature(f),
+          );
+          return { feature };
+        },
+        component: CounterTooltip,
+        hoverComponent: CounterTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
+
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find(
+            (f) => f.properties.name === mapFeature.properties.name && isCompteurFeature(f),
+          );
+          return { feature };
+        },
+      },
       {
         id: 'dangers',
         isClicked: () => {
@@ -918,36 +947,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return { feature, lines, hasDetailsPanel };
         },
         hoverComponent: LineHoverTooltip,
-      },
-      {
-        id: 'compteurs',
-        isClicked: () => {
-          if (!map.getLayer('compteurs')) {
-            return false;
-          }
-          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] });
-          return mapFeature.length > 0;
-        },
-        getTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
-          if (!mapFeature) {
-            return;
-          }
-
-          const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
-          return { feature };
-        },
-        component: CounterTooltip,
-        hoverComponent: CounterTooltip,
-        getHoverTooltipProps: () => {
-          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
-          if (!mapFeature) {
-            return;
-          }
-
-          const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
-          return { feature };
-        },
       },
     ];
 
@@ -1204,11 +1203,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      moveLayerToTop('dangers');
-      moveLayerToTop('perspectives');
-      moveLayerToTop('section-names');
-      moveLayerToTop('section-names-low-zoom');
-      moveLayerToTop('section-names-high-zoom');
     } else {
       const selectedLines = [...new Set(selections.map((s) => s.line))];
       const isSelectedLineExpression = ['in', ['get', 'line'], ['literal', selectedLines]];
@@ -1316,12 +1310,14 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         map.moveLayer(`postponed-symbols-${color}`);
         map.moveLayer(`postponed-text-${color}`);
       }
-      moveLayerToTop('dangers');
-      moveLayerToTop('perspectives');
-      moveLayerToTop('section-names');
-      moveLayerToTop('section-names-low-zoom');
-      moveLayerToTop('section-names-high-zoom');
     }
+
+    moveLayerToTop('dangers');
+    moveLayerToTop('perspectives');
+    moveLayerToTop('section-names');
+    moveLayerToTop('section-names-low-zoom');
+    moveLayerToTop('section-names-high-zoom');
+    moveLayerToTop('compteurs');
   }
 
   function handleMapClick({

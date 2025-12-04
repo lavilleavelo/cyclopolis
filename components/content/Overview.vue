@@ -29,26 +29,38 @@
         />
       </ClientOnly>
 
-      <div class="mt-2 flex justify-end gap-4">
+      <div class="mt-2 flex justify-between gap-4">
         <button
           type="button"
-          title="Télécharger le tracé au format GPX"
+          title="Afficher les compteurs vélos"
           class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
-          @click="downloadGpx"
+          @click="displayBikeCounters = !displayBikeCounters"
         >
-          <span>GPX</span>
-          <Icon name="mdi:download" class="h-5 w-5" aria-hidden="true" />
+          <span> Compteurs vélos </span>
+          <Icon :name="displayBikeCounters ? 'mdi:eye' : 'mdi:eye-off'" class="h-5 w-5" aria-hidden="true" />
         </button>
-        <a
-          :href="linkToGeoJSON"
-          target="_blank"
-          title="Voir le fichier GEOJSON sur GitHub"
-          class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
-          rel="noopener noreferrer"
-        >
-          <span>GEOJSON</span>
-          <Icon name="mdi:open-in-new" class="h-5 w-5" aria-hidden="true" />
-        </a>
+
+        <div class="flex items-center gap-4">
+          <button
+            type="button"
+            title="Télécharger le tracé au format GPX"
+            class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
+            @click="downloadGpx"
+          >
+            <span>GPX</span>
+            <Icon name="mdi:download" class="h-5 w-5" aria-hidden="true" />
+          </button>
+          <a
+            :href="linkToGeoJSON"
+            target="_blank"
+            title="Voir le fichier GEOJSON sur GitHub"
+            class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600 no-underline"
+            rel="noopener noreferrer"
+          >
+            <span>GEOJSON</span>
+            <Icon name="mdi:open-in-new" class="h-5 w-5" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </section>
   </div>
@@ -59,11 +71,14 @@ import type { Collections } from '@nuxt/content';
 import GeoJsonToGpx from '@dwayneparton/geojson-to-gpx';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
+import type { Ref } from 'vue';
+import type { CompteurFeature } from '~/types';
 
 const { path } = useRoute();
 const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
 const { displayQuality } = useConfig();
+const { getCompteursFeatures } = useMap();
 
 const props = withDefaults(
   defineProps<{
@@ -84,11 +99,26 @@ const mapOptions = {
   },
 };
 
+const displayBikeCounters = ref(false);
+
 const { data: geojson } = await useAsyncData(`geojson-${path}`, () => {
   return queryCollection('voiesCyclablesGeojson').path(props.voie.path).first();
 });
 
-const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => geojson.value?.features || []);
+const { data: allCounters } = await useAsyncData(() => {
+  return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
+});
+
+const features: Ref<Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]> = computed(() => {
+  const compteurFeatures = displayBikeCounters.value
+    ? getCompteursFeatures({
+        counters: (allCounters.value || []).filter((counter) => counter.lines?.includes(+props.voie.line)),
+        type: 'compteur-velo',
+      })
+    : [];
+
+  return [...(geojson.value?.features || []), ...compteurFeatures];
+});
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,

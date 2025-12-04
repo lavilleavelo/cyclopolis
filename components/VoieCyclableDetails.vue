@@ -19,7 +19,7 @@
           </div>
         </h1>
       </template>
-      <h2>Aperçu</h2>
+      <a href="#overview" class="no-underline"><h2 id="overview">Aperçu</h2></a>
       <Overview :voie="voie" :show-map="showMap" />
       <ContentRenderer :value="voie" />
     </ContentFrame>

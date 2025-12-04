@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white not-prose w-48">
-    <div class="py-1 bg-lvv-blue-600 flex flex-col items-center justify-center text-white">
+    <div class="py-1 bg-lvv-blue-600 flex flex-col items-center justify-center text-center text-white">
       <div class="font-bold text-base hover:underline">
         <a :href="feature.properties.link">{{ feature.properties.name }}</a>
       </div>
@@ -30,21 +30,6 @@
           <div>en moyenne</div>
         </div>
       </div>
-      <!--      <div v-if="isAbsoluteBest">-->
-      <!--        <div class="my-2 mx-8 bg-lvv-pink text-sm text-white font-semibold rounded-xl px-1.5 border-black border-2">-->
-      <!--          record absolu-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div v-if="isMonthBest && !isAbsoluteBest">-->
-      <!--        <div class="my-2 mx-8 bg-lvv-pink text-sm text-white font-semibold rounded-xl px-1.5 border-white border-2">-->
-      <!--          record mensuel-->
-      <!--        </div>-->
-      <!--      </div>-->
-      <!--      <div v-if="!isMonthBest && !isAbsoluteBest">-->
-      <!--        <div class="my-2 mx-8 text-sm text-white font-semibold rounded-xl px-1.5 border-white border-2">-->
-      <!--          aucun record-->
-      <!--        </div>-->
-      <!--      </div>-->
     </div>
   </div>
 </template>
@@ -68,37 +53,12 @@ const averageDailyTraffic = computed(() => getAverageDailyTraffic(count.value));
 const icon = computed(() =>
   feature.properties.type === 'compteur-velo' ? 'game-icons:dutch-bike' : 'fluent:vehicle-car-profile-ltr-16-regular',
 );
-// const monthBests = findMonthBests(feature.properties.counts);
-// const absoluteBest = findAbsoluteBest(feature.properties.counts)!;
-// const isMonthBest = computed(() => monthBests.get(new Date(count.value.month).getMonth()));
-// const isAbsoluteBest = computed(() => count.value.month === absoluteBest.month);
 
 function getAverageDailyTraffic({ month, count }: { month: string; count: number }) {
   const date = new Date(month);
   const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   return Math.round(count / daysInMonth);
 }
-
-// function findMonthBests(counts: Array<{ month: string; count: number }>) {
-//   const monthBests = new Map();
-//
-//   counts.forEach(count => {
-//     const month = new Date(count.month).getMonth();
-//
-//     if (!monthBests.has(month)) {
-//       monthBests.set(month, 0);
-//     }
-//     if (count.count > monthBests.get(month)) {
-//       monthBests.set(month, count.count);
-//     }
-//   });
-//
-//   return monthBests;
-// }
-//
-// function findAbsoluteBest(counts: Array<{ month: string; count: number }>) {
-//   return counts.toSorted((a, b) => (a.count > b.count ? 1 : a.count < b.count ? -1 : 0)).at(-1);
-// }
 
 const changeMonth = (offset: number) => {
   countIndex.value += offset;
