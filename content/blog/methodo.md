@@ -60,6 +60,8 @@ Dans ses annonces officielles de septembre 2021, la Métropole de Lyon a évoqu�
 ## Précision des cartographies
 Nous nous sommes efforcés d’être le plus précis possible sur le positionnement de l’aménagement cyclable dans nos cartes interactives. Cependant, certains tronçons ont été dessinés à un moment où nous ignorions le côté d’insertion de la piste sur la rue. Ainsi, en zoomant beaucoup sur une rue en particulier, il est possible de retrouver des incohérences. C’est tout à fait normal, car la carte interactive a pour objectif principal de repérer les rues concernées par l’aménagement et pas son insertion précise. Nous travaillerons cependant à une amélioration de cette précision de manière à pouvoir intégrer les informations géographiques de la plateforme au sein de la communauté d’OpenStreetMap.
 
+Vous pouvez consulter cet article pour en savoir plus à propos des Voies Lyonnaises sur OpenStreetMap : [Les Voies Lyonnaises sur OpenStreetMap](/blog/voies-lyonnaises-open-street-map).
+
 ## Réseau 2030
 La plateforme Cyclopolis a pour objectif de surveiller la bonne réalisation du réseau cyclable des Voies Lyonnaises sur le mandat en cours de la Métropole de Lyon. Ce mandat se termine en 2026. C’est sur ce projet précis que porte la plateforme Cyclopolis lancée à l’automne 2023.
 

@@ -17,11 +17,11 @@ export default <RouterConfig>{
       };
     }
 
-    if (to.name !== from.name) {
+    if (to.path !== from.path) {
       return { top: 0, behavior: 'instant' };
     }
 
-    if (to.name === from.name) {
+    if (to.path === from.path) {
       return;
     }
 
