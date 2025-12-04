@@ -25,8 +25,23 @@
         />
       </ClientOnly>
 
-      <!-- liste des compteurs -->
-      <div class="mt-8 max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:max-w-none">
+      <div class="mt-4">
+        <label for="compteur" class="sr-only">Compteur</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
+          </div>
+          <input
+            id="compteur"
+            v-model="searchText"
+            type="text"
+            class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md"
+            placeholder="Chercher un compteur..."
+          />
+        </div>
+      </div>
+
+      <div class="mt-4 max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:max-w-none">
         <CounterCard v-for="counter of counters" :key="counter.name" :counter="counter" />
       </div>
     </div>
@@ -35,6 +50,7 @@
 
 <script setup lang="ts">
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { removeDiacritics } from '~/helpers/helpers';
 
 /**
  * la clé cyclopolisId sert à faire le lien entre les compteurs vélo et voiture
@@ -54,6 +70,8 @@ const { data: allVoitureCounters } = await useAsyncData(() => {
     .where('cyclopolisId', 'IS NOT NULL')
     .all();
 });
+
+const searchText = ref('');
 
 const counters = computed(() => {
   if (!allVeloCounters.value) {
@@ -88,7 +106,10 @@ const counters = computed(() => {
         }),
       };
     })
-    .filter((counter): counter is NonNullable<typeof counter> => !!counter);
+    .filter((counter): counter is NonNullable<typeof counter> => !!counter)
+    .filter((counter) =>
+      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)),
+    );
 });
 
 const { getCompteursFeatures } = useMap();
