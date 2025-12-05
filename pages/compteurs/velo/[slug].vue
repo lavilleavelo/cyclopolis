@@ -18,7 +18,7 @@
         style="height: 40vh"
       />
     </ClientOnly>
-    <div v-if="counter.lines.length > 0" class="mt-2">
+    <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2">
       Ce compteur est installé sur
       <span>la </span>
       <span v-for="(line, index) in counter.lines" :key="line">
