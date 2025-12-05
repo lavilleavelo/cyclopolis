@@ -15,7 +15,7 @@
           <div class="mr-4 w-2 lg:w-4 rounded-lg flex-shrink-0" :style="`background: ${getLineColor(getLine(voie))}`" />
           <div class="flex-grow">
             <h2 class="text-center text-2xl font-bold">
-              <LineLink :line="String(getLine(voie))" />
+              <LineLink :line="String(getLine(voie))" size="md" />
             </h2>
             <div class="text-center text-xl text-gray-900">
               Distance totale:

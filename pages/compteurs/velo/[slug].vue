@@ -18,6 +18,16 @@
         style="height: 40vh"
       />
     </ClientOnly>
+    <div v-if="counter.lines.length > 0" class="mt-2">
+      Ce compteur est installé sur
+      <span>la </span>
+      <span v-for="(line, index) in counter.lines" :key="line">
+        <LineLink :line="String(line)" anchor="overview" />
+        <span v-if="index < counter.lines.length - 2">, la </span>
+        <span v-else-if="index === counter.lines.length - 2"> et la </span> </span
+      >.
+    </div>
+
     <h2>Total des passages par année</h2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur vélo chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
@@ -38,15 +48,6 @@
       <p>{{ counter.limitation }}</p>
     </template>
 
-    <!-- <template v-if="counter && counter.lines && counter.lines.length > 0">
-      <h2>{{ getRevName() }} mesurées par ce compteur</h2>
-      <ul>
-        <li v-for="line in counter.lines" :key="line">
-          <LineLink :line="String(line)" />
-        </li>
-      </ul>
-    </template> -->
-
     <h2>Source des données</h2>
     <p>
       Les données proviennent de
@@ -59,7 +60,6 @@
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { path } = useRoute();
-// const { getRevName } = useConfig();
 const { withoutTrailingSlash } = useUrl();
 const { getCompteursFeatures } = useMap();
 
