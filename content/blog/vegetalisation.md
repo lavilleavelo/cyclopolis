@@ -1,6 +1,6 @@
 ---
 title: Végétalisation x Vélo - Planter sans se planter le long d'un aménagement cyclable
-description: Guide à destination des aménageurs pour une végétalisation adaptée le long des aménagements cyclables *par France Nature Environnement, Des espèces parmi’Lyon et La Ville à Vélo*
+description: Guide à destination des aménageurs pour une végétalisation adaptée le long des aménagements cyclables par France Nature Environnement, Des espèces parmi’Lyon et La Ville à Vélo
 imageUrl: https://cyclopolis.lavilleavelo.org/blog/VegetalVelo.png
 ---
 
