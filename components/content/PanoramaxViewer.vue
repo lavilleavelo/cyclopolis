@@ -3,7 +3,7 @@
     <div
       v-if="isLoading"
       class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
-      style="width: 100%; min-height: 400px"
+      :style="{ width: '100%', minHeight: height }"
     >
       <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
       <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
@@ -39,13 +39,13 @@ const props = withDefaults(
     style?: string | CSSProperties;
     legendSlot?: string;
     zoomWithCtrl?: boolean;
-    placeholderHeight?: string;
+    height?: string;
   }>(),
   {
     style: 'width: 100%; height: 100%',
     legendSlot: 'bottom-right',
     zoomWithCtrl: true,
-    placeholderHeight: '500px',
+    height: '350px',
   },
 );
 

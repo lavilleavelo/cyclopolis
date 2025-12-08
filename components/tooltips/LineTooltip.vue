@@ -71,7 +71,7 @@ import type { LaneQuality, LineStringFeature } from '~/types';
 const { getLineColor } = useColors();
 const { getRevName, displayQuality } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
-const { getVoieCyclablePath } = useUrl();
+const { getSectionDetailsUrl } = useUrl();
 
 const { feature, lines, hasDetailsPanel } = defineProps<{
   feature: LineStringFeature;
@@ -82,13 +82,6 @@ const { feature, lines, hasDetailsPanel } = defineProps<{
 const title = computed(() => {
   return lines.length > 1 ? getRevName() : getRevName('singular');
 });
-
-function getSectionDetailsUrl(properties: LineStringFeature['properties']): string {
-  if (properties.link) {
-    return properties.link;
-  }
-  return getVoieCyclablePath(properties.line);
-}
 
 function getDoneAtText(doneAt: string): string {
   const [day, month, year] = doneAt.split('/');

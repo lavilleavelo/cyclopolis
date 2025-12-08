@@ -42,6 +42,14 @@
           </div>
         </div>
       </div>
+      <div v-if="!hasDetailsPanel" class="flex justify-center">
+        <a
+          class="p-1 text-lvv-blue-600 text-xs text-base italic hover:underline"
+          :href="getSectionDetailsUrl(feature.properties)"
+        >
+          voir le détail
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -51,10 +59,12 @@ import type { LaneQuality, LineStringFeature } from '~/types';
 
 const { getLineColor } = useColors();
 const { getDistance, typologyNames, qualityNames } = useStats();
+const { getSectionDetailsUrl } = useUrl();
 
-const { feature, lines } = defineProps<{
+const { feature, lines, hasDetailsPanel } = defineProps<{
   feature: LineStringFeature;
   lines: number[];
+  hasDetailsPanel: boolean;
 }>();
 
 const quality = computed(() => getQuality(feature.properties.quality));

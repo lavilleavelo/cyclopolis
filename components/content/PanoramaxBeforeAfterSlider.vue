@@ -60,6 +60,7 @@ const props = defineProps({
   beforePicture: { type: String, required: true },
   initialPosition: { type: Number, default: 50 },
   isDialog: { type: Boolean, default: false },
+  height: { type: String, default: '350px' },
 });
 
 defineEmits<{

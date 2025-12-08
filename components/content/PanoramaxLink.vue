@@ -6,14 +6,14 @@
   </div>
   <div
     v-if="isRevealed && hasBeforeAfter"
-    style="width: 100%; min-height: 400px; height: 400px; grid-column: span 2; overflow: hidden"
+    :style="{ width: '100%', minHeight: height, height: height, gridColumn: 'span 2', overflow: 'hidden' }"
     class="relative"
   >
     <ClientOnly>
       <template #fallback>
         <div
           class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
-          style="width: 100%; min-height: 400px"
+          :style="{ width: '100%', minHeight: height }"
         >
           <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
           <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
@@ -25,6 +25,7 @@
         :before-sequence="beforeSequence"
         :before-picture="beforePicture"
         :initial-position="5"
+        :height="height"
         @expand="isDialogOpen = true"
       />
     </ClientOnly>
@@ -32,14 +33,14 @@
 
   <div
     v-else-if="isRevealed"
-    style="width: 100%; min-height: 400px; height: 400px; grid-column: span 2; overflow: hidden"
+    :style="{ width: '100%', minHeight: height, height: height, gridColumn: 'span 2', overflow: 'hidden' }"
     class="relative"
   >
     <ClientOnly>
       <template #fallback>
         <div
           class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
-          style="width: 100%; min-height: 400px"
+          :style="{ width: '100%', minHeight: height }"
         >
           <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
           <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
@@ -48,7 +49,8 @@
       <PanoramaxViewer
         :sequence="sequence"
         :picture="picture"
-        style="width: 100%; height: 400px; grid-column: span 2"
+        :style="{ width: '100%', height: height, gridColumn: 'span 2' }"
+        :height="height"
       />
     </ClientOnly>
   </div>
@@ -91,8 +93,9 @@
 <script setup lang="ts">
 import { onKeyStroke } from '@vueuse/core';
 
-const { params } = defineProps({
+const { params, height } = defineProps({
   params: { type: String, required: true },
+  height: { type: String, default: '350px' },
 });
 
 const extractParameterValue = (paramString: string, paramName: string): string | null => {

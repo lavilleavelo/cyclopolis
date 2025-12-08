@@ -1,4 +1,5 @@
 import config from '~/config.json';
+import type { LineStringFeature } from '~/types';
 
 export const useUrl = () => {
   function withoutTrailingSlash(path: string): string {
@@ -24,5 +25,18 @@ export const useUrl = () => {
     return { anchor };
   }
 
-  return { withoutTrailingSlash, getVoieCyclablePath, getVoieCyclableRegex, extractLineAndAnchorFromPath };
+  function getSectionDetailsUrl(properties: LineStringFeature['properties']): string {
+    if (properties.link) {
+      return properties.link;
+    }
+    return getVoieCyclablePath(properties.line);
+  }
+
+  return {
+    withoutTrailingSlash,
+    getVoieCyclablePath,
+    getSectionDetailsUrl,
+    getVoieCyclableRegex,
+    extractLineAndAnchorFromPath,
+  };
 };
