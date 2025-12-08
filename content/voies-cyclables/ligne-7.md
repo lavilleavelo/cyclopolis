@@ -45,7 +45,7 @@ Entre le giratoire et la piscine Origami, l'absence actuelle d'aménagements cyc
 
 ::banner{type="wip"}
 Les travaux du giratoire de Gaulle ont eu lieu entre l'automne 2023 et fin mars 2024.
-Le reste de cette section est en travaux progressif par sections entre février et octobre 2025.
+Le reste de cette section est en travaux progressif par sections entre février et décembre 2025.
 ::
 
 #### Voie de la Dombe
@@ -143,7 +143,7 @@ La Métropole a finalement reporté début 2025 l'aménagement définitif de ce 
 ::banner{type="wip"}
 Les travaux sur le carrefour Boucle/Canuts a eu lieu entre fin juillet et mi-novembre 2025.
 Les travaux au carrefour Henri Dor a lieu entre octobre et novembre 2025.
-Les travaux sur la contre-allée du bas auront lieu en novembre-décembre 2025.
+Les travaux sur la contre-allée du bas ont eu lieu en novembre 2025.
 ::
 
 ::content-image
@@ -165,7 +165,7 @@ La Voie Lyonnaise 7 va traverser le Rhône en empruntant le Pont Winston Churchi
 Elle continuera ensuite sur l'avenue de Grande Bretagne jusqu'au boulevard des Belges avec la création d'une nouvelle piste cyclable bidirectionnelle de 4m de large à la place d'une voie de circulation dans chaque sens. L'ancienne piste cyclable entre les arbres sera rendue aux piétons.
 
 ::banner{type="wip"}
-Les travaux sur cette section sont prévus entre début juillet et début novembre 2025.
+Les travaux sur cette section ont eu lieu entre début juillet et fin novembre 2025.
 ::
 
 #### Boulevard des Belges - Quais du Rhône à Garibaldi

@@ -558,7 +558,8 @@
       "properties": {
         "line": 11,
         "name": "Avenue Félix Faure",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"
@@ -577,7 +578,8 @@
         "id": "Mandela-commun",
         "line": 11,
         "name": "Parc Mandela",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"

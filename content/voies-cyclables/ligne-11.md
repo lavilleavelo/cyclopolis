@@ -97,7 +97,7 @@ Le projet a été validé et déclaré d'utilité publique le 12 juin 2024.\
 [Voir la présentation du projet du BHNS Part Dieu - Sept Chemins](https://www.sytral.fr/621-bhns.htm)
 
 ::banner{type="wip"}
-Les premiers travaux sur les réseaux ont débuté au premier semestre 2024, et se sont enchainés avec les travaux d'aménagements entre fin janvier 2025 et l'été 2025. Un premier tronçon sous les voies SNCF a été ouvert fin mai 2025.
+Les premiers travaux sur les réseaux ont débuté au premier semestre 2024, et se sont enchainés avec les travaux d'aménagements entre fin janvier 2025 et l'été 2025. Longtemps fermé partiellement, le tronçon est finalement ouvert début décembre 2025.
 ::
 
 ### Esplanade Mandela à Dauphiné - Lacassagne

@@ -210,7 +210,8 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Route du Mas Rillier Est",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "28/11/2025",
         "type": "bilaterale",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -464,8 +465,7 @@
       "properties": {
         "line": 7,
         "name": "Rillieux - Carrefour Mercières",
-        "status": "done",
-        "doneAt": "31/10/2025",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#route-du-mas-rillier-à-chemin-petit"
@@ -1255,7 +1255,8 @@
       "properties": {
         "line": 7,
         "name": "Contre-allée de la Boucle",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "02/12/2025",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#montée-de-la-boucle"
@@ -1358,7 +1359,8 @@
       "properties": {
         "line": 7,
         "name": "Belges Tête d'Or",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "02/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#boulevard-des-belges-quais-du-rhône-à-garibaldi"

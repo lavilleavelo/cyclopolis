@@ -884,7 +884,8 @@
         "id": "Mandela-commun",
         "line": 10,
         "name": "Parc Mandela",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"
@@ -1123,7 +1124,8 @@
       "properties": {
         "line": 10,
         "name": "Carrefour T6/T3",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "14/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#le-long-du-tramway-t3"
