@@ -821,7 +821,8 @@
         "id": "Verguin-commun",
         "line": 4,
         "name": "Avenue Verguin",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "08/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-verguin"

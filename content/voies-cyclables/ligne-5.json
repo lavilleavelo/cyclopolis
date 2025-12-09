@@ -620,7 +620,8 @@
         "id": "A450-commun",
         "line": 5,
         "name": "Traversée A450",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/09/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-5#gare-doullins-à-pierre-bénite-barrage"

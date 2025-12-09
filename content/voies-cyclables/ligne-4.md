@@ -226,7 +226,7 @@ streetView: 45.7725923,4.8562026,3a,75y,270.71h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre fin juin et décembre 2025.
+Les travaux ont eu lieu entre fin juin et début décembre 2025.
 ::
 
 #### Boulevard Stalingrad à Cours André Philip 

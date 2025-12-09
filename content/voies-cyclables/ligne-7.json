@@ -1787,8 +1787,9 @@
       "type": "Feature",
       "properties": {
         "line": 7,
-        "name": "Boulevard Yves Farge",
-        "status": "wip",
+        "name": "Boulevard Yves Farge Nord",
+        "status": "done",
+        "doneAt": "30/05/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#boulevard-yves-farge-de-saint-fons-à-feyzin"
@@ -1811,6 +1812,23 @@
           [4.857838149867462,45.69828904327403],
           [4.858069360358201,45.69790288004819],
           [4.858783097290029,45.696372242477736],
+          [4.859144991673759,45.69543839284546]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 7,
+        "name": "Boulevard Yves Farge Sud",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#boulevard-yves-farge-de-saint-fons-à-feyzin"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.859144991673759,45.69543839284546],
           [4.86068304183533,45.692327788097344],
           [4.861517410128528,45.691063836529196],

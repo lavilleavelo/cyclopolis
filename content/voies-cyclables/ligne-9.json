@@ -778,7 +778,8 @@
         "id": "Verguin-commun",
         "line": 9,
         "name": "Avenue Verguin",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "08/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"

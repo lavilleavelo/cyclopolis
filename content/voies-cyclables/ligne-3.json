@@ -1554,7 +1554,8 @@
         "id": "A450-commun",
         "line": 3,
         "name": "Traversée A450",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/09/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#traversée-de-pierre-bénite"
