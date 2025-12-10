@@ -105,8 +105,8 @@ streetView: 45.795975,4.7877227,3a,75y,343.47h,90t
 ::banner{type="wip"}
 Les travaux sur l'avenue de Montlouis ont eu lieu en avril et mai 2025.\
 Les travaux sur le boulevard de la République ont eu lieu entre décembre 2024 et mai 2025.\
-Les travaux sur la place de la Liberté ont lieu entre septembre et fin novembre 2025.\
-Les travaux sur la rue de la Mairie ont lieu entre mi-octobre et mi-décembre 2025.
+Les travaux sur la place de la Liberté ont eu lieu entre septembre et fin novembre 2025.\
+Les travaux sur la rue de la Mairie ont eu lieu entre mi-octobre et fin novembre 2025.
 ::
 
 #### Rue Juttet à Avenue de Champagne

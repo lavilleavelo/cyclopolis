@@ -739,7 +739,7 @@
       "properties": {
         "line": 8,
         "name": "Liaison République - Vincent Serre",
-        "status": "planned",
+        "status": "wip",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-victor-hugo-à-république-hespérides"
@@ -758,7 +758,7 @@
       "properties": {
         "line": 8,
         "name": "Carrefour des Hespérides",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-victor-hugo-à-république-hespérides"

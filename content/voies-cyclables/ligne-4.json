@@ -410,7 +410,8 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Place de la Liberté",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "05/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-de-montlouis-à-rue-juttet"
@@ -431,7 +432,8 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Mairie",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "05/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-de-montlouis-à-rue-juttet"
