@@ -204,7 +204,7 @@ streetView: 45.7486652,4.8429452,3a,75y,313.05h,90t
 ::
 
 ::banner{type="wip"}
-Après des travaux préliminaires sur les réseaux souterrains à l'automne-hiver 2024, les travaux d'aménagement ont commencé mi-mars 2025 et continueront progressivement jusqu'à mars 2026.
+Après des travaux préliminaires sur les réseaux souterrains à l'automne-hiver 2024, les travaux d'aménagement ont commencé mi-mars 2025 et se sont terminés en décembre 2025.
 ::
 
 #### Rue Camille Roy

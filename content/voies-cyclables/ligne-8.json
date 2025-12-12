@@ -1241,7 +1241,8 @@
       "properties": {
         "line": 8,
         "name": "Rue de l'Université",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#rue-de-luniversité-et-rue-marc-bloch"
@@ -1262,7 +1263,8 @@
         "id": "MarcBloch-commun",
         "line": 8,
         "name": "Rue Marc Bloch",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#rue-de-luniversité-et-rue-marc-bloch"

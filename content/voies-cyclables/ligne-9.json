@@ -1014,7 +1014,8 @@
         "id": "MarcBloch-commun",
         "line": 9,
         "name": "Rue Marc Bloch",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
