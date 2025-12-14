@@ -466,7 +466,8 @@
       "properties": {
         "line": 11,
         "name": "Rue de Bonnel",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#rue-de-bonnel"
