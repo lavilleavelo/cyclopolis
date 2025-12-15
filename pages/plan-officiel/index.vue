@@ -23,12 +23,30 @@
         >
           <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6" @click.stop>
             <div class="flex justify-between items-start mb-4">
-              <h2 class="text-xl font-bold text-gray-900">Intégrer sur votre site</h2>
+              <h2 class="text-xl font-bold text-gray-900">Partager cette page</h2>
               <button @click="showDialog = false" class="text-gray-400 hover:text-gray-600 transition-colors">
                 <Icon name="mdi:close" class="w-6 h-6" />
               </button>
             </div>
 
+            Vous pouvez partager cette page en utilisant le lien suivant :
+            <div class="mb-6">
+              <div class="relative">
+                <pre
+                  class="bg-gray-50 border border-gray-300 rounded p-4 overflow-x-auto text-sm"
+                ><code>{{ shareUrl }}</code></pre>
+                <button
+                  @click="copyUrlToClipboard"
+                  class="absolute top-2 right-2 bg-white hover:bg-gray-100 text-gray-700 px-3 py-1.5 rounded shadow text-sm transition-all flex items-center gap-1.5"
+                  :class="{ 'bg-green-50 text-green-700': urlCopied }"
+                >
+                  <Icon :name="urlCopied ? 'mdi:check' : 'mdi:content-copy'" class="w-4 h-4" />
+                  {{ urlCopied ? 'Copié !' : 'Copier' }}
+                </button>
+              </div>
+            </div>
+
+            <h2 class="text-xl font-bold text-gray-900">Intégrer sur votre site</h2>
             <div class="mb-4">
               <p class="text-gray-700 mb-4">
                 Copiez le code ci-dessous pour intégrer la comparaison entre le plan prévu et le plan réel 2026 sur
@@ -40,7 +58,7 @@
                   class="bg-gray-50 border border-gray-300 rounded p-4 overflow-x-auto text-sm"
                 ><code>{{ iframeCode }}</code></pre>
                 <button
-                  @click="copyToClipboard"
+                  @click="copyEmbedUrlToClipboard"
                   class="absolute top-2 right-2 bg-white hover:bg-gray-100 text-gray-700 px-3 py-1.5 rounded shadow text-sm transition-all flex items-center gap-1.5"
                   :class="{ 'bg-green-50 text-green-700': copied }"
                 >
@@ -54,7 +72,7 @@
               title="Carte montrant la réalisation des voies lyonnaises prévues dans le plan officiel 2026. Créé La Ville à Vélo, disponible sur cyclopolis.fr"
               :src="embedUrl"
               width="100%"
-              height="600px"
+              height="400px"
               frameborder="0"
               allowfullscreen
               class="mt-6 border border-gray-300 rounded"
@@ -85,8 +103,10 @@ const { getRevName } = useConfig();
 
 const showDialog = ref(false);
 const copied = ref(false);
+const urlCopied = ref(false);
 
 const embedUrl = computed(() => `${window.location.origin}/plan-officiel/embed`);
+const shareUrl = computed(() => `${window.location.origin}/plan-officiel`);
 const iframeCode = computed(
   () =>
     `<iframe
@@ -96,17 +116,20 @@ const iframeCode = computed(
 </iframe>`,
 );
 
-const copyToClipboard = async () => {
+const copyToClipboard = async (text: string, copiedRef: Ref<boolean>) => {
   try {
-    await navigator.clipboard.writeText(iframeCode.value);
-    copied.value = true;
+    await navigator.clipboard.writeText(text);
+    copiedRef.value = true;
     setTimeout(() => {
-      copied.value = false;
+      copiedRef.value = false;
     }, 2000);
   } catch (err) {
     console.error('Failed to copy:', err);
   }
 };
+
+const copyUrlToClipboard = () => copyToClipboard(shareUrl.value, urlCopied);
+const copyEmbedUrlToClipboard = () => copyToClipboard(iframeCode.value, copied);
 
 const description = `Découvrez le plan officiel des ${getRevName()}, le futur réseau vélo lyonnais de 260km. Comparez le plan prévu et le plan réel 2026.`;
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/plan-officiel-preview.jpg';
