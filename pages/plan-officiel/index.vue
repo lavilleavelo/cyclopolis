@@ -1,15 +1,107 @@
 <template>
-  <div class="w-full">
-    <img
-      src="https://cyclopolis.lavilleavelo.org/carte-voies-lyonnaises-2026.png"
-      class="object-contain w-full h-screen"
-      :alt="`plan officiel des ${getRevName()}`"
+  <div class="relative container mx-auto">
+    <button
+      class="absolute top-4 right-4 z-10 bg-white hover:bg-gray-100 text-gray-800 px-4 py-2 rounded-lg shadow-md transition-all flex items-center gap-2"
+      @click="showDialog = true"
+      title="Intégrer sur votre site"
+    >
+      <Icon name="mdi:share-variant" class="w-5 h-5" />
+      <span class="text-sm font-medium">Partager</span>
+    </button>
+
+    <Teleport to="body">
+      <Transition
+        enter-active-class="transition-opacity duration-200"
+        leave-active-class="transition-opacity duration-200"
+        enter-from-class="opacity-0"
+        leave-to-class="opacity-0"
+      >
+        <div
+          v-if="showDialog"
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          @click="showDialog = false"
+        >
+          <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full p-6" @click.stop>
+            <div class="flex justify-between items-start mb-4">
+              <h2 class="text-xl font-bold text-gray-900">Intégrer sur votre site</h2>
+              <button @click="showDialog = false" class="text-gray-400 hover:text-gray-600 transition-colors">
+                <Icon name="mdi:close" class="w-6 h-6" />
+              </button>
+            </div>
+
+            <div class="mb-4">
+              <p class="text-gray-700 mb-4">
+                Copiez le code ci-dessous pour intégrer la comparaison entre le plan prévu et le plan réel 2026 sur
+                votre site web.
+              </p>
+
+              <div class="relative">
+                <pre
+                  class="bg-gray-50 border border-gray-300 rounded p-4 overflow-x-auto text-sm"
+                ><code>{{ iframeCode }}</code></pre>
+                <button
+                  @click="copyToClipboard"
+                  class="absolute top-2 right-2 bg-white hover:bg-gray-100 text-gray-700 px-3 py-1.5 rounded shadow text-sm transition-all flex items-center gap-1.5"
+                  :class="{ 'bg-green-50 text-green-700': copied }"
+                >
+                  <Icon :name="copied ? 'mdi:check' : 'mdi:content-copy'" class="w-4 h-4" />
+                  {{ copied ? 'Copié !' : 'Copier' }}
+                </button>
+              </div>
+            </div>
+
+            <iframe
+              :src="embedUrl"
+              width="100%"
+              height="600px"
+              frameborder="0"
+              allowfullscreen
+              class="mt-6 border border-gray-300 rounded"
+            ></iframe>
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+
+    <div class="text-center my-4 text-gray-600 text-xs">
+      Glisser la barre horizontale pour comparer projet prévu et projet réel 2026
+    </div>
+
+    <BeforeAfterImageSlider
+      before-image="https://cyclopolis.lavilleavelo.org/Carte_VL2026_prevu.png"
+      after-image="https://cyclopolis.lavilleavelo.org/Carte_VL2026_reel.png"
+      :before-alt="`Plan prévu des ${getRevName()}`"
+      :after-alt="`Plan réel des ${getRevName()}`"
+      before-label="Prévu"
+      after-label="Réel"
+      height="90vh"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 const { getRevName } = useConfig();
+
+const showDialog = ref(false);
+const copied = ref(false);
+
+const embedUrl = computed(() => `${window.location.origin}/plan-officiel/embed`);
+const iframeCode = computed(
+  () =>
+    `<iframe src="${embedUrl.value}" style="border-radius: 8px; border-color: #ccc; border-width: 1px" width="100%" height="800px" frameborder="0" allowfullscreen></iframe>`,
+);
+
+const copyToClipboard = async () => {
+  try {
+    await navigator.clipboard.writeText(iframeCode.value);
+    copied.value = true;
+    setTimeout(() => {
+      copied.value = false;
+    }, 2000);
+  } catch (err) {
+    console.error('Failed to copy:', err);
+  }
+};
 
 const description = `Découvrez le plan officiel des ${getRevName()}, le futur réseau vélo lyonnais de 260km.`;
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
