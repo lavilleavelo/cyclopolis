@@ -65,7 +65,7 @@
     </Teleport>
 
     <div class="text-center my-4 text-gray-600 text-xs">
-      Glisser la barre horizontale pour comparer projet prévu et projet réel 2026
+      Glisser la barre verticale pour comparer projet prévu et projet réel 2026
     </div>
 
     <BeforeAfterImageSlider
