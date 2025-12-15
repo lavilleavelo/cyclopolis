@@ -108,8 +108,8 @@ const copyToClipboard = async () => {
   }
 };
 
-const description = `Découvrez le plan officiel des ${getRevName()}, le futur réseau vélo lyonnais de 260km.`;
-const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
+const description = `Découvrez le plan officiel des ${getRevName()}, le futur réseau vélo lyonnais de 260km. Comparez le plan prévu et le plan réel 2026.`;
+const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/plan-officiel-preview.jpg';
 
 useHead({
   title: `Plan des ${getRevName()}`,
