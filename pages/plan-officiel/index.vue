@@ -51,6 +51,7 @@
             </div>
 
             <iframe
+              title="Carte montrant la réalisation des voies lyonnaises prévues dans le plan officiel 2026. Créé La Ville à Vélo, disponible sur cyclopolis.fr"
               :src="embedUrl"
               width="100%"
               height="600px"
@@ -88,7 +89,11 @@ const copied = ref(false);
 const embedUrl = computed(() => `${window.location.origin}/plan-officiel/embed`);
 const iframeCode = computed(
   () =>
-    `<iframe src="${embedUrl.value}" style="border-radius: 8px; border-color: #ccc; border-width: 1px" width="100%" height="800px" frameborder="0" allowfullscreen></iframe>`,
+    `<iframe
+    src="${embedUrl.value}" width="100%" height="800px" frameborder="0" allowfullscreen
+    style="border-radius: 8px; border-color: #ccc; border-width: 1px"
+    title="Carte montrant la réalisation des voies lyonnaises prévues dans le plan officiel 2026. Créé La Ville à Vélo, disponible sur cyclopolis.fr">
+</iframe>`,
 );
 
 const copyToClipboard = async () => {

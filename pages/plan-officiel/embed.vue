@@ -11,7 +11,7 @@
         height="100%"
       />
     </div>
-    <div class="bg-lvv-blue-600 text-white border-gray-200 py-1 px-2">
+    <div class="bg-lvv-blue-600 text-white border-gray-200 py-1 px-3">
       <a
         href="https://cyclopolis.fr/plan-officiel"
         target="_blank"
