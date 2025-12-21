@@ -173,7 +173,8 @@
       "properties": {
         "line": 4,
         "name": "Lissieu Gare - Dardilly Clairière",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "19/12/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#giratoire-chicotière-à-giratoire-maison-carrée"
@@ -194,7 +195,8 @@
       "properties": {
         "line": 4,
         "name": "Contre-allée Clairière",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "19/12/2025",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#giratoire-chicotière-à-giratoire-maison-carrée"
@@ -217,7 +219,8 @@
       "properties": {
         "line": 4,
         "name": "Dardilly - Clairière à Maison Carrée",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "19/12/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#giratoire-chicotière-à-giratoire-maison-carrée"
@@ -339,7 +342,8 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Avenue De Gaulle",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "19/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-porte-de-lyon-à-avenue-de-montlouis"
@@ -477,7 +481,8 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Lanessan Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "19/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-juttet-à-avenue-de-champagne"
@@ -485,7 +490,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.796755313873291, 45.79162039149302],
           [4.796353483019374, 45.791754814473194],
           [4.795982837677001, 45.791919626486816],
           [4.792812373332701, 45.79480345849698]
@@ -496,8 +500,28 @@
       "type": "Feature",
       "properties": {
         "line": 4,
-        "name": "Avenue du 25e RTS",
+        "name": "Carrefour Duchère Lanessan",
         "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#avenue-du-25e-régiment-de-tirailleurs-sénégalais"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.796353483019374, 45.791754814473194],
+          [4.796755313873291, 45.79162039149302],
+          [4.797412012299134, 45.79153511229639]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Avenue du 25e RTS",
+        "status": "done",
+        "doneAt": "09/09/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#avenue-du-25e-régiment-de-tirailleurs-sénégalais"
@@ -527,8 +551,7 @@
           [4.800555465895172, 45.79156159254134],
           [4.799984693527222, 45.79160542970114],
           [4.798112511634827, 45.79154932294591],
-          [4.797412012299134, 45.79153511229639],
-          [4.796755313873291, 45.79162039149302]
+          [4.797412012299134, 45.79153511229639]
         ]
       }
     },
@@ -615,7 +638,8 @@
       "properties": {
         "line": 4,
         "name": "Bourgogne Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "05/09/2025",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-4#rue-de-bourgogne"

@@ -1023,7 +1023,8 @@
         "link": "/voie-lyonnaise-3#pont-clémenceau-au-pont-koenig",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "status": "wip"
+        "status": "done",
+        "doneAt": "19/12/2024"
       },
       "geometry": {
         "type": "LineString",
@@ -1183,7 +1184,8 @@
         "id": "QuaiLiberation-commun",
         "line": 3,
         "name": "La Mulatière - Quai de la Libération",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "28/11/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#pont-de-la-mulatière-au-barrage-de-pierre-bénite"

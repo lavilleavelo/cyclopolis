@@ -1092,7 +1092,8 @@
         "id": "AdolpheMax-commun",
         "line": 8,
         "name": "Avenue Adolphe Max",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "18/12/2025",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"

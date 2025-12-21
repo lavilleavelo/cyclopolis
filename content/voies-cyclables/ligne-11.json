@@ -295,7 +295,8 @@
         "id": "AdolpheMax-commun",
         "line": 11,
         "name": "Avenue Adolphe Max",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "18/12/2025",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-11#traversée-de-saint-just-traversée-de-saint-jean"

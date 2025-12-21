@@ -77,7 +77,7 @@ streetView: 45.800433,4.7867128,3a,75y,163.52h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux sur la commune de Champagne entre la rue Sans Souci et l'avenue de Montlouis ont commencé mi-mars 2025 et continueront par sections jusqu'à l'automne 2025.
+Les travaux sur la commune de Champagne entre la rue Sans Souci et l'avenue de Montlouis ont commencé mi-mars 2025 et continué par sections jusqu'à décembre 2025.
 ::
 
 #### Avenue de Montlouis à Rue Juttet
@@ -113,14 +113,14 @@ Les travaux sur la rue de la Mairie ont eu lieu entre mi-octobre et fin novembre
 Sur cette section, la Voie Lyonnaise 4 empruntera l'avenue Lanessan sous la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est, en lieu et place du stationnement existant. Le carrefour avec l'avenue de Champagne sera entièrement réaménagé pour sécuriser le lien avec le quartier de la Duchère.
 
 ::banner{type="wip"}
-Les travaux ont lieu entre octobre et décembre 2025.
+Les travaux ont eu lieu entre octobre et décembre 2025.
 ::
 
 #### Avenue du 25e Régiment de Tirailleurs Sénégalais
 Cette portion en pente sera totalement réaménagée : une piste cyclable bidirectionnelle de 3.60m de large sera créée côté Est, et séparée d'une voirie routière à double-sens par une large bande végétalisée. Elle rejoindra le carrefour de la rue Mouillard au niveau de la Porte de Vaise.
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et octobre 2025.
+Les travaux préalables sur les réseaux souterrains ont eu lieu entre mars et août 2024, puis enchainent avec les travaux d'aménagement entre octobre 2024 et septembre 2025.
 ::
 
 #### *Concertation*

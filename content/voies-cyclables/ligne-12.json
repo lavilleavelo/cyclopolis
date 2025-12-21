@@ -391,7 +391,8 @@
         "id": "AdolpheMax-commun",
         "line": 12,
         "name": "Avenue Adolphe Max",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "18/12/2025",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-12#traversée-de-saint-jean"
