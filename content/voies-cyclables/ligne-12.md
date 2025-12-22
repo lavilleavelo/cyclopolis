@@ -175,6 +175,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl12/av-rockfeller.png
 caption: Aperçu de la Voie Lyonnaise 12 - avenue Rockefeller (Lyon 3/Lyon 8)
 credit: Métropole de Lyon
 streetView: 45.7399229,4.8893137,3a,75y,98.22h,90t
+panoramax: seq=e45959af-2d6f-4eb2-9f8c-ced568462e2c;pic=a7f0bf43-a87b-4567-ab3a-b158b5e6fd84;open=true
 ---
 ::
 

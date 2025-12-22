@@ -72,7 +72,8 @@
         "type": "perspective",
         "name": "Avenue Rockefeller",
         "line": 12,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl12/av-rockfeller.png"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl12/av-rockfeller.png",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=20.14/45.7392803/4.8915835&pic=a7f0bf43-a87b-4567-ab3a-b158b5e6fd84&xyz=280.22/-5.59/4&seq=e45959af-2d6f-4eb2-9f8c-ced568462e2c"
       },
       "geometry": {
         "type": "Point",
