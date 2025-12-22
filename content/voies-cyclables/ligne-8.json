@@ -98,7 +98,8 @@
         "type": "perspective",
         "name": "Avenue Jean Mermoz",
         "line": 8,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl8/avenue-jean-mermoz.png"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl8/avenue-jean-mermoz.png",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=16.39/45.734805/4.876745&pic=54bdd69f-628b-4037-922e-19492a7cb583&xyz=291.99/-3.70/30&seq=56d97b8e-cf77-479a-b028-53a6bdf2c7ce"
       },
       "geometry": {
         "type": "Point",

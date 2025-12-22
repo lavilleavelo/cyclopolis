@@ -249,6 +249,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl8/avenue-jean-mermoz.png
 caption: Aperçu de la Voie Lyonnaise 8 - Avenue Jean Mermoz (Lyon 8)
 credit: Street Architecture / Métropole de Lyon
 streetView: 45.7350505,4.8736669,3a,75y,304.21h,90t
+panoramax: seq=56d97b8e-cf77-479a-b028-53a6bdf2c7ce;pic=54bdd69f-628b-4037-922e-19492a7cb583;open=true
 ---
 ::
 
