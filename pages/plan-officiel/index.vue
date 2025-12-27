@@ -2,8 +2,8 @@
   <div class="relative lg:container mx-auto">
     <button
       class="hidden lg:flex absolute top-4 right-4 z-10 bg-white hover:bg-gray-100 text-gray-800 px-4 py-2 rounded-lg shadow-md transition-all items-center gap-2"
-      @click="showDialog = true"
       title="Intégrer sur votre site"
+      @click="showDialog = true"
     >
       <Icon name="mdi:share-variant" class="w-5 h-5" />
       <span class="text-sm font-medium">Partager</span>
@@ -24,7 +24,7 @@
           <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6" @click.stop>
             <div class="flex justify-between items-start mb-4">
               <h2 class="text-xl font-bold text-gray-900">Partager cette page</h2>
-              <button @click="showDialog = false" class="text-gray-400 hover:text-gray-600 transition-colors">
+              <button class="text-gray-400 hover:text-gray-600 transition-colors" @click="showDialog = false">
                 <Icon name="mdi:close" class="w-6 h-6" />
               </button>
             </div>
@@ -36,9 +36,9 @@
                   class="bg-gray-50 border border-gray-300 rounded p-4 overflow-x-auto text-sm"
                 ><code>{{ shareUrl }}</code></pre>
                 <button
-                  @click="copyUrlToClipboard"
                   class="absolute top-2 right-2 bg-white hover:bg-gray-100 text-gray-700 px-3 py-1.5 rounded shadow text-sm transition-all flex items-center gap-1.5"
                   :class="{ 'bg-green-50 text-green-700': urlCopied }"
+                  @click="copyUrlToClipboard"
                 >
                   <Icon :name="urlCopied ? 'mdi:check' : 'mdi:content-copy'" class="w-4 h-4" />
                   {{ urlCopied ? 'Copié !' : 'Copier' }}
@@ -58,9 +58,9 @@
                   class="bg-gray-50 border border-gray-300 rounded p-4 overflow-x-auto text-sm"
                 ><code>{{ iframeCode }}</code></pre>
                 <button
-                  @click="copyEmbedUrlToClipboard"
                   class="absolute top-2 right-2 bg-white hover:bg-gray-100 text-gray-700 px-3 py-1.5 rounded shadow text-sm transition-all flex items-center gap-1.5"
                   :class="{ 'bg-green-50 text-green-700': copied }"
+                  @click="copyEmbedUrlToClipboard"
                 >
                   <Icon :name="copied ? 'mdi:check' : 'mdi:content-copy'" class="w-4 h-4" />
                   {{ copied ? 'Copié !' : 'Copier' }}
