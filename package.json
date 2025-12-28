@@ -37,7 +37,7 @@
     "better-sqlite3": "^12.4.6",
     "highcharts": "^12.4.0",
     "highcharts-vue": "^2.0.1",
-    "maplibre-gl": "^5.14.0",
+    "maplibre-gl": "^5.15.0",
     "zod": "^4.1.13"
   }
 }
