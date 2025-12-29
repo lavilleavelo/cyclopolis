@@ -4,6 +4,7 @@
   "scripts": {
     "build": "nuxt generate",
     "dev": "nuxt dev",
+    "postinstall": "nuxt prepare",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "test": "vitest",
@@ -28,7 +29,7 @@
     "prettier": "^3.7.4",
     "sitemap": "^9.0.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.15"
+    "vitest": "^4.0.16"
   },
   "dependencies": {
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
@@ -37,7 +38,7 @@
     "better-sqlite3": "^12.4.6",
     "highcharts": "^12.4.0",
     "highcharts-vue": "^2.0.1",
-    "maplibre-gl": "^5.14.0",
-    "zod": "^4.1.13"
+    "maplibre-gl": "^5.15.0",
+    "zod": "^4.2.1"
   }
 }
