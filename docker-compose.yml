@@ -1,0 +1,12 @@
+services:
+  cyclopolis-web:
+    build: .
+    restart: always
+    ports:
+      - '3002:3002'
+    networks:
+      - scoobydoo
+
+networks:
+  scoobydoo:
+    external: true
