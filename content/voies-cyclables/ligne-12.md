@@ -185,7 +185,7 @@ Afin de confirmer le bon fonctionnement de la mise en sens unique de Rockefeller
 
 ::banner{type="wip"}
 Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et octobre 2025.\
-Les travaux définitifs entre la rue Viala et le boulevard Pinel auront lieu entre octobre et décembre 2025.
+Les travaux définitifs entre la rue Viala et le boulevard Pinel ont eu lieu entre octobre et décembre 2025.
 ::
 
 ### Boulevard Pinel à Bron - Boutasse
