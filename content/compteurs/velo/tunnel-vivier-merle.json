@@ -1,0 +1,67 @@
+{
+  "name": "Tunnel Vivier Merle",
+  "description": "Le compteur vélo du tunnel Vivier Merle se situe au nord du tunnel en arrivant sur Lafayette. Il compte les passages des cyclistes dans les 2 sens de circulation.",
+  "arrondissement": "Lyon 3",
+  "idPdc": 300048109,
+  "coordinates": [
+    4.857821,
+    45.763155
+  ],
+  "lines": [
+    2
+  ],
+  "counts": [
+    {
+      "month": "2024-12-01",
+      "count": 0
+    },
+    {
+      "month": "2025-01-01",
+      "count": 0
+    },
+    {
+      "month": "2025-02-01",
+      "count": 0
+    },
+    {
+      "month": "2025-03-01",
+      "count": 0
+    },
+    {
+      "month": "2025-04-01",
+      "count": 0
+    },
+    {
+      "month": "2025-05-01",
+      "count": 0
+    },
+    {
+      "month": "2025-06-01",
+      "count": 22069
+    },
+    {
+      "month": "2025-07-01",
+      "count": 39052
+    },
+    {
+      "month": "2025-08-01",
+      "count": 28908
+    },
+    {
+      "month": "2025-09-01",
+      "count": 48414
+    },
+    {
+      "month": "2025-10-01",
+      "count": 48730
+    },
+    {
+      "month": "2025-11-01",
+      "count": 41096
+    },
+    {
+      "month": "2025-12-01",
+      "count": 39205
+    }
+  ]
+}

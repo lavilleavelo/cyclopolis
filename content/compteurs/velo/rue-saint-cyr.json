@@ -1,0 +1,85 @@
+{
+  "name": "Rue de Saint-Cyr",
+  "description": "Le compteur vélo de la rue de Saint-Cyr se trouve entre la rue Mouillard et la rue Joannes Carret.",
+  "arrondissement": "Lyon 9",
+  "idPdc": 300062480,
+  "coordinates": [
+    4.807854,
+    45.784993
+  ],
+  "lines": [],
+  "counts": [
+    {
+      "month": "2024-07-01",
+      "count": 1459
+    },
+    {
+      "month": "2024-08-01",
+      "count": 9618
+    },
+    {
+      "month": "2024-09-01",
+      "count": 11722
+    },
+    {
+      "month": "2024-10-01",
+      "count": 10188
+    },
+    {
+      "month": "2024-11-01",
+      "count": 7951
+    },
+    {
+      "month": "2024-12-01",
+      "count": 5374
+    },
+    {
+      "month": "2025-01-01",
+      "count": 6293
+    },
+    {
+      "month": "2025-02-01",
+      "count": 7561
+    },
+    {
+      "month": "2025-03-01",
+      "count": 11043
+    },
+    {
+      "month": "2025-04-01",
+      "count": 13362
+    },
+    {
+      "month": "2025-05-01",
+      "count": 13462
+    },
+    {
+      "month": "2025-06-01",
+      "count": 17271
+    },
+    {
+      "month": "2025-07-01",
+      "count": 18140
+    },
+    {
+      "month": "2025-08-01",
+      "count": 13211
+    },
+    {
+      "month": "2025-09-01",
+      "count": 18553
+    },
+    {
+      "month": "2025-10-01",
+      "count": 15927
+    },
+    {
+      "month": "2025-11-01",
+      "count": 11902
+    },
+    {
+      "month": "2025-12-01",
+      "count": 9573
+    }
+  ]
+}

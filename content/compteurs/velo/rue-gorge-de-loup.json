@@ -1,0 +1,89 @@
+{
+  "name": "Rue Gorge de Loup",
+  "description": "Le compteur vélo de la rue Gorge de Loup se trouve vers la rue Apollinaire",
+  "arrondissement": "Lyon 9",
+  "idPdc": 300039241,
+  "coordinates": [
+    4.798735,
+    45.769163
+  ],
+  "lines": [],
+  "counts": [
+    {
+      "month": "2024-06-01",
+      "count": 1289
+    },
+    {
+      "month": "2024-07-01",
+      "count": 5753
+    },
+    {
+      "month": "2024-08-01",
+      "count": 3670
+    },
+    {
+      "month": "2024-09-01",
+      "count": 6128
+    },
+    {
+      "month": "2024-10-01",
+      "count": 6840
+    },
+    {
+      "month": "2024-11-01",
+      "count": 8065
+    },
+    {
+      "month": "2024-12-01",
+      "count": 6590
+    },
+    {
+      "month": "2025-01-01",
+      "count": 5813
+    },
+    {
+      "month": "2025-02-01",
+      "count": 5544
+    },
+    {
+      "month": "2025-03-01",
+      "count": 6581
+    },
+    {
+      "month": "2025-04-01",
+      "count": 8968
+    },
+    {
+      "month": "2025-05-01",
+      "count": 9409
+    },
+    {
+      "month": "2025-06-01",
+      "count": 9468
+    },
+    {
+      "month": "2025-07-01",
+      "count": 8867
+    },
+    {
+      "month": "2025-08-01",
+      "count": 4914
+    },
+    {
+      "month": "2025-09-01",
+      "count": 11324
+    },
+    {
+      "month": "2025-10-01",
+      "count": 13249
+    },
+    {
+      "month": "2025-11-01",
+      "count": 11319
+    },
+    {
+      "month": "2025-12-01",
+      "count": 10174
+    }
+  ]
+}
