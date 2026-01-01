@@ -481,8 +481,7 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Lanessan Sud",
-        "status": "done",
-        "doneAt": "19/12/2025",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-juttet-à-avenue-de-champagne"
