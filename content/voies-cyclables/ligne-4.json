@@ -70,6 +70,19 @@
       "type": "Feature",
       "properties": {
         "type": "danger",
+        "name": "Porte de Lyon - Bretelle de sortie",
+        "description": "Bascule piste bidirectionnelle Est <> Ouest avec traversée dangereuse",
+        "danger": "Traversée gérée par un STOP, avec forte vitesse des véhicules et aucune visibilité sens Nord > Sud"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.763575, 45.822838]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
         "name": "Carrefour Sans Souci, sens Ouest>Est",
         "description": "Jonction difficile piste bidirectionnelle Nord <> voies bus bilatérales",
         "danger": "Carrefour difficile à comprendre pouvant mener à des trajectoires cycles accidentogènes"

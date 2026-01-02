@@ -77,7 +77,8 @@ streetView: 45.800433,4.7867128,3a,75y,163.52h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux sur la commune de Champagne entre la rue Sans Souci et l'avenue de Montlouis ont commencé mi-mars 2025 et continué par sections jusqu'à décembre 2025.
+Les travaux sur la commune de Champagne entre la rue Sans Souci et l'avenue de Montlouis ont commencé mi-mars 2025 et continué par sections jusqu'à décembre 2025.\
+Le carrefour Montlouis a été finalisé en janvier 2026.
 ::
 
 #### Avenue de Montlouis à Rue Juttet

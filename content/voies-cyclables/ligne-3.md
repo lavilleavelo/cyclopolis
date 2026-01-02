@@ -83,7 +83,7 @@ streetView: 45.8337609,4.8371625,3a,46.1y,312.7h,87.18t
 ::
 
 ::banner{type="info"}
-Entre Saint-Romain et Saint-Rambert, une piste cyclable bidirectionnelle transitoire avait été aménagée pendant l'été 2020, sans traiter les giratoires et l'entrée de St-Rambert, ce qui obligeait les cyclistes dans le sens Nord>Sud à traverser dangereusement toute la voirie à 3 reprises pour repasser en configuration bilatérale.
+Entre Saint-Romain et Saint-Rambert, une piste cyclable bidirectionnelle transitoire avait été aménagée pendant l'été 2020, sans traiter les giratoires et l'entrée de St-Rambert, ce qui oblige les cyclistes dans le sens Nord>Sud à traverser dangereusement toute la voirie à 3 reprises pour repasser en configuration bilatérale.
 ::
 
 #### Saint-Rambert à pont de l'Île Barbe
@@ -101,10 +101,14 @@ La concertation publique sur ce tronçon s'est tenue du 30/01 au 10/03/2023.\
 *Parcours commun avec la véloroute touristique "La Voie Bleue"*
 
 #### Île Barbe à rue Antonin Laborde (Quai Sédallian)
-L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 2.70m de large à cause des contraintes de ce quai étroit. En outre, la traversée du carrefour avec la rue Antonin Laborde sera sécurisée avec la création d'un plateau surélevé et la priorité de la traversée vélo.
+L'objectif est de transformer la piste cyclable bidirectionnelle transitoire créée à l'été 2020 en aménagement pérenne de 2.50 à 2.70m de large à cause des contraintes de ce quai étroit. En outre, la traversée du carrefour avec la rue Antonin Laborde sera améliorée avec la création d'un plateau surélevé (la priorité de la traversée vélo initialement prévue a finalement été annulée).
+
+::banner{type="unsatisfactory"}
+La création régulière d'ilots piétons étroits entre la piste cyclable et la voirie routière constitue des chicanes inconfortables qui pourraient mener à des chocs frontaux. Nous déplorons qu'elles n'aient pas été plus longues quand cela était possible. 
+::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre mi-juillet et novembre 2025.
+Les travaux ont lieu entre mi-juillet et janvier 2026.
 ::
 
 #### Rue Antonin Laborde au pont Clémenceau

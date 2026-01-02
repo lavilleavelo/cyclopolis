@@ -743,8 +743,9 @@
       "type": "Feature",
       "properties": {
         "line": 1,
-        "name": "Avenue Leclerc Sud",
-        "status": "wip",
+        "name": "Avenue Leclerc Centre",
+        "status": "done",
+        "doneAt": "10/12/2025",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-1#avenue-général-leclerc",
         "quality": "satisfactory"
@@ -754,10 +755,28 @@
         "coordinates": [
           [4.824421325110052, 45.73755776312275],
           [4.824143041538093, 45.737111353511054],
-          [4.823813646723835, 45.73635776021279],
-          [4.823641985346825, 45.7355116475724],
-          [4.82367448431873, 45.7345847478553],
-          [4.82377320963198, 45.73361724487301],
+          [4.82377887567597, 45.736289580574116],
+          [4.82360630667057, 45.73543948020865],
+          [4.823597278187961, 45.73524091952791],
+          [4.8236788786664135, 45.734404002065354]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 1,
+        "name": "Avenue Leclerc Sud",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "link": "/voie-lyonnaise-1#avenue-général-leclerc",
+        "quality": "satisfactory"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8236788786664135, 45.734404002065354],
+          [4.82371026016088, 45.73373179851904],
           [4.823708132401038, 45.732395987578705]
         ]
       }
