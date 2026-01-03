@@ -136,6 +136,19 @@
       "type": "Feature",
       "properties": {
         "type": "danger",
+        "name": "Carrefour T10 - T1",
+        "description": "Espace étroit, peu lisible et très fréquenté avec des commerces",
+        "danger": "Risque de gêne fréquente entre piétons et cyclistes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.823830, 45.731556]
+      }
+    },    
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
         "name": "Station T10 - Quatre Chemins",
         "description": "Espace étroit très fréquenté avec des commerces",
         "danger": "Risque de gêne fréquente entre piétons et cyclistes"

@@ -69,6 +69,19 @@
     {
       "type": "Feature",
       "properties": {
+        "type": "danger",
+        "name": "178 Rte de Genas",
+        "description": "Voie verte étroite - Point dur à 1m70 de large",
+        "danger": "Fort conflit piéton-vélo au droit d'un étai de soutien d'un immeuble en péril"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.893222, 45.753986]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "line": 11,
         "name": "Place Bénédict Tessier",
         "status": "postponed",
