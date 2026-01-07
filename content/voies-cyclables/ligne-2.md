@@ -24,7 +24,7 @@ Aucune information publique n'existe à ce jour sur ce tronçon. Plusieurs varia
 Aucune information publique n'existe à ce jour sur ce tronçon. Plusieurs variantes sont en cours d'étude par les services de la Métropole de Lyon. Compte-tenu du refus de la mairie de Caluire d'aménager de nouveaux itinéraires cyclables sécurisés pour rejoindre le plateau depuis la Saône ou le Rhône, nous pensons que ce tronçon sera majoritairement reporté à un mandat ultérieur.
 
 ::banner{type="info"}
-Compte-tenu des contraintes liées aux lignes de bus sur la montée des Soldats, nous privilégions un détour plus sinueux par l'Est qui reste indéfini dans les détails et à confirmer par la Métropole de Lyon. Il sera probablement partiellement en tronçon commun avec la :line-link{line=7 anchor="voie-de-la-dombe"} sur une partie du plateau.
+Compte-tenu des contraintes liées aux lignes de bus sur la montée des Soldats, nous privilégions un détour plus sinueux par l'Est qui reste indéfini dans les détails et à confirmer par la Métropole de Lyon. Il sera probablement partiellement en tronçon commun avec la :line-link{line=7 anchor="voie-de-la-dombes"} sur une partie du plateau.
 ::
 
 ### Pont Poincaré à avenue Berthelot

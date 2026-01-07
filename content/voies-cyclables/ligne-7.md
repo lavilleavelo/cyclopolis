@@ -48,8 +48,8 @@ Les travaux du giratoire de Gaulle ont eu lieu entre l'automne 2023 et fin mars 
 Le reste de cette section est en travaux progressif par sections entre février et décembre 2025.
 ::
 
-#### Voie de la Dombe
-Pour les cyclistes du plateau Nord qui souhaitent traverser la commune de Caluire-et-Cuire du Nord au Sud, la voie verte de la Dombe reste le seul itinéraire compte-tenu du refus de la mairie de proposer des aménagements cyclables alternatifs continus et sécurisés sur les axes parallèles de sa commune. Elle concentre donc un nombre croissant de cyclistes qui entrent en conflit avec les piétons voulant profiter de ce même axe pour la promenade. En outre, son revêtement en sable stabilisé est inconfortable et salissant pour les cyclistes, poussettes et fauteuils roulants et crée de nombreuses flaques d'eau après une météo pluvieuse.
+#### Voie de la Dombes
+Pour les cyclistes du plateau Nord qui souhaitent traverser la commune de Caluire-et-Cuire du Nord au Sud, la voie verte de la Dombes reste le seul itinéraire compte-tenu du refus de la mairie de proposer des aménagements cyclables alternatifs continus et sécurisés sur les axes parallèles de sa commune. Elle concentre donc un nombre croissant de cyclistes qui entrent en conflit avec les piétons voulant profiter de ce même axe pour la promenade. En outre, son revêtement en sable stabilisé est inconfortable et salissant pour les cyclistes, poussettes et fauteuils roulants et crée de nombreuses flaques d'eau après une météo pluvieuse.
 
 ::banner{type="info"}
 Le projet de Voie Lyonnaise 7 permettrait de minimiser les conflits entre les vélos et les piétons en élargissant la voie verte actuelle ou en la privilégiant aux seuls piétons via la création de nouvelles pistes cyclables sécurisées sur des axes alternatifs dédiés. Malheureusement, l'entêtement de la mairie de Caluire à ne pas vouloir les créer provoque stress, tensions et conflits entre les deux types d'usagers.
@@ -76,7 +76,7 @@ Suite à la concertation, la Métropole a étudié de nouvelles variantes pour �
 ::content-image
 ---
 imageUrl: https://cyclopolis.lavilleavelo.org/vl7/caluire-voie-verte-dombe.png
-caption: Aperçu de la Voie Lyonnaise 7 - Voie verte de la Dombe (Caluire-et-Cuire)
+caption: Aperçu de la Voie Lyonnaise 7 - Voie verte de la Dombes (Caluire-et-Cuire)
 credit: Métropole de Lyon
 ---
 ::

@@ -646,7 +646,7 @@
         "doneAt": "25/04/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -669,7 +669,7 @@
         "doneAt": "31/12/2019",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -693,7 +693,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -726,7 +726,7 @@
         "status": "postponed",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -746,7 +746,7 @@
         "status": "postponed",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -770,7 +770,7 @@
         "doneAt": "15/11/2023",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -792,7 +792,7 @@
         "status": "postponed",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -815,7 +815,7 @@
         "status": "variante-postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -834,7 +834,7 @@
         "status": "variante-postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -864,7 +864,7 @@
         "status": "postponed",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -886,7 +886,7 @@
         "status": "variante-postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
@@ -910,7 +910,7 @@
         "status": "postponed",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombe"
+        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
