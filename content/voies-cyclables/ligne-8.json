@@ -170,7 +170,20 @@
         "type": "Point",
         "coordinates": [4.741194, 45.794668]
       }
-    },        
+    },    
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
+        "name": "Carrefour Apollinaire-Gravière",
+        "description": "Voie obstruée par des blocs de béton",
+        "danger": "Voie obstruée par des blocs de béton permettant tout juste le passage d'un vélo classique au pas. Impossible de passer pour un vélo cargo ou un vélo adapté."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.804664, 45.761609]
+      }
+    },   
     {
       "type": "Feature",
       "properties": {

@@ -865,7 +865,7 @@
         "status": "done",
         "doneAt": "19/12/2025",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#île-barbe-à-rue-antonin-laborde-quai-sédallian"
       },
       "geometry": {
@@ -889,7 +889,7 @@
         "name": "Quai Paul Sédallian Sud",
         "status": "wip",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#île-barbe-à-rue-antonin-laborde-quai-sédallian"
       },
       "geometry": {
