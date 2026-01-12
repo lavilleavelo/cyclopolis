@@ -39,7 +39,12 @@
     </template>
 
     <h2>Source des données</h2>
-    <p>Les données proviennent du <a href="https://avatar.cerema.fr/cartographie" target="_blank">Cerema</a>.</p>
+    <p>
+      Les données proviennent de <a href="https://avatar.cerema.fr/cartographie" target="_blank">avatar.cerema.fr</a>.
+    </p>
+    <a href="https://avatar.cerema.fr/cartographie" target="_blank">
+      <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
+    </a>
   </ContentFrame>
 </template>
 

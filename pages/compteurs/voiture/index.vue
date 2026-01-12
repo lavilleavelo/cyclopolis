@@ -8,6 +8,13 @@
         <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
           Suivi des compteurs voiture de l'agglomération lyonnaise
         </h2>
+        <p class="mt-2">
+          <span class="text-sm text-gray-400"
+            >Données&nbsp;:&nbsp;<a class="hover:underline" href="https://avatar.cerema.fr/cartographie" target="_blank"
+              >avatar.cerema.fr</a
+            ></span
+          >
+        </p>
         <ClientOnly fallback-tag="div">
           <template #fallback>
             <MapPlaceholder style="height: 40vh" additional-class="mt-12" />

@@ -30,9 +30,12 @@
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
     </p>
     <p>
-      Les données des compteurs voiture proviennent du
-      <a href="https://avatar.cerema.fr/cartographie" target="_blank">cerema</a>.
+      Les données des compteurs voiture proviennent de
+      <a href="https://avatar.cerema.fr/cartographie" target="_blank">avatar.cerema.fr</a>.
     </p>
+    <a href="https://avatar.cerema.fr/cartographie" target="_blank">
+      <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
+    </a>
   </ContentFrame>
 </template>
 

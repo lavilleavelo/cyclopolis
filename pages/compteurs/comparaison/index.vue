@@ -11,6 +11,14 @@
         <p class="mt-8 text-xl text-gray-500 leading-8">
           Cette page permet de comparer l'évolution des fréquentations cyclistes et automobiles sur un même axe.
         </p>
+        <span class="text-sm text-gray-400"
+          >Données&nbsp;:&nbsp;<a class="hover:underline" href="https://avatar.cerema.fr/cartographie" target="_blank"
+            >avatar.cerema.fr</a
+          >,
+          <a class="hover:underline" href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank"
+            >data.eco-counter.com</a
+          ></span
+        >
       </div>
 
       <ClientOnly fallback-tag="div">

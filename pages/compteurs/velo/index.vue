@@ -12,6 +12,15 @@
           Chaque début de mois, nous remontons les données de {{ counters.length }} compteurs à vélo de l'agglomération
           lyonnaise.
         </p>
+        <span class="text-sm text-gray-400"
+          >Données&nbsp;:&nbsp;<a
+            class="hover:underline"
+            href="https://data.eco-counter.com/ParcPublic/?id=3902#"
+            target="_blank"
+            >data.eco-counter.com</a
+          ></span
+        >
+
         <ClientOnly fallback-tag="div">
           <template #fallback>
             <MapPlaceholder style="height: 40vh" additional-class="mt-12" />
