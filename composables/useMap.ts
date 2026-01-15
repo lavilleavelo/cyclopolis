@@ -363,6 +363,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 120,
+        'symbol-sort-key': ['get', 'line'],
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante'],
         'text-size': 14,
@@ -403,6 +404,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 120,
+        'symbol-sort-key': ['get', 'line'],
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante reportée'],
         'text-size': 14,
@@ -426,6 +428,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 1,
+        'symbol-sort-key': ['get', 'line'],
         'icon-image': 'cross-icon',
         'icon-size': 1.2,
       },
@@ -445,6 +448,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 150,
+        'symbol-sort-key': ['get', 'line'],
         'text-font': ['Open Sans Regular'],
         'text-field': 'reporté',
         'text-size': 14,
