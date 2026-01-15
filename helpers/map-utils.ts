@@ -224,40 +224,6 @@ export function addCompositeIconNames(features: Collections['voiesCyclablesGeojs
   return processedFeatures;
 }
 
-// todo: optimize to only generate needed combinations
-export function generateCompositeIconCombinations(totalLines: number): Set<string> {
-  const compositeIcons = new Set<string>();
-
-  // Generate 2-line combinations
-  for (let i = 1; i <= totalLines; i++) {
-    for (let j = i + 1; j <= totalLines; j++) {
-      compositeIcons.add(`${i}-${j}`);
-    }
-  }
-
-  // Generate 3-line combinations
-  for (let i = 1; i <= totalLines; i++) {
-    for (let j = i + 1; j <= totalLines; j++) {
-      for (let k = j + 1; k <= totalLines; k++) {
-        compositeIcons.add(`${i}-${j}-${k}`);
-      }
-    }
-  }
-
-  // Generate 4-line combinations
-  for (let i = 1; i <= totalLines; i++) {
-    for (let j = i + 1; j <= totalLines; j++) {
-      for (let k = j + 1; k <= totalLines; k++) {
-        for (let l = k + 1; l <= totalLines; l++) {
-          compositeIcons.add(`${i}-${j}-${k}-${l}`);
-        }
-      }
-    }
-  }
-
-  return compositeIcons;
-}
-
 export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
   const dashArraySequence = [
     [0, 2, 2],
@@ -292,4 +258,29 @@ export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
     requestAnimationFrame(animateDashArray);
   }
   return animateDashArray;
+}
+
+export function getUsedCompositeIcons(features: Collections['voiesCyclablesGeojson']['features']): Set<string> {
+  const sectionGroups = new Map<string, number[]>();
+
+  for (const feature of features) {
+    if (feature.geometry.type !== 'LineString' || !('id' in feature.properties) || !feature.properties.id) {
+      continue;
+    }
+
+    const sectionId = feature.properties.id;
+    if (!sectionGroups.has(sectionId)) {
+      sectionGroups.set(sectionId, []);
+    }
+    sectionGroups.get(sectionId)!.push(feature.properties.line);
+  }
+
+  const compositeIcons = new Set<string>();
+  for (const lines of sectionGroups.values()) {
+    const uniqueLines = [...new Set(lines)].sort((a, b) => a - b);
+    if (uniqueLines.length > 1) {
+      compositeIcons.add(uniqueLines.join('-'));
+    }
+  }
+  return compositeIcons;
 }

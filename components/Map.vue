@@ -213,7 +213,7 @@ onMounted(() => {
   }
 
   async function onMapLoaded() {
-    await loadImages({ map });
+    await loadImages({ map, features: props.features });
     plotFeatures({ map, features: props.features });
     highlightLines({ map, selections: null });
 

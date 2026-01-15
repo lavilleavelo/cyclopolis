@@ -27,7 +27,7 @@ import {
   normalizeLineDirection,
   addCompositeIconNames,
   createDashArrayAnimator,
-  generateCompositeIconCombinations,
+  getUsedCompositeIcons,
 } from '~/helpers/map-utils';
 
 const DIMMED_OPACITY = 0.2;
@@ -81,7 +81,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     return false;
   }
 
-  async function loadImages({ map }: { map: MaplibreType }) {
+  async function loadImages({
+    map,
+    features,
+  }: {
+    map: MaplibreType;
+    features?: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+  }) {
     const [camera, pump, danger, cross] = await Promise.all([
       map.loadImage('/icons/camera.png'),
       map.loadImage('/icons/pump.png'),
@@ -105,7 +111,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       }
     }
 
-    const compositeIcons = generateCompositeIconCombinations(totalLines);
+    const compositeIcons = getUsedCompositeIcons(features as Collections['voiesCyclablesGeojson']['features']);
 
     compositeIcons.forEach((combo) => {
       const lineNumbers = combo.split('-').map(Number);
