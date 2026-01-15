@@ -427,8 +427,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       filter: ['==', 'status', 'postponed'],
       layout: {
         'symbol-placement': 'line',
-        'symbol-spacing': 1,
+        'symbol-spacing': 20,
         'symbol-sort-key': ['get', 'line'],
+        'icon-allow-overlap': false,
+        'icon-ignore-placement': false,
         'icon-image': 'cross-icon',
         'icon-size': 1.2,
       },
