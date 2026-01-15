@@ -28,16 +28,13 @@ import {
   addCompositeIconNames,
   createDashArrayAnimator,
   getUsedCompositeIcons,
+  type ColoredLineStringFeature,
 } from '~/helpers/map-utils';
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
 const HIGHLIGHTED_SECTION_OPACITY = 1;
 
-type ColoredLineStringFeature = Extract<
-  Collections['voiesCyclablesGeojson']['features'][0],
-  { geometry: { type: 'LineString' } }
-> & { properties: { color: string } };
 const { getNbVoiesCyclables } = useConfig();
 
 export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
@@ -124,34 +121,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotUnsatisfactorySections({
-    map,
-    features,
-  }: {
-    map: MaplibreType;
-    features: Collections['voiesCyclablesGeojson']['features'];
-  }) {
-    const sections = features.filter((feature) => {
-      return (
-        'quality' in feature.properties &&
-        feature.properties.quality === 'unsatisfactory' &&
-        'status' in feature.properties &&
-        feature.properties.status !== 'postponed'
-      );
-    });
-
-    if (sections.length === 0 && !map.getLayer('unsatisfactory-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'unsatisfactory-sections', sections)) {
+  function plotUnsatisfactorySections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('unsatisfactory-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'unsatisfactory-sections',
       type: 'line',
-      source: 'unsatisfactory-sections',
+      source: 'all-sections',
       minzoom: 13,
+      filter: ['all', ['==', 'quality', 'unsatisfactory'], ['!=', 'status', 'postponed']],
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -163,19 +143,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
   function plotUnderlinedSections({
     map,
-    features,
+    shouldAddSectionNames,
   }: {
     map: MaplibreType;
-    features: Collections['voiesCyclablesGeojson']['features'];
+    shouldAddSectionNames: boolean;
   }) {
-    const processedFeatures = addCompositeIconNames(features);
-    const sections = processedFeatures.map((feature, index) => ({ id: index, ...feature }));
-
-    if (sections.length === 0 && !map.getLayer('highlight-layer')) {
-      return;
-    }
-
-    if (upsertMapSource(map, 'all-sections', sections as Collections['voiesCyclablesGeojson']['features'])) {
+    if (map.getLayer('highlight-layer')) {
       return;
     }
 
@@ -183,7 +156,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'selected-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round' },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -195,7 +168,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'highlight-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round' },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -207,7 +180,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'contour-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round' },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-gap-width': 4,
         'line-width': 1,
@@ -219,17 +192,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'underline-layer',
       type: 'line',
       source: 'all-sections',
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': '#ffffff',
       },
     });
-
-    // Count unique lines to determine if section-names layers should be added
-    const uniqueLines = new Set(
-      features.map((feature) => ('line' in feature.properties ? feature.properties.line : null)).filter(Boolean),
-    );
-    const shouldAddSectionNames = uniqueLines.size > 2;
 
     if (shouldAddSectionNames) {
       map.addLayer({
@@ -306,24 +274,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotDoneSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'done',
-    );
-
-    // si il n'y a rien a afficher et que la couche n'existe pas, on ne fait rien
-    // si elle existe déjà, on la maj (carte dynamique par année)
-    if (sections.length === 0 && !map.getLayer('done-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'done-sections', sections)) {
+  function plotDoneSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('done-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'done-sections',
       type: 'line',
-      source: 'done-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'done'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -331,26 +292,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotWipSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter((feature) => {
-      // on considère les sections en test comme en travaux
-      return (
-        'status' in feature.properties &&
-        (feature.properties.status === 'wip' || feature.properties.status === 'tested')
-      );
-    });
-
-    if (sections.length === 0 && !map.getLayer('wip-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'wip-sections', sections)) {
+  function plotWipSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('wip-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'wip-sections',
       type: 'line',
-      source: 'wip-sections',
+      source: 'all-sections',
+      filter: ['in', 'status', 'wip', 'tested'],
+      layout: { 'line-cap': 'butt', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -362,22 +314,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     animateDashArray(0);
   }
 
-  function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'planned',
-    );
-
-    if (sections.length === 0 && !map.getLayer('planned-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'planned-sections', sections)) {
+  function plotPlannedSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('planned-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'planned-sections',
       type: 'line',
-      source: 'planned-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'planned'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -386,22 +333,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotVarianteSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'variante',
-    );
-
-    if (sections.length === 0 && !map.getLayer('variante-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'variante-sections', sections)) {
+  function plotVarianteSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('variante-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'variante-sections',
       type: 'line',
-      source: 'variante-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'variante'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -412,7 +354,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.addLayer({
       id: 'variante-symbols',
       type: 'symbol',
-      source: 'variante-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'variante'],
       paint: {
         'text-halo-color': '#fff',
         'text-halo-width': 4,
@@ -430,28 +373,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.on('mouseleave', 'variante-sections', () => (map.getCanvas().style.cursor = ''));
   }
 
-  function plotVariantePostponedSections({
-    map,
-    features,
-  }: {
-    map: MaplibreType;
-    features: ColoredLineStringFeature[];
-  }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'variante-postponed',
-    );
-
-    if (sections.length === 0 && !map.getLayer('variante-postponed-sections')) {
-      return;
-    }
-    if (upsertMapSource(map, 'variante-postponed-sections', sections)) {
+  function plotVariantePostponedSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('variante-postponed-sections')) {
       return;
     }
 
     map.addLayer({
       id: 'variante-postponed-sections',
       type: 'line',
-      source: 'variante-postponed-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'variante-postponed'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -462,7 +394,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.addLayer({
       id: 'variante-postponed-symbols',
       type: 'symbol',
-      source: 'variante-postponed-sections',
+      source: 'all-sections',
+      filter: ['==', 'status', 'variante-postponed'],
       paint: {
         'text-halo-color': '#fff',
         'text-halo-width': 4,
@@ -480,63 +413,46 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map.on('mouseleave', 'variante-postponed-sections', () => (map.getCanvas().style.cursor = ''));
   }
 
-  function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'postponed',
-    );
-    const featuresByColor = groupFeaturesByColor(sections);
-
-    for (let line = 1; line <= getNbVoiesCyclables(); line++) {
-      const lineColor = getLineColor(line);
-      if (!featuresByColor[lineColor]) {
-        upsertMapSource(map, `postponed-sections-${lineColor}`, []);
-      }
+  function plotPostponedSections({ map }: { map: MaplibreType }) {
+    if (map.getLayer('postponed-symbols')) {
+      return;
     }
 
-    for (const [color, sameColorFeatures] of Object.entries(featuresByColor)) {
-      upsertMapSource(
-        map,
-        `postponed-sections-${color}`,
-        sameColorFeatures as Collections['voiesCyclablesGeojson']['features'],
-      );
+    map.addLayer({
+      id: 'postponed-symbols',
+      type: 'symbol',
+      source: 'all-sections',
+      filter: ['==', 'status', 'postponed'],
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 1,
+        'icon-image': 'cross-icon',
+        'icon-size': 1.2,
+      },
+      paint: {
+        'icon-color': ['get', 'color'],
+      },
+    });
+    map.addLayer({
+      id: 'postponed-text',
+      type: 'symbol',
+      source: 'all-sections',
+      filter: ['==', 'status', 'postponed'],
+      paint: {
+        'text-halo-color': '#fff',
+        'text-halo-width': 3,
+      },
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 150,
+        'text-font': ['Open Sans Regular'],
+        'text-field': 'reporté',
+        'text-size': 14,
+      },
+    });
 
-      if (map.getLayer(`postponed-symbols-${color}`)) {
-        continue;
-      }
-
-      map.addLayer({
-        id: `postponed-symbols-${color}`,
-        type: 'symbol',
-        source: `postponed-sections-${color}`,
-        layout: {
-          'symbol-placement': 'line',
-          'symbol-spacing': 1,
-          'icon-image': 'cross-icon',
-          'icon-size': 1.2,
-        },
-        paint: {
-          'icon-color': color,
-        },
-      });
-      map.addLayer({
-        id: `postponed-text-${color}`,
-        type: 'symbol',
-        source: `postponed-sections-${color}`,
-        paint: {
-          'text-halo-color': '#fff',
-          'text-halo-width': 3,
-        },
-        layout: {
-          'symbol-placement': 'line',
-          'symbol-spacing': 150,
-          'text-font': ['Open Sans Regular'],
-          'text-field': 'reporté',
-          'text-size': 14,
-        },
-      });
-      map.on('mouseenter', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = 'pointer'));
-      map.on('mouseleave', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = ''));
-    }
+    map.on('mouseenter', 'postponed-symbols', () => (map.getCanvas().style.cursor = 'pointer'));
+    map.on('mouseleave', 'postponed-symbols', () => (map.getCanvas().style.cursor = ''));
   }
 
   function plotPerspective({
@@ -697,7 +613,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }) {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
-      .flatMap((feature) => feature.geometry.coordinates);
+      .flatMap((feature) => feature.geometry.coordinates as [number, number][]);
 
     const allPointsCoordinates: [number, number][] = features
       .filter(isPointFeature)
@@ -730,10 +646,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       .filter(isLineStringFeature)
       .sort(sortByLine)
       .map(addLineColor)
-      .map((feature) => {
+      .map((feature, index) => {
         const distance = getLineStringDistance(feature);
         return {
           ...feature,
+          id: index,
           properties: {
             ...feature.properties,
             distance, // distance in meters
@@ -745,14 +662,22 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         };
       });
 
-    plotUnderlinedSections({ map, features: lineStringFeatures });
-    plotUnsatisfactorySections({ map, features: lineStringFeatures });
-    plotDoneSections({ map, features: lineStringFeatures });
-    plotPlannedSections({ map, features: lineStringFeatures });
-    plotVarianteSections({ map, features: lineStringFeatures });
-    plotVariantePostponedSections({ map, features: lineStringFeatures });
-    plotWipSections({ map, features: lineStringFeatures });
-    plotPostponedSections({ map, features: lineStringFeatures });
+    const processedFeatures = addCompositeIconNames(lineStringFeatures) as ColoredLineStringFeature[];
+    upsertMapSource(map, 'all-sections', processedFeatures as Collections['voiesCyclablesGeojson']['features']);
+
+    const uniqueLines = new Set(
+      features.map((feature) => ('line' in feature.properties ? feature.properties.line : null)).filter(Boolean),
+    );
+    const shouldAddSectionNames = uniqueLines.size > 2;
+
+    plotUnderlinedSections({ map, shouldAddSectionNames });
+    plotUnsatisfactorySections({ map });
+    plotDoneSections({ map });
+    plotPlannedSections({ map });
+    plotVarianteSections({ map });
+    plotVariantePostponedSections({ map });
+    plotWipSections({ map });
+    plotPostponedSections({ map });
 
     const compteurFeature = features.filter(isCompteurFeature);
     plotCompteurs({ map, features: compteurFeature });

@@ -1,7 +1,7 @@
 import type { Collections } from '@nuxt/content';
 import type { Map as MaplibreType } from 'maplibre-gl';
 
-type ColoredLineStringFeature = Extract<
+export type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
 > & { properties: { color: string } };
@@ -188,40 +188,35 @@ export function addCompositeIconNames(features: Collections['voiesCyclablesGeojs
     });
   });
 
-  const processedFeatures = features.map((feature) => {
-    if (feature.geometry.type === 'LineString') {
-      return {
-        ...feature,
-        geometry: {
-          ...feature.geometry,
-          coordinates: normalizeLineDirection(feature.geometry.coordinates as [number, number][]),
-        },
-      };
-    }
-    return { ...feature };
-  });
+  const compositeNamesByIndex = new Map<number, string>();
 
   sectionGroups.forEach((group) => {
-    group.sort((a, b) => a.line - b.line);
+    const uniqueLines = [...new Set(group.map((item) => item.line))].sort((a, b) => a - b);
 
-    const lineNumbers = group.map((item) => item.line).sort((a, b) => a - b);
-    const compositeIconName = `line-shield-${lineNumbers.join('-')}`;
+    if (uniqueLines.length <= 1) {
+      return;
+    }
+
+    const compositeIconName = `line-shield-${uniqueLines.join('-')}`;
 
     group.forEach((item) => {
-      const feature = item.feature;
-      if (feature.geometry.type === 'LineString') {
-        const currentFeature = processedFeatures[item.index];
-        if (currentFeature && 'properties' in currentFeature) {
-          processedFeatures[item.index] = {
-            ...currentFeature,
-            properties: { ...currentFeature.properties, compositeIconName },
-          };
-        }
-      }
+      compositeNamesByIndex.set(item.index, compositeIconName);
     });
   });
 
-  return processedFeatures;
+  return features.map((feature, index) => {
+    const compositeIconName = compositeNamesByIndex.get(index);
+    if (compositeIconName) {
+      return {
+        ...feature,
+        properties: {
+          ...feature.properties,
+          compositeIconName,
+        },
+      };
+    }
+    return feature;
+  });
 }
 
 export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
