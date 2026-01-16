@@ -14,6 +14,7 @@
           showLineFilters: true,
           showDetailsPanel: true,
           showDateFilter: true,
+          showGeocoder: true,
         }"
         class="h-full flex-1"
         :total-distance="totalDistance"

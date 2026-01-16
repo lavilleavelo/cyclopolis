@@ -42,10 +42,11 @@ import {
   GeolocateControl,
   LngLat,
   type LngLatLike,
-  Map,
+  Map as MaplibreMap,
   NavigationControl,
   type StyleSpecification,
 } from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import style from '@/assets/style.json';
 import LegendControl from '@/maplibre/LegendControl';
@@ -60,8 +61,12 @@ import type { CompteurFeature, FilterActions, FiltersState } from '~/types';
 import config from '~/config.json';
 import FilterPanel from '~/components/FilterPanel.vue';
 import LegendInline from '~/components/LegendInline.vue';
+import MaplibreGeocoder, { type MaplibreGeocoderFeatureResults } from '@maplibre/maplibre-gl-geocoder';
+import '~/assets/geocoder-style.css';
 
 const { displayDistanceInKm, displayPercent } = useStats();
+
+const MAP_BOUNDS = config.bounds as [[number, number], [number, number]];
 
 const defaultOptions = {
   logo: true,
@@ -71,6 +76,7 @@ const defaultOptions = {
   fullscreen: false,
   onFullscreenControlClick: () => {},
   shrink: false,
+  showGeocoder: false,
   showDetailsPanel: false,
   showLineFilters: false,
   showDateFilter: false,
@@ -139,7 +145,7 @@ function toggleFilterSidebar() {
 const mapReady = ref(false);
 
 onMounted(() => {
-  const map = new Map({
+  const map = new MaplibreMap({
     container: 'map',
     style: style as StyleSpecification,
     // style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
@@ -150,6 +156,66 @@ onMounted(() => {
 
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
   map.addControl(new AttributionControl({ compact: false }), 'bottom-left');
+
+  if (options.showGeocoder) {
+    const geocoder = new MaplibreGeocoder(
+      {
+        forwardGeocode: async ({ query }) => {
+          if (!query || query.length < 3) {
+            return { features: [] };
+          }
+
+          const features = [];
+          try {
+            const endpoint = `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=5&lang=fr&lat=${config.center[1]}&lon=${config.center[0]}`;
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            for (const f of data.features) {
+              const center = f.geometry.coordinates;
+              if (
+                center[0] < MAP_BOUNDS[0][0] ||
+                center[0] > MAP_BOUNDS[1][0] ||
+                center[1] < MAP_BOUNDS[0][1] ||
+                center[1] > MAP_BOUNDS[1][1]
+              ) {
+                continue;
+              }
+
+              const { name, locality, city } = f.properties;
+
+              features.push({
+                type: 'Feature',
+                center: center,
+                geometry: f.geometry,
+                place_name: [name, locality, city].filter(Boolean).join(', '),
+                text: name,
+                properties: f.properties,
+                place_type: ['place'],
+              } satisfies MaplibreGeocoderFeatureResults['features'][0]);
+            }
+          } catch (e) {
+            console.error(`Error fetching geocoder results`, e);
+          }
+
+          return { features: Array.from(new Map(features.map((f) => [f.place_name, f])).values()) };
+        },
+      },
+      {
+        language: 'fr-FR',
+        placeholder: 'Rechercher...',
+        showResultsWhileTyping: true,
+        countries: 'fr',
+        showResultMarkers: false,
+        clearOnBlur: true,
+        collapsed: true,
+        debounceSearch: 500,
+        popup: true,
+        maplibregl: maplibregl,
+        bbox: [MAP_BOUNDS[0][0], MAP_BOUNDS[0][1], MAP_BOUNDS[1][0], MAP_BOUNDS[1][1]],
+      },
+    );
+    map.addControl(geocoder, 'top-right');
+  }
 
   if (options.fullscreen) {
     const fullscreenControl = new FullscreenControl({

@@ -21,7 +21,6 @@ import type { LocationQueryRaw } from 'vue-router';
 import {
   sortByLine,
   getCrossIconUrl,
-  groupFeaturesByColor,
   createLineShieldIcon,
   createCompositeLineShieldIcon,
   normalizeLineDirection,

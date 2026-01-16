@@ -44,20 +44,6 @@ export function getCrossIconUrl(): string {
   return canvas.toDataURL();
 }
 
-export function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
-  const featuresByColor: Record<string, ColoredLineStringFeature[]> = {};
-  for (const feature of features) {
-    const color = feature.properties.color;
-
-    if (featuresByColor[color]) {
-      featuresByColor[color].push(feature);
-    } else {
-      featuresByColor[color] = [feature];
-    }
-  }
-  return featuresByColor;
-}
-
 export function createLineShieldIcon(lineNumber: number, color: string): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const size = 64;
@@ -251,7 +237,7 @@ export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
       const newStep = Math.floor((timestamp / dashSpeed) % dashArraySequence.length);
 
       if (newStep !== step) {
-        if (map.getLayer(layerId)) {
+        if (map?.getLayer(layerId)) {
           map.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
           step = newStep;
         }
