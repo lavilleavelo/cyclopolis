@@ -243,14 +243,24 @@ export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
 
   let step = 0;
   function animateDashArray(timestamp: number) {
-    const newStep = Math.floor((timestamp / dashSpeed) % dashArraySequence.length);
-
-    if (newStep !== step) {
-      map.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
-      step = newStep;
+    if (!map || !map.getCanvas()) {
+      return;
     }
 
-    requestAnimationFrame(animateDashArray);
+    try {
+      const newStep = Math.floor((timestamp / dashSpeed) % dashArraySequence.length);
+
+      if (newStep !== step) {
+        if (map.getLayer(layerId)) {
+          map.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
+          step = newStep;
+        }
+      }
+
+      requestAnimationFrame(animateDashArray);
+    } catch (e) {
+      console.warn('error during animation', e);
+    }
   }
   return animateDashArray;
 }

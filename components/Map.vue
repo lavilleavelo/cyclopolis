@@ -335,6 +335,10 @@ onMounted(() => {
       hasDetailsPanel: options.showDetailsPanel,
     });
   });
+
+  onUnmounted(() => {
+    map.remove();
+  });
 });
 </script>
 

@@ -66,6 +66,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     sourceName: string,
     features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[],
   ) {
+    if (!map || !map.getSource) {
+      return false;
+    }
+
     const source = map.getSource(sourceName) as GeoJSONSource;
     if (source) {
       source.setData({ type: 'FeatureCollection', features });
@@ -708,6 +712,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     hasDetailsPanel: boolean;
     isHover?: boolean;
   }) {
+    if (!map) {
+      return;
+    }
+
     if (map.getZoom() < 11 && isHover) {
       return;
     }
@@ -1205,22 +1213,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           const currentTextOpacity = map.getPaintProperty(layerId, 'text-opacity');
           const baseTextOpacity = typeof currentTextOpacity === 'number' ? currentTextOpacity : NORMAL_OPACITY;
 
-          const filter = map.getFilter(layerId);
-          // add to the existing filter to avoid showing symbols for non-selected lines
-          map.setFilter(layerId, filter ? ['all', filter, isSelectedLineExpression] : isSelectedLineExpression);
-
-          map.setPaintProperty(layerId, 'icon-opacity', [
-            'case',
-            isSelectedLineExpression,
-            baseIconOpacity,
-            DIMMED_OPACITY,
-          ]);
-          map.setPaintProperty(layerId, 'text-opacity', [
-            'case',
-            isSelectedLineExpression,
-            baseTextOpacity,
-            DIMMED_OPACITY,
-          ]);
+          map.setPaintProperty(layerId, 'icon-opacity', ['case', isSelectedLineExpression, baseIconOpacity, 0]);
+          map.setPaintProperty(layerId, 'text-opacity', ['case', isSelectedLineExpression, baseTextOpacity, 0]);
         } else if (layerType === 'circle') {
           map.setPaintProperty(layerId, 'circle-opacity', [
             'case',
