@@ -15,7 +15,13 @@
         <Icon name="mdi:open-in-new" class="h-6 w-6" aria-hidden="true" />
       </a>
     </template>
-    <VoieCyclableDetails :line="selectedLine" :show-footer="false" :show-map="false" />
+    <VoieCyclableDetails
+      v-if="selectedLine"
+      :line="selectedLine"
+      :voie-data="voieData"
+      :show-footer="false"
+      :show-map="false"
+    />
   </Sidebar>
 
   <!-- Small screen: Bottom Sheet -->
@@ -39,17 +45,25 @@
         </a>
       </div>
     </template>
-    <VoieCyclableDetails v-if="selectedLine" :line="selectedLine" :show-footer="false" :show-map="false" />
+    <VoieCyclableDetails
+      v-if="selectedLine"
+      :line="selectedLine"
+      :voie-data="voieData"
+      :show-footer="false"
+      :show-map="false"
+    />
   </BottomSheet>
 </template>
 
 <script setup lang="ts">
 import { useMediaQuery } from '@vueuse/core';
 import { computed } from 'vue';
+import type { Collections } from '@nuxt/content';
 
 const props = defineProps<{
   open: boolean;
   line: number | string | null;
+  voies?: Collections['voiesCyclablesPage'][];
 }>();
 
 const emit = defineEmits(['close']);
@@ -68,6 +82,15 @@ const selectedLine = computed(() => {
     return props.line.toString();
   }
   return null;
+});
+
+const voieData = computed(() => {
+  if (!props.voies || !selectedLine.value) {
+    return undefined;
+  }
+
+  const lineNum = Number(selectedLine.value.replace(/\D/g, ''));
+  return props.voies.find((v) => v.line === lineNum);
 });
 
 const isPanelOpen = computed(() => props.open && !!props.line);

@@ -156,7 +156,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'selected-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -168,7 +168,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'highlight-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-gap-width': 5,
         'line-width': 4,
@@ -180,7 +180,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'contour-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-gap-width': 4,
         'line-width': 1,
@@ -192,7 +192,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'underline-layer',
       type: 'line',
       source: 'all-sections',
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': '#ffffff',
@@ -211,7 +211,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           'icon-size': 0.3,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
-          'symbol-sort-key': ['get', 'line'],
+          'symbol-sort-key': ['-', ['get', 'line']],
           'icon-rotation-alignment': 'viewport',
         },
       });
@@ -228,7 +228,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
-          'symbol-sort-key': ['get', 'line'],
+          'symbol-sort-key': ['-', ['get', 'line']],
         },
       });
 
@@ -242,7 +242,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           'icon-size': 0.4,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
-          'symbol-sort-key': ['get', 'line'],
+          'symbol-sort-key': ['-', ['get', 'line']],
         },
       });
     }
@@ -284,7 +284,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'all-sections',
       filter: ['==', 'status', 'done'],
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -302,7 +302,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'all-sections',
       filter: ['in', 'status', 'wip', 'tested'],
-      layout: { 'line-cap': 'butt', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'butt', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -324,7 +324,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'all-sections',
       filter: ['==', 'status', 'planned'],
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -342,8 +342,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'variante-sections',
       type: 'line',
       source: 'all-sections',
-      filter: ['==', 'status', 'variante'],
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      filter: ['==', ['get', 'status'], 'variante'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -355,7 +355,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'variante-symbols',
       type: 'symbol',
       source: 'all-sections',
-      filter: ['==', 'status', 'variante'],
+      filter: ['==', ['get', 'status'], 'variante'],
       paint: {
         'text-halo-color': '#fff',
         'text-halo-width': 4,
@@ -363,7 +363,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 120,
-        'symbol-sort-key': ['get', 'line'],
+        'symbol-sort-key': ['-', ['get', 'line']],
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante'],
         'text-size': 14,
@@ -383,8 +383,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'variante-postponed-sections',
       type: 'line',
       source: 'all-sections',
-      filter: ['==', 'status', 'variante-postponed'],
-      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['get', 'line'] },
+      filter: ['==', ['get', 'status'], 'variante-postponed'],
+      layout: { 'line-cap': 'round', 'line-join': 'round', 'line-sort-key': ['-', ['get', 'line']] },
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
@@ -396,7 +396,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'variante-postponed-symbols',
       type: 'symbol',
       source: 'all-sections',
-      filter: ['==', 'status', 'variante-postponed'],
+      filter: ['==', ['get', 'status'], 'variante-postponed'],
       paint: {
         'text-halo-color': '#fff',
         'text-halo-width': 4,
@@ -404,7 +404,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 120,
-        'symbol-sort-key': ['get', 'line'],
+        'symbol-sort-key': ['-', ['get', 'line']],
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante reportée'],
         'text-size': 14,
@@ -428,7 +428,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 20,
-        'symbol-sort-key': ['get', 'line'],
+        'symbol-sort-key': ['-', ['get', 'line']],
         'icon-allow-overlap': false,
         'icon-ignore-placement': false,
         'icon-image': 'cross-icon',
@@ -450,7 +450,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: {
         'symbol-placement': 'line',
         'symbol-spacing': 150,
-        'symbol-sort-key': ['get', 'line'],
+        'symbol-sort-key': ['-', ['get', 'line']],
         'text-font': ['Open Sans Regular'],
         'text-field': 'reporté',
         'text-size': 14,

@@ -29,6 +29,7 @@
 </template>
 
 <script setup lang="ts">
+import type { Collections } from '@nuxt/content';
 import { waitForElement } from '~/helpers/helpers';
 
 const props = withDefaults(
@@ -36,6 +37,7 @@ const props = withDefaults(
     line: string | number;
     showFooter?: boolean;
     showMap?: boolean;
+    voieData?: Collections['voiesCyclablesPage'];
   }>(),
   {
     showFooter: true,
@@ -55,15 +57,21 @@ const line = computed(() => {
   return props.line;
 });
 
-const { data: voie } = useAsyncData(
+const { data: asyncVoie } = useAsyncData(
   () => `voie-${line.value}`,
-  () => {
+  async () => {
+    if (props.voieData) {
+      return null;
+    }
+
     return queryCollection('voiesCyclablesPage').where('line', '=', Number(line.value)).first();
   },
   {
-    watch: [line, () => props.line],
+    watch: [line],
   },
 );
+
+const voie = computed(() => props.voieData ?? asyncVoie.value);
 
 const route = useRoute();
 const router = useRouter();

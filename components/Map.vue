@@ -18,6 +18,7 @@
         v-if="options.showDetailsPanel"
         :open="route.query.modal === 'details' && mapReady"
         :line="route.query.line ? +route.query.line : null"
+        :voies="voies"
         @close="closeSidebar"
       />
     </div>
@@ -88,6 +89,7 @@ const props = defineProps<{
   geojsons?: Collections['voiesCyclablesGeojson'][];
   filters?: FiltersState;
   actions?: FilterActions;
+  voies?: Collections['voiesCyclablesPage'][];
 }>();
 
 const options = { ...defaultOptions, ...props.options };

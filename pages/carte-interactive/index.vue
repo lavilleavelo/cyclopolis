@@ -21,6 +21,7 @@
         :geojsons="geojsons"
         :filters="filters"
         :actions="actions"
+        :voies="voies"
       />
     </ClientOnly>
   </div>
