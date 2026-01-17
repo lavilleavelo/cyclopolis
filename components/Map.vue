@@ -181,13 +181,13 @@ onMounted(() => {
                 continue;
               }
 
-              const { name, locality, city } = f.properties;
+              const { name, city } = f.properties;
 
               features.push({
                 type: 'Feature',
                 center: center,
                 geometry: f.geometry,
-                place_name: [name, locality, city].filter(Boolean).join(', '),
+                place_name: [name, city].filter(Boolean).join(', '),
                 text: name,
                 properties: f.properties,
                 place_type: ['place'],
