@@ -40,6 +40,7 @@ const props = withDefaults(
     voieData?: Collections['voiesCyclablesPage'];
   }>(),
   {
+    voieData: undefined,
     showFooter: true,
     showMap: true,
   },

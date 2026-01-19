@@ -14,7 +14,8 @@
       .psv-options="psvOptions"
       @ready="handleReady"
     >
-      <pnx-widget-legend style="z-index: 0" light slot="bottom-right"></pnx-widget-legend>
+      <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+      <pnx-widget-legend slot="bottom-right" style="z-index: 0" light></pnx-widget-legend>
     </pnx-photo-viewer>
   </div>
 </template>
@@ -44,7 +45,7 @@ const handleReady = () => {
 };
 
 onMounted(async () => {
-  // @ts-ignore
+  // @ts-expect-error: Dynamic import of Panoramax Web Viewer
   await import('@panoramax/web-viewer');
   await import('@panoramax/web-viewer/build/photoviewer.css');
 

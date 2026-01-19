@@ -1,7 +1,7 @@
 import type { Collections } from '@nuxt/content';
 import type { Map as MaplibreType } from 'maplibre-gl';
 
-export type ColoredLineStringFeature = Extract<
+type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
 > & { properties: { color: string } };
@@ -238,7 +238,7 @@ export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
 
       if (newStep !== step) {
         if (map?.getLayer(layerId)) {
-          map.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
+          map?.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
           step = newStep;
         }
       }
@@ -274,4 +274,18 @@ export function getUsedCompositeIcons(features: Collections['voiesCyclablesGeojs
     }
   }
   return compositeIcons;
+}
+
+export function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
+  const featuresByColor: Record<string, ColoredLineStringFeature[]> = {};
+  for (const feature of features) {
+    const color = feature.properties.color;
+
+    if (featuresByColor[color]) {
+      featuresByColor[color].push(feature);
+    } else {
+      featuresByColor[color] = [feature];
+    }
+  }
+  return featuresByColor;
 }
