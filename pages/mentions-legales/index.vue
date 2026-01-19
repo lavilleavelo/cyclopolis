@@ -79,8 +79,11 @@
       <div class="mt-6 prose prose-lg text-gray-500 mx-auto">
         <h2>Hébergement</h2>
         <p>
-          Ce site web est hébergé par
-          <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>
+          Ce site Web est hébergé par la société OVH (<a href="https://www.ovh.com/fr/">https://www.ovh.com/fr/</a>).
+        </p>
+        <p>
+          OVH SAS<br />SAS au capital de 50 000 000 €<br />RCS Lille Métropole 424 761 419 00045<br />Code APE 2620Z<br />N°
+          TVA : FR 22 424 761&nbsp;419<br />Siège social : 2 rue Kellermann – 59100 Roubaix – France
         </p>
         <h2>Protection des données à caractère personnel</h2>
         <p>Le présent site web respecte les règles suivantes :</p>

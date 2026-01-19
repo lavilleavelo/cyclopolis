@@ -27,7 +27,7 @@ Aujourd'hui, le seul coût financier est le nom de domaine (~10€/an).
 
 Voici la liste des outils tiers utilisés :
 - [GitHub](https://github.com) pour le stockage des données et du code. Gratuit.
-- [Netlify](https://www.netlify.com) pour l'hébergement du site. Gratuit (free tier très largement suffisant).
+- [Netlify](https://www.netlify.com) pour l'hébergement du site. Gratuit ("free tier" très largement suffisant). Nous avons depuis migré vers notre propre serveur, mais Netlify reste une excellente option pour démarrer rapidement.
 - [openmaptiles.geo.data.gouv.fr](https://openmaptiles.geo.data.gouv.fr/) pour les cartes. Gratuit.
 - [Geojson.io](https://geojson.io) ou [placemark](https://play.placemark.io/) pour le tracé des pistes cyclables. Gratuit.
 - [Beam Analytics](https://beamanalytics.io/) ou [Umami](https://umami.is/) pour le suivi d'audience. Gratuit (free tier très largement suffisant).
@@ -105,9 +105,9 @@ Une fois que vous avez adapté les données à votre ville, vous pouvez déploye
 
 Vous pouvez utiliser une des solutions listées ici : https://nuxt.com/deploy pour l'hébergement. La plupart ont une offre gratuite largement suffisante pour faire tourner Cyclopolis.
 
-On utilise [Netlify](https://www.netlify.com) qui une offre une bonne intégration avec Github. Ainsi, à chaque modification de vos données (ou commit), les changements seront visibles après environ 1min.
+Nous avons longtemps utilisé [Netlify](https://www.netlify.com) qui une offre une bonne intégration avec Github. Ainsi, à chaque modification de vos données (ou commit), les changements seront visibles après environ 1min.
 
-Voici par exemple la configuration de Cyclopolis sur Netlify (section Build & Deploy):
+Voici par exemple une configuration possible sur Netlify (section Build & Deploy) :
 ```
 Build command : npm run generate
 Publish directory : dist
@@ -119,14 +119,7 @@ Vous pouvez ensuite :
 - acheter un nom de domaine pour votre plateforme.
 - configurer un outil de suivi d'audience (on utilise Umami, mais il y a plein d'autres solutions).
 
-
 ## Conclusion
 
 On vous souhaite tout le meilleur pour votre projet ! 🎉
-
-
-
-
-
-
 
