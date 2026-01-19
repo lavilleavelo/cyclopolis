@@ -93,21 +93,32 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map: MaplibreType;
     features?: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
   }) {
-    const [camera, pump, danger, cross] = await Promise.all([
-      map.loadImage('/icons/camera.png'),
-      map.loadImage('/icons/pump.png'),
-      map.loadImage('/icons/danger.png'),
-      map.loadImage(getCrossIconUrl()),
-    ]);
+    const imagesToLoad = [
+      { id: 'camera-icon', url: '/icons/camera.png', sdf: true },
+      { id: 'pump-icon', url: '/icons/pump.png', sdf: true },
+      { id: 'danger-icon', url: '/icons/danger.png', sdf: false },
+      { id: 'cross-icon', url: getCrossIconUrl(), sdf: true },
+    ];
 
-    map.addImage('camera-icon', camera.data, { sdf: true });
-    map.addImage('pump-icon', pump.data, { sdf: true });
-    map.addImage('danger-icon', danger.data, { sdf: false });
-    map.addImage('cross-icon', cross.data, { sdf: true });
+    await Promise.all(
+      imagesToLoad.map(async ({ id, url, sdf }) => {
+        if (map.hasImage(id)) {
+          return;
+        }
+        const image = await map.loadImage(url);
+        if (image) {
+          map.addImage(id, image.data, { sdf });
+        }
+      }),
+    );
 
     const totalLines = getNbVoiesCyclables();
 
     for (let line = 1; line <= totalLines; line++) {
+      if (map.hasImage(`line-shield-${line}`)) {
+        continue;
+      }
+
       const color = getLineColor(line);
       const canvas = createLineShieldIcon(line, color);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
@@ -119,36 +130,27 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     const compositeIcons = getUsedCompositeIcons(features as Collections['voiesCyclablesGeojson']['features']);
 
     compositeIcons.forEach((combo) => {
+      const id = `line-shield-${combo}`;
+      if (map.hasImage(id)) {
+        return;
+      }
+
       const lineNumbers = combo.split('-').map(Number);
       const colors = lineNumbers.map((line) => getLineColor(line));
       const canvas = createCompositeLineShieldIcon(lineNumbers, colors);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
-        map.addImage(`line-shield-${combo}`, imageData);
+        map.addImage(id, imageData);
       }
     });
   }
 
-  function plotUnsatisfactorySections({
-    map,
-    features,
-  }: {
-    map: MaplibreType;
-    features: Collections['voiesCyclablesGeojson']['features'];
-  }) {
-    const sections = features.filter((feature) => {
-      return (
-        'quality' in feature.properties &&
-        feature.properties.quality === 'unsatisfactory' &&
-        'status' in feature.properties &&
-        feature.properties.status !== 'postponed'
-      );
-    });
-
-    if (sections.length === 0 && !map.getLayer('unsatisfactory-sections')) {
+  function plotUnsatisfactorySections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    if (features.length === 0 && !map.getLayer('unsatisfactory-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'unsatisfactory-sections', sections)) {
+
+    if (upsertMapSource(map, 'unsatisfactory-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -166,21 +168,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
-  function plotUnderlinedSections({
-    map,
-    features,
-  }: {
-    map: MaplibreType;
-    features: Collections['voiesCyclablesGeojson']['features'];
-  }) {
-    const processedFeatures = addCompositeIconNames(features);
-    const sections = processedFeatures.map((feature, index) => ({ id: index, ...feature }));
-
-    if (sections.length === 0 && !map.getLayer('highlight-layer')) {
+  function plotUnderlinedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    if (features.length === 0 && !map.getLayer('highlight-layer')) {
       return;
     }
 
-    if (upsertMapSource(map, 'all-sections', sections as Collections['voiesCyclablesGeojson']['features'])) {
+    if (upsertMapSource(map, 'all-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -312,16 +305,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotDoneSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'done',
-    );
-
     // si il n'y a rien a afficher et que la couche n'existe pas, on ne fait rien
     // si elle existe déjà, on la maj (carte dynamique par année)
-    if (sections.length === 0 && !map.getLayer('done-sections')) {
+    if (features.length === 0 && !map.getLayer('done-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'done-sections', sections)) {
+    if (upsertMapSource(map, 'done-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -337,18 +326,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotWipSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter((feature) => {
-      // on considère les sections en test comme en travaux
-      return (
-        'status' in feature.properties &&
-        (feature.properties.status === 'wip' || feature.properties.status === 'tested')
-      );
-    });
-
-    if (sections.length === 0 && !map.getLayer('wip-sections')) {
+    if (features.length === 0 && !map.getLayer('wip-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'wip-sections', sections)) {
+    if (upsertMapSource(map, 'wip-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -368,14 +349,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'planned',
-    );
-
-    if (sections.length === 0 && !map.getLayer('planned-sections')) {
+    if (features.length === 0 && !map.getLayer('planned-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'planned-sections', sections)) {
+    if (upsertMapSource(map, 'planned-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -392,14 +369,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotVarianteSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'variante',
-    );
-
-    if (sections.length === 0 && !map.getLayer('variante-sections')) {
+    if (features.length === 0 && !map.getLayer('variante-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'variante-sections', sections)) {
+    if (upsertMapSource(map, 'variante-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
 
@@ -442,14 +415,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     map: MaplibreType;
     features: ColoredLineStringFeature[];
   }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'variante-postponed',
-    );
-
-    if (sections.length === 0 && !map.getLayer('variante-postponed-sections')) {
+    if (features.length === 0 && !map.getLayer('variante-postponed-sections')) {
       return;
     }
-    if (upsertMapSource(map, 'variante-postponed-sections', sections)) {
+    if (
+      upsertMapSource(map, 'variante-postponed-sections', features as Collections['voiesCyclablesGeojson']['features'])
+    ) {
       return;
     }
 
@@ -486,10 +457,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
-    const sections = features.filter(
-      (feature) => 'status' in feature.properties && feature.properties.status === 'postponed',
-    );
-    const featuresByColor = groupFeaturesByColor(sections);
+    const featuresByColor = groupFeaturesByColor(features);
 
     for (let line = 1; line <= getNbVoiesCyclables(); line++) {
       const lineColor = getLineColor(line);
@@ -750,14 +718,56 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         };
       });
 
-    plotUnderlinedSections({ map, features: lineStringFeatures });
-    plotUnsatisfactorySections({ map, features: lineStringFeatures });
-    plotDoneSections({ map, features: lineStringFeatures });
-    plotPlannedSections({ map, features: lineStringFeatures });
-    plotVarianteSections({ map, features: lineStringFeatures });
-    plotVariantePostponedSections({ map, features: lineStringFeatures });
-    plotWipSections({ map, features: lineStringFeatures });
-    plotPostponedSections({ map, features: lineStringFeatures });
+    const processedFeatures = addCompositeIconNames(lineStringFeatures);
+    const sections: ColoredLineStringFeature[] = processedFeatures.map((feature, index) => ({
+      ...feature,
+      id: index,
+    })) as unknown as ColoredLineStringFeature[];
+
+    const unsatisfactory: ColoredLineStringFeature[] = [];
+    const done: ColoredLineStringFeature[] = [];
+    const wip: ColoredLineStringFeature[] = [];
+    const planned: ColoredLineStringFeature[] = [];
+    const variante: ColoredLineStringFeature[] = [];
+    const variantePostponed: ColoredLineStringFeature[] = [];
+    const postponed: ColoredLineStringFeature[] = [];
+
+    for (const feature of sections) {
+      if (feature.properties.quality === 'unsatisfactory' && feature.properties.status !== 'postponed') {
+        unsatisfactory.push(feature);
+      }
+
+      switch (feature.properties.status) {
+        case 'done':
+          done.push(feature);
+          break;
+        case 'wip':
+        case 'tested':
+          wip.push(feature);
+          break;
+        case 'planned':
+          planned.push(feature);
+          break;
+        case 'variante':
+          variante.push(feature);
+          break;
+        case 'variante-postponed':
+          variantePostponed.push(feature);
+          break;
+        case 'postponed':
+          postponed.push(feature);
+          break;
+      }
+    }
+
+    plotUnderlinedSections({ map, features: sections });
+    plotUnsatisfactorySections({ map, features: unsatisfactory });
+    plotDoneSections({ map, features: done });
+    plotPlannedSections({ map, features: planned });
+    plotVarianteSections({ map, features: variante });
+    plotVariantePostponedSections({ map, features: variantePostponed });
+    plotWipSections({ map, features: wip });
+    plotPostponedSections({ map, features: postponed });
 
     const compteurFeature = features.filter(isCompteurFeature);
     plotCompteurs({ map, features: compteurFeature });
