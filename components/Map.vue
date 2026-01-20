@@ -384,6 +384,16 @@ onMounted(() => {
     { immediate: true },
   );
 
+  const { palette, customColors } = useSettings();
+  watch(
+    [palette, customColors],
+    async () => {
+      await loadImages({ map, features: props.features, force: true });
+      plotFeatures({ map, features: props.features });
+    },
+    { deep: true },
+  );
+
   map.on('click', (clickEvent) => {
     handleMapClick({
       map,

@@ -89,9 +89,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   async function loadImages({
     map,
     features,
+    force = false,
   }: {
     map: MaplibreType;
     features?: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    force?: boolean;
   }) {
     const imagesToLoad = [
       { id: 'camera-icon', url: '/icons/camera.png', sdf: true },
@@ -115,15 +117,19 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     const totalLines = getNbVoiesCyclables();
 
     for (let line = 1; line <= totalLines; line++) {
-      if (map.hasImage(`line-shield-${line}`)) {
-        continue;
+      const id = `line-shield-${line}`;
+      if (map.hasImage(id)) {
+        if (!force) {
+          continue;
+        }
+        map.removeImage(id);
       }
 
       const color = getLineColor(line);
       const canvas = createLineShieldIcon(line, color);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
-        map.addImage(`line-shield-${line}`, imageData);
+        map.addImage(id, imageData);
       }
     }
 
@@ -132,7 +138,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     compositeIcons.forEach((combo) => {
       const id = `line-shield-${combo}`;
       if (map.hasImage(id)) {
-        return;
+        if (!force) {
+          return;
+        }
+        map.removeImage(id);
       }
 
       const lineNumbers = combo.split('-').map(Number);

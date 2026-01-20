@@ -1,5 +1,5 @@
 <template>
-  <div :class="['grid', gridClass, 'gap-x-2 gap-y-1', textSizeClass]">
+  <div class="select-none" :class="['grid', gridClass, 'gap-x-2 gap-y-1', textSizeClass]">
     <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
       <div :class="['bg-lvv-blue-600', lineHeightClass]" />
     </div>

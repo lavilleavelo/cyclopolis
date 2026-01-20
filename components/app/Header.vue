@@ -17,7 +17,7 @@
             />
           </NuxtLink>
         </div>
-        <div class="-mr-2 -my-2 md:hidden">
+        <div class="-mr-2 -my-2 md:hidden flex items-center">
           <PopoverButton
             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
           >
@@ -203,7 +203,8 @@
             </transition>
           </Popover>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-4">
+          <SettingsPopover />
           <NuxtLink
             to="/blog"
             class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lvv-blue-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
@@ -241,7 +242,8 @@
                   :alt="`logo ${getAssoName()}`"
                 />
               </NuxtLink>
-              <div class="-mr-2">
+              <div class="-mr-2 flex items-center">
+                <SettingsPopover />
                 <PopoverButton
                   class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
                 >
@@ -337,10 +339,10 @@
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
+import SettingsPopover from './SettingsPopover.vue';
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
 const { getAssoName } = useConfig();
-
 const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');

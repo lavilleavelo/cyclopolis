@@ -1,7 +1,8 @@
 {
   "revName": {
     "plural": "Voies Lyonnaises",
-    "singular": "Voie Lyonnaise"
+    "singular": "Voie Lyonnaise",
+    "abbreviated": "VL"
   },
   "assoName": "La Ville à Vélo",
   "assoLink": "https://lavilleavelo.org",
@@ -62,6 +63,20 @@
       "line": 12,
       "color": "#DBABB7"
     }
+  ],
+  "accessibleColors": [
+    { "line": 1, "color": "#000000" },
+    { "line": 2, "color": "#D32F2F" },
+    { "line": 3, "color": "#388E3C" },
+    { "line": 4, "color": "#F57C00" },
+    { "line": 5, "color": "#7B1FA2" },
+    { "line": 6, "color": "#1976D2" },
+    { "line": 7, "color": "#AAAAAA" },
+    { "line": 8, "color": "#8f9628" },
+    { "line": 9, "color": "#FBC02D" },
+    { "line": 10, "color": "#5D4037" },
+    { "line": 11, "color": "#00BCD4" },
+    { "line": 12, "color": "#E91E63" }
   ],
   "transports": [
     {

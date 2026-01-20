@@ -10,6 +10,7 @@ import {
 } from '~/types';
 import type { Collections } from '@nuxt/content';
 import { useRoute, useRouter } from 'vue-router';
+import config from '~/config.json';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
@@ -179,10 +180,12 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     });
   }
 
+  const { palette, customColors } = useSettings();
+
   if (allLines) {
     watch(
-      allLines,
-      (newLines) => {
+      [allLines, palette, customColors],
+      ([newLines]) => {
         if (newLines) {
           const linesSet = new Set<number>();
           newLines.forEach((voie) => {
@@ -194,7 +197,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
             .map((line) => {
               const color = getLineColor(line);
               return {
-                label: `VL ${line}`,
+                label: `${config.revName.abbreviated} ${line}`,
                 isEnabled: true,
                 line,
                 color,
