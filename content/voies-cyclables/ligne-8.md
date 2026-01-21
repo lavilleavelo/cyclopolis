@@ -223,8 +223,8 @@ streetView: 45.7455569,4.8494585,3a,75y,69.06h,90t
 ---
 ::
 
-::banner{type="wip"}
-Les travaux devraient avoir lieu en janvier-février 2026.
+::banner{type="postponed"}
+Les travaux devaient initialement avoir lieu en janvier-février 2026, mais la campagne électorale a eu raison du projet qui a finalement été reporté.
 ::
 
 #### Rue et Pont de l'Epargne
