@@ -1,6 +1,10 @@
 import type { Map as MaplibreType, LngLatBounds } from 'maplibre-gl';
 import type { LineStringFeature } from '~/types';
 
+/**
+ * C'est un replacement pour une solution comme https://stackoverflow.com/a/45817976 qui est en fait extrêmement lente
+ * l'animation est entièrement faite avec un canvas superposé à la maplibre map. L'utilisation du CPU est réduite au de ~20% à ~4-5%
+ */
 export class CanvasDashAnimator {
   private readonly map: MaplibreType;
   private readonly canvas: HTMLCanvasElement;

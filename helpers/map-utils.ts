@@ -205,52 +205,6 @@ export function addCompositeIconNames(features: Collections['voiesCyclablesGeojs
   });
 }
 
-export function createDashArrayAnimator(map: MaplibreType, layerId: string) {
-  const dashArraySequence = [
-    [0, 2, 2],
-    [0.25, 2, 1.75],
-    [0.5, 2, 1.5],
-    [0.75, 2, 1.25],
-    [1, 2, 1],
-    [1.25, 2, 0.75],
-    [1.5, 2, 0.5],
-    [1.75, 2, 0.25],
-    [2, 2, 0],
-    [0, 0.25, 2, 1.75],
-    [0, 0.5, 2, 1.5],
-    [0, 0.75, 2, 1.25],
-    [0, 1, 2, 1],
-    [0, 1.25, 2, 0.75],
-    [0, 1.5, 2, 0.5],
-    [0, 1.75, 2, 0.25],
-  ];
-
-  const dashSpeed = 60;
-
-  let step = 0;
-  function animateDashArray(timestamp: number) {
-    if (!map || !map.getCanvas()) {
-      return;
-    }
-
-    try {
-      const newStep = Math.floor((timestamp / dashSpeed) % dashArraySequence.length);
-
-      if (newStep !== step) {
-        if (map?.getLayer(layerId)) {
-          map?.setPaintProperty(layerId, 'line-dasharray', dashArraySequence[step]);
-          step = newStep;
-        }
-      }
-
-      requestAnimationFrame(animateDashArray);
-    } catch (e) {
-      console.warn('error during animation', e);
-    }
-  }
-  return animateDashArray;
-}
-
 export function getUsedCompositeIcons(features: Collections['voiesCyclablesGeojson']['features']): Set<string> {
   const sectionGroups = new Map<string, number[]>();
 
