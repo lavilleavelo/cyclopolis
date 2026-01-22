@@ -26,10 +26,10 @@ import {
   createCompositeLineShieldIcon,
   normalizeLineDirection,
   addCompositeIconNames,
-  createDashArrayAnimator,
   getUsedCompositeIcons,
   groupFeaturesByColor,
 } from '~/helpers/map-utils';
+import { type CanvasDashAnimator, createCanvasDashAnimator } from '~/helpers/canvas-animator';
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
@@ -38,7 +38,7 @@ const HIGHLIGHTED_SECTION_OPACITY = 1;
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
-> & { properties: { color: string } };
+> & { properties: { color: string; showLabel?: boolean } };
 const { getNbVoiesCyclables } = useConfig();
 
 export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
@@ -52,6 +52,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   let currentClickPopup: maplibregl.Popup | null = null;
   let lastHoveredFeatureId: string | null = null;
   let lastClickedFeatureId: string | null = null;
+  let wipAnimator: CanvasDashAnimator | null = null;
+  const shieldImages: Map<string, HTMLCanvasElement> = new Map();
 
   function addLineColor(
     feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -130,6 +132,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
         map.addImage(id, imageData);
+        shieldImages.set(id, canvas);
       }
     }
 
@@ -150,6 +153,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
         map.addImage(id, imageData);
+        shieldImages.set(id, canvas);
       }
     });
   }
@@ -181,6 +185,33 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     if (features.length === 0 && !map.getLayer('highlight-layer')) {
       return;
     }
+
+    const allButWipTestedFeatures = features.filter(
+      (feature) => feature.properties.status !== 'wip' && feature.properties.status !== 'tested',
+    );
+
+    upsertMapSource(
+      map,
+      'all-but-wip-sections',
+      allButWipTestedFeatures as Collections['voiesCyclablesGeojson']['features'],
+    );
+
+    const allButWipTestedFeaturesLowZoom = allButWipTestedFeatures.filter((feature) => {
+      const distance = getLineStringDistance(feature);
+      return distance >= 900;
+    });
+    upsertMapSource(
+      map,
+      'all-but-wip-sections-low-zoom',
+      allButWipTestedFeaturesLowZoom as Collections['voiesCyclablesGeojson']['features'],
+    );
+
+    const allButWipTestedFeaturesHighZoom = allButWipTestedFeatures.filter((feature) => feature.properties.showLabel);
+    upsertMapSource(
+      map,
+      'all-but-wip-sections-high-zoom',
+      allButWipTestedFeaturesHighZoom as Collections['voiesCyclablesGeojson']['features'],
+    );
 
     if (upsertMapSource(map, 'all-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
@@ -242,9 +273,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       map.addLayer({
         id: 'section-names-low-zoom',
         type: 'symbol',
-        source: 'all-sections',
+        source: 'all-but-wip-sections-low-zoom',
         maxzoom: 13,
-        filter: ['>=', ['get', 'distance'], 900],
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
           'icon-size': 0.3,
@@ -258,10 +288,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       map.addLayer({
         id: 'section-names',
         type: 'symbol',
-        source: 'all-sections',
+        source: 'all-but-wip-sections-high-zoom',
         minzoom: 13,
         maxzoom: 17,
-        filter: ['>=', ['get', 'distance'], 300],
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
           'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
@@ -274,7 +303,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       map.addLayer({
         id: 'section-names-high-zoom',
         type: 'symbol',
-        source: 'all-sections',
+        source: 'all-but-wip-sections',
         minzoom: 17,
         layout: {
           'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
@@ -338,6 +367,14 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     if (features.length === 0 && !map.getLayer('wip-sections')) {
       return;
     }
+
+    if (wipAnimator) {
+      wipAnimator.setFeatures(features);
+    } else {
+      wipAnimator = createCanvasDashAnimator(map, features);
+    }
+    wipAnimator.setImages(shieldImages);
+
     if (upsertMapSource(map, 'wip-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
@@ -348,13 +385,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       source: 'wip-sections',
       paint: {
         'line-width': 4,
-        'line-color': ['get', 'color'],
-        'line-dasharray': [0, 2, 2],
+        'line-color': 'rgba(0, 0, 0, 0)',
       },
     });
-
-    const animateDashArray = createDashArrayAnimator(map, 'wip-sections');
-    animateDashArray(0);
   }
 
   function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
@@ -372,7 +405,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       paint: {
         'line-width': 4,
         'line-color': ['get', 'color'],
-        'line-dasharray': [2, 2],
+        'line-dasharray': [2, 4],
       },
     });
   }
@@ -1189,6 +1222,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     const allLayerIds = [...layerIds, ...postponedLayerIds];
 
     if (!selections || selections.length === 0) {
+      if (wipAnimator) {
+        wipAnimator.setSelectedLines(null);
+      }
       for (const layerId of allLayerIds) {
         if (!map.getLayer(layerId)) continue;
 
@@ -1240,6 +1276,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       }
     } else {
       const selectedLines = [...new Set(selections.map((s) => s.line))];
+      if (wipAnimator) {
+        wipAnimator.setSelectedLines(selectedLines);
+      }
       const isSelectedLineExpression = ['in', ['get', 'line'], ['literal', selectedLines]];
 
       for (const layerId of allLayerIds) {
