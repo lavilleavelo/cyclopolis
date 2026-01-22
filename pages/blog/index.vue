@@ -10,7 +10,7 @@
 
       <div
         v-if="truncatedNews"
-        class="mt-8 rounded-2xl p-8 sm:p-10 mb-12 relative group hover:bg-gray-100 cursor-pointer transition-colors"
+        class="mt-6 rounded-2xl px-4 py-6 sm:py-8 mb-12 relative group hover:bg-gray-100 cursor-pointer transition-colors"
         @click="navigateToHistorique"
       >
         <NuxtLink :to="'/historique'" class="absolute inset-0 focus:outline-none z-1">
