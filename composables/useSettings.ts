@@ -1,9 +1,9 @@
 import { useLocalStorage } from '@vueuse/core';
 
-export const useSettings = () => {
-  const palette = useLocalStorage<'default' | 'accessible'>('cyclopolis-palette', 'default');
-  const customColors = useLocalStorage<Record<number, string>>('cyclopolis-custom-colors', {});
+const palette = useLocalStorage<'default' | 'accessible'>('cyclopolis-palette', 'default');
+const customColors = useLocalStorage<Record<number, string>>('cyclopolis-custom-colors', {});
 
+export const useSettings = () => {
   return {
     palette,
     customColors,

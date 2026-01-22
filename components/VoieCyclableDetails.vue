@@ -12,8 +12,8 @@
         <h1 class="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
           {{ getRevName('singular') }}
           <div
-            class="mt-2 h-12 w-12 rounded-full flex items-center justify-center text-white font-bold mx-auto"
-            :style="`background-color: ${getLineColor(voie.line)}`"
+            class="mt-2 h-12 w-12 rounded-full flex items-center justify-center text-white font-bold mx-auto transition-colors"
+            :style="`background-color: ${color}`"
           >
             {{ voie.line }}
           </div>
@@ -49,6 +49,8 @@ const props = withDefaults(
 const { getLineColor } = useColors();
 const { getRevName } = useConfig();
 const { getVoieCyclableRegex } = useUrl();
+
+const color = computed(() => getLineColor(Number(props.line)));
 
 const regex = getVoieCyclableRegex();
 const line = computed(() => {

@@ -30,7 +30,7 @@ const props = withDefaults(
   },
 );
 
-const color = getLineColor(Number(props.line));
+const color = computed(() => getLineColor(Number(props.line)));
 
 const href = props.anchor
   ? `${getVoieCyclablePath(Number(props.line))}#${props.anchor}`
