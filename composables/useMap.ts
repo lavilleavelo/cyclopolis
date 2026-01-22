@@ -397,10 +397,13 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'wip-sections',
       type: 'line',
       source: 'wip-sections',
+      layout: {
+        visibility: reduceMotion.value ? 'visible' : 'none',
+      },
       paint: {
         'line-width': 4,
-        'line-color': reduceMotion.value ? ['get', 'color'] : 'rgba(0, 0, 0, 0)',
-        'line-dasharray': reduceMotion.value ? [2, 2] : undefined,
+        'line-color': ['get', 'color'],
+        'line-dasharray': [2, 2],
       },
     });
 
@@ -449,14 +452,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       }
 
       if (currentMap.getLayer('wip-sections')) {
-        if (shouldReduce) {
-          currentMap.setPaintProperty('wip-sections', 'line-opacity', 1);
-          currentMap.setPaintProperty('wip-sections', 'line-color', ['get', 'color']);
-          currentMap.setPaintProperty('wip-sections', 'line-dasharray', [2, 2]);
-        } else {
-          currentMap.setPaintProperty('wip-sections', 'line-color', 'rgba(0, 0, 0, 0)');
-          currentMap.setPaintProperty('wip-sections', 'line-dasharray', null);
-        }
+        currentMap.setLayoutProperty('wip-sections', 'visibility', visibility);
       }
 
       if (wipAnimator) {
