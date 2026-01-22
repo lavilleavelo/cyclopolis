@@ -2,7 +2,7 @@ import type { Collections } from '@nuxt/content';
 import type maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, Map as MaplibreType } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
-import { createApp, defineComponent, h, Suspense } from 'vue';
+import { createApp, defineComponent, h, Suspense, watch } from 'vue';
 import {
   type CompteurFeature,
   isCompteurFeature,
@@ -24,6 +24,7 @@ import {
   getCrossIconUrl,
   createLineShieldIcon,
   createCompositeLineShieldIcon,
+  createConstructionIcon,
   normalizeLineDirection,
   addCompositeIconNames,
   getUsedCompositeIcons,
@@ -53,6 +54,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   let lastHoveredFeatureId: string | null = null;
   let lastClickedFeatureId: string | null = null;
   let wipAnimator: CanvasDashAnimator | null = null;
+  let currentMap: MaplibreType | null = null;
   const shieldImages: Map<string, HTMLCanvasElement> = new Map();
 
   function addLineColor(
@@ -115,6 +117,16 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         }
       }),
     );
+
+    const constructionIconId = 'construction-icon';
+    if (!map.hasImage(constructionIconId) || force) {
+      if (force && map.hasImage(constructionIconId)) map.removeImage(constructionIconId);
+      const canvas = createConstructionIcon();
+      const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
+      if (imageData) {
+        map.addImage(constructionIconId, imageData, { sdf: false });
+      }
+    }
 
     const totalLines = getNbVoiesCyclables();
 
@@ -364,6 +376,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   }
 
   function plotWipSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    currentMap = map;
     if (features.length === 0 && !map.getLayer('wip-sections')) {
       return;
     }
@@ -374,6 +387,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       wipAnimator = createCanvasDashAnimator(map, features);
     }
     wipAnimator.setImages(shieldImages);
+    wipAnimator.setVisible(!reduceMotion.value);
 
     if (upsertMapSource(map, 'wip-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
@@ -385,10 +399,70 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       source: 'wip-sections',
       paint: {
         'line-width': 4,
-        'line-color': 'rgba(0, 0, 0, 0)',
+        'line-color': reduceMotion.value ? ['get', 'color'] : 'rgba(0, 0, 0, 0)',
+        'line-dasharray': reduceMotion.value ? [2, 2] : undefined,
+      },
+    });
+
+    map.addLayer({
+      id: 'wip-node-icons',
+      type: 'symbol',
+      source: 'wip-sections',
+      layout: {
+        'icon-image': 'construction-icon',
+        'icon-size': 0.5,
+        'symbol-placement': 'line',
+        'symbol-spacing': ['interpolate', ['linear'], ['zoom'], 13, 80, 16, 250],
+        'icon-allow-overlap': true,
+        'icon-anchor': 'bottom',
+        visibility: reduceMotion.value ? 'visible' : 'none',
+      },
+    });
+
+    map.addLayer({
+      id: 'wip-shields',
+      type: 'symbol',
+      source: 'wip-sections',
+      layout: {
+        'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+        'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
+        'symbol-placement': 'line-center',
+        'symbol-spacing': 1000000,
+        visibility: reduceMotion.value ? 'visible' : 'none',
       },
     });
   }
+
+  const { reduceMotion } = useSettings();
+
+  watch(
+    reduceMotion,
+    (shouldReduce) => {
+      if (!currentMap) return;
+
+      const visibility = shouldReduce ? 'visible' : 'none';
+      if (currentMap.getLayer('wip-node-icons')) {
+        currentMap.setLayoutProperty('wip-node-icons', 'visibility', visibility);
+      }
+      if (currentMap.getLayer('wip-shields')) {
+        currentMap.setLayoutProperty('wip-shields', 'visibility', visibility);
+      }
+
+      if (currentMap.getLayer('wip-sections')) {
+        if (shouldReduce) {
+          currentMap.setPaintProperty('wip-sections', 'line-color', ['get', 'color']);
+          currentMap.setPaintProperty('wip-sections', 'line-dasharray', [2, 2]);
+        } else {
+          currentMap.setPaintProperty('wip-sections', 'line-color', 'rgba(0, 0, 0, 0)');
+        }
+      }
+
+      if (wipAnimator) {
+        wipAnimator.setVisible(!shouldReduce);
+      }
+    },
+    { immediate: true },
+  );
 
   function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     if (features.length === 0 && !map.getLayer('planned-sections')) {
@@ -1189,6 +1263,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     const layerIds = [
       'done-sections',
       'wip-sections',
+      'wip-node-icons',
       'planned-sections',
       'variante-sections',
       'variante-symbols',

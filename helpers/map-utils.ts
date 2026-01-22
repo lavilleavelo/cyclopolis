@@ -1,5 +1,4 @@
 import type { Collections } from '@nuxt/content';
-import type { Map as MaplibreType } from 'maplibre-gl';
 
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
@@ -242,4 +241,71 @@ export function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
     }
   }
   return featuresByColor;
+}
+
+export function createConstructionIcon(): HTMLCanvasElement {
+  const size = 48;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return canvas;
+
+  ctx.scale(2, 2);
+
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  ctx.fillStyle = '#FFCC00';
+  ctx.strokeStyle = '#000000';
+
+  ctx.beginPath();
+  ctx.roundRect(2, 6, 20, 8, 1);
+  ctx.fill();
+  ctx.stroke();
+
+  const paths: [[number, number], [number, number]][] = [
+    // Top posts
+    [
+      [17, 3],
+      [17, 6],
+    ],
+    [
+      [7, 3],
+      [7, 6],
+    ],
+    // Bottom posts
+    [
+      [17, 14],
+      [17, 21],
+    ],
+    [
+      [7, 14],
+      [7, 21],
+    ],
+    // Stripes
+    [
+      [10, 14],
+      [2.3, 6.3],
+    ],
+    [
+      [14, 6],
+      [21.7, 13.7],
+    ],
+    [
+      [8, 6],
+      [16, 14],
+    ],
+  ];
+
+  paths.forEach(([start, end]) => {
+    ctx.beginPath();
+    ctx.moveTo(start[0], start[1]);
+    ctx.lineTo(end[0], end[1]);
+    ctx.stroke();
+  });
+
+  return canvas;
 }

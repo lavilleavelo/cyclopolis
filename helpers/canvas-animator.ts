@@ -125,6 +125,15 @@ export class CanvasDashAnimator {
     }
   }
 
+  public setVisible(visible: boolean) {
+    this.canvas.style.display = visible ? 'block' : 'none';
+    if (!visible) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  }
+
   public destroy() {
     this.stop();
     this.map.off('resize', this.handleResize);
