@@ -450,10 +450,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
       if (currentMap.getLayer('wip-sections')) {
         if (shouldReduce) {
+          currentMap.setPaintProperty('wip-sections', 'line-opacity', 1);
           currentMap.setPaintProperty('wip-sections', 'line-color', ['get', 'color']);
           currentMap.setPaintProperty('wip-sections', 'line-dasharray', [2, 2]);
         } else {
           currentMap.setPaintProperty('wip-sections', 'line-color', 'rgba(0, 0, 0, 0)');
+          currentMap.setPaintProperty('wip-sections', 'line-dasharray', null);
         }
       }
 
