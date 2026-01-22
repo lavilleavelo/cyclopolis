@@ -41,7 +41,11 @@
             </h1>
             <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
               Une initiative de l'association
-              <a :href="getAssoLink()"
+              <a
+                :href="getAssoLink()"
+                target="_blank"
+                rel="noopener"
+                class="text-lvv-blue-600 font-medium hover:underline"
                 ><strong>{{ assoName }}</strong></a
               >
               pour suivre le développement du nouveau réseau vélo sécurisé Lyonnais.

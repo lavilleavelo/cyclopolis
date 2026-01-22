@@ -70,7 +70,10 @@
       <NuxtLink :to="lastNewsItem.url ?? '/historique'">
         {{ lastNewsItem.newsBannerText }}
       </NuxtLink>
-      <NuxtLink :to="lastNewsItem.url ?? '/historique'" class="flex-none text-lvv-blue-600 py-1 text-sm font-semibold hover:underline">
+      <NuxtLink
+        :to="lastNewsItem.url ?? '/historique'"
+        class="flex-none text-lvv-blue-600 py-1 text-sm font-semibold hover:underline"
+      >
         Lire l'annonce <span aria-hidden="true">&rarr;</span>
       </NuxtLink>
     </div>
