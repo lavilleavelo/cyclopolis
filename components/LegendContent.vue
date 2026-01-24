@@ -6,10 +6,11 @@
     <div class="my-auto">terminé</div>
 
     <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
-      <div :class="['relative', lineHeightClass]">
-        <div class="absolute h-full w-full">
-          <div class="h-full bg-lvv-blue-600 dashed-line animated-dashes" />
-        </div>
+      <div :class="['relative overflow-hidden', lineHeightClass]">
+        <div
+          class="absolute h-full w-[200%] -left-1/2 bg-lvv-blue-600 dashed-line"
+          :class="{ 'animated-dashes': !reduceMotion }"
+        />
       </div>
     </div>
     <div class="my-auto">en travaux</div>
@@ -17,7 +18,7 @@
     <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
       <div :class="['relative', lineHeightClass]">
         <div class="absolute h-full w-full">
-          <div class="h-full bg-lvv-blue-600 dashed-line" />
+          <div class="h-full bg-lvv-blue-600 dashed-line-planned" />
         </div>
       </div>
     </div>
@@ -44,6 +45,8 @@ const props = withDefaults(
   },
 );
 
+const { reduceMotion } = useSettings();
+
 const gridClass = computed(() => (props.size === 'small' ? 'grid-cols-[48px_1fr]' : 'grid-cols-[64px_1fr]'));
 const textSizeClass = computed(() => (props.size === 'small' ? 'text-xs' : 'text-sm'));
 const lineHeightClass = computed(() => (props.size === 'small' ? 'h-0.5' : 'h-1'));
@@ -57,6 +60,14 @@ const xTextClass = computed(() => (props.size === 'small' ? 'text-[12px] -top-[5
   background-position: 0 0;
   background-repeat: repeat-x;
   background-size: 12px 0.25rem;
+  will-change: transform;
+}
+
+.dashed-line-planned {
+  background-image: linear-gradient(to right, transparent 33%, white 33%);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  background-size: 12px 0.25rem;
 }
 
 .animated-dashes {
@@ -65,10 +76,10 @@ const xTextClass = computed(() => (props.size === 'small' ? 'text-[12px] -top-[5
 
 @keyframes dash-animation {
   0% {
-    background-position: 0 0;
+    transform: translateX(0);
   }
   100% {
-    background-position: 12px 0;
+    transform: translateX(12px);
   }
 }
 </style>

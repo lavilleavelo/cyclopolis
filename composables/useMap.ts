@@ -2,7 +2,7 @@ import type { Collections } from '@nuxt/content';
 import type maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, Map as MaplibreType } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
-import { createApp, defineComponent, h, Suspense, watch } from 'vue';
+import { createApp, defineComponent, h, Suspense, watch, onUnmounted } from 'vue';
 import {
   type CompteurFeature,
   isCompteurFeature,
@@ -461,6 +461,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     },
     { immediate: true },
   );
+
+  onUnmounted(() => {
+    if (wipAnimator) {
+      wipAnimator.destroy();
+    }
+  });
 
   function plotPlannedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     if (features.length === 0 && !map.getLayer('planned-sections')) {
