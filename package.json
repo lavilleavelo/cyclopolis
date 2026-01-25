@@ -22,7 +22,7 @@
     "dayjs": "^1.11.19",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "happy-dom": "^20.3.3",
     "nuxt": "^4.2.2",
     "nuxt-umami": "^3.2.1",
