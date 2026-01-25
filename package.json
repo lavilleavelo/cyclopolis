@@ -34,7 +34,7 @@
   "dependencies": {
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
     "@maplibre/maplibre-gl-geocoder": "^1.9.4",
-    "@panoramax/web-viewer": "^4.2.0",
+    "@panoramax/web-viewer": "^4.3.0",
     "@vueuse/core": "^14.0.0",
     "better-sqlite3": "^12.6.2",
     "highcharts": "^12.4.0",
