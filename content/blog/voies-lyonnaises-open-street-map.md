@@ -143,7 +143,7 @@ Chaque segment comporte de nombreuses informations, comme le type d'aménagement
 
 ::content-image
 ---
-panoramax: seq=8820cc16-a130-43b2-8797-87a0fd2cd39a;pic=14f96d98-cb95-4366-9901-86dd260a48ba;open=true
+panoramax: seq=8820cc16-a130-43b2-8797-87a0fd2cd39a;pic=14f96d98-cb95-4366-9901-86dd260a48ba
 ---
 ::
 

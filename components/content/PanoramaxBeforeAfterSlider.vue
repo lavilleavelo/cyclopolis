@@ -1,7 +1,39 @@
 <template>
-  <div ref="sliderContainer" class="relative w-full h-full" @mousemove="onMouseMove" @touchmove="onTouchMove">
+  <div
+    ref="sliderContainer"
+    class="relative w-full h-full group"
+    @mousemove="onMouseMove"
+    @touchmove="onTouchMove"
+    @mouseenter="preload"
+    @touchstart="preload"
+  >
+    <div
+      v-if="!isRevealed"
+      class="absolute inset-0 z-50 flex items-center justify-center bg-black/10 transition-colors cursor-pointer"
+      @click="reveal"
+    >
+      <button
+        class="bg-white/90 text-gray-800 px-4 py-2 rounded-full font-medium shadow-lg hover:bg-white transition-all transform hover:scale-105 flex items-center gap-2 pointer-events-none"
+      >
+        <Icon name="mdi:eye" class="w-5 h-5" />
+        <span>Voir Panoramax</span>
+      </button>
+      
+       <div class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 text-white text-xs rounded">
+        Panoramax
+      </div>
+    </div>
+
     <div class="absolute inset-0" :class="{ 'pointer-events-none': isDragging }">
-      <PanoramaxViewer :sequence="sequence" :picture="picture" :zoom-with-ctrl="!isDialog" />
+      <PanoramaxViewer
+        :sequence="sequence"
+        :picture="picture"
+        :zoom-with-ctrl="!isDialog"
+        :fullscreen="false"
+        :show-overlay="false"
+        :trigger-load="isRevealed"
+        :preload="isPreloading"
+      />
     </div>
 
     <div
@@ -14,10 +46,15 @@
         :picture="beforePicture"
         :zoom-with-ctrl="!isDialog"
         legend-slot="bottom-left"
+        :fullscreen="false"
+        :show-overlay="false"
+        :trigger-load="isRevealed"
+        :preload="isPreloading"
       />
     </div>
 
     <div
+      v-if="isRevealed"
       class="absolute top-0 bottom-0 cursor-ew-resize select-none"
       :style="{ left: `${sliderPosition}%`, width: '40px', marginLeft: '-20px' }"
       @mousedown="startDrag"
@@ -32,6 +69,7 @@
     </div>
 
     <div
+      v-if="isRevealed"
       class="absolute top-4 left-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded text-sm font-semibold cursor-pointer hover:bg-opacity-80 transition-all"
       @click="sliderPosition = 100"
     >
@@ -39,7 +77,7 @@
     </div>
 
     <button
-      v-if="!isDialog"
+      v-if="!isDialog && isRevealed"
       class="absolute top-4 left-1/2 -translate-x-1/2 bg-black bg-opacity-60 text-white p-2 rounded cursor-pointer hover:bg-opacity-80 transition-all flex items-center justify-center"
       title="Agrandir"
       @click="$emit('expand')"
@@ -48,6 +86,7 @@
     </button>
 
     <div
+      v-if="isRevealed"
       class="absolute top-4 right-4 bg-black bg-opacity-60 text-white px-3 py-1 rounded text-sm font-semibold cursor-pointer hover:bg-opacity-80 transition-all"
       @click="sliderPosition = 0"
     >
@@ -74,6 +113,17 @@ defineEmits<{
 const sliderContainer = ref<HTMLElement | null>(null);
 const sliderPosition = ref(props.initialPosition);
 const isDragging = ref(false);
+const isRevealed = ref(false);
+const isPreloading = ref(false);
+
+const reveal = () => {
+  isRevealed.value = true;
+  isPreloading.value = true;
+};
+
+const preload = () => {
+  isPreloading.value = true;
+};
 
 const updateSlider = (container: HTMLElement | null, e: MouseEvent | TouchEvent) => {
   if (!container) return;

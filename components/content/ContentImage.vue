@@ -11,16 +11,10 @@
       {{ caption }}
     </figcaption>
     <div v-if="credit" class="text-base italic">Crédit image : {{ credit }}</div>
-    <div
-      :class="{
-        'grid-cols-2': streetView && panoramax,
-        'grid-cols-1': (streetView && !panoramax) || (!streetView && panoramax),
-      }"
-      class="grid w-full justify-items-center"
-    >
-      <div v-if="streetView">
-        <StreetViewLink :params="streetView" />
-      </div>
+    <div v-if="streetView">
+      <StreetViewLink :params="streetView" />
+    </div>
+    <div class="grid w-full justify-items-center">
       <PanoramaxLink v-if="panoramax" :params="panoramax" />
     </div>
   </figure>

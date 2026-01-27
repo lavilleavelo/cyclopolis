@@ -59,7 +59,7 @@ Après des études complémentaires de la Métropole, l'option voie verte à l'E
 
 ::content-image
 ---
-panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=bf8dbe5e-0a35-4a43-80c4-cd7463a89307;open=true
+panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=bf8dbe5e-0a35-4a43-80c4-cd7463a89307
 ---
 ::
 
@@ -80,7 +80,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl2/VL2_Stalingrad.jpg
 caption: Photo de la Voie Lyonnaise 2 - boulevard Stalingrad (Villeurbanne)
 credit: Métropole de Lyon
 streetView: 45.7792708,4.8595317,3a,75y,208.73h,90t
-panoramax: seq=b6d7ab97-d8ac-4ad4-be31-474366d6da46;pic=4db7f08a-cb77-44ab-bfa5-f156bd0ba936;open=true;before-pic=40654e13-a2fb-48c7-a327-3283864f684e;before-seq=839e4707-0c49-4ccd-ab1a-86a91be21ce7
+panoramax: seq=b6d7ab97-d8ac-4ad4-be31-474366d6da46;pic=4db7f08a-cb77-44ab-bfa5-f156bd0ba936;before-pic=40654e13-a2fb-48c7-a327-3283864f684e;before-seq=839e4707-0c49-4ccd-ab1a-86a91be21ce7
 ---
 ::
 
@@ -120,7 +120,7 @@ Il sera néanmoins possible pour les cyclistes d'accéder au pole multimodal en 
 
 ::content-image
 ---
-panoramax: seq=fb205ef7-305b-4614-bf54-7a859517ae7f;pic=6788016c-e8b2-441d-9e6a-0d2adc9737a1;open=true
+panoramax: seq=fb205ef7-305b-4614-bf54-7a859517ae7f;pic=6788016c-e8b2-441d-9e6a-0d2adc9737a1
 ---
 ::
 
@@ -141,7 +141,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl2/bd-vivier-merle.jpg
 caption: Aperçu de la Voie Lyonnaise 2 - boulevard Vivier Merle (Lyon 3)
 credit: Métropole de Lyon
 streetView: 45.7533388,4.8593519,3a,75y,175.99h,90t
-panoramax: seq=ff94beab-1862-4707-8ef8-4dc0d4f230d9;pic=1b1fcb42-5a0b-48fc-a7db-bc526c9de77a;open=true
+panoramax: seq=ff94beab-1862-4707-8ef8-4dc0d4f230d9;pic=1b1fcb42-5a0b-48fc-a7db-bc526c9de77a
 ---
 ::
 

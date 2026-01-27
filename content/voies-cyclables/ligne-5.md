@@ -85,7 +85,7 @@ La Voie Lyonnaise empruntera les aménagements cyclables récents existants (202
 
 ::content-image
 ---
-panoramax: seq=f31786be-f8ef-4890-83e8-11e8d067595d;pic=6e8f14a3-9075-4be7-ab16-dbc11e9a0664;open=true
+panoramax: seq=f31786be-f8ef-4890-83e8-11e8d067595d;pic=6e8f14a3-9075-4be7-ab16-dbc11e9a0664
 ---
 ::
 
@@ -93,7 +93,7 @@ panoramax: seq=f31786be-f8ef-4890-83e8-11e8d067595d;pic=6e8f14a3-9075-4be7-ab16-
 
 ::content-image
 ---
-panoramax: seq=deabc4bf-bfe8-4059-84ac-2ed98dba489e;pic=ded813e2-ef7d-4d7f-9a59-8f1dd62a1513;open=true
+panoramax: seq=deabc4bf-bfe8-4059-84ac-2ed98dba489e;pic=ded813e2-ef7d-4d7f-9a59-8f1dd62a1513
 ---
 ::
 
@@ -101,7 +101,7 @@ panoramax: seq=deabc4bf-bfe8-4059-84ac-2ed98dba489e;pic=ded813e2-ef7d-4d7f-9a59-
 
 ::content-image
 ---
-panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=3c277339-5797-4fae-8703-958e550da48c;open=true
+panoramax: seq=16f43680-fbe7-4d16-8440-6b8d4d522a2a;pic=3c277339-5797-4fae-8703-958e550da48c
 ---
 ::
 

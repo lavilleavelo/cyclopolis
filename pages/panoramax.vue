@@ -36,7 +36,7 @@ const isLoading = ref(true);
 
 const psvOptions = computed(() => ({
   picturesNavigation: 'seq',
-  mousewheelCtrlKey: zoomWithCtrl.value,
+  // mousewheelCtrlKey: zoomWithCtrl.value,
   touchmoveTwoFingers: zoomWithCtrl.value,
 }));
 

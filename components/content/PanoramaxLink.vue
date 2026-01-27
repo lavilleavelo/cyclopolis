@@ -1,11 +1,6 @@
 <template>
-  <div class="flex items-center gap-3">
-    <a class="cursor-pointer select-none underline text-lvv-blue-600 text-sm" @click="isRevealed = !isRevealed">
-      {{ isRevealed ? 'Masquer Panoramax' : 'Voir sur Panoramax' }}
-    </a>
-  </div>
   <div
-    v-if="isRevealed && hasBeforeAfter"
+    v-if="hasBeforeAfter"
     :style="{ width: '100%', minHeight: height, height: height, gridColumn: 'span 2', overflow: 'hidden' }"
     class="relative"
   >
@@ -32,7 +27,7 @@
   </div>
 
   <div
-    v-else-if="isRevealed"
+    v-else
     :style="{ width: '100%', minHeight: height, height: height, gridColumn: 'span 2', overflow: 'hidden' }"
     class="relative"
   >
@@ -82,7 +77,7 @@
               :initial-position="5"
               :is-dialog="true"
             />
-            <PanoramaxViewer v-else :sequence="sequence" :picture="picture" />
+            <PanoramaxViewer v-else :sequence="sequence" :picture="picture" :fullscreen="false" />
           </ClientOnly>
         </div>
       </div>
@@ -110,12 +105,10 @@ function parseParams(paramString: string) {
     picture: extractParameterValue(paramString, 'pic') || '',
     beforePicture: extractParameterValue(paramString, 'before-pic') || '',
     beforeSequence: extractParameterValue(paramString, 'before-seq') || '',
-    autoOpen: extractParameterValue(paramString, 'open') === 'true' || false,
   };
 }
 
-const { sequence, picture, beforePicture, beforeSequence, autoOpen } = parseParams(params);
-const isRevealed = ref(autoOpen);
+const { sequence, picture, beforePicture, beforeSequence } = parseParams(params);
 const isDialogOpen = ref(false);
 const hasBeforeAfter = computed(() => beforePicture && beforeSequence);
 

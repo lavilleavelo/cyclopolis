@@ -1,5 +1,5 @@
 <template>
-  <a class="text-sm" target="_blank" rel="noopener noreferrer" :href="url.toString()">Voir sur Google Street View</a>
+  <a class="text-xs" target="_blank" rel="noopener noreferrer" :href="url.toString()">Voir sur Google Street View</a>
 </template>
 
 <script setup>

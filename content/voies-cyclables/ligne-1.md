@@ -59,7 +59,7 @@ De manière transitoire, la VL1 empruntera les aménagements de l'avenue Jean Ca
 
 ::content-image
 ---
-panoramax: seq=363d1d1f-13c0-49a5-901a-a2c5edc362a6;pic=45aff885-5398-43d4-bd08-3643f779ef2c;open=true
+panoramax: seq=363d1d1f-13c0-49a5-901a-a2c5edc362a6;pic=45aff885-5398-43d4-bd08-3643f779ef2c
 --- 
 ::
 
@@ -100,7 +100,7 @@ Après des études complémentaires de la Métropole, le scénario initial de cr
 
 ::content-image
 ---
-panoramax: seq=d499d021-f8bd-4933-b96f-4f8c704ae067;pic=e37d3fcf-e0c2-48e7-8dfc-16a4d48e0d62;open=true
+panoramax: seq=d499d021-f8bd-4933-b96f-4f8c704ae067;pic=e37d3fcf-e0c2-48e7-8dfc-16a4d48e0d62
 ---
 ::
 
@@ -117,7 +117,7 @@ Une piste cyclable de 4m de large a été créée sur une des voies de circulati
 
 ::content-image
 ---
-panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-c3c3b7a2e113;open=true
+panoramax: seq=02cb71d6-1430-4360-beb9-1aef15d3fb9c;pic=560e5248-ea4b-4307-b684-c3c3b7a2e113
 ---
 ::
 
@@ -141,7 +141,7 @@ Une reprise ponctuelle a été réalisée de chaque côté du pont de Lattre de 
 
 ::content-image
 ---
-panoramax: seq=13446dd6-ecdc-46b8-b12c-f65ad79e45c0;pic=785a8e0b-c4b6-49aa-b32f-e911bf94da97;open=true
+panoramax: seq=13446dd6-ecdc-46b8-b12c-f65ad79e45c0;pic=785a8e0b-c4b6-49aa-b32f-e911bf94da97
 ---
 ::
 
@@ -162,7 +162,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl1/VL1_Augagneur.jpg
 caption: Photo de la Voie Lyonnaise 1 - quai Augagneur (Lyon 3)
 credit: La Ville à Vélo
 streetView: 45.7573504,4.8407715,3a,75y,196.69h,85.05t
-panoramax: seq=00b4096a-24bf-4d8a-8e04-69b73baf9113;pic=1b68ec4f-570c-45e3-b2af-beb804f668c9;open=true;before-pic=e7de96ba-a7e7-4e95-9502-c1bf9a281bcc;before-seq=7caf0539-cd34-4840-bcb7-b1b4fd95f79a
+panoramax: seq=00b4096a-24bf-4d8a-8e04-69b73baf9113;pic=1b68ec4f-570c-45e3-b2af-beb804f668c9;before-pic=e7de96ba-a7e7-4e95-9502-c1bf9a281bcc;before-seq=7caf0539-cd34-4840-bcb7-b1b4fd95f79a
 ---
 ::
 
@@ -183,7 +183,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl1/VL1_ClaudeBernard.jpg
 caption: Photo de la Voie Lyonnaise 1 - Quai Claude Bernard (Lyon 7)
 credit: Métropole de Lyon
 streetView: 45.7502784,4.8356748,3a,75y,12.37h,82.36t
-panoramax: seq=6b6d097c-114e-407a-a2f6-e9c19d05bf20;pic=a57c871e-8767-4370-a224-92b276659cc6;open=true
+panoramax: seq=6b6d097c-114e-407a-a2f6-e9c19d05bf20;pic=a57c871e-8767-4370-a224-92b276659cc6
 ---
 ::
 

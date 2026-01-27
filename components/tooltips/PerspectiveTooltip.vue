@@ -18,7 +18,7 @@
       @click="openOverlay"
     >
       <Icon name="mdi:panorama" class="h-4 w-4" />
-      <span>Voir sur Panoramax</span>
+      <span>Voir Panoramax</span>
     </button>
   </div>
   <Teleport to="body">
