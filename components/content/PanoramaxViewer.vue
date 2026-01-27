@@ -26,8 +26,9 @@
       :src="iframeSrc"
       :style="viewerStyle"
       frameborder="0"
+      scrolling="no"
       allowfullscreen
-      class="w-full h-full absolute inset-0"
+      class="w-full h-full absolute inset-0 overflow-hidden"
     ></iframe>
 
     <button
