@@ -959,7 +959,8 @@
       "properties": {
         "line": 4,
         "name": "Villeurbanne - Pressensé Est",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "01/27/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
