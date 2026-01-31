@@ -3779,6 +3779,31 @@
             45.767742568397985
           ],
           [
+            4.933012373399038,
+            45.763723815288174
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 5,
+        "name": "BUE - Cité TASE",
+        "status": "done",
+        "doneAt": "16/01/2026",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-5#vaulx-en-velin-est"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            4.933012373399038,
+            45.763723815288174
+          ],
+          [
             4.9334535427824155,
             45.76076817203354
           ],

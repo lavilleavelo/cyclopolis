@@ -572,7 +572,8 @@
       "properties": {
         "line": 4,
         "name": "Rue Mouillard",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "30/01/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#porte-de-vaise"
@@ -960,7 +961,7 @@
         "line": 4,
         "name": "Villeurbanne - Pressensé Est",
         "status": "done",
-        "doneAt": "27/01/2026",
+        "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
