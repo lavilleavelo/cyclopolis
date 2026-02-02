@@ -18,10 +18,8 @@
         <Icon name="mdi:eye" class="w-5 h-5" />
         <span>Voir Panoramax</span>
       </button>
-      
-       <div class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 text-white text-xs rounded">
-        Panoramax
-      </div>
+
+      <div class="absolute bottom-2 right-2 px-2 py-1 bg-black/60 text-white text-xs rounded">Panoramax</div>
     </div>
 
     <div class="absolute inset-0" :class="{ 'pointer-events-none': isDragging }">

@@ -16,7 +16,7 @@
     "@headlessui/vue": "^1.7.23",
     "@nuxt/content": "^3.10.0",
     "@nuxt/eslint": "^1.12.1",
-    "@nuxt/icon": "^2.2.0",
+    "@nuxt/icon": "^2.2.1",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@tailwindcss/typography": "^0.5.19",
     "dayjs": "^1.11.19",
@@ -24,12 +24,12 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "happy-dom": "^20.3.3",
-    "nuxt": "^4.2.2",
+    "nuxt": "^4.3.0",
     "nuxt-umami": "^3.2.1",
-    "prettier": "^3.8.0",
+    "prettier": "^3.8.1",
     "sitemap": "^9.0.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.17"
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
@@ -40,6 +40,6 @@
     "highcharts": "^12.5.0",
     "highcharts-vue": "^2.0.1",
     "maplibre-gl": "^5.15.0",
-    "zod": "^4.3.5"
+    "zod": "^4.3.6"
   }
 }
