@@ -26,7 +26,7 @@
       <div class="py-2 px-5 md:px-8 text-white bg-lvv-blue-600 font-semibold text-base">
         {{ doneDistance }} km de {{ getRevName() }} réalisés
       </div>
-      <div class="py-5 px-5 md:px-8 grid grid-cols-3 gap-3 sm:grid-cols-6">
+      <div class="py-5 px-5 md:px-8 grid grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-3 sm:gap-4">
         <div v-for="year in years" :key="year.label" @click="toggleYear(year.label)">
           <div
             class="border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer focus:outline-none"
@@ -66,30 +66,31 @@ const { geojsons } = await useVoiesCyclablesGeojson();
 
 const { voies } = await useGetVoiesCyclablesNums();
 
+const startYear = 2021;
+const currentYear = new Date().getFullYear();
 const yearConfigs = [
-  { label: '< 2021', param: 'before2021', match: (year: number) => year < 2021 },
-  { label: '2021', param: '2021', match: (year: number) => year === 2021 },
-  { label: '2022', param: '2022', match: (year: number) => year === 2022 },
-  { label: '2023', param: '2023', match: (year: number) => year === 2023 },
-  { label: '2024', param: '2024', match: (year: number) => year === 2024 },
-  { label: '2025', param: '2025', match: (year: number) => year === 2025 },
+  { label: `< ${startYear}`, param: `before${startYear}`, match: (year: number) => year < startYear },
+  ...Array.from({ length: currentYear - startYear + 1 }, (_, index) => {
+    const year = startYear + index;
+    return { label: `${year}`, param: `${year}`, match: (value: number) => value === year };
+  }),
 ];
 
 const route = useRoute();
 const router = useRouter();
 
-const selectedYearParams = ref<string[]>(['before2021']);
+const selectedYearParams = ref<string[]>([`before${startYear}`]);
 
 onMounted(() => {
-  const yearsParam = typeof route.query.years === 'string' ? route.query.years : 'before2021';
-  selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : ['before2021'];
+  const yearsParam = typeof route.query.years === 'string' ? route.query.years : `before${startYear}`;
+  selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [`before${startYear}`];
 });
 
 watch(
   () => route.query.years,
   (newYears) => {
-    const yearsParam = newYears ? newYears.toString() : '';
-    selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [];
+    const yearsParam = newYears ? newYears.toString() : `before${startYear}`;
+    selectedYearParams.value = yearsParam ? yearsParam.split(',').filter(Boolean) : [`before${startYear}`];
   },
 );
 
