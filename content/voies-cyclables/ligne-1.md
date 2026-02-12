@@ -34,7 +34,8 @@ Le projet a été validé et déclaré d'utilité publique le 26 février 2024.\
 [Voir la présentation du projet du tram T9](https://www.sytral.fr/625-tramway-t9.htm){:target="_blank"}
 
 ::banner{type="wip"}
-Les travaux préparatoires sur les réseaux ont lieu entre février et l'automne 2024, et s'enchaineront avec les travaux d'aménagement jusqu'à fin 2026.
+Les travaux préparatoires sur les réseaux ont lieu entre février et l'automne 2024, et s'enchaineront avec les travaux d'aménagement jusqu'à fin 2026.\
+Un premier tronçon permettant de traverser le canal de Jonage grâce à un nouveau pont relié aux chemins de Halage a été ouvert début février 2026.
 ::
 
 ::content-image

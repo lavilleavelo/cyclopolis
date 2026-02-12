@@ -114,7 +114,7 @@ Les travaux sur la rue de la Mairie ont eu lieu entre mi-octobre et fin novembre
 Sur cette section, la Voie Lyonnaise 4 empruntera l'avenue Lanessan sous la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est, en lieu et place du stationnement existant. Le carrefour avec l'avenue de Champagne sera entièrement réaménagé pour sécuriser le lien avec le quartier de la Duchère.
 
 ::banner{type="wip"}
-Les travaux ont lieu entre octobre 2025 et janvier 2026.
+Les travaux ont lieu entre octobre 2025 et février 2026.
 ::
 
 #### Avenue du 25e Régiment de Tirailleurs Sénégalais

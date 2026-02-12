@@ -72,7 +72,8 @@ L'enquête publique aura lieu du 4 septembre au 3 octobre 2023.\
 [Voir la présentation du projet du tram T9](https://www.sytral.fr/625-tramway-t9.htm)
 
 ::banner{type="wip"}
-Les travaux préparatoires sur les réseaux ont lieu entre février 2024 et le printemps 2025, tandis que les premiers travaux d'aménagement commencent en novembre 2024 sur le BUE et se poursuivent jusqu'à début 2026.
+Les travaux préparatoires sur les réseaux ont lieu entre février 2024 et le printemps 2025, tandis que les premiers travaux d'aménagement commencent en novembre 2024 sur le BUE et se poursuivent jusqu'à l'été 2026.\
+Un premier tronçon entre la rue Brunel et le T3 est livré en janvier 2026.
 ::
 
 ### Vaulx-en-Velin Ouest
