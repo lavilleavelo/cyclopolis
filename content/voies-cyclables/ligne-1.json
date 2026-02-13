@@ -7,11 +7,12 @@
         "type": "perspective",
         "name": "Canal de Jonage",
         "line": 1,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl1/croix-luizet.jpeg"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl1/croix-luizet.jpeg",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=17.45/45.782764/4.893558&pic=ea556ed1-bd91-4c64-bb87-90377a071903&seq=661ae924-211f-455d-b292-67364d8df753&speed=250&theme=default&xyz=66.74/-21.09/5"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [4.893801991148365, 45.78325660243033]
+        "coordinates": [4.894103227, 45.783035247]
       }
     },
     {

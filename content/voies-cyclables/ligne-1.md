@@ -24,6 +24,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl1/croix-luizet.jpeg
 caption: Aperçu de la Voie Lyonnaise 1 franchissant le canal de Jonage (Villeurbanne)
 credit: SYTRAL Mobilités
 streetView: 45.7832245,4.8937612,3a,75y,259.87h,90t
+panoramax: seq=661ae924-211f-455d-b292-67364d8df753;pic=ea556ed1-bd91-4c64-bb87-90377a071903
 ---
 ::
 
