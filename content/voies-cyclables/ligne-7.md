@@ -212,7 +212,7 @@ streetView: 45.7497209,4.8539141,3a,75y,199.64h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux préalables au comblement de la trémie Félix Faure/Gambetta ont commencé début 2024 et se termineront durant l'automne 2024. Ils ont enchainé avec les travaux d'aménagement fin 2024 qui se poursuivront jusqu'en début d'année 2026.
+Les travaux préalables au comblement de la trémie Félix Faure/Gambetta ont commencé début 2024 et se termineront durant l'automne 2024. Ils ont enchainé avec les travaux d'aménagement fin 2024 qui se sont poursuivis jusqu'à mi-février 2026.
 ::
 
 La concertation publique sur ce tronçon s'est tenue du 14/02 au 15/03/2022.\
@@ -314,9 +314,11 @@ Compte-tenu des travaux très impactants du tramway T10 dans ce secteur jusqu'à
 De Saint-Fons à Feyzin, la Voie Lyonnaise 7 suit le boulevard Yves Farge. Sa création rentre dans le cadre de la requalification de ce boulevard. Il est prévu une piste cyclable bidirectionnelle de 3 à 4m de large, côté Est de la chaussée jusqu'à l'avenue du 11 Novembre. Elle basculera ensuite en deux pistes cyclables bilatérales de 1.5 à 2m de large chacune pour traverser les deux giratoires de chaque côté du Boulevard Urbain Sud. Ces deux giratoires seront réaménagés à la hollandaise pour sécuriser les cheminements des vélos.
 
 ::banner{type="wip"}
-Les travaux préparatoires sur les réseaux ont eu lieu entre début 2024 et l'été 2024 et ont enchainé en septembre 2024 avec les travaux d'aménagement qui dureront jusqu'au printemps 2026.\
+Les travaux préparatoires sur les réseaux ont eu lieu entre début 2024 et l'été 2024 et ont enchainé en septembre 2024 avec les travaux d'aménagement qui ont duré jusqu'en février 2026.\
 Une première tranche Nord jusqu'à l'avenue Maurice Thorez a été livrée début 2025.\
-Une seconde tranche entre l'avenue Maurice Thorez et la rue de la Rochette a été livrée début juin 2025.
+Une seconde tranche entre l'avenue Maurice Thorez et la rue de la Rochette a été livrée début juin 2025.\
+La troisième tranche entre la rue de la Rochette et la rue du Midi a été livrée mi-février 2026.\
+La traversée du Boulevard Urbain Sud a été livrée début septembre 2025.
 ::
 
 ::content-image

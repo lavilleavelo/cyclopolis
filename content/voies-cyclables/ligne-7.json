@@ -1525,7 +1525,8 @@
         "id": "GaribaldiPhase3-commun",
         "line": 7,
         "name": "Garibaldi - Arménie Gde Rue Guill",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/02/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#garibaldi-arménie-à-gde-rue-de-la-guillotière"
@@ -1822,7 +1823,8 @@
       "properties": {
         "line": 7,
         "name": "Boulevard Yves Farge Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "17/02/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#boulevard-yves-farge-de-saint-fons-à-feyzin"
