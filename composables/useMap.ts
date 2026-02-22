@@ -975,6 +975,16 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return { feature };
         },
         component: DangerTooltip,
+        hoverComponent: DangerTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['dangers'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find((f) => f.properties.name === mapFeature.properties.name);
+          return { feature };
+        },
       },
       {
         id: 'perspectives',
@@ -1002,6 +1012,23 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           return { feature };
         },
         component: PerspectiveTooltip,
+        hoverComponent: PerspectiveTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['perspectives'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find((f) => {
+            return (
+              f.properties.type === 'perspective' &&
+              f.properties.line === mapFeature.properties.line &&
+              f.properties.imgUrl === mapFeature.properties.imgUrl
+            );
+          });
+
+          return { feature };
+        },
       },
       {
         id: 'linestring', // not really a layer id. gather all linestrings.
