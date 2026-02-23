@@ -963,7 +963,8 @@
         "id": "GaribaldiPhase3-commun",
         "line": 9,
         "name": "Garibaldi - Arménie Gde Rue Guill",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/02/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
