@@ -108,7 +108,7 @@ La création régulière d'ilots piétons étroits entre la piste cyclable et la
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre mi-juillet et janvier 2026.
+Les travaux ont eu lieu entre mi-juillet 2025 et fin février 2026.
 ::
 
 #### Rue Antonin Laborde au pont Clémenceau
