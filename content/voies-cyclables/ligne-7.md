@@ -142,7 +142,7 @@ La Métropole a finalement reporté début 2025 l'aménagement définitif de ce 
 
 ::banner{type="wip"}
 Les travaux sur le carrefour Boucle/Canuts a eu lieu entre fin juillet et mi-novembre 2025.
-Les travaux au carrefour Henri Dor a lieu entre octobre et novembre 2025.
+Le changement de priorité au carrefour Henri Dor a eu lieu fin février 2026.
 Les travaux sur la contre-allée du bas ont eu lieu en novembre 2025.
 ::
 
