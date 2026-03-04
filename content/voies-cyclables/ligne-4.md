@@ -6,6 +6,10 @@ to: Villeurbanne
 description: La Voie Lyonnaise 4 promet de pouvoir traverser la métropole lyonnaise du Nord-Ouest des Monts d'Or à Villeurbanne en passant par Limonest, Techlid, Champagne, Vaise et le 6ème arrondissement. Cette ligne prévoit d'aménager des secteurs aujourd'hui très peu pourvus en aménagements cyclables et peu sécurisés. Elle va transformer l'espace public des territoires traversés en faveur des modes actifs.
 trafic: 18k vélos/jour
 cover: https://cyclopolis.lavilleavelo.org/vl4/av-verguin.jpg
+videos:
+  - url: https://www.youtube.com/watch?v=rekH_JNCcD0
+    title: Voie Lyonnaise 4 Nord
+    credit: Quai2Saône
 ---
 
 ## Les tronçons (d'Ouest en Est)
