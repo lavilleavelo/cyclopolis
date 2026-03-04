@@ -222,7 +222,7 @@ Ceux au nord de la rue Chardiny débutent après les travaux de l'aquarium, entr
 La Voie Lyonnaise 3 fait ici un léger détour en s'éloignant du Rhône via la rue Gabriel Péri compatible avec un aménagement en vélorue pour desservir le complexe évenementiel des Grandes Locos. Elle traverse l'Yzeron en voie verte sur la passerelle existante au niveau de l'avenue Edmond Locard. Ce franchissement étroit de la rivière devra être amélioré à moyen-terme pour ne pas en faire un point noir piéton. Les cyclistes continueront ensuite sur l'avenue Locard qu'ils emprunteront jusqu'à son extrémité Sud sur de nouvelles pistes cyclables sécurisées et élargies. Ils auraient dû circuler ensuite sur la rue Dubois Crancé via la création d'une nouvelle piste cyclable bidirectionnelle de 3m de large côté Est, pour rejoindra la voie verte existante sur trottoir de l'avenue Jean Jaurès, datant de 2020, et qui sera conservée en l'état (3.5m de large).
 
 ::banner{type="info"}
-Les travaux de voirie liés au projet urbain de la Saulaie commenceront fin 2025 et continueront pendant l'année 2026. En attendant, les cyclistes utiliseront les aménagements sécurisés existants sur l'avenue Locard et l'avenue des Saules.
+Les travaux de voirie liés au projet urbain de la Saulaie ont commencé sur les réseaux souterrains début 2026 et continueront jusqu'en 2027-2028. En attendant, les cyclistes utiliseront les aménagements sécurisés existants sur l'avenue Locard et l'avenue des Saules.
 ::
 
 ::banner{type="postponed"}
@@ -243,7 +243,7 @@ streetView: 45.7021441,4.821693,3a,75y,314.96h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont commencé fin août 2024 et continueront jusqu'en octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusque mi-2026. Un premier tronçon entre Salengro et Voltaire a été livré à l'été 2025.
+Les travaux préalables sur les réseaux souterrains ont commencé fin août 2024 et continueront jusqu'en octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusqu'en septembre 2026. Un premier tronçon entre Salengro et Voltaire a été livré à l'été 2025. Un second tronçon entre Voltaire et la rue du 8 mai 1945 a été livré au printemps 2026.
 ::
 
 #### *Concertation*

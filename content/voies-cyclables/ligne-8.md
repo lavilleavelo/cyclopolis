@@ -128,7 +128,7 @@ Les travaux auraient du avoir lieu entre décembre 2025 et février 2026, mais �
 Cette avenue aujourd'hui très anxiogène pour les cyclistes sera réaménagée pour y insérer une piste cyclable bidirectionnelle côté Sud de 2.50 à 3.00m de large. La piste s'interrompra au niveau du carrefour avec l'avenue Apollinaire compte-tenu de l'étroitesse de la partie Est, qui obligerait à une mise en sens unique fortement impactante pour les lignes de bus du secteur.
 
 ::banner{type="wip"}
-Après des travaux préliminaires sur les réseaux souterrains en 2024, les travaux d'aménagement ont lieu entre fin juin 2025 et janvier 2026.
+Après des travaux préliminaires sur les réseaux souterrains en 2024, les travaux d'aménagement ont eu lieu entre fin juin 2025 et début mars 2026.
 ::
 
 ::content-image

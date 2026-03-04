@@ -795,7 +795,8 @@
       "properties": {
         "line": 8,
         "name": "Carrefour des Hespérides",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-victor-hugo-à-république-hespérides"
@@ -817,7 +818,8 @@
       "properties": {
         "line": 8,
         "name": "Avenue Barthélémy Buyer",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#avenue-barthélémy-buyer"
@@ -881,7 +883,8 @@
       "properties": {
         "line": 8,
         "name": "Avenue Sidoine Apollinaire",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "04/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#avenue-apollinaire-et-quartier-de-la-gravière"

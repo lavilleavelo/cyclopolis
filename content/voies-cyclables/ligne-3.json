@@ -1509,7 +1509,8 @@
         "id": "PierreBeniteN-commun",
         "line": 3,
         "name": "Pierre Bénite Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/06/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#traversée-de-pierre-bénite"
