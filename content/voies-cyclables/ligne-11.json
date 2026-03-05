@@ -603,16 +603,17 @@
         "type": "LineString",
         "coordinates": [
           [4.861468420716278,45.7538736167393],
-          [4.8631770745339225,45.75409016627313]
+          [4.8631770745339225,45.75409016627313],
+          [4.8635873531707645,45.75308519529498]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "HachetteDauphine-commun",
+        "id": "RenoirDauphine-commun",
         "line": 11,
-        "name": "Hachette - Renoir - Dauphiné",
+        "name": "Renoir - Dauphiné",
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
@@ -621,7 +622,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8631770745339225,45.75409016627313],
           [4.8635873531707645,45.75308519529498],
           [4.865788176308245,45.752610851200906],
           [4.868035480765778,45.75258957168657],
