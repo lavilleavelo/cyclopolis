@@ -87,6 +87,20 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "DauphineLaccasagne-commun",
+        "type": "danger",
+        "name": "Carrefour Dauphiné-Laccasagne, sens Est>Ouest",
+        "description": "Cisaillement entre véhicules/bus qui vont tout droit et cyclistes qui tournent à gauche",
+        "danger": "Risque de collision voiture-vélo par cisaillement dangereux"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.869621, 45.752782]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "type": "danger",
         "name": "Carrefour Pompidou - Villette",
         "description": "Stationnement régulier de véhicules en dépose-minute dans le carrefour",
@@ -888,7 +902,7 @@
         "doneAt": "04/12/2025",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"
+        "link": "/voie-lyonnaise-10#avenue-lacassagne-paul-bert-à-dauphiné"
       },
       "geometry": {
         "type": "LineString",
@@ -908,7 +922,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"
+        "link": "/voie-lyonnaise-10#avenue-lacassagne-paul-bert-à-dauphiné"
       },
       "geometry": {
         "type": "LineString",
@@ -916,12 +930,41 @@
           [4.8635873531707645,45.75308519529498],
           [4.865788176308245,45.752610851200906],
           [4.868035480765778,45.75258957168657],
-          [4.868839041506018,45.752676454794695],
+          [4.868709307007062, 45.75265633853424],
           [4.869327804351831,45.752735369884576],
           [4.869538019534076,45.752797439308665]
         ]
       }
-    },    
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RenoirDauphine-commun",
+        "line": 10,
+        "name": "Variante Lévy - Perrin",
+        "status": "variante",
+        "text": "variante temporaire",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-10#avenue-lacassagne-paul-bert-à-dauphiné"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8631770745339225,45.75409016627313],
+          [4.8636792034243115, 45.75411668387824],
+          [4.8643726371579135, 45.75375906500045],
+          [4.865150488912519, 45.753481382879386],
+          [4.865868042080223, 45.753317297340686],
+          [4.866398669633895, 45.75324577272437],
+          [4.866591625107276, 45.75326680938562],
+          [4.868454851401424, 45.75303540567299],
+          [4.868430731469289, 45.75290497456564],
+          [4.868711003972095, 45.75283925195387],
+          [4.868709307007062, 45.75265633853424]
+        ]
+      }
+    },
     {
       "type": "Feature",
       "properties": {

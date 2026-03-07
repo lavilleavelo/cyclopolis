@@ -103,14 +103,14 @@ Les premiers travaux sur les réseaux ont débuté au premier semestre 2024, et 
 ### Esplanade Mandela à Dauphiné - Lacassagne
 Sur ce tronçon, l'aménagement cyclable historique longe le :transport-link{type=tram line=3} côté Nord, mais présente un point noir majeur au niveau de l'arrêt Dauphiné-Lacassagne où les cyclistes débouchent sur un espace étroit puis sur une place piétonne avec un flux important entrainant des conflits marqués. Enfin, les cyclistes devaient traverser tout le carrefour en diagonale ainsi que les rails du tramway pour rejoindre la piste au Sud-Est, entrainant de fréquents accidents et un frein majeur à l'usage du vélo dans ce secteur.
 
-Le projet prévoit donc un nouvel itinéraire en piste cyclable bidirectionnelle de 4m de large, d'abord côté Ouest de la rue Jeanne Hachette qui sera mise en sens unique vers le Nord, puis côté Sud de la rue Renoir et du Dauphiné en supprimant partiellement des places de stationnement.
+Le projet prévoit donc un nouvel itinéraire en piste cyclable bidirectionnelle de 4m de large, d'abord côté Ouest de la rue Jeanne Hachette qui a été mise en sens unique vers le Sud, puis côté Sud de la rue Renoir et du Dauphiné en supprimant partiellement des places de stationnement.
 
 ::banner{type="modified"}
-Suite à la concertation, la Métropole et la mairie du 3e arrondissement ont annoncé en avril 2024 que la piste cyclable bidirectionnelle serait finalement au Nord de la rue Jean Renoir et de la rue du Dauphiné. Cette variante permet de conserver un maximum de places de stationnement. Elle implique néanmoins une légère déviation du bus 69 par la rue Sisley dans le sens Nord>Sud. Les travaux auront lieu en 2026.
+Suite à la concertation, la Métropole et la mairie du 3e arrondissement ont annoncé en avril 2024 que la piste cyclable bidirectionnelle serait finalement au Nord de la rue Jean Renoir et de la rue du Dauphiné. Cette variante permet de conserver un maximum de places de stationnement. Elle implique néanmoins une légère déviation du bus 69 par la rue Sisley dans le sens Nord>Sud.
 ::
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et cette section ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Elle est donc considérée comme reportée à un mandat ultérieur.
+Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et cette section ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Elle est donc considérée comme reportée à un mandat ultérieur, à l'exception de la rue Jeanne Hachette réalisée début 2026. En attendant, il est privilégié de continuer à utiliser la piste cyclable de la rue Lévy puis de l'allée Perrin, avant de traverser les rails juste avant l'arrêt de tram pour minimiser les conflits avec les piétons.
 ::
 
 ::content-image
