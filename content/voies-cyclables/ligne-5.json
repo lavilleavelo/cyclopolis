@@ -7,7 +7,8 @@
         "type": "perspective",
         "name": "Bron - Allée des droits de l'homme",
         "line": 5,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl5/bron-parc-du-chene.png"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl5/bron-parc-du-chene.png",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=17/45.731218/4.930104&pic=20e86bed-9c3e-483d-9b64-71bbe9ca2d0d&pic_type=equirectangular&seq=eb4e7005-37c3-421e-8cba-991a6509f622&speed=400&theme=default&users=a9baf28a-0587-4935-be27-4ece1d9408c2&xyz=192.65/4.25/30"
       },
       "geometry": {
         "type": "Point",

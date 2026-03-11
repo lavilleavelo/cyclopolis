@@ -21,6 +21,7 @@ imageUrl: https://cyclopolis.lavilleavelo.org/vl5/VL5_BUE2.jpg
 caption: Photo de la Voie Lyonnaise 5 - entre tram T5 et avenue Mermoz (Chassieu)
 credit: La Ville à Vélo
 streetView: 45.7396285,4.9359452,3a,75y,40.39h,88.41t
+panoramax: pic=47deaaf9-4581-4f93-a9c5-1971c7070acb;seq=eb4e7005-37c3-421e-8cba-991a6509f622
 ---
 ::
 
