@@ -54,14 +54,14 @@ La traversée du pont de Neuville sera sécurisée à horizon 2030 via l'élargi
 La Voie Lyonnaise 3 longera la Saône en rive droite sur le côté Est de la D51 en desservant les communes d'Albigny-sur-Saône, Couzon-au-Mont-d'Or, Saint-Romain-au-Mont-d'Or et Collonges-au-Mont-d'Or. Elle sera aménagée sous la forme d'une voie verte de 3 à 4m de large sur le nord de la commune d'Albigny, tandis qu'elle sera aménagée en piste cyclable bidirectionnelle de 3.00 à 3.50m de large sur les communes de Couzon, St-Romain et Collonges. Les carrefours giratoires avec les ponts seront tous améliorés avec la suppression des dangereuses traversées en diagonale, mais la sécurisation de la traversée des ponts ne sera pas optimale.
 
 ::banner{type="wip"}
-La section sur la commune d'Albigny est réalisée entre février et juillet 2025 au nord du giratoire, puis entre octobre 2025 et janvier 2026 au Sud. Le traitement des entrées charretières en "bateau" sur la partie en voie verte n'est pas satisfaisant et aurait pu être traité avec des rampants de manière à conserver un cheminement sans ressauts.\
+La section sur la commune d'Albigny a été réalisée entre février et juillet 2025 au nord du giratoire, puis entre octobre 2025 et mars 2026 au Sud. Le traitement des entrées charretières en "bateau" sur la partie en voie verte n'est pas satisfaisant et aurait pu être traité avec des rampants de manière à conserver un cheminement sans ressauts.\
 La section sur la commune de Couzon a été réalisée en deux phases : Sud de l'avenue De Gaulle à l'automne 2019 et Nord de l'avenue de juin à décembre 2022.\
 La section sur la commune de St-Romain a été réalisée entre février et juillet 2024.\
 Sur la commune de Collonges, seul le nord du quai d'Illhausern, entre la rue d'Island et le Sud du pont Leclerc a été aménagé avec un séparateur haut entre août et septembre 2025.
 ::
 
 ::banner{type="postponed"}
-Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud devaient être en travaux entre le début d'hiver 2025 et l'été 2026. Le sud du quai d'Illhausern ainsi que le quai de la Jonchère devaient bénéficier d'un large séparateur comme à St-Romain, mais les contraintes financières de la fin du mandat et la frilosité des élus à l'approche des élections a conduit au report de ces 3.5km de linéaire à l'automne 2025.
+Sur la commune de Collonges, les deux giratoires et leur branches Nord et Sud devaient être en travaux entre le début d'hiver 2025 et l'été 2026. Le sud du quai d'Illhausern ainsi que le quai de la Jonchère devaient bénéficier d'un large séparateur comme à St-Romain, mais les contraintes financières de la fin du mandat et la frilosité des élus à l'approche des élections a conduit au report de ces 3.5km de linéaire, obligeant les cyclistes à traverser deux foix la voirie dans le sens Nord>Sud pour une durée indéterminée.
 ::
 
 ::content-image

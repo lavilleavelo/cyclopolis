@@ -516,7 +516,8 @@
       "properties": {
         "line": 3,
         "name": "Albigny - Giratoire des Monts d'Or",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "06/03/2026",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -540,7 +541,8 @@
       "properties": {
         "line": 3,
         "name": "Albigny Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "06/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
