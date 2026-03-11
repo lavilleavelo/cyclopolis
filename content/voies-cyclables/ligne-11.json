@@ -7,7 +7,8 @@
         "type": "perspective",
         "name": "Chassieu - Route de Lyon",
         "line": 11,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl11/route-de-lyon.jpg"
+        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl11/route-de-lyon.jpg",
+        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=18.82/45.7391443/4.9548781&pic=80c089d1-eee3-4192-9fa3-d7991cc4db4e&pic_type=equirectangular&seq=eb4e7005-37c3-421e-8cba-991a6509f622&speed=400&theme=default&xyz=100.65/-13.21/2"
       },
       "geometry": {
         "type": "Point",
