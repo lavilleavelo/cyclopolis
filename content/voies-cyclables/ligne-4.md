@@ -10,6 +10,9 @@ videos:
   - url: https://www.youtube.com/watch?v=rekH_JNCcD0
     title: Voie Lyonnaise 4 Nord
     credit: Quai2Saône
+  - url: https://www.youtube.com/watch?v=6RGerWnp1N0
+    title: Voie Lyonnaise 4, Mouillard Bourgogne Corderie
+    credit: Quai2Saône
 ---
 
 ## Les tronçons (d'Ouest en Est)
