@@ -494,7 +494,8 @@
       "properties": {
         "line": 4,
         "name": "Champagne - Lanessan Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-juttet-à-avenue-de-champagne"
@@ -513,9 +514,10 @@
       "properties": {
         "line": 4,
         "name": "Carrefour Duchère Lanessan",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-4#avenue-du-25e-régiment-de-tirailleurs-sénégalais"
       },
       "geometry": {
@@ -603,7 +605,8 @@
       "properties": {
         "line": 4,
         "name": "Friche SNCF",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#porte-de-vaise"
@@ -633,7 +636,8 @@
       "properties": {
         "line": 4,
         "name": "Bourgogne Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-de-bourgogne"
@@ -671,7 +675,8 @@
       "properties": {
         "line": 4,
         "name": "Rue de la Corderie",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#rue-de-la-corderie"
@@ -691,7 +696,8 @@
         "id": "CarrefourMtdOr-commun",
         "line": 4,
         "name": "Carrefour des Monts d'Or",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#quais-de-saône"

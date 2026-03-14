@@ -224,7 +224,7 @@ streetView: 45.7228161,4.877238,3a,75y,301.55h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux ont lieu entre fin mai 2025 et janvier 2026.
+Les travaux ont eu lieu entre fin mai 2025 et mi-mars 2026.
 ::
 
 ####  Quartier de Parilly
