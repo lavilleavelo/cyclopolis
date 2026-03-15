@@ -2170,7 +2170,8 @@
         "village",
         "state",
         "country",
-        "continent"
+        "continent",
+        "island"
       ],
       "layout": {
         "text-field": "{name:latin}\n{name:nonlatin}",
@@ -2186,6 +2187,36 @@
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.2
       }
+    },
+    {
+      "id": "place-island",
+      "type": "symbol",
+      "metadata": {
+        "mapbox:group": "1444849242106.713"
+      },
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "filter": ["==", "class", "island"],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Italic"],
+        "text-letter-spacing": 0.05,
+        "text-max-width": 8,
+        "text-size": {
+          "base": 1.2,
+          "stops": [
+            [13, 9],
+            [16, 12]
+          ]
+        },
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#6b8a6b",
+        "text-halo-color": "rgba(255,255,255,0.7)",
+        "text-halo-width": 1
+      },
+      "minzoom": 16
     },
     {
       "id": "place-village",
