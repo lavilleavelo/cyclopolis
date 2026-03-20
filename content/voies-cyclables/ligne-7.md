@@ -6,6 +6,10 @@ to: Feyzin
 description: La Voie Lyonnaise 7 permettra de traverser la métropole de Lyon en suivant un axe nord-sud central. Elle traversera Rillieux-la-Pape depuis le nouveau quartier Osterode avant de rejoindre la voie verte des Dombes à travers Caluire-et-Cuire, en direction de la Croix-Rousse ou du parc de la Tête d'Or. Elle passera à travers Lyon sur la rue Garibaldi, puis la route de Vienne avant de rejoindre le centre-ville de Saint-Fons puis Feyzin. Ce projet très ambitieux devrait métamorphoser le paysage urbain tout en révolutionnant la mobilité de nombreux habitants.
 trafic: 18k vélos/jour
 cover: https://cyclopolis.lavilleavelo.org/vl7/rue-garibaldi.png
+videos:
+  - url: https://www.youtube.com/watch?v=dF2JuPZFUwc
+    title: Voie Lyonnaise 7 de Rillieux-La-Pape à Vénissieux
+    credit: Quai2Saône
 ---
 
 ## Les tronçons (du Nord au Sud)
