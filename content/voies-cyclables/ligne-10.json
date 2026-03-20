@@ -511,7 +511,8 @@
         "id": "CarrefourMtdOr-commun",
         "line": 10,
         "name": "Carrefour des Monts d'Or",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "13/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"

@@ -1331,10 +1331,11 @@
 				"id": "CarrefourMtdOr-commun",
 				"line": 5,
 				"name": "Carrefour des Monts d'Or",
-				"status": "wip",
+				"status": "done",
+				"doneAt": "13/03/2026",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
-				"link": "/voie-lyonnaise-5#quais-de-saône"
+                "link": "/voie-lyonnaise-5#quais-de-saône"
 			},
 			"geometry": {
 				"type": "LineString",
@@ -1354,7 +1355,7 @@
 				"doneAt": "20/11/2025",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
-				"link": "/voie-lyonnaise-5#quais-de-saône"
+                "link": "/voie-lyonnaise-5#quais-de-saône"
 			},
 			"geometry": {
 				"type": "LineString",
