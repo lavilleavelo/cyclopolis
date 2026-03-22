@@ -40,25 +40,25 @@
 
       <div
         v-if="(voie.videos && voie.videos.length > 0) || (voie.photos && voie.photos.length > 0)"
-        class="flex flex-wrap gap-3 justify-center mb-2"
+        class="flex flex-wrap gap-4 justify-center mb-2"
       >
         <button
           v-if="voie.videos && voie.videos.length > 0"
           type="button"
-          class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600"
+          class="flex items-center gap-2 text-lg font-semibold text-gray-500 hover:text-lvv-blue-600 border border-gray-300 rounded-lg px-4 py-2 hover:border-lvv-blue-600 transition-colors"
           @click="videoDialog?.open(0)"
         >
-          <Icon name="mdi:play-circle-outline" class="h-5 w-5" aria-hidden="true" />
+          <Icon name="mdi:play-circle-outline" class="h-6 w-6" aria-hidden="true" />
           <span>{{ voie.videos.length > 1 ? 'Vidéos' : 'Vidéo' }}</span>
         </button>
 
         <button
           v-if="voie.photos && voie.photos.length > 0"
           type="button"
-          class="flex items-center gap-2 text-base font-semibold text-gray-500 hover:text-lvv-blue-600"
+          class="flex items-center gap-2 text-lg font-semibold text-gray-500 hover:text-lvv-blue-600 border border-gray-300 rounded-lg px-4 py-2 hover:border-lvv-blue-600 transition-colors"
           @click="photoGallery?.open(0)"
         >
-          <Icon name="mdi:image-outline" class="h-5 w-5" aria-hidden="true" />
+          <Icon name="mdi:image-outline" class="h-6 w-6" aria-hidden="true" />
           <span>{{ voie.photos.length > 1 ? 'Photos' : 'Photo' }}</span>
         </button>
       </div>

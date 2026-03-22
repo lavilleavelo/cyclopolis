@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
-      <div class="text-lg max-w-prose mx-auto">
+      <div class="text-lg max-w-3xl mx-auto">
         <div v-if="header" class="text-base text-center text-lvv-blue-600 font-semibold tracking-wide uppercase">
           {{ header }}
         </div>
@@ -86,7 +86,7 @@
           {{ description }}
         </p>
       </div>
-      <div class="mt-6 prose prose-lg text-gray-500 mx-auto">
+      <div class="mt-6 prose prose-lg max-w-3xl text-gray-500 mx-auto">
         <FullscreenImage v-if="imageUrl" :image-url="imageUrl" :alt="title || 'Image'" image-class="w-full mb-6" />
         <slot />
       </div>
