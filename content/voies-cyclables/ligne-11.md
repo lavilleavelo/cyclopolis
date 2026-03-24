@@ -140,7 +140,7 @@ Le projet a été validé et déclaré d'utilité publique le 12 juin 2024.\
 [Voir la présentation du projet du BHNS Part Dieu - Sept Chemins](https://www.sytral.fr/622-bhns.htm)
 
 ::banner{type="wip"}
-Entre Reconnaissance Balzac et Kimmerling, les travaux préparatoires sur les réseaux ont eu lieu entre janvier 2024 et novembre 2024, et se sont enchainés avec les travaux d'aménagements de novembre 2024 jusqu'à fin 2025.\
+Entre Reconnaissance Balzac et Kimmerling, les travaux préparatoires sur les réseaux ont eu lieu entre janvier 2024 et novembre 2024, et se sont enchainés avec les travaux d'aménagements de novembre 2024 jusqu'à Mars 2026.\
 Entre Kimmerling et Sept Chemins, les travaux préparatoires sur les réseaux ont lieu entre fin 2024 et fin 2025, et s'enchaineront avec les travaux d'aménagements entre début 2026 et l'été 2027. Certains points durs perdureront après 2027 le temps que certains immeubles soient déconstruits.
 ::
 
