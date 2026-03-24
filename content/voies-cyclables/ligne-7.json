@@ -1201,7 +1201,8 @@
       "properties": {
         "line": 7,
         "name": "Carrefour Boucle - Henri Dor",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "27/02/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#montée-de-la-boucle"

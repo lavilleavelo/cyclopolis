@@ -1,1768 +1,1095 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "perspective",
-        "name": "Boulevard Stalingrad",
-        "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-stalingrad-2.jpeg",
-        "panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=17.45/45.778091/4.859263&pic=ec76fa87-345a-4c1e-aede-1eaadd3c6185"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.859350965174372,
-          45.777942473521335
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "perspective",
-        "name": "Boulevard des États-Unis",
-        "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-etats-unis.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.868248348387141,
-          45.72832997526342
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "perspective",
-        "name": "Boulevard Vivier-Merle",
-        "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-vivier-merle.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.859614606594789,
-          45.75188807727281
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "perspective",
-        "name": "Avenue Viviani",
-        "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/av-viviani.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.875645220544442,
-          45.72323196150907
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "type": "perspective",
-        "name": "Avenue Charles De Gaulle",
-        "line": 2,
-        "imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/av-charles-de-gaulle.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          4.897507464585857,
-          45.71399349924738
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "IllhaeusernN-commun",
-        "line": 2,
-        "name": "Collonges - Quai d'Illhaeusern Nord",
-        "status": "done",
-        "doneAt": "03/10/2025",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.848952371861799, 45.830115593229095],
-          [4.849463285526554, 45.82974744945379],
-          [4.850220554447617, 45.82915454115287],
-          [4.850974901454464, 45.8284824850473],
-          [4.85137145058286, 45.828050365464975],
-          [4.852147785532054, 45.82704758501484],
-          [4.85309272299429, 45.82567933085203]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "IllhaeusernS-commun",
-        "line": 2,
-        "name": "Collonges - Quai d'Illhaeusern Sud",
-        "status": "done",
-        "doneAt": "01/09/2020",
-        "type": "bidirectionnelle",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.85309272299429, 45.82567933085203],
-          [4.8538498293577845, 45.824539678825126],
-          [4.8542129883838925, 45.82383381936725],
-          [4.8545538439518054, 45.82296914802767],
-          [4.854736124456252, 45.822196893514864],
-          [4.854817401953255, 45.82144140140227],
-          [4.854786129056521, 45.82075997247418],
-          [4.854716925473781, 45.820274961688675],
-          [4.85442205200411, 45.81942262045158],
-          [4.854153949790231, 45.818884305313006],
-          [4.853751447458535, 45.81836801278282],
-          [4.85343495645516, 45.81805389464242],
-          [4.853088786481379, 45.8177535661266],
-          [4.852489917181927, 45.81736488613922],
-          [4.851872328081868, 45.81703190869914],
-          [4.8510172950637696, 45.816649805094066],
-          [4.8501527309417725, 45.81631309372029],
-          [4.848146555202475, 45.81551849456591]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Bocuse-commun",
-        "line": 2,
-        "name": "Giratoire Pont Bocuse",
-        "status": "postponed",
-        "type": "voie-bus",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.848146555202475, 45.81551849456591],
-          [4.8476551943778, 45.815344134649024],
-          [4.847190346993343, 45.81520673303234],
-          [4.846525500744888, 45.81493632161355],
-          [4.846379562651734, 45.8148105315013],
-          [4.845989843510232, 45.814680123184175],
-          [4.845459674194984, 45.81424483939754]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Jonchère-commun",
-        "line": 2,
-        "name": "Collonges - Quai de la Jonchère",
-        "status": "done",
-        "doneAt": "01/09/2020",
-        "type": "bidirectionnelle",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.845459674194984, 45.81424483939754],
-          [4.843054547236932, 45.81217483735474],
-          [4.842820884583439, 45.811904236787896],
-          [4.842554265260233, 45.8114743030404],
-          [4.842363137183575, 45.81113973345053],
-          [4.842211611117733, 45.8107921739217],
-          [4.8420326437515655, 45.81029927906075],
-          [4.841943953753685, 45.809795374951435],
-          [4.841886762752324, 45.808039088723696],
-          [4.841767997507787, 45.807441973477125],
-          [4.841745276239905, 45.80729166003472],
-          [4.841634035110474, 45.80695785561008],
-          [4.841397876690792, 45.80627923913334],
-          [4.8404860496521, 45.80464684735274],
-          [4.840011247250175, 45.80385215339368],
-          [4.8397114764978255, 45.803484874191014],
-          [4.8393935790156775, 45.80315803188831],
-          [4.839157418246998, 45.802784532756064]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Barbe-commun",
-        "line": 2,
-        "name": "Quai Raoul Carrié",
-        "status": "postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.839157418246998, 45.802784532756064],
-          [4.8387218248955435, 45.801766686008584],
-          [4.838409706739142, 45.80135938729437],
-          [4.837771654129028, 45.80075755554231],
-          [4.836815194232855, 45.80022843351546],
-          [4.8358190059661865, 45.799755270962166],
-          [4.831871115758162, 45.798557831464315],
-          [4.831059727875555, 45.798218640954275],
-          [4.8304759395564645, 45.797975559948014]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Barbe-commun",
-        "line": 2,
-        "name": "Variante - Gde Rue de Saint Rambert & Termier",
-        "status": "variante",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8304759395564645, 45.797975559948014],
-          [4.830364186117464, 45.79799316615052],
-          [4.830234965368106, 45.79798458601218],
-          [4.830207275206618, 45.79805537211166],
-          [4.830090361194834, 45.798162623605094],
-          [4.830050364296767, 45.79817549377063],
-          [4.830090361194834, 45.798259149773116],
-          [4.830151894885603, 45.79830634028335],
-          [4.830281115635955, 45.798355675773905],
-          [4.830674931254805, 45.798454346624055],
-          [4.832010212336769, 45.798857608282475],
-          [4.832465563120024, 45.799245852386974],
-          [4.832690161090426, 45.799348811625066],
-          [4.833717773720508, 45.79970487752419],
-          [4.833991599096237, 45.799771371808504],
-          [4.835056131940945, 45.80003949189833],
-          [4.835317650125063, 45.80019178353541],
-          [4.835456100928553, 45.80030975564375],
-          [4.835566861571579, 45.80044917690472],
-          [4.835708389059505, 45.80074946766561],
-          [4.8357580202702195, 45.800897064601855],
-          [4.83571494668675, 45.80103648439325],
-          [4.835444198449494, 45.80134106180034],
-          [4.83581647727658, 45.80145688657433],
-          [4.836253367957454, 45.8016649421084],
-          [4.836517962825951, 45.80179792531462],
-          [4.838200909868533, 45.80292826937651],
-          [4.838496271582898, 45.803363671078074],
-          [4.8385024251327025, 45.80351380905964],
-          [4.838490118395185, 45.803655367119205],
-          [4.838567035507907, 45.80380121444051],
-          [4.8386624127279845, 45.80388700680393],
-          [4.838853167168111, 45.80398137825142],
-          [4.838951621073591, 45.80383767621106],
-          [4.839028538186341, 45.80349021601509],
-          [4.839028538282037, 45.803110580978],
-          [4.838991618067382, 45.802756681694376],
-          [4.839157418246998, 45.802784532756064]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Pont de l'Île Barbe",
-        "status": "done",
-        "doneAt": "10/11/2020",
-        "type": "voie-verte",
-        "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8304759395564645, 45.797975559948014],
-          [4.831795544871056, 45.79602553322215]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Accès plateau Caluire Ouest",
-        "status": "postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.831795544871056,
-            45.79602553322215
-          ],
-          [
-            4.846034035228541,
-            45.79925458507378
-          ],
-          [
-            4.84923540877918,
-            45.79871420824841
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteCombattantsAfN-commun",
-        "line": 2,
-        "name": "Variante Rue des Combattants AfN",
-        "status": "variante-postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.84923540877918,
-            45.79871420824841
-          ],
-          [
-            4.84973913877505,
-            45.79856581745432
-          ],
-          [
-            4.849902318914388,
-            45.79860044200839
-          ],
-          [
-            4.8500087407444425,
-            45.798738940009144
-          ],
-          [
-            4.850363480177748,
-            45.799164324572956
-          ],
-          [
-            4.851165191297639,
-            45.79977271778256
-          ],
-          [
-            4.851335466226516,
-            45.800034868906096
-          ],
-          [
-            4.851285790992051,
-            45.800663037632006
-          ],
-          [
-            4.8514489711313615,
-            45.80068282234927
-          ],
-          [
-            4.851505729440561,
-            45.80074217645941
-          ],
-          [
-            4.851505729440561,
-            45.800806476673785
-          ],
-          [
-            4.8520804073235695,
-            45.800821315174005
-          ],
-          [
-            4.853387439025113,
-            45.80088431533889
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteDombesNord",
-        "line": 2,
-        "name": "Chemin de Crépieux",
-        "status": "done",
-        "doneAt": "15/11/2023",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.853387439025113,
-            45.80088431533889
-          ],
-          [
-            4.855137598311927,
-            45.80101634114206
-          ],
-          [
-            4.855218583670364,
-            45.80109226889431
-          ],
-          [
-            4.855335872811594,
-            45.80102996920786
-          ],
-          [
-            4.862873628518969,
-            45.8015038894097
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Accès plateau Caluire Est",
-        "status": "postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.862873628518969,
-            45.8015038894097
-          ],
-          [
-            4.864547540390845,
-            45.79639279227537
-          ],
-          [
-            4.8614346556736905,
-            45.795639827871035
-          ],
-          [
-            4.864431119665966,
-            45.792660026270624
-          ],
-          [
-            4.860271555904589,
-            45.79445090535552
-          ],
-          [
-            4.860417250867499,
-            45.791008478328905
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "variantePoincaré",
-        "line": 2,
-        "name": "Pont Poincaré",
-        "status": "postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#pont-poincaré-à-avenue-berthelot",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.86041733053915,
-            45.79100811545707
-          ],
-          [
-            4.860364367315626,
-            45.79044878998151
-          ],
-          [
-            4.860390478357509,
-            45.790106257934966
-          ],
-          [
-            4.860437667865455,
-            45.789975900028956
-          ],
-          [
-            4.860520042904412,
-            45.789506000349775
-          ],
-          [
-            4.860591556394212,
-            45.78906148643597
-          ],
-          [
-            4.860533469726917,
-            45.78843527348124
-          ],
-          [
-            4.860474775179426,
-            45.7878955668458
-          ],
-          [
-            4.860322924366244,
-            45.78671067566097
-          ],
-          [
-            4.860233298396281,
-            45.78585471352106
-          ],
-          [
-            4.860193859377425,
-            45.785672930523575
-          ],
-          [
-            4.860092207916509,
-            45.785316746212956
-          ],
-          [
-            4.860078333469829,
-            45.7851751824118
-          ],
-          [
-            4.860036397028863,
-            45.78482105370692
-          ],
-          [
-            4.860043357052177,
-            45.78477515935958
-          ],
-          [
-            4.860028376055567,
-            45.784614639552274
-          ]
-        ]
-      }
-    },    
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "variantePoincaré",
-        "line": 2,
-        "name": "Détour via Passerelle de la Paix",
-        "status": "done",
-        "doneAt": "20/11/2025",
-        "type": "voie-verte",
-        "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.859096014315483,
-            45.78473198447127
-          ],
-          [
-            4.8591117788897975,
-            45.78495695014692
-          ],
-          [
-            4.858920938610424,
-            45.785315694739126
-          ],
-          [
-            4.858696908717349,
-            45.78546613533223
-          ],
-          [
-            4.858456284016654,
-            45.78554714163775
-          ],
-          [
-            4.858049711247332,
-            45.78563972012799
-          ],
-          [
-            4.8570706176398915,
-            45.78566865087495
-          ],
-          [
-            4.855709843472482,
-            45.78558764474644
-          ],
-          [
-            4.854921590144414,
-            45.78548349383635
-          ],
-          [
-            4.854747344671239,
-            45.78606789364676
-          ],
-          [
-            4.854274408808493,
-            45.78810457181356
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "variantePoincaré",
-        "line": 2,
-        "name": "Détour via St-Clair",
-        "status": "variante-postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.854274408808493,
-            45.78810457181356
-          ],
-          [
-            4.854772253015966,
-            45.7881392871727
-          ],
-          [
-            4.8588628729201275,
-            45.78805249873412
-          ],
-          [
-            4.8588628729201275,
-            45.7882376472397
-          ],
-          [
-            4.859053713199472,
-            45.788336007133125
-          ],
-          [
-            4.859286040495704,
-            45.78879308906647
-          ],
-          [
-            4.859402204144459,
-            45.78952788381227
-          ],
-          [
-            4.858979036567575,
-            45.78973038459827
-          ],
-          [
-            4.8589541443582505,
-            45.789903956115296
-          ],
-          [
-            4.859161574588455,
-            45.79040730769424
-          ],
-          [
-            4.859028816132138,
-            45.790667661605056
-          ],
-          [
-            4.859974720127099,
-            45.790991655884596
-          ],
-          [
-            4.860417250867499,
-            45.791008478328905
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Bonnevay127-commun",
-        "line": 2,
-        "name": "Transbordeur Nord",
-        "status": "done",
-        "doneAt": "24/10/2025",
-        "type": "voie-verte",
-        "link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.859096014315483,
-            45.78473198447127
-          ],
-          [
-            4.85915263804057,
-            45.78461590794164
-          ],
-          [
-            4.860028376055567,
-            45.784614639552274
-          ],
-          [
-            4.861193194938238,
-            45.78457073986618
-          ],
-          [
-            4.862144082681112,
-            45.78452557526816
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "StalingradNord-commun",
-        "line": 2,
-        "name": "Stalingrad Nord",
-        "status": "done",
-        "doneAt": "24/10/2025",
-        "type": "voie-verte",
-        "link": "/voie-lyonnaise-2#boulevard-stalingrad-nord",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.862144082681112,
-            45.78452557526816
-          ],
-          [
-            4.862200896628934,
-            45.784338011196866
-          ],
-          [
-            4.862114945344814,
-            45.784134927910856
-          ],
-          [
-            4.861955079016923,
-            45.7840097089655
-          ],
-          [
-            4.861681987226291,
-            45.783793985076784
-          ],
-          [
-            4.861420310705796,
-            45.783546137065855
-          ],
-          [
-            4.8611263593755325,
-            45.78323860628828
-          ],
-          [
-            4.86081294095942,
-            45.78292184709244
-          ],
-          [
-            4.860506826041387,
-            45.782641670652225
-          ],
-          [
-            4.860342527530207,
-            45.78247494102024
-          ],
-          [
-            4.860157493643499,
-            45.782233216710694
-          ],
-          [
-            4.860157493643499,
-            45.782233216710694
-          ],
-          [
-            4.860057753276379,
-            45.782042205762906
-          ],
-          [
-            4.859792515712513,
-            45.77961927680201
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "StalingradCentre-commun",
-        "line": 2,
-        "name": "Stalingrad Centre",
-        "status": "done",
-        "doneAt": "05/04/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-stalingrad-sud",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.859792515712513,
-            45.77961927680201
-          ],
-          [
-            4.859433174133301,
-            45.77959168491022
-          ],
-          [
-            4.859073758125305,
-            45.77623754923035
-          ],
-          [
-            4.8588672280311584,
-            45.77437051960145
-          ],
-          [
-            4.858714207777808,
-            45.772826589591475
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Stalingrad Sud",
-        "status": "done",
-        "doneAt": "05/04/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-stalingrad-sud",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858714207777808,
-            45.772826589591475
-          ],
-          [
-            4.8585909605026245,
-            45.77087949289752
-          ],
-          [
-            4.858462290009896,
-            45.770068535369305
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Waldeck-Rousseau",
-        "status": "done",
-        "doneAt": "05/04/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#rue-waldeck-rousseau",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858462290009896,
-            45.770068535369305
-          ],
-          [
-            4.858247637748718,
-            45.76885699214569
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "BelgesSud-commun",
-        "line": 2,
-        "name": "Belges de Waldeck-Rousseau à Fournet",
-        "status": "done",
-        "link": "/voie-lyonnaise-2#boulevard-des-belges",
-        "doneAt": "31/10/2023",
-        "type": "voie-bus-elargie",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858247637748718,
-            45.76885699214569
-          ],
-          [
-            4.859167215823987,
-            45.76798267099208
-          ],
-          [
-            4.8591872301896615,
-            45.7669659107803
-          ],
-          [
-            4.859198004856708,
-            45.76638150573918
-          ],
-          [
-            4.85923869646907,
-            45.76590619994349
-          ],
-          [
-            4.859211458247469,
-            45.76580346394656
-          ],
-          [
-            4.858924921845796,
-            45.76529997791977
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "BelgesSudSud-commun",
-        "line": 2,
-        "name": "Belges de Fournet à Lafayette",
-        "status": "done",
-        "doneAt": "05/03/2025",
-        "type": "voie-bus-elargie",
-        "link": "/voie-lyonnaise-2#boulevard-des-belges",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858924921845796,
-            45.76529997791977
-          ],
-          [
-            4.858373750754061,
-            45.76424639246519
-          ],
-          [
-            4.858235497511661,
-            45.76399353781251
-          ],
-          [
-            4.858179861280421,
-            45.76386933701856
-          ],
-          [
-            4.858113393088814,
-            45.763751073521476
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Part-Dieu en tunnel",
-        "status": "done",
-        "doneAt": "18/04/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#tunnel-vivier-merle",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858113527297974,
-            45.76375083372945
-          ],
-          [
-            4.8579215550429,
-            45.76336378845552
-          ],
-          [
-            4.857805501757795,
-            45.76298005335895
-          ],
-          [
-            4.8579195778429,
-            45.76202363975885
-          ],
-          [
-            4.85816048213599,
-            45.76047784182268
-          ],
-          [
-            4.858178918169161,
-            45.76013694467696
-          ],
-          [
-            4.858476909397056,
-            45.75868068737044
-          ],
-          [
-            4.858651632292101,
-            45.7577684085759
-          ],
-          [
-            4.858741361663366,
-            45.75728253054682
-          ],
-          [
-            4.858755317509747,
-            45.75711235554936
-          ],
-          [
-            4.858629469623423,
-            45.757074288171935
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "VivierMerle-commun",
-        "line": 2,
-        "name": "Vivier Merle Nord",
-        "status": "done",
-        "doneAt": "18/04/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.858629469623423,
-            45.757074288171935
-          ],
-          [
-            4.859262346819449,
-            45.75360446651945
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Vivier Merle Centre",
-        "status": "done",
-        "doneAt": "20/04/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.859262346819449,
-            45.75360446651945
-          ],
-          [
-            4.859782599320312,
-            45.75107518108422
-          ],
-          [
-            4.8597891728406495,
-            45.75091210997772
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Vivier Merle Sud",
-        "status": "done",
-        "doneAt": "20/04/2024",
-        "type": "voie-bus",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.8597891728406495,
-            45.75091210997772
-          ],
-          [
-            4.859512568971894,
-            45.749900275229436
-          ],
-          [
-            4.85942497714165,
-            45.74970470076507
-          ],
-          [
-            4.859411781151497,
-            45.749535230531166
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Tchécoslovaques Nord",
-        "status": "done",
-        "doneAt": "28/08/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.859411781151497,
-            45.749535230531166
-          ],
-          [
-            4.859298042550691,
-            45.74905462323612
-          ],
-          [
-            4.858812488225112,
-            45.74731215441383
-          ],
-          [
-            4.858571192039449,
-            45.74629330063935
-          ],
-          [
-            4.858424315440345,
-            45.74575336797892
-          ],
-          [
-            4.858361805683927,
-            45.74551085665067
-          ],
-          [
-            4.8582905530929565,
-            45.74530190168827
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Tchécoslovaques Sud",
-        "status": "done",
-        "doneAt": "28/10/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.8582905530929565,
-            45.74530190168827
-          ],
-          [
-            4.858177900314331,
-            45.7449312885339
-          ],
-          [
-            4.858166280700516,
-            45.74464007113203
-          ],
-          [
-            4.858148493098611,
-            45.74458313454152
-          ],
-          [
-            4.857925332095874,
-            45.74377783836711
-          ],
-          [
-            4.857842067259469,
-            45.74368840625719
-          ],
-          [
-            4.857652625428017,
-            45.74300924216705
-          ],
-          [
-            4.857554462373187,
-            45.74267087766515
-          ],
-          [
-            4.8574980526205245,
-            45.742539238562145
-          ],
-          [
-            4.857367702137026,
-            45.74233828984702
-          ],
-          [
-            4.856991221954047,
-            45.74187763098481
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Avenue Berthelot",
-        "status": "done",
-        "doneAt": "30/04/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#avenue-berthelot",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.856991221954047,
-            45.74187763098481
-          ],
-          [
-            4.856314258309382,
-            45.74113716709984
-          ],
-          [
-            4.8559419816216405,
-            45.74078529928422
-          ],
-          [
-            4.855876564979553,
-            45.74067467621083
-          ],
-          [
-            4.8594653606414795,
-            45.73953278568564
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Boulevard des États-Unis Nord",
-        "status": "done",
-        "doneAt": "20/06/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-des-états-unis",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.8594653606414795,
-            45.73953278568564
-          ],
-          [
-            4.8632826324775635,
-            45.7347266161789
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Boulevard des États-Unis Cazeneuve-Sarrazin",
-        "status": "done",
-        "doneAt": "20/06/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-des-états-unis",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.8632826324775635,
-            45.7347266161789
-          ],
-          [
-            4.866050589734414,
-            45.73114846566571
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Boulevard des États-Unis Sarrazin-Beauvisage",
-        "status": "done",
-        "doneAt": "08/11/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-des-états-unis",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.866050589734414,
-            45.73114846566571
-          ],
-          [
-            4.867536650716005,
-            45.72924133033993
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Boulevard des États-Unis Sud",
-        "status": "done",
-        "doneAt": "25/09/2024",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#boulevard-des-états-unis",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.867536650716005,
-            45.72924133033993
-          ],
-          [
-            4.871211766639959,
-            45.724516744863365
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Avenue Viviani",
-        "status": "wip",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#avenue-viviani",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.871211766639959,
-            45.724516744863365
-          ],
-          [
-            4.8816946742135485,
-            45.721560926196005
-          ],
-          [
-            4.882221785483722,
-            45.72154555216924
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Traversée du périphérique",
-        "status": "done",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "doneAt": "24/05/2019",
-        "type": "voie-verte",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.882221785483722,
-            45.72154555216924
-          ],
-          [
-            4.882229041106569,
-            45.7213838826608
-          ],
-          [
-            4.882800189729096,
-            45.721390531890535
-          ],
-          [
-            4.882966046670134,
-            45.721377178415395
-          ],
-          [
-            4.883086668364257,
-            45.72134058522789
-          ],
-          [
-            4.883176426887275,
-            45.72128718943523
-          ],
-          [
-            4.883266635752619,
-            45.72118381144995
-          ],
-          [
-            4.883404711781594,
-            45.72094015323566
-          ],
-          [
-            4.883531831513636,
-            45.72083037314823
-          ],
-          [
-            4.883717002699655,
-            45.720721991556985
-          ],
-          [
-            4.8833328219293435,
-            45.7205992263182
-          ],
-          [
-            4.883341203833368,
-            45.72057468002296
-          ],
-          [
-            4.883856344085643,
-            45.72065081006406
-          ],
-          [
-            4.884987624874867,
-            45.72028460055088
-          ],
-          [
-            4.885028724647242,
-            45.72027166879431
-          ],
-          [
-            4.885298298040141,
-            45.720199867446155
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Avenue Jules Guesde",
-        "status": "done",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "doneAt": "01/09/2018",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.885298298040141,
-            45.720199867446155
-          ],
-          [
-            4.885711667563072,
-            45.7198794908044
-          ],
-          [
-            4.885711667563072,
-            45.7198794908044
-          ],
-          [
-            4.886430145147187,
-            45.71933989149713
-          ],
-          [
-            4.886434206984802,
-            45.71933922805385
-          ],
-          [
-            4.887302750505967,
-            45.71868781432993
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Métro Parilly",
-        "status": "done",
-        "doneAt": "01/09/2018",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.887302750505967,
-            45.71868781432993
-          ],
-          [
-            4.8884895135254,
-            45.71948549025497
-          ],
-          [
-            4.888606380524664,
-            45.71955872905621
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Ancienne Route d'Heyrieux Ouest",
-        "status": "postponed",
-        "type": "bandes-cyclables",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.888606380524664,
-            45.71955872905621
-          ],
-          [
-            4.8887109220892455,
-            45.71952870468809
-          ],
-          [
-            4.889570171879697,
-            45.719010426401454
-          ],
-          [
-            4.889982191277337,
-            45.718829224882796
-          ],
-          [
-            4.8904311869770325,
-            45.718673839477894
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Ancienne Route d'Heyrieux Est",
-        "status": "done",
-        "doneAt": "01/06/2020",
-        "type": "velorue",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.8904311869770325,
-            45.718673839477894
-          ],
-          [
-            4.891415456417206,
-            45.71836306873766
-          ],
-          [
-            4.892142894249904,
-            45.718121388758156
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Parc de Parilly",
-        "status": "done",
-        "doneAt": "12/09/2025",
-        "type": "bidirectionnelle",
-        "link": "/voie-lyonnaise-2#quartier-de-parilly",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.892142894249904,
-            45.718121388758156
-          ],
-          [
-            4.892783935438549,
-            45.717910191274655
-          ],
-          [
-            4.892894982951994,
-            45.717539791420094
-          ],
-          [
-            4.893320684850963,
-            45.71680256966383
-          ],
-          [
-            4.893534238204543,
-            45.71659754927192
-          ],
-          [
-            4.893777756884472,
-            45.71641345090761
-          ],
-          [
-            4.894177575407257,
-            45.716156154540876
-          ],
-          [
-            4.894622320488288,
-            45.71593022649611
-          ],
-          [
-            4.894637136976867,
-            45.71575061309665
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Avenue De Gaulle - Route de Lyon",
-        "status": "done",
-        "doneAt": "03/10/2025",
-        "type": "voie-verte",
-        "link": "/voie-lyonnaise-2#route-de-lyon-parc-parilly-à-rue-des-alouettes",
-        "quality": "satisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.894637136976867,
-            45.71575061309665
-          ],
-          [
-            4.894915896998487,
-            45.71552786776043
-          ],
-          [
-            4.895422874661648,
-            45.71522745717807
-          ],
-          [
-            4.898444654938636,
-            45.713441338939475
-          ],
-          [
-            4.901375276116013,
-            45.71165522070089
-          ],
-          [
-            4.904296781383145,
-            45.70981818054249
-          ],
-          [
-            4.905812229476762,
-            45.70890602666077
-          ],
-          [
-            4.907300329841149,
-            45.70802570294491
-          ],
-          [
-            4.912358731225666,
-            45.70495356971031
-          ],
-          [
-            4.91491527964866,
-            45.703385673681666
-          ],
-          [
-            4.917517407620011,
-            45.70184961260586
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 2,
-        "name": "Route de Lyon - Alouettes à Diderot",
-        "status": "postponed",
-        "type": "aucun",
-        "link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
-        "quality": "unsatisfactory"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [
-            4.917517407620011,
-            45.70184961260586
-          ],
-          [
-            4.922892980075503,
-            45.69845341818865
-          ],
-          [
-            4.923854239026136,
-            45.69791326729836
-          ],
-          [
-            4.926107710135657,
-            45.696556908205714
-          ],
-          [
-            4.926275404542984,
-            45.696363558085565
-          ]
-        ]
-      }
-    }
-  ]
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"type": "perspective",
+				"name": "Boulevard Stalingrad",
+				"line": 2,
+				"imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-stalingrad-2.jpeg",
+				"panoramaxUrl": "https://api.panoramax.xyz/?focus=pic&map=17.45/45.778091/4.859263&pic=ec76fa87-345a-4c1e-aede-1eaadd3c6185"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.859350965174372, 45.777942473521335]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"type": "perspective",
+				"name": "Boulevard des États-Unis",
+				"line": 2,
+				"imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-etats-unis.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.868248348387141, 45.72832997526342]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"type": "perspective",
+				"name": "Boulevard Vivier-Merle",
+				"line": 2,
+				"imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/bd-vivier-merle.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.859614606594789, 45.75188807727281]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"type": "perspective",
+				"name": "Avenue Viviani",
+				"line": 2,
+				"imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/av-viviani.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.875645220544442, 45.72323196150907]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"type": "perspective",
+				"name": "Avenue Charles De Gaulle",
+				"line": 2,
+				"imgUrl": "https://cyclopolis.lavilleavelo.org/vl2/av-charles-de-gaulle.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.897507464585857, 45.71399349924738]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "IllhaeusernN-commun",
+				"line": 2,
+				"name": "Collonges - Quai d'Illhaeusern Nord",
+				"status": "done",
+				"doneAt": "03/10/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.848952371861799, 45.830115593229095],
+					[4.849463285526554, 45.82974744945379],
+					[4.850220554447617, 45.82915454115287],
+					[4.850974901454464, 45.8284824850473],
+					[4.85137145058286, 45.828050365464975],
+					[4.852147785532054, 45.82704758501484],
+					[4.85309272299429, 45.82567933085203]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "IllhaeusernS-commun",
+				"line": 2,
+				"name": "Collonges - Quai d'Illhaeusern Sud",
+				"status": "done",
+				"doneAt": "01/09/2020",
+				"type": "bidirectionnelle",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.85309272299429, 45.82567933085203],
+					[4.8538498293577845, 45.824539678825126],
+					[4.8542129883838925, 45.82383381936725],
+					[4.8545538439518054, 45.82296914802767],
+					[4.854736124456252, 45.822196893514864],
+					[4.854817401953255, 45.82144140140227],
+					[4.854786129056521, 45.82075997247418],
+					[4.854716925473781, 45.820274961688675],
+					[4.85442205200411, 45.81942262045158],
+					[4.854153949790231, 45.818884305313006],
+					[4.853751447458535, 45.81836801278282],
+					[4.85343495645516, 45.81805389464242],
+					[4.853088786481379, 45.8177535661266],
+					[4.852489917181927, 45.81736488613922],
+					[4.851872328081868, 45.81703190869914],
+					[4.8510172950637696, 45.816649805094066],
+					[4.8501527309417725, 45.81631309372029],
+					[4.848146555202475, 45.81551849456591]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Bocuse-commun",
+				"line": 2,
+				"name": "Giratoire Pont Bocuse",
+				"status": "postponed",
+				"type": "voie-bus",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.848146555202475, 45.81551849456591],
+					[4.8476551943778, 45.815344134649024],
+					[4.847190346993343, 45.81520673303234],
+					[4.846525500744888, 45.81493632161355],
+					[4.846379562651734, 45.8148105315013],
+					[4.845989843510232, 45.814680123184175],
+					[4.845459674194984, 45.81424483939754]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Jonchère-commun",
+				"line": 2,
+				"name": "Collonges - Quai de la Jonchère",
+				"status": "done",
+				"doneAt": "01/09/2020",
+				"type": "bidirectionnelle",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.845459674194984, 45.81424483939754],
+					[4.843054547236932, 45.81217483735474],
+					[4.842820884583439, 45.811904236787896],
+					[4.842554265260233, 45.8114743030404],
+					[4.842363137183575, 45.81113973345053],
+					[4.842211611117733, 45.8107921739217],
+					[4.8420326437515655, 45.81029927906075],
+					[4.841943953753685, 45.809795374951435],
+					[4.841886762752324, 45.808039088723696],
+					[4.841767997507787, 45.807441973477125],
+					[4.841745276239905, 45.80729166003472],
+					[4.841634035110474, 45.80695785561008],
+					[4.841397876690792, 45.80627923913334],
+					[4.8404860496521, 45.80464684735274],
+					[4.840011247250175, 45.80385215339368],
+					[4.8397114764978255, 45.803484874191014],
+					[4.8393935790156775, 45.80315803188831],
+					[4.839157418246998, 45.802784532756064]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Barbe-commun",
+				"line": 2,
+				"name": "Quai Raoul Carrié",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.839157418246998, 45.802784532756064],
+					[4.8387218248955435, 45.801766686008584],
+					[4.838409706739142, 45.80135938729437],
+					[4.837771654129028, 45.80075755554231],
+					[4.836815194232855, 45.80022843351546],
+					[4.8358190059661865, 45.799755270962166],
+					[4.831871115758162, 45.798557831464315],
+					[4.831059727875555, 45.798218640954275],
+					[4.8304759395564645, 45.797975559948014]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Barbe-commun",
+				"line": 2,
+				"name": "Variante - Gde Rue de Saint Rambert & Termier",
+				"status": "variante",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8304759395564645, 45.797975559948014],
+					[4.830364186117464, 45.79799316615052],
+					[4.830234965368106, 45.79798458601218],
+					[4.830207275206618, 45.79805537211166],
+					[4.830090361194834, 45.798162623605094],
+					[4.830050364296767, 45.79817549377063],
+					[4.830090361194834, 45.798259149773116],
+					[4.830151894885603, 45.79830634028335],
+					[4.830281115635955, 45.798355675773905],
+					[4.830674931254805, 45.798454346624055],
+					[4.832010212336769, 45.798857608282475],
+					[4.832465563120024, 45.799245852386974],
+					[4.832690161090426, 45.799348811625066],
+					[4.833717773720508, 45.79970487752419],
+					[4.833991599096237, 45.799771371808504],
+					[4.835056131940945, 45.80003949189833],
+					[4.835317650125063, 45.80019178353541],
+					[4.835456100928553, 45.80030975564375],
+					[4.835566861571579, 45.80044917690472],
+					[4.835708389059505, 45.80074946766561],
+					[4.8357580202702195, 45.800897064601855],
+					[4.83571494668675, 45.80103648439325],
+					[4.835444198449494, 45.80134106180034],
+					[4.83581647727658, 45.80145688657433],
+					[4.836253367957454, 45.8016649421084],
+					[4.836517962825951, 45.80179792531462],
+					[4.838200909868533, 45.80292826937651],
+					[4.838496271582898, 45.803363671078074],
+					[4.8385024251327025, 45.80351380905964],
+					[4.838490118395185, 45.803655367119205],
+					[4.838567035507907, 45.80380121444051],
+					[4.8386624127279845, 45.80388700680393],
+					[4.838853167168111, 45.80398137825142],
+					[4.838951621073591, 45.80383767621106],
+					[4.839028538186341, 45.80349021601509],
+					[4.839028538282037, 45.803110580978],
+					[4.838991618067382, 45.802756681694376],
+					[4.839157418246998, 45.802784532756064]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Pont de l'Île Barbe",
+				"status": "done",
+				"doneAt": "10/11/2020",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8304759395564645, 45.797975559948014],
+					[4.831795544871056, 45.79602553322215]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Accès plateau Caluire Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.831795544871056, 45.79602553322215],
+					[4.846034035228541, 45.79925458507378],
+					[4.84923540877918, 45.79871420824841]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "varianteCombattantsAfN-commun",
+				"line": 2,
+				"name": "Variante Rue des Combattants AfN",
+				"status": "variante-postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.84923540877918, 45.79871420824841],
+					[4.84973913877505, 45.79856581745432],
+					[4.849902318914388, 45.79860044200839],
+					[4.8500087407444425, 45.798738940009144],
+					[4.850363480177748, 45.799164324572956],
+					[4.851165191297639, 45.79977271778256],
+					[4.851335466226516, 45.800034868906096],
+					[4.851285790992051, 45.800663037632006],
+					[4.8514489711313615, 45.80068282234927],
+					[4.851505729440561, 45.80074217645941],
+					[4.851505729440561, 45.800806476673785],
+					[4.8520804073235695, 45.800821315174005],
+					[4.853387439025113, 45.80088431533889]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "varianteDombesNord",
+				"line": 2,
+				"name": "Chemin de Crépieux",
+				"status": "done",
+				"doneAt": "15/11/2023",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.853387439025113, 45.80088431533889],
+					[4.855137598311927, 45.80101634114206],
+					[4.855218583670364, 45.80109226889431],
+					[4.855335872811594, 45.80102996920786],
+					[4.862873628518969, 45.8015038894097]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Accès plateau Caluire Est",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.862873628518969, 45.8015038894097],
+					[4.864547540390845, 45.79639279227537],
+					[4.8614346556736905, 45.795639827871035],
+					[4.864431119665966, 45.792660026270624],
+					[4.860271555904589, 45.79445090535552],
+					[4.860417250867499, 45.791008478328905]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 2,
+				"name": "Pont Poincaré",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#pont-poincaré-à-avenue-berthelot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.86041733053915, 45.79100811545707],
+					[4.860364367315626, 45.79044878998151],
+					[4.860390478357509, 45.790106257934966],
+					[4.860437667865455, 45.789975900028956],
+					[4.860520042904412, 45.789506000349775],
+					[4.860591556394212, 45.78906148643597],
+					[4.860533469726917, 45.78843527348124],
+					[4.860474775179426, 45.7878955668458],
+					[4.860322924366244, 45.78671067566097],
+					[4.860233298396281, 45.78585471352106],
+					[4.860193859377425, 45.785672930523575],
+					[4.860092207916509, 45.785316746212956],
+					[4.860078333469829, 45.7851751824118],
+					[4.860036397028863, 45.78482105370692],
+					[4.860043357052177, 45.78477515935958],
+					[4.860028376055567, 45.784614639552274]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 2,
+				"name": "Détour via Passerelle de la Paix",
+				"status": "done",
+				"doneAt": "20/11/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.8591117788897975, 45.78495695014692],
+					[4.858920938610424, 45.785315694739126],
+					[4.858696908717349, 45.78546613533223],
+					[4.858456284016654, 45.78554714163775],
+					[4.858049711247332, 45.78563972012799],
+					[4.8570706176398915, 45.78566865087495],
+					[4.855709843472482, 45.78558764474644],
+					[4.854921590144414, 45.78548349383635],
+					[4.854747344671239, 45.78606789364676],
+					[4.854274408808493, 45.78810457181356]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 2,
+				"name": "Détour via St-Clair",
+				"status": "variante-postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.854274408808493, 45.78810457181356],
+					[4.854772253015966, 45.7881392871727],
+					[4.8588628729201275, 45.78805249873412],
+					[4.8588628729201275, 45.7882376472397],
+					[4.859053713199472, 45.788336007133125],
+					[4.859286040495704, 45.78879308906647],
+					[4.859402204144459, 45.78952788381227],
+					[4.858979036567575, 45.78973038459827],
+					[4.8589541443582505, 45.789903956115296],
+					[4.859161574588455, 45.79040730769424],
+					[4.859028816132138, 45.790667661605056],
+					[4.859974720127099, 45.790991655884596],
+					[4.860417250867499, 45.791008478328905]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Bonnevay127-commun",
+				"line": 2,
+				"name": "Transbordeur Nord",
+				"status": "done",
+				"doneAt": "24/10/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.85915263804057, 45.78461590794164],
+					[4.860028376055567, 45.784614639552274],
+					[4.861193194938238, 45.78457073986618],
+					[4.862144082681112, 45.78452557526816]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "StalingradNord-commun",
+				"line": 2,
+				"name": "Stalingrad Nord",
+				"status": "done",
+				"doneAt": "24/10/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#boulevard-stalingrad-nord",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.862144082681112, 45.78452557526816],
+					[4.862200896628934, 45.784338011196866],
+					[4.862114945344814, 45.784134927910856],
+					[4.861955079016923, 45.7840097089655],
+					[4.861681987226291, 45.783793985076784],
+					[4.861420310705796, 45.783546137065855],
+					[4.8611263593755325, 45.78323860628828],
+					[4.86081294095942, 45.78292184709244],
+					[4.860506826041387, 45.782641670652225],
+					[4.860342527530207, 45.78247494102024],
+					[4.860157493643499, 45.782233216710694],
+					[4.860157493643499, 45.782233216710694],
+					[4.860057753276379, 45.782042205762906],
+					[4.859792515712513, 45.77961927680201]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "StalingradCentre-commun",
+				"line": 2,
+				"name": "Stalingrad Centre",
+				"status": "done",
+				"doneAt": "05/04/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-stalingrad-sud",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859792515712513, 45.77961927680201],
+					[4.859433174133301, 45.77959168491022],
+					[4.859073758125305, 45.77623754923035],
+					[4.8588672280311584, 45.77437051960145],
+					[4.858714207777808, 45.772826589591475]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Stalingrad Sud",
+				"status": "done",
+				"doneAt": "05/04/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-stalingrad-sud",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858714207777808, 45.772826589591475],
+					[4.8585909605026245, 45.77087949289752],
+					[4.858462290009896, 45.770068535369305]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Waldeck-Rousseau",
+				"status": "done",
+				"doneAt": "05/04/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#rue-waldeck-rousseau",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858462290009896, 45.770068535369305],
+					[4.858247637748718, 45.76885699214569]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "BelgesSud-commun",
+				"line": 2,
+				"name": "Belges de Waldeck-Rousseau à Fournet",
+				"status": "done",
+				"link": "/voie-lyonnaise-2#boulevard-des-belges",
+				"doneAt": "31/10/2023",
+				"type": "voie-bus-elargie",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858247637748718, 45.76885699214569],
+					[4.859167215823987, 45.76798267099208],
+					[4.8591872301896615, 45.7669659107803],
+					[4.859198004856708, 45.76638150573918],
+					[4.85923869646907, 45.76590619994349],
+					[4.859211458247469, 45.76580346394656],
+					[4.858924921845796, 45.76529997791977]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "BelgesSudSud-commun",
+				"line": 2,
+				"name": "Belges de Fournet à Lafayette",
+				"status": "done",
+				"doneAt": "05/03/2025",
+				"type": "voie-bus-elargie",
+				"link": "/voie-lyonnaise-2#boulevard-des-belges",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858924921845796, 45.76529997791977],
+					[4.858373750754061, 45.76424639246519],
+					[4.858235497511661, 45.76399353781251],
+					[4.858179861280421, 45.76386933701856],
+					[4.858113393088814, 45.763751073521476]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Part-Dieu en tunnel",
+				"status": "done",
+				"doneAt": "18/04/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#tunnel-vivier-merle",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858113527297974, 45.76375083372945],
+					[4.8579215550429, 45.76336378845552],
+					[4.857805501757795, 45.76298005335895],
+					[4.8579195778429, 45.76202363975885],
+					[4.85816048213599, 45.76047784182268],
+					[4.858178918169161, 45.76013694467696],
+					[4.858476909397056, 45.75868068737044],
+					[4.858651632292101, 45.7577684085759],
+					[4.858741361663366, 45.75728253054682],
+					[4.858755317509747, 45.75711235554936],
+					[4.858629469623423, 45.757074288171935]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "VivierMerle-commun",
+				"line": 2,
+				"name": "Vivier Merle Nord",
+				"status": "done",
+				"doneAt": "18/04/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.858629469623423, 45.757074288171935],
+					[4.859262346819449, 45.75360446651945]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Vivier Merle Centre",
+				"status": "done",
+				"doneAt": "20/04/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859262346819449, 45.75360446651945],
+					[4.859782599320312, 45.75107518108422],
+					[4.8597891728406495, 45.75091210997772]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Vivier Merle Sud",
+				"status": "done",
+				"doneAt": "20/04/2024",
+				"type": "voie-bus",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8597891728406495, 45.75091210997772],
+					[4.859512568971894, 45.749900275229436],
+					[4.85942497714165, 45.74970470076507],
+					[4.859411781151497, 45.749535230531166]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Tchécoslovaques Nord",
+				"status": "done",
+				"doneAt": "28/08/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859411781151497, 45.749535230531166],
+					[4.859298042550691, 45.74905462323612],
+					[4.858812488225112, 45.74731215441383],
+					[4.858571192039449, 45.74629330063935],
+					[4.858424315440345, 45.74575336797892],
+					[4.858361805683927, 45.74551085665067],
+					[4.8582905530929565, 45.74530190168827]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Tchécoslovaques Sud",
+				"status": "done",
+				"doneAt": "28/10/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-vivier-merle-et-boulevard-des-tchécoslovaques",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8582905530929565, 45.74530190168827],
+					[4.858177900314331, 45.7449312885339],
+					[4.858166280700516, 45.74464007113203],
+					[4.858148493098611, 45.74458313454152],
+					[4.857925332095874, 45.74377783836711],
+					[4.857842067259469, 45.74368840625719],
+					[4.857652625428017, 45.74300924216705],
+					[4.857554462373187, 45.74267087766515],
+					[4.8574980526205245, 45.742539238562145],
+					[4.857367702137026, 45.74233828984702],
+					[4.856991221954047, 45.74187763098481]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue Berthelot",
+				"status": "done",
+				"doneAt": "30/04/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#avenue-berthelot",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.856991221954047, 45.74187763098481],
+					[4.856314258309382, 45.74113716709984],
+					[4.8559419816216405, 45.74078529928422],
+					[4.855876564979553, 45.74067467621083],
+					[4.8594653606414795, 45.73953278568564]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Boulevard des États-Unis Nord",
+				"status": "done",
+				"doneAt": "20/06/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-des-états-unis",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8594653606414795, 45.73953278568564],
+					[4.8632826324775635, 45.7347266161789]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Boulevard des États-Unis Cazeneuve-Sarrazin",
+				"status": "done",
+				"doneAt": "20/06/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-des-états-unis",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8632826324775635, 45.7347266161789],
+					[4.866050589734414, 45.73114846566571]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Boulevard des États-Unis Sarrazin-Beauvisage",
+				"status": "done",
+				"doneAt": "08/11/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-des-états-unis",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.866050589734414, 45.73114846566571],
+					[4.867536650716005, 45.72924133033993]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Boulevard des États-Unis Sud",
+				"status": "done",
+				"doneAt": "25/09/2024",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#boulevard-des-états-unis",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.867536650716005, 45.72924133033993],
+					[4.871211766639959, 45.724516744863365]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue Viviani",
+				"status": "done",
+				"doneAt": "12/03/2026",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#avenue-viviani",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.871211766639959, 45.724516744863365],
+					[4.8816946742135485, 45.721560926196005],
+					[4.882221785483722, 45.72154555216924]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Traversée du périphérique",
+				"status": "done",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"doneAt": "24/05/2019",
+				"type": "voie-verte",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.882221785483722, 45.72154555216924],
+					[4.882229041106569, 45.7213838826608],
+					[4.882800189729096, 45.721390531890535],
+					[4.882966046670134, 45.721377178415395],
+					[4.883086668364257, 45.72134058522789],
+					[4.883176426887275, 45.72128718943523],
+					[4.883266635752619, 45.72118381144995],
+					[4.883404711781594, 45.72094015323566],
+					[4.883531831513636, 45.72083037314823],
+					[4.883717002699655, 45.720721991556985],
+					[4.8833328219293435, 45.7205992263182],
+					[4.883341203833368, 45.72057468002296],
+					[4.883856344085643, 45.72065081006406],
+					[4.884987624874867, 45.72028460055088],
+					[4.885028724647242, 45.72027166879431],
+					[4.885298298040141, 45.720199867446155]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue Jules Guesde",
+				"status": "done",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"doneAt": "01/09/2018",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.885298298040141, 45.720199867446155],
+					[4.885711667563072, 45.7198794908044],
+					[4.885711667563072, 45.7198794908044],
+					[4.886430145147187, 45.71933989149713],
+					[4.886434206984802, 45.71933922805385],
+					[4.887302750505967, 45.71868781432993]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Métro Parilly",
+				"status": "done",
+				"doneAt": "01/09/2018",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.887302750505967, 45.71868781432993],
+					[4.8884895135254, 45.71948549025497],
+					[4.888606380524664, 45.71955872905621]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Ancienne Route d'Heyrieux Ouest",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.888606380524664, 45.71955872905621],
+					[4.8887109220892455, 45.71952870468809],
+					[4.889570171879697, 45.719010426401454],
+					[4.889982191277337, 45.718829224882796],
+					[4.8904311869770325, 45.718673839477894]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Ancienne Route d'Heyrieux Est",
+				"status": "done",
+				"doneAt": "01/06/2020",
+				"type": "velorue",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8904311869770325, 45.718673839477894],
+					[4.891415456417206, 45.71836306873766],
+					[4.892142894249904, 45.718121388758156]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Parc de Parilly",
+				"status": "done",
+				"doneAt": "12/09/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#quartier-de-parilly",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.892142894249904, 45.718121388758156],
+					[4.892783935438549, 45.717910191274655],
+					[4.892894982951994, 45.717539791420094],
+					[4.893320684850963, 45.71680256966383],
+					[4.893534238204543, 45.71659754927192],
+					[4.893777756884472, 45.71641345090761],
+					[4.894177575407257, 45.716156154540876],
+					[4.894622320488288, 45.71593022649611],
+					[4.894637136976867, 45.71575061309665]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue De Gaulle - Route de Lyon",
+				"status": "done",
+				"doneAt": "03/10/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#route-de-lyon-parc-parilly-à-rue-des-alouettes",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.894637136976867, 45.71575061309665],
+					[4.894915896998487, 45.71552786776043],
+					[4.895422874661648, 45.71522745717807],
+					[4.898444654938636, 45.713441338939475],
+					[4.901375276116013, 45.71165522070089],
+					[4.904296781383145, 45.70981818054249],
+					[4.905812229476762, 45.70890602666077],
+					[4.907300329841149, 45.70802570294491],
+					[4.912358731225666, 45.70495356971031],
+					[4.91491527964866, 45.703385673681666],
+					[4.917517407620011, 45.70184961260586]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Route de Lyon - Alouettes à Diderot",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.917517407620011, 45.70184961260586],
+					[4.922892980075503, 45.69845341818865],
+					[4.923854239026136, 45.69791326729836],
+					[4.926107710135657, 45.696556908205714],
+					[4.926275404542984, 45.696363558085565]
+				]
+			}
+		}
+	]
 }
+

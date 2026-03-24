@@ -516,7 +516,8 @@
       "properties": {
         "line": 3,
         "name": "Albigny - Giratoire des Monts d'Or",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "06/03/2026",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -540,7 +541,8 @@
       "properties": {
         "line": 3,
         "name": "Albigny Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "06/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -887,7 +889,8 @@
       "properties": {
         "line": 3,
         "name": "Quai Paul Sédallian Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "25/02/2026",
         "type": "bidirectionnelle",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#île-barbe-à-rue-antonin-laborde-quai-sédallian"
@@ -1508,7 +1511,8 @@
         "id": "PierreBeniteN-commun",
         "line": 3,
         "name": "Pierre Bénite Nord",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/06/2025",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#traversée-de-pierre-bénite"

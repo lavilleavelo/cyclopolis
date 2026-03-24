@@ -68,7 +68,7 @@ La section étroite en voie verte de chaque côté du square Diday et le long de
 ::
 
 ::banner{type="wip"}
-Les travaux sont prévus entre novembre 2025 et janvier 2026, uniquement sur le raccord entre l'avenue Lacssagne et le T3.
+Les travaux ont eu lieu entre novembre 2025 et début février 2026, uniquement sur le raccord entre l'avenue Lacssagne et le T3.
 ::
 
 ***Villeurbanne***

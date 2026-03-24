@@ -7,6 +7,10 @@ description: La Voie Lyonnaise 12 doit permettre aux cyclistes de traverser Lyon
 trafic: 24k vélos/jour
 avancement: 25%
 cover: https://cyclopolis.lavilleavelo.org/vl12/cours-gambetta.png
+videos:
+  - url: https://www.youtube.com/watch?v=coJoH0TPVBM
+    title: La Voie Lyonnaise 12
+    credit: Biclou Lyon
 ---
 
 ## Les tronçons (d'Ouest en Est)

@@ -6,6 +6,13 @@ to: Villeurbanne
 description: La Voie Lyonnaise 4 promet de pouvoir traverser la métropole lyonnaise du Nord-Ouest des Monts d'Or à Villeurbanne en passant par Limonest, Techlid, Champagne, Vaise et le 6ème arrondissement. Cette ligne prévoit d'aménager des secteurs aujourd'hui très peu pourvus en aménagements cyclables et peu sécurisés. Elle va transformer l'espace public des territoires traversés en faveur des modes actifs.
 trafic: 18k vélos/jour
 cover: https://cyclopolis.lavilleavelo.org/vl4/av-verguin.jpg
+videos:
+  - url: https://www.youtube.com/watch?v=rekH_JNCcD0
+    title: Voie Lyonnaise 4 Nord
+    credit: Quai2Saône
+  - url: https://www.youtube.com/watch?v=6RGerWnp1N0
+    title: Voie Lyonnaise 4, Mouillard Bourgogne Corderie
+    credit: Quai2Saône
 ---
 
 ## Les tronçons (d'Ouest en Est)
@@ -113,8 +120,12 @@ Les travaux sur la rue de la Mairie ont eu lieu entre mi-octobre et fin novembre
 #### Rue Juttet à Avenue de Champagne
 Sur cette section, la Voie Lyonnaise 4 empruntera l'avenue Lanessan sous la forme d'une piste cyclable bidirectionnelle de 3m de large côté Est, en lieu et place du stationnement existant. Le carrefour avec l'avenue de Champagne sera entièrement réaménagé pour sécuriser le lien avec le quartier de la Duchère.
 
+::banner{type="postponed"}
+Contrairement à ce qui était prévu initialement, le carrefour avec l'avenue de Champagne n'a pas fait l'objet d'un réaménagement lourd. Les élus de Champagne et Lyon 9 ont préféré reporter l'intervention qui aurait causé une gêne majeure juste avant les élections municipales. Un aménagement transitoire permet la continuité de la VL4, mais les mouvements vers la Duchère resteront dangereux et non sécurisés pendant encore un moment.
+::
+
 ::banner{type="wip"}
-Les travaux ont lieu entre octobre 2025 et février 2026.
+Les travaux ont eu lieu entre octobre 2025 et mars 2026.
 ::
 
 #### Avenue du 25e Régiment de Tirailleurs Sénégalais
@@ -133,7 +144,7 @@ La concertation publique sur ce tronçon s'est tenue du 19/09 au 21/10/2022.\
 La traversée de cette zone très anxiogène avec un fort trafic lié à l'accès au périphérique Nord va pouvoir être sécurisée grâce à un léger détour via la rue Mouillard puis la friche SNCF (+190m). Cette zone en pleine mutation accueillera notamment un hôtel de logistique urbain facilitant l'activité de livraison à vélo. La piste cyclable bidirectionnelle qui longera cette zone se raccordera ensuite à la rue de Bourgogne au niveau du carrefour avec la rue Saint-Simon.
 
 ::banner{type="wip"}
-Les travaux ont lieu entre juin et novembre 2025 sur la rue Mouillard, et entre septembre 2025 et février 2026 sur la friche SNCF.
+Les travaux ont lieu entre juin et novembre 2025 sur la rue Mouillard, et entre septembre 2025 et mars 2026 sur la friche SNCF.
 ::
 
 #### Rue de Bourgogne
@@ -155,7 +166,7 @@ streetView: 45.7775538,4.8033621,3a,75y,345.96h,90t
 ::
 
 #### Rue de la Corderie
-Cette rue sera mise en sens unique (vers Ouest) pour y créer une piste cyclable bidirectionnelle de 3m de large côté Sud. Les trottoirs seront élargis et une large place sera consacrée à la végétalisation en conservant la majorité de l'offre de stationnement.
+Cette rue a été mise en sens unique (vers Ouest) pour y créer une piste cyclable bidirectionnelle de 3m de large côté Sud. Les trottoirs ont été élargis et une large place a été consacrée à la végétalisation en conservant la majorité de l'offre de stationnement.
 
 
 #### Quais de Saône
@@ -166,7 +177,7 @@ La concertation publique sur ce tronçon se tenait du 29/01 au 11/03/2024 dans l
 [Voir le dossier de concertation (p.70 à 74, 78 à 82 et 84)](https://cyclopolis.lavilleavelo.org/vl4/VL4VL5_Vaise.pdf){:target="_blank"}
 
 ::banner{type="wip"}
-Les travaux devraient avoir lieu entre avril et novembre 2025, d'abord sur la rue de Bourgogne au printemps et au début de l'été, puis sur la rue de la Corderie sur la fin de l'été et l'automne.
+Les travaux ont eu lieu entre avril 2025 et mars 2026, d'abord sur la rue de Bourgogne au printemps et à l'été, puis sur la rue de la Corderie entre l'automne 2025 et mi-mars 2026.
 ::
 
 
@@ -186,7 +197,7 @@ La Ville à Vélo demande au SYTRAL d'étudier la possibilité de dévier les bu
  - arrêter d'exposer les piétons et cyclistes à la pollution aux particules fines des bus, dans un contexte de hausse de la fréquence du C6 aux heures de pointes dans ce tunnel qui porte aujourd’hui bien mal son nom.
 ::
 
-La sécurisation de la sortie du tunnel côté **place Chazette** sera améliorée avec la création d'un plateau ralentisseur pour les vélos et un renforcement de la traversée piétonne mi-novembre 2025.
+La sécurisation de la sortie du tunnel côté **place Chazette** a été améliorée avec la création de deux ralentisseurs pour les vélos de chaque côté de la traversée piétonne mi-novembre 2025.
 
 Sur le **pont de Lattre de Tassigny**, le projet devait permettre l'élargissement de la piste bidirectionnelle actuelle côté Nord qui serait passée à 4m de large à la place d'une voie de circulation automobile.
 

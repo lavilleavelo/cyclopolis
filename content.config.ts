@@ -31,6 +31,25 @@ export default defineContentConfig({
         description: z.string(),
         trafic: z.string(),
         cover: z.string(),
+        videos: z
+          .array(
+            z.object({
+              url: z.string().url(),
+              title: z.string().optional(),
+              credit: z.string().optional(),
+            }),
+          )
+          .optional(),
+        photos: z
+          .array(
+            z.object({
+              url: z.string().url(),
+              title: z.string().optional(),
+              credit: z.string().optional(),
+              coordinates: z.tuple([z.number(), z.number()]).optional(),
+            }),
+          )
+          .optional(),
       }),
     }),
     voiesCyclablesGeojson: defineCollection({
