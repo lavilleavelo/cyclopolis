@@ -1950,7 +1950,8 @@
 			"properties": {
 				"line": 5,
 				"name": "BUE - Boulevard des Droits de l'Homme Nord",
-				"status": "wip",
+				"status": "done",
+				"doneAt": "24/03/2026",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#vaulx-en-velin-est"

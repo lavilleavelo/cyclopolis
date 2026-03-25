@@ -74,7 +74,7 @@ L'enquête publique aura lieu du 4 septembre au 3 octobre 2023.\
 
 ::banner{type="wip"}
 Les travaux préparatoires sur les réseaux ont lieu entre février 2024 et le printemps 2025, tandis que les premiers travaux d'aménagement commencent en novembre 2024 sur le BUE et se poursuivent jusqu'à l'été 2026.\
-Un premier tronçon entre la rue Brunel et le T3 est livré en janvier 2026.
+Un premier tronçon entre la rue Brunel et le T3 est livré en janvier 2026, puis un second entre l'avenue de Böhlen et le T3 fin mars 2026.
 ::
 
 ### Vaulx-en-Velin Ouest
