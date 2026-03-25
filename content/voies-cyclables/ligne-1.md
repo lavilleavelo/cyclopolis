@@ -202,7 +202,7 @@ La Métropole a annoncé le 30/01/2025 que la majeure partie de ce tronçon est 
 ::
 
 ::banner{type="wip"}
-La section entre la rue du commandant Ayasse et le pont Pasteur est en travaux entre fin mai 2025 et février 2026, du Nord vers le Sud.
+La section entre la rue du commandant Ayasse et le pont Pasteur est en travaux entre fin mai 2025 et fin mars 2026, du Nord vers le Sud.
 ::
 
 #### *Concertation*

@@ -805,7 +805,8 @@
       "properties": {
         "line": 1,
         "name": "Avenue Leclerc Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/03/2026",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-1#avenue-général-leclerc",
         "quality": "satisfactory"

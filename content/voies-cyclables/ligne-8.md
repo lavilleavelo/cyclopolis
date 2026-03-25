@@ -42,10 +42,10 @@ Cette section fait l'objet d'un vaste projet de requalification qui consiste à 
 
 Ce projet ambitieux sera réalisé en deux phases :
  - entre le chemin des Verrières et l'allée du Mas, l'aménagement est réalisé en transitoire entre l'automne 2024 et avril 2025, et le réaménagement définitif prévu à un mandat ultérieur
- - entre l'allée du Mas et le giratoire du Montcelard, le réaménagement de façade à façade est en cours de début 2025 à l'été 2026.
+ - entre l'allée du Mas et le giratoire du Montcelard, le réaménagement de façade à façade est en cours de début 2025 à l'automne 2026.
 
 ::banner{type="wip"}
-Entre l'allée du Mas et le giratoire du Montcelard, les travaux préalables sur les réseaux ont eu lieu entre l'été 2022 et l'automne 2024, puis les travaux d'aménagement ont commencé fin 2024 et continueront jusqu'à l'été 2026 en commençant par le tiers Sud début 2025, le tiers central à l'été 2025 puis le tiers Nord début 2026. Chaque phase de chantier est estimée durer entre 6 et 9 mois.
+Entre l'allée du Mas et le giratoire du Montcelard, les travaux préalables sur les réseaux ont eu lieu entre l'été 2022 et l'automne 2024, puis les travaux d'aménagement ont commencé fin 2024 et continueront jusqu'à l'automne 2026 en commençant par le tiers Sud début 2025, le tiers central à l'été 2025 puis le tiers Nord début 2026. Chaque phase de chantier est estimée durer entre 6 et 9 mois.
 ::
 
 *La concertation publique sur ce tronçon s'est tenue du 01/09 au 30/09/2021.*\
@@ -70,7 +70,7 @@ Sur la suite du boulevard du Valvert, le projet prévoit de conforter la piste c
 ::banner{type="wip"}
 Les travaux entre la route de Paris et l'avenue Roosevelt ont lieu de fin avril à mi-juillet 2025, puis de début septembre à fin novembre 2025.
 Les travaux sur le boulevard du Valvert ont lieu de mi-juillet à mi-septembre 2025.
-Les travaux sur la route de Paris ont lieu de fin novembre 2025 à mai 2026.
+Les travaux sur la route de Paris ont lieu de fin novembre 2025 à début avril 2026.
 ::
 
 #### Tassin - Valvert à Victor Hugo

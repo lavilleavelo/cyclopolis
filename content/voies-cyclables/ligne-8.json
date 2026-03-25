@@ -556,7 +556,7 @@
       "properties": {
         "line": 8,
         "name": "Tassin - Giratoire du Montcelard",
-        "status": "planned",
+        "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-montcelard-à-valvert"
@@ -776,9 +776,9 @@
       "properties": {
         "line": 8,
         "name": "Liaison République - Vincent Serre",
-        "status": "wip",
-        "type": "velorue",
-        "quality": "satisfactory",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#tassin-victor-hugo-à-république-hespérides"
       },
       "geometry": {
