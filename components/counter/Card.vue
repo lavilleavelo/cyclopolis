@@ -33,14 +33,16 @@
             {{ formatRecordCount(lastRecordPreviousYear?.veloCount) }}
           </td>
           <td class="text-center p-1">
-            {{ formatRecordCount(lastRecord?.veloCount) }}
-          </td>
-          <!-- <td class="text-center p-1">
-            <div class="flex items-center justify-center">
-              <span>{{ lastRecord.value }}</span>
-              <Icon v-if="isLastRecordMax(counter)" name="iconoir:medal-1st-solid" class="text-lvv-pink text-xl" />
+            <div class="flex items-center justify-center gap-0.5">
+              <span>{{ formatRecordCount(lastRecord?.veloCount) }}</span>
+              <Icon
+                v-if="isVeloRecord"
+                name="mdi:trophy"
+                class="text-amber-500 text-lg"
+                :title="'Record pour ce mois !'"
+              />
             </div>
-          </td> -->
+          </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
             <CounterEvolution :count1="lastRecordPreviousYear?.veloCount" :count2="lastRecord?.veloCount" />
           </td>
@@ -55,7 +57,15 @@
             {{ formatRecordCount(lastRecordPreviousYear?.voitureCount) }}
           </td>
           <td class="text-center p-1">
-            {{ formatRecordCount(lastRecord?.voitureCount) }}
+            <div class="flex items-center justify-center gap-0.5">
+              <span>{{ formatRecordCount(lastRecord?.voitureCount) }}</span>
+              <Icon
+                v-if="isVoitureRecord"
+                name="mdi:trophy"
+                class="text-amber-500 text-lg"
+                :title="'Record pour ce mois !'"
+              />
+            </div>
           </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
             <CounterEvolution :count1="lastRecordPreviousYear?.voitureCount" :count2="lastRecord?.voitureCount" />
@@ -119,4 +129,18 @@ function getSameRecordPreviousYear(record: Counter['counts'][0]): Counter['count
     return new Date(count.month).getMonth() === recordMonth && new Date(count.month).getFullYear() === recordYear - 1;
   });
 }
+
+function isRecordForMonth(field: 'veloCount' | 'voitureCount'): boolean {
+  if (!lastRecord) return false;
+  const currentValue = lastRecord[field];
+  if (currentValue === undefined || currentValue === 0) return false;
+  const recordMonth = new Date(lastRecord.month).getMonth();
+  const sameMonthCounts = props.counter.counts
+    .filter((count) => new Date(count.month).getMonth() === recordMonth)
+    .map((count) => count[field] ?? 0);
+  return currentValue >= Math.max(...sameMonthCounts);
+}
+
+const isVeloRecord = isTrackingVelo && isRecordForMonth('veloCount');
+const isVoitureRecord = isTrackingVoiture && isRecordForMonth('voitureCount');
 </script>
