@@ -17,12 +17,46 @@
         style="height: 40vh"
       />
     </ClientOnly>
-    <h2>Total des passages par année</h2>
+
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <NuxtLink
+        :to="veloCounter.path"
+        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
+        Voir le compteur vélo
+      </NuxtLink>
+      <NuxtLink
+        v-if="voitureCounter"
+        :to="voitureCounter.path"
+        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
+        Voir le compteur voiture
+      </NuxtLink>
+    </div>
+
+    <h2>Fréquentation annuelle</h2>
+    <p>Comparaison du nombre total de passages par année entre les vélos et les voitures sur cet axe.</p>
+    <ChartComparisonHistogram :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+
+    <h2>Répartition vélo / voiture</h2>
     <p>
-      Comparaison de la fréquentation annuelle entre les vélos et les voitures. Ceci est possible grâce à la présence de
-      compteurs automatiques sur les différentes voies.
+      Évolution de la part relative des vélos et des voitures chaque année. Ce graphique permet de visualiser le
+      rééquilibrage entre les deux modes de transport.
     </p>
-    <ChartLine :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+    <ChartComparisonShare :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+
+    <h2>Trafic cumulé</h2>
+    <p>
+      Volume total de passages (vélos + voitures) par année, permettant de visualiser l'évolution globale du trafic sur
+      cet axe.
+    </p>
+    <ChartComparisonCumulative :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+
+    <h2>Évolution mensuelle</h2>
+    <p>Comparaison mois par mois de la fréquentation vélo et voiture sur les 36 derniers mois.</p>
+    <ChartComparisonMonthly :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
     <h2>Source des données</h2>
     <p>
@@ -109,6 +143,7 @@ const features = computed(() => {
   return getCompteursFeatures({
     counters: counters.value,
     type: 'compteur-comparaison',
+    isMixed: true,
   });
 });
 </script>
