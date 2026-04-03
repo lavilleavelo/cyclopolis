@@ -18,6 +18,22 @@
         style="height: 40vh"
       />
     </ClientOnly>
+    <div v-if="matchingVoitureCounter" class="mt-4 flex flex-wrap justify-center gap-3">
+      <NuxtLink
+        :to="matchingVoitureCounter.path"
+        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
+        Voir le compteur voiture
+      </NuxtLink>
+      <NuxtLink
+        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
+        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
+        Comparaison vélo / voiture
+      </NuxtLink>
+    </div>
     <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2">
       Ce compteur est installé sur
       <span>la </span>
@@ -53,22 +69,6 @@
       Les données proviennent de
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
     </p>
-    <div v-if="counter.cyclopolisId" class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink
-        :to="`/compteurs/voiture/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-3 bg-lvv-blue-100 hover:bg-lvv-blue-200 rounded-lg transition-colors text-lvv-blue-600 font-medium"
-      >
-        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-xl" />
-        Voir le compteur voiture
-      </NuxtLink>
-      <NuxtLink
-        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-3 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium"
-      >
-        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-xl" />
-        Comparaison vélo / voiture
-      </NuxtLink>
-    </div>
   </ContentFrame>
 </template>
 
@@ -87,6 +87,14 @@ if (!counter.value) {
   const router = useRouter();
   router.push({ path: '/404' });
 }
+
+const { data: matchingVoitureCounter } = await useAsyncData(`voiture-match-${path}`, () => {
+  if (!counter.value?.cyclopolisId) return Promise.resolve(null);
+  return queryCollection('compteurs')
+    .where('path', 'LIKE', '/compteurs/voiture%')
+    .where('cyclopolisId', '=', counter.value.cyclopolisId)
+    .first();
+});
 
 const graphTitles = {
   totalByYear: `Fréquentation cycliste annuelle - ${counter.value.name}`,

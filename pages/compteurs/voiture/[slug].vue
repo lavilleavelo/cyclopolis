@@ -18,6 +18,22 @@
         style="height: 40vh"
       />
     </ClientOnly>
+    <div v-if="matchingVeloCounter" class="mt-4 flex flex-wrap justify-center gap-3">
+      <NuxtLink
+        :to="matchingVeloCounter.path"
+        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
+        Voir le compteur vélo
+      </NuxtLink>
+      <NuxtLink
+        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
+        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
+      >
+        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
+        Comparaison vélo / voiture
+      </NuxtLink>
+    </div>
     <h2>Total des passages par année</h2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur voiture chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
@@ -45,22 +61,6 @@
     <a href="https://avatar.cerema.fr/cartographie" target="_blank">
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
-    <div v-if="counter.cyclopolisId" class="mt-8 flex flex-wrap gap-3">
-      <NuxtLink
-        :to="`/compteurs/velo/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-3 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium"
-      >
-        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-xl" />
-        Voir le compteur vélo
-      </NuxtLink>
-      <NuxtLink
-        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-3 bg-lvv-blue-100 hover:bg-lvv-blue-200 rounded-lg transition-colors text-lvv-blue-600 font-medium"
-      >
-        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-xl" />
-        Comparaison vélo / voiture
-      </NuxtLink>
-    </div>
   </ContentFrame>
 </template>
 
@@ -79,6 +79,14 @@ if (!counter.value) {
   const router = useRouter();
   router.push({ path: '/404' });
 }
+
+const { data: matchingVeloCounter } = await useAsyncData(`velo-match-${path}`, () => {
+  if (!counter.value?.cyclopolisId) return Promise.resolve(null);
+  return queryCollection('compteurs')
+    .where('path', 'LIKE', '/compteurs/velo%')
+    .where('cyclopolisId', '=', counter.value.cyclopolisId)
+    .first();
+});
 
 const graphTitles = {
   totalByYear: `Fréquentation voiture annuelle - ${counter.value.name}`,
