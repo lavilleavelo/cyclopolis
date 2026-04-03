@@ -22,10 +22,10 @@
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur voiture chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h2>Comparaison des passages pour un mois donné</h2>
+    <h2>Comparaison des passages</h2>
     <p>
-      Choisissez un mois dans le menu déroulant ci-dessous pour visualiser l'évolution de la fréquentation voiture pour
-      le même mois de chaque année.
+      Comparez la fréquentation voiture pour un mois donné à travers les années, ou visualisez l'évolution mois par mois
+      sur plusieurs années.
     </p>
     <ChartMonthComparison
       :title="graphTitles.monthComparison"
@@ -45,6 +45,22 @@
     <a href="https://avatar.cerema.fr/cartographie" target="_blank">
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
+    <div v-if="counter.cyclopolisId" class="mt-8 flex flex-wrap gap-3">
+      <NuxtLink
+        :to="`/compteurs/velo/${counter.cyclopolisId}`"
+        class="flex items-center gap-2 px-4 py-3 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium"
+      >
+        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-xl" />
+        Voir le compteur vélo
+      </NuxtLink>
+      <NuxtLink
+        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
+        class="flex items-center gap-2 px-4 py-3 bg-lvv-blue-100 hover:bg-lvv-blue-200 rounded-lg transition-colors text-lvv-blue-600 font-medium"
+      >
+        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-xl" />
+        Comparaison vélo / voiture
+      </NuxtLink>
+    </div>
   </ContentFrame>
 </template>
 
