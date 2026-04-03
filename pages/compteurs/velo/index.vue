@@ -66,7 +66,7 @@ import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { getCompteursFeatures } = useMap();
 
-const { data: allCounters } = await useAsyncData(() => {
+const { data: allCounters } = await useAsyncData('velo-counters', () => {
   return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
 });
 
@@ -94,5 +94,15 @@ const counters = computed(() => {
     }));
 });
 
-const features: CompteurFeature[] = getCompteursFeatures({ counters: allCounters.value, type: 'compteur-velo' });
+const veloOnlyCounters = (allCounters.value || []).filter((c) => !c.cyclopolisId);
+const veloOnlyFeatures: CompteurFeature[] = getCompteursFeatures({ counters: veloOnlyCounters, type: 'compteur-velo' });
+
+const mixedCounters = (allCounters.value || []).filter((c) => c.cyclopolisId);
+const mixedFeatures: CompteurFeature[] = getCompteursFeatures({
+  counters: mixedCounters,
+  type: 'compteur-velo',
+  isMixed: true,
+});
+
+const features: CompteurFeature[] = [...veloOnlyFeatures, ...mixedFeatures];
 </script>

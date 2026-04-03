@@ -714,11 +714,65 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     });
   }
 
+  function createBicolorCircleIcon(size: number, strokeWidth: number): HTMLCanvasElement {
+    const scale = 2;
+    const canvas = document.createElement('canvas');
+    const totalSize = (size + strokeWidth) * 2 * scale;
+    canvas.width = totalSize;
+    canvas.height = totalSize;
+    const ctx = canvas.getContext('2d')!;
+    const cx = totalSize / 2;
+    const cy = totalSize / 2;
+    const r = size * scale;
+
+    if (strokeWidth > 0) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, r + strokeWidth * scale * 0.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+    }
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + r * 1.5, cy - r * 1.5);
+    ctx.lineTo(cx - r * 1.5, cy - r * 1.5);
+    ctx.lineTo(cx - r * 1.5, cy + r * 1.5);
+    ctx.closePath();
+    ctx.clip();
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = '#C84271';
+    ctx.fill();
+    ctx.restore();
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + r * 1.5, cy - r * 1.5);
+    ctx.lineTo(cx + r * 1.5, cy + r * 1.5);
+    ctx.lineTo(cx - r * 1.5, cy + r * 1.5);
+    ctx.closePath();
+    ctx.clip();
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.fillStyle = '#152B68';
+    ctx.fill();
+    ctx.restore();
+
+    return canvas;
+  }
+
   function plotCompteurs({ map, features }: { map: MaplibreType; features?: CompteurFeature[] }) {
     const compteurs = (features || [])
-      .sort((c1, c2) => (c2.properties.counts.at(-1)?.count ?? 0) - (c1.properties.counts.at(-1)?.count ?? 0))
+      .sort((c1, c2) => {
+        const last1 = c1.properties.counts.at(-1);
+        const last2 = c2.properties.counts.at(-1);
+        const v1 = last1 && 'count' in last1 ? last1.count : 0;
+        const v2 = last2 && 'count' in last2 ? last2.count : 0;
+        return v2 - v1;
+      })
       .map((c, i) => {
-        // top counters are bigger and drawn above others
         const top = 10;
         c.properties.circleSortKey = i < top ? 1 : 0;
         c.properties.circleRadius = i < top ? 10 : 7;
@@ -726,35 +780,79 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         return c;
       });
 
-    upsertMapSource(map, 'compteurs', compteurs);
-    if (map.getLayer('compteurs')) {
-      return;
+    const regularCompteurs = compteurs.filter((c) => !c.properties.isMixed);
+    const mixedCompteurs = compteurs.filter((c) => c.properties.isMixed);
+
+    upsertMapSource(map, 'compteurs', regularCompteurs);
+    if (!map.getLayer('compteurs')) {
+      map.addLayer({
+        id: 'compteurs',
+        source: 'compteurs',
+        type: 'circle',
+        layout: {
+          'circle-sort-key': ['get', 'circleSortKey'],
+        },
+        paint: {
+          'circle-color': [
+            'match',
+            ['get', 'type'],
+            'compteur-velo',
+            '#C84271',
+            'compteur-voiture',
+            '#152B68',
+            '#152B68',
+          ],
+          'circle-stroke-color': '#fff',
+          'circle-stroke-width': ['get', 'circleStrokeWidth'],
+          'circle-radius': ['get', 'circleRadius'],
+        },
+      });
+      map.on('mouseenter', 'compteurs', () => (map.getCanvas().style.cursor = 'pointer'));
+      map.on('mouseleave', 'compteurs', () => (map.getCanvas().style.cursor = ''));
     }
 
-    map.addLayer({
-      id: 'compteurs',
-      source: 'compteurs',
-      type: 'circle',
-      layout: {
-        'circle-sort-key': ['get', 'circleSortKey'],
-      },
-      paint: {
-        'circle-color': '#152B68',
-        'circle-stroke-color': '#fff',
-        'circle-stroke-width': ['get', 'circleStrokeWidth'],
-        'circle-radius': ['get', 'circleRadius'],
-      },
-    });
-    map.on('mouseenter', 'compteurs', () => (map.getCanvas().style.cursor = 'pointer'));
-    map.on('mouseleave', 'compteurs', () => (map.getCanvas().style.cursor = ''));
+    if (mixedCompteurs.length > 0) {
+      const sizes = [
+        { name: 'bicolor-circle-large', radius: 10, stroke: 3 },
+        { name: 'bicolor-circle-small', radius: 7, stroke: 0 },
+      ];
+      for (const { name, radius, stroke } of sizes) {
+        if (!map.hasImage(name)) {
+          const canvas = createBicolorCircleIcon(radius, stroke);
+          const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
+          if (imageData) {
+            map.addImage(name, imageData, { sdf: false });
+          }
+        }
+      }
+
+      upsertMapSource(map, 'compteurs-mixed', mixedCompteurs);
+      if (!map.getLayer('compteurs-mixed')) {
+        map.addLayer({
+          id: 'compteurs-mixed',
+          source: 'compteurs-mixed',
+          type: 'symbol',
+          layout: {
+            'icon-image': ['case', ['==', ['get', 'circleRadius'], 10], 'bicolor-circle-large', 'bicolor-circle-small'],
+            'icon-size': 0.5,
+            'icon-allow-overlap': true,
+            'symbol-sort-key': ['get', 'circleSortKey'],
+          },
+        });
+        map.on('mouseenter', 'compteurs-mixed', () => (map.getCanvas().style.cursor = 'pointer'));
+        map.on('mouseleave', 'compteurs-mixed', () => (map.getCanvas().style.cursor = ''));
+      }
+    }
   }
 
   function getCompteursFeatures({
     counters,
     type,
+    isMixed = false,
   }: {
     counters: Collections['compteurs'][] | null;
     type: 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
+    isMixed?: boolean;
   }): CompteurFeature[] {
     if (!counters) {
       return [];
@@ -768,6 +866,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'Feature',
       properties: {
         type,
+        isMixed,
         name: counter.name,
         link: counter.path,
         counts: counter.counts || [],
@@ -945,6 +1044,41 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         hoverComponent: CounterTooltip,
         getHoverTooltipProps: () => {
           const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs'] })[0];
+
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find(
+            (f) => f.properties.name === mapFeature.properties.name && isCompteurFeature(f),
+          );
+          return { feature };
+        },
+      },
+      {
+        id: 'compteurs-mixed',
+        isClicked: () => {
+          if (!map.getLayer('compteurs-mixed')) {
+            return false;
+          }
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs-mixed'] });
+          return mapFeature.length > 0;
+        },
+        getTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs-mixed'] })[0];
+          if (!mapFeature) {
+            return;
+          }
+
+          const feature = features.find(
+            (f) => f.properties.name === mapFeature.properties.name && isCompteurFeature(f),
+          );
+          return { feature };
+        },
+        component: CounterTooltip,
+        hoverComponent: CounterTooltip,
+        getHoverTooltipProps: () => {
+          const mapFeature = map.queryRenderedFeatures(event.point, { layers: ['compteurs-mixed'] })[0];
 
           if (!mapFeature) {
             return;
@@ -1484,6 +1618,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     moveLayerToTop('section-names-low-zoom');
     moveLayerToTop('section-names-high-zoom');
     moveLayerToTop('compteurs');
+    moveLayerToTop('compteurs-mixed');
   }
 
   function handleMapClick({

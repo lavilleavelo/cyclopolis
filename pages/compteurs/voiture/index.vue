@@ -87,5 +87,11 @@ const counters = computed(() => {
     }));
 });
 
-const features = getCompteursFeatures({ counters: allCounters.value, type: 'compteur-voiture' });
+const voitureOnlyCounters = (allCounters.value || []).filter((c) => !c.cyclopolisId);
+const voitureOnlyFeatures = getCompteursFeatures({ counters: voitureOnlyCounters, type: 'compteur-voiture' });
+
+const mixedCounters = (allCounters.value || []).filter((c) => c.cyclopolisId);
+const mixedFeatures = getCompteursFeatures({ counters: mixedCounters, type: 'compteur-voiture', isMixed: true });
+
+const features = [...voitureOnlyFeatures, ...mixedFeatures];
 </script>

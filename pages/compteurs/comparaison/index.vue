@@ -125,6 +125,7 @@ const features = computed(() => {
   return getCompteursFeatures({
     counters: counters.value,
     type: 'compteur-comparaison',
+    isMixed: true,
   });
 });
 </script>

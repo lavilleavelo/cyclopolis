@@ -76,6 +76,7 @@ export type CompteurFeature = {
           voitureCount: number;
         }
     >;
+    isMixed?: boolean;
     /**
      * z-index like
      */
