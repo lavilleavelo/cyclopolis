@@ -33,15 +33,15 @@
             {{ formatRecordCount(lastRecordPreviousYear?.veloCount) }}
           </td>
           <td class="text-center p-1">
-            <div class="flex items-center justify-center gap-0.5">
-              <span>{{ formatRecordCount(lastRecord?.veloCount) }}</span>
+            <span class="relative">
+              {{ formatRecordCount(lastRecord?.veloCount) }}
               <Icon
                 v-if="isVeloRecord"
-                name="mdi:trophy"
-                class="text-amber-500 text-lg"
+                name="noto:1st-place-medal"
+                class="text-xs absolute -top-1.5 -right-3.5"
                 :title="'Record pour ce mois !'"
               />
-            </div>
+            </span>
           </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
             <CounterEvolution :count1="lastRecordPreviousYear?.veloCount" :count2="lastRecord?.veloCount" />
@@ -57,15 +57,15 @@
             {{ formatRecordCount(lastRecordPreviousYear?.voitureCount) }}
           </td>
           <td class="text-center p-1">
-            <div class="flex items-center justify-center gap-0.5">
-              <span>{{ formatRecordCount(lastRecord?.voitureCount) }}</span>
+            <span class="relative">
+              {{ formatRecordCount(lastRecord?.voitureCount) }}
               <Icon
                 v-if="isVoitureRecord"
-                name="mdi:trophy"
-                class="text-amber-500 text-lg"
+                name="noto:1st-place-medal"
+                class="text-xs absolute -top-1.5 -right-3.5"
                 :title="'Record pour ce mois !'"
               />
-            </div>
+            </span>
           </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
             <CounterEvolution :count1="lastRecordPreviousYear?.voitureCount" :count2="lastRecord?.voitureCount" />

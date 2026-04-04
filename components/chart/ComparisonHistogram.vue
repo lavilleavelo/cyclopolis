@@ -1,30 +1,11 @@
 <template>
   <div>
-    <div class="flex flex-wrap gap-2 mb-4">
-      <button
-        :class="[
-          'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'rolling' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-        ]"
-        @click="mode = 'rolling'"
-      >
-        12 mois glissants
-      </button>
-      <button
-        :class="[
-          'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'full' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-        ]"
-        @click="mode = 'full'"
-      >
-        Année complète
-      </button>
-    </div>
     <ClientOnly>
       <highcharts :options="chartOptions" />
     </ClientOnly>
-    <p v-if="mode === 'rolling'" class="mt-2 text-sm text-gray-500 italic">
-      Chaque barre représente le total des 12 mois précédant le mois de {{ latestMonthLabel }} de l'année indiquée.
+    <p class="mt-2 text-sm text-gray-500 italic">
+      Chaque barre représente le total des passages de {{ rollingStartMonthLabel }} à {{ latestMonthLabel }} (12 mois
+      glissants).
     </p>
   </div>
 </template>
@@ -35,37 +16,15 @@ const props = defineProps<{
   data: { month: string; veloCount: number; voitureCount: number }[];
 }>();
 
-const mode = ref<'rolling' | 'full'>('rolling');
-
 const lastRecord = props.data[props.data.length - 1]!;
 const latestDate = new Date(lastRecord.month);
 const latestMonth = latestDate.getMonth();
 const latestMonthLabel = latestDate.toLocaleString('fr-FR', { month: 'long' });
+const rollingStartMonthLabel = new Date(latestDate.getFullYear(), latestMonth + 1, 1).toLocaleString('fr-FR', {
+  month: 'long',
+});
 
 const allYears = [...new Set(props.data.map((item) => new Date(item.month).getFullYear()))].sort();
-
-function getFullYearData() {
-  const yearlyData = props.data.reduce(
-    (acc, item) => {
-      const year = new Date(item.month).getFullYear();
-      if (!acc[year]) acc[year] = { velo: 0, voiture: 0 };
-      acc[year].velo += item.veloCount;
-      acc[year].voiture += item.voitureCount;
-      return acc;
-    },
-    {} as Record<number, { velo: number; voiture: number }>,
-  );
-
-  const sorted = Object.entries(yearlyData)
-    .map(([year, { velo, voiture }]) => ({ year: parseInt(year), velo, voiture }))
-    .sort((a, b) => a.year - b.year);
-
-  return {
-    categories: sorted.map((d) => d.year),
-    velo: sorted.map((d) => d.velo),
-    voiture: sorted.map((d) => d.voiture),
-  };
-}
 
 function getRollingData() {
   const firstDataDate = new Date(props.data[0]!.month);
@@ -99,12 +58,11 @@ function getRollingData() {
 }
 
 const chartOptions = computed(() => {
-  const d = mode.value === 'rolling' ? getRollingData() : getFullYearData();
-  const titleSuffix = mode.value === 'rolling' ? ' (12 mois glissants)' : '';
+  const d = getRollingData();
 
   return {
     chart: { type: 'column', height: 400 },
-    title: { text: `Fréquentation annuelle - ${props.name}${titleSuffix}` },
+    title: { text: `Fréquentation annuelle - ${props.name} (12 mois glissants)` },
     credits: { enabled: false },
     xAxis: { categories: d.categories, labels: { autoRotation: [-45], style: { fontSize: '10px' } } },
     yAxis: { min: 0, title: { text: 'Passages' } },

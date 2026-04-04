@@ -55,7 +55,7 @@
     <ChartComparisonCumulative :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
     <h2>Évolution mensuelle</h2>
-    <p>Comparaison mois par mois de la fréquentation vélo et voiture sur les 36 derniers mois.</p>
+    <p>Comparaison mois par mois de la fréquentation vélo et voiture.</p>
     <ChartComparisonMonthly :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
     <h2>Source des données</h2>

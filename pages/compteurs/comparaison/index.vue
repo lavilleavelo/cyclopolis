@@ -117,7 +117,14 @@ const counters = computed(() => {
     .filter((counter): counter is NonNullable<typeof counter> => !!counter)
     .filter((counter) =>
       removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)),
-    );
+    )
+    .sort((a, b) => {
+      const lastA = a.counts[a.counts.length - 1];
+      const lastB = b.counts[b.counts.length - 1];
+      const monthDiff = new Date(lastB.month).getTime() - new Date(lastA.month).getTime();
+      if (monthDiff !== 0) return monthDiff;
+      return (lastB.veloCount || 0) - (lastA.veloCount || 0);
+    });
 });
 
 const { getCompteursFeatures } = useMap();

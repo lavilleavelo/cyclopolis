@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex flex-wrap gap-2 mb-4">
+    <div class="flex flex-wrap items-center gap-2 mb-4">
       <button
         :class="[
           'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
@@ -8,7 +8,7 @@
         ]"
         @click="mode = 'monthly'"
       >
-        36 derniers mois
+        Par mois
       </button>
       <button
         :class="[
@@ -17,8 +17,20 @@
         ]"
         @click="mode = 'single'"
       >
-        Par mois
+        Comparaison par mois
       </button>
+      <div v-if="mode === 'monthly'" class="flex items-center gap-2 ml-2">
+        <label for="year-count-monthly" class="text-sm text-gray-600">Années :</label>
+        <select
+          id="year-count-monthly"
+          v-model="selectedYearCount"
+          class="rounded-md border-gray-300 shadow-sm text-sm py-1 pl-2 pr-8"
+        >
+          <option v-for="n in yearCountOptions" :key="n" :value="n">
+            {{ n === allYears.length ? `Toutes (${n})` : n }}
+          </option>
+        </select>
+      </div>
     </div>
 
     <!-- Single month mode: dropdown + grouped bar chart -->
@@ -90,6 +102,16 @@ const props = defineProps<{
 
 const mode = ref<'monthly' | 'single'>('monthly');
 
+const allYears = [...new Set(props.data.map((item) => new Date(item.month).getFullYear()))].sort();
+const selectedYearCount = ref(Math.min(3, allYears.length));
+const yearCountOptions = computed(() => {
+  const options: number[] = [];
+  for (let i = 2; i <= allYears.length; i++) {
+    options.push(i);
+  }
+  return options;
+});
+
 const months = [
   { name: 'Janvier', value: 0 },
   { name: 'Février', value: 1 },
@@ -156,10 +178,11 @@ const singleMonthChartOptions = computed(() => {
 });
 
 const monthlyChartOptions = computed(() => {
+  const monthCount = selectedYearCount.value * 12;
   const recent = props.data
     .slice()
     .sort((a, b) => new Date(a.month).getTime() - new Date(b.month).getTime())
-    .slice(-36);
+    .slice(-monthCount);
 
   const categories = recent.map((item) =>
     new Date(item.month).toLocaleString('fr-FR', { month: 'short', year: '2-digit' }),
