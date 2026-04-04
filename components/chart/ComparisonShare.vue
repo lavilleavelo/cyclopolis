@@ -101,7 +101,7 @@ function buildChart(
       type: 'area',
       height: 400,
       events: {
-        render(this: any) {
+        render(this) {
           destroyChartIcons(this);
           addShareChartIcons(this, chartMode);
         },

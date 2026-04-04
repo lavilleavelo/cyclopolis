@@ -13,20 +13,11 @@
       <button
         :class="[
           'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'recent' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+          mode === 'multi' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
         ]"
-        @click="mode = 'recent'"
+        @click="mode = 'multi'"
       >
-        4 dernières années
-      </button>
-      <button
-        :class="[
-          'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'all' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-        ]"
-        @click="mode = 'all'"
-      >
-        Toutes les années
+        Évolution annuelle
       </button>
     </div>
 
@@ -82,6 +73,18 @@
 
     <!-- Multi-year overlay mode: line chart -->
     <template v-else>
+      <div class="flex items-center gap-2 mt-2">
+        <label for="year-count" class="text-sm text-gray-600">Nombre d'années :</label>
+        <select
+          id="year-count"
+          v-model="selectedYearCount"
+          class="rounded-md border-gray-300 shadow-sm text-sm py-1 pl-2 pr-8"
+        >
+          <option v-for="n in yearCountOptions" :key="n" :value="n">
+            {{ n === allYears.length ? `Toutes (${n})` : n }}
+          </option>
+        </select>
+      </div>
       <ClientOnly>
         <highcharts :options="multiYearChartOptions" class="mt-4" />
       </ClientOnly>
@@ -98,7 +101,7 @@ const props = defineProps({
   data: { type: Object, required: true },
 });
 
-const mode = ref<'single' | 'recent' | 'all'>('single');
+const mode = ref<'single' | 'multi'>('single');
 
 const months = [
   { name: 'Janvier', value: 0 },
@@ -123,6 +126,16 @@ const allYears = [...new Set(counts.map((item: Count) => new Date(item.month).ge
 const lastRecord = counts[counts.length - 1]!;
 const lastRecordMonth = new Date(lastRecord.month).getMonth();
 const selectedMonth = ref(months.find((month) => month.value === lastRecordMonth)!);
+
+const defaultYearCount = Math.min(4, allYears.length);
+const selectedYearCount = ref(defaultYearCount);
+const yearCountOptions = computed(() => {
+  const options: number[] = [];
+  for (let i = 2; i <= allYears.length; i++) {
+    options.push(i);
+  }
+  return options;
+});
 
 const singleMonthCounts = computed(() => {
   return counts
@@ -165,8 +178,7 @@ const singleMonthChartOptions = computed(() => {
   };
 });
 
-const recentColors = ['#C84271', '#152B68', '#6B9BD2', '#D97706'];
-const allColors = [
+const yearColors = [
   '#C84271',
   '#152B68',
   '#6B9BD2',
@@ -182,8 +194,7 @@ const allColors = [
 ];
 
 const multiYearChartOptions = computed(() => {
-  const displayYears = mode.value === 'recent' ? allYears.slice(-4) : allYears;
-  const colors = mode.value === 'recent' ? recentColors : allColors;
+  const displayYears = allYears.slice(-selectedYearCount.value);
 
   const series = displayYears
     .slice()
@@ -199,14 +210,17 @@ const multiYearChartOptions = computed(() => {
       return {
         name: String(year),
         data,
-        color: colors[index % colors.length],
+        color: yearColors[index % yearColors.length],
         lineWidth: index === 0 ? 3 : 2,
         marker: { radius: index === 0 ? 4 : 3 },
-        opacity: mode.value === 'all' && index > 3 ? 0.5 : 1,
+        opacity: index > 3 ? 0.5 : 1,
       };
     });
 
-  const titleSuffix = mode.value === 'recent' ? ' - 4 dernières années' : ' - toutes les années';
+  const titleSuffix =
+    selectedYearCount.value === allYears.length
+      ? ' - toutes les années'
+      : ` - ${selectedYearCount.value} dernières années`;
 
   return {
     chart: { type: 'line' },
