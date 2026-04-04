@@ -18,6 +18,17 @@
         style="height: 40vh"
       />
     </ClientOnly>
+
+    <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2 text-center justify-center">
+      Ce compteur est installé sur
+      <span>la </span>
+      <span v-for="(line, index) in counter.lines" :key="line">
+        <LineLink :line="String(line)" anchor="overview" />
+        <span v-if="index < counter.lines.length - 2">, la </span>
+        <span v-else-if="index === counter.lines.length - 2"> et la </span>
+      </span>
+    </div>
+
     <div v-if="matchingVoitureCounter" class="mt-4 flex flex-wrap justify-center gap-3">
       <NuxtLink
         :to="matchingVoitureCounter.path"
@@ -33,15 +44,6 @@
         <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
         Comparaison vélo / voiture
       </NuxtLink>
-    </div>
-    <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2">
-      Ce compteur est installé sur
-      <span>la </span>
-      <span v-for="(line, index) in counter.lines" :key="line">
-        <LineLink :line="String(line)" anchor="overview" />
-        <span v-if="index < counter.lines.length - 2">, la </span>
-        <span v-else-if="index === counter.lines.length - 2"> et la </span> </span
-      >.
     </div>
 
     <h2>Total des passages par année</h2>
