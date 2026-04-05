@@ -76,6 +76,13 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
 
+  vite: {
+    optimizeDeps: {
+      include: ['highcharts-vue', '@vueuse/core'],
+      exclude: ['@panoramax/web-viewer'],
+    },
+  },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag.includes('pnx-'),
