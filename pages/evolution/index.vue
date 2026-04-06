@@ -44,6 +44,15 @@
           </div>
         </div>
       </div>
+      <div class="px-5 md:px-8 pb-4">
+        <NuxtLink
+          to="/chronologie"
+          class="inline-flex items-center gap-1 text-sm text-lvv-blue-600 hover:underline font-medium"
+        >
+          Voir la chronologie détaillée des réalisations
+          <Icon name="mdi:arrow-right" class="h-4 w-4" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>

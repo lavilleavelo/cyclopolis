@@ -34,6 +34,15 @@
           </p>
         </div>
         <HomeLinesSection class="mt-5" />
+        <div class="text-center">
+          <NuxtLink
+            to="/chronologie"
+            class="inline-flex items-center gap-1 text-sm text-lvv-blue-600 hover:underline font-medium"
+          >
+            Voir la chronologie des réalisations
+            <Icon name="mdi:arrow-right" class="h-4 w-4" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
 

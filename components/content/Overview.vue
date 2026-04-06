@@ -12,6 +12,15 @@
       <Stats :voies="[geojson]" :precision="1" />
       <StatsQuality v-if="displayQuality()" :voies="[geojson]" :precision="1" />
       <Typology :voies="[geojson]" />
+      <div class="mt-4 text-center">
+        <NuxtLink
+          :to="`/chronologie?line=${voie.line}`"
+          class="inline-flex items-center gap-1.5 text-sm text-lvv-blue-600 hover:underline font-medium"
+        >
+          <Icon name="mdi:clock-outline" class="h-4 w-4" aria-hidden="true" />
+          Voir la chronologie des réalisations
+        </NuxtLink>
+      </div>
     </div>
     <section v-if="showMap" aria-labelledby="shipping-heading" class="mt-10">
       <ClientOnly fallback-tag="div">

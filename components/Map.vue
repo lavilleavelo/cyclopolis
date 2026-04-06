@@ -3,7 +3,7 @@
     <LegendModal ref="legendModalComponent" />
 
     <div class="flex rounded-lg h-full w-full">
-      <div id="map" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
+      <div ref="mapContainer" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
       <FilterPanel
         :open="route.query.modal === 'filters' && mapReady"
         :show-line-filters="options.showLineFilters"
@@ -106,6 +106,7 @@ const props = defineProps<{
   actions?: FilterActions;
   voies?: Collections['voiesCyclablesPage'][];
   highlightedCounter?: string | null;
+  highlightedSections?: Array<{ line: number; sectionName: string }> | null;
 }>();
 
 const options = { ...defaultOptions, ...props.options };
@@ -162,11 +163,12 @@ function toggleFilterSidebar() {
   router.replace({ query });
 }
 
+const mapContainer = ref<HTMLElement | null>(null);
 const mapReady = ref(false);
 
 onMounted(() => {
   const map = new MaplibreMap({
-    container: 'map',
+    container: mapContainer.value!,
     style: style as StyleSpecification,
     // style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
     center: config.center as LngLatLike,
@@ -473,6 +475,13 @@ onMounted(() => {
     () => props.highlightedCounter,
     (counterName) => {
       highlightCounter({ map, counterName: counterName ?? null });
+    },
+  );
+
+  watch(
+    () => props.highlightedSections,
+    (sections) => {
+      highlightLines({ map, selections: sections ?? null });
     },
   );
 
