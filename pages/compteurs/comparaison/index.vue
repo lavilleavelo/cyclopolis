@@ -1,64 +1,34 @@
 <template>
-  <div class="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-    <div class="absolute inset-0">
-      <div class="bg-white h-1/3 sm:h-2/3" />
-    </div>
-    <div class="relative max-w-7xl mx-auto">
-      <div class="text-center">
-        <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-          Comparaison de la fréquentation cycliste et automobile.
-        </h2>
-        <p class="mt-8 text-xl text-gray-500 leading-8">
-          Cette page permet de comparer l'évolution des fréquentations cyclistes et automobiles sur un même axe.
-        </p>
-        <span class="text-sm text-gray-400"
-          >Données&nbsp;:&nbsp;<a class="hover:underline" href="https://avatar.cerema.fr/cartographie" target="_blank"
-            >avatar.cerema.fr</a
-          >,
-          <a class="hover:underline" href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank"
-            >data.eco-counter.com</a
-          ></span
-        >
-      </div>
-
-      <ClientOnly fallback-tag="div">
-        <template #fallback>
-          <MapPlaceholder style="height: 40vh" additional-class="mt-12" />
-        </template>
-        <Map
-          :features="features"
-          :options="{ roundedCorners: true, legend: false, filter: false }"
-          class="mt-12"
-          style="height: 40vh"
-        />
-      </ClientOnly>
-
-      <div class="mt-4">
-        <label for="compteur" class="sr-only">Compteur</label>
-        <div class="mt-1 relative rounded-md shadow-sm">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
-          </div>
-          <input
-            id="compteur"
-            v-model="searchText"
-            type="text"
-            class="py-4 pl-10 pr-4 text-lg shadow-md focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-900 text-gray-900 rounded-md"
-            placeholder="Chercher un compteur..."
-          />
-        </div>
-      </div>
-
-      <div class="mt-4 max-w-7xl mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:max-w-none">
-        <CounterCard v-for="counter of counters" :key="counter.name" :counter="counter" />
-      </div>
-    </div>
-  </div>
+  <CounterListLayout
+    v-model:search-text="searchText"
+    v-model:show-voies-lyonnaises="showVoiesLyonnaises"
+    v-model:highlighted-counter="highlightedCounter"
+    :counters="counters"
+    :filtered-features="filteredFeatures"
+    search-placeholder="Chercher un compteur, une ville, une VL..."
+    empty-search-hint="Essayez un nom de rue (ex: Lafayette), une ville (ex: Villeurbanne) ou une voie lyonnaise (ex: VL 3)"
+  >
+    <template #header>
+      <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+        Comparaison de la fréquentation cycliste et automobile.
+      </h2>
+      <p class="mt-4 text-xl text-gray-500 leading-8">
+        Cette page permet de comparer l'évolution des fréquentations cyclistes et automobiles sur un même axe.
+      </p>
+      <span class="text-sm text-gray-400"
+        >Données&nbsp;:&nbsp;<a class="hover:underline" href="https://avatar.cerema.fr/cartographie" target="_blank"
+          >avatar.cerema.fr</a
+        >,
+        <a class="hover:underline" href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank"
+          >data.eco-counter.com</a
+        ></span
+      >
+    </template>
+  </CounterListLayout>
 </template>
 
 <script setup lang="ts">
-import MapPlaceholder from '~/components/MapPlaceholder.vue';
-import { removeDiacritics } from '~/helpers/helpers';
+import { matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
 
 /**
  * la clé cyclopolisId sert à faire le lien entre les compteurs vélo et voiture
@@ -79,33 +49,19 @@ const { data: allVoitureCounters } = await useAsyncData(() => {
     .all();
 });
 
-const searchText = ref('');
-
 const counters = computed(() => {
-  if (!allVeloCounters.value) {
-    return [];
-  }
+  if (!allVeloCounters.value) return [];
 
   return allVeloCounters.value
     .map((veloCounter) => {
-      if (!veloCounter.cyclopolisId) {
-        return undefined;
-      }
-      if (!allVoitureCounters.value) {
-        return undefined;
-      }
-
-      const voitureCounter = allVoitureCounters.value.find(
-        (voitureCounter) => voitureCounter.cyclopolisId === veloCounter.cyclopolisId,
-      );
-      if (!voitureCounter) {
-        return undefined;
-      }
+      if (!veloCounter.cyclopolisId || !allVoitureCounters.value) return undefined;
+      const voitureCounter = allVoitureCounters.value.find((vc) => vc.cyclopolisId === veloCounter.cyclopolisId);
+      if (!voitureCounter) return undefined;
       return {
         ...veloCounter,
         path: `/compteurs/comparaison/${veloCounter.cyclopolisId}`,
         counts: voitureCounter.counts.map((voitureCount) => {
-          const veloCount = veloCounter.counts.find((veloCount) => veloCount.month === voitureCount.month);
+          const veloCount = veloCounter.counts.find((vc) => vc.month === voitureCount.month);
           return {
             month: voitureCount.month,
             veloCount: veloCount?.count || 0,
@@ -115,12 +71,11 @@ const counters = computed(() => {
       };
     })
     .filter((counter): counter is NonNullable<typeof counter> => !!counter)
-    .filter((counter) =>
-      removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value)),
-    )
+    .filter((counter) => matchesCounterSearch(counter, searchText.value))
     .sort((a, b) => {
-      const lastA = a.counts[a.counts.length - 1];
-      const lastB = b.counts[b.counts.length - 1];
+      const lastA = a.counts.at(-1);
+      const lastB = b.counts.at(-1);
+      if (!lastA || !lastB) return 0;
       const monthDiff = new Date(lastB.month).getTime() - new Date(lastA.month).getTime();
       if (monthDiff !== 0) return monthDiff;
       return (lastB.veloCount || 0) - (lastA.veloCount || 0);
@@ -128,11 +83,14 @@ const counters = computed(() => {
 });
 
 const { getCompteursFeatures } = useMap();
-const features = computed(() => {
-  return getCompteursFeatures({
-    counters: counters.value,
+
+const mapFeatures = computed(() =>
+  getCompteursFeatures({
+    counters: counters.value as unknown as Parameters<typeof getCompteursFeatures>[0]['counters'],
     type: 'compteur-comparaison',
     isMixed: true,
-  });
-});
+  }),
+);
+
+const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures);
 </script>

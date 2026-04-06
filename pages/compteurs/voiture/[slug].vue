@@ -13,7 +13,7 @@
       </template>
       <Map
         :features="features"
-        :options="{ roundedCorners: true, legend: false, filter: false }"
+        :options="{ roundedCorners: true, legend: false, filter: false, cooperativeGestures: true }"
         class="mt-6"
         style="height: 40vh"
       />

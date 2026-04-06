@@ -5,6 +5,14 @@ export default <RouterConfig>{
   scrollBehavior(to, from, savedPosition) {
     const navbarOffset = 120; // size of the fixed navbar
 
+    const counterListPaths = ['/compteurs/velo', '/compteurs/voiture', '/compteurs/comparaison'];
+    if (counterListPaths.some((p) => to.path === p || to.path === `${p}/`)) {
+      if (to.path !== from.path) {
+        return { top: 0, behavior: 'instant' };
+      }
+      return;
+    }
+
     if (savedPosition) {
       return savedPosition; // When using browser's back/forward buttons
     }

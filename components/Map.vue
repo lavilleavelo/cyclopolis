@@ -92,6 +92,7 @@ const defaultOptions = {
   onShrinkControlClick: () => {},
   filterStyle: 'height: calc(100vh - 100px)',
   roundedCorners: false,
+  cooperativeGestures: false,
   updateUrlOnFeatureClick: false,
 };
 
@@ -104,6 +105,7 @@ const props = defineProps<{
   filters?: FiltersState;
   actions?: FilterActions;
   voies?: Collections['voiesCyclablesPage'][];
+  highlightedCounter?: string | null;
 }>();
 
 const options = { ...defaultOptions, ...props.options };
@@ -162,6 +164,7 @@ onMounted(() => {
     center: config.center as LngLatLike,
     zoom: config.zoom,
     attributionControl: false,
+    cooperativeGestures: options.cooperativeGestures,
   });
 
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
@@ -457,6 +460,13 @@ onMounted(() => {
       hasDetailsPanel: options.showDetailsPanel,
     });
   });
+
+  watch(
+    () => props.highlightedCounter,
+    (counterName) => {
+      highlightCounter({ map, counterName: counterName ?? null });
+    },
+  );
 
   onUnmounted(() => {
     map.remove();

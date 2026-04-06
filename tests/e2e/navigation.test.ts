@@ -42,7 +42,7 @@ describe('Browser navigation', () => {
     const page = await createPage('/compteurs/velo');
     const heading = await page.locator('h2').first().innerText();
     expect(heading.toLowerCase()).toContain('compteurs vélo');
-    const searchInput = await page.locator('input[placeholder="Chercher un compteur..."]').count();
+    const searchInput = await page.locator('input[placeholder*="Chercher un compteur"]').count();
     expect(searchInput).toBe(1);
     await page.close();
   });

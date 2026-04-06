@@ -1,5 +1,10 @@
 <template>
-  <NuxtLink class="rounded-lg shadow-md hover:shadow-lg overflow-hidden" :to="link">
+  <NuxtLink
+    class="rounded-lg shadow-md hover:shadow-lg overflow-hidden"
+    :to="link"
+    @mouseenter="$emit('highlight', name)"
+    @mouseleave="$emit('highlight', null)"
+  >
     <div class="px-4 py-2 bg-lvv-blue-600 text-white">
       <div class="flex items-center justify-between">
         <div class="text-base font-medium">
@@ -105,6 +110,10 @@ type Counter = Omit<Collections['compteurs'], 'counts'> & {
 
 const props = defineProps<{
   counter: Counter;
+}>();
+
+defineEmits<{
+  highlight: [name: string | null];
 }>();
 
 const { getLineColor } = useColors();
