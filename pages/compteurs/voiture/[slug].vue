@@ -18,6 +18,9 @@
         style="height: 40vh"
       />
     </ClientOnly>
+
+    <CounterMaintenanceBanner :counts="counter.counts" />
+
     <div v-if="matchingVeloCounter" class="mt-4 flex flex-wrap justify-center gap-3">
       <NuxtLink
         :to="matchingVeloCounter.path"

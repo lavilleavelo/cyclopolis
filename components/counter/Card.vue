@@ -1,12 +1,28 @@
 <template>
   <NuxtLink class="rounded-lg shadow-md hover:shadow-lg overflow-hidden" :to="link">
     <div class="px-4 py-2 bg-lvv-blue-600 text-white">
-      <div class="text-base font-medium">
-        {{ arrondissement }}
+      <div class="flex items-center justify-between">
+        <div class="text-base font-medium">
+          {{ arrondissement }}
+        </div>
+        <div v-if="counter.lines && counter.lines.length > 0" class="flex gap-1">
+          <span
+            v-for="line in counter.lines"
+            :key="line"
+            class="inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold text-white border border-white/50"
+            :style="{ backgroundColor: getLineColor(line) }"
+          >
+            {{ line }}
+          </span>
+        </div>
       </div>
       <div class="mt-1 text-lg font-semibold">
         {{ name }}
       </div>
+    </div>
+    <div v-if="isLatestDataAnomalous" class="bg-amber-50 border-b border-amber-200 px-3 py-1.5 flex items-center gap-2">
+      <Icon name="mdi:wrench" class="text-amber-600 text-sm flex-shrink-0" />
+      <span class="text-xs text-amber-700">Compteur en maintenance — données partielles</span>
     </div>
     <table class="w-full bg-white">
       <thead>
@@ -91,6 +107,8 @@ const props = defineProps<{
   counter: Counter;
 }>();
 
+const { getLineColor } = useColors();
+
 const arrondissement = props.counter.arrondissement;
 const name = props.counter.name;
 const link = props.counter.path;
@@ -100,6 +118,22 @@ const isTrackingVoiture = props.counter.counts.every((count) => count.voitureCou
 
 const lastRecord = props.counter.counts[props.counter.counts.length - 1];
 const lastRecordPreviousYear = getSameRecordPreviousYear(lastRecord);
+
+const { isCountInMaintenance } = useCounterMaintenance();
+
+const isLatestDataAnomalous = computed(() => {
+  if (!lastRecord || !lastRecordPreviousYear) {
+    return false;
+  }
+
+  if (isTrackingVelo && isCountInMaintenance(lastRecord.veloCount ?? 0, lastRecordPreviousYear.veloCount ?? 0)) {
+    return true;
+  }
+
+  return (
+    isTrackingVoiture && isCountInMaintenance(lastRecord.voitureCount ?? 0, lastRecordPreviousYear.voitureCount ?? 0)
+  );
+});
 
 /**
  * formatters

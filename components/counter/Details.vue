@@ -10,6 +10,8 @@
       <p class="text-sm text-gray-500">{{ veloCounter.arrondissement }}</p>
     </div>
 
+    <CounterMaintenanceBanner :counts="veloCounter.counts" />
+
     <div class="mt-4 flex flex-wrap justify-center gap-3">
       <a
         href="#"
@@ -65,6 +67,8 @@
       <h2 class="mt-1 text-xl font-extrabold text-gray-900">{{ counter.name }}</h2>
       <p class="text-sm text-gray-500">{{ counter.arrondissement }}</p>
     </div>
+
+    <CounterMaintenanceBanner :counts="counter.counts" />
 
     <p v-if="counter.description" class="text-gray-500">{{ counter.description }}</p>
 

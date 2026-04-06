@@ -19,6 +19,8 @@
       />
     </ClientOnly>
 
+    <CounterMaintenanceBanner :counts="counter.counts" />
+
     <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2 text-center justify-center">
       Ce compteur est installé sur
       <span>la </span>

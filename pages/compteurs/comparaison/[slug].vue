@@ -18,6 +18,8 @@
       />
     </ClientOnly>
 
+    <CounterMaintenanceBanner :counts="veloCounter.counts" />
+
     <div class="mt-6 flex flex-wrap justify-center gap-3">
       <NuxtLink
         :to="veloCounter.path"

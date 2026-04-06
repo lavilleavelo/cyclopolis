@@ -124,6 +124,16 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allFeatures: features,
 });
 
+watch(displayBikeCounters, (val) => {
+  filters.showCounters.value = val;
+});
+watch(
+  () => filters.showCounters.value,
+  (val) => {
+    displayBikeCounters.value = val;
+  },
+);
+
 const color = getLineColor(Number(props.voie.line));
 const distance = geojson.value ? getTotalDistance([geojson.value]) : 0;
 
