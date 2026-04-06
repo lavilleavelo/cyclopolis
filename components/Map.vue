@@ -127,7 +127,7 @@ function closeSidebar() {
   router.replace({ query });
 }
 
-const highlightSection = route.query.sectionName as string | undefined;
+const getHighlightSection = () => route.query.sectionName as string | undefined;
 
 function closeFilterPanel() {
   const query = { ...route.query };
@@ -330,6 +330,7 @@ onMounted(() => {
       return;
     }
 
+    const highlightSection = getHighlightSection();
     if (!+(route.query.line || -1) || !highlightSection) {
       fitBounds({ map, features: props.features });
       return;
