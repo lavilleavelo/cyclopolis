@@ -38,11 +38,29 @@ export async function useCounterSearch(counterFeatures: CompteurFeature[] | Ref<
   const route = useRoute();
   const router = useRouter();
 
-  const searchText = ref((route.query.q as string) || '');
-  const showVoiesLyonnaises = ref(route.query.vl === '1');
+  const searchText = ref('');
+  const showVoiesLyonnaises = ref(false);
   const highlightedCounter = ref<string | null>(null);
+  let syncingFromRoute = false;
+
+  watch(
+    () => route.query,
+    (query) => {
+      syncingFromRoute = true;
+      searchText.value = (query.q as string) || '';
+      showVoiesLyonnaises.value = query.vl === '1';
+      nextTick(() => {
+        syncingFromRoute = false;
+      });
+    },
+    { immediate: true },
+  );
 
   watch([searchText, showVoiesLyonnaises], ([q, vl]) => {
+    if (syncingFromRoute) {
+      return;
+    }
+
     const query = { ...route.query };
     if (q) {
       query.q = q;

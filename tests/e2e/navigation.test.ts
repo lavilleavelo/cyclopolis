@@ -47,6 +47,15 @@ describe('Browser navigation', () => {
     await page.close();
   });
 
+  it('loads compteurs vélo page with search query', async () => {
+    const page = await createPage('/compteurs/velo?q=villeurbanne');
+    await page.waitForTimeout(500);
+    const input = page.locator('input[placeholder*="Chercher un compteur"]').first();
+    const value = await input.inputValue();
+    expect(value).toBe('villeurbanne');
+    await page.close();
+  });
+
   it('loads historique page', async () => {
     const page = await createPage('/historique');
     const h1 = await page.locator('h1').innerText();
