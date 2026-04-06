@@ -45,10 +45,10 @@
           lyonnaise.
         </p>
       </div>
-      <div class="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-3">
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
         <NuxtLink
           to="/compteurs/velo"
-          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group"
+          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group w-full sm:w-auto sm:min-w-[250px]"
         >
           <div class="flex-shrink-0 w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
             <Icon name="game-icons:dutch-bike" class="text-2xl text-pink-600" />
@@ -60,7 +60,7 @@
         </NuxtLink>
         <NuxtLink
           to="/compteurs/comparaison"
-          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group"
+          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group w-full sm:w-auto sm:min-w-[250px]"
         >
           <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
             <Icon name="mdi:compare-horizontal" class="text-2xl text-purple-600" />
