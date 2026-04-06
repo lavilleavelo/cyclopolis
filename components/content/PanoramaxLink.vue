@@ -10,7 +10,7 @@
           class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
           :style="{ width: '100%', minHeight: height }"
         >
-          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4" />
           <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
         </div>
       </template>
@@ -37,7 +37,7 @@
           class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10"
           :style="{ width: '100%', minHeight: height }"
         >
-          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+          <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4" />
           <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
         </div>
       </template>

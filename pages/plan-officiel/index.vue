@@ -76,7 +76,7 @@
               frameborder="0"
               allowfullscreen
               class="mt-6 border border-gray-300 rounded"
-            ></iframe>
+            />
           </div>
         </div>
       </Transition>

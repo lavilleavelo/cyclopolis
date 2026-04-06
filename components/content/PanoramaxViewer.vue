@@ -29,7 +29,7 @@
       scrolling="no"
       allowfullscreen
       class="w-full h-full absolute inset-0 overflow-hidden"
-    ></iframe>
+    />
 
     <button
       v-if="isLoaded && showFullscreenButton"
@@ -55,7 +55,7 @@
             <Icon name="mdi:close" class="w-6 h-6 text-gray-700" />
           </button>
 
-          <iframe :src="iframeSrc" class="w-full h-full flex-1 bg-black" frameborder="0" allowfullscreen></iframe>
+          <iframe :src="iframeSrc" class="w-full h-full flex-1 bg-black" frameborder="0" allowfullscreen />
         </div>
       </div>
     </Teleport>

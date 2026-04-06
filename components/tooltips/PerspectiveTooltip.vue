@@ -47,7 +47,7 @@
             style="border: none"
             allowfullscreen
             referrerpolicy="no-referrer"
-          ></iframe>
+          />
         </div>
       </div>
     </Transition>

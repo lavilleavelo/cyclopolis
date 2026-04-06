@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "singleQuote": true,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    "node_modules",
+    "*.log*",
+    ".nuxt",
+    ".nitro",
+    ".cache",
+    ".output",
+    ".env",
+    "dist",
+    ".DS_Store",
+    ".idea/*",
+    ".data/",
+    ".vscode/",
+    "content/",
+    "!components/content/",
+    "public/",
+    "assets/style.json",
+    "package-lock.json"
+  ]
+}

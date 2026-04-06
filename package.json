@@ -9,9 +9,10 @@
     "preview": "nuxt preview",
     "test": "vitest",
     "test:e2e": "nuxt generate && vitest --config vitest.config.e2e.ts",
-    "format": "prettier --write .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check",
+    "lint": "oxfmt --check && eslint .",
+    "lint:fix": "oxfmt --write . && eslint . --fix"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.7.23",
@@ -25,12 +26,11 @@
     "dayjs": "^1.11.20",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.5",
     "happy-dom": "^20.8.9",
     "nuxt": "^4.4.2",
     "nuxt-umami": "^3.2.1",
+    "oxfmt": "^0.43.0",
     "playwright-core": "^1.59.1",
-    "prettier": "^3.8.1",
     "sitemap": "^9.0.1",
     "typescript": "^5.9.3",
     "vitest": "^4.1.2"

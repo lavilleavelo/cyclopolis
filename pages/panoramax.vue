@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen w-screen relative">
     <div v-if="isLoading" class="absolute inset-0 flex flex-col items-center justify-center bg-gray-100 z-10">
-      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4"></div>
+      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-16 w-16 mb-4" />
       <h2 class="text-center text-gray-700 text-xl font-semibold">Chargement de Panoramax...</h2>
     </div>
     <pnx-photo-viewer
@@ -15,7 +15,7 @@
       @ready="handleReady"
     >
       <!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-      <pnx-widget-legend slot="bottom-right" style="z-index: 0" light></pnx-widget-legend>
+      <pnx-widget-legend slot="bottom-right" style="z-index: 0" light />
     </pnx-photo-viewer>
   </div>
 </template>

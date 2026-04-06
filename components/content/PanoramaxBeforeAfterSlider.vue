@@ -58,7 +58,7 @@
       @mousedown="startDrag"
       @touchstart.prevent="startDrag"
     >
-      <div class="absolute top-0 bottom-0 w-1 bg-white shadow-lg left-1/2 -translate-x-1/2"></div>
+      <div class="absolute top-0 bottom-0 w-1 bg-white shadow-lg left-1/2 -translate-x-1/2" />
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center pointer-events-none"
       >

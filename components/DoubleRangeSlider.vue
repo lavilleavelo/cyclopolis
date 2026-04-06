@@ -1,10 +1,10 @@
 <template>
   <div class="relative w-full h-6">
-    <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 rounded-full -translate-y-1/2 pointer-events-none"></div>
+    <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 rounded-full -translate-y-1/2 pointer-events-none" />
     <div
       class="absolute top-1/2 h-1 bg-lvv-blue-600 rounded-full -translate-y-1/2 pointer-events-none"
       :style="{ left: leftPercent + '%', right: 100 - rightPercent + '%' }"
-    ></div>
+    />
 
     <input
       type="range"

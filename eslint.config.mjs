@@ -1,6 +1,6 @@
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default withNuxt(
   {
@@ -12,5 +12,5 @@ export default withNuxt(
       'vue/multi-word-component-names': 'off',
     },
   },
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
 );

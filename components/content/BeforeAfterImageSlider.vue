@@ -23,7 +23,7 @@
       <div
         class="absolute top-0 bottom-0 w-1 bg-white left-1/2 -translate-x-1/2"
         style="box-shadow: 0 0 4px rgba(0, 0, 0, 0.15)"
-      ></div>
+      />
       <div
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center pointer-events-none"
         style="box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15)"

@@ -31,7 +31,7 @@
           <ContentRenderer class="bg-transparent" :value="truncatedNews" />
           <div
             class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white group-hover:from-gray-100 to-transparent pointer-events-none transition-colors"
-          ></div>
+          />
         </div>
       </div>
 
