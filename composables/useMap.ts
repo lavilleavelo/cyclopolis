@@ -1417,6 +1417,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       const query: LocationQueryRaw = {
         ...route.query,
         modal: 'counter',
+        counters: '1',
         counterLink: props.feature.properties.link,
       };
       if (route.query.modal === 'filters') {

@@ -119,8 +119,8 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
   }
 
-  if (Object.hasOwn(query, 'counters')) {
-    showCounters.value = query.counters === '1';
+  if (Object.hasOwn(query, 'counters') || query.modal === 'counter') {
+    showCounters.value = query.counters === '1' || query.modal === 'counter';
   }
 
   if (Object.hasOwn(query, 'qualities')) {
@@ -129,6 +129,16 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
       qualitiesQuery && (qualitiesQuery as string).length > 0 ? (qualitiesQuery as string).split(',') : [];
     qualityFilters.value.forEach((f) => (f.isEnabled = f.qualities.every((q) => enabled.includes(q))));
   }
+
+  watch(
+    () => route.query,
+    (newQuery) => {
+      if (newQuery.counters === '1' || newQuery.modal === 'counter') {
+        showCounters.value = true;
+      }
+    },
+    { immediate: true },
+  );
 
   function processDateData(geojsonData: Collections['voiesCyclablesGeojson'][] | undefined | null) {
     if (!geojsonData) return;
