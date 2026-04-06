@@ -113,10 +113,18 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 
-const { loadImages, plotFeatures, fitBounds, handleMapClick, handleMapHover, highlightLines, highlightCounter } =
-  useMap({
-    updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
-  });
+const {
+  loadImages,
+  plotFeatures,
+  fitBounds,
+  handleMapClick,
+  handleMapHover,
+  highlightLines,
+  highlightCounter,
+  showFeatureTooltip,
+} = useMap({
+  updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
+});
 
 const router = useRouter();
 const route = useRoute();
@@ -465,6 +473,82 @@ onMounted(() => {
     () => props.highlightedCounter,
     (counterName) => {
       highlightCounter({ map, counterName: counterName ?? null });
+    },
+  );
+
+  // From search dialog fromSearch=1
+  watch(
+    () =>
+      [
+        route.query.modal,
+        route.query.line,
+        route.query.sectionName,
+        route.query.counterLink,
+        route.query.fromSearch,
+      ] as const,
+    ([modal, line, sectionName, counterLink, fromSearch], [_oldModal, _oldLine, _oldSectionName, oldCounterLink]) => {
+      if (!mapReady.value || !fromSearch) {
+        return;
+      }
+
+      const cleanQuery = { ...route.query };
+      delete cleanQuery.fromSearch;
+      void router.replace({ query: cleanQuery });
+
+      const isSectionChange = modal === 'details' && !!sectionName;
+      const isCounterChange = modal === 'counter' && counterLink && counterLink !== oldCounterLink;
+
+      if (!isSectionChange && !isCounterChange) {
+        return;
+      }
+
+      const existingPopups = document.querySelectorAll('.maplibregl-popup');
+      existingPopups.forEach((p) => p.remove());
+
+      if (isSectionChange) {
+        const lineNum = +(line || -1);
+        const section = props.features.find((f) => {
+          if (f.geometry.type !== 'LineString') return false;
+          if (!('line' in f.properties) || f.properties.line !== lineNum) {
+            return false;
+          }
+
+          return 'name' in f.properties && f.properties.name === sectionName;
+        });
+
+        if (section?.geometry?.type === 'LineString' && 'status' in section.properties) {
+          highlightLines({
+            map,
+            selections: [{ line: lineNum, sectionName: sectionName as string }],
+          });
+
+          fitBounds({
+            map,
+            features: [section],
+            padding: window.innerWidth < 1024 ? { bottom: window.innerHeight * 0.75, top: 0, left: 20, right: 20 } : 20,
+          });
+
+          map.once('idle', () => {
+            showFeatureTooltip({
+              map,
+              feature: section,
+              allFeatures: props.features,
+              hasDetailsPanel: options.showDetailsPanel,
+            });
+          });
+        }
+      }
+
+      if (isCounterChange) {
+        const counterFeature = props.features.find(
+          (f) => f.geometry.type === 'Point' && 'link' in f.properties && f.properties.link === counterLink,
+        );
+
+        if (counterFeature && counterFeature.geometry.type === 'Point') {
+          highlightCounter({ map, counterName: counterFeature.properties.name });
+          fitBounds({ map, features: [counterFeature] });
+        }
+      }
     },
   );
 

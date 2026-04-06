@@ -17,9 +17,17 @@
             />
           </NuxtLink>
         </div>
-        <div class="-mr-2 -my-2 md:hidden flex items-center">
+        <div class="-mr-2 -my-2 md:hidden flex items-center gap-1">
+          <button
+            type="button"
+            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+            @click="globalSearchRef?.openSearch()"
+          >
+            <span class="sr-only">Rechercher</span>
+            <Icon name="mdi:magnify" class="h-6 w-6" aria-hidden="true" />
+          </button>
           <PopoverButton
-            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
+            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lvv-blue-600"
           >
             <span class="sr-only">Ouvrir menu</span>
             <Icon name="mdi:menu" class="h-6 w-6" aria-hidden="true" />
@@ -30,7 +38,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-lvv-blue-600 focus-visible:ring-offset-2',
               ]"
             >
               <span>Cartes détaillées</span>
@@ -96,7 +104,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-lvv-blue-600 focus-visible:ring-offset-2',
               ]"
             >
               <span>Lignes</span>
@@ -152,7 +160,7 @@
             <PopoverButton
               :class="[
                 open ? 'text-gray-900' : 'text-gray-500',
-                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
+                'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-lvv-blue-600 focus-visible:ring-offset-2',
               ]"
             >
               <span>Compteurs</span>
@@ -203,15 +211,38 @@
             </transition>
           </Popover>
         </PopoverGroup>
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-4">
-          <SettingsPopover />
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 gap-1">
+          <div class="flex items-center -space-x-0.5">
+            <div class="relative group/search">
+              <button
+                type="button"
+                class="text-gray-500 inline-flex items-center justify-center rounded-md bg-white p-2 hover:text-lvv-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-lvv-blue-600 focus-visible:ring-offset-2"
+                @click="globalSearchRef?.openSearch()"
+              >
+                <span class="sr-only">Rechercher</span>
+                <Icon
+                  name="mdi:magnify"
+                  class="h-6 w-6 text-gray-400 group-hover/search:text-gray-500"
+                  aria-hidden="true"
+                />
+              </button>
+              <span
+                class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-1.5 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover/search:opacity-100"
+              >
+                Rechercher
+                <kbd class="ml-1 rounded bg-gray-600 px-1 py-0.5 text-[10px]">{{ isMac ? '⌘' : 'Ctrl' }}+K</kbd>
+              </span>
+            </div>
+            <SettingsPopover />
+          </div>
           <NuxtLink
             to="/blog"
-            class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lvv-blue-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
+            class="ml-1 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-lvv-blue-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
           >
             Blog
           </NuxtLink>
         </div>
+        <GlobalSearch ref="globalSearchRef" />
       </div>
     </div>
 
@@ -245,7 +276,7 @@
               <div class="-mr-2 flex items-center">
                 <SettingsPopover />
                 <PopoverButton
-                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
+                  class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lvv-blue-600"
                 >
                   <span class="sr-only">Fermer menu</span>
                   <Icon name="mdi:close" class="h-6 w-6" aria-hidden="true" />
@@ -340,12 +371,14 @@
 import { Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue';
 import { useMediaQuery } from '@vueuse/core';
 import SettingsPopover from './SettingsPopover.vue';
+import type GlobalSearch from '~/components/GlobalSearch.vue';
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
 const { getAssoName } = useConfig();
 const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
+const isMac = computed(() => typeof navigator !== 'undefined' && /Mac|iPhone|iPad/.test(navigator.userAgent));
 const linkToMap = computed(() => {
   return isLargeScreen.value ? '/carte-interactive?modal=filters' : '/carte-interactive';
 });
@@ -358,4 +391,6 @@ const navItems = computed(() => [
 ]);
 
 const { voies } = await useGetVoiesCyclablesNums();
+
+const globalSearchRef = ref<InstanceType<typeof GlobalSearch> | null>(null);
 </script>

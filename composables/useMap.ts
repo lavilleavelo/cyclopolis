@@ -1467,6 +1467,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           popupCloseHandledByMapClick = false;
           return;
         }
+
+        if (currentClickPopup) {
+          return;
+        }
+
         const popups = document.querySelectorAll('.maplibregl-popup');
         if (popups.length === 0) {
           if (currentMap) {
@@ -1813,6 +1818,67 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     createPopup({ map, features, event: hoverEvent, hasDetailsPanel, isHover: true });
   }
 
+  function showFeatureTooltip({
+    map,
+    feature,
+    allFeatures,
+    hasDetailsPanel,
+  }: {
+    map: MaplibreType;
+    feature: Collections['voiesCyclablesGeojson']['features'][0];
+    allFeatures: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    hasDetailsPanel: boolean;
+  }) {
+    if (feature.geometry.type !== 'LineString') {
+      return;
+    }
+
+    if (currentClickPopup) {
+      currentClickPopup.remove();
+      currentClickPopup = null;
+    }
+
+    const lineStringFeatures = allFeatures.filter(isLineStringFeature);
+    const lines = feature.properties.id
+      ? [
+          ...new Set(
+            lineStringFeatures.filter((f) => f.properties.id === feature.properties.id).map((f) => f.properties.line),
+          ),
+        ]
+      : [feature.properties.line];
+
+    const coords = feature.geometry.coordinates;
+    const midCoord = coords[Math.floor(coords.length / 2)] as [number, number];
+
+    const tooltipContentId = `search-tooltip-${Date.now()}`;
+    const popup = new Popup({ closeButton: false, closeOnClick: true })
+      .setLngLat(midCoord)
+      .setHTML(`<div style="opacity: 0; min-height: 200px; min-width: 100px" id="${tooltipContentId}"></div>`)
+      .addTo(map);
+
+    currentClickPopup = popup;
+    lastClickedFeatureId = `search-${feature.properties.name}`;
+
+    const component = defineComponent(window.innerWidth > 1024 ? LineTooltip : LineHoverTooltip);
+
+    void nextTick(() => {
+      createApp({
+        render: () =>
+          h(Suspense, null, {
+            default: h(component, { feature, lines, hasDetailsPanel }),
+            fallback: 'Chargement...',
+          }),
+      }).mount(`#${tooltipContentId}`);
+
+      const el = document.getElementById(tooltipContentId);
+      if (el) {
+        el.style.minHeight = 'initial';
+        el.style.minWidth = 'initial';
+        el.style.opacity = '1';
+      }
+    });
+  }
+
   return {
     loadImages,
     plotFeatures,
@@ -1822,5 +1888,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     handleMapHover,
     highlightLines,
     highlightCounter,
+    showFeatureTooltip,
   };
 };

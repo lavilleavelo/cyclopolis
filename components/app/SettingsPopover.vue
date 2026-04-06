@@ -1,9 +1,9 @@
 <template>
-  <Popover v-slot="{ open }" class="relative">
+  <Popover v-slot="{ open }" class="relative group/settings">
     <PopoverButton
       :class="[
         open ? 'text-gray-900' : 'text-gray-500',
-        'group inline-flex items-center justify-center rounded-md bg-white p-2 text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus:ring-2 focus:ring-lvv-blue-600 focus:ring-offset-2',
+        'group inline-flex items-center justify-center rounded-md bg-white p-2 text-base font-medium hover:text-lvv-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-lvv-blue-600 focus-visible:ring-offset-2',
       ]"
     >
       <span class="sr-only">Paramètres</span>
@@ -13,6 +13,12 @@
         aria-hidden="true"
       />
     </PopoverButton>
+    <span
+      v-if="!open"
+      class="pointer-events-none absolute left-1/2 -translate-x-1/2 top-full mt-1.5 whitespace-nowrap rounded bg-gray-800 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover/settings:opacity-100"
+    >
+      Paramètres
+    </span>
     <transition
       enter-active-class="transition ease-out duration-200"
       enter-from-class="opacity-0 translate-y-1"
@@ -32,7 +38,7 @@
             <h3 class="text-lg font-medium text-gray-900">Paramètres</h3>
             <div class="-mr-2">
               <PopoverButton
-                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lvv-blue-600"
+                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-lvv-blue-600"
                 @click="close()"
               >
                 <span class="sr-only">Fermer menu</span>
