@@ -1,6 +1,7 @@
 import {
   type FiltersState,
   type FilterActions,
+  isCompteurFeature,
   isLineStringFeature,
   isPointFeature,
   type LaneQuality,
@@ -97,6 +98,8 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
   const lineFilters = ref<{ label: string; isEnabled: boolean; line: number }[]>([]);
 
+  const showCounters = ref(false);
+
   const dateRange = ref<[number, number]>([0, 0]);
   const minDate = ref(0);
   const maxDate = ref(0);
@@ -114,6 +117,10 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     const typesQuery = query.types;
     const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
     typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
+  }
+
+  if (Object.hasOwn(query, 'counters')) {
+    showCounters.value = query.counters === '1';
   }
 
   if (Object.hasOwn(query, 'qualities')) {
@@ -241,7 +248,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   });
 
   watch(
-    [statusFilters, typeFilters, qualityFilters, lineFilters, dateRange],
+    [statusFilters, typeFilters, qualityFilters, lineFilters, dateRange, showCounters],
     () => {
       const newQuery = { ...route.query };
 
@@ -264,6 +271,12 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
         newQuery.qualities = visibleQualities.value.join(',');
       } else {
         delete newQuery.qualities;
+      }
+
+      if (showCounters.value) {
+        newQuery.counters = '1';
+      } else {
+        delete newQuery.counters;
       }
 
       if (lineFilters.value.length > 0) {
@@ -303,6 +316,10 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
 
   const filteredFeatures = computed(() => {
     return (allFeatures.value ?? []).filter((feature) => {
+      if (isCompteurFeature(feature)) {
+        return showCounters.value;
+      }
+
       if (isLineStringFeature(feature) || isPointFeature(feature)) {
         if (
           lineFilters.value.length > 0 &&
@@ -362,6 +379,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     minDate,
     maxDate,
     dateSteps,
+    showCounters,
   };
 
   const actions: FilterActions = {
@@ -379,6 +397,9 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     },
     setDateRange(newDateRange: [number, number]) {
       dateRange.value = newDateRange;
+    },
+    toggleShowCounters() {
+      showCounters.value = !showCounters.value;
     },
   };
 

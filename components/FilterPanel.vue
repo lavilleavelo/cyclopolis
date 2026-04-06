@@ -10,6 +10,7 @@
       <FilterForm
         :show-line-filters="showLineFilters"
         :show-date-filter="showDateFilter"
+        :show-counters="showCounters"
         :filters="filters"
         :actions="actions"
       />
@@ -29,6 +30,7 @@
     <FilterForm
       :show-line-filters="showLineFilters"
       :show-date-filter="showDateFilter"
+      :show-counters="showCounters"
       :filters="filters"
       :actions="actions"
     />
@@ -46,6 +48,7 @@ const props = defineProps<{
   open: boolean;
   showLineFilters: boolean;
   showDateFilter?: boolean;
+  showCounters?: boolean;
   canUseSidePanel?: boolean;
   filterStyle: string;
   filters?: FiltersState;

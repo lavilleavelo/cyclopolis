@@ -159,5 +159,6 @@
     }
   ],
   "qualityDisplay": true,
-  "qualityDisplayOnHomePage": false
+  "qualityDisplayOnHomePage": false,
+  "countersDisplay": true
 }

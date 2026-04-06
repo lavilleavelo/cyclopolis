@@ -39,6 +39,18 @@
       @deselect-all="filters.lineFilters.value.forEach((line: LineFilterItem) => (line.isEnabled = false))"
     />
 
+    <section v-if="options.showCounters">
+      <label class="mt-2 flex items-center gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          :checked="filters.showCounters.value"
+          class="h-4 w-4 rounded border-gray-300 text-lvv-blue-600 focus:ring-lvv-blue-600"
+          @change="actions.toggleShowCounters"
+        />
+        <span class="text-base font-medium">Afficher les compteurs</span>
+      </label>
+    </section>
+
     <div v-if="options.showDateFilter && filters.minDate.value !== filters.maxDate.value" class="mt-2">
       <h3 class="text-base font-medium mb-4">Filtrer par date de réalisation</h3>
       <div>
@@ -69,10 +81,11 @@ dayjs.locale('fr');
 const props = defineProps<{
   showLineFilters: boolean;
   showDateFilter?: boolean;
+  showCounters?: boolean;
   filters: FiltersState;
   actions: FilterActions;
 }>();
-const defaultOptions = { showLineFilters: false, showDateFilter: false };
+const defaultOptions = { showLineFilters: false, showDateFilter: false, showCounters: false };
 const options = { ...defaultOptions, ...props };
 
 function formatMonthYear(stepIndex: number) {

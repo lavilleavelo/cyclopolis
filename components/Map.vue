@@ -8,6 +8,7 @@
         :open="route.query.modal === 'filters' && mapReady"
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
+        :show-counters="options.showCounters"
         :can-use-side-panel="options.canUseSidePanel"
         :filters="filters"
         :actions="actions"
@@ -19,6 +20,12 @@
         :open="route.query.modal === 'details' && mapReady"
         :line="route.query.line ? +route.query.line : null"
         :voies="voies"
+        @close="closeSidebar"
+      />
+      <CounterPanel
+        v-if="options.showDetailsPanel"
+        :open="route.query.modal === 'counter' && mapReady"
+        :counter-link="(route.query.counterLink as string) || null"
         @close="closeSidebar"
       />
     </div>
@@ -80,6 +87,7 @@ const defaultOptions = {
   showDetailsPanel: false,
   showLineFilters: false,
   showDateFilter: false,
+  showCounters: false,
   canUseSidePanel: false,
   onShrinkControlClick: () => {},
   filterStyle: 'height: calc(100vh - 100px)',
@@ -103,9 +111,10 @@ const options = { ...defaultOptions, ...props.options };
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 
-const { loadImages, plotFeatures, fitBounds, handleMapClick, handleMapHover, highlightLines } = useMap({
-  updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
-});
+const { loadImages, plotFeatures, fitBounds, handleMapClick, handleMapHover, highlightLines, highlightCounter } =
+  useMap({
+    updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
+  });
 
 const router = useRouter();
 const route = useRoute();
@@ -114,6 +123,7 @@ function closeSidebar() {
   const query = { ...route.query };
   delete query.sectionAnchor;
   delete query.modal;
+  delete query.counterLink;
   router.replace({ query });
 }
 
@@ -284,6 +294,41 @@ onMounted(() => {
     await loadImages({ map, features: props.features });
     plotFeatures({ map, features: props.features });
     highlightLines({ map, selections: null });
+
+    if (route.query.modal === 'counter' && route.query.counterLink) {
+      const counterFeature = props.features.find(
+        (f) => f.geometry.type === 'Point' && 'link' in f.properties && f.properties.link === route.query.counterLink,
+      );
+      if (counterFeature && counterFeature.geometry.type === 'Point') {
+        highlightCounter({ map, counterName: counterFeature.properties.name });
+        const coords = counterFeature.geometry.coordinates as [number, number];
+        return new Promise<void>((resolve) => {
+          map.once('moveend', () => {
+            map.once('idle', () => {
+              const point = map.project(coords);
+              handleMapClick({
+                map,
+                features: props.features,
+                hasDetailsPanel: options.showDetailsPanel,
+                clickEvent: {
+                  lngLat: new LngLat(coords[0], coords[1]),
+                  point,
+                  originalEvent: new MouseEvent('click'),
+                  target: map,
+                  type: 'click',
+                  preventDefault: () => {},
+                  defaultPrevented: false,
+                  _defaultPrevented: false,
+                },
+              });
+              resolve();
+            });
+          });
+          fitBounds({ map, features: [counterFeature] });
+        });
+      }
+      return;
+    }
 
     if (!+(route.query.line || -1) || !highlightSection) {
       fitBounds({ map, features: props.features });

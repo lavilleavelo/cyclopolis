@@ -15,6 +15,7 @@
           showDetailsPanel: true,
           showDateFilter: true,
           showGeocoder: true,
+          showCounters: displayCounters(),
         }"
         class="h-full flex-1"
         :total-distance="totalDistance"
@@ -29,12 +30,13 @@
 </template>
 
 <script setup lang="ts">
-import type { Collections } from '@nuxt/content';
+import type { CompteurFeature } from '~/types';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useVoiesCyclablesGeojson, useGetVoiesCyclablesNums } from '~/composables/useVoiesCyclables';
 
-const { getRevName } = useConfig();
+const { getRevName, displayCounters } = useConfig();
+const { getCompteursFeatures } = useMap();
 
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
@@ -45,9 +47,71 @@ definePageMeta({
 const { geojsons } = await useVoiesCyclablesGeojson();
 const { voies } = await useGetVoiesCyclablesNums();
 
-const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
-  if (!geojsons.value) return [];
-  return geojsons.value.flatMap((geojson) => geojson.features);
+const { data: veloCounters } = await useAsyncData(
+  'map-velo-counters',
+  () => {
+    if (!displayCounters()) return Promise.resolve(null);
+    return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
+  },
+  { deep: false },
+);
+
+const { data: voitureCounters } = await useAsyncData(
+  'map-voiture-counters',
+  () => {
+    if (!displayCounters()) return Promise.resolve(null);
+    return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
+  },
+  { deep: false },
+);
+
+const counterFeatures = computed<CompteurFeature[]>(() => {
+  const voitureCyclopolisIds = new Set(
+    (voitureCounters.value || []).filter((c) => c.cyclopolisId).map((c) => c.cyclopolisId),
+  );
+
+  const veloOnly = (veloCounters.value || []).filter((c) => !c.cyclopolisId);
+  const veloMixed = (veloCounters.value || []).filter((c) => c.cyclopolisId);
+  const voitureOnly = (voitureCounters.value || []).filter((c) => !c.cyclopolisId);
+
+  const veloOnlyFeatures = getCompteursFeatures({ counters: veloOnly, type: 'compteur-velo' });
+  const voitureOnlyFeatures = getCompteursFeatures({ counters: voitureOnly, type: 'compteur-voiture' });
+
+  const mixedFeatures: CompteurFeature[] = veloMixed.map((counter) => {
+    const hasVoiture = voitureCyclopolisIds.has(counter.cyclopolisId);
+    const voiture = hasVoiture
+      ? (voitureCounters.value || []).find((c) => c.cyclopolisId === counter.cyclopolisId)
+      : null;
+
+    const counts = voiture
+      ? voiture.counts.map((vc) => {
+          const veloCount = counter.counts.find((v) => v.month === vc.month);
+          return { month: vc.month, veloCount: veloCount?.count || 0, voitureCount: vc.count };
+        })
+      : counter.counts;
+
+    return {
+      type: 'Feature',
+      properties: {
+        type: hasVoiture ? ('compteur-comparaison' as const) : ('compteur-velo' as const),
+        isMixed: hasVoiture,
+        name: counter.name,
+        link: hasVoiture ? `/compteurs/comparaison/${counter.cyclopolisId}` : counter.path,
+        counts,
+      },
+      geometry: {
+        type: 'Point',
+        coordinates: [counter.coordinates[0], counter.coordinates[1]] as [number, number],
+      },
+    };
+  });
+
+  return [...veloOnlyFeatures, ...voitureOnlyFeatures, ...mixedFeatures];
+});
+
+const features = computed(() => {
+  const laneFeatures = geojsons.value ? geojsons.value.flatMap((geojson) => geojson.features) : [];
+  return [...laneFeatures, ...counterFeatures.value];
 });
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({

@@ -53,6 +53,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   let currentClickPopup: maplibregl.Popup | null = null;
   let lastHoveredFeatureId: string | null = null;
   let lastClickedFeatureId: string | null = null;
+  let popupCloseHandledByMapClick = false;
   let wipAnimator: CanvasDashAnimator | null = null;
   let currentMap: MaplibreType | null = null;
   const shieldImages: Map<string, HTMLCanvasElement> = new Map();
@@ -776,7 +777,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         const top = 10;
         c.properties.circleSortKey = i < top ? 1 : 0;
         c.properties.circleRadius = i < top ? 10 : 7;
-        c.properties.circleStrokeWidth = i < top ? 3 : 0;
+        c.properties.circleStrokeWidth = i < top ? 3 : 2;
         return c;
       });
 
@@ -809,12 +810,32 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       });
       map.on('mouseenter', 'compteurs', () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', 'compteurs', () => (map.getCanvas().style.cursor = ''));
+
+      map.addLayer({
+        id: 'compteurs-labels',
+        source: 'compteurs',
+        type: 'symbol',
+        minzoom: 13,
+        layout: {
+          'text-field': ['get', 'name'],
+          'text-size': 11,
+          'text-offset': [0, 1.5],
+          'text-anchor': 'top',
+          'text-max-width': 10,
+          'text-allow-overlap': false,
+        },
+        paint: {
+          'text-color': '#333',
+          'text-halo-color': '#fff',
+          'text-halo-width': 1.5,
+        },
+      });
     }
 
     if (mixedCompteurs.length > 0) {
       const sizes = [
         { name: 'bicolor-circle-large', radius: 10, stroke: 3 },
-        { name: 'bicolor-circle-small', radius: 7, stroke: 0 },
+        { name: 'bicolor-circle-small', radius: 7, stroke: 2 },
       ];
       for (const { name, radius, stroke } of sizes) {
         if (!map.hasImage(name)) {
@@ -825,9 +846,11 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           }
         }
       }
+    }
 
+    if (mixedCompteurs.length > 0 || map.getSource('compteurs-mixed')) {
       upsertMapSource(map, 'compteurs-mixed', mixedCompteurs);
-      if (!map.getLayer('compteurs-mixed')) {
+      if (!map.getLayer('compteurs-mixed') && mixedCompteurs.length > 0) {
         map.addLayer({
           id: 'compteurs-mixed',
           source: 'compteurs-mixed',
@@ -841,6 +864,26 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         });
         map.on('mouseenter', 'compteurs-mixed', () => (map.getCanvas().style.cursor = 'pointer'));
         map.on('mouseleave', 'compteurs-mixed', () => (map.getCanvas().style.cursor = ''));
+
+        map.addLayer({
+          id: 'compteurs-mixed-labels',
+          source: 'compteurs-mixed',
+          type: 'symbol',
+          minzoom: 13,
+          layout: {
+            'text-field': ['get', 'name'],
+            'text-size': 11,
+            'text-offset': [0, 1.5],
+            'text-anchor': 'top',
+            'text-max-width': 10,
+            'text-allow-overlap': false,
+          },
+          paint: {
+            'text-color': '#333',
+            'text-halo-color': '#fff',
+            'text-halo-width': 1.5,
+          },
+        });
       }
     }
   }
@@ -1264,7 +1307,27 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         lastHoveredFeatureId = null;
       }
       if (!isHover) {
+        popupCloseHandledByMapClick = true;
+        if (currentClickPopup) {
+          currentClickPopup.remove();
+          currentClickPopup = null;
+          lastClickedFeatureId = null;
+        }
         highlightLines({ map, selections: null });
+        highlightCounter({ map, counterName: null });
+        if (updateUrlOnFeatureClick && (route.query.modal === 'counter' || route.query.modal === 'details')) {
+          const restoreFilters = route.query.modal === 'counter' || sessionStorage.getItem('wasFiltersOpen') === 'true';
+          void router.replace({
+            query: {
+              ...route.query,
+              modal: restoreFilters ? 'filters' : undefined,
+              line: undefined,
+              sectionName: undefined,
+              sectionAnchor: undefined,
+              counterLink: undefined,
+            },
+          });
+        }
       }
       return;
     }
@@ -1343,6 +1406,28 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       void router.replace({ query });
     }
 
+    if (
+      !isHover &&
+      updateUrlOnFeatureClick &&
+      props.feature &&
+      isCompteurFeature(props.feature) &&
+      props.feature.properties.link
+    ) {
+      highlightCounter({ map, counterName: props.feature.properties.name });
+      const query: LocationQueryRaw = {
+        ...route.query,
+        modal: 'counter',
+        counterLink: props.feature.properties.link,
+      };
+      if (route.query.modal === 'filters') {
+        sessionStorage.setItem('wasFiltersOpen', 'true');
+      }
+      delete query.line;
+      delete query.sectionName;
+      delete query.sectionAnchor;
+      void router.replace({ query });
+    }
+
     const tooltipContentId = `${clickedLayer.id}-tooltip-${isHover ? 'hover' : 'click'}-${Date.now()}`;
     const popup = new Popup({
       closeButton: false,
@@ -1377,15 +1462,25 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       }
 
       setTimeout(() => {
+        if (popupCloseHandledByMapClick) {
+          popupCloseHandledByMapClick = false;
+          return;
+        }
         const popups = document.querySelectorAll('.maplibregl-popup');
         if (popups.length === 0) {
+          if (currentMap) {
+            highlightCounter({ map: currentMap, counterName: null });
+          }
+          const restoreFilters =
+            updateUrlOnFeatureClick &&
+            (route.query.modal === 'counter' || sessionStorage.getItem('wasFiltersOpen') === 'true');
           void router.replace({
             query: {
               ...route.query,
-              modal:
-                updateUrlOnFeatureClick && sessionStorage.getItem('wasFiltersOpen') === 'true' ? 'filters' : undefined,
+              modal: restoreFilters ? 'filters' : undefined,
               line: undefined,
               sectionName: undefined,
+              counterLink: undefined,
             },
           });
         }
@@ -1618,7 +1713,75 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     moveLayerToTop('section-names-low-zoom');
     moveLayerToTop('section-names-high-zoom');
     moveLayerToTop('compteurs');
+    moveLayerToTop('compteurs-labels');
     moveLayerToTop('compteurs-mixed');
+    moveLayerToTop('compteurs-mixed-labels');
+  }
+
+  function highlightCounter({ map, counterName }: { map: MaplibreType; counterName: string | null }) {
+    if (map.getLayer('compteurs')) {
+      if (counterName) {
+        map.setPaintProperty('compteurs', 'circle-radius', [
+          'case',
+          ['==', ['get', 'name'], counterName],
+          14,
+          ['get', 'circleRadius'],
+        ]);
+        map.setPaintProperty('compteurs', 'circle-stroke-width', [
+          'case',
+          ['==', ['get', 'name'], counterName],
+          4,
+          ['get', 'circleStrokeWidth'],
+        ]);
+        map.setPaintProperty('compteurs', 'circle-stroke-color', [
+          'case',
+          ['==', ['get', 'name'], counterName],
+          '#FFD700',
+          '#fff',
+        ]);
+      } else {
+        map.setPaintProperty('compteurs', 'circle-radius', ['get', 'circleRadius']);
+        map.setPaintProperty('compteurs', 'circle-stroke-width', ['get', 'circleStrokeWidth']);
+        map.setPaintProperty('compteurs', 'circle-stroke-color', '#fff');
+      }
+    }
+
+    if (map.getSource('compteurs-mixed')) {
+      if (!map.getLayer('compteurs-mixed-highlight')) {
+        map.addLayer(
+          {
+            id: 'compteurs-mixed-highlight',
+            source: 'compteurs-mixed',
+            type: 'circle',
+            filter: ['==', ['get', 'name'], ''],
+            paint: {
+              'circle-radius': 16,
+              'circle-color': 'transparent',
+              'circle-stroke-color': '#FFD700',
+              'circle-stroke-width': 4,
+            },
+          },
+          'compteurs-mixed',
+        );
+      }
+
+      if (counterName) {
+        map.setFilter('compteurs-mixed-highlight', ['==', ['get', 'name'], counterName]);
+        if (map.getLayer('compteurs-mixed')) {
+          map.setLayoutProperty('compteurs-mixed', 'icon-size', [
+            'case',
+            ['==', ['get', 'name'], counterName],
+            0.75,
+            0.5,
+          ]);
+        }
+      } else {
+        map.setFilter('compteurs-mixed-highlight', ['==', ['get', 'name'], '']);
+        if (map.getLayer('compteurs-mixed')) {
+          map.setLayoutProperty('compteurs-mixed', 'icon-size', 0.5);
+        }
+      }
+    }
   }
 
   function handleMapClick({
@@ -1657,5 +1820,6 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     handleMapClick,
     handleMapHover,
     highlightLines,
+    highlightCounter,
   };
 };

@@ -25,5 +25,17 @@ export const useConfig = () => {
     return config.qualityDisplayOnHomePage;
   }
 
-  return { getRevName, getAssoName, getAssoLink, getNbVoiesCyclables, displayQuality, displayQualityOnHomePage };
+  function displayCounters(): boolean {
+    return config.countersDisplay ?? false;
+  }
+
+  return {
+    getRevName,
+    getAssoName,
+    getAssoLink,
+    getNbVoiesCyclables,
+    displayQuality,
+    displayQualityOnHomePage,
+    displayCounters,
+  };
 };
