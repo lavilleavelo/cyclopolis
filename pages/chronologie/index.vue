@@ -1,27 +1,28 @@
 <template>
-  <div class="relative bg-white pt-8 pb-20 px-4 sm:px-6 lg:px-8">
+  <div class="relative bg-white pt-8 pb-20 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
     <div class="max-w-4xl mx-auto">
       <div class="text-center">
         <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Chronologie des réalisations</h1>
         <p class="mt-4 text-xl text-gray-500">Suivi mois par mois des tronçons de {{ getRevName() }} livrés.</p>
       </div>
 
-      <div class="mt-8 flex flex-wrap justify-center gap-2">
+      <div class="mt-8 flex flex-wrap justify-center gap-1.5 sm:gap-2">
         <button
           type="button"
-          class="px-3 py-1.5 rounded-full text-xs font-medium transition-colors"
+          class="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium transition-colors"
           :class="
             selectedLines.size === 0 ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
           "
           @click="clearLines()"
         >
-          Toutes les lignes
+          <span class="sm:hidden">Toutes</span>
+          <span class="hidden sm:inline">Toutes les lignes</span>
         </button>
         <button
           v-for="line in getNbVoiesCyclables()"
           :key="line"
           type="button"
-          class="w-8 h-8 rounded-full text-xs font-bold text-white transition-all"
+          class="w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-bold text-white transition-all"
           :class="
             selectedLines.size > 0 && !selectedLines.has(line) ? 'opacity-30 hover:opacity-60' : 'ring-2 ring-offset-1'
           "
@@ -32,25 +33,28 @@
         </button>
       </div>
 
-      <div class="mt-4 flex flex-wrap justify-center gap-2">
+      <div class="mt-3 sm:mt-4 flex flex-wrap justify-center gap-1.5 sm:gap-2">
         <button
           v-if="hasOlderYears && !showAllYears"
           type="button"
-          class="px-4 py-2 rounded-full text-sm font-medium bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
+          class="px-3 py-1.5 rounded-full text-xs font-medium bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors"
           @click="showAllYears = true"
         >
-          {{ availableYears.length - recentYears.length }} années précédentes…
+          <span class="sm:hidden">+{{ availableYears.length - recentYears.length }} ans…</span>
+          <span class="hidden sm:inline">{{ availableYears.length - recentYears.length }} années précédentes…</span>
         </button>
         <button
           v-for="y in displayedYears"
           :key="y"
           type="button"
-          class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+          class="px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-colors"
           :class="y === selectedYear ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
           @click="selectYear(y)"
         >
           {{ y }}
-          <span class="ml-1 text-xs opacity-75">({{ displayDistanceInKm(yearStats.get(y)?.distance ?? 0, 1) }})</span>
+          <span class="ml-0.5 sm:ml-1 text-[10px] sm:text-xs opacity-75"
+            >({{ displayDistanceInKm(yearStats.get(y)?.distance ?? 0, 1) }})</span
+          >
         </button>
       </div>
 
@@ -127,12 +131,20 @@
                   </div>
                   <div class="text-xs text-gray-500">
                     {{ section.typeName }} · {{ displayDistanceInKm(section.distance, 2) }}
+                    <span class="sm:hidden">
+                      ·
+                      <span :class="section.quality === 'satisfactory' ? 'text-green-600' : 'text-red-600'">
+                        {{ section.quality === 'satisfactory' ? 'Satisfaisant' : 'Non satisfaisant' }}
+                      </span>
+                    </span>
                   </div>
                 </div>
                 <div class="flex-shrink-0 flex items-center gap-2">
                   <span
-                    class="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
-                    :class="qualityClass(section.quality)"
+                    class="hidden sm:inline text-[10px] px-1.5 py-0.5 rounded-full font-medium"
+                    :class="
+                      section.quality === 'satisfactory' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                    "
                   >
                     {{ section.quality === 'satisfactory' ? 'Satisfaisant' : 'Non satisfaisant' }}
                   </span>
@@ -336,7 +348,7 @@ const monthsForYear = computed(() => {
       key: `${selectedYear.value}-${month}`,
       anchor: `${selectedYear.value}-${String(month + 1).padStart(2, '0')}`,
       monthNum: month,
-      label: dayjs(new Date(selectedYear.value, month)).format('MMMM YYYY'),
+      label: dayjs(new Date(selectedYear.value, month)).locale('fr').format('MMMM YYYY'),
       sections,
     }));
 });
@@ -356,12 +368,10 @@ function toggleExpand(section: TimelineSection) {
   }
 }
 
-function qualityClass(quality: string): string {
-  return quality === 'satisfactory' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
-}
-
 function formatDate(date: string): string {
   const [day, month, year] = date.split('/');
-  return dayjs(new Date(+year!, +month! - 1, +day!)).format('D MMMM YYYY');
+  return dayjs(new Date(+year!, +month! - 1, +day!))
+    .locale('fr')
+    .format('D MMMM YYYY');
 }
 </script>

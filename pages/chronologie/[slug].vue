@@ -1,5 +1,5 @@
 <template>
-  <div class="relative bg-white pt-8 pb-20">
+  <div class="relative bg-white pt-8 pb-20 overflow-x-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <NuxtLink to="/chronologie" class="inline-flex items-center gap-1 text-sm text-lvv-blue-600 hover:underline">
@@ -39,7 +39,7 @@
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mt-10 grid gap-3 sm:grid-cols-2">
-        <div v-for="section in sections" :key="`${section.lines.join('-')}-${section.name}`">
+        <div v-for="section in sections" :key="`${section.lines.join('-')}-${section.name}`" class="min-w-0">
           <button
             type="button"
             class="w-full flex items-center gap-3 p-3 rounded-lg border transition-all text-left"
@@ -66,10 +66,19 @@
               <div class="text-sm font-medium text-gray-900 truncate">{{ section.name }}</div>
               <div class="text-xs text-gray-500">
                 {{ section.typeName }} · {{ displayDistanceInKm(section.distance, 2) }}
+                <span class="sm:hidden">
+                  ·
+                  <span :class="section.quality === 'satisfactory' ? 'text-green-600' : 'text-red-600'">
+                    {{ section.quality === 'satisfactory' ? 'Satisfaisant' : 'Non satisfaisant' }}
+                  </span>
+                </span>
               </div>
             </div>
             <div class="flex-shrink-0 flex items-center gap-2">
-              <span class="text-[10px] px-1.5 py-0.5 rounded-full font-medium" :class="qualityClass(section.quality)">
+              <span
+                class="hidden sm:inline text-[10px] px-1.5 py-0.5 rounded-full font-medium"
+                :class="section.quality === 'satisfactory' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'"
+              >
                 {{ section.quality === 'satisfactory' ? 'Satisfaisant' : 'Non satisfaisant' }}
               </span>
               <Icon
@@ -160,7 +169,7 @@ const sections = computed(() => allSections.value.filter((s) => s.year === year 
 const totalDistance = computed(() => sections.value.reduce((sum, s) => sum + s.distance, 0));
 const allFeatures = computed(() => sections.value.flatMap((s) => s.features));
 
-const monthLabel = dayjs(new Date(year, month)).format('MMMM YYYY');
+const monthLabel = dayjs(new Date(year, month)).locale('fr').format('MMMM YYYY');
 
 const startParam = `${year}-${monthStr!.padStart(2, '0')}`;
 const endParam = startParam;
@@ -187,13 +196,11 @@ function toggleExpand(section: TimelineSection) {
   }
 }
 
-function qualityClass(quality: string): string {
-  return quality === 'satisfactory' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
-}
-
 function formatDate(date: string): string {
   const [day, m, y] = date.split('/');
-  return dayjs(new Date(+y!, +m! - 1, +day!)).format('D MMMM YYYY');
+  return dayjs(new Date(+y!, +m! - 1, +day!))
+    .locale('fr')
+    .format('D MMMM YYYY');
 }
 
 useHead({ title: `Chronologie — ${monthLabel}` });
