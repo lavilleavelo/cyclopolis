@@ -38,16 +38,16 @@
           </button>
         </div>
         <div
-          class="absolute bottom-3 left-0 right-0 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-white/50 to-transparent pt-6 pb-1"
+          class="hidden lg:block absolute bottom-3 left-0 right-0 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-white/50 to-transparent pt-6 pb-1"
         >
           <div class="max-w-7xl mx-auto">
-            <label for="compteur" class="sr-only">Compteur</label>
+            <label for="compteur-lg" class="sr-only">Compteur</label>
             <div class="relative rounded-md shadow-md">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
               </div>
               <input
-                id="compteur"
+                id="compteur-lg"
                 :value="searchText"
                 type="text"
                 class="py-3 pl-10 pr-4 text-lg focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-300 text-gray-900 rounded-md bg-white/80 backdrop-blur-sm"
@@ -57,6 +57,23 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class="lg:hidden px-4 sm:px-6 py-3 bg-white shadow-sm">
+      <label for="compteur-sm" class="sr-only">Compteur</label>
+      <div class="relative rounded-md shadow-sm">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
+        </div>
+        <input
+          id="compteur-sm"
+          :value="searchText"
+          type="text"
+          class="py-3 pl-10 pr-4 text-lg focus:ring-lvv-blue-600 focus:border-lvv-blue-600 block w-full border-gray-300 text-gray-900 rounded-md"
+          :placeholder="searchPlaceholder"
+          @input="searchText = ($event.target as HTMLInputElement).value"
+        />
       </div>
     </div>
 

@@ -37,6 +37,42 @@
       </div>
     </div>
 
+    <div v-if="displayCounters()" class="max-w-7xl mx-auto mt-14 px-4 sm:px-6 lg:px-8 lg:mt-24">
+      <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center">
+        <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Compteurs de passages</h2>
+        <p class="text-xl text-gray-500">
+          Suivez l'évolution de la fréquentation cycliste grâce aux {{ counterCount }} compteurs de l'agglomération
+          lyonnaise.
+        </p>
+      </div>
+      <div class="mt-8 grid gap-4 grid-cols-1 sm:grid-cols-3">
+        <NuxtLink
+          to="/compteurs/velo"
+          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group"
+        >
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
+            <Icon name="game-icons:dutch-bike" class="text-2xl text-pink-600" />
+          </div>
+          <div>
+            <div class="font-semibold text-gray-900 group-hover:text-lvv-blue-600">Compteurs vélo</div>
+            <div class="text-sm text-gray-500">Fréquentation cycliste</div>
+          </div>
+        </NuxtLink>
+        <NuxtLink
+          to="/compteurs/comparaison"
+          class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-lvv-blue-600 hover:shadow-md transition-all group"
+        >
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+            <Icon name="mdi:compare-horizontal" class="text-2xl text-purple-600" />
+          </div>
+          <div>
+            <div class="font-semibold text-gray-900 group-hover:text-lvv-blue-600">Comparaison</div>
+            <div class="text-sm text-gray-500">Vélo vs voiture</div>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-10 rounded-2xl py-8">
       <div class="relative flex flex-col sm:flex-row justify-between items-center gap-6">
         <div class="max-w-2xl">
@@ -65,8 +101,18 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 
-const { getRevName, displayQuality, displayQualityOnHomePage } = useConfig();
+const { getRevName, displayQuality, displayQualityOnHomePage, displayCounters } = useConfig();
 
 const { geojsons } = await useVoiesCyclablesGeojson();
 const voies: Ref<Collections['voiesCyclablesGeojson'][]> = computed(() => geojsons.value || []);
+
+const { data: counterData } = await useAsyncData(
+  'home-counter-count',
+  () => {
+    if (!displayCounters()) return Promise.resolve(null);
+    return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
+  },
+  { deep: false },
+);
+const counterCount = computed(() => counterData.value?.length ?? 0);
 </script>
