@@ -1,7 +1,7 @@
 {
   "name": "Quai Pierre Scize",
-  "description": "Le compteur vélo du Pierre Scize mesure la fréquentation du quai haut.",
-  "arrondissement": "Lyon 5",
+  "description": "Le compteur vélo du Pierre Scize mesure la fréquentation du quai Pierre Scize par les cyclistes",
+  "arrondissement": "Lyon 5/9",
   "idPdc": 100053286,
   "coordinates": [
     4.8208227997859865,
@@ -10,6 +10,7 @@
   "lines": [
     3
   ],
+  "cyclopolisId": "quai-pierre-scize",
   "counts": [
     {
       "month": "2015-01-01",
