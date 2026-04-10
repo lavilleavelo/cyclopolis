@@ -811,6 +811,7 @@
         "line": 3,
         "name": "Variante - Gde Rue de Saint Rambert & Termier",
         "status": "variante",
+        "doneAt": "01/09/2020",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#saint-rambert-à-pont-de-lîle-barbe"
@@ -1402,6 +1403,7 @@
         "line": 3,
         "name": "Oullins - Avenue des Saules Est",
         "status": "variante",
+        "doneAt": "31/12/2019",
         "text": "variante temporaire",
         "type": "bilaterale",
         "quality": "satisfactory",
@@ -1466,6 +1468,7 @@
         "line": 3,
         "name": "Oullins - Avenue Jaurès Nord",
         "status": "variante",
+        "doneAt": "31/12/2019",
         "text": "variante temporaire",
         "type": "voie-verte",
         "quality": "satisfactory",

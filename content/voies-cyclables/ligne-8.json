@@ -1625,6 +1625,7 @@
         "line": 8,
         "name": "Variante temporaire via Parc de Parilly",
         "status": "variante",
+        "doneAt": "01/04/2005",
         "text": "variante temporaire",
         "type": "velorue",
         "quality": "satisfactory",
