@@ -1,105 +1,96 @@
 <template>
   <Teleport to="body">
-    <Transition
-      enter-active-class="duration-150 ease-out"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
-      leave-active-class="duration-100 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
-      <div v-if="open" class="fixed inset-0 z-[100] overflow-y-auto">
-        <div class="fixed inset-0 bg-black/40 backdrop-blur-sm" @click="close" />
-        <div class="relative min-h-full flex items-start justify-center pt-[15vh] px-4 pb-20" @click.self="close">
-          <div
-            ref="dialogRef"
-            class="relative w-full max-w-xl bg-white rounded-xl shadow-2xl overflow-hidden"
-            @keydown.escape="close"
-          >
-            <div class="flex items-center border-b px-4">
-              <Icon name="mdi:magnify" class="text-gray-400 text-xl flex-shrink-0" />
-              <input
-                ref="inputRef"
-                v-model="query"
-                type="text"
-                class="w-full py-4 px-3 text-base text-gray-900 placeholder-gray-400 border-0 focus:outline-none focus:ring-0"
-                placeholder="Rechercher une voie, un tronçon, un compteur..."
-                @input="onInput"
-                @keydown.down.prevent="moveSelection(1)"
-                @keydown.up.prevent="moveSelection(-1)"
-                @keydown.enter.prevent="selectCurrent"
-              />
-              <kbd
-                class="hidden sm:inline-flex items-center px-2 py-0.5 text-xs text-gray-400 bg-gray-100 rounded border border-gray-200"
-              >
-                ESC
-              </kbd>
-            </div>
+    <div v-if="open" class="fixed inset-0 z-[100] overflow-y-auto">
+      <div class="fixed inset-0 bg-black/40 backdrop-blur-sm" @click="close" />
+      <div class="relative min-h-full flex items-start justify-center pt-[15vh] px-4 pb-20" @click.self="close">
+        <div
+          ref="dialogRef"
+          class="relative w-full max-w-xl bg-white rounded-xl shadow-2xl overflow-hidden"
+          @keydown.escape="close"
+        >
+          <div class="flex items-center border-b px-4">
+            <Icon name="mdi:magnify" class="text-gray-400 text-xl flex-shrink-0" />
+            <input
+              ref="inputRef"
+              v-model="query"
+              type="text"
+              class="w-full py-4 px-3 text-base text-gray-900 placeholder-gray-400 border-0 focus:outline-none focus:ring-0"
+              placeholder="Rechercher une voie, un tronçon, un compteur..."
+              @input="onInput"
+              @keydown.down.prevent="moveSelection(1)"
+              @keydown.up.prevent="moveSelection(-1)"
+              @keydown.enter.prevent="selectCurrent"
+            />
+            <kbd
+              class="hidden sm:inline-flex items-center px-2 py-0.5 text-xs text-gray-400 bg-gray-100 rounded border border-gray-200"
+            >
+              ESC
+            </kbd>
+          </div>
 
-            <div v-if="loading" class="px-4 py-8 text-center text-gray-400">
-              <Icon name="svg-spinners:ring-resize" class="text-2xl text-lvv-blue-600" />
-            </div>
+          <div v-if="loading" class="px-4 py-8 text-center text-gray-400">
+            <Icon name="svg-spinners:ring-resize" class="text-2xl text-lvv-blue-600" />
+          </div>
 
-            <div v-else-if="query.length >= 2 && groupedResults.length === 0" class="px-4 py-8 text-center">
-              <p class="text-gray-500">Aucun résultat pour « {{ query }} »</p>
-              <p class="text-sm text-gray-400 mt-1">Essayez un nom de rue, de compteur ou de voie lyonnaise</p>
-            </div>
+          <div v-else-if="query.length >= 2 && groupedResults.length === 0" class="px-4 py-8 text-center">
+            <p class="text-gray-500">Aucun résultat pour « {{ query }} »</p>
+            <p class="text-sm text-gray-400 mt-1">Essayez un nom de rue, de compteur ou de voie lyonnaise</p>
+          </div>
 
-            <div v-else-if="groupedResults.length > 0" class="max-h-[50vh] overflow-y-auto py-2">
-              <div v-for="group in groupedResults" :key="group.title">
-                <div class="px-4 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider">
-                  {{ group.title }}
-                </div>
-                <button
-                  v-for="(result, i) in group.results"
-                  :key="`${result.type}-${result.label}-${i}`"
-                  :data-search-index="flatIndex(group, i)"
-                  class="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
-                  :class="flatIndex(group, i) === selectedIndex ? 'bg-lvv-blue-100' : 'hover:bg-lvv-blue-50'"
-                  @click="navigate(result)"
-                  @mouseenter="selectedIndex = flatIndex(group, i)"
-                >
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm"
-                    :class="iconClasses(result)"
-                  >
-                    <Icon :name="iconName(result)" />
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <div class="text-sm font-medium text-gray-900 truncate">{{ result.label }}</div>
-                    <div v-if="result.sublabel" class="text-xs text-gray-500 truncate">{{ result.sublabel }}</div>
-                  </div>
-                  <StatusBadge v-if="result.status" :status="result.status" />
-                  <div
-                    v-if="result.line"
-                    class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
-                    :style="{ backgroundColor: getLineColor(result.line) }"
-                  >
-                    {{ result.line }}
-                  </div>
-                </button>
+          <div v-else-if="groupedResults.length > 0" class="max-h-[50vh] overflow-y-auto py-2">
+            <div v-for="group in groupedResults" :key="group.title">
+              <div class="px-4 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                {{ group.title }}
               </div>
+              <button
+                v-for="(result, i) in group.results"
+                :key="`${result.type}-${result.label}-${i}`"
+                :data-search-index="flatIndex(group, i)"
+                class="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors"
+                :class="flatIndex(group, i) === selectedIndex ? 'bg-lvv-blue-100' : 'hover:bg-lvv-blue-50'"
+                @click="navigate(result)"
+                @mouseenter="selectedIndex = flatIndex(group, i)"
+              >
+                <div
+                  class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm"
+                  :class="iconClasses(result)"
+                >
+                  <Icon :name="iconName(result)" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm font-medium text-gray-900 truncate">{{ result.label }}</div>
+                  <div v-if="result.sublabel" class="text-xs text-gray-500 truncate">{{ result.sublabel }}</div>
+                </div>
+                <StatusBadge v-if="result.status" :status="result.status" />
+                <div
+                  v-if="result.line"
+                  class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
+                  :style="{ backgroundColor: getLineColor(result.line) }"
+                >
+                  {{ result.line }}
+                </div>
+              </button>
             </div>
+          </div>
 
-            <div
-              v-if="groupedResults.length === 0 && !loading && query.length < 2"
-              class="px-4 py-6 text-center text-sm text-gray-400"
-            >
-              Tapez au moins 2 caractères pour lancer la recherche
-            </div>
+          <div
+            v-if="groupedResults.length === 0 && !loading && query.length < 2"
+            class="px-4 py-6 text-center text-sm text-gray-400"
+          >
+            Tapez au moins 2 caractères pour lancer la recherche
+          </div>
 
-            <div
-              v-if="groupedResults.length > 0"
-              class="border-t px-4 py-2 flex items-center gap-4 text-xs text-gray-400"
-            >
-              <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">↑↓</kbd> naviguer</span>
-              <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">↵</kbd> ouvrir</span>
-              <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">esc</kbd> fermer</span>
-            </div>
+          <div
+            v-if="groupedResults.length > 0"
+            class="border-t px-4 py-2 flex items-center gap-4 text-xs text-gray-400"
+          >
+            <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">↑↓</kbd> naviguer</span>
+            <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">↵</kbd> ouvrir</span>
+            <span><kbd class="px-1.5 py-0.5 bg-gray-100 rounded border text-[10px]">esc</kbd> fermer</span>
           </div>
         </div>
       </div>
-    </Transition>
+    </div>
   </Teleport>
 </template>
 

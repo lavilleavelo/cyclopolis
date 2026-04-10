@@ -57,7 +57,7 @@
               <select
                 id="palette-select"
                 v-model="palette"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm rounded-md"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm rounded-md"
               >
                 <option value="default">Officielle</option>
                 <option value="accessible">Contraste élevé</option>

@@ -48,11 +48,14 @@ export function useGlobalSearch() {
     if (loaded.value) return;
     loading.value = true;
 
-    const [geojsons, veloCounters, voitureCounters] = await Promise.all([
+    const [geojsons, veloCounters, voitureCounters, voiesPages] = await Promise.all([
       queryCollection('voiesCyclablesGeojson').all(),
       queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all(),
       queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all(),
+      queryCollection('voiesCyclablesPage').all(),
     ]);
+
+    const voieEndpoints = new Map(voiesPages.map((v) => [v.line, { from: v.from, to: v.to }]));
 
     const sectionResults: SearchResult[] = [];
     const seenSections = new Set<string>();
@@ -89,7 +92,7 @@ export function useGlobalSearch() {
       voieResults.push({
         type: 'voie',
         label: `${config.revName.singular} ${line}`,
-        sublabel: '',
+        sublabel: voieEndpoints.has(line) ? `${voieEndpoints.get(line)!.from} → ${voieEndpoints.get(line)!.to}` : '',
         href: `/voie-lyonnaise-${line}`,
         line,
       });
