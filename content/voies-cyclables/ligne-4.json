@@ -927,7 +927,8 @@
       "properties": {
         "line": 4,
         "name": "Villeurbanne - Pressensé Ouest",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/04/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
@@ -946,7 +947,8 @@
       "properties": {
         "line": 4,
         "name": "Villeurbanne - ZAC Gratte-Ciel",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/04/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"

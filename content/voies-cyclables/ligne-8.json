@@ -556,7 +556,8 @@
       "properties": {
         "line": 8,
         "name": "Tassin - Giratoire du Montcelard",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/04/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-montcelard-à-valvert"
@@ -584,7 +585,8 @@
       "properties": {
         "line": 8,
         "name": "Tassin - Route de Paris",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "03/04/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#tassin-montcelard-à-valvert"

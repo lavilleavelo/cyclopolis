@@ -256,8 +256,8 @@ Les carrefours dangereux seront sécurisés : le giratoire des Charpennes sera r
 Ce projet nécessite la suppression du stationnement du côté de la piste cyclable sur l'ensemble du linéaire de tronçon. En outre, il implique la mise en sens unique du cours André Philip à l'est de la rue Bât Yam et sur l'ensemble de la rue Francis de Pressensé. Les sens de circulation définitifs retenus par la Métropole convergent vers le cours de la République.
 
 ::banner{type="wip"}
-Les travaux entre le cours de la République et Flachet ont lieu entre janvier et décembre 2025 de l'Est vers l'Ouest.
-Les travaux entre le cours de la République et la rue Bat Yam auront lieu entre octobre 2025 et mars 2026, en commençant par le rond-point des Charpennes d'octobre à décembre. En parallèle, le reste du linéaire sera en travaux entre mi-novembre 2025 et mars 2026.
+Les travaux entre le cours de la République et Flachet ont eu lieu entre janvier 2025 et avril 2026 de l'Est vers l'Ouest.
+Les travaux entre le cours de la République et la rue Bat Yam ont lieu entre octobre 2025 et mai 2026, en commençant par le rond-point des Charpennes.
 ::
 
 ::banner{type="info"}

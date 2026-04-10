@@ -70,7 +70,7 @@ Sur la suite du boulevard du Valvert, le projet prévoit de conforter la piste c
 ::banner{type="wip"}
 Les travaux entre la route de Paris et l'avenue Roosevelt ont lieu de fin avril à mi-juillet 2025, puis de début septembre à fin novembre 2025.
 Les travaux sur le boulevard du Valvert ont lieu de mi-juillet à mi-septembre 2025.
-Les travaux sur la route de Paris ont lieu de fin novembre 2025 à début avril 2026.
+Les travaux sur la route de Paris ont eu lieu de fin novembre 2025 à début avril 2026. Reste le pont au-dessus des voies ferrées à aménager.
 ::
 
 #### Tassin - Valvert à Victor Hugo
