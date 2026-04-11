@@ -51,11 +51,10 @@ import {
   type LngLatLike,
   Map as MaplibreMap,
   NavigationControl,
-  type StyleSpecification,
 } from 'maplibre-gl';
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import style from '@/assets/style.json';
+import { getMapStyle } from '~/helpers/mapStyles';
 import LegendControl from '@/maplibre/LegendControl';
 import LegendInlineControl from '@/maplibre/LegendInlineControl';
 import FilterControl from '@/maplibre/FilterControl';
@@ -166,11 +165,12 @@ function toggleFilterSidebar() {
 const mapContainer = ref<HTMLElement | null>(null);
 const mapReady = ref(false);
 
+const { mapStyle } = useSettings();
+
 onMounted(() => {
   const map = new MaplibreMap({
     container: mapContainer.value!,
-    style: style as StyleSpecification,
-    // style: `https://api.maptiler.com/maps/dataviz/style.json?key=${maptilerKey}`,
+    style: getMapStyle(mapStyle.value),
     center: config.center as LngLatLike,
     zoom: config.zoom,
     attributionControl: false,
@@ -452,6 +452,22 @@ onMounted(() => {
     },
     { deep: true },
   );
+
+  watch(mapStyle, (newStyleKey) => {
+    map.setStyle(getMapStyle(newStyleKey), { diff: false });
+    map.once('styledata', async () => {
+      try {
+        await loadImages({ map, features: props.features, force: true });
+        plotFeatures({ map, features: props.features });
+        highlightLines({ map, selections: props.highlightedSections ?? null });
+        if (props.highlightedCounter) {
+          highlightCounter({ map, counterName: props.highlightedCounter });
+        }
+      } catch (e) {
+        console.error('Error reloading features after style change', e);
+      }
+    });
+  });
 
   map.on('click', (clickEvent) => {
     handleMapClick({

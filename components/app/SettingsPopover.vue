@@ -51,17 +51,119 @@
             <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3 hidden md:block">Affichage</h3>
 
             <div class="mb-4">
-              <label for="palette-select" class="block text-sm font-medium text-gray-700 mb-1"
-                >Palette de couleurs</label
-              >
-              <select
-                id="palette-select"
-                v-model="palette"
-                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm rounded-md"
-              >
-                <option value="default">Officielle</option>
-                <option value="accessible">Contraste élevé</option>
-              </select>
+              <Listbox v-model="mapStyle" as="div">
+                <ListboxLabel class="block text-sm font-medium text-gray-700 mb-1">Style de carte</ListboxLabel>
+                <div class="relative">
+                  <ListboxButton
+                    class="relative w-full cursor-pointer rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm"
+                  >
+                    <span class="block truncate font-medium text-gray-900">{{ selectedMapStyle.label }}</span>
+                    <span class="block truncate text-xs text-gray-500">{{ selectedMapStyle.description }}</span>
+                    <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                      <Icon name="mdi:chevron-down" class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </span>
+                  </ListboxButton>
+                  <transition
+                    leave-active-class="transition ease-in duration-100"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <ListboxOptions
+                      class="absolute z-20 mt-1 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    >
+                      <ListboxOption
+                        v-for="option in MAP_STYLE_OPTIONS"
+                        :key="option.id"
+                        v-slot="{ active, selected }"
+                        :value="option.id"
+                        as="template"
+                      >
+                        <li
+                          :class="[
+                            active ? 'bg-lvv-blue-100' : 'bg-white',
+                            'relative cursor-pointer select-none py-2 pl-3 pr-9',
+                          ]"
+                        >
+                          <span
+                            :class="[
+                              selected ? 'font-semibold text-lvv-blue-600' : 'font-medium text-gray-900',
+                              'block truncate',
+                            ]"
+                            >{{ option.label }}</span
+                          >
+                          <span :class="[selected ? 'text-lvv-blue-500' : 'text-gray-500', 'block truncate text-xs']">{{
+                            option.description
+                          }}</span>
+                          <span
+                            v-if="selected"
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 text-lvv-blue-600"
+                          >
+                            <Icon name="mdi:check" class="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        </li>
+                      </ListboxOption>
+                    </ListboxOptions>
+                  </transition>
+                </div>
+              </Listbox>
+            </div>
+
+            <div class="mb-4">
+              <Listbox v-model="palette" as="div">
+                <ListboxLabel class="block text-sm font-medium text-gray-700 mb-1">Palette de couleurs</ListboxLabel>
+                <div class="relative">
+                  <ListboxButton
+                    class="relative w-full cursor-pointer rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm"
+                  >
+                    <span class="block truncate font-medium text-gray-900">{{ selectedPalette.label }}</span>
+                    <span class="block truncate text-xs text-gray-500">{{ selectedPalette.description }}</span>
+                    <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                      <Icon name="mdi:chevron-down" class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                    </span>
+                  </ListboxButton>
+                  <transition
+                    leave-active-class="transition ease-in duration-100"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <ListboxOptions
+                      class="absolute z-20 mt-1 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    >
+                      <ListboxOption
+                        v-for="option in PALETTE_OPTIONS"
+                        :key="option.id"
+                        v-slot="{ active, selected }"
+                        :value="option.id"
+                        as="template"
+                      >
+                        <li
+                          :class="[
+                            active ? 'bg-lvv-blue-100' : 'bg-white',
+                            'relative cursor-pointer select-none py-2 pl-3 pr-9',
+                          ]"
+                        >
+                          <span
+                            :class="[
+                              selected ? 'font-semibold text-lvv-blue-600' : 'font-medium text-gray-900',
+                              'block truncate',
+                            ]"
+                            >{{ option.label }}</span
+                          >
+                          <span :class="[selected ? 'text-lvv-blue-500' : 'text-gray-500', 'block truncate text-xs']">{{
+                            option.description
+                          }}</span>
+                          <span
+                            v-if="selected"
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 text-lvv-blue-600"
+                          >
+                            <Icon name="mdi:check" class="h-5 w-5" aria-hidden="true" />
+                          </span>
+                        </li>
+                      </ListboxOption>
+                    </ListboxOptions>
+                  </transition>
+                </div>
+              </Listbox>
             </div>
 
             <div class="mb-4">
@@ -113,12 +215,32 @@
 </template>
 
 <script setup lang="ts">
-import { Popover, PopoverButton, PopoverPanel, Switch } from '@headlessui/vue';
+import {
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOption,
+  ListboxOptions,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Switch,
+} from '@headlessui/vue';
 import { useDebounceFn } from '@vueuse/core';
 import config from '~/config.json';
+import { MAP_STYLE_OPTIONS } from '~/helpers/mapStyles';
 
 const { getLineColor } = useColors();
-const { palette, customColors, reduceMotion } = useSettings();
+const { palette, customColors, reduceMotion, mapStyle } = useSettings();
+
+const PALETTE_OPTIONS: { id: 'default' | 'accessible'; label: string; description: string }[] = [
+  { id: 'default', label: 'Officielle', description: 'Couleurs des Voies Lyonnaises' },
+  { id: 'accessible', label: 'Contraste élevé', description: 'Palette accessible' },
+];
+
+const selectedMapStyle = computed(() => MAP_STYLE_OPTIONS.find((o) => o.id === mapStyle.value) ?? MAP_STYLE_OPTIONS[0]);
+
+const selectedPalette = computed(() => PALETTE_OPTIONS.find((o) => o.id === palette.value) ?? PALETTE_OPTIONS[0]);
 
 const hasCustomColors = computed(() => {
   return Object.keys(customColors.value).length > 0;
