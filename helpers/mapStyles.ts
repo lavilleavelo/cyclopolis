@@ -46,7 +46,7 @@ export const MAP_STYLE_OPTIONS: { id: MapStyleKey; label: string; description: s
   { id: 'positron', label: 'Positron', description: 'Fond clair et minimaliste' },
   { id: 'osm-bright', label: 'OSM Bright', description: 'Style coloré alternatif avec bâtiments 3D' },
   { id: 'hybrid', label: 'Satellite', description: 'Photographies aériennes IGN' },
-  { id: 'cyclosm', label: 'CyclOSM', description: 'Carte dédiée aux cyclistes' },
+  { id: 'cyclosm', label: 'CyclOSM', description: 'Style OpenStreetMap alternatif vélo' },
 ];
 
 export function getMapStyle(key: MapStyleKey): StyleSpecification | string {
