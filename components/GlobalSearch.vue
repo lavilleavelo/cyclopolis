@@ -15,7 +15,7 @@
               v-model="query"
               type="text"
               class="w-full py-4 px-3 text-base text-gray-900 placeholder-gray-400 border-0 focus:outline-none focus:ring-0"
-              placeholder="Rechercher une voie, un tronçon, un compteur..."
+              placeholder="Rechercher une voie, un tronçon, un compteur, une page..."
               @input="onInput"
               @keydown.down.prevent="moveSelection(1)"
               @keydown.up.prevent="moveSelection(-1)"
@@ -34,7 +34,7 @@
 
           <div v-else-if="query.length >= 2 && groupedResults.length === 0" class="px-4 py-8 text-center">
             <p class="text-gray-500">Aucun résultat pour « {{ query }} »</p>
-            <p class="text-sm text-gray-400 mt-1">Essayez un nom de rue, de compteur ou de voie lyonnaise</p>
+            <p class="text-sm text-gray-400 mt-1">Essayez un nom de rue, de compteur, de voie lyonnaise ou de page</p>
           </div>
 
           <div v-else-if="groupedResults.length > 0" class="max-h-[50vh] overflow-y-auto py-2">
@@ -149,10 +149,12 @@ const groupedResults = computed(() => {
 
   const order: [string, string][] = [
     ['voie', 'Voies Lyonnaises'],
+    ['page', 'Pages'],
     ['section', 'Tronçons'],
     ['compteur-velo', 'Compteurs vélo'],
     ['compteur-voiture', 'Compteurs voiture'],
     ['compteur-comparaison', 'Comparaison vélo/voiture'],
+    ['blog', 'Articles de blog'],
   ];
 
   for (const [type, title] of order) {
@@ -211,6 +213,10 @@ function navigate(result: SearchResult) {
 
 function iconName(result: SearchResult): string {
   switch (result.type) {
+    case 'page':
+      return 'mdi:file-document-outline';
+    case 'blog':
+      return 'mdi:post-outline';
     case 'voie':
       return 'mdi:map-marker-path';
     case 'section':
@@ -228,6 +234,10 @@ function iconName(result: SearchResult): string {
 
 function iconClasses(result: SearchResult): string {
   switch (result.type) {
+    case 'page':
+      return 'bg-amber-100 text-amber-700';
+    case 'blog':
+      return 'bg-orange-100 text-orange-700';
     case 'voie':
       return 'bg-lvv-blue-100 text-lvv-blue-600';
     case 'section':

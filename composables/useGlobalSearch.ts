@@ -28,13 +28,42 @@ function levenshtein(a: string, b: string): number {
 }
 
 export interface SearchResult {
-  type: 'voie' | 'section' | 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
+  type: 'page' | 'blog' | 'voie' | 'section' | 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
   label: string;
   sublabel: string;
   href: string;
   line?: number;
   status?: string;
 }
+
+const staticPages: SearchResult[] = [
+  {
+    type: 'page',
+    label: 'Carte interactive',
+    sublabel: 'Explorer le réseau sur la carte',
+    href: '/carte-interactive',
+  },
+  { type: 'page', label: 'Évolution du réseau', sublabel: "Suivre l'avancement au fil du temps", href: '/evolution' },
+  { type: 'page', label: 'Chronologie', sublabel: 'Les tronçons livrés mois par mois', href: '/chronologie' },
+  { type: 'page', label: 'Plan officiel', sublabel: 'Le plan publié par la Métropole', href: '/plan-officiel' },
+  { type: 'page', label: 'Tableau de bord', sublabel: 'Indicateurs globaux du réseau', href: '/tableau-de-bord' },
+  { type: 'page', label: 'Compteurs vélo', sublabel: 'Données de fréquentation vélo', href: '/compteurs/velo' },
+  {
+    type: 'page',
+    label: 'Compteurs voiture',
+    sublabel: 'Données de fréquentation voiture',
+    href: '/compteurs/voiture',
+  },
+  {
+    type: 'page',
+    label: 'Comparaison vélo/voiture',
+    sublabel: 'Comparer les compteurs vélo et voiture',
+    href: '/compteurs/comparaison',
+  },
+  { type: 'page', label: 'Blog', sublabel: 'Articles et réflexions', href: '/blog' },
+  { type: 'page', label: 'Historique des nouveautés', sublabel: 'Toutes les actualités du site', href: '/historique' },
+  { type: 'page', label: 'Sites partenaires', sublabel: 'Les autres observatoires', href: '/sites-partenaires' },
+];
 
 export function useGlobalSearch() {
   const results = ref<SearchResult[]>([]);
@@ -48,11 +77,12 @@ export function useGlobalSearch() {
     if (loaded.value) return;
     loading.value = true;
 
-    const [geojsons, veloCounters, voitureCounters, voiesPages] = await Promise.all([
+    const [geojsons, veloCounters, voitureCounters, voiesPages, blogArticles] = await Promise.all([
       queryCollection('voiesCyclablesGeojson').all(),
       queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all(),
       queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all(),
       queryCollection('voiesCyclablesPage').all(),
+      queryCollection('blog').all(),
     ]);
 
     const voieEndpoints = new Map(voiesPages.map((v) => [v.line, { from: v.from, to: v.to }]));
@@ -124,8 +154,23 @@ export function useGlobalSearch() {
         href: `/compteurs/comparaison/${c.cyclopolisId}`,
       }));
 
-    defaultResults = voieResults;
-    allResults = [...voieResults, ...sectionResults, ...veloResults, ...voitureResults, ...comparaisonResults];
+    const blogResults: SearchResult[] = blogArticles.map((article) => ({
+      type: 'blog' as const,
+      label: article.title,
+      sublabel: article.description,
+      href: article.path,
+    }));
+
+    defaultResults = [...voieResults, ...staticPages];
+    allResults = [
+      ...voieResults,
+      ...sectionResults,
+      ...veloResults,
+      ...voitureResults,
+      ...comparaisonResults,
+      ...staticPages,
+      ...blogResults,
+    ];
     loaded.value = true;
     loading.value = false;
   }
@@ -184,6 +229,8 @@ export function useGlobalSearch() {
         }
 
         if (result.type === 'voie') score += 5;
+        if (result.type === 'page') score += 4;
+        if (result.type === 'blog') score += 2;
         return { result, score };
       })
       .filter((r): r is NonNullable<typeof r> => r !== null)
