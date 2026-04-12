@@ -337,7 +337,8 @@
       "properties": {
         "line": 3,
         "name": "Neuville - Esplanade Jean Vilar",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "10/03/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#massieux-à-neuville"
