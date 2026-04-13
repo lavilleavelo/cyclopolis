@@ -6,10 +6,30 @@ const MAINTENANCE_THRESHOLD = 0.15;
 
 const STABLE_THRESHOLD = 1;
 
+function findSameMonthPreviousYear<T extends { month: string }>(entries: T[], reference: T): T | undefined {
+  const refMonth = new Date(reference.month).getMonth();
+  const refYear = new Date(reference.month).getFullYear();
+
+  return entries.find((entry) => {
+    const d = new Date(entry.month);
+    return d.getMonth() === refMonth && d.getFullYear() === refYear - 1;
+  });
+}
+
 export function useCounterMaintenance() {
   function isCountInMaintenance(current: number | undefined, previousYear: number | undefined): boolean {
-    if (previousYear === undefined || previousYear === 0) return false;
-    if (current === undefined) return false;
+    if (current === undefined) {
+      return false;
+    }
+
+    if (current === 0) {
+      return true;
+    }
+
+    if (previousYear === undefined || previousYear === 0) {
+      return false;
+    }
+
     return current < previousYear * MAINTENANCE_THRESHOLD;
   }
 
@@ -23,12 +43,11 @@ export function useCounterMaintenance() {
       return false;
     }
 
-    const lastMonth = new Date(last.month).getMonth();
-    const lastYear = new Date(last.month).getFullYear();
-    const prevYear = counts.find((c) => {
-      const d = new Date(c.month);
-      return d.getMonth() === lastMonth && d.getFullYear() === lastYear - 1;
-    });
+    if (last.count === 0) {
+      return true;
+    }
+
+    const prevYear = findSameMonthPreviousYear(counts, last);
 
     if (!prevYear || prevYear.count === 0) {
       return false;
@@ -47,10 +66,29 @@ export function useCounterMaintenance() {
     return evolution !== null && Math.abs(evolution) < STABLE_THRESHOLD;
   }
 
+  function getLatestEvolution<T extends { month: string }>(
+    counts: T[],
+    countAccessor: (entry: T) => number = (entry) => (entry as T & { count: number }).count,
+  ): number | null {
+    if (counts.length < 13) {
+      return null;
+    }
+
+    const last = counts.at(-1);
+    if (!last) {
+      return null;
+    }
+
+    const prevYear = findSameMonthPreviousYear(counts, last);
+    return computeEvolution(prevYear ? countAccessor(prevYear) : undefined, countAccessor(last));
+  }
+
   return {
+    findSameMonthPreviousYear,
     isCountInMaintenance,
     isCountsInMaintenance,
     computeEvolution,
     isStableEvolution,
+    getLatestEvolution,
   };
 }

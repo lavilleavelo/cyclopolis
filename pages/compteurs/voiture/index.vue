@@ -3,6 +3,7 @@
     v-model:search-text="searchText"
     v-model:show-voies-lyonnaises="showVoiesLyonnaises"
     v-model:highlighted-counter="highlightedCounter"
+    v-model:sort-by="sortBy"
     :counters="counters"
     :filtered-features="filteredFeatures"
     search-placeholder="Chercher un compteur, une ville..."
@@ -24,10 +25,14 @@
 </template>
 
 <script setup lang="ts">
+import type { SortOption } from '~/components/counter/ListLayout.vue';
 import { removeDiacritics } from '~/helpers/helpers';
 import { useCounterSearch } from '~/composables/useCounterSearch';
 
 const { getCompteursFeatures } = useMap();
+const { getLatestEvolution } = useCounterMaintenance();
+
+const sortBy = ref<SortOption>('passages');
 
 const { data: allCounters } = await useAsyncData(() => {
   return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
@@ -36,7 +41,12 @@ const { data: allCounters } = await useAsyncData(() => {
 const counters = computed(() => {
   if (!allCounters.value) return [];
   return [...allCounters.value]
-    .sort((a, b) => (b.counts.at(-1)?.count ?? 0) - (a.counts.at(-1)?.count ?? 0))
+    .sort((a, b) => {
+      if (sortBy.value === 'evolution') {
+        return (getLatestEvolution(b.counts) ?? -Infinity) - (getLatestEvolution(a.counts) ?? -Infinity);
+      }
+      return (b.counts.at(-1)?.count ?? 0) - (a.counts.at(-1)?.count ?? 0);
+    })
     .filter((counter) =>
       searchText.value
         ? removeDiacritics(`${counter.arrondissement} ${counter.name}`).includes(removeDiacritics(searchText.value))

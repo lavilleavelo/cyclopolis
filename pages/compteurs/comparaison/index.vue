@@ -3,6 +3,7 @@
     v-model:search-text="searchText"
     v-model:show-voies-lyonnaises="showVoiesLyonnaises"
     v-model:highlighted-counter="highlightedCounter"
+    v-model:sort-by="sortBy"
     :counters="counters"
     :filtered-features="filteredFeatures"
     search-placeholder="Chercher un compteur, une ville, une VL..."
@@ -28,7 +29,12 @@
 </template>
 
 <script setup lang="ts">
+import type { SortOption } from '~/components/counter/ListLayout.vue';
 import { matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
+
+const { getLatestEvolution } = useCounterMaintenance();
+
+const sortBy = ref<SortOption>('passages');
 
 /**
  * la clé cyclopolisId sert à faire le lien entre les compteurs vélo et voiture
@@ -73,6 +79,13 @@ const counters = computed(() => {
     .filter((counter): counter is NonNullable<typeof counter> => !!counter)
     .filter((counter) => matchesCounterSearch(counter, searchText.value))
     .sort((a, b) => {
+      if (sortBy.value === 'evolution') {
+        const veloAccessor = (c: { veloCount: number }) => c.veloCount;
+        return (
+          (getLatestEvolution(b.counts, veloAccessor) ?? -Infinity) -
+          (getLatestEvolution(a.counts, veloAccessor) ?? -Infinity)
+        );
+      }
       const lastA = a.counts.at(-1);
       const lastB = b.counts.at(-1);
       if (!lastA || !lastB) return 0;

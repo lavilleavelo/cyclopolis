@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="rounded-lg shadow-md hover:shadow-lg overflow-hidden"
+    class="rounded-lg shadow-md hover:shadow-lg overflow-hidden bg-white"
     :to="link"
     @mouseenter="$emit('highlight', name)"
     @mouseleave="$emit('highlight', null)"
@@ -27,7 +27,7 @@
     </div>
     <div v-if="isLatestDataAnomalous" class="bg-amber-50 border-b border-amber-200 px-3 py-1.5 flex items-center gap-2">
       <Icon name="mdi:wrench" class="text-amber-600 text-sm flex-shrink-0" />
-      <span class="text-xs text-amber-700">Compteur en maintenance — données partielles</span>
+      <span class="text-xs text-amber-700">Compteur en maintenance · données partielles</span>
     </div>
     <table class="w-full bg-white">
       <thead>
@@ -126,9 +126,10 @@ const isTrackingVelo = props.counter.counts.every((count) => count.veloCount !==
 const isTrackingVoiture = props.counter.counts.every((count) => count.voitureCount !== undefined);
 
 const lastRecord = props.counter.counts[props.counter.counts.length - 1];
-const lastRecordPreviousYear = getSameRecordPreviousYear(lastRecord);
 
-const { isCountInMaintenance } = useCounterMaintenance();
+const { isCountInMaintenance, findSameMonthPreviousYear } = useCounterMaintenance();
+
+const lastRecordPreviousYear = findSameMonthPreviousYear(props.counter.counts, lastRecord);
 
 const isLatestDataAnomalous = computed(() => {
   if (!lastRecord || !lastRecordPreviousYear) {
@@ -160,17 +161,6 @@ function formatRecordCount(count?: number) {
     return 'N/A';
   }
   return count.toLocaleString('fr-FR') ?? 0;
-}
-
-/**
- * helpers
- */
-function getSameRecordPreviousYear(record: Counter['counts'][0]): Counter['counts'][0] | undefined {
-  const recordMonth = new Date(record.month).getMonth();
-  const recordYear = new Date(record.month).getFullYear();
-  return props.counter.counts.find((count) => {
-    return new Date(count.month).getMonth() === recordMonth && new Date(count.month).getFullYear() === recordYear - 1;
-  });
 }
 
 function isRecordForMonth(field: 'veloCount' | 'voitureCount'): boolean {

@@ -4,7 +4,7 @@
     class="not-prose text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-md px-3 py-2 mt-4 text-center"
   >
     <Icon name="mdi:wrench" class="text-amber-600 align-text-bottom" />
-    Compteur en maintenance — données partielles ou incomplètes
+    Compteur en maintenance · données partielles ou incomplètes
   </p>
 </template>
 

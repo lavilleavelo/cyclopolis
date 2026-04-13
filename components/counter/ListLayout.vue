@@ -79,6 +79,18 @@
 
     <div class="relative px-4 sm:px-6 lg:px-8 py-6 bg-gray-50">
       <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-end mb-4 gap-2">
+          <label for="sort-select" class="text-sm text-gray-500 whitespace-nowrap">Trier par</label>
+          <select
+            id="sort-select"
+            :value="sortBy"
+            class="text-sm border-gray-300 rounded-md shadow-sm focus:ring-lvv-blue-600 focus:border-lvv-blue-600 py-1.5 pl-3 pr-8"
+            @change="sortBy = ($event.target as HTMLSelectElement).value as SortOption"
+          >
+            <option value="passages">Nb de passages</option>
+            <option value="evolution">Évolution</option>
+          </select>
+        </div>
         <div v-if="counters.length === 0 && searchText" class="text-center py-12 text-gray-500">
           <Icon name="mdi:magnify" class="text-4xl text-gray-300 mb-3" />
           <p class="text-lg">Aucun compteur trouvé pour « {{ searchText }} »</p>
@@ -100,6 +112,8 @@
 <script setup lang="ts">
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
+export type SortOption = 'passages' | 'evolution';
+
 defineProps<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   counters: any[];
@@ -112,4 +126,5 @@ defineProps<{
 const searchText = defineModel<string>('searchText', { required: true });
 const showVoiesLyonnaises = defineModel<boolean>('showVoiesLyonnaises', { required: true });
 const highlightedCounter = defineModel<string | null>('highlightedCounter', { required: true });
+const sortBy = defineModel<SortOption>('sortBy', { required: true });
 </script>
