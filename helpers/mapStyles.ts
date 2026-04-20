@@ -3,7 +3,7 @@ import defaultStyle from '@/assets/style.json';
 import hybridStyle from '@/assets/hybrid-style.json';
 import osmBrightStyle from '@/assets/osm-bright-style.json';
 
-export type MapStyleKey = 'default' | 'positron' | 'osm-bright' | 'hybrid' | 'cyclosm';
+export type MapStyleKey = 'default' | 'positron' | 'neutrino' | 'osm-bright' | 'hybrid' | 'cyclosm';
 
 const cyclosmAttribution =
   '<a href="https://www.cyclosm.org" target="_blank">CyclOSM</a> (<a href="https://www.cyclosm.org/legend.html" target="_blank">Légende</a>)';
@@ -36,6 +36,7 @@ const cyclosmStyle: StyleSpecification = {
 export const MAP_STYLES: Record<MapStyleKey, StyleSpecification | string> = {
   default: defaultStyle as StyleSpecification,
   positron: 'https://tiles.openfreemap.org/styles/positron',
+  neutrino: 'https://tiles.versatiles.org/assets/styles/neutrino/style.json',
   'osm-bright': osmBrightStyle as StyleSpecification,
   hybrid: hybridStyle as StyleSpecification,
   cyclosm: cyclosmStyle,
@@ -43,10 +44,11 @@ export const MAP_STYLES: Record<MapStyleKey, StyleSpecification | string> = {
 
 export const MAP_STYLE_OPTIONS: { id: MapStyleKey; label: string; description: string }[] = [
   { id: 'default', label: 'Par défaut', description: 'Style officiel de Cyclopolis' },
-  { id: 'positron', label: 'Positron', description: 'Fond clair et minimaliste' },
-  { id: 'osm-bright', label: 'OSM Bright', description: 'Style coloré alternatif avec bâtiments 3D' },
+  { id: 'positron', label: 'Clair', description: 'Fond clair et minimaliste' },
+  { id: 'neutrino', label: 'Neutre', description: 'Fond sobre et discret' },
+  { id: 'osm-bright', label: 'Coloré', description: 'Style coloré avec bâtiments 3D' },
   { id: 'hybrid', label: 'Satellite', description: 'Photographies aériennes IGN' },
-  { id: 'cyclosm', label: 'CyclOSM', description: 'Style OpenStreetMap alternatif vélo' },
+  { id: 'cyclosm', label: 'Vélo', description: 'Style OpenStreetMap alternatif vélo' },
 ];
 
 export function getMapStyle(key: MapStyleKey): StyleSpecification | string {
