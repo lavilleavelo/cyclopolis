@@ -8,7 +8,7 @@
         />
         <div class="min-w-0">
           <h3 class="text-lg font-semibold text-gray-900">Évolution de la fréquentation {{ kindLabel }} depuis 2019</h3>
-          <p class="text-sm italic text-gray-700 text-center">
+          <p class="text-sm italic text-gray-700">
             {{ summary }}
           </p>
         </div>
