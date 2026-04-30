@@ -21,6 +21,15 @@
         >
       </p>
     </template>
+    <template #overview>
+      <ChartMetropoleIndex
+        v-if="allCounters && allCounters.length > 0"
+        :counters="allCounters"
+        kind="voiture"
+        class="mb-6"
+        @highlight="highlightedCounter = $event"
+      />
+    </template>
   </CounterListLayout>
 </template>
 

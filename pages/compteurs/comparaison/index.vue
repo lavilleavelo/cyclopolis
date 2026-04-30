@@ -25,6 +25,14 @@
         ></span
       >
     </template>
+    <template #overview>
+      <ChartMetropoleIndexCompare
+        v-if="allVeloFull && allVoitureFull && allVeloFull.length > 0 && allVoitureFull.length > 0"
+        :velo-counters="allVeloFull"
+        :voiture-counters="allVoitureFull"
+        class="mb-6"
+      />
+    </template>
   </CounterListLayout>
 </template>
 
@@ -53,6 +61,14 @@ const { data: allVoitureCounters } = await useAsyncData(() => {
     .where('path', 'LIKE', '/compteurs/voiture%')
     .where('cyclopolisId', 'IS NOT NULL')
     .all();
+});
+
+const { data: allVeloFull } = await useAsyncData('comparaison-velo-full', () => {
+  return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
+});
+
+const { data: allVoitureFull } = await useAsyncData('comparaison-voiture-full', () => {
+  return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
 });
 
 const counters = computed(() => {

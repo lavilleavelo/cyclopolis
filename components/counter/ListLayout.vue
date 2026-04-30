@@ -43,7 +43,7 @@
           <div class="max-w-7xl mx-auto">
             <label for="compteur-lg" class="sr-only">Compteur</label>
             <div class="relative rounded-md shadow-md">
-              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none z-10">
                 <Icon name="mdi:magnify" class="h-6 w-6 text-gray-400" aria-hidden="true" />
               </div>
               <input
@@ -79,6 +79,7 @@
 
     <div class="relative px-4 sm:px-6 lg:px-8 py-6 bg-gray-50">
       <div class="max-w-7xl mx-auto">
+        <slot name="overview" />
         <div class="flex items-center justify-end mb-4 gap-2">
           <label for="sort-select" class="text-sm text-gray-500 whitespace-nowrap">Trier par</label>
           <select
