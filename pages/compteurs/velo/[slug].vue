@@ -13,6 +13,7 @@
       </template>
       <Map
         :features="features"
+        :fit-bounds-features="counterFeatures"
         :options="{ roundedCorners: true, legend: false, filter: false, cooperativeGestures: true }"
         class="mt-6"
         style="height: 40vh"
@@ -89,10 +90,12 @@
 <script setup>
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { buildCounterStats } from '~/composables/useCounterStats';
+import { getLine, useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { path } = useRoute();
 const { withoutTrailingSlash } = useUrl();
 const { getCompteursFeatures } = useMap();
+const { geojsons: vlGeojsons } = await useVoiesCyclablesGeojson();
 
 const { data: counter } = await useAsyncData(path, () => {
   return queryCollection('compteurs').path(withoutTrailingSlash(path)).first();
@@ -117,7 +120,19 @@ const graphTitles = {
   monthComparison: `Fréquentation cycliste - ${counter.value.name}`,
 };
 
-const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-velo' });
+const counterFeatures = getCompteursFeatures({ counters: [counter.value], type: 'compteur-velo' });
+const features = computed(() => {
+  const counterLines = counter.value?.lines ?? [];
+  if (!counterLines.length || !vlGeojsons.value) {
+    return counterFeatures;
+  }
+
+  const vlFeatures = vlGeojsons.value
+    .filter((geojson) => counterLines.includes(getLine(geojson)))
+    .flatMap((geojson) => geojson.features);
+
+  return [...vlFeatures, ...counterFeatures];
+});
 
 const counterStats = computed(() => buildCounterStats(counter.value?.counts ?? [], 'vélos'));
 

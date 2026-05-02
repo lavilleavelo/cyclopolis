@@ -106,6 +106,7 @@ const props = defineProps<{
   voies?: Collections['voiesCyclablesPage'][];
   highlightedCounter?: string | null;
   highlightedSections?: Array<{ line: number; sectionName: string }> | null;
+  fitBoundsFeatures?: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[];
 }>();
 
 const options = { ...defaultOptions, ...props.options };
@@ -345,7 +346,7 @@ onMounted(() => {
 
     const highlightSection = getHighlightSection();
     if (!+(route.query.line || -1) || !highlightSection) {
-      fitBounds({ map, features: props.features });
+      fitBounds({ map, features: props.fitBoundsFeatures ?? props.features });
       return;
     }
 
