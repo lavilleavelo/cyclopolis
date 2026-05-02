@@ -4,6 +4,14 @@
     v-model:show-voies-lyonnaises="showVoiesLyonnaises"
     v-model:highlighted-counter="highlightedCounter"
     v-model:sort-by="sortBy"
+    v-model:selected-month="selectedMonth"
+    v-model:reference-year-offset="referenceYearOffset"
+    v-model:display-mode="displayMode"
+    v-model:show-map="showMap"
+    v-model:selected-year="selectedYear"
+    v-model:comparison-period="comparisonPeriod"
+    :available-months="availableMonths"
+    :available-years="availableYears"
     :counters="counters"
     :filtered-features="filteredFeatures"
     search-placeholder="Chercher un compteur, une ville, une VL..."
@@ -38,32 +46,53 @@
 </template>
 
 <script setup lang="ts">
-import type { SortOption } from '~/components/counter/ListLayout.vue';
+import type { ComparisonPeriod, DisplayMode, SortOption } from '~/components/counter/ListLayout.vue';
 import type { CompteurFeature } from '~/types';
 import { matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
 
 const { getCompteursFeatures } = useMap();
-const { getLatestEvolution } = useCounterMaintenance();
+const { getAvailableMonths, getAvailableYears, syncDefaultPeriod, sortCounters } = useCounterUtils();
 
 const sortBy = ref<SortOption>('passages');
+const displayMode = ref<DisplayMode>('monthly');
+const comparisonPeriod = ref<ComparisonPeriod>('monthly');
+const referenceYearOffset = ref<number>(1);
+const showMap = ref<boolean>(true);
+const selectedYear = ref<number>(0);
 
 const { data: allCounters } = await useAsyncData('velo-counters', () => {
   return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
 });
+
+const availableMonths = computed(() => getAvailableMonths(allCounters.value));
+const availableYears = computed(() => getAvailableYears(availableMonths.value));
+
+const selectedMonth = ref<string>('');
+syncDefaultPeriod(selectedMonth, availableMonths, selectedYear, availableYears);
 
 const counters = computed(() => {
   if (!allCounters.value) {
     return [];
   }
 
-  return [...allCounters.value]
-    .sort((a, b) => {
-      if (sortBy.value === 'evolution') {
-        return (getLatestEvolution(b.counts) ?? -Infinity) - (getLatestEvolution(a.counts) ?? -Infinity);
-      }
+  if (comparisonPeriod.value === 'monthly' && !selectedMonth.value) {
+    return [];
+  }
 
-      return (b.counts.at(-1)?.count ?? 0) - (a.counts.at(-1)?.count ?? 0);
-    })
+  if (comparisonPeriod.value === 'annual' && !selectedYear.value) {
+    return [];
+  }
+
+  const sorted = sortCounters(
+    allCounters.value,
+    sortBy,
+    comparisonPeriod,
+    selectedMonth,
+    selectedYear,
+    referenceYearOffset,
+  );
+
+  return sorted
     .filter((counter) => matchesCounterSearch(counter, searchText.value))
     .map((counter) => ({
       ...counter,
@@ -87,5 +116,13 @@ const mapFeatures = computed(() => {
   return counterFeatures.filter((f) => names.has(f.properties.name));
 });
 
-const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures);
+const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures, {
+  sortBy,
+  selectedMonth,
+  selectedYear,
+  referenceYearOffset,
+  displayMode,
+  comparisonPeriod,
+  showMap,
+});
 </script>

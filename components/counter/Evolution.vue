@@ -26,7 +26,7 @@ const props = defineProps<{
   count2?: number;
 }>();
 
-const { isCountInMaintenance, computeEvolution, isStableEvolution } = useCounterMaintenance();
+const { isCountInMaintenance, computeEvolution, isStableEvolution } = useCounterUtils();
 
 const isMaintenance = computed(() => isCountInMaintenance(props.count2, props.count1));
 const evolution = computed(() => computeEvolution(props.count1, props.count2));

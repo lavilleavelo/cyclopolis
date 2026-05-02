@@ -7,7 +7,7 @@
   >
     <div class="px-4 py-2 bg-lvv-blue-600 text-white">
       <div class="flex items-center justify-between">
-        <div class="text-base font-medium">
+        <div class="text-xs font-normal text-white/80">
           {{ arrondissement }}
         </div>
         <div v-if="counter.lines && counter.lines.length > 0" class="flex gap-1">
@@ -21,11 +21,14 @@
           </span>
         </div>
       </div>
-      <div class="mt-1 text-lg font-semibold">
+      <div class="text-base font-semibold">
         {{ name }}
       </div>
     </div>
-    <div v-if="isLatestDataAnomalous" class="bg-amber-50 border-b border-amber-200 px-3 py-1.5 flex items-center gap-2">
+    <div
+      v-if="isSelectedDataAnomalous"
+      class="bg-amber-50 border-b border-amber-200 px-3 py-1.5 flex items-center gap-2"
+    >
       <Icon name="mdi:wrench" class="text-amber-600 text-sm flex-shrink-0" />
       <span class="text-xs text-amber-700">Compteur en maintenance · données partielles</span>
     </div>
@@ -33,13 +36,13 @@
       <thead>
         <tr class="bg-lvv-blue-100">
           <th class="w-1/6 italic font-normal">
-            {{ formatRecordMonth(lastRecord) }}
+            {{ headerPeriodLabel }}
           </th>
           <th class="w-1/4">
-            {{ formatRecordYear(lastRecord) - 1 }}
+            {{ referenceYearLabel }}
           </th>
           <th class="w-1/4">
-            {{ formatRecordYear(lastRecord) }}
+            {{ selectedYearLabel }}
           </th>
           <th class="w-1/4 italic font-normal border-l-2 border-lvv-blue-600">évolution</th>
         </tr>
@@ -51,11 +54,11 @@
             <Icon name="fluent:vehicle-bicycle-16-regular" class="text-3xl" />
           </td>
           <td class="text-center p-1">
-            {{ formatRecordCount(lastRecordPreviousYear?.veloCount) }}
+            {{ formatRecordCount(referenceVelo, referenceDays) }}
           </td>
           <td class="text-center p-1">
             <span class="relative">
-              {{ formatRecordCount(lastRecord?.veloCount) }}
+              {{ formatRecordCount(currentVelo, currentDays) }}
               <Icon
                 v-if="isVeloRecord"
                 name="noto:1st-place-medal"
@@ -65,7 +68,7 @@
             </span>
           </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
-            <CounterEvolution :count1="lastRecordPreviousYear?.veloCount" :count2="lastRecord?.veloCount" />
+            <CounterEvolution :count1="referenceVelo" :count2="currentVelo" />
           </td>
         </tr>
 
@@ -75,11 +78,11 @@
             <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-3xl" />
           </td>
           <td class="text-center p-1">
-            {{ formatRecordCount(lastRecordPreviousYear?.voitureCount) }}
+            {{ formatRecordCount(referenceVoiture, referenceDays) }}
           </td>
           <td class="text-center p-1">
             <span class="relative">
-              {{ formatRecordCount(lastRecord?.voitureCount) }}
+              {{ formatRecordCount(currentVoiture, currentDays) }}
               <Icon
                 v-if="isVoitureRecord"
                 name="noto:1st-place-medal"
@@ -89,7 +92,7 @@
             </span>
           </td>
           <td class="text-center p-1 border-l-2 border-lvv-blue-600">
-            <CounterEvolution :count1="lastRecordPreviousYear?.voitureCount" :count2="lastRecord?.voitureCount" />
+            <CounterEvolution :count1="referenceVoiture" :count2="currentVoiture" />
           </td>
         </tr>
       </tbody>
@@ -99,6 +102,7 @@
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
+import type { ComparisonPeriod, DisplayMode } from '~/components/counter/ListLayout.vue';
 
 type Counter = Omit<Collections['compteurs'], 'counts'> & {
   counts: {
@@ -110,6 +114,11 @@ type Counter = Omit<Collections['compteurs'], 'counts'> & {
 
 const props = defineProps<{
   counter: Counter;
+  comparisonPeriod: ComparisonPeriod;
+  selectedMonth: string;
+  selectedYear: number;
+  referenceYearOffset: number;
+  displayMode: DisplayMode;
 }>();
 
 defineEmits<{
@@ -117,6 +126,7 @@ defineEmits<{
 }>();
 
 const { getLineColor } = useColors();
+const { isCountInMaintenance, findSameMonthYearsAgo, findCountForMonth, aggregateMatchedYears } = useCounterUtils();
 
 const arrondissement = props.counter.arrondissement;
 const name = props.counter.name;
@@ -125,55 +135,165 @@ const link = props.counter.path;
 const isTrackingVelo = props.counter.counts.every((count) => count.veloCount !== undefined);
 const isTrackingVoiture = props.counter.counts.every((count) => count.voitureCount !== undefined);
 
-const lastRecord = props.counter.counts[props.counter.counts.length - 1];
+function daysInMonth(monthIso: string): number {
+  const d = new Date(monthIso);
+  return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+}
 
-const { isCountInMaintenance, findSameMonthPreviousYear } = useCounterMaintenance();
+const monthlyRecord = computed(() =>
+  props.comparisonPeriod === 'monthly' ? findCountForMonth(props.counter.counts, props.selectedMonth) : undefined,
+);
 
-const lastRecordPreviousYear = findSameMonthPreviousYear(props.counter.counts, lastRecord);
-
-const isLatestDataAnomalous = computed(() => {
-  if (!lastRecord || !lastRecordPreviousYear) {
-    return false;
+const monthlyReference = computed(() => {
+  if (props.comparisonPeriod !== 'monthly' || !monthlyRecord.value) {
+    return undefined;
   }
 
-  if (isTrackingVelo && isCountInMaintenance(lastRecord.veloCount ?? 0, lastRecordPreviousYear.veloCount ?? 0)) {
-    return true;
+  return findSameMonthYearsAgo(props.counter.counts, monthlyRecord.value, props.referenceYearOffset);
+});
+
+const annualVelo = computed(() => {
+  if (props.comparisonPeriod !== 'annual') {
+    return null;
   }
 
-  return (
-    isTrackingVoiture && isCountInMaintenance(lastRecord.voitureCount ?? 0, lastRecordPreviousYear.voitureCount ?? 0)
+  return aggregateMatchedYears(
+    props.counter.counts,
+    props.selectedYear,
+    props.selectedYear - props.referenceYearOffset,
+    (c) => c.veloCount ?? 0,
   );
 });
 
-/**
- * formatters
- */
-function formatRecordMonth(record: Counter['counts'][0]): string {
-  return new Date(record.month).toLocaleString('fr-Fr', { month: 'short' });
-}
-
-function formatRecordYear(record: Counter['counts'][0]): number {
-  return new Date(record.month).getFullYear();
-}
-
-function formatRecordCount(count?: number) {
-  if (count === undefined) {
-    return 'N/A';
+const annualVoiture = computed(() => {
+  if (props.comparisonPeriod !== 'annual') {
+    return null;
   }
-  return count.toLocaleString('fr-FR') ?? 0;
+
+  return aggregateMatchedYears(
+    props.counter.counts,
+    props.selectedYear,
+    props.selectedYear - props.referenceYearOffset,
+    (c) => c.voitureCount ?? 0,
+  );
+});
+
+const currentVelo = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVelo.value && annualVelo.value.matchedMonths > 0 ? annualVelo.value.currentTotal : undefined;
+  }
+
+  return monthlyRecord.value?.veloCount;
+});
+
+const referenceVelo = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVelo.value && annualVelo.value.matchedMonths > 0 ? annualVelo.value.referenceTotal : undefined;
+  }
+
+  return monthlyReference.value?.veloCount;
+});
+
+const currentVoiture = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVoiture.value && annualVoiture.value.matchedMonths > 0 ? annualVoiture.value.currentTotal : undefined;
+  }
+
+  return monthlyRecord.value?.voitureCount;
+});
+
+const referenceVoiture = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVoiture.value && annualVoiture.value.matchedMonths > 0
+      ? annualVoiture.value.referenceTotal
+      : undefined;
+  }
+
+  return monthlyReference.value?.voitureCount;
+});
+
+const currentDays = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVelo.value?.currentDays ?? annualVoiture.value?.currentDays ?? 0;
+  }
+
+  return monthlyRecord.value ? daysInMonth(monthlyRecord.value.month) : 0;
+});
+
+const referenceDays = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return annualVelo.value?.referenceDays ?? annualVoiture.value?.referenceDays ?? 0;
+  }
+
+  return monthlyReference.value ? daysInMonth(monthlyReference.value.month) : 0;
+});
+
+const headerPeriodLabel = computed(() => {
+  if (props.comparisonPeriod === 'annual') {
+    return 'année';
+  }
+
+  return new Date(props.selectedMonth).toLocaleString('fr-FR', { month: 'short' });
+});
+
+const selectedYearLabel = computed(() => {
+  return props.comparisonPeriod === 'annual' ? props.selectedYear : new Date(props.selectedMonth).getFullYear();
+});
+
+const referenceYearLabel = computed(() => selectedYearLabel.value - props.referenceYearOffset);
+
+const isSelectedDataAnomalous = computed(() => {
+  if (currentVelo.value === undefined && currentVoiture.value === undefined) {
+    return false;
+  }
+
+  if (isTrackingVelo && isCountInMaintenance(currentVelo.value ?? 0, referenceVelo.value ?? 0)) {
+    return true;
+  }
+
+  return isTrackingVoiture && isCountInMaintenance(currentVoiture.value ?? 0, referenceVoiture.value ?? 0);
+});
+
+function formatRecordCount(count?: number, days?: number): string {
+  if (count === undefined) {
+    return '—';
+  }
+
+  if (props.displayMode === 'daily') {
+    if (!days || days === 0) {
+      return '—';
+    }
+
+    return `${Math.round(count / days).toLocaleString('fr-FR')}\u00a0/j`;
+  }
+
+  return count.toLocaleString('fr-FR');
 }
 
-function isRecordForMonth(field: 'veloCount' | 'voitureCount'): boolean {
-  if (!lastRecord) return false;
-  const currentValue = lastRecord[field];
-  if (currentValue === undefined || currentValue === 0) return false;
-  const recordMonth = new Date(lastRecord.month).getMonth();
+function isMonthlyRecordForMonth(field: 'veloCount' | 'voitureCount'): boolean {
+  const record = monthlyRecord.value;
+  if (!record) {
+    return false;
+  }
+
+  const currentValue = record[field];
+  if (currentValue === undefined || currentValue === 0) {
+    return false;
+  }
+
+  const recordMonth = new Date(record.month).getMonth();
   const sameMonthCounts = props.counter.counts
     .filter((count) => new Date(count.month).getMonth() === recordMonth)
     .map((count) => count[field] ?? 0);
+
   return currentValue >= Math.max(...sameMonthCounts);
 }
 
-const isVeloRecord = isTrackingVelo && isRecordForMonth('veloCount');
-const isVoitureRecord = isTrackingVoiture && isRecordForMonth('voitureCount');
+const isVeloRecord = computed(
+  () => props.comparisonPeriod === 'monthly' && isTrackingVelo && isMonthlyRecordForMonth('veloCount'),
+);
+
+const isVoitureRecord = computed(
+  () => props.comparisonPeriod === 'monthly' && isTrackingVoiture && isMonthlyRecordForMonth('voitureCount'),
+);
 </script>

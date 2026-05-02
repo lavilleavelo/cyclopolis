@@ -13,7 +13,7 @@ const props = defineProps<{
   counts: { month: string; count: number }[];
 }>();
 
-const { isCountsInMaintenance } = useCounterMaintenance();
+const { isCountsInMaintenance } = useCounterUtils();
 
 const isAnomalous = computed(() => isCountsInMaintenance(props.counts));
 </script>

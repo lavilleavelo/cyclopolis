@@ -4,6 +4,14 @@
     v-model:show-voies-lyonnaises="showVoiesLyonnaises"
     v-model:highlighted-counter="highlightedCounter"
     v-model:sort-by="sortBy"
+    v-model:selected-month="selectedMonth"
+    v-model:reference-year-offset="referenceYearOffset"
+    v-model:display-mode="displayMode"
+    v-model:show-map="showMap"
+    v-model:selected-year="selectedYear"
+    v-model:comparison-period="comparisonPeriod"
+    :available-months="availableMonths"
+    :available-years="availableYears"
     :counters="counters"
     :filtered-features="filteredFeatures"
     search-placeholder="Chercher un compteur, une ville, une VL..."
@@ -37,12 +45,18 @@
 </template>
 
 <script setup lang="ts">
-import type { SortOption } from '~/components/counter/ListLayout.vue';
+import type { ComparisonPeriod, DisplayMode, SortOption } from '~/components/counter/ListLayout.vue';
 import { matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
 
-const { getLatestEvolution } = useCounterMaintenance();
+const { getAvailableMonths, getAvailableYears, syncDefaultPeriod, sortCounters } = useCounterUtils();
 
 const sortBy = ref<SortOption>('passages');
+const displayMode = ref<DisplayMode>('monthly');
+const comparisonPeriod = ref<ComparisonPeriod>('monthly');
+const referenceYearOffset = ref<number>(1);
+const selectedMonth = ref<string>('');
+const selectedYear = ref<number>(0);
+const showMap = ref<boolean>(true);
 
 /**
  * la clé cyclopolisId sert à faire le lien entre les compteurs vélo et voiture
@@ -71,8 +85,10 @@ const { data: allVoitureFull } = await useAsyncData('comparaison-voiture-full', 
   return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
 });
 
-const counters = computed(() => {
-  if (!allVeloCounters.value) return [];
+const mergedCounters = computed(() => {
+  if (!allVeloCounters.value) {
+    return [];
+  }
 
   return allVeloCounters.value
     .map((veloCounter) => {
@@ -92,23 +108,36 @@ const counters = computed(() => {
         }),
       };
     })
-    .filter((counter): counter is NonNullable<typeof counter> => !!counter)
-    .filter((counter) => matchesCounterSearch(counter, searchText.value))
-    .sort((a, b) => {
-      if (sortBy.value === 'evolution') {
-        const veloAccessor = (c: { veloCount: number }) => c.veloCount;
-        return (
-          (getLatestEvolution(b.counts, veloAccessor) ?? -Infinity) -
-          (getLatestEvolution(a.counts, veloAccessor) ?? -Infinity)
-        );
-      }
-      const lastA = a.counts.at(-1);
-      const lastB = b.counts.at(-1);
-      if (!lastA || !lastB) return 0;
-      const monthDiff = new Date(lastB.month).getTime() - new Date(lastA.month).getTime();
-      if (monthDiff !== 0) return monthDiff;
-      return (lastB.veloCount || 0) - (lastA.veloCount || 0);
-    });
+    .filter((counter): counter is NonNullable<typeof counter> => !!counter);
+});
+
+const availableMonths = computed(() => getAvailableMonths(mergedCounters.value, (c) => c.veloCount + c.voitureCount));
+const availableYears = computed(() => getAvailableYears(availableMonths.value));
+
+syncDefaultPeriod(selectedMonth, availableMonths, selectedYear, availableYears);
+
+const counters = computed(() => {
+  if (comparisonPeriod.value === 'monthly' && !selectedMonth.value) {
+    return [];
+  }
+
+  if (comparisonPeriod.value === 'annual' && !selectedYear.value) {
+    return [];
+  }
+
+  const veloAccessor = (c: { veloCount: number }) => c.veloCount;
+
+  const sorted = sortCounters(
+    mergedCounters.value,
+    sortBy,
+    comparisonPeriod,
+    selectedMonth,
+    selectedYear,
+    referenceYearOffset,
+    veloAccessor,
+  );
+
+  return sorted.filter((counter) => matchesCounterSearch(counter, searchText.value));
 });
 
 const { getCompteursFeatures } = useMap();
@@ -121,5 +150,13 @@ const mapFeatures = computed(() =>
   }),
 );
 
-const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures);
+const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures, {
+  sortBy,
+  selectedMonth,
+  selectedYear,
+  referenceYearOffset,
+  displayMode,
+  comparisonPeriod,
+  showMap,
+});
 </script>
