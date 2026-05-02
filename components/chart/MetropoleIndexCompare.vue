@@ -20,10 +20,10 @@
           </div>
         </div>
       </button>
-      <div v-if="expanded" class="flex flex-wrap items-center gap-2">
+      <div v-if="expanded" class="flex flex-wrap items-center justify-end gap-2 w-full lg:w-auto">
         <button
           type="button"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm rounded-md font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
+          class="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-md font-medium bg-gray-100 text-gray-700 hover:bg-gray-200"
           @click.stop="dialogOpen = true"
         >
           <Icon name="mdi:information-outline" class="text-base" />
