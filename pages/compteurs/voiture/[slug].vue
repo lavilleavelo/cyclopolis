@@ -37,9 +37,20 @@
         Comparaison vélo / voiture
       </NuxtLink>
     </div>
+    <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
+
     <h2>Total des passages par année</h2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur voiture chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+
+    <h2>Historique mensuel</h2>
+    <p>Nombre de passages détecté chaque mois depuis la mise en service du compteur.</p>
+    <ChartMonthlyHistogram
+      :title="graphTitles.monthlyHistogram"
+      :data="counter"
+      :color="'#7B1F3D'"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
 
     <h2>Comparaison des passages</h2>
     <p>
@@ -69,6 +80,7 @@
 
 <script setup>
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { buildCounterStats } from '~/composables/useCounterStats';
 
 const { path } = useRoute();
 const { withoutTrailingSlash } = useUrl();
@@ -93,21 +105,28 @@ const { data: matchingVeloCounter } = await useAsyncData(`velo-match-${path}`, (
 
 const graphTitles = {
   totalByYear: `Fréquentation voiture annuelle - ${counter.value.name}`,
+  monthlyHistogram: `Fréquentation voiture mensuelle - ${counter.value.name}`,
   monthComparison: `Fréquentation voiture - ${counter.value.name}`,
 };
 
 const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-voiture' });
 
-const DESCRIPTION = `Compteur voiture ${counter.value.name}`;
+const counterStats = computed(() => buildCounterStats(counter.value?.counts ?? [], 'voitures'));
+
+const PAGE_TITLE = `Compteur voiture ${counter.value.name}${counter.value.arrondissement ? ` (${counter.value.arrondissement})` : ''} | Cyclopolis`;
+const DESCRIPTION = `Compteur voiture ${counter.value.name}${counter.value.arrondissement ? ` à ${counter.value.arrondissement}` : ''}. ${counterStats.value.summarySentence} Suivez l'évolution du trafic automobile mois par mois et année par année.`;
 const IMAGE_URL = counter.value.imageUrl;
 useHead({
+  title: PAGE_TITLE,
   meta: [
-    // description
     { hid: 'description', name: 'description', content: DESCRIPTION },
-    { hid: 'og:description', property: 'og:description', DESCRIPTION },
-    { hid: 'twitter:description', name: 'twitter:description', DESCRIPTION },
-    // cover image
+    { hid: 'og:title', property: 'og:title', content: PAGE_TITLE },
+    { hid: 'og:description', property: 'og:description', content: DESCRIPTION },
+    { hid: 'og:type', property: 'og:type', content: 'article' },
     { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
+    { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+    { hid: 'twitter:title', name: 'twitter:title', content: PAGE_TITLE },
+    { hid: 'twitter:description', name: 'twitter:description', content: DESCRIPTION },
     { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL },
   ],
 });

@@ -1,24 +1,27 @@
 <template>
   <div>
-    <div class="flex flex-wrap gap-2 mb-4">
-      <button
-        :class="[
-          'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'rolling' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-        ]"
-        @click="mode = 'rolling'"
-      >
-        12 mois glissants
-      </button>
-      <button
-        :class="[
-          'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
-          mode === 'ytd' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
-        ]"
-        @click="mode = 'ytd'"
-      >
-        À date ({{ latestMonthLabel }})
-      </button>
+    <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
+      <div class="flex flex-wrap gap-2">
+        <button
+          :class="[
+            'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
+            mode === 'rolling' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+          ]"
+          @click="mode = 'rolling'"
+        >
+          12 mois glissants
+        </button>
+        <button
+          :class="[
+            'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
+            mode === 'ytd' ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+          ]"
+          @click="mode = 'ytd'"
+        >
+          À date ({{ latestMonthLabel }})
+        </button>
+      </div>
+      <ChartDisplayModeToggle />
     </div>
     <ClientOnly>
       <highcharts :options="chartOptions" />
@@ -34,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
 import type { Count } from '~/types';
 
 const props = defineProps({
@@ -42,6 +46,7 @@ const props = defineProps({
 });
 
 const mode = ref<'ytd' | 'rolling'>('rolling');
+const displayMode = useChartDisplayMode();
 
 const counts: Count[] = props.data.counts;
 
@@ -54,16 +59,27 @@ const rollingStartMonthLabel = new Date(latestYear, latestMonth + 1, 1).toLocale
 
 const allYears = [...new Set(counts.map((item: Count) => new Date(item.month).getFullYear()))].sort();
 
+function daysInMonthOf(monthIso: string): number {
+  const d = new Date(monthIso);
+  return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+}
+
 function getYtdData() {
-  const values = allYears.map((year) => {
-    return counts
-      .filter((item: Count) => {
-        const d = new Date(item.month);
-        return d.getFullYear() === year && d.getMonth() <= latestMonth;
-      })
-      .reduce((acc: number, item: Count) => acc + item.count, 0);
+  const series = allYears.map((year) => {
+    const matching = counts.filter((item: Count) => {
+      const d = new Date(item.month);
+      return d.getFullYear() === year && d.getMonth() <= latestMonth;
+    });
+
+    const total = matching.reduce((acc: number, item: Count) => acc + item.count, 0);
+    const days = matching.reduce((acc: number, item: Count) => acc + daysInMonthOf(item.month), 0);
+
+    return { total, days };
   });
 
+  const values = series.map((s) =>
+    displayMode.value === 'daily' ? (s.days > 0 ? Math.round(s.total / s.days) : 0) : s.total,
+  );
   const max = Math.max(...values);
 
   return {
@@ -82,18 +98,23 @@ function getRollingData() {
     return startDate >= firstDataDate;
   });
 
-  const values = eligibleYears.map((year) => {
+  const series = eligibleYears.map((year) => {
     const endDate = new Date(year, latestMonth, 1);
     const startDate = new Date(year - 1, latestMonth + 1, 1);
 
-    return counts
-      .filter((item: Count) => {
-        const d = new Date(item.month);
-        return d >= startDate && d <= endDate;
-      })
-      .reduce((acc: number, item: Count) => acc + item.count, 0);
+    const matching = counts.filter((item: Count) => {
+      const d = new Date(item.month);
+      return d >= startDate && d <= endDate;
+    });
+
+    const total = matching.reduce((acc: number, item: Count) => acc + item.count, 0);
+    const days = matching.reduce((acc: number, item: Count) => acc + daysInMonthOf(item.month), 0);
+    return { total, days };
   });
 
+  const values = series.map((s) =>
+    displayMode.value === 'daily' ? (s.days > 0 ? Math.round(s.total / s.days) : 0) : s.total,
+  );
   const max = Math.max(...values);
 
   return {
@@ -107,7 +128,7 @@ function getRollingData() {
 
 const chartOptions = computed(() => {
   const modeData = mode.value === 'ytd' ? getYtdData() : getRollingData();
-
+  const isDaily = displayMode.value === 'daily';
   const titleSuffix = mode.value === 'ytd' ? ` (à date - janv. à ${latestMonthLabel})` : ' (12 mois glissants)';
 
   return {
@@ -116,7 +137,8 @@ const chartOptions = computed(() => {
     credits: { enabled: false },
     legend: { enabled: false },
     xAxis: { categories: modeData.categories },
-    yAxis: { min: 0, title: { text: 'Passages' } },
+    yAxis: { min: 0, title: { text: isDaily ? 'Passages / jour' : 'Passages' } },
+    tooltip: { valueSuffix: isDaily ? ' passages/jour' : ' passages' },
     plotOptions: {
       column: { pointPadding: 0.2, borderWidth: 0 },
       series: {
@@ -127,7 +149,7 @@ const chartOptions = computed(() => {
     },
     series: [
       {
-        name: 'passages',
+        name: isDaily ? 'passages/jour' : 'passages',
         data: modeData.data,
       },
     ],

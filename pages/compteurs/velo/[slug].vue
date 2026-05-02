@@ -21,6 +21,8 @@
 
     <CounterMaintenanceBanner :counts="counter.counts" />
 
+    <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
+
     <div v-if="(counter?.lines?.length || 0) > 0" class="mt-2 text-center justify-center">
       Ce compteur est installé sur
       <span>la </span>
@@ -52,6 +54,14 @@
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur vélo chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
+    <h2>Historique mensuel</h2>
+    <p>Nombre de passages détecté chaque mois depuis la mise en service du compteur.</p>
+    <ChartMonthlyHistogram
+      :title="graphTitles.monthlyHistogram"
+      :data="counter"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
+
     <h2>Comparaison des passages</h2>
     <p>
       Comparez la fréquentation cyclable pour un mois donné à travers les années, ou visualisez l'évolution mois par
@@ -78,6 +88,7 @@
 
 <script setup>
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { buildCounterStats } from '~/composables/useCounterStats';
 
 const { path } = useRoute();
 const { withoutTrailingSlash } = useUrl();
@@ -102,21 +113,28 @@ const { data: matchingVoitureCounter } = await useAsyncData(`voiture-match-${pat
 
 const graphTitles = {
   totalByYear: `Fréquentation cycliste annuelle - ${counter.value.name}`,
+  monthlyHistogram: `Fréquentation cycliste mensuelle - ${counter.value.name}`,
   monthComparison: `Fréquentation cycliste - ${counter.value.name}`,
 };
 
 const features = getCompteursFeatures({ counters: [counter.value], type: 'compteur-velo' });
 
-const DESCRIPTION = `Compteur vélo ${counter.value.name}`;
+const counterStats = computed(() => buildCounterStats(counter.value?.counts ?? [], 'vélos'));
+
+const PAGE_TITLE = `Compteur vélo ${counter.value.name}${counter.value.arrondissement ? ` (${counter.value.arrondissement})` : ''} | Cyclopolis`;
+const DESCRIPTION = `Compteur vélo ${counter.value.name}${counter.value.arrondissement ? ` à ${counter.value.arrondissement}` : ''}. ${counterStats.value.summarySentence} Suivez l'évolution de la fréquentation cycliste mois par mois et année par année.`;
 const IMAGE_URL = counter.value.imageUrl;
 useHead({
+  title: PAGE_TITLE,
   meta: [
-    // description
     { hid: 'description', name: 'description', content: DESCRIPTION },
-    { hid: 'og:description', property: 'og:description', DESCRIPTION },
-    { hid: 'twitter:description', name: 'twitter:description', DESCRIPTION },
-    // cover image
+    { hid: 'og:title', property: 'og:title', content: PAGE_TITLE },
+    { hid: 'og:description', property: 'og:description', content: DESCRIPTION },
+    { hid: 'og:type', property: 'og:type', content: 'article' },
     { hid: 'og:image', property: 'og:image', content: IMAGE_URL },
+    { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+    { hid: 'twitter:title', name: 'twitter:title', content: PAGE_TITLE },
+    { hid: 'twitter:description', name: 'twitter:description', content: DESCRIPTION },
     { hid: 'twitter:image', name: 'twitter:image', content: IMAGE_URL },
   ],
 });
