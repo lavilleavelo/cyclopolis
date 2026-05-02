@@ -26,35 +26,16 @@
 
     <!-- Single month mode: month dropdown + bar chart -->
     <template v-if="mode === 'single'">
-      <Listbox v-model="selectedMonth" as="div" class="w-44">
-        <ListboxLabel class="block text-sm font-medium text-gray-700 mb-1">Mois</ListboxLabel>
-        <div class="relative">
-          <ListboxButton
-            class="relative w-full cursor-pointer rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm"
-          >
-            <span class="block truncate font-medium text-gray-900">{{ selectedMonth.name }}</span>
-            <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <Icon name="mdi:chevron-down" class="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </span>
-          </ListboxButton>
-
-          <transition
-            leave-active-class="transition ease-in duration-100"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <ListboxOptions
-              class="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none list-none list-outside pl-0 text-sm"
-            >
-              <ListboxOption v-for="month in months" v-slot="{ active }" :key="month.name" :value="month" as="template">
-                <li :class="['cursor-pointer select-none py-1.5 px-3 text-gray-900', active ? 'bg-gray-100' : '']">
-                  {{ month.name }}
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </transition>
-        </div>
-      </Listbox>
+      <div class="flex items-center gap-2">
+        <label for="month-comparison-select" class="text-xs text-gray-500 whitespace-nowrap lg:text-sm">Mois</label>
+        <select
+          id="month-comparison-select"
+          v-model.number="selectedMonth"
+          class="text-xs border border-gray-300 rounded-md shadow-sm focus:ring-lvv-blue-600 focus:border-lvv-blue-600 py-1 pl-2 pr-6"
+        >
+          <option v-for="month in months" :key="month.value" :value="month.value">{{ month.name }}</option>
+        </select>
+      </div>
 
       <ClientOnly>
         <highcharts :options="singleMonthChartOptions" class="mt-8" />
@@ -63,36 +44,20 @@
 
     <!-- Multi-year overlay mode: line chart -->
     <template v-else>
-      <Listbox v-model="selectedYearCount" as="div" class="w-44 mt-2">
-        <ListboxLabel class="block text-sm font-medium text-gray-700 mb-1">Nombre d'années</ListboxLabel>
-        <div class="relative">
-          <ListboxButton
-            class="relative w-full cursor-pointer rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-lvv-blue-500 focus:border-lvv-blue-500 sm:text-sm"
-          >
-            <span class="block truncate font-medium text-gray-900">{{
-              selectedYearCount === allYears.length ? `Toutes (${selectedYearCount})` : selectedYearCount
-            }}</span>
-            <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <Icon name="mdi:chevron-down" class="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </span>
-          </ListboxButton>
-          <transition
-            leave-active-class="transition ease-in duration-100"
-            leave-from-class="opacity-100"
-            leave-to-class="opacity-0"
-          >
-            <ListboxOptions
-              class="absolute z-20 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none list-none list-outside pl-0 text-sm"
-            >
-              <ListboxOption v-for="n in yearCountOptions" v-slot="{ active }" :key="n" :value="n" as="template">
-                <li :class="['cursor-pointer select-none py-1.5 px-3 text-gray-900', active ? 'bg-gray-100' : '']">
-                  {{ n === allYears.length ? `Toutes (${n})` : n }}
-                </li>
-              </ListboxOption>
-            </ListboxOptions>
-          </transition>
-        </div>
-      </Listbox>
+      <div class="flex items-center gap-2 mt-2">
+        <label for="year-count-comparison-select" class="text-xs text-gray-500 whitespace-nowrap lg:text-sm">
+          Nombre d'années
+        </label>
+        <select
+          id="year-count-comparison-select"
+          v-model.number="selectedYearCount"
+          class="text-xs border border-gray-300 rounded-md shadow-sm focus:ring-lvv-blue-600 focus:border-lvv-blue-600 py-1 pl-2 pr-6"
+        >
+          <option v-for="n in yearCountOptions" :key="n" :value="n">
+            {{ n === allYears.length ? `Toutes (${n})` : n }}
+          </option>
+        </select>
+      </div>
       <ClientOnly>
         <highcharts :options="multiYearChartOptions" class="mt-4" />
       </ClientOnly>
@@ -101,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-import { Listbox, ListboxButton, ListboxLabel, ListboxOptions, ListboxOption } from '@headlessui/vue';
 import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
 import type { Count } from '~/types';
 
@@ -148,7 +112,8 @@ const allYears = [...new Set(counts.map((item: Count) => new Date(item.month).ge
 
 const lastRecord = counts[counts.length - 1]!;
 const lastRecordMonth = new Date(lastRecord.month).getMonth();
-const selectedMonth = ref(months.find((month) => month.value === lastRecordMonth)!);
+const selectedMonth = ref<number>(lastRecordMonth);
+const selectedMonthName = computed(() => months[selectedMonth.value]?.name ?? '');
 
 const defaultYearCount = Math.min(4, allYears.length);
 const selectedYearCount = ref(defaultYearCount);
@@ -162,7 +127,7 @@ const yearCountOptions = computed(() => {
 
 const singleMonthCounts = computed(() => {
   return counts
-    .filter((count: Count) => new Date(count.month).getMonth() === selectedMonth.value.value)
+    .filter((count: Count) => new Date(count.month).getMonth() === selectedMonth.value)
     .sort((a: Count, b: Count) => new Date(a.month).getTime() - new Date(b.month).getTime());
 });
 
@@ -179,7 +144,7 @@ const singleMonthChartOptions = computed(() => {
 
   return {
     chart: { type: 'column' },
-    title: { text: `${props.title} - ${selectedMonth.value.name}` },
+    title: { text: `${props.title} - ${selectedMonthName.value}` },
     credits: { enabled: false },
     legend: { enabled: false },
     xAxis: { categories: singleMonthYears.value },

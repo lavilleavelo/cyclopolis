@@ -125,4 +125,21 @@ const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } 
   comparisonPeriod,
   showMap,
 });
+
+const PAGE_TITLE = "Compteurs vélo de l'agglomération lyonnaise | Cyclopolis";
+const DESCRIPTION =
+  'Carte interactive et classement des compteurs vélo de la métropole de Lyon. ' +
+  'Suivez la fréquentation cycliste mois par mois, comparez les années et explorez ' +
+  "l'évolution du trafic.";
+
+useHead({
+  title: PAGE_TITLE,
+  meta: [
+    { hid: 'description', name: 'description', content: DESCRIPTION },
+    { hid: 'og:title', property: 'og:title', content: PAGE_TITLE },
+    { hid: 'og:description', property: 'og:description', content: DESCRIPTION },
+    { hid: 'twitter:title', name: 'twitter:title', content: PAGE_TITLE },
+    { hid: 'twitter:description', name: 'twitter:description', content: DESCRIPTION },
+  ],
+});
 </script>

@@ -159,4 +159,21 @@ const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } 
   comparisonPeriod,
   showMap,
 });
+
+const PAGE_TITLE = 'Comparaison vélo / voiture - Agglomération lyonnaise | Cyclopolis';
+const DESCRIPTION =
+  'Comparez la fréquentation cycliste et automobile sur un même axe dans la métropole ' +
+  "de Lyon. Visualisez l'évolution du trafic vélo et voiture mois par mois et " +
+  'année par année.';
+
+useHead({
+  title: PAGE_TITLE,
+  meta: [
+    { hid: 'description', name: 'description', content: DESCRIPTION },
+    { hid: 'og:title', property: 'og:title', content: PAGE_TITLE },
+    { hid: 'og:description', property: 'og:description', content: DESCRIPTION },
+    { hid: 'twitter:title', name: 'twitter:title', content: PAGE_TITLE },
+    { hid: 'twitter:description', name: 'twitter:description', content: DESCRIPTION },
+  ],
+});
 </script>

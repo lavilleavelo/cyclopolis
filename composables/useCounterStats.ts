@@ -82,7 +82,7 @@ export function buildCounterStats(counts: Count[], unitLabel = 'passages'): Coun
   const growth = computeGrowth(sorted);
 
   const summaryParts = [
-    `En moyenne ${formatNumber(twelveMonthAverageDaily)} ${unitLabel} par jour sur les 12 derniers mois (depuis ${formatMonthLabel(firstMonth.month)}).`,
+    `En moyenne ${formatNumber(twelveMonthAverageDaily)} ${unitLabel} par jour sur les 12 derniers mois.`,
   ];
 
   if (growth.growthPercent !== null && growth.growthFromYear !== null && growth.growthToYear !== null) {

@@ -16,7 +16,7 @@
           </template>
           <Map
             :features="filteredFeatures"
-            :options="{ roundedCorners: false, legend: false, filter: false, cooperativeGestures: false }"
+            :options="{ roundedCorners: false, legend: false, filter: false, cooperativeGestures: true }"
             style="height: 40vh"
             :highlighted-counter="highlightedCounter"
           />
@@ -241,6 +241,7 @@
         </div>
       </div>
     </div>
+    <LvvCta class="py-10" />
   </div>
 </template>
 
