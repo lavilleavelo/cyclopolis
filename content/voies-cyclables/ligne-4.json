@@ -903,7 +903,8 @@
       "properties": {
         "line": 4,
         "name": "Villeurbanne - Charpennes République",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "20/05/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
