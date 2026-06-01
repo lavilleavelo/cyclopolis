@@ -105,40 +105,67 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   const maxDate = ref(0);
   const dateSteps = ref<number[]>([]);
 
-  const query = route.query;
+  function applyFiltersFromQuery() {
+    const query = route.query;
 
-  if (Object.hasOwn(query, 'statuses')) {
-    const statusesQuery = query.statuses;
-    const enabled = statusesQuery && (statusesQuery as string).length > 0 ? (statusesQuery as string).split(',') : [];
-    statusFilters.value.forEach((f) => (f.isEnabled = f.statuses.every((s) => enabled.includes(s))));
+    if (Object.hasOwn(query, 'statuses')) {
+      const statusesQuery = query.statuses;
+      const enabled = statusesQuery && (statusesQuery as string).length > 0 ? (statusesQuery as string).split(',') : [];
+      statusFilters.value.forEach((f) => (f.isEnabled = f.statuses.every((s) => enabled.includes(s))));
+    }
+
+    if (Object.hasOwn(query, 'types')) {
+      const typesQuery = query.types;
+      const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
+      typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
+    }
+
+    if (Object.hasOwn(query, 'qualities')) {
+      const qualitiesQuery = query.qualities;
+      const enabled =
+        qualitiesQuery && (qualitiesQuery as string).length > 0 ? (qualitiesQuery as string).split(',') : [];
+      qualityFilters.value.forEach((f) => (f.isEnabled = f.qualities.every((q) => enabled.includes(q))));
+    }
+
+    if (Object.hasOwn(query, 'counters') || query.modal === 'counter') {
+      showCounters.value = query.counters === '1' || query.modal === 'counter';
+    }
+
+    if (lineFilters.value.length > 0 && Object.hasOwn(query, 'lines')) {
+      const linesQuery = query.lines;
+      const enabled =
+        linesQuery && (linesQuery as string).length > 0 ? (linesQuery as string).split(',').map((l) => +l) : [];
+      lineFilters.value.forEach((f) => (f.isEnabled = enabled.includes(f.line)));
+    }
+
+    if (dateSteps.value.length > 0 && query.start && query.end) {
+      const parseYearMonth = (str: string): number => {
+        const parts = str.split('-');
+        if (parts.length !== 2) {
+          return 999999;
+        }
+
+        const year = parseInt(parts[0]!);
+        const month = parseInt(parts[1]!) - 1;
+        return year * 12 + month;
+      };
+
+      const startMonth = parseYearMonth(query.start as string);
+      const endMonth = parseYearMonth(query.end as string);
+      const startIdx = dateSteps.value.findIndex((m) => m >= startMonth);
+      const endIdx = dateSteps.value.findIndex((m) => m >= endMonth);
+      dateRange.value = [startIdx >= 0 ? startIdx : 0, endIdx >= 0 ? endIdx : maxDate.value];
+    }
   }
 
-  if (Object.hasOwn(query, 'types')) {
-    const typesQuery = query.types;
-    const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
-    typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
-  }
+  watch(() => route.query, applyFiltersFromQuery, { immediate: true });
 
-  if (Object.hasOwn(query, 'counters') || query.modal === 'counter') {
-    showCounters.value = query.counters === '1' || query.modal === 'counter';
-  }
-
-  if (Object.hasOwn(query, 'qualities')) {
-    const qualitiesQuery = query.qualities;
-    const enabled =
-      qualitiesQuery && (qualitiesQuery as string).length > 0 ? (qualitiesQuery as string).split(',') : [];
-    qualityFilters.value.forEach((f) => (f.isEnabled = f.qualities.every((q) => enabled.includes(q))));
-  }
-
-  watch(
-    () => route.query,
-    (newQuery) => {
-      if (newQuery.counters === '1' || newQuery.modal === 'counter') {
-        showCounters.value = true;
-      }
-    },
-    { immediate: true },
-  );
+  const isReady = ref(false);
+  onMounted(() => {
+    void nextTick(() => {
+      isReady.value = true;
+    });
+  });
 
   function processDateData(geojsonData: Collections['voiesCyclablesGeojson'][] | undefined | null) {
     if (!geojsonData) return;
@@ -166,26 +193,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
       minDate.value = 0;
       maxDate.value = dateSteps.value.length - 1;
 
-      if (route.query.start && route.query.end) {
-        const parseYearMonth = (str: string): number => {
-          const parts = str.split('-');
-          if (parts.length !== 2) {
-            return 999999;
-          }
-
-          const year = parseInt(parts[0]!);
-          const month = parseInt(parts[1]!) - 1;
-          return year * 12 + month;
-        };
-
-        const startMonth = parseYearMonth(route.query.start as string);
-        const endMonth = parseYearMonth(route.query.end as string);
-        const startIdx = dateSteps.value.findIndex((m) => m >= startMonth);
-        const endIdx = dateSteps.value.findIndex((m) => m >= endMonth);
-        dateRange.value = [startIdx >= 0 ? startIdx : 0, endIdx >= 0 ? endIdx : maxDate.value];
-      } else {
-        dateRange.value = [0, maxDate.value];
-      }
+      dateRange.value = [0, maxDate.value];
     }
   }
 
@@ -193,6 +201,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     watchEffect(() => {
       if (allGeojsons.value && allGeojsons.value.length > 0) {
         processDateData(allGeojsons.value);
+        applyFiltersFromQuery();
       }
     });
   }
@@ -226,12 +235,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
               };
             });
 
-          if (Object.hasOwn(route.query, 'lines')) {
-            const linesQuery = route.query.lines;
-            const enabled =
-              linesQuery && (linesQuery as string).length > 0 ? (linesQuery as string).split(',').map((l) => +l) : [];
-            lineFilters.value.forEach((f) => (f.isEnabled = enabled.includes(f.line)));
-          }
+          applyFiltersFromQuery();
         }
       },
       { immediate: true },
@@ -260,6 +264,10 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
   watch(
     [statusFilters, typeFilters, qualityFilters, lineFilters, dateRange, showCounters],
     () => {
+      if (!isReady.value) {
+        return;
+      }
+
       const newQuery = { ...route.query };
 
       const allStatuses = statusFilters.value.flatMap((f) => f.statuses);
