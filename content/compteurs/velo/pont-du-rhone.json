@@ -1,0 +1,35 @@
+{
+  "name": "Pont du Rhône",
+  "description": "Le compteur vélo du pont du Rhône - Route de Givors.",
+  "arrondissement": "Givors",
+  "idPdc": 300048112,
+  "coordinates": [
+    4.778847,
+    45.58081
+  ],
+  "lines": [
+    3
+  ],
+  "counts": [
+    {
+      "month": "2026-01-01",
+      "count": 2424
+    },
+    {
+      "month": "2026-02-01",
+      "count": 3470
+    },
+    {
+      "month": "2026-03-01",
+      "count": 5534
+    },
+    {
+      "month": "2026-04-01",
+      "count": 7155
+    },
+    {
+      "month": "2026-05-01",
+      "count": 7498
+    }
+  ]
+}

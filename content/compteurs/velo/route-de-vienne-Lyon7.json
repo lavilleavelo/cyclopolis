@@ -1,0 +1,52 @@
+{
+  "name": "Route de Vienne - Lyon 7",
+  "description": "Le compteur vélo de la route de Vienne à Lyon 7.",
+  "arrondissement": "Lyon 7",
+  "idPdc": 300060393,
+  "coordinates": [
+    4.85185,
+    45.739058
+  ],
+  "lines": [
+    7
+  ],
+  "cyclopolisId": "route-de-vienne-lyon7",
+  "counts": [
+    {
+      "month": "2025-09-01",
+      "count": 22042
+    },
+    {
+      "month": "2025-10-01",
+      "count": 99270
+    },
+    {
+      "month": "2025-11-01",
+      "count": 85149
+    },
+    {
+      "month": "2025-12-01",
+      "count": 75552
+    },
+    {
+      "month": "2026-01-01",
+      "count": 81149
+    },
+    {
+      "month": "2026-02-01",
+      "count": 84714
+    },
+    {
+      "month": "2026-03-01",
+      "count": 109932
+    },
+    {
+      "month": "2026-04-01",
+      "count": 109759
+    },
+    {
+      "month": "2026-05-01",
+      "count": 106485
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Avenue du Dauphiné - Chassieu",
+  "description": "Le compteur vélo de l'Avenue du Dauphiné à Chassieu.",
+  "arrondissement": "Chassieu",
+  "idPdc": 300048117,
+  "coordinates": [
+    4.968715,
+    45.733439
+  ],
+  "lines": [
+    11
+  ],
+  "cyclopolisId": "dauphine-chassieu",
+  "counts": [
+    {
+      "month": "2025-12-01",
+      "count": 2855
+    },
+    {
+      "month": "2026-01-01",
+      "count": 4356
+    },
+    {
+      "month": "2026-02-01",
+      "count": 4611
+    },
+    {
+      "month": "2026-03-01",
+      "count": 5890
+    },
+    {
+      "month": "2026-04-01",
+      "count": 7927
+    },
+    {
+      "month": "2026-05-01",
+      "count": 6714
+    }
+  ]
+}
