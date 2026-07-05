@@ -2,6 +2,10 @@ import type { Count } from '~/types';
 
 const MAX_GROWTH_YEARS = 6;
 
+// Les données 2020 sont faussées par le Covid
+const COVID_YEAR = 2020;
+const PRE_COVID_REFERENCE_YEAR = 2019;
+
 export type CounterStats = {
   totalSinceStart: number;
   firstMonthLabel: string;
@@ -195,10 +199,18 @@ function computeGrowth(sortedCounts: Count[]): {
 
   const firstIdx = monthIndexOf(sortedCounts[0]!.month);
 
-  for (let yearsBack = MAX_GROWTH_YEARS; yearsBack >= 1; yearsBack--) {
+  const covidStartIdx = COVID_YEAR * 12;
+  const covidEndIdx = COVID_YEAR * 12 + 11;
+  const maxYearsBack = Math.max(MAX_GROWTH_YEARS, latestYear - PRE_COVID_REFERENCE_YEAR);
+
+  for (let yearsBack = maxYearsBack; yearsBack >= 1; yearsBack--) {
     const refStartIdx = recentStartIdx - 12 * yearsBack;
     const refEndIdx = latestIdx - 12 * yearsBack;
     if (refStartIdx < firstIdx) {
+      continue;
+    }
+
+    if (refStartIdx <= covidEndIdx && refEndIdx >= covidStartIdx) {
       continue;
     }
 
