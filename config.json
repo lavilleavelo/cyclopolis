@@ -1,13 +1,13 @@
 {
   "revName": {
-    "plural": "Voies Lyonnaises",
-    "singular": "Voie Lyonnaise",
+    "plural": "Voies Ponotes",
+    "singular": "Voie Ponotee",
     "abbreviated": "VL"
   },
-  "assoName": "La Ville à Vélo",
-  "assoLink": "https://lavilleavelo.org",
-  "slug": "voie-lyonnaise",
-  "center": [4.878973368615107, 45.746703113094895],
+  "assoName": "La Puycyclette",
+  "assoLink": "https://www.lapuycyclette.fr",
+  "slug": "voie-ponote",
+  "center": [45.04191396161457, 3.8836505274670823],
   "bounds": [
     [4.2, 45.4],
     [5.5, 46.1]
