@@ -41,7 +41,7 @@
     "@panoramax/web-viewer": "^4.4.0",
     "@vueuse/core": "^14.2.1",
     "better-sqlite3": "^12.8.0",
-    "highcharts": "^12.5.0",
+    "highcharts": "^12.6.0",
     "highcharts-vue": "^2.0.1",
     "maplibre-gl": "^5.22.0",
     "zod": "^4.3.6"
