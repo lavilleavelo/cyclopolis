@@ -81,7 +81,7 @@ Un premier tronçon entre la rue Brunel et le T3 est livré en janvier 2026, pui
 Cette section est en tronçon commun avec la :line-link{line=1 anchor=vaulx-en-velin-gabriel-péri-à-la-doua-croix-luizet}.
 
 ### Traversée du campus de la Doua
-La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccorde ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé a été recouvert d'un enrobé lisse en octobre 2025. Enfin, le long du boulevard Laurent Bonnevay, une nouvelle voie verte de 4m de large a été créée en même temps sur l'ancien cheminement piéton stabilisé côté Sud.
+La Voie Lyonnaise empruntera les aménagements cyclables récents existants (2021) en passant par l'avenue Einstein, la rue des Sports et la voie verte du boulevard Niels Bohr. Elle se raccorde ensuite à la voie verte existante au Sud du rond-point de la Feyssine, dont le revêtement inconfortable en sable stabilisé a été recouvert d'un enrobé lisse par portions octobre 2025 puis mai 2026 (reste 35m de vieil enrobé très abimé en haut de la rampe). Enfin, le long du boulevard Laurent Bonnevay, une nouvelle voie verte de 4m de large a été créée en même temps sur l'ancien cheminement piéton stabilisé côté Sud.
 
 #### Rue des Sports
 

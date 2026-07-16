@@ -848,7 +848,7 @@
       "type": "Feature",
       "properties": {
         "line": 11,
-        "name": "Kimmerling - Sept Chemins",
+        "name": "Kimmerling - Porte de Montchat",
         "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
@@ -871,10 +871,44 @@
           [4.907049519411913,45.751035139685285],
           [4.907583106221409,45.750945828598645],
           [4.908223362810617,45.750821768183044],
+          [4.908772349610558,45.750739188171565]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Route de Genas - La Clairière",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#reconnaissance-balzac-à-bron-sept-chemins"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.908772349610558,45.750739188171565],
           [4.910164396697013,45.75044248226612],
           [4.910510840415952,45.750396800840576],
-          [4.910883178317363,45.75029948695564],
+          [4.9114602, 45.7501232]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Lacouture - Sept Chemins",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#reconnaissance-balzac-à-bron-sept-chemins"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9114602, 45.7501232],
           [4.91208128494597,45.74993355185819],
           [4.913225014755,45.74956521895814],
           [4.913541186873033,45.749404259607985],

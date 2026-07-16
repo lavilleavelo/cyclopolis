@@ -141,7 +141,7 @@ Le projet a été validé et déclaré d'utilité publique le 12 juin 2024.\
 
 ::banner{type="wip"}
 Entre Reconnaissance Balzac et Kimmerling, les travaux préparatoires sur les réseaux ont eu lieu entre janvier 2024 et novembre 2024, et se sont enchainés avec les travaux d'aménagements de novembre 2024 jusqu'à fin mars 2026.\
-Entre Kimmerling et Sept Chemins, les travaux préparatoires sur les réseaux ont lieu entre fin 2024 et fin 2025, et se sont enchainés avec les travaux d'aménagements depuis début 2026 et jusqu'à l'automne 2027. Certains points durs perdureront après 2027 le temps que certains immeubles soient déconstruits.
+Entre Kimmerling et Sept Chemins, les travaux préparatoires sur les réseaux ont lieu entre fin 2024 et début 2026, et se sont enchainés avec les travaux d'aménagements depuis le printemps 2026 et jusqu'à l'automne 2027. Les travaux devant l'Intermarché au niveau du quartier de la Clairière sont suspendus pour une durée indéterminée à cause d'un revirement foncier décidé par la nouvelle majorité 2026 au SYTRAL. En outre, certains points durs perdureront après 2027 le temps que certains immeubles soient déconstruits.
 ::
 
 ### Bron - Sept Chemins à Boulevard Urbain Est

@@ -96,6 +96,32 @@
       "type": "Feature",
       "properties": {
         "type": "danger",
+        "name": "Carrefour Carnot - Chem du Creuset",
+        "description": "Absence d'aménagement de traversée vélo",
+        "danger": "Traversée cycle conflictuelle sur passage piéton non alignée avec rue perpendiculaire"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.831068, 45.886646]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
+        "name": "Carrefour Carnot - Chemin Bressan",
+        "description": "Absence d'aménagement de traversée vélo",
+        "danger": "Traversée cycle conflictuelle sur passage piéton non alignée avec rue perpendiculaire"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.834346, 45.881720]
+      }
+    }, 
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
         "name": "Quai du Commerce - La Belle Equipe",
         "description": "Voie verte étroite avec chicanes dangereuses",
         "danger": "Tronçon de 30m de fort conflit piéton-vélo avec virages serrés et mauvaise visibilité"
@@ -133,6 +159,20 @@
         "coordinates": [4.815576, 45.729368]
       }
     },  
+    {
+			"type": "Feature",
+			"properties": {
+				"id": "Barrage-commun",
+				"type": "danger",
+				"name": "Trottoir partagé étroit sans visibilité",
+				"description": "Voie verte étroite sur trottoir dans un virage",
+				"danger": "Conflits réguliers entre piétons et entre cyclistes"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.828277, 45.693328]
+			}
+		},
     {
       "type": "Feature",
       "properties": {
@@ -422,7 +462,8 @@
       "properties": {
         "line": 3,
         "name": "Neuville - Avenue Sadi Carnot",
-        "status": "planned",
+        "status": "done",
+        "doneAt": "15/09/2008",
         "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#massieux-à-neuville"

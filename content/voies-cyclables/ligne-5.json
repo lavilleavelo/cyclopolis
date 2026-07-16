@@ -57,6 +57,19 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"type": "danger",
+				"name": "Connexion Bonnevay - Rampe Niels Bohr",
+				"description": "Vieil enrobé très dégradé avec bordure accidentogène en haut de la rampe",
+				"danger": "Présence de trous et d'ornières salissantes, et risque de chute en haut de la rampe"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.863798, 45.784465]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
 				"id": "Valmy-commun",
 				"type": "danger",
 				"name": "Place Valmy",
@@ -94,6 +107,20 @@
 			"geometry": {
 				"type": "Point",
 				"coordinates": [4.798344, 45.72017]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Barrage-commun",
+				"type": "danger",
+				"name": "Trottoir partagé étroit sans visibilité",
+				"description": "Voie verte étroite sur trottoir dans un virage",
+				"danger": "Conflits réguliers entre piétons et entre cyclistes"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [4.828277, 45.693328]
 			}
 		},
 		{
@@ -1617,7 +1644,8 @@
 			"properties": {
 				"line": 5,
 				"name": "Boulevard Laurent Bonnevay",
-				"status": "planned",
+				"status": "done",
+				"doneAt": "04/06/2026",
 				"type": "voie-verte",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#traversée-du-campus-de-la-doua"
@@ -1626,15 +1654,13 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.862144082681112, 45.78452557526816],
-					[4.863498273402648, 45.78445648946956],
-					[4.863604151721091, 45.78443861366232],
-					[4.864198767073248, 45.7844660140506],
-					[4.864651382869312, 45.78447348003246],
-					[4.865427417132935, 45.78450116944249],
-					[4.865753093351486, 45.78452699163026],
-					[4.86581719966189, 45.78444764592889],
-					[4.8659665588218095, 45.78441267183373],
-					[4.866173785472881, 45.784361876081945]
+					[4.8635545, 45.7844344],
+					[4.8640294, 45.784457],
+					[4.8640726, 45.7844118],
+					[4.8641409, 45.7843943],
+					[4.8647454, 45.7843792],
+					[4.865026, 45.7843365],
+					[4.8650944, 45.7843064]
 				]
 			}
 		},
@@ -1652,6 +1678,11 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
+					[4.8650944, 45.7843064],
+					[4.8653427, 45.7843591],
+					[4.8657204, 45.7843917],
+					[4.8660227, 45.7844118],
+					[4.866173785472881, 45.784361876081945],
 					[4.866173785472881, 45.784361876081945],
 					[4.866426744816749, 45.78437289342651],
 					[4.867758342210067, 45.78451139571389],

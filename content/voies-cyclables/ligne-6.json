@@ -587,9 +587,10 @@
       "properties": {
         "line": 6,
         "name": "Quai Perrache H7",
-        "status": "planned",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "done",
+        "doneAt": "01/09/2022",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-6#quai-perrache"
       },
       "geometry": {
@@ -605,8 +606,8 @@
       "properties": {
         "line": 6,
         "name": "Quai Perrache Sud",
-        "status": "planned",
-        "type": "voie-verte",
+        "status": "postponed",
+        "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-6#quai-perrache"
       },

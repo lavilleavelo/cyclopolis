@@ -141,13 +141,13 @@ credit: Métropole de Lyon
 Après être passée sous la M7 dans des modalités qui restent à définir, la Voie Lyonnaise 6 empruntera le quai Perrache via une piste cyclable bidirectionnelle située le long des façades.
 
 La section rue du Belier - rue Casimir Périer a été réalisée à l'été 2021.\
-La section rue Casimir Périer - rue Emile Duployé a été aménagée en transitoire à l'été 2022 en attendant la fin des travaux des immeubles de la seconde tranche d'aménagement du quartier Confluence.\
+La section rue Montrochet - rue Emile Duployé a été aménagée en transitoire à l'été 2022 en attendant la fin des travaux des immeubles de la seconde tranche d'aménagement du quartier Confluence.\
 
 ::banner{type="wip"}
 La section rue Casimir Périer - rue Montrochet a été aménagée entre juillet et septembre 2025.
 ::
 
-La section rue Duployé - pont de la Mulatière devrait faire l'objet d'un aménagement transitoire en voie verte début 2026 pour assurer une continuité cyclable à court-terme.
+La section rue Duployé - pont de la Mulatière devaient faire l'objet d'un aménagement transitoire en voie verte début 2026 pour assurer une continuité cyclable à court-terme, mais le changement de majorité aux commandes de la SPL Confluence a reporté le projet à une date incertaine.
 
 ::content-image
 ---
