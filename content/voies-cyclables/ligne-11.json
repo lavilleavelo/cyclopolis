@@ -98,6 +98,363 @@
       "type": "Feature",
       "properties": {
         "line": 11,
+        "name": "Chemin des Aubépines",
+        "status": "done",
+        "doneAt":"04/11/2013",
+        "type": "velorue",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7596543, 45.7478864],
+					[4.7600297, 45.7476781],
+					[4.7602423, 45.7475266],
+					[4.7603961, 45.7473214],
+					[4.7604278, 45.7470689],
+					[4.7604459, 45.7469079],
+					[4.7605273, 45.7467501],
+					[4.7594779, 45.7464786],
+					[4.7575645, 45.7458821],
+					[4.7570941, 45.7457842],
+					[4.7565603, 45.7456863],
+					[4.7561894, 45.7455159],
+					[4.7557823, 45.7453707],
+					[4.7550586, 45.7452981],
+					[4.7546108, 45.7452855],
+					[4.7542037, 45.745336],
+					[4.7535659, 45.7454843],
+					[4.7531407, 45.7454591]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Chemin de la Poterie Ouest",
+        "status": "done",
+        "doneAt":"04/11/2013",
+        "type": "velorue",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7613822, 45.7509481],
+					[4.7610384, 45.7491648],
+					[4.7609525, 45.7487892],
+					[4.7608349, 45.7485619],
+					[4.7606585, 45.7483662],
+					[4.7604549, 45.7482242],
+					[4.7599212, 45.7479969],
+					[4.7596543, 45.7478864]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Chemin de la Poterie Est",
+        "status": "done",
+        "doneAt":"04/11/2013",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7655437, 45.7503989],
+					[4.7651049, 45.7503611],
+					[4.7649195, 45.7504589],
+					[4.7646617, 45.7504873],
+					[4.7643902, 45.7505946],
+					[4.7638384, 45.7511249],
+					[4.7634584, 45.7514658],
+					[4.762789, 45.7517877],
+					[4.7623547, 45.7518698],
+					[4.76183, 45.751753],
+					[4.7616129, 45.751633],
+					[4.7614772, 45.7514247],
+					[4.7613822, 45.7509481]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rond point d'Alaï",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7661634, 45.7507209],
+					[4.7659599, 45.7505788],
+					[4.7658015, 45.7504747],
+					[4.7655437, 45.7503989]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Joliot-Curie Ouest",
+        "status": "done",
+        "doneAt": "10/04/2010",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7689362, 45.7512638],
+					[4.768511, 45.7510397],
+					[4.767923, 45.7509103],
+					[4.7669233, 45.7507367],
+					[4.7664031, 45.7506483],
+					[4.7662493, 45.7506578],
+					[4.7661634, 45.7507209]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Alaï",
+        "status": "done",
+        "doneAt": "10/04/2010",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7716457, 45.7526683],
+					[4.7712974, 45.7524789],
+					[4.7711934, 45.7524032],
+					[4.7710893, 45.7523874],
+					[4.7706686, 45.7521412],
+					[4.7705963, 45.752037],
+					[4.7700309, 45.7516836],
+					[4.769565, 45.7514689],
+					[4.7691669, 45.7513143],
+					[4.7690493, 45.7513048],
+					[4.7689362, 45.7512638]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Allée des Garennes",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.7733308, 45.7544875],
+					[4.7731655, 45.7543758],
+					[4.7730117, 45.754259],
+					[4.7728625, 45.7541012],
+					[4.7726092, 45.7537666],
+					[4.7722654, 45.7532743],
+					[4.7719352, 45.7529145],
+					[4.7716457, 45.7526683]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Constellation-commun",
+        "line": 11,
+        "name": "Avenue de la Constellation",
+        "status": "postponed",
+        "text": "variante Constellation",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7782498, 45.7573866],
+					[4.7782136, 45.7572383],
+					[4.7780869, 45.7569448],
+					[4.7778698, 45.7565471],
+					[4.7775939, 45.7561716],
+					[4.7773089, 45.7558781],
+					[4.7769968, 45.7556729],
+					[4.7765264, 45.7554425],
+					[4.7761012, 45.75531],
+					[4.7757484, 45.7552216],
+					[4.7749568, 45.7551048],
+					[4.7744456, 45.755007],
+					[4.7740431, 45.7548681],
+					[4.7736857, 45.7547135],
+					[4.7734776, 45.7545935],
+					[4.7733308, 45.7544875]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Constellation-commun",
+        "line": 11,
+        "name": "Chemin de la Raude",
+        "status": "postponed",
+        "text": "variante Raude",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7756827, 45.757959],
+					[4.7751053, 45.7569934],
+					[4.774528, 45.7561581],
+					[4.7737383, 45.7552043],
+					[4.7734157, 45.7548607],
+					[4.7733308, 45.7546652],
+					[4.7733308, 45.7544875]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Constellation-commun",
+        "line": 11,
+        "name": "Avenue Brosset Ouest",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7782514, 45.7573368],
+					[4.7776525, 45.757408],
+					[4.7770582, 45.7575324],
+					[4.7756827, 45.757959]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Avenue Brosset Est",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7821129, 45.7566285],
+					[4.7799739, 45.7570903],
+					[4.7782514, 45.7573368]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Avenue de Ménival",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7879988, 45.7559272],
+					[4.7856717, 45.7568946],
+					[4.7854139, 45.7569675],
+					[4.7842922, 45.7570015],
+					[4.7840274, 45.7569724],
+					[4.7828778, 45.7566855],
+					[4.7825921, 45.7566321],
+					[4.7823204, 45.7566175],
+					[4.7821129, 45.7566285]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Nicolas Sicard",
+        "status": "done",
+        "doneAt": "15/01/2005",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7913152, 45.7560098],
+					[4.7908345, 45.7559515],
+					[4.7906951, 45.7559418],
+					[4.7899705, 45.7560293],
+					[4.7895107, 45.7560487],
+					[4.7882775, 45.7559855],
+					[4.7879988, 45.7559272]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Joliot-Curie Est",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7970005, 45.756389],
+					[4.7961324, 45.756289],
+					[4.7959415, 45.7563064],
+					[4.7947013, 45.7566126],
+					[4.7944435, 45.7566126],
+					[4.7912873, 45.756005]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
         "name": "Place Bénédict Tessier",
         "status": "postponed",
         "type": "aucun",
@@ -107,7 +464,7 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.796991623051724, 45.75635943687695],
+          [4.7970005, 45.756389],
           [4.797688614809516, 45.7564020791817]
         ]
       }
