@@ -1006,7 +1006,7 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.770965878592818, 45.75210810283451],
+					[4.7708911, 45.7522688],
 					[4.771994610077854, 45.750743343273456],
 					[4.772355204539224, 45.74950233705451],
 					[4.77239301443467, 45.74896864355185],
@@ -1032,8 +1032,119 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Alai-commun",
 				"line": 5,
-				"name": "Traversée de Tassin",
+				"name": "Alaï Est",
+				"status": "done",
+				"doneAt": "10/04/2010",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[4.7716457, 45.7526683],
+				[4.7712974, 45.7524789],
+				[4.7711934, 45.7524032],
+				[4.7710893, 45.7523874],
+				[4.7708911, 45.7522688]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Garennes-commun",
+				"line": 5,
+				"name": "Allée des Garennes",
+				"status": "done",
+				"doneAt": "10/04/2006",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7733308, 45.7544875],
+					[4.7731655, 45.7543758],
+					[4.7730117, 45.754259],
+					[4.7728625, 45.7541012],
+					[4.7726092, 45.7537666],
+					[4.7722654, 45.7532743],
+					[4.7719352, 45.7529145],
+					[4.7716457, 45.7526683]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Constellation-commun",
+				"line": 5,
+				"name": "Chemin de la Raude",
+				"status": "variante-postponed",
+				"text": "variante Raude",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7756827, 45.757959],
+					[4.7751053, 45.7569934],
+					[4.774528, 45.7561581],
+					[4.7737383, 45.7552043],
+					[4.7734157, 45.7548607],
+					[4.7733308, 45.7546652],
+					[4.7733308, 45.7544875]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Carrefour Libération",
+				"status": "done",
+				"doneAt": "03/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7747163, 45.7580924],
+					[4.7790138, 45.7617915]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Avenue De Gaulle Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7756705, 45.7579252],
+					[4.7747163, 45.7580924]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Avenue De Gaulle Nord",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -1043,8 +1154,7 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.770965878592818, 45.75210810283451],
-					[4.770138985525162, 45.754166424002705],
-					[4.781364592746991, 45.763849704604105]
+					[4.7756705, 45.7579252]
 				]
 			}
 		},
