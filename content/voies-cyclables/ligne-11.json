@@ -232,7 +232,33 @@
       "type": "Feature",
       "properties": {
         "line": 11,
-        "name": "Alaï",
+        "name": "Alaï Ouest",
+        "status": "done",
+        "doneAt": "10/04/2010",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7708911, 45.7522688],
+          [4.7706686, 45.7521412],
+          [4.7705963, 45.752037],
+          [4.7700309, 45.7516836],
+          [4.769565, 45.7514689],
+          [4.7691669, 45.7513143],
+          [4.7690493, 45.7513048],
+          [4.7689362, 45.7512638]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Alai-commun",
+        "line": 11,
+        "name": "Alaï Est",
         "status": "done",
         "doneAt": "10/04/2010",
         "type": "bidirectionnelle",
@@ -243,22 +269,17 @@
         "type": "LineString",
         "coordinates": [
           [4.7716457, 45.7526683],
-					[4.7712974, 45.7524789],
-					[4.7711934, 45.7524032],
-					[4.7710893, 45.7523874],
-					[4.7706686, 45.7521412],
-					[4.7705963, 45.752037],
-					[4.7700309, 45.7516836],
-					[4.769565, 45.7514689],
-					[4.7691669, 45.7513143],
-					[4.7690493, 45.7513048],
-					[4.7689362, 45.7512638]
+          [4.7712974, 45.7524789],
+          [4.7711934, 45.7524032],
+          [4.7710893, 45.7523874],
+          [4.7708911, 45.7522688]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
+        "id": "Garennes-commun",
         "line": 11,
         "name": "Allée des Garennes",
         "status": "done",
@@ -321,7 +342,7 @@
         "id": "Constellation-commun",
         "line": 11,
         "name": "Chemin de la Raude",
-        "status": "postponed",
+        "status": "variante-postponed",
         "text": "variante Raude",
         "type": "aucun",
         "quality": "unsatisfactory",
