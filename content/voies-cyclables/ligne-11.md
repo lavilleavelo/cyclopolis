@@ -10,6 +10,19 @@ cover: https://cyclopolis.lavilleavelo.org/vl11/rue-de-bonnel-ouest.png
 
 ## Les tronçons
 
+### Craponne
+L'itinéraire privilégié par La Ville à Vélo débuterait au carrefour avec l'ancienne voie ferrée de la F.O.L., à la frontière avec la commune de Grézieu-la-Varenne, en connexion avec le réseau cyclable de la Communauté de Communes des Vallons du Lyonnais (CCVL) permettant de poursuivre vers Brindas, Messimy et Thurins au Sud, le centre de Grézieu et Vaugneray à l'Ouest, ainsi que Ste-Consorce et Marcy l'Etoile au nord.
+
+Elle poursuivrait sur la rue Jospeh Moulin, desservant de nombreux équipements sportifs, dont le complexe Multisport Olympie, le stade Trévoux et l'As Craponne Tennis. Cette rue est aujourd'hui équipée d'une chaussée à voie centrale banalisée (CVCB ou choucidou). Son trafic relativement important aux heures de pointe mériterait d'être réduit pour assurer des conditions de sécurité permettant d'en faire une vélorue satisfaisante, via la mise en place d'un filtre modal à un carrefour à définir.
+
+Elle tournerait ensuite vers la rue Jean-Claude Martin, rue résidentielle calme, étroite et à sens unique avec Double-Sens Cyclable qui pourrait être transformée en vélorue sans aucun travaux compte-tenu de son niveau de trafic automobile. Après avoir traversée la rue Bergeron, elle dessert le centre-ville de Craponne et ses nombreux équipements publics (commerces, restaurants, espaces culturels et sportifs, collège) puis rejoint la rue Centrale et ses bandes cyclables.
+
+### Ligne Express de l'Ouest Lyonnais
+Le trajet le plus naturel et le plus sécurisé continue ensuite le long d'une ancienne ligne de chemin de fer reconvertie en 2013 en site propre bus express. La fréquence des bus permet d'envisager une mixité acceptable, le niveau de trafic automobile y étant relativement faible. Néanmoins, il reste encore trop important pour envisager une mixité satisfaisante sur la rue de la Tourette à Craponne et le chemin des Aubépines à Francheville - Bel Air. Sur ces deux tronçons, la mise en place de filtres modaux ne laissant passer que les bus et les cyclistes aux heures de pointe permettraient en outre de sécuriser les deux grandes groupes scolaires présents.
+
+### Ménival à Alaï via Constellation
+L'itinéraire butte sur un point noir vélo majeur au rond-point d'Alaï qui concentre un trafic automobile important sans aucun améngement cyclable. Ce carrefour dangereux et anxiogène aurait besoin d'être entièrement repris pour permettre l'aménagement d'une traversée cyclable bidirectionnelle au Sud-Est permettant de rejoindre en sécurité le petit tronçon en sens unique de la rue Joliot Curie transformable en vélorue sans travaux.
+
 ### Point du Jour - Favorite (Lyon 5)
 La Voie Lyonnaise 11 débutera place Bénédict Teissier au coeur du quartier du Point du Jour et poursuivra vers l'Est pour transformer les bandes cyclables datant de 2019 en aménagement sécurisé. Elle continuera sur la rue de la Favorite aujourd'hui non aménagée et très dangereuse. Entre la rue Appian et la place de Trion, plusieurs variantes devront être étudiées par les services de la Métropole de Lyon.
 
