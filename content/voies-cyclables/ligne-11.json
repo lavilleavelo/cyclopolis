@@ -94,14 +94,177 @@
         "coordinates": [4.893222, 45.753986]
       }
     },
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Joseph Moulin",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#craponne"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.715792, 45.7437951],
+					[4.7153814, 45.7434638],
+					[4.7149965, 45.7432041],
+					[4.7145474, 45.7429533],
+					[4.7143292, 45.7428504],
+					[4.7138673, 45.7427295],
+					[4.7129306, 45.7425862],
+					[4.712289, 45.7425324],
+					[4.7115704, 45.7425235],
+					[4.7104669, 45.7425324],
+					[4.7086833, 45.7425504],
+					[4.7077594, 45.7425504],
+					[4.7074707, 45.7425548],
+					[4.7067008, 45.7426757]
+        ]
+      }
+    },
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Jean-Claude Martin",
+        "status": "done",
+        "doneAt":"04/11/2013",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#craponne"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7268337, 45.7459308],
+          [4.7263407, 45.7455319],
+          [4.7261852, 45.745455],
+          [4.7251357, 45.7452762],
+          [4.7244333, 45.745218],
+          [4.7236963, 45.7452413],
+          [4.722637, 45.7452507],
+					[4.7208477, 45.7452637],
+					[4.7202639, 45.7452189],
+					[4.7176655, 45.7442921],
+					[4.716748, 45.74401],
+					[4.7159845, 45.7437235],
+					[4.715792, 45.7437951]
+        ]
+      }
+    },
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue Centrale",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#craponne"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.730773, 45.7459755],
+					[4.7290343, 45.74598],
+					[4.7268337, 45.7459308]
+        ]
+      }
+    },
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Rue de la Tourette",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7364318, 45.7443458],
+					[4.73588, 45.7444801],
+					[4.7352256, 45.744713],
+					[4.7345199, 45.7451114],
+					[4.7338462, 45.7455189],
+					[4.7335062, 45.7456801],
+					[4.7330442, 45.7458547],
+					[4.732486, 45.7459755],
+					[4.7318252, 45.7460203],
+					[4.7309912, 45.7460248],
+					[4.730773, 45.7459755]
+        ]
+      }
+    },
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Chemin de la Tourette",
+        "status": "done",
+        "doneAt":"04/11/2013",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7480508, 45.7458144],
+					[4.7469602, 45.7458502],
+					[4.7460042, 45.7458457],
+					[4.7450354, 45.7458681],
+					[4.744612, 45.7458547],
+					[4.7441179, 45.7457606],
+					[4.7436303, 45.7456084],
+					[4.7431107, 45.7453532],
+					[4.7424947, 45.7450129],
+					[4.7418403, 45.7446727],
+					[4.741218, 45.7444846],
+					[4.7408908, 45.7444175],
+					[4.7404032, 45.7443682],
+					[4.7382218, 45.744319],
+					[4.737484, 45.7442921],
+					[4.737022, 45.7442966],
+					[4.7364318, 45.7443458]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Chemin de la Patelière",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-11#leol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.7531407, 45.7454591],
+					[4.7513165, 45.7453846],
+					[4.7507262, 45.7453398],
+					[4.7504632, 45.7453129],
+					[4.750322, 45.7453308],
+					[4.7493468, 45.745595],
+					[4.7488015, 45.7457293],
+					[4.7480508, 45.7458144]
+        ]
+      }
+    },
     {
       "type": "Feature",
       "properties": {
         "line": 11,
         "name": "Chemin des Aubépines",
-        "status": "done",
-        "doneAt":"04/11/2013",
-        "type": "velorue",
+        "status": "postponed",
+        "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-11#leol"
       },
