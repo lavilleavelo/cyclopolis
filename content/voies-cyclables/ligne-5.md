@@ -196,10 +196,12 @@ Ce tronçon est réalisé depuis décembre 2021, sous la forme d'une large piste
 Ce carrefour en rond-point emblématique de la ville de Tassin, avec son horloge monumentale au centre, a fait l'objet d'un réaménagement entre juin et décembre 2023. Il a consisté en un resserrement de l'anneau routier pour créer un anneau cyclable unidirectionnel de 3m de large, ainsi que de la végétalisation. La traversée se fait cependant en plusieurs temps, coordonnée avec les temps de vert des différentes traversées piétonnes. Elle est donc longue et peu fluide pour les cyclistes.
 
 ### Tassin Sud
-L'objectif est de relier la place de l'Horloge et le quartier d'Alaï, sur un axe sans aucun aménagement cyclable aujourd'hui.
+L'objectif est de relier la place de l'Horloge et le quartier d'Alaï, sur un axe sans aucun aménagement cyclable aujourd'hui. Depuis le Nord, le seul itinéraire réaliste passerait par l'avenue Charles de Gaulle avec la création d'une piste cyclable bidirectionnelle côté Est. Au carrefour avec le chemin Vert, deux variantes sont possibles : soit en continuant tout droit sur l'avenue De Gaulle jusqu'à Libération, soit en passant par la parallèle avenue de Lauterbourg qui serait mise en sens unique Nord>Sud.
+
+Entre Libération et Alaï, le projet de tramway TEOL devait permettre d'aménager l'avenue Charles de Gaulle, l'avenue Brosset et la route de Brignais avec une piste cyclable bidirectionnelle.
 
 ::banner{type="postponed"}
-La Métropole de Lyon a annoncé le 20/09/2023 que ce tronçon serait reporté à un mandat ultérieur, du fait des impacts à venir du projet de Tram Express de l'Ouest Lyonnais (TEOL) attendu à l'horizon 2032. Le tracé à venir reste flou, avec plusieurs variantes inconnues étudiées par les services de la Métropole de Lyon. *C'est une mauvaise nouvelle pour les cyclistes de l'Ouest lyonnais qui ne pourront pas traverser Tassin du Nord au Sud en sécurité avant de nombreuses années.*
+Entre Libération et Alaï, le projet de tramway TEOL devait permettre d'aménager l'avenue Charles de Gaulle, l'avenue Brosset et la route de Brignais avec une piste cyclable bidirectionnelle. Alors que le projet était prêt pour rentrer en chantier, la nouvelle majorité de droite élue à la Métropole de Lyon en 2026 a décidé d'arrêter le projet pour lui préférer un projet entièrement souterrain à un horizon incertain de 2040. *C'est une mauvaise nouvelle pour les cyclistes de l'Ouest lyonnais qui ne pourront pas traverser Tassin du Nord au Sud en sécurité avant de nombreuses années.* Faute de tramway, le tracé alternatif emprunterait alors deux variantes : soit par le Chemin de la Raude avec la variante Nord De Gaulle, soit par l'avenue de la Constellation avec la variante Nord Lauterbourg. Elle terminerait ensuite sur l'allée des Garennes déjà aménagée en vélorue via une impasse pour les automobilistes. 
 ::
 
 ### Alaï à Beaunant (RD342)
