@@ -1,7 +1,7 @@
 ---
 name: Voie Lyonnaise 10
 line: 10
-from: Tassin
+from: Marcy l'Etoile
 to: Meyzieu
 description: La Voie Lyonnaise 10 permettra de rejoindre Meyzieu depuis Tassin en passant par Vaise, Lyon 6, la Part-Dieu, Dauphiné-Lacassagne, Grandclément, La Soie, et Décines-Charpieu. Il s'agira donc d'un itinéraire cyclable qui permettra de traverser la métropole de Lyon dans un axe Est-Ouest sur plus de 20km.
 trafic: 24k vélos/jour
