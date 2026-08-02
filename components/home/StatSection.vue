@@ -6,7 +6,7 @@
         <p class="mt-3 text-xl text-gray-500 sm:mt-4">
           C'est le nom donné au projet de réseau cyclable porté par la Métropole de Lyon.<br />Concrètement, une
           {{ getRevName('singular') }} est une voie cyclable large (3 à 4m), souvent sous forme de piste
-          bidirectionnelle et séparée des voitures. L'ensemble doit créer un maillage cyclable sans discontinuités qui
+          bidirectionnelle ou voie verte séparée des voitures. L'ensemble doit créer un maillage cyclable sans discontinuités qui
           connecte les quartiers lyonnais aux communes de la périphérie de la métropole.
         </p>
       </div>
@@ -27,11 +27,11 @@
                 class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r"
               >
                 <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Distance</dt>
-                <dd class="order-1 text-5xl font-extrabold text-lvv-blue-600">260km</dd>
+                <dd class="order-1 text-5xl font-extrabold text-lvv-blue-600">350km</dd>
               </div>
               <div class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Budget</dt>
-                <dd class="order-1 text-5xl font-extrabold text-lvv-blue-600">280M€</dd>
+                <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Budget 2021-2026</dt>
+                <dd class="order-1 text-5xl font-extrabold text-lvv-blue-600">200M€</dd>
               </div>
             </dl>
           </div>
