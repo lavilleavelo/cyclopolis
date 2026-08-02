@@ -1,7 +1,7 @@
 ---
 name: Voie Lyonnaise 6
 line: 6
-from: Rilleux la Pape
+from: Neyron
 to: Saint-Genis-Laval
 description: La Voie Lyonnaise 6 permettra de longer le Rhône du nord au sud de la Métropole, depuis les bas quartiers de Crépieux-la-Pape jusqu'à Saint-Genis-Laval, via Saint-Clair, Lyon Rive Droite, les bas quartiers de la Mulatière et Oullins. Elle s'inscrit dans le projet d'apaisement du centre-ville d'Oullins et le grand projet de réaménagement de la rive droite du Rhône.
 trafic: 11k vélos/jour
