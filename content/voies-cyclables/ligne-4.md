@@ -1,8 +1,8 @@
 ---
 name: Voie Lyonnaise 4
 line: 4
-from: Lissieu
-to: Villeurbanne
+from: Lissieu Bois-Dieu
+to: Bron-Universités
 description: La Voie Lyonnaise 4 promet de pouvoir traverser la métropole lyonnaise du Nord-Ouest des Monts d'Or à Villeurbanne en passant par Limonest, Techlid, Champagne, Vaise et le 6ème arrondissement. Cette ligne prévoit d'aménager des secteurs aujourd'hui très peu pourvus en aménagements cyclables et peu sécurisés. Elle va transformer l'espace public des territoires traversés en faveur des modes actifs.
 trafic: 18k vélos/jour
 cover: https://cyclopolis.lavilleavelo.org/vl4/av-verguin.jpg
