@@ -7,10 +7,10 @@
         <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center">
           <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Où en est le projet ?</h2>
           <p class="text-xl text-gray-500">
-            Après une phase d'étude et de concertation en 2022 et 2023, le projet a connu une première phase de
-            réalisation entre l'été 2024 et l'été 2026 malgré de nombreux reports.<br />
-            Le changement de majorité à la Métropole en mars 2026 marque un regrettable coup d'arrêt au développement 
-            du réseau, mais la Ville à Vélo continuera de faire vivre le plaidoyer sur Cyclopolis.
+            Après une phase d'étude et de concertation en 2022 et 2023, le projet a connu une première phase <br />
+            de réalisation entre l'été 2024 et l'été 2026 malgré de nombreux reports.<br />
+            Le changement de majorité à la Métropole en mars 2026 marque un regrettable coup d'arrêt au <br />
+            développement du réseau, mais la Ville à Vélo continuera de faire vivre le plaidoyer sur Cyclopolis.
           </p>
         </div>
       </div>
