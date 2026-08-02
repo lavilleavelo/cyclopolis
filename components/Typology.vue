@@ -3,7 +3,7 @@
     <div
       class="absolute -top-4 left-0 right-0 w-fit rounded-md px-2 py-1 mx-auto text-center text-lg text-gray-900 text-white bg-lvv-blue-600"
     >
-      Typologie 2026
+      Typologie actuelle
     </div>
     <div class="grid grid-cols-[1fr_2px_1fr] gap-x-4 text-lvv-blue-600">
       <template v-for="stat in stats" :key="stat.name">
