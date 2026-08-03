@@ -178,7 +178,7 @@
                 </button>
               </div>
               <div class="grid grid-cols-4 gap-2">
-                <div v-for="id in 12" :key="id" class="flex flex-col items-center">
+                <div v-for="id in config.nbVoiesCyclables" :key="id" class="flex flex-col items-center">
                   <label :for="`color-line-${id}`" class="text-xs text-gray-500 mb-1"
                     >{{ config.revName.abbreviated }}{{ id }}</label
                   >

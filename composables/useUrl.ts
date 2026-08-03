@@ -11,7 +11,8 @@ export const useUrl = () => {
   }
 
   function getVoieCyclableRegex() {
-    return new RegExp(`${config.slug}-(1[0-2]|[1-9])\\b`);
+    const lines = Array.from({ length: config.nbVoiesCyclables }, (_, index) => config.nbVoiesCyclables - index);
+    return new RegExp(`${config.slug}-(${lines.join('|')})\\b`);
   }
 
   function extractLineAndAnchorFromPath(path: string) {
