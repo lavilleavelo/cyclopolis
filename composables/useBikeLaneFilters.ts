@@ -42,12 +42,22 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
       },
     },
     {
-      label: 'Prévu pour 2026',
+      label: 'Prévu',
       isEnabled: true,
       statuses: ['planned'],
       customStyle: {
         backgroundColor: '#8B7FA0',
         borderColor: '#8B7FA0',
+        textColor: '#FFFFFF',
+      },
+    },
+    {
+      label: 'Priorité 2030',
+      isEnabled: true,
+      statuses: ['priority-2030'],
+      customStyle: {
+        backgroundColor: '#152B68',
+        borderColor: '#152B68',
         textColor: '#FFFFFF',
       },
     },

@@ -47,6 +47,20 @@ const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
 const HIGHLIGHTED_SECTION_OPACITY = 1;
 
+function getPriority2030HaloOpacity(
+  mapOpacity: (opacity: number) => unknown = (opacity) => opacity,
+): maplibregl.ExpressionSpecification {
+  return [
+    'interpolate',
+    ['linear'],
+    ['zoom'],
+    11,
+    mapOpacity(0.5),
+    14,
+    mapOpacity(0.35),
+  ] as maplibregl.ExpressionSpecification;
+}
+
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
@@ -513,6 +527,39 @@ export const useMap = ({
         'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
         'line-dasharray': SECTION_STYLE.plannedDasharray,
+      },
+    });
+  }
+
+  function plotPriority2030Sections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    if (features.length === 0 && !map.getLayer('priority-2030-sections')) {
+      return;
+    }
+    if (upsertMapSource(map, 'priority-2030-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
+      return;
+    }
+
+    map.addLayer({
+      id: 'priority-2030-halo',
+      type: 'line',
+      source: 'priority-2030-sections',
+      layout: {
+        'line-cap': 'round',
+      },
+      paint: {
+        'line-width': ['interpolate', ['linear'], ['zoom'], 11, 4, 14, 15],
+        'line-color': ['get', 'color'],
+        'line-opacity': getPriority2030HaloOpacity(),
+      },
+    });
+    map.addLayer({
+      id: 'priority-2030-sections',
+      type: 'line',
+      source: 'priority-2030-sections',
+      paint: {
+        'line-width': 4,
+        'line-color': ['get', 'color'],
+        'line-dasharray': [2, 4],
       },
     });
   }
@@ -1018,12 +1065,17 @@ export const useMap = ({
     const done: ColoredLineStringFeature[] = [];
     const wip: ColoredLineStringFeature[] = [];
     const planned: ColoredLineStringFeature[] = [];
+    const priority2030: ColoredLineStringFeature[] = [];
     const variante: ColoredLineStringFeature[] = [];
     const variantePostponed: ColoredLineStringFeature[] = [];
     const postponed: ColoredLineStringFeature[] = [];
 
     for (const feature of sections) {
-      if (feature.properties.quality === 'unsatisfactory' && feature.properties.status !== 'postponed') {
+      if (
+        feature.properties.quality === 'unsatisfactory' &&
+        feature.properties.status !== 'postponed' &&
+        feature.properties.status !== 'priority-2030'
+      ) {
         unsatisfactory.push(feature);
       }
 
@@ -1037,6 +1089,9 @@ export const useMap = ({
           break;
         case 'planned':
           planned.push(feature);
+          break;
+        case 'priority-2030':
+          priority2030.push(feature);
           break;
         case 'variante':
           variante.push(feature);
@@ -1054,6 +1109,7 @@ export const useMap = ({
     plotUnsatisfactorySections({ map, features: unsatisfactory });
     plotDoneSections({ map, features: done });
     plotPlannedSections({ map, features: planned });
+    plotPriority2030Sections({ map, features: priority2030 });
     plotVarianteSections({ map, features: variante });
     plotVariantePostponedSections({ map, features: variantePostponed });
     plotWipSections({ map, features: wip });
@@ -1559,6 +1615,8 @@ export const useMap = ({
       'wip-sections',
       'wip-node-icons',
       'planned-sections',
+      'priority-2030-halo',
+      'priority-2030-sections',
       'variante-sections',
       'variante-symbols',
       'variante-postponed-sections',
@@ -1601,11 +1659,13 @@ export const useMap = ({
         const layerType = layer?.type;
 
         if (layerType === 'line') {
-          map.setPaintProperty(
-            layerId,
-            'line-opacity',
-            ['variante-sections', 'variante-postponed-sections'].includes(layerId) ? 0.5 : NORMAL_OPACITY,
-          );
+          if (layerId === 'priority-2030-halo') {
+            map.setPaintProperty(layerId, 'line-opacity', getPriority2030HaloOpacity());
+          } else if (['variante-sections', 'variante-postponed-sections'].includes(layerId)) {
+            map.setPaintProperty(layerId, 'line-opacity', 0.5);
+          } else {
+            map.setPaintProperty(layerId, 'line-opacity', NORMAL_OPACITY);
+          }
           if (layerId === 'selected-layer') {
             map.setPaintProperty(layerId, 'line-color', 'rgba(255,255,255,0)');
           }
@@ -1694,6 +1754,19 @@ export const useMap = ({
               HIGHLIGHTED_SECTION_OPACITY,
               ['case', ['has', 'id'], 0.2, 0.4],
             ]);
+          } else if (layerId === 'priority-2030-halo') {
+            const hasIdOpacityExpression = ['case', ['has', 'id'], DIMMED_OPACITY / 2, DIMMED_OPACITY];
+
+            map.setPaintProperty(
+              layerId,
+              'line-opacity',
+              getPriority2030HaloOpacity((opacity) => [
+                'case',
+                isSelectedLineExpression,
+                opacity,
+                hasIdOpacityExpression,
+              ]),
+            );
           } else {
             const hasIdOpacityExpression = ['case', ['has', 'id'], DIMMED_OPACITY / 2, DIMMED_OPACITY];
 
