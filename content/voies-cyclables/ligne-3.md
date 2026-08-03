@@ -243,7 +243,7 @@ streetView: 45.7021441,4.821693,3a,75y,314.96h,90t
 ::
 
 ::banner{type="wip"}
-Les travaux préalables sur les réseaux souterrains ont commencé fin août 2024 et continueront jusqu'en octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusqu'en septembre 2026. Un premier tronçon entre Salengro et Voltaire a été livré à l'été 2025. Un second tronçon entre Voltaire et la rue du 8 mai 1945 a été livré au printemps 2026.
+Les travaux préalables sur les réseaux souterrains ont eu lieu entre fin août et octobre 2024, avant d'enchainer en novembre avec les travaux d'aménagement jusqu'en juillet 2026. Un premier tronçon entre Salengro et Voltaire a été livré à l'été 2025. Un second tronçon entre Voltaire et la rue du 8 mai 1945 a été livré au printemps 2026, et le dernier tronçon jusqu'à l'A450 a été livré pendant l'été 2026.
 ::
 
 #### *Concertation*

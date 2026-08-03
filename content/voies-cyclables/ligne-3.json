@@ -1603,7 +1603,8 @@
         "id": "BoulEuropeS-commun",
         "line": 3,
         "name": "Boulevard de l'Europe Sud",
-        "status": "wip",
+        "status": "done",
+        "doneAt": "24/07/2026",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-3#traversée-de-pierre-bénite"
