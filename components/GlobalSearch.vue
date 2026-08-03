@@ -105,6 +105,7 @@ const StatusBadge = defineComponent({
       wip: 'En travaux',
       tested: 'En travaux',
       planned: 'Prévu',
+      'priority-2030': 'Priorité 2030',
       postponed: 'Reporté',
     };
 
@@ -113,6 +114,7 @@ const StatusBadge = defineComponent({
       wip: 'bg-blue-100 text-blue-700',
       tested: 'bg-blue-100 text-blue-700',
       planned: 'bg-gray-100 text-gray-600',
+      'priority-2030': 'bg-lvv-blue-100 text-lvv-blue-600',
       postponed: 'bg-pink-100 text-pink-700',
     };
 

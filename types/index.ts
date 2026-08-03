@@ -17,6 +17,7 @@ export type LaneStatus =
   | 'done'
   | 'wip'
   | 'planned'
+  | 'priority-2030'
   | 'tested'
   | 'postponed'
   | 'unknown'

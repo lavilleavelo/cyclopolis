@@ -67,6 +67,7 @@ export default defineContentConfig({
                 name: z.string(),
                 status: z.enum([
                   'planned',
+                  'priority-2030',
                   'postponed',
                   'variante-postponed',
                   'done',

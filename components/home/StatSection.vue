@@ -6,8 +6,8 @@
         <p class="mt-3 text-xl text-gray-500 sm:mt-4">
           C'est le nom donné au projet de réseau cyclable porté par la Métropole de Lyon.<br />Concrètement, une
           {{ getRevName('singular') }} est une voie cyclable large (3 à 4m), souvent sous forme de piste
-          bidirectionnelle ou voie verte séparée des voitures. L'ensemble doit créer un maillage cyclable sans discontinuités qui
-          connecte les quartiers lyonnais aux communes de la périphérie de la métropole.
+          bidirectionnelle ou voie verte séparée des voitures. L'ensemble doit créer un maillage cyclable sans
+          discontinuités qui connecte les quartiers lyonnais aux communes de la périphérie de la métropole.
         </p>
       </div>
     </div>

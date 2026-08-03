@@ -13,7 +13,7 @@
     [5.5, 46.1]
   ],
   "zoom": 10.331154971672706,
-  "nbVoiesCyclables": 12,
+  "nbVoiesCyclables": 13,
   "colors": [
     {
       "line": 1,
@@ -62,6 +62,10 @@
     {
       "line": 12,
       "color": "#DBABB7"
+    },
+    {
+      "line": 13,
+      "color": "#8C5745"
     }
   ],
   "accessibleColors": [
@@ -76,7 +80,8 @@
     { "line": 9, "color": "#FBC02D" },
     { "line": 10, "color": "#5D4037" },
     { "line": 11, "color": "#00BCD4" },
-    { "line": 12, "color": "#E91E63" }
+    { "line": 12, "color": "#E91E63" },
+    { "line": 13, "color": "#8C5745" }
   ],
   "transports": [
     {
