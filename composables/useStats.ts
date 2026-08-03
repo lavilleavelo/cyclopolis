@@ -8,6 +8,7 @@ const featureStatusOrder = [
   'tested',
   'wip',
   'planned',
+  'priority-2030',
   'postponed',
   'variante-postponed',
   'unknown',
@@ -133,7 +134,7 @@ export const useStats = () => {
 
     const wipFeatures = features.filter((feature) => ['wip', 'tested'].includes(feature.properties.status ?? ''));
     const plannedFeatures = features.filter((feature) =>
-      ['planned', 'unknown'].includes(feature.properties.status ?? ''),
+      ['planned', 'priority-2030', 'unknown'].includes(feature.properties.status ?? ''),
     );
     const postponedFeatures = features.filter((feature) =>
       ['postponed', 'variante-postponed'].includes(feature.properties.status ?? ''),
@@ -146,6 +147,9 @@ export const useStats = () => {
     const postponedDistance = getDistance({ features: postponedFeatures });
 
     function getPercent(distance: number) {
+      if (totalDistance === 0) {
+        return 0;
+      }
       return Math.round((distance / totalDistance) * 100);
     }
 
@@ -181,7 +185,7 @@ export const useStats = () => {
         distance: plannedDistance,
         percent: getPercent(plannedDistance),
         class: 'text-black font-semibold',
-        link: generateLink(['planned', 'unknown']),
+        link: generateLink(['planned', 'priority-2030', 'unknown']),
       },
       postponed: {
         name: 'Reportés',
@@ -253,6 +257,9 @@ export const useStats = () => {
     const totalDistance = getDistance({ features: lineStringFeatures });
 
     function getPercent(distance: number) {
+      if (totalDistance === 0) {
+        return 0;
+      }
       return Math.round((distance / totalDistance) * 100);
     }
 

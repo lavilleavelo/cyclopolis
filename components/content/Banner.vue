@@ -5,6 +5,13 @@
         <Icon :name="banners[type].icon" class="h-6 w-6" :class="banners[type].color.logo" aria-hidden="true" />
       </div>
       <div class="ml-4 text-base text-justify" :class="banners[type].color.text">
+        <span
+          v-if="banners[type].pill"
+          class="inline-block rounded-full px-3 py-0.5 mb-1 mr-2 text-sm font-semibold text-white align-middle"
+          :class="banners[type].color.pill"
+        >
+          {{ banners[type].pill }}
+        </span>
         <slot />
       </div>
     </div>
@@ -12,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-type Type = 'modified' | 'postponed' | 'unsecured' | 'wip' | 'info';
+type Type = 'modified' | 'postponed' | 'unsecured' | 'wip' | 'info' | 'priorite-2030';
 const { type } = defineProps<{
   type: Type;
 }>();
@@ -21,10 +28,12 @@ type Banner = {
   [key in Type]: {
     title: string;
     icon: string;
+    pill?: string;
     color: {
       banner: string;
       logo: string;
       text: string;
+      pill?: string;
     };
   };
 };
@@ -72,6 +81,17 @@ const banners: Banner = {
       banner: 'border-[#C5C4C4] bg-[#F9FAFB]',
       logo: 'text-[#C5C4C4]',
       text: 'text-[#646464]',
+    },
+  },
+  'priorite-2030': {
+    title: 'Priorité 2030 La Ville à Vélo',
+    icon: 'mdi:flag-variant',
+    pill: 'Priorité 2030 La Ville à Vélo',
+    color: {
+      banner: 'border-[#152B68] bg-[#EFEDF1]',
+      logo: 'text-[#152B68]',
+      text: 'text-[#152B68]',
+      pill: 'bg-[#152B68]',
     },
   },
 };
