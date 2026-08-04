@@ -10,6 +10,28 @@ cover: https://cyclopolis.lavilleavelo.org/vl10/voie-lyonnaise-10.png
 
 ## Les tronçons
 
+### Marcy l'Etoile Nord
+La Voie Lyonnaise 10 débuterait au pied de l'école vétérinaire VetAgro Sup au nord de la commune de Marcy l'Etoile. Elle continuerait ensuite vers l'Est le long de la route de Sain-Bel sur une voie verte à aménager côté Nord de la chaussée. Elle desservirait le siège social de BioMérieux, l'INTEFP (Institut National du Travail, de l'Emploi et de la Formation professionnelle) ainsi que les différents parking d'accès au parc de Lacroix Laval. Elle se raccorderait au réseau cyclable de la CCVL via l'avenue des Alpes en direction du centre-ville de Marcy, du campus Sanofi Pasteur et de Ste-Consorce.
+
+### Parc Lacroix-Laval à Tassin
+#### Variante Bergeron
+Cette variante rentre à l'intérieur du parc de Lacroix Laval en utilisant la voie verte du parc en mixité avec un trafic piéton parfois soutenu. A partir du parking du Château, elle utilise un petit morceau de route utillisé par l'accès voiture à ce parking, puis descend sur l'avenue de Lacroix-Laval par la rampe dédiée aux vélos aménagée en 2021. Elle ensuite traverse les voies ferrées sur une petite section non aménagée avec un trafic automobile important. 
+
+Elle rentre ensuite dans la commune de Charbonnières via l'avenue de la Victoire, qui comporte une voie bus ouverte aux vélo dans le sens Est>Ouest, mais aucun aménagement cyclable dans l'autre sens. Elle passe devant la gare SNCF et dessert le centre-ville de Charbonnières, puis continue vers la Promenade de la Gare sur une voirie à faible trafic pouvant être convertie en vélorue sans travaux. Devant le cinéma Alpha et la salle multisport Saint-Luce, elle continue vers le parc de la Bressonière sur une voie verte partiellement revêtue et coupée par des barrières en quinconce incompatibles avec des vélos familiaux. *Il serait nécessaire de revêtir, enlever une barrière et élargir le cheminement pour qu'il soit pleinement satisfaisant.*
+
+L'itinéraire débouche sur le Chemin de la Bressonnière actuellement sans aménagement cyclable. *En supprimant un des deux trottoirs actuels, on pourrait élargir l'autre pour le transformer en voie verte et assurer une continuité sécurisée.* Ce petit tronçon franchit le ruisseau de Charbonnières et permet de desservir le groupe scolaire, le skatepark et la maison des Arts. Elle continue ensuite sur la voie verte de l'avenue Bergeron aménagée en 2019 jusqu'à l'entrée de Tassin avec la gare SNCF du Méridien, le lycée Blaise Pascal et le complexe sportif des Coquelicots.
+
+#### Variante Route de Sain-Bel
+Cette alternative emprunte la totalité de la route de Saint-Bel, axe de transit automobile important qui dessert les quartiers résidentiels de l'Ouest de Charbonnières, ainsi que le plateau de Méginand et les quartiers de Chapoly et de l'Aigas à Tassin. Elle débouche aussi sur le giratoire du Méridien qui dessert la gare SNCF, le lycée Blaise Pascal et le complexe sportif des Coquelicots. Cette variante n'est aménagée que sur une petite portion Sud depuis 2008 (commune de Tassin), avec une voie verte côté Est qui mériterait d'être améliorée dans les carrefours. Tout le reste demande à être réaménagé pour poursuivre cette voie verte qui s'arrête aujourd'hui au milieu de nulle part.
+
+#### Analyse des variantes
+La variante Bergeron est plus longue et sinueuse (4400m) que la variante Sain-Bel (3600m), mais dessert davantage d'équipements publics sur la commune de Charbonnières. Elle est aussi bien plus aménagée (sécurisée à 93% contre 22%) et l'aménagement des discontinuités restantes seraint bien moins coûteux. En revanche, pour la desserte du bassin d'emploi de Marcy l'Etoile, le passage par le parc de Lacroix-Laval serait conflictuel avec les piétons et l'itinéraire est peu lisible et indirect avec de nombreux changements de direction nécessaires.
+
+**Le choix de La Ville à Vélo :** l'aménagement de la variante Sain-Bel permettrait de compléter le maillage cyclable de l'Ouest lyonnais et de desservir en sécurité des quartiers aujourd'hui isolés et très dépendants de la voiture. Il est plus direct, plus court et avec un dénivelé moins important. Il permet de prioriser les piétons sur la voie verte du parc de Lacroix-Laval et sera complémentaire à la variante Bergeron déjà existante pour la desserte locale du centre de Charbonnières.
+
+### Tassin - Méridien à Valvert
+Pour relier le secteur du Méridien et des Trois Renards à Tassin, la Voie Lyonnaise passerait par l'avenue du 11 Novembre qu'il faudrait réaménager avec une voie verte côté Sud. Ce tronçon qui présente un faible dénivelé permettrait aussi de desservir le complexe sportif du Sauze, le quartier du Baraillon et le centre social. Elle déboucherait sur la route de Paris au pied Ouest de l'autopont des 3 Renards et pourrait rejoindre la Voie Lyonnaise 8 du Valvert via un petit morceau complémentaire de piste cyclable bidirectionnelle.
+
 ### Tassin - Valvert à Tête d'Or - Verguin
 Sur toute la moitié Ouest de son itinéraire, la Voie Lyonnaise 10 est en tronçon commun avec d'autres Voies Lyonnaises :
  - :line-link{line=8 anchor=tassin-valvert-à-victor-hugo} du boulevard du Valvert à l'avenue Victor Hugo
