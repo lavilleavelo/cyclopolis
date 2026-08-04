@@ -181,7 +181,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -209,7 +209,7 @@
         "doneAt":"04/11/2013",
         "type": "voie-bus",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -242,7 +242,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -266,7 +266,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -301,7 +301,7 @@
         "doneAt":"04/11/2013",
         "type": "velorue",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -326,7 +326,7 @@
         "doneAt":"04/11/2013",
         "type": "voie-bus",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#leol"
+        "link": "/voie-lyonnaise-11#ligne-express-de-louest-lyonnais"
       },
       "geometry": {
         "type": "LineString",
@@ -355,7 +355,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -376,7 +376,7 @@
         "doneAt": "10/04/2010",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -400,7 +400,7 @@
         "doneAt": "10/04/2010",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -426,7 +426,7 @@
         "doneAt": "10/04/2010",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -449,7 +449,7 @@
         "doneAt": "10/04/2006",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -475,7 +475,7 @@
         "text": "variante Constellation",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -509,7 +509,7 @@
         "text": "variante Raude",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -533,7 +533,7 @@
         "status": "postponed",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -553,7 +553,7 @@
         "status": "postponed",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#tassin-constellation-alai"
+        "link": "/voie-lyonnaise-11#tassin-alaï-et-constellation"
       },
       "geometry": {
         "type": "LineString",
@@ -572,7 +572,7 @@
         "status": "postponed",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+        "link": "/voie-lyonnaise-11#lyon-5-ménival-et-point-du-jour"
       },
       "geometry": {
         "type": "LineString",
@@ -598,7 +598,7 @@
         "doneAt": "15/01/2005",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+        "link": "/voie-lyonnaise-11#lyon-5-ménival-et-point-du-jour"
       },
       "geometry": {
         "type": "LineString",
@@ -621,7 +621,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#point-du-jour-menival"
+        "link": "/voie-lyonnaise-11#lyon-5-ménival-et-point-du-jour"
       },
       "geometry": {
         "type": "LineString",
@@ -917,55 +917,6 @@
           [4.830851765912087, 45.75884749645334],
           [4.834175882882562, 45.75795745946414],
           [4.836761844916594,45.75730585999979]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Perrache-commun",
-        "line": 11,
-        "name": "Traversée Presqu'île (par Perrache)",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-11#traversée-de-la-presquîle-de-lyon"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.821635484695435, 45.7517254720919],
-          [4.821782982825019, 45.751707061328034],
-          [4.821933210879649, 45.75163541166799],
-          [4.8224411882919185, 45.75147081026327],
-          [4.822441561866384, 45.75147067700868],
-          [4.8230854730463175, 45.75126627765915],
-          [4.823265384246758, 45.75122618722881],
-          [4.823334828658, 45.751234766400046],
-          [4.8234011175021125, 45.751254354952465],
-          [4.823508428723727, 45.75115999632314],
-          [4.823454806002577, 45.75110527150999],
-          [4.823577916986746, 45.751055272685804],
-          [4.8238709722018545, 45.75095941261076],
-          [4.82401640755564, 45.7509364118978],
-          [4.824166536594554, 45.75091709573334],
-          [4.824493097689489, 45.75081374188202],
-          [4.824847895108821, 45.750695870214074],
-          [4.825372691001819, 45.75050145974872],
-          [4.826260085047451, 45.75023705939096],
-          [4.8263341091395, 45.75025964946519],
-          [4.826696184713111, 45.750852297251456],
-          [4.827328343551308, 45.75188301874111],
-          [4.8277823828736635, 45.751757408752454],
-          [4.828240828981327, 45.75163466869608],
-          [4.829152139270182, 45.75138467872935],
-          [4.829318308105843, 45.75136195166665],
-          [4.8295596920816966, 45.751295671619346],
-          [4.829802641745745, 45.75122900903346],
-          [4.83013555163204, 45.7511377138502],
-          [4.8304692997084535, 45.75104688654649],
-          [4.8312482786904525, 45.750824615948005],
-          [4.832063064909362, 45.750593356342044]
         ]
       }
     },
