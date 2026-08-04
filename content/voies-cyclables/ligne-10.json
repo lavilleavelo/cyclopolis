@@ -171,7 +171,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#marcy-letoile-nord"
       },
       "geometry": {
         "type": "LineString",
@@ -218,7 +218,7 @@
         "doneAt": "10/04/2000",
         "type": "velorue",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#marcy-letoile-nord"
       },
       "geometry": {
         "type": "LineString",
@@ -232,10 +232,7 @@
 					[4.7178041, 45.7848898]
         ]
       }
-    }, 
-
-
-
+    },
     {
       "type": "Feature",
       "properties": {
@@ -245,7 +242,7 @@
         "doneAt": "10/04/2000",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -287,7 +284,7 @@
         "doneAt": "10/04/2000",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -314,7 +311,7 @@
         "doneAt": "13/02/2021",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -354,7 +351,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -373,7 +370,7 @@
         "doneAt": "03/06/2018",
         "type": "voie-bus",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -397,7 +394,7 @@
         "doneAt": "10/04/2000",
         "type": "velorue",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -424,7 +421,7 @@
         "doneAt": "10/04/2000",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -457,7 +454,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -477,7 +474,7 @@
         "doneAt": "03/08/2019",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#parc-lacroix-laval-à-tassin"
       },
       "geometry": {
         "type": "LineString",
@@ -526,7 +523,7 @@
         "doneAt": "10/04/2000",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#variante-route-de-sain-bel"
       },
       "geometry": {
         "type": "LineString",
@@ -544,7 +541,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#variante-route-de-sain-bel"
       },
       "geometry": {
         "type": "LineString",
@@ -603,7 +600,7 @@
         "doneAt": "10/09/2008",
         "type": "voie-verte",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#variante-route-de-sain-bel"
       },
       "geometry": {
         "type": "LineString",
@@ -643,7 +640,7 @@
         "doneAt": "03/08/2019",
         "type": "voie-verte",
         "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#tassin-méridien-à-valvert"
       },
       "geometry": {
         "type": "LineString",
@@ -667,7 +664,7 @@
         "status": "postponed",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#tassin-méridien-à-valvert"
       },
       "geometry": {
         "type": "LineString",
@@ -689,7 +686,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#tassin-méridien-à-valvert"
       },
       "geometry": {
         "type": "LineString",
@@ -715,7 +712,7 @@
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
+        "link": "/voie-lyonnaise-10#tassin-méridien-à-valvert"
       },
       "geometry": {
         "type": "LineString",
