@@ -3,7 +3,7 @@ name: Voie Lyonnaise 11
 line: 11
 from: Craponne
 to: Chassieu
-description: La Voie Lyonnaise 11 permettra de traverser la métropole lyonnaise sur un axe ouest-est. Elle partira du quartier du Point du Jour à Lyon 5 pour desservir la Favorite et Saint-Just. Elle traversera la Presqu'Île avant de remonter rue de Bonnel, puis continuera vers l'Est par la Part Dieu, Maisons-Neuves, Montchat Nord avant de poursuivre sur la route de Genas vers les Sept Chemins puis Chassieu.
+description: La Voie Lyonnaise 11 permettra de traverser la métropole lyonnaise sur un axe ouest-est. Elle partira de Craponne puis traversera Francheville - Bel-Air, Tassin pour continuer vers le quartier du Point du Jour, la Favorite et Saint-Just à Lyon 5. Elle traversera la Presqu'Île avant de remonter rue de Bonnel, puis continuera vers l'Est par la Part Dieu, Maisons-Neuves, Montchat Nord avant de poursuivre sur la route de Genas vers les Sept Chemins puis Chassieu.
 trafic: 25k vélos/jour
 cover: https://cyclopolis.lavilleavelo.org/vl11/rue-de-bonnel-ouest.png
 ---
