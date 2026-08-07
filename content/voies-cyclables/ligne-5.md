@@ -246,18 +246,18 @@ Lors du conseil métropolitain du 24/06/2024, il a été indiqué que la concert
 Cette section est en tronçon commun avec la :line-link{line=3 anchor=quartier-de-la-saulaie}.
 
 ### Traversée Vallée de la Chimie
-La Voie Lyonnaise 5 empruntera :
-  - le pont de l'A7 sur le Rhône, dont la piste cyclable bidirectionnelle côté nord pourrait être élargie,
-  - l'avenue des Frères Perret, sous la forme d'une voie verte côté Est,
-  - la voie verte existante au nord du Boulevard Urbain Sud,
-  - à partir du Chemin des Ecoliers, elle se connectera à la :line-link{line=7} sur le boulevard Yves Farge sous une forme et un itinéraire à définir.
-
-::banner{type="wip"}
-Le pont sur l'A7 fait l'objet d'une réhabilitation totale, et la piste cyclable qui s'y trouve est fermée entre janvier et l'été 2025, obligeant les cyclistes à faire un détour conséquent. Elle sera légèrement élargie à la fin des travaux.
-::
+La Voie Lyonnaise 5 emprunte :
+  - le pont de l'A7 sur le Rhône, dont la piste cyclable bidirectionnelle côté nord a été légèrement élargie au premier semestre 2025,
+  - la voie verte du quai Aulagne et des rues Moiroud et Monnet, aménagée en 2002 au Sud et en 2025 au Nord.
 
 ::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et l'avenue des Frères Perret, ainsi que le lien avec la VL7 ne font pas parties de la liste des aménagements financés qui est détaillée dans la délibération. Nous les considérons donc comme reportés à un mandat ultérieur. Les cyclistes continueront donc à se mettre en danger en mixité avec les nombreux véhicules et poids lourds sans aucun aménagement cyclable pendant encore de nombreuses années.
+Initialement, la Métropole de Lyon avait prévu que la Voie Lyonnaise 5 desserve le Sud de la vallée de la Chimie, en empruntant :
+  - l'avenue des Frères Perret, sous la forme d'une voie verte côté Est,
+  - la voie verte existante au nord du Boulevard Urbain Sud,
+  - à partir du Chemin des Ecoliers, elle se serait connectée à la :line-link{line=7} sur le boulevard Yves Farge sous une forme et un itinéraire non défini.
+Elle devait ensuite contourner le quartier des Minguettes par le Sud pour rejoindre la gare de Vénissieux.
+
+Bien que la desserte modes actifs du Sud de la vallée de la Chimie reste une demande forte de La Ville à Vélo, l'association a préféré un itinénaire plus au nord utilisant des aménagements existants et desservant une population plus importante à Saint-Fons et au nord de Vénissieux.
 ::
 
 ## Budget prévisionnel
