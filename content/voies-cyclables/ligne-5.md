@@ -119,38 +119,17 @@ Cette section est en tronçon commun avec la :line-link{line=1 anchor=allée-ach
 Cette section est en tronçon commun avec la :line-link{line=4 anchor=pont-clémenceau-à-boulevard-des-belges}.
 
 ### Traversée de Vaise
-#### Quais de Saône
-Le lien entre le pont Clémenceau et le centre de Vaise sera assuré en tronc commun avec la :line-link{line=3 anchor=rue-antonin-laborde-au-pont-clémenceau} sur les quais de Saône, via le franchissement du carrefour des Monts d'Or avec la création d'une nouvelle traversée cyclable directe.
+#### Projet initial
+Au cours du mandat 2020-2026, la Métropole de Lyon prévoyait d'assurer la liaison entre le pont Clémenceau et la rue du Bourbonnais via un tronc commun avec la :line-link{line=3 anchor=rue-antonin-laborde-au-pont-clémenceau} sur les quais de Saône, avec le franchissement du carrefour des Monts d'Or et l'aménagement d'une piste cyclable bidirectionnelle de 3m de large côté Nord de la rue Roquette à la place d'une des deux voies de circulation et d'une rangée de stationnement. Le trottoir adjacent le long du parc aurait été élargi.
 
-#### Rue Roquette
-Le projet prévoit d'aménager une piste cyclable bidirectionnelle de 3m de large côté Nord à la place d'une des deux voies de circulation et d'une rangée de stationnement. Le trottoir adjacent le long du parc sera aussi élargi.
+Elle abordait ensuite le point noir majeur du rond-point de Valmy qui devait être traité à minima via la création d'un anneau cyclable unidirectionnel de 2m de large à l'extérieur du rond-point, marqué en résine beige. Faute de place disponible, les cheminements sur ce carrefour dangereux se seraient faits avec peu de séparation sur les automobiles et la traversée aurait été en plusieurs temps, coordonnée avec les temps de vert des différentes traversées piétonnes. Elle aurait donc été longue, peu sécurisée et peu fluide pour les cyclistes. La Ville à Vélo préfère donc écarter cette variante.
 
-::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et la rue Roquette ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Elle est donc considéré comme reportée à un mandat ultérieur.
-::
 
-#### Rond-point de Valmy
-Ce point noir majeur du secteur devrait être traité à minima via la création d'un anneau cyclable unidirectionnel de 2m de large à l'extérieur du rond-point, marqué en résine beige.
+#### Projet porté par La Ville à Vélo
+Pour éviter l'itinéraire peu réaliste et crédible via le point noir du giratoire de Valmy et la rue Roquette, la Ville à Vélo recommande de passer par la place du Marché, la rue du Chapeau Rouge et la rue St-Pierre-de-Vaise. Ces rues bénéficient déjà d'un niveau de sécurité suffisant pour une Voie Lyonnaise et permettent de gagner 150m par rapport au trajet initialement proposé.
 
 ::banner{type="unsecured"}
-Faute de place disponible, les cheminements se feront avec peu de séparation avec les véhicules. La traversée se fera en plusieurs temps, coordonnée avec les temps de vert des différentes traversées piétonnes. Elle sera donc longue, peu sécurisée et peu fluide pour les cyclistes.
-::
-
-::banner{type="postponed"}
-Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et le projet de réaménagement de la place Valmy ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Il est donc considéré comme reporté à un mandat ultérieur.
-::
-
-::content-image
----
-imageUrl: https://cyclopolis.lavilleavelo.org/vl5/place-valmy.png
-caption: Aperçu de la Voie Lyonnaise 5 - Place Valmy (Lyon 9)
-credit: Passagers des Villes / Métropole de Lyon
-streetView: 45.7754275,4.8052097,3a,75y,125.45h,90t
----
-::
-
-::banner{type="info"}
-Pour éviter le détour peu réaliste et crédible via le point noir du giratoire de Valmy et la rue Roquette, la Ville à Vélo recommande de passer par la place du Marché, la rue du Chapeau Rouge et la rue St-Pierre-de-Vaise.
+En revanche, pour rejoindre le pont Clémenceau, les cyclistes doivent passer par la place du Port Mouton et le long de la trémie du quai Jaÿr. Cette zone est aujourd'hui dangereuse et anxiogène, avec un noeud automobile complexe et des trajectoires conflictuelles entre vélos et automobiles. La Ville à Vélo demande que le projet de réaménagement de la place du port Mouton porté au précédent mandat puisse être réalisé pour sécuriser ce point noir et assurer une continuité cyclable pleinement satisfaisante.
 ::
 
 #### Rue du Sergent Michel Berthet, le long de la place Valmy
@@ -197,8 +176,6 @@ Ce carrefour en rond-point emblématique de la ville de Tassin, avec son horloge
 
 ### Tassin Sud
 L'objectif est de relier la place de l'Horloge et le quartier d'Alaï, sur un axe sans aucun aménagement cyclable aujourd'hui. Depuis le Nord, le seul itinéraire réaliste passerait par l'avenue Charles de Gaulle avec la création d'une piste cyclable bidirectionnelle côté Est. Au carrefour avec le chemin Vert, deux variantes sont possibles : soit en continuant tout droit sur l'avenue De Gaulle jusqu'à Libération, soit en passant par la parallèle avenue de Lauterbourg qui serait mise en sens unique Nord>Sud.
-
-Entre Libération et Alaï, le projet de tramway TEOL devait permettre d'aménager l'avenue Charles de Gaulle, l'avenue Brosset et la route de Brignais avec une piste cyclable bidirectionnelle.
 
 ::banner{type="postponed"}
 Entre Libération et Alaï, le projet de tramway TEOL devait permettre d'aménager l'avenue Charles de Gaulle, l'avenue Brosset et la route de Brignais avec une piste cyclable bidirectionnelle. Alors que le projet était prêt pour rentrer en chantier, la nouvelle majorité de droite élue à la Métropole de Lyon en 2026 a décidé d'arrêter le projet pour lui préférer un projet entièrement souterrain à un horizon incertain de 2040. *C'est une mauvaise nouvelle pour les cyclistes de l'Ouest lyonnais qui ne pourront pas traverser Tassin du Nord au Sud en sécurité avant de nombreuses années.* Faute de tramway, le tracé alternatif emprunterait alors deux variantes : soit par le Chemin de la Raude avec la variante Nord De Gaulle, soit par l'avenue de la Constellation avec la variante Nord Lauterbourg. Elle terminerait ensuite sur l'allée des Garennes déjà aménagée en vélorue via une impasse pour les automobilistes. 

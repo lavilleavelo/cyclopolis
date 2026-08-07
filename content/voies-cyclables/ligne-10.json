@@ -45,20 +45,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Valmy-commun",
-        "type": "danger",
-        "name": "Place Valmy",
-        "description": "Anneau cyclable trop proche de l'anneau routier",
-        "danger": "Risque de collision voiture-vélo faute de visibilité"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [4.805412, 45.775292]
-      }
-    }, 
-    {
-      "type": "Feature",
-      "properties": {
         "id": "DuquesneGaribaldi-commun",
         "type": "danger",
         "name": "Carrefour Duquesne - Garibaldi, sens Ouest>Est",
@@ -940,35 +926,15 @@
           [4.805415015656813, 45.774275105396384]
         ]
       }
-    },
+    },   
     {
       "type": "Feature",
       "properties": {
-        "id": "PlaceValmy-commun",
-        "line": 10,
-        "name": "Place Valmy",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.805386040078901,45.77513261348585],
-          [4.805415015656813, 45.774275105396384]
-        ]
-      }
-    },    
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "PlaceValmy-commun",
+        "id": "ChapeauRouge-commun",
         "line": 10,
         "name": "Rue du Chapeau Rouge",
-        "status": "variante",
+        "status": "done",
         "doneAt": "03/06/2013",
-        "text": "variante temporaire",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
@@ -991,71 +957,10 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "RondpointValmy-commun",
-        "line": 10,
-        "name": "Rond-point Valmy",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.805386040078901,45.77513261348585],
-          [4.805487835311226,45.77515019265442],
-          [4.805551866069067,45.77518533169581],
-          [4.805588058319756,45.775246283523785],
-          [4.805586260012149,45.77533028285387],
-          [4.805526633230471,45.77539205756338],
-          [4.805448235524722,45.775419848636545],
-          [4.805369332584064,45.77542361144975],
-          [4.805294021754094,45.775408249846265],
-          [4.805237723700429,45.7753840193775],
-          [4.805194035823547,45.77533577342234],
-          [4.805179473198734,45.775282448897656],
-          [4.805186754511169,45.775229124321555],
-          [4.805230442387995,45.775182147867184],
-          [4.805312357155657,45.77514278918585],
-          [4.805386040078901,45.77513261348585]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Roquette-commun",
-        "line": 10,
-        "name": "Rue Roquette",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.805369332584064,45.77542361144975],
-          [4.80538265206323,45.775603681465924],
-          [4.805445875461373,45.775709512827206],
-          [4.805593396724134,45.77576536818677],
-          [4.807072824240805,45.77614753493543],
-          [4.807258279540861,45.77624454607809],
-          [4.807443734842224,45.776400351499234],
-          [4.807539821975155,45.776484431789044],
-          [4.807536456466778,45.776664925120826],
-          [4.807439513923043,45.77678251327151],
-          [4.807330498428769,45.77683140956103]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Roquette-commun",
+        "id": "StPierreVaise-commun",
         "line": 10,
         "name": "Rue St-Pierre-de-Vaise",
-        "status": "variante",
+        "status": "done",
         "doneAt": "31/01/2021",
         "text": "variante temporaire",
         "type": "bilaterale",
@@ -1066,53 +971,29 @@
         "type": "LineString",
         "coordinates": [
           [4.8075439641355615, 45.773172806902835],
-          [4.808666325086193, 45.77372758119222],
-          [4.809234141908888, 45.77406192601236]
-        ]
-      }
-    },     
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "CarrefourMtdOr-commun",
-        "line": 10,
-        "name": "Carrefour des Monts d'Or",
-        "status": "done",
-        "doneAt": "13/03/2026",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [   
-          [4.807330498428769,45.77683140956103],
-          [4.80777915558761,45.77690650986693]
-        ]
+          [4.808666325086193, 45.77372758119222]
+         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id" :"Jayr-commun",
+        "id": "Mouton-commun",
         "line": 10,
-        "name": "Quai Jaÿr Sud",
-        "status": "done",
-        "doneAt": "20/11/2025",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "name": "Place du Port Mouton",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-10#tassin-valvert-à-tête-dor-verguin"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.808707237243652, 45.775036521310206],
-          [4.808527731066491, 45.77509981028865],
-          [4.808323764659264, 45.77550568053769],
-          [4.80777915558761,45.77690650986693]
+          [4.808666325086193, 45.77372758119222],
+          [4.809234141908888, 45.77406192601236]
         ]
       }
-    },
+    },     
     {
       "type": "Feature",
       "properties": {
