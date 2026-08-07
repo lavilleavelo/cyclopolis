@@ -471,7 +471,7 @@
         "id": "Constellation-commun",
         "line": 11,
         "name": "Avenue de la Constellation",
-        "status": "postponed",
+        "status": "variante-postponed",
         "text": "variante Constellation",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
@@ -514,7 +514,7 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.7756827, 45.757959],
+          [4.7756705, 45.7579252],
 					[4.7751053, 45.7569934],
 					[4.774528, 45.7561581],
 					[4.7737383, 45.7552043],
