@@ -97,6 +97,19 @@
       "type": "Feature",
       "properties": {
         "type": "danger",
+        "name": "Place Valmy",
+        "description": "Anneau cyclable trop proche de l'anneau routier",
+        "danger": "Risque de collision voiture-vélo faute de visibilité"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.805412, 45.775292]
+      }
+    }, 
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
         "name": "Place d'Arsonval",
         "description": "Anneau en voie bus avec fort trafic et cisaillements",
         "danger": "Forts conflits bus-voiture-vélo. Trajectoires vélos qui coupent les trajectoires voitures avec une mauvaise visibilité"
@@ -132,10 +145,41 @@
         "coordinates": [4.898117, 45.737183]
       }
     },  
+        {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Rond-point Valmy",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#valmy-à-place-de-trion"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.805386040078901,45.77513261348585],
+          [4.805487835311226,45.77515019265442],
+          [4.805551866069067,45.77518533169581],
+          [4.805588058319756,45.775246283523785],
+          [4.805586260012149,45.77533028285387],
+          [4.805526633230471,45.77539205756338],
+          [4.805448235524722,45.775419848636545],
+          [4.805369332584064,45.77542361144975],
+          [4.805294021754094,45.775408249846265],
+          [4.805237723700429,45.7753840193775],
+          [4.805194035823547,45.77533577342234],
+          [4.805179473198734,45.775282448897656],
+          [4.805186754511169,45.775229124321555],
+          [4.805230442387995,45.775182147867184],
+          [4.805312357155657,45.77514278918585],
+          [4.805386040078901,45.77513261348585]
+        ]
+      }
+    },
     {
       "type": "Feature",
       "properties": {
-        "id": "PlaceValmy-commun",
         "line": 12,
         "name": "Place Valmy",
         "status": "postponed",

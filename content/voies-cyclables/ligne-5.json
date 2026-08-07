@@ -70,20 +70,6 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "Valmy-commun",
-				"type": "danger",
-				"name": "Place Valmy",
-				"description": "Anneau cyclable trop proche de l'anneau routier",
-				"danger": "Risque de collision voiture-vélo faute de visibilité"
-			},
-			"geometry": {
-				"type": "Point",
-				"coordinates": [4.805412, 45.775292]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
 				"id": "Suzuki-commun",
 				"type": "danger",
 				"name": "Garage Suzuki - Tassin",
@@ -145,79 +131,6 @@
 			"type": "Feature",
 			"properties": {
 				"line": 5,
-				"name": "Saint-Fons - Sud",
-				"status": "done",
-				"doneAt": "10/04/2006",
-				"type": "voie-verte",
-				"quality": "satisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.848293602336625, 45.68122215475461],
-					[4.848489312325341, 45.68132555397992],
-					[4.848675595882085, 45.681410989965144],
-					[4.848913481581292, 45.6815328854446],
-					[4.8491805693993015, 45.68166608847011],
-					[4.849375826756297, 45.68175767216036],
-					[4.849531688126049, 45.68183926565331],
-					[4.850033481235499, 45.68208789264432],
-					[4.850685636509269, 45.682422371765256],
-					[4.851440195172216, 45.68282661695977],
-					[4.851923396377273, 45.68309721972835],
-					[4.852146204997688, 45.68320345052847],
-					[4.852406597581364, 45.68330217929952],
-					[4.852763628933246, 45.683453811236205],
-					[4.85384863653816, 45.6837892213901],
-					[4.85437608828601, 45.683977957621366],
-					[4.854907303045451, 45.684174580286054],
-					[4.855217182088154, 45.684287758399165],
-					[4.855386457672836, 45.68435027817918],
-					[4.855508559278661, 45.68439666181186]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
-				"name": "Saint-Fons - Frères Perret",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.844921822329695, 45.69421509426334],
-					[4.844983755791134, 45.69406585564002],
-					[4.844955410110742, 45.693791746917555],
-					[4.845202606509417, 45.69281038667151],
-					[4.845506977444444, 45.69210838570132],
-					[4.845705835481539, 45.69161483785746],
-					[4.845852978199332, 45.69098341029482],
-					[4.845930235207504, 45.69058895858544],
-					[4.845935661724553, 45.69038166313905],
-					[4.846229086649657, 45.68912028439888],
-					[4.846533681774986, 45.687865546426025],
-					[4.847167742320295, 45.685138536099004],
-					[4.847379327847079, 45.68462396357606],
-					[4.847593757033792, 45.68420250144442],
-					[4.847669686413269, 45.68400691478968],
-					[4.847776918198122, 45.68346590680892],
-					[4.847910895675199, 45.68214987233728],
-					[4.847961775071894, 45.68188498143081],
-					[4.848146214584631, 45.68141134458631],
-					[4.848293602336625, 45.68122215475461]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
 				"name": "Rampe Ouest Rhône-A7",
 				"status": "done",
 				"doneAt": "10/04/2006",
@@ -228,7 +141,6 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.836793716119331, 45.69582626903535],
 					[4.836900817426354, 45.69583324747219],
 					[4.836996146498636, 45.69591245536907],
 					[4.83710563015622, 45.695933992033005],
@@ -1084,6 +996,40 @@
 			"properties": {
 				"id": "Constellation-commun",
 				"line": 5,
+				"name": "Avenue de la Constellation",
+				"status": "variante-postponed",
+				"text": "variante Constellation",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7782498, 45.7573866],
+					[4.7782136, 45.7572383],
+					[4.7780869, 45.7569448],
+					[4.7778698, 45.7565471],
+					[4.7775939, 45.7561716],
+					[4.7773089, 45.7558781],
+					[4.7769968, 45.7556729],
+					[4.7765264, 45.7554425],
+					[4.7761012, 45.75531],
+					[4.7757484, 45.7552216],
+					[4.7749568, 45.7551048],
+					[4.7744456, 45.755007],
+					[4.7740431, 45.7548681],
+					[4.7736857, 45.7547135],
+					[4.7734776, 45.7545935],
+					[4.7733308, 45.7544875]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Constellation-commun",
+				"line": 5,
 				"name": "Chemin de la Raude",
 				"status": "variante-postponed",
 				"text": "variante Raude",
@@ -1094,7 +1040,7 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.7756827, 45.757959],
+					[4.7756705, 45.7579252],
 					[4.7751053, 45.7569934],
 					[4.774528, 45.7561581],
 					[4.7737383, 45.7552043],
@@ -1126,6 +1072,32 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "DeGaulleSud-commun",
+				"line": 5,
+				"name": "Avenue de Lauterbourg",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#tassin-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7790138, 45.7617915],
+					[4.7801519, 45.7615577],
+					[4.7795266, 45.7605831],
+					[4.7794055, 45.7603685],
+					[4.7788609, 45.7595416],
+					[4.7786894, 45.7593481],
+					[4.7784272, 45.7587852],
+					[4.7782498, 45.7573866]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "DeGaulleSud-commun",
 				"line": 5,
 				"name": "Avenue De Gaulle Sud",
 				"status": "postponed",
@@ -1341,31 +1313,11 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "PlaceValmy-commun",
-				"line": 5,
-				"name": "Place Valmy",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#rue-du-sergent-michel-berthet-le-long-de-la-place-valmy"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.805386040078901, 45.77513261348585],
-					[4.805415015656813, 45.774275105396384]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "PlaceValmy-commun",
+				"id": "ChapeauRouge-commun",
 				"line": 5,
 				"name": "Rue du Chapeau Rouge",
-				"status": "variante",
+				"status": "done",
 				"doneAt": "03/06/2013",
-				"text": "variante temporaire",
 				"type": "velorue",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#rue-du-sergent-michel-berthet-le-long-de-la-place-valmy"
@@ -1388,73 +1340,11 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "RondpointValmy-commun",
-				"line": 5,
-				"name": "Rond-point Valmy",
-				"type": "aucun",
-				"status": "postponed",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#rond-point-de-valmy"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.805386040078901, 45.77513261348585],
-					[4.805487835311226, 45.77515019265442],
-					[4.805551866069067, 45.77518533169581],
-					[4.805588058319756, 45.775246283523785],
-					[4.805586260012149, 45.77533028285387],
-					[4.805526633230471, 45.77539205756338],
-					[4.805448235524722, 45.775419848636545],
-					[4.805369332584064, 45.77542361144975],
-					[4.805294021754094, 45.775408249846265],
-					[4.805237723700429, 45.7753840193775],
-					[4.805194035823547, 45.77533577342234],
-					[4.805179473198734, 45.775282448897656],
-					[4.805186754511169, 45.775229124321555],
-					[4.805230442387995, 45.775182147867184],
-					[4.805312357155657, 45.77514278918585],
-					[4.805386040078901, 45.77513261348585]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "Roquette-commun",
-				"line": 5,
-				"name": "Rue Roquette",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#rue-roquette"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.805369332584064, 45.77542361144975],
-					[4.80538265206323, 45.775603681465924],
-					[4.805445875461373, 45.775709512827206],
-					[4.805593396724134, 45.77576536818677],
-					[4.807072824240805, 45.77614753493543],
-					[4.807258279540861, 45.77624454607809],
-					[4.807443734842224, 45.776400351499234],
-					[4.807539821975155, 45.776484431789044],
-					[4.807536456466778, 45.776664925120826],
-					[4.807439513923043, 45.77678251327151],
-					[4.807330498428769, 45.77683140956103]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "Roquette-commun",
+				"id": "StPierreVaise-commun",
 				"line": 5,
 				"name": "Rue St-Pierre-de-Vaise",
-				"status": "variante",
+				"status": "done",
 				"doneAt": "31/01/2021",
-				"text": "variante temporaire",
 				"type": "bilaterale",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#rue-roquette"
@@ -1463,50 +1353,26 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.8075439641355615, 45.773172806902835],
+					[4.808666325086193, 45.77372758119222]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Mouton-commun",
+				"line": 5,
+				"name": "Place du Port Mouton",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#rue-roquette"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
 					[4.808666325086193, 45.77372758119222],
 					[4.809234141908888, 45.77406192601236]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "CarrefourMtdOr-commun",
-				"line": 5,
-				"name": "Carrefour des Monts d'Or",
-				"status": "done",
-				"doneAt": "13/03/2026",
-				"type": "bidirectionnelle",
-				"quality": "satisfactory",
-                "link": "/voie-lyonnaise-5#quais-de-saône"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.807330498428769, 45.77683140956103],
-					[4.80777915558761, 45.77690650986693]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "Jayr-commun",
-				"line": 5,
-				"name": "Quai Jaÿr Sud",
-				"status": "done",
-				"doneAt": "20/11/2025",
-				"type": "bidirectionnelle",
-				"quality": "satisfactory",
-                "link": "/voie-lyonnaise-5#quais-de-saône"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.808707237243652, 45.775036521310206],
-					[4.808527731066491, 45.77509981028865],
-					[4.808323764659264, 45.77550568053769],
-					[4.80777915558761, 45.77690650986693]
 				]
 			}
 		},
