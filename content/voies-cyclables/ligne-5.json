@@ -411,75 +411,21 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "Pasteur-commun",
+				"id": "PlasseEst-commun",
 				"line": 5,
-				"name": "Rue Pasteur Nord",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
+				"name": "Rue Charles Plasse Est",
+				"status": "wip",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.8563559, 45.7063329],
+					[4.8538997, 45.7088032],
+					[4.8552458, 45.7084137],
+					[4.8559374, 45.708232],
 					[4.8562825, 45.7081589]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
-				"name": "Rue Victor Hugo",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.8555478, 45.7063214],
-					[4.8563559, 45.7063329]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
-				"name": "Rue Jean Macé",
-				"status": "variante-postponed",
-				"text": "variante Jean Macé",
-				"type": "bandes-cyclables",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.8526609, 45.7059252],
-					[4.8552034, 45.70622],
-					[4.8555478, 45.7063214]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
-				"name": "Rue de Pressensé",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.8523742, 45.7066844],
-					[4.8526504, 45.7067519]
 				]
 			}
 		},
@@ -505,29 +451,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "PlasseEst-commun",
 				"line": 5,
-				"name": "Rue Charles Plasse Est",
-				"status": "wip",
-				"type": "bidirectionnelle",
-				"quality": "satisfactory",
-				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.8538997, 45.7088032],
-					[4.8552458, 45.7084137],
-					[4.8559374, 45.708232],
-					[4.8562825, 45.7081589]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 5,
-				"name": "Gare de Saint-Fons",
+				"name": "Rue de Pressensé",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -537,7 +462,7 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.8523742, 45.7066844],
-					[4.8526609, 45.7059252]
+					[4.8526504, 45.7067519]
 				]
 			}
 		},
