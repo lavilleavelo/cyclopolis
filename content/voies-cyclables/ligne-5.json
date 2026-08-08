@@ -235,6 +235,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Cot-commun",
 				"line": 5,
 				"name": "Rue des Combats du 24 Août 1944",
 				"status": "variante",
@@ -256,6 +257,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Berliet-commun",
 				"line": 5,
 				"name": "Gare de Vénissieux",
 				"status": "postponed",
@@ -278,6 +280,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Coblod-commun",
 				"line": 5,
 				"name": "Boulevard Coblod",
 				"status": "postponed",
@@ -301,6 +304,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Berliet-commun",
 				"line": 5,
 				"name": "Pont Berliet",
 				"status": "variante-postponed",
@@ -320,6 +324,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Cot-commun",
 				"line": 5,
 				"name": "Montée du Lyonnais",
 				"status": "planned",
@@ -340,7 +345,7 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "Croizat-commun",
+				"id": "Coblod-commun",
 				"line": 5,
 				"name": "Boulevard Croizat",
 				"status": "done",
@@ -434,8 +439,7 @@
 			"properties": {
 				"line": 5,
 				"name": "Rue Gambetta",
-				"status": "variante-postponed",
-				"text": "variante Gambetta",
+				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
