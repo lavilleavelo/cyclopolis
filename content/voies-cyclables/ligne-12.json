@@ -630,7 +630,7 @@
       "type": "Feature",
       "properties": {
         "line": 12,
-        "name": "Avenue Franklin Roosevelt",
+        "name": "Vinatier - Essarts",
         "status": "done",
         "doneAt": "30/11/2000",
         "type": "voie-verte",
@@ -675,6 +675,346 @@
           [4.905307448812323,45.73484789372438],
           [4.905369298989683,45.734783670303926],
           [4.905390232327136,45.73471587698813]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Rousset-commun",
+        "line": 12,
+        "name": "Bron - Avenue Roosevelt",
+        "status": "variante-postponed",
+        "text": "variante Roosevelt",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.905390232327136,45.73471587698813],
+					[4.9171366, 45.7308062],
+					[4.9172268, 45.7308473],
+					[4.917313, 45.730861],
+					[4.9175169, 45.7308035]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Rousset-commun",
+        "line": 12,
+        "name": "Bron - Avenue Rousset",
+        "status": "variante",
+        "text": "variante Rousset",
+        "doneAt": "10/04/2012",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.905390232327136,45.73471587698813],
+					[4.9069358, 45.735024],
+					[4.908749, 45.7353362],
+					[4.9116568, 45.7358046],
+					[4.9167729, 45.7367346],
+					[4.9170584, 45.7367213]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Bron - Avenue de Tassigny",
+        "status": "done",
+        "doneAt": "10/04/2012",
+        "type": "bidirectionnelle",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9170584, 45.7367213],
+					[4.9169966, 45.7366283],
+					[4.9169537, 45.7364988],
+					[4.9169347, 45.7362663],
+					[4.9177675, 45.733755],
+					[4.9178913, 45.7334328],
+					[4.9182434, 45.732712],
+					[4.9183053, 45.7325359],
+					[4.9183101, 45.7323698],
+					[4.918272, 45.7321539],
+					[4.9175169, 45.7308035]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Bron - Avenue De Gaulle Ouest",
+        "status": "done",
+        "doneAt": "30/11/2000",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9175169, 45.7308035],
+					[4.9175326, 45.730757],
+					[4.9175875, 45.7307077],
+					[4.919165, 45.7301915]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Bron - Avenue De Gaulle Ecole de Santé",
+        "status": "done",
+        "doneAt": "30/11/2000",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.919165, 45.7301915],
+					[4.9271623, 45.7275169],
+					[4.9272859, 45.7275575]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Bron - Avenue De Gaulle Est",
+        "status": "done",
+        "doneAt": "10/04/2012",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9272859, 45.7275575],
+					[4.9277512, 45.7274154],
+					[4.9280929, 45.7272733],
+					[4.928282, 45.7271566],
+					[4.9300341, 45.7265476],
+					[4.9301577, 45.7264308],
+					[4.9346435, 45.7249082],
+					[4.9351524, 45.7247864],
+					[4.9354577, 45.7247458]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Route de Grenoble - Aéroport",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9354577, 45.7247458],
+					[4.9360684, 45.7246139],
+					[4.9365192, 45.7243804],
+					[4.9372826, 45.7240302],
+					[4.9379878, 45.7237358],
+					[4.9385476, 45.7234567],
+					[4.9389765, 45.7231724],
+					[4.9393691, 45.7228577],
+					[4.9397617, 45.7225177],
+					[4.9400307, 45.7222284],
+					[4.9403361, 45.7218375],
+					[4.9412449, 45.7203199],
+					[4.9416011, 45.7198275],
+					[4.9420664, 45.7193656],
+					[4.9426189, 45.718924],
+					[4.9432151, 45.7185636],
+					[4.9438549, 45.7182743],
+					[4.9445747, 45.7180103],
+					[4.9453817, 45.7178175],
+					[4.9461378, 45.7176956],
+					[4.9470175, 45.7176601],
+					[4.94773, 45.7176804],
+					[4.948457, 45.7177515],
+					[4.9491113, 45.7178733],
+					[4.9494239, 45.7179393],
+					[4.9494894, 45.7180357],
+					[4.949613, 45.7181322],
+					[4.9497947, 45.7181525],
+					[4.9499474, 45.7181068],
+					[4.9500564, 45.7180459],
+					[4.9502309, 45.7180509],
+					[4.9508053, 45.7181677],
+					[4.9514451, 45.7182591],
+					[4.9521939, 45.71832],
+					[4.9527828, 45.71832],
+					[4.9534807, 45.7182997]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Route de Grenoble - Expositions Progrès",
+        "status": "postponed",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9534807, 45.7182997],
+					[4.9541351, 45.7182946],
+					[4.9543241, 45.71832],
+					[4.954484, 45.7184164],
+					[4.9549566, 45.718386],
+					[4.955102, 45.718254],
+					[4.9554292, 45.7180357],
+					[4.955989, 45.717787],
+					[4.9567524, 45.717518],
+					[4.9578988, 45.7171283],
+					[4.9579973, 45.7171084],
+					[4.9580958, 45.7171394],
+					[4.9581689, 45.7171705],
+					[4.9583088, 45.7171461],
+					[4.9583405, 45.7170817],
+					[4.9583978, 45.7170063],
+					[4.9584359, 45.7169441],
+					[4.958509, 45.716902],
+					[4.9588205, 45.7167733]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Route de Grenoble - Mi-Plaine",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9588205, 45.7167733],
+					[4.9595801, 45.7165092],
+					[4.9666261, 45.7141385],
+					[4.9668044, 45.7141184]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Route de Grenoble - Herbepin",
+        "status": "postponed",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9668044, 45.7141184],
+					[4.9669885, 45.7140462],
+					[4.9674084, 45.7139257],
+					[4.9673394, 45.7137449]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Route de Grenoble - Rocade Est",
+        "status": "done",
+        "doneAt": "30/11/2000",
+        "type": "bidirectionnelle",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9673394, 45.7137449],
+					[4.9675234, 45.7137088],
+					[4.9676557, 45.7136044],
+					[4.9678628, 45.7135281],
+					[4.9681101, 45.7134598],
+					[4.9682424, 45.7134558],
+					[4.9693123, 45.7130903],
+					[4.9693813, 45.713022],
+					[4.9694101, 45.7129216],
+					[4.9694964, 45.7128613],
+					[4.9696344, 45.7128814],
+					[4.9697725, 45.7128814],
+					[4.9698818, 45.7128895],
+					[4.9701521, 45.7128131],
+					[4.9704052, 45.7126766],
+					[4.9713313, 45.7123231],
+					[4.9714981, 45.7123031],
+					[4.9720259, 45.7120731],
+					[4.9721104, 45.7119452],
+					[4.9722654, 45.7118173],
+          [4.9723826, 45.7117854]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 12,
+        "name": "Manissieux",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9723826, 45.7117854],
+					[4.9724908, 45.711778],
+					[4.9726881, 45.7118075],
+					[4.9728431, 45.7118665],
+					[4.9918417, 45.7053752],
+					[4.9919065, 45.70522],
+					[4.9920547, 45.7051036],
+					[4.9922862, 45.7050455],
+					[4.9925269, 45.7050972],
+					[4.992675, 45.7052394],
+					[4.9927491, 45.7054399],
+					[4.9925917, 45.7055951],
+					[4.9923417, 45.7056727],
+					[4.9921102, 45.7056468],
+					[4.9919436, 45.7055886],
+					[4.9918325, 45.7053688]
         ]
       }
     }
