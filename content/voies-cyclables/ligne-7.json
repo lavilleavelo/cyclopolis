@@ -1805,27 +1805,8 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "Pasteur-commun",
 				"line": 7,
-				"name": "Rue Pasteur Nord",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-7#avenue-jean-jaurès"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.8563559, 45.7063329],
-					[4.8562825, 45.7081589]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 7,
-				"name": "Rue Pasteur Sud",
+				"name": "Rue Pasteur",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
