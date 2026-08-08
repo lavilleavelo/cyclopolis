@@ -113,9 +113,89 @@
 			"type": "Feature",
 			"properties": {
 				"line": 5,
-				"name": "Rampe Ouest Rhône-A7",
+				"name": "Traversée A43",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.919855126013459,45.72282218623516],
+					[4.9200063, 45.7232462],
+					[4.9204615, 45.7233902],
+					[4.9215711, 45.7239662],
+					[4.922069, 45.7242095],
+					[4.9230221, 45.7246167],
+					[4.9249425, 45.7253317],
+					[4.9256538, 45.7256346],
+					[4.9261801, 45.7259424],
+					[4.9265784, 45.7263297],
+					[4.9268629, 45.7267518],
+					[4.927216950548768, 45.727507634418416]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "BronUniversite-commun",
+				"line": 5,
+				"name": "Bron - Boulevard de l'Université",
 				"status": "done",
-				"doneAt": "10/04/2006",
+				"doneAt": "15/11/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#boulevard-de-luniversité"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.914901187214582, 45.724435940257024],
+					[4.915060155921935,45.72454078052286],
+					[4.915322148926606,45.72454423145885],
+					[4.915529766024548,45.72433372399996],
+					[4.915683007215819,45.7243647825272],
+					[4.91583130514303,45.72435097873935],
+					[4.916078468355607,45.72428541070059],
+					[4.916622227421811,45.724023137775816],
+					[4.917146213431067,45.72375396165137],
+					[4.917630653326597,45.72358486316645],
+					[4.918826923272462,45.723284625819815],
+					[4.9193756256035215,45.72308791771792],
+					[4.919855126013459,45.72282218623516]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Avenue Mendès-France",
+				"status": "done",
+				"doneAt": "15/11/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#branche-vers-campus-sud"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.914901187214582, 45.724435940257024],
+					[4.915016674231566, 45.7243289180646],
+					[4.914999164304163, 45.72402632369065],
+					[4.9149286781595265, 45.72322582543018],
+					[4.914658121329978, 45.72243867004411]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Boulevard de Parilly",
+				"status": "planned",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -123,26 +203,425 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.836900817426354, 45.69583324747219],
-					[4.836996146498636, 45.69591245536907],
-					[4.83710563015622, 45.695933992033005],
-					[4.837085864868094, 45.696029006227846],
-					[4.8375734720864845, 45.69606344885284],
-					[4.837773563130465, 45.69611566314346],
-					[4.837922067514119, 45.69619235244302],
-					[4.83802810813482, 45.696305292073774],
-					[4.838093079211911, 45.696448926426534],
-					[4.838143895702337, 45.696635401868036],
-					[4.83822317479631, 45.69706851242796],
-					[4.838193701709586, 45.69719724170295],
-					[4.837991436140943, 45.69733963164753],
-					[4.8375171361459115, 45.69769283026544],
-					[4.837221411491022, 45.69798140703604],
-					[4.83704283615088, 45.698046028883354],
-					[4.8370175295868565, 45.6979192834733],
-					[4.8373777369870705, 45.69754165385917],
-					[4.837819598292738, 45.69721921045132],
-					[4.838325608879521, 45.69688416544644]
+					[4.9019112, 45.7114653],
+					[4.9023286, 45.7117826],
+					[4.9091255, 45.7178206],
+					[4.913682, 45.7212059],
+					[4.9139634, 45.721493],
+					[4.9142989, 45.7219086],
+					[4.9146128, 45.7223468],
+					[4.914658121329978, 45.72243867004411]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Avenue Pierre Cot",
+				"status": "planned",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.896033, 45.7047756],
+					[4.9019112, 45.7114653]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Rue des Combats du 24 Août 1944",
+				"status": "variante",
+				"text": "variante Nord",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8892976, 45.7054264],
+					[4.8944277, 45.703363],
+					[4.8947524, 45.7033856],
+					[4.896033, 45.7047756]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Gare de Vénissieux",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8873602, 45.7069154],
+					[4.888291, 45.7065904],
+					[4.8890811, 45.7062729],
+					[4.8892326, 45.7061671],
+					[4.8892651, 45.7060084],
+					[4.8892976, 45.7054264]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Boulevard Coblod",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8873602, 45.7069154],
+					[4.887899, 45.703196],
+					[4.8880857, 45.7031343],
+					[4.8905819, 45.7018165],
+					[4.8907195, 45.7017753],
+					[4.8908669, 45.7017616],
+					[4.8910536, 45.7018028]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Pont Berliet",
+				"status": "variante-postponed",
+				"text": "variante Sud",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8910536, 45.7018028],
+					[4.8952107, 45.7032647]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Montée du Lyonnais",
+				"status": "planned",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8952107, 45.7032647],
+					[4.8954171, 45.7033402],
+					[4.8960165, 45.7045207],
+					[4.896033, 45.7047756]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Croizat-commun",
+				"line": 5,
+				"name": "Boulevard Croizat",
+				"status": "done",
+				"doneAt": "10/09/2016",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8873927, 45.703174],
+					[4.8873602, 45.7069154]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "T10 St-Fons - Vénissieux",
+				"status": "wip",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8562825, 45.7081589],
+					[4.8565971, 45.7081223],
+					[4.8572089, 45.7080832],
+					[4.8581318, 45.7080222],
+					[4.8589288, 45.7079734],
+					[4.8594882, 45.7079587],
+					[4.8606138, 45.7079563],
+					[4.862561, 45.7079563],
+					[4.8629315, 45.7079563],
+					[4.8634873, 45.7079319],
+					[4.8639278, 45.7078904],
+					[4.8649276, 45.7077854],
+					[4.8656547, 45.7077049],
+					[4.8664937, 45.7076072],
+					[4.8688779, 45.7073362],
+					[4.8703247, 45.7071572],
+					[4.8716343, 45.706991],
+					[4.8725868, 45.7068549],
+					[4.87355, 45.7066811],
+					[4.8744916, 45.7064846],
+					[4.8756172, 45.7061671],
+					[4.8764722, 45.7059026],
+					[4.877468, 45.7055322],
+					[4.8780416, 45.7052904],
+					[4.8783122, 45.7050712],
+					[4.8788317, 45.7045497],
+					[4.8796109, 45.7035217],
+					[4.8802711, 45.7038921],
+					[4.8814509, 45.7044438],
+					[4.8819704, 45.7046252],
+					[4.8833341, 45.7021536],
+					[4.8850008, 45.7024181],
+					[4.8859966, 45.7026525],
+					[4.8871438, 45.7031287],
+					[4.8873927, 45.703174]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Pasteur-commun",
+				"line": 5,
+				"name": "Rue Pasteur Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8563559, 45.7063329],
+					[4.8562825, 45.7081589]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Rue Victor Hugo",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8555478, 45.7063214],
+					[4.8563559, 45.7063329]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Rue Jean Macé",
+				"status": "variante-postponed",
+				"text": "variante Jean Macé",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8526609, 45.7059252],
+					[4.8552034, 45.70622],
+					[4.8555478, 45.7063214]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Rue de Pressensé",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8523742, 45.7066844],
+					[4.8526504, 45.7067519]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Rue Gambetta",
+				"status": "variante-postponed",
+				"text": "variante Gambetta",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8526504, 45.7067519],
+					[4.8538997, 45.7088032]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PlasseEst-commun",
+				"line": 5,
+				"name": "Rue Charles Plasse Est",
+				"status": "wip",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8538997, 45.7088032],
+					[4.8552458, 45.7084137],
+					[4.8559374, 45.708232],
+					[4.8562825, 45.7081589]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Gare de Saint-Fons",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8523742, 45.7066844],
+					[4.8526609, 45.7059252]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Vallée de la Chimie Nord",
+				"status": "done",
+				"doneAt": "10/10/2025",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8459804, 45.701853],
+					[4.8454245, 45.703606],
+					[4.8454385, 45.7036963],
+					[4.8454805, 45.703772],
+					[4.8454385, 45.7038867],
+					[4.8453441, 45.7039648],
+					[4.8448512, 45.7049072],
+					[4.8444597, 45.705393],
+					[4.8444422, 45.7054394],
+					[4.8444457, 45.7055688],
+					[4.8445017, 45.7056249],
+					[4.8469767, 45.7064891],
+					[4.8475919, 45.7065477],
+					[4.8479066, 45.7065404],
+					[4.8482387, 45.706516],
+					[4.8483995, 45.7064623],
+					[4.8484834, 45.7063768],
+					[4.8485533, 45.7062914],
+					[4.8486162, 45.7062645],
+					[4.8487176, 45.7062475],
+					[4.8488469, 45.7062694],
+					[4.8488994, 45.7063402],
+					[4.8489623, 45.7063793],
+					[4.8509829, 45.7065087],
+					[4.8515702, 45.7065624],
+					[4.851675, 45.7066625],
+					[4.8518114, 45.7068871],
+					[4.8518638, 45.7069164],
+					[4.8521749, 45.7069554],
+					[4.8522344, 45.706931],
+					[4.8523008, 45.7066747],
+					[4.8523742, 45.7066844]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Quai Aulagne Sud",
+				"status": "done",
+				"doneAt": "10/04/2002",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8447988, 45.694328],
+					[4.8450435, 45.6945014],
+					[4.8450715, 45.6949946],
+					[4.8450086, 45.6952242],
+					[4.8448652, 45.6955709],
+					[4.8449281, 45.6959542],
+					[4.8450785, 45.6965085],
+					[4.8455993, 45.6978636],
+					[4.8458021, 45.6993359],
+					[4.8457986, 45.6999731],
+					[4.8457077, 45.7010718],
+					[4.8456168, 45.7015088],
+					[4.8456378, 45.701582],
+					[4.8458231, 45.7017261],
+					[4.8458405, 45.7017993],
+					[4.845872, 45.7018286],
+					[4.8459804, 45.701853]
+
 				]
 			}
 		},
