@@ -1697,28 +1697,7 @@
     {
       "type": "Feature",
       "properties": {
-        "line": 8,
-        "name": "Branche Campus Parilly",
-        "status": "done",
-        "doneAt": "15/11/2024",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-8#branche-vers-campus-sud"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.914901187214582, 45.724435940257024],
-          [4.915016674231566,45.7243289180646],
-          [4.914999164304163,45.72402632369065],
-          [4.9149286781595265,45.72322582543018],
-          [4.914658121329978,45.72243867004411]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
+        "id": "BronUniversite-commun",
         "line": 8,
         "name": "Bron - Boulevard de l'Université",
         "status": "done",

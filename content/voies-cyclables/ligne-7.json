@@ -1737,56 +1737,108 @@
         "type": "LineString",
         "coordinates": [
           [4.8547080560425115,45.71577389008286],
-          [4.854961057072003,45.713095521952724],
-          [4.854992141407166,45.712050115774645]
+          [4.854961057072003,45.713095521952724]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "StFons-commun",
         "line": 7,
-        "name": "Saint-Fons Centre",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#saint-fons-centre"
+        "name": "St-Fons - Rue Anatole France",
+        "status": "done",
+        "doneAt" : "17/08/2023",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#avenue-jean-jaurès"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.854992141407166,45.712050115774645],
-          [4.855318415067629, 45.70623755286702],
-          [4.855265462902274, 45.705908802052896],
-          [4.855325918111703, 45.70558005123877],
-          [4.856360413936926,45.70560458150263]
+          [4.8549312, 45.7131374],
+					[4.8532818, 45.7133652],
+					[4.8530734, 45.7133589],
+					[4.8529646, 45.713283],
+					[4.8531731, 45.7090242]
         ]
       }
     },
-        {
+    {
       "type": "Feature",
       "properties": {
-        "id": "StFons-commun",
         "line": 7,
-        "name": "Saint-Fons Centre - Continuité",
-        "status": "variante",
-        "doneAt": "02/12/2019",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#saint-fons-centre"
+        "name": "Rue Charles Plasse Centre",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#avenue-jean-jaurès"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.854992141407166,45.712050115774645],
-          [4.857139218059771, 45.71211307393098],
-          [4.857220430326741, 45.70764878056749],
-          [4.856322568170839, 45.70764126445232],
-          [4.856360413936926,45.70560458150263]
+          [4.8531731, 45.7090242],
+					[4.8538799, 45.708828]
         ]
       }
     },
+    {
+			"type": "Feature",
+			"properties": {
+				"id": "PlasseEst-commun",
+				"line": 7,
+				"name": "Rue Charles Plasse Est",
+				"status": "wip",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-7#avenue-jean-jaurès"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8538997, 45.7088032],
+					[4.8552458, 45.7084137],
+					[4.8559374, 45.708232],
+					[4.8562825, 45.7081589]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Pasteur-commun",
+				"line": 7,
+				"name": "Rue Pasteur Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-7#avenue-jean-jaurès"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8563559, 45.7063329],
+					[4.8562825, 45.7081589]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 7,
+				"name": "Rue Pasteur Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-7#avenue-jean-jaurès"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8563559, 45.7063329],
+					[4.856360413936926,45.70560458150263]
+				]
+			}
+		},
     {
       "type": "Feature",
       "properties": {
