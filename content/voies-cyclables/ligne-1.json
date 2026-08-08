@@ -961,7 +961,7 @@
       "type": "Feature",
       "properties": {
         "line": 1,
-        "name": "St-Fons Ouest",
+        "name": "Rue Charles Plasse Ouest",
         "status": "wip",
         "type": "bidirectionnelle",
         "link": "/voie-lyonnaise-1#halle-tony-garnier-à-st-fons-centre",
@@ -972,8 +972,7 @@
         "coordinates": [
           [4.851226691184081, 45.70960550210171],
           [4.851717719375614, 45.70950199025552],
-          [4.853385362287071, 45.7090167759207],
-          [4.855247553178799, 45.708473332269364]
+          [4.8531837, 45.7090506]
         ]
       }
     }
