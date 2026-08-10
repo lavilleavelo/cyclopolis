@@ -729,6 +729,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "BronTassigny-commun",
         "line": 12,
         "name": "Bron - Avenue de Tassigny",
         "status": "done",
@@ -757,6 +758,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "BronDeGaulle-commun",
         "line": 12,
         "name": "Bron - Avenue De Gaulle Ouest",
         "status": "done",

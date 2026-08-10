@@ -1391,7 +1391,7 @@
       "type": "Feature",
       "properties": {
         "line": 11,
-        "name": "Lacouture - Sept Chemins",
+        "name": "Lacouture - Brossolette",
         "status": "wip",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
@@ -1410,6 +1410,42 @@
           [4.9156560959944215,45.74872562289961],
           [4.916436351737502,45.74851800071269],
           [4.9173472753889484,45.7484161104496],
+          [4.9175411, 45.7484019]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Route de Genas - Carrefour Brossolette",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#reconnaissance-balzac-à-bron-sept-chemins"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9177149, 45.7484019],
+          [4.9175411, 45.7484019]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 11,
+        "name": "Brossolette - Sept Chemins",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-11#reconnaissance-balzac-à-bron-sept-chemins"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9177149, 45.7484019],
           [4.91956836843093,45.74847453999567],
           [4.919951683359244,45.7484126587411],
           [4.921810886721374,45.74776838198707],
