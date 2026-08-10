@@ -968,7 +968,7 @@
       "type": "Feature",
       "properties": {
         "line": 4,
-        "name": "Villeurbanne - Pressensé Est",
+        "name": "Villeurbanne - Pressensé Centre",
         "status": "done",
         "doneAt": "12/12/2025",
         "type": "bidirectionnelle",
@@ -985,6 +985,572 @@
           [4.888615023820278, 45.770662026618126],
           [4.889195005338365, 45.770372782603914],
           [4.889814027357431, 45.76988614857639]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Pressensé Est",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.889814027357431, 45.76988614857639],
+					[4.8900206, 45.7697798],
+					[4.892446, 45.7696619],
+					[4.8927988, 45.769626],
+					[4.8933794, 45.7696209],
+					[4.8938498, 45.7695645],
+					[4.8965544, 45.7692979],
+					[4.8966279, 45.7693594]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Rue du 8 mai 1945",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8966279, 45.7693594],
+					[4.8965029, 45.7698823]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Rue de la Sérénité",
+        "status": "done",
+        "doneAt": "10/04/200",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8965029, 45.7698823],
+          [4.8988842, 45.7700617]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Rue Pierre Voyant",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8988842, 45.7700617],
+					[4.8993913, 45.7690672],
+					[4.9005158, 45.7674061],
+					[4.900582, 45.767242],
+					[4.900582, 45.767037]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Rue Pierre Chambfort",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.900582, 45.767037],
+					[4.9024985, 45.7672365]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Rue Bourgchanin",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9024985, 45.7672365],
+					[4.902562, 45.7667339],
+					[4.9027949, 45.7666848]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Avenue Marcel Cerdan",
+        "status": "done",
+        "doneAt": "10/09/2019",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9027949, 45.7666848],
+					[4.9038311, 45.7669389],
+					[4.9041836, 45.7669119],
+					[4.9044304, 45.7669168],
+					[4.904656, 45.7669463],
+					[4.9047371, 45.7669389]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Villeurbanne - Passerelle Astroballe",
+        "status": "done",
+        "doneAt": "10/04/2000",
+        "type": "voie-verte",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9047371, 45.7669389],
+					[4.9048535, 45.7669758],
+					[4.9051108, 45.7667028],
+					[4.9065492, 45.7669758]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Rampe Est Astroballe",
+        "status": "done",
+        "doneAt": "10/04/2000",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9065492, 45.7669758],
+					[4.9066008, 45.7669713],
+					[4.9066433, 45.7669549],
+					[4.9066579, 45.7669151],
+					[4.9066301, 45.7668753],
+					[4.9065877, 45.7668569],
+					[4.9065247, 45.766862],
+					[4.9064823, 45.7668794],
+					[4.9064354, 45.7669029],
+					[4.9063886, 45.7669406],
+					[4.9063271, 45.767057]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Avenue Marcel Cerdan",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9063271, 45.767057],
+					[4.9064208, 45.7670866],
+					[4.9065511, 45.7670764],
+					[4.906835, 45.7670162],
+					[4.9071485, 45.7669758],
+					[4.9084097, 45.7664405],
+					[4.9094102, 45.7662183],
+					[4.9102262, 45.7662066],
+					[4.9105672, 45.7661832]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Rue de Pierrefrite",
+        "status": "done",
+        "doneAt": "10/04/2000",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9105672, 45.7661832],
+					[4.91097, 45.7662528],
+					[4.9130852, 45.7667496],
+					[4.9131769, 45.7667619],
+					[4.913956, 45.7667373],
+					[4.9164273, 45.7668037],
+					[4.9181582, 45.7669807]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Rue Jara",
+        "status": "done",
+        "doneAt": "10/04/2000",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9181582, 45.7669807],
+					[4.9191665, 45.7647649],
+					[4.9192193, 45.7645633]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Rue de la Poudrette Nord",
+        "status": "done",
+        "doneAt": "10/04/2009",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9192193, 45.7645633],
+					[4.9194309, 45.7636853],
+					[4.9206141, 45.760622]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Rue de la Poudrette Sud",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9206141, 45.760622],
+					[4.920657, 45.7604156],
+					[4.9210864, 45.7591706],
+					[4.9212296, 45.758608],
+					[4.9212725, 45.7583017],
+					[4.9212439, 45.7558277],
+					[4.9212057, 45.7554382],
+					[4.9211008, 45.7549255],
+					[4.9206379, 45.753677],
+					[4.9199795, 45.7528546],
+					[4.9193544, 45.751999],
+					[4.9190681, 45.7515162],
+					[4.9181376, 45.7496783],
+					[4.917985, 45.7493454],
+					[4.9177327, 45.7484998],
+          [4.9177149, 45.7484019]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Route de Genas - Carrefour Brossolette",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9177149, 45.7484019],
+          [4.9175411, 45.7484019]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Avenue Brossolette Nord",
+        "status": "planned",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9175411, 45.7484019],
+					[4.917503, 45.7482333],
+					[4.917503, 45.7477738],
+					[4.9176462, 45.7471012],
+					[4.9177225, 45.7468881],
+					[4.9186243, 45.7451866],
+          [4.9185862, 45.74508]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Rue Romain Rolland",
+        "status": "done",
+        "doneAt": "10/04/2005",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9185862, 45.74508],
+					[4.918319, 45.7450068],
+					[4.9178275, 45.7448836],
+					[4.9175507, 45.744767],
+					[4.917379, 45.7446505],
+					[4.9172358, 45.744504],
+					[4.9171213, 45.7443375],
+					[4.9170163, 45.7439013],
+					[4.916878, 45.7430854],
+					[4.9168923, 45.7428124],
+					[4.9168923, 45.7427192],
+					[4.9168636, 45.7426559],
+					[4.9168112, 45.7426093],
+					[4.916668, 45.742576],
+          [4.9164628, 45.742576]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Avenue Ferdinand Buisson",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9164628, 45.742576],
+					[4.9169572, 45.7400305],
+					[4.9173411, 45.7376737],
+					[4.9173142, 45.7375264],
+					[4.9171541, 45.7374288],
+          [4.916659, 45.7373057]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Rue de la Pagère",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.916659, 45.7373057],
+					[4.9168524, 45.7368702],
+          [4.916891, 45.7367454],
+          [4.9170584, 45.7367213]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BronTassigny-commun",
+        "line": 4,
+        "name": "Bron - Avenue de Tassigny",
+        "status": "done",
+        "doneAt": "10/04/2012",
+        "type": "bidirectionnelle",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9170584, 45.7367213],
+					[4.9169966, 45.7366283],
+					[4.9169537, 45.7364988],
+					[4.9169347, 45.7362663],
+					[4.9177675, 45.733755],
+					[4.9178913, 45.7334328],
+					[4.9182434, 45.732712],
+					[4.9183053, 45.7325359],
+					[4.9183101, 45.7323698],
+					[4.918272, 45.7321539],
+					[4.9175169, 45.7308035]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "BronDeGaulle-commun",
+        "line": 4,
+        "name": "Bron - Avenue De Gaulle Ouest",
+        "status": "done",
+        "doneAt": "30/11/2000",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9175169, 45.7308035],
+					[4.9175326, 45.730757],
+					[4.9175875, 45.7307077],
+					[4.919165, 45.7301915]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Rue Albert Camus Nord",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.919165, 45.7301915],
+					[4.9187724, 45.7295917],
+					[4.9187674, 45.7292855]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Rue Albert Camus Sud",
+        "status": "done",
+        "doneAt": "10/04/2005",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9187674, 45.7292855],
+					[4.9187754, 45.7268981]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Chemin Yvette Bravant",
+        "status": "done",
+        "doneAt": "10/04/2005",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9187754, 45.7268981],
+					[4.918704, 45.726804],
+					[4.9187016, 45.7265214],
+					[4.9186445, 45.7265021],
+					[4.916805, 45.7267516],
+					[4.9164628, 45.7266791],
+          [4.9155528, 45.7268015]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 4,
+        "name": "Bron - Avenue du 8 mai 1945",
+        "status": "done",
+        "doneAt": "10/04/2005",
+        "type": "voie-verte",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9155528, 45.7268015],
+					[4.9153813, 45.7261037],
+					[4.9153701, 45.7256273],
+					[4.9153029, 45.7251925],
+					[4.9153663, 45.7250103],
+					[4.9154782, 45.7249061],
+					[4.9154111, 45.7247187],
+					[4.9153141, 45.7246692],
+					[4.9153118, 45.7245415]
         ]
       }
     }
