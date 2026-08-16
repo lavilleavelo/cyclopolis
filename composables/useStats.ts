@@ -2,23 +2,15 @@ import type { Collections } from '@nuxt/content';
 import { groupBy } from '~/helpers/helpers';
 import { isLineStringFeature, type LaneType, type LaneQuality, isDangerFeature, type LaneStatus } from '~/types';
 
-const featureStatusOrder = [
-  'done',
-  'variante',
-  'tested',
-  'wip',
-  'planned',
-  'priority-2030',
-  'postponed',
-  'variante-postponed',
-  'unknown',
-];
+const featureStatusOrder = ['done', 'tested', 'wip', 'planned', 'priority-2030', 'postponed', 'unknown'];
 
 const getFeatureSortKey = (feature: Collections['voiesCyclablesGeojson']['features'][0]) => {
   const id = feature.properties.id ?? '';
   const line = feature.properties.line ?? 0;
   const status = featureStatusOrder.indexOf(feature.properties.status);
-  return [status, id, line].join('|');
+  // à statut égal, un tronçon de variante ne doit pas masquer le tronçon principal lors du dédoublonnage
+  const variante = feature.properties.variante ? 1 : 0;
+  return [status, variante, id, line].join('|');
 };
 
 export const useStats = () => {
@@ -26,6 +18,8 @@ export const useStats = () => {
     const lineStrings = voies
       .flatMap((voie) => voie.features)
       .filter((feature) => isLineStringFeature(feature))
+      // certains tronçons (variantes complexes par exemple) sont volontairement hors statistiques
+      .filter((feature) => !feature.properties.excludeFromStats)
       .sort((a, b) => getFeatureSortKey(a).localeCompare(getFeatureSortKey(b)));
 
     const seen = new Set<string>();
@@ -128,17 +122,13 @@ export const useStats = () => {
 
   function getStats(voies: Collections['voiesCyclablesGeojson'][]) {
     const features = getAllUniqLineStrings(voies);
-    const doneFeatures = features.filter((feature) => {
-      return feature.properties.status === 'variante' || feature.properties.status === 'done';
-    });
+    const doneFeatures = features.filter((feature) => feature.properties.status === 'done');
 
     const wipFeatures = features.filter((feature) => ['wip', 'tested'].includes(feature.properties.status ?? ''));
     const plannedFeatures = features.filter((feature) =>
       ['planned', 'priority-2030', 'unknown'].includes(feature.properties.status ?? ''),
     );
-    const postponedFeatures = features.filter((feature) =>
-      ['postponed', 'variante-postponed'].includes(feature.properties.status ?? ''),
-    );
+    const postponedFeatures = features.filter((feature) => feature.properties.status === 'postponed');
 
     const totalDistance = getDistance({ features });
     const doneDistance = getDistance({ features: doneFeatures });
@@ -171,7 +161,7 @@ export const useStats = () => {
         distance: doneDistance,
         percent: getPercent(doneDistance),
         class: 'text-lvv-blue-600 font-semibold',
-        link: generateLink(['done', 'variante']),
+        link: generateLink(['done']),
       },
       wip: {
         name: 'En travaux',
@@ -192,7 +182,7 @@ export const useStats = () => {
         distance: postponedDistance,
         percent: getPercent(postponedDistance),
         class: 'text-lvv-pink font-semibold',
-        link: generateLink(['postponed', 'variante-postponed']),
+        link: generateLink(['postponed']),
       },
     };
   }
