@@ -4,7 +4,8 @@ export const vl2StRambertCommun = {
     id: 'StRambert-commun',
     line: 2,
     name: 'Variante - Quai Raoul Carrié',
-    status: 'variante' as const,
+    status: 'done' as const,
+    variante: true,
     type: 'inconnu' as const,
     link: '/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe',
   },
@@ -65,9 +66,54 @@ export const vl3StRambertCommun = {
     id: 'StRambert-commun',
     line: 3,
     name: 'Variante - Quai Raoul Carrié',
-    status: 'variante' as const,
+    status: 'done' as const,
+    variante: true,
     type: 'inconnu' as const,
     link: '/voie-lyonnaise-3#saint-rambert-à-pont-de-lîle-barbe',
+  },
+  geometry: {
+    type: 'LineString',
+    coordinates: [
+      [4.8304759395564645, 45.797975559948014],
+      [4.831059727875555, 45.798218640954275],
+      [4.831870776912041, 45.79855785412218],
+    ],
+  },
+};
+
+// même geometry que vl2StRambertCommun pour scénario de test
+export const vl5VarianteHorsStats = {
+  type: 'Feature',
+  properties: {
+    line: 5,
+    name: 'Variante complexe hors statistiques',
+    status: 'planned' as const,
+    variante: true,
+    excludeFromStats: true,
+    type: 'bidirectionnelle' as const,
+    link: '/voie-lyonnaise-5#gare-doullins-à-pierre-bénite-barrage',
+  },
+  geometry: {
+    type: 'LineString',
+    coordinates: [
+      [4.8304759395564645, 45.797975559948014],
+      [4.831059727875555, 45.798218640954275],
+      [4.831870776912041, 45.79855785412218],
+    ],
+  },
+};
+
+// même id que vl2StRambertCommun, mais exclu des stats : ne doit pas masquer vl2StRambertCommun
+export const vl4StRambertCommunHorsStats = {
+  type: 'Feature',
+  properties: {
+    id: 'StRambert-commun',
+    line: 4,
+    name: 'Variante - Quai Raoul Carrié',
+    status: 'done' as const,
+    excludeFromStats: true,
+    type: 'bilaterale' as const,
+    link: '/voie-lyonnaise-4#saint-rambert-à-pont-de-lîle-barbe',
   },
   geometry: {
     type: 'LineString',

@@ -4,7 +4,9 @@ import { useStats } from '../composables/useStats';
 import {
   vl2StRambertCommun,
   vl3StRambertCommun,
+  vl4StRambertCommunHorsStats,
   vl5PierreBeniteNordCommun,
+  vl5VarianteHorsStats,
   vl6CoursHerbouville,
 } from './useStats.fixtures';
 const { getAllUniqLineStrings, getStatsByTypology } = useStats();
@@ -16,6 +18,23 @@ describe('useStats', () => {
         const voies = [
           { type: 'FeatureCollection', features: [vl2StRambertCommun] },
           { type: 'FeatureCollection', features: [vl3StRambertCommun] },
+        ];
+        const uniqLineStrings = getAllUniqLineStrings(voies);
+        assert.deepEqual(uniqLineStrings, [vl2StRambertCommun]);
+      });
+    });
+
+    describe('When a feature is flagged excludeFromStats', () => {
+      it('should not be taken into account', () => {
+        const voies = [{ type: 'FeatureCollection', features: [vl2StRambertCommun, vl5VarianteHorsStats] }];
+        const uniqLineStrings = getAllUniqLineStrings(voies);
+        assert.deepEqual(uniqLineStrings, [vl2StRambertCommun]);
+      });
+
+      it('should not shadow another feature sharing the same id', () => {
+        const voies = [
+          { type: 'FeatureCollection', features: [vl4StRambertCommunHorsStats] },
+          { type: 'FeatureCollection', features: [vl2StRambertCommun] },
         ];
         const uniqLineStrings = getAllUniqLineStrings(voies);
         assert.deepEqual(uniqLineStrings, [vl2StRambertCommun]);

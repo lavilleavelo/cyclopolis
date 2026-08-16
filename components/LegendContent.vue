@@ -25,7 +25,7 @@
     <div class="my-auto">prévu</div>
 
     <div :class="['my-auto rounded-md border-gray-500 border overflow-hidden', borderClass]">
-      <div class="bg-lvv-blue-600/25 py-1">
+      <div class="bg-lvv-blue-600/25 py-1 border-y-2 border-lvv-pink">
         <div :class="['relative', lineHeightClass]">
           <div class="absolute h-full w-full">
             <div class="h-full bg-lvv-blue-600 dashed-line-planned" />
@@ -43,6 +43,11 @@
       </div>
     </div>
     <div class="my-auto">reporté</div>
+
+    <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
+      <div :class="['bg-lvv-blue-600 opacity-[0.65]', lineHeightClass]" />
+    </div>
+    <div class="my-auto">variante</div>
   </div>
 </template>
 
