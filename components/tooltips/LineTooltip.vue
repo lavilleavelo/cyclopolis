@@ -35,6 +35,12 @@
           </div>
         </div>
       </div>
+      <div v-if="feature.properties.variante" class="py-1 flex items-center justify-between">
+        <div class="text-base font-bold">Variante</div>
+        <div class="text-sm text-right">
+          {{ feature.properties.text ?? 'oui' }}
+        </div>
+      </div>
       <div class="py-1 flex items-center justify-between">
         <div class="text-base font-bold">Longueur</div>
         <div class="text-sm">{{ Math.round(getDistance({ features: [feature] }) / 25) * 25 }}m</div>
@@ -118,14 +124,6 @@ function getStatus(properties: LineStringFeature['properties']): { label: string
     },
     postponed: {
       label: 'reporté',
-      class: 'text-white bg-lvv-pink rounded-xl px-2',
-    },
-    variante: {
-      label: 'variante',
-      class: '',
-    },
-    'variante-postponed': {
-      label: 'variante reportée',
       class: 'text-white bg-lvv-pink rounded-xl px-2',
     },
     unknown: {

@@ -34,6 +34,9 @@
           <span v-if="getStatus(feature.properties).label" class="text-xm">
             {{ getStatus(feature.properties).label }} {{ getStatus(feature.properties).date }}
           </span>
+          <span v-if="feature.properties.variante" class="italic block">
+            {{ feature.properties.text ?? 'variante' }}
+          </span>
         </div>
         <div class="text-xs justify-center items-center flex">
           <div :class="quality.class">
@@ -104,14 +107,6 @@ function getStatus(properties: LineStringFeature['properties']): { label: string
     },
     postponed: {
       label: 'reportée',
-      class: 'text-white bg-lvv-pink rounded-xl px-2',
-    },
-    variante: {
-      label: 'variante',
-      class: '',
-    },
-    'variante-postponed': {
-      label: 'variante reportée',
       class: 'text-white bg-lvv-pink rounded-xl px-2',
     },
     unknown: {

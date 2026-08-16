@@ -139,16 +139,22 @@ const doneDistance = computed(() => computeDistance(features.value));
 
 function filterFeatures(jsons: typeof geojsons.value, selectedYears: typeof yearConfigs) {
   if (!jsons) return [];
-  return jsons
-    .flatMap((json) => json.features)
-    .filter((feature) => 'status' in feature.properties && feature.properties.status === 'done')
-    .filter((feature) => {
-      if (!('status' in feature.properties) || !feature.properties.doneAt) {
-        return false;
-      }
-      const [, , featureYear] = feature.properties.doneAt.split('/');
-      return selectedYears.some((year) => year.match(Number(featureYear)));
-    });
+  return (
+    jsons
+      .flatMap((json) => json.features)
+      // les variantes ne font pas partie du réseau réalisé année par année
+      .filter(
+        (feature) =>
+          'status' in feature.properties && feature.properties.status === 'done' && !feature.properties.variante,
+      )
+      .filter((feature) => {
+        if (!('status' in feature.properties) || !feature.properties.doneAt) {
+          return false;
+        }
+        const [, , featureYear] = feature.properties.doneAt.split('/');
+        return selectedYears.some((year) => year.match(Number(featureYear)));
+      })
+  );
 }
 
 function computeDistance(selectedFeatures: typeof features.value) {

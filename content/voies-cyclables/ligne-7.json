@@ -817,7 +817,8 @@
         "id" : "VoieDombesCentre",
         "line": 7,
         "name": "Variante Marc Sangnier Nord",
-        "status": "variante-postponed",
+        "status": "postponed",
+        "variante": true,
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -836,7 +837,8 @@
         "id": "varianteCombattantsAfN-commun",
         "line": 7,
         "name": "Variante Rue des Combattants AfN",
-        "status": "variante-postponed",
+        "status": "postponed",
+        "variante": true,
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -888,7 +890,8 @@
         "id": "varianteDombesLavoisier",
         "line": 7,
         "name": "Avenue Marc Sangnier",
-        "status": "variante-postponed",
+        "status": "postponed",
+        "variante": true,
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"

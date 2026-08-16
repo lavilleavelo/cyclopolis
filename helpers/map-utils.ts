@@ -5,6 +5,9 @@ type ColoredLineStringFeature = Extract<
   { geometry: { type: 'LineString' } }
 > & { properties: { color: string } };
 
+/** opacité des tronçons appartenant à une variante, pour les distinguer du tracé principal */
+export const VARIANTE_OPACITY = 0.65;
+
 // features plotted last are on top
 const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11].reverse();
 

@@ -65,17 +65,7 @@ export default defineContentConfig({
                 id: z.string().optional(),
                 line: z.number(),
                 name: z.string(),
-                status: z.enum([
-                  'planned',
-                  'priority-2030',
-                  'postponed',
-                  'variante-postponed',
-                  'done',
-                  'wip',
-                  'variante',
-                  'tested',
-                  'unknown',
-                ]),
+                status: z.enum(['planned', 'priority-2030', 'postponed', 'done', 'wip', 'tested', 'unknown']),
                 type: z.enum([
                   'bidirectionnelle',
                   'bilaterale',
@@ -91,6 +81,8 @@ export default defineContentConfig({
                 link: z.string().optional(),
                 quality: z.enum(['satisfactory', 'unsatisfactory']),
                 text: z.string().optional(),
+                variante: z.boolean().optional(),
+                excludeFromStats: z.boolean().optional(),
                 doneAt: z.string().optional(),
               }),
               geometry: z.object({
