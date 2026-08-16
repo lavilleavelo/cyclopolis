@@ -1,5 +1,6 @@
 import type { Map as MaplibreType, LngLatBounds } from 'maplibre-gl';
 import type { LineStringFeature } from '~/types';
+import { VARIANTE_OPACITY } from '~/helpers/map-utils';
 
 /**
  * C'est un replacement pour une solution comme https://stackoverflow.com/a/45817976 qui est en fait extrêmement lente
@@ -264,7 +265,8 @@ export class CanvasDashAnimator {
 
       const isSelected = !this.selectedLines || (lineId !== undefined && this.selectedLines.has(lineId));
 
-      this.ctx.globalAlpha = isSelected ? 1.0 : 0.2;
+      const varianteAlpha = feature.properties.variante ? VARIANTE_OPACITY : 1.0;
+      this.ctx.globalAlpha = isSelected ? varianteAlpha : 0.2;
       this.ctx.strokeStyle = feature.properties.color || '#000';
       this.ctx.lineDashOffset = -(offset + accumulatedDist);
 
@@ -292,7 +294,8 @@ export class CanvasDashAnimator {
       const icon = this.iconCache.get(iconKey);
       if (!icon) continue;
 
-      this.ctx.globalAlpha = isSelected ? 1.0 : 0.2;
+      const varianteAlpha = feature.properties.variante ? VARIANTE_OPACITY : 1.0;
+      this.ctx.globalAlpha = isSelected ? varianteAlpha : 0.2;
       const w = icon.width * scale;
       const h = icon.height * scale;
       this.ctx.drawImage(icon, cached.center.x - w / 2, cached.center.y - h / 2, w, h);

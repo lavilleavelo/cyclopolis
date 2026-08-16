@@ -27,7 +27,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     {
       label: 'Terminé',
       isEnabled: true,
-      statuses: ['done', 'variante'],
+      statuses: ['done'],
     },
     {
       label: 'En travaux',
@@ -64,7 +64,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     {
       label: 'Reporté',
       isEnabled: true,
-      statuses: ['postponed', 'variante-postponed'],
+      statuses: ['postponed'],
       customStyle: {
         backgroundColor: '#C84271',
         borderColor: '#C84271',

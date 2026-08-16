@@ -13,16 +13,7 @@ export type LaneType =
   | 'aucun'
   | 'inconnu';
 
-export type LaneStatus =
-  | 'done'
-  | 'wip'
-  | 'planned'
-  | 'priority-2030'
-  | 'tested'
-  | 'postponed'
-  | 'unknown'
-  | 'variante'
-  | 'variante-postponed';
+export type LaneStatus = 'done' | 'wip' | 'planned' | 'priority-2030' | 'tested' | 'postponed' | 'unknown';
 
 export type LaneQuality = 'unsatisfactory' | 'satisfactory';
 
@@ -37,6 +28,9 @@ export type LineStringFeature = {
     doneAt?: string; // si applicable, date de fin des travaux (utile pour suivre la progression)
     link?: string;
     quality?: LaneQuality; // tronçon de qualité ou non
+    text?: string; // libellé affiché le long du tronçon sur la carte
+    variante?: boolean; // le tronçon fait partie d'une variante : affiché en opacité réduite
+    excludeFromStats?: boolean; // le tronçon n'est pas comptabilisé dans les statistiques
   };
   geometry: {
     type: 'LineString';
