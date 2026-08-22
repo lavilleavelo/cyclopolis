@@ -682,7 +682,7 @@
       "type": "Feature",
       "properties": {
         "line": 3,
-        "name": "Giratoire Pont Leclerc",
+        "name": "Giratoire Pont Leclerc Nord",
         "status": "postponed",
         "type": "voie-bus",
         "quality": "unsatisfactory",
@@ -692,10 +692,36 @@
         "type": "LineString",
         "coordinates": [
           [4.844643134484471, 45.83201244372516],
-          [4.845832497556785, 45.83173613123345],
-          [4.847387652311426, 45.831055576044875],
-          [4.84758958627252, 45.83082757938333],
-          [4.848952371861799, 45.830115593229095]
+					[4.8452526, 45.8319069],
+					[4.845832497556785, 45.83173613123345],
+					[4.8461415, 45.8316392],
+					[4.8464702, 45.831494],
+					[4.847049, 45.8311779],
+					[4.8471971, 45.831152],
+					[4.8473591, 45.8311424]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PontLeclerc-commun",
+        "line": 3,
+        "name": "Giratoire Pont Leclerc Sud",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8473591, 45.8311424],
+					[4.8475073, 45.8310682],
+					[4.8475953, 45.8309714],
+					[4.8476462, 45.8308585],
+					[4.8483592, 45.8304907],
+					[4.848952371861799, 45.830115593229095]
         ]
       }
     },

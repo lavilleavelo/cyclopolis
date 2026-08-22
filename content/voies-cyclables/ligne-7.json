@@ -640,7 +640,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "JctChPetit",
         "line": 7,
         "name": "Jonction Chemin Petit - Voie verte",
         "status": "done",
@@ -663,9 +662,8 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteChPetit",
         "line": 7,
-        "name": "Chemin Petit - Variante Nord",
+        "name": "Chemin Petit",
         "status": "done",
         "doneAt": "31/12/2019",
         "type": "bidirectionnelle",
@@ -685,46 +683,36 @@
         ]
       }
     },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "JctChPetit",
-        "line": 7,
-        "name": "Giratoire Leclerc - Petit",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.861030697497512, 45.803709772892006],
-          [4.8609350725355895, 45.803696967976535],
-          [4.860861572704536, 45.80366343407899],
-          [4.86080040994284, 45.80360385284773],
-          [4.860782832657179, 45.80354007679866],
-          [4.860797976653771, 45.80346862506856],
-          [4.860872375262296, 45.80339654990667],
-          [4.860995598447246, 45.80336337384426],
-          [4.861123268980521, 45.80337401993643],
-          [4.861218792032673, 45.803417161661116],
-          [4.861274584203642, 45.80349251867517],
-          [4.861274584203642, 45.80358002991866],
-          [4.861201356980047, 45.80366024843738],
-          [4.861120815644057, 45.80369752849454],
-          [4.861030697497512, 45.803709772892006],
-          [4.861038853555755, 45.80375524645373]
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Caluire - Avenue Leclerc Est",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861038853555755, 45.80375524645373],
+					[4.8608644, 45.8037219],
+					[4.8607518, 45.8036341],
+					[4.8606855, 45.8035094],
+					[4.8598175, 45.8032739]
         ]
       }
-    },    
+    },
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteChPetit",
         "line": 7,
-        "name": "Chemin Petit - Variante Sud",
-        "status": "postponed",
+        "name": "Chemin sans nom",
+        "status": "done",
+        "doneAt": "15/11/2005",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -732,39 +720,17 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.862873628518969,45.8015038894097],
-          [4.861187408936672,45.803239707644195],
-          [4.861123268980521, 45.80337401993643]
+					[4.8598175, 45.8032739],
+					[4.859897, 45.803126],
+					[4.860606, 45.8024286],
+					[4.8608048, 45.802059],
+					[4.8613282, 45.8014077]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteDombesNord",
-        "line": 7,
-        "name": "Voie verte de la Dombes - Nord",
-        "status": "postponed",
-        "type": "voie-verte",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.853387439025113,45.80088431533889],
-          [4.853970250450786,45.80151414499899],
-          [4.855050444602965,45.80288548056467],
-          [4.856434464454651,45.804770253129334],
-          [4.857790816586089,45.80651504577065],
-          [4.858104429338937,45.80692054398821]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteDombesNord",
         "line": 7,
         "name": "Chemin de Crépieux",
         "status": "done",
@@ -780,61 +746,16 @@
           [4.855137598311927,45.80101634114206],
           [4.855218583670364,45.80109226889431],
           [4.855335872811594,45.80102996920786],
-          [4.862873628518969,45.8015038894097]
-        ]
-      }
-    },    
-    {
-      "type": "Feature",
-      "properties": {
-        "id" : "VoieDombesCentre",
-        "line": 7,
-        "name": "Voie verte de la Dombes - Centre",
-        "status": "postponed",
-        "type": "voie-verte",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8481427200115945,45.79700630741187],
-          [4.848347121826521,45.79701069057916],
-          [4.848764949190354,45.79718170441182],
-          [4.851928353309631,45.799594454966716],
-          [4.852664785826121,45.80019375464376],
-          [4.853387439025113,45.80088431533889]
+          [4.8613282, 45.8014077]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "id" : "VoieDombesCentre",
         "line": 7,
-        "name": "Variante Marc Sangnier Nord",
+        "name": "Rue des Combattants d'Afrique du Nord",
         "status": "postponed",
-        "variante": true,
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8481427200115945,45.79700630741187],
-          [4.84923540877918,45.79871420824841]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "varianteCombattantsAfN-commun",
-        "line": 7,
-        "name": "Variante Rue des Combattants AfN",
-        "status": "postponed",
-        "variante": true,
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -861,33 +782,27 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteDombesLavoisier",
         "line": 7,
-        "name": "Voie verte de la Dombes - Lavoisier",
+        "name": "Avenue Marc Sangnier Nord",
         "status": "postponed",
-        "type": "voie-verte",
+        "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.839765145614819,45.79050272024264],
-          [4.843401681692271,45.79313619500046],
-          [4.845538881029256,45.794768114870436],
-          [4.848271409213879,45.79683025435317],
-          [4.848764949190354,45.79718170441182]
+          [4.8481427200115945,45.79700630741187],
+          [4.84923540877918,45.79871420824841]
         ]
       }
-    }, 
+    },
     {
       "type": "Feature",
       "properties": {
-        "id": "varianteDombesLavoisier",
         "line": 7,
-        "name": "Avenue Marc Sangnier",
+        "name": "Avenue Marc Sangnier Sud",
         "status": "postponed",
-        "variante": true,
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -1995,7 +1910,7 @@
         "coordinates": [
           [4.8609151, 45.6766992],
           [4.86086739153518, 45.67610806890974],
-          [4.860241782515885, 45.67302240224541]
+          [4.8601942, 45.6729688]
         ]
       }
     },
