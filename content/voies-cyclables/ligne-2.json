@@ -70,6 +70,185 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"line": 2,
+				"name": "Grand Chemin de Fontaine Sud",
+				"status": "done",
+				"doneAt": "01/06/2005",
+				"type": "zone-de-rencontre",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8468829, 45.8376649],
+					[4.8468066, 45.837109],
+					[4.846758, 45.836993],
+					[4.8466678, 45.8369301]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue Rousseau",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8466678, 45.8369301],
+					[4.8467649, 45.8365821]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Rue des Connaissances",
+				"status": "done",
+				"doneAt":"01/06/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8467649, 45.8365821],
+					[4.8466192, 45.8365724],
+					[4.8461197, 45.8366594],
+					[4.845856, 45.8367078],
+					[4.8455923, 45.8365821]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Rue des Contemporains",
+				"status": "done",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8455923, 45.8365821],
+					[4.8455299, 45.8364709],
+					[4.8451691, 45.8354026]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Rue Gambetta",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8451691, 45.8354026],
+					[4.844392, 45.8356249]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Passage sans nom",
+				"status": "done",
+				"doneAt": "01/06/2005",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.844392, 45.8356249],
+					[4.8442532, 45.8335897]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Quai Jean-Baptiste Simon",
+				"status": "done",
+				"doneAt":"01/06/2005",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8442532, 45.8335897],
+					[4.8474911, 45.832702],
+					[4.8480479, 45.8325399],
+					[4.84853, 45.8323372]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Pont Général Leclerc",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.84853, 45.8323372],
+					[4.8473591, 45.8311424]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PontLeclerc-commun",
+				"line": 2,
+				"name": "Giratoire Pont Leclerc Sud",
+				"status": "postponed",
+				"type": "voie-bus",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8473591, 45.8311424],
+					[4.8475073, 45.8310682],
+					[4.8475953, 45.8309714],
+					[4.8476462, 45.8308585],
+					[4.8483592, 45.8304907],
+					[4.848952371861799, 45.830115593229095]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
 				"id": "IllhaeusernN-commun",
 				"line": 2,
 				"name": "Collonges - Quai d'Illhaeusern Nord",
@@ -294,7 +473,7 @@
 			"type": "Feature",
 			"properties": {
 				"line": 2,
-				"name": "Accès plateau Caluire Ouest",
+				"name": "Caluire - Quai Clémenceau",
 				"status": "postponed",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
@@ -304,7 +483,106 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.831795544871056, 45.79602553322215],
-					[4.846034035228541, 45.79925458507378],
+					[4.8320762, 45.7960815],
+					[4.8329503, 45.7961752],
+					[4.8335188, 45.7963542],
+					[4.8347413, 45.7968017],
+					[4.8350409, 45.7968827],
+					[4.8357927, 45.7969296]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Montée Castellane",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8357927, 45.7969296],
+					[4.835939, 45.7968922],
+					[4.836104, 45.7968453],
+					[4.836318, 45.796841],
+					[4.8367214, 45.7969092],
+					[4.8371004, 45.7970243],
+					[4.8375161, 45.7971734],
+					[4.8376934, 45.7972629],
+					[4.8378829, 45.7974547],
+					[4.8379929, 45.7975527],
+					[4.8381213, 45.7976337],
+					[4.8386897, 45.7977786],
+					[4.8388303, 45.7978553],
+					[4.8391115, 45.7981196],
+					[4.8392216, 45.7981792],
+					[4.8398555, 45.7982792],
+					[4.840029, 45.7983076],
+					[4.8402841, 45.7984571],
+					[4.840427, 45.7984997],
+					[4.8408557, 45.7985424],
+					[4.8410292, 45.7986136],
+					[4.8412843, 45.7987132],
+					[4.8414374, 45.7987203],
+					[4.8415497, 45.7986634],
+					[4.8416823, 45.7984997],
+					[4.841815, 45.7983717],
+					[4.8419783, 45.7983717],
+					[4.8421212, 45.7984571],
+					[4.8422845, 45.7985424],
+					[4.842509, 45.7985282],
+					[4.8427642, 45.7984215],
+					[4.8429377, 45.7984072],
+					[4.8432234, 45.7984642],
+					[4.8434071, 45.7984499],
+					[4.8435704, 45.7983788],
+					[4.8437235, 45.7982578],
+					[4.8439174, 45.7981938],
+					[4.8441113, 45.7982365],
+					[4.844642, 45.7985211],
+					[4.8451728, 45.7989765],
+					[4.8453156, 45.7990334],
+					[4.8463056, 45.7991544],
+					[4.8464657, 45.7990848]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Rue Jean Moulin",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8464657, 45.7990848],
+					[4.846961, 45.7993688]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue Pierre Terrasse",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.846961, 45.7993688],
 					[4.84923540877918, 45.79871420824841]
 				]
 			}
@@ -312,11 +590,9 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "varianteCombattantsAfN-commun",
 				"line": 2,
-				"name": "Variante Rue des Combattants AfN",
+				"name": "Rue des Combattants d'Afrique du Nord",
 				"status": "postponed",
-				"variante": true,
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
 				"quality": "unsatisfactory"
@@ -359,7 +635,7 @@
 					[4.855137598311927, 45.80101634114206],
 					[4.855218583670364, 45.80109226889431],
 					[4.855335872811594, 45.80102996920786],
-					[4.862873628518969, 45.8015038894097]
+					[4.8613282, 45.8014077]
 				]
 			}
 		},
@@ -367,7 +643,7 @@
 			"type": "Feature",
 			"properties": {
 				"line": 2,
-				"name": "Accès plateau Caluire Est",
+				"name": "Chemin de Combe-Martin",
 				"status": "postponed",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
@@ -376,12 +652,109 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.862873628518969, 45.8015038894097],
-					[4.864547540390845, 45.79639279227537],
-					[4.8614346556736905, 45.795639827871035],
-					[4.864431119665966, 45.792660026270624],
-					[4.860271555904589, 45.79445090535552],
-					[4.860417250867499, 45.791008478328905]
+					[4.8613282, 45.8014077],
+					[4.861474, 45.8013338],
+					[4.8614939, 45.8012368],
+					[4.8634883, 45.7987701],
+					[4.8638129, 45.7975597]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Avenue des Cottages",
+				"status": "done",
+				"doneAt":"01/06/2005",
+				"type": "velorue",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8638129, 45.7975597],
+					[4.863263, 45.7964972],
+					[4.8632166, 45.7963263],
+					[4.8632431, 45.7961461],
+					[4.8624281, 45.7958828],
+					[4.8622426, 45.795795],
+					[4.8619245, 45.7955548],
+					[4.8618848, 45.7954439],
+					[4.8618914, 45.7953746],
+					[4.8619511, 45.7946632],
+					[4.8620571, 45.7944923],
+					[4.8625673, 45.7942336],
+					[4.8633027, 45.7940488],
+					[4.863528, 45.7938131],
+					[4.8636407, 45.7934158],
+					[4.8639322, 45.793171],
+					[4.864078, 45.7926905],
+					[4.8640316, 45.7926258],
+					[4.8639057, 45.7926628],
+					[4.8636009, 45.7928707],
+					[4.863422, 45.7929307],
+					[4.8631371, 45.7930601],
+					[4.8629781, 45.7931895],
+					[4.862713, 45.7934482],
+					[4.8626203, 45.7935082],
+					[4.862501, 45.7935082],
+					[4.8623022, 45.7934343],
+					[4.8621432, 45.793402],
+					[4.8619378, 45.7934343],
+					[4.8617059, 45.7935129],
+					[4.8614541, 45.7936284],
+					[4.8611824, 45.7938547],
+					[4.8609373, 45.7940626],
+					[4.8608114, 45.7941827]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Ancienne Montée des Soldats",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8608114, 45.7941827],
+					[4.8606921, 45.7941827],
+					[4.8605994, 45.794058],
+					[4.8603741, 45.7937207],
+					[4.8602283, 45.7934528],
+					[4.8602217, 45.7932264],
+					[4.8603211, 45.7929307],
+					[4.8605265, 45.7925519],
+					[4.8608313, 45.7921962],
+					[4.8611891, 45.7918681],
+					[4.8613945, 45.7916048],
+					[4.8614475, 45.7914108],
+					[4.861368, 45.7912583]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Carrefour St-Clair",
+				"status": "postponed",
+				"type": "voie-bus",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861368, 45.7912583],
+					[4.86041733053915, 45.79100811545707]
 				]
 			}
 		},
