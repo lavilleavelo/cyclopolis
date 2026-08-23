@@ -1463,7 +1463,214 @@
 					[4.922892980075503, 45.69845341818865],
 					[4.923854239026136, 45.69791326729836],
 					[4.926107710135657, 45.696556908205714],
-					[4.926275404542984, 45.696363558085565]
+					[4.9238677, 45.6979916]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Saint-Priest - Avenue Jean Jaurès",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9238677, 45.6979916],
+					[4.9248386, 45.6979227]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Saint-Priest - Rue Anatole France",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9248386, 45.6979227],
+					[4.9248633, 45.6978539],
+					[4.9263813, 45.696804],
+					[4.926465, 45.6967764],
+					[4.9293334, 45.6949107],
+					[4.9300973, 45.6944459],
+					[4.9311027, 45.693902],
+					[4.9316202, 45.693637],
+					[4.9319997, 45.6934855],
+					[4.932394, 45.6933134],
+					[4.932532, 45.6932514],
+					[4.9348878, 45.6917263],
+					[4.9354299, 45.6915026],
+					[4.9369429, 45.6907796]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Saint-Priest - Rue du Dr Gallavardin",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9369429, 45.6907796],
+					[4.9366571, 45.690487]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Saint-Priest - Route d'Heyrieux",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9366571, 45.690487],
+					[4.9377512, 45.6899361],
+					[4.9382933, 45.6896986],
+					[4.938732, 45.6895299]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Saint-Priest - Rue Garibaldi",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.938732, 45.6895299],
+					[4.9387862, 45.6894335],
+					[4.9391657, 45.6891168],
+					[4.9395057, 45.6888035],
+					[4.9411026, 45.6876398],
+					[4.9420537, 45.6869512],
+					[4.942172, 45.6868651],
+					[4.942586, 45.6866448],
+					[4.9455727, 45.6851471],
+					[4.945755, 45.6850232],
+					[4.9463612, 45.6847271],
+					[4.9473124, 45.684245],
+					[4.9476328, 45.6841142],
+					[4.9478545, 45.6841521]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Mions - Rue du 23 août 1944 Nord",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9478545, 45.6841521],
+					[4.9482143, 45.6830847],
+					[4.948303, 45.6827576],
+					[4.9483079, 45.6825372],
+					[4.9482488, 45.6822893],
+					[4.9479137, 45.6815112],
+					[4.9478644, 45.6813011],
+					[4.9478792, 45.6811324],
+					[4.948027, 45.6809155],
+					[4.9482932, 45.6806572],
+					[4.9486973, 45.680399],
+					[4.948924, 45.6802371],
+					[4.9490916, 45.6800546],
+					[4.9491951, 45.6798549],
+					[4.9492099, 45.6795829],
+					[4.9493429, 45.6747414],
+					[4.9491852, 45.6747414]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Mions - Rue du 23 août 1944 Centre",
+				"status": "done",
+				"doneAt":"01/06/2005",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9491852, 45.6747414],
+					[4.9491261, 45.6746829],
+					[4.9491409, 45.674397],
+					[4.9492197, 45.6741663],
+					[4.9492887, 45.6735602],
+					[4.9492838, 45.6732882],
+					[4.9492986, 45.6731332],
+					[4.9494858, 45.672255],
+					[4.9497717, 45.6710841],
+					[4.9496879, 45.6709843],
+					[4.9496928, 45.6709326],
+					[4.9498013, 45.6708878],
+					[4.9500871, 45.6699545],
+					[4.950028, 45.6697823],
+					[4.9501167, 45.6697444],
+					[4.9501561, 45.6696962],
+					[4.9502645, 45.6693622],
+					[4.9503188, 45.6692416]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Mions - Rue du 23 août 1944 Sud",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9503188, 45.6692416],
+					[4.9510221, 45.6668684],
+					[4.951473, 45.6656788],
+					[4.9519465, 45.6646152],
+					[4.9524538, 45.6636382],
+					[4.952668, 45.6632837],
+					[4.9529273, 45.6630552]
 				]
 			}
 		}
