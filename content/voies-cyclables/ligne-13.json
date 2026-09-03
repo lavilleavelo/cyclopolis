@@ -1,4 +1,1836 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "danger",
+        "name": "Arrêt tram Essarts-Iris",
+        "description": "Voie verte avec trafic piéton-vélo élevé",
+        "danger": "Fort conflit piéton-vélo au droit d'une station de tramway à forte fréquentation"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.898117, 45.737183]
+      }
+    },  
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Cailloux - Route des Prolières",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8724757, 45.8522366],
+					[4.8721938, 45.8521992],
+					[4.871807, 45.8520583],
+					[4.8714729, 45.8521012],
+					[4.8710422, 45.8521747],
+					[4.870251, 45.8521624],
+					[4.8700136, 45.8520828],
+					[4.8691521, 45.8516481],
+					[4.8684401, 45.8513481],
+					[4.8680005, 45.8512072],
+					[4.8672797, 45.8510419],
+					[4.866383, 45.8505949],
+					[4.8654072, 45.8502214],
+					[4.8647831, 45.8496703],
+					[4.8644314, 45.8488559],
+					[4.8644226, 45.8483661],
+					[4.8641325, 45.8481273],
+					[4.8633238, 45.8478701],
+					[4.8625502, 45.8477292],
+					[4.8621634, 45.8475333],
+					[4.8611085, 45.8468107],
+					[4.8608008, 45.8463025],
+					[4.8608623, 45.8461677]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Fontaines St-Martin - Rue des Prolières",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8608623, 45.8461677],
+					[4.860581, 45.8460759],
+					[4.8601942, 45.8458616],
+					[4.8597811, 45.8457146],
+					[4.859491, 45.8456656],
+					[4.859025, 45.8457268],
+					[4.858269, 45.8458983],
+					[4.8579779, 45.845903],
+					[4.8576527, 45.8458479],
+					[4.8573801, 45.8456826],
+					[4.8564835, 45.8450274]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Fontaines St-Martin - Chemin des Vosges",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8564835, 45.8450274],
+					[4.8565626, 45.8444578],
+					[4.8564923, 45.844121],
+					[4.856334, 45.8439067],
+					[4.8560527, 45.8437107],
+					[4.8558505, 45.8434352],
+					[4.8554725, 45.8432086],
+					[4.8553773, 45.8431722],
+          [4.8554216, 45.8431293],
+          [4.8554331, 45.8430718],
+          [4.8554114, 45.843021],
+          [4.8553556, 45.8429757],
+          [4.8552858, 45.8429454],
+          [4.855184, 45.8429341]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Fontaines St-Martin - Montée de la Ruelle",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.855184, 45.8429341],
+          [4.8551451, 45.84267]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue du Buisson",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8551451, 45.84267],
+          [4.8550457, 45.8426401],
+					[4.8549394, 45.8425652],
+					[4.8544703, 45.8421839],
+					[4.854048, 45.8417699],
+					[4.8534459, 45.8410727],
+					[4.853313, 45.8408439],
+					[4.8513738, 45.8401303],
+					[4.8501697, 45.8398361],
+					[4.8494737, 45.8395964],
+					[4.8493721, 45.8397544],
+					[4.8476538, 45.8390532],
+          [4.8476807, 45.8390636]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue des Mollières",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8476807, 45.8390636],
+          [4.8475076, 45.8389021]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Grand Chemin de Fontaines Nord",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "zone-de-rencontre",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8475076, 45.8389021],
+          [4.84712, 45.8383692],
+          [4.8468829, 45.8376649]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "BHNS Fontaines - Trévoux",
+        "status": "planned",
+        "type": "voie-bus",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8468829, 45.8376649],
+					[4.8469168, 45.8376462],
+					[4.8472453, 45.8375318],
+					[4.8476519, 45.8373629],
+					[4.8480272, 45.8371287],
+					[4.8484103, 45.8368454],
+					[4.8488638, 45.8364586],
+					[4.8493017, 45.8360827],
+					[4.8497161, 45.8357395]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Ancienne voie ferrée Sathonay - Fontaines",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8497161, 45.8357395],
+					[4.850373, 45.8353146],
+					[4.8511627, 45.8348787],
+					[4.851929, 45.8345791],
+					[4.8526562, 45.8344047],
+					[4.8532661, 45.8343666],
+					[4.853876, 45.8343775],
+					[4.8555102, 45.8346227],
+					[4.8559716, 45.8346717],
+					[4.8566831, 45.8346499],
+					[4.856949, 45.8346172],
+					[4.8576449, 45.8345028],
+					[4.8587162, 45.8342685],
+					[4.8595137, 45.8341596],
+					[4.8603191, 45.8341323],
+					[4.8608821, 45.834116],
+					[4.8611949, 45.8341051],
+					[4.8616719, 45.8340288],
+					[4.8624147, 45.8338981],
+					[4.8630793, 45.8338055],
+					[4.8641506, 45.8337564],
+					[4.8656206, 45.8337128],
+					[4.8667466, 45.8337237],
+					[4.8678413, 45.8337564],
+					[4.8683104, 45.8337346],
+					[4.8687483, 45.8336802],
+					[4.8693817, 45.8335385],
+					[4.8697179, 45.8334241],
+					[4.8702418, 45.8331898],
+					[4.8707892, 45.8328902],
+					[4.8713287, 45.8325197],
+					[4.8716805, 45.832231],
+					[4.8720637, 45.8319531],
+					[4.8725407, 45.8316371],
+					[4.8732053, 45.8313374],
+					[4.8739247, 45.8311468],
+					[4.8743469, 45.8310705],
+					[4.8747144, 45.8310269],
+					[4.8753791, 45.8310323],
+					[4.8759968, 45.831016],
+					[4.8763487, 45.8309888],
+					[4.8767787, 45.8309125],
+					[4.8774121, 45.830749],
+					[4.8778031, 45.8305747],
+					[4.8782566, 45.8303241],
+					[4.8784911, 45.8301661],
+					[4.8789056, 45.8297629],
+					[4.8791558, 45.8294033],
+					[4.8793356, 45.8290655],
+					[4.8794373, 45.8287059],
+					[4.8794842, 45.8285533],
+					[4.8796015, 45.8279921],
+					[4.8797266, 45.8273982],
+					[4.8797344, 45.827044],
+					[4.879711, 45.8268207],
+					[4.8796875, 45.8265755],
+					[4.8795624, 45.8262758],
+					[4.8793904, 45.8258835],
+					[4.8792183, 45.8255783],
+					[4.8790854, 45.8252133],
+					[4.8790385, 45.8249081],
+					[4.8789681, 45.8244068],
+					[4.8789525, 45.8237802],
+					[4.8789056, 45.8233715],
+					[4.8787805, 45.8229846],
+					[4.8785693, 45.8225868],
+					[4.8783426, 45.8222762],
+					[4.8781002, 45.8219983]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Allée Victor Hugo - Anatole France",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8781002, 45.8219983],
+					[4.8778073, 45.8219586],
+					[4.8775882, 45.8216767],
+					[4.8769117, 45.82123],
+					[4.8763018, 45.821279]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Sathonay Gare - Avenue Carnot Nord",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8763018, 45.821279],
+					[4.8761767, 45.8210665],
+					[4.8760639, 45.820947],
+					[4.8748269, 45.8202043]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Sathonay Gare - Avenue Carnot Sud",
+        "status": "done",
+        "doneAt": "01/09/2011",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8748269, 45.8202043],
+					[4.8740941, 45.8197316],
+					[4.8733226, 45.8191047],
+					[4.8730018, 45.8188523]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard des Oiseaux",
+        "status": "done",
+        "doneAt": "15/03/2019",
+        "type": "voie-verte",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8730018, 45.8188523],
+					[4.87249, 45.8184823],
+					[4.8717128, 45.8180189],
+					[4.8716602, 45.8179639],
+					[4.8716578, 45.8179039],
+					[4.8715382, 45.8179022],
+					[4.8714234, 45.8178406],
+					[4.8713899, 45.8178056],
+					[4.8713756, 45.8177639],
+					[4.8712847, 45.8177456],
+					[4.8707323, 45.8174639]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Voie de la Dombe Nord",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8707323, 45.8174639],
+					[4.8703421, 45.8172126],
+					[4.8685998, 45.8161292],
+					[4.8669127, 45.8151039],
+					[4.8668263, 45.8150123],
+					[4.8662149, 45.8145052],
+					[4.865484, 45.8140439],
+					[4.8642601, 45.8132953],
+					[4.8634, 45.8127285],
+					[4.8627275, 45.8121998],
+					[4.8620048, 45.8116007],
+					[4.861492, 45.8111098],
+					[4.8612823, 45.8109239],
+					[4.8609908, 45.8106297],
+					[4.8606319, 45.8102105],
+					[4.8602253, 45.8097036],
+					[4.8581141, 45.8069347]
+        ]
+      }
+    },
+
+
+
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Jonction Chemin Petit - Voie verte",
+        "status": "done",
+        "doneAt": "25/04/2025",
+        "type": "voie-verte",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.858104429338937,45.80692054398821],
+          [4.8580423946538644,45.80665808746926],
+          [4.85808155458264,45.806575630216315],
+          [4.858196794314765,45.80650036404664],
+          [4.858272711192257,45.806367634150405]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Chemin Petit",
+        "status": "done",
+        "doneAt": "31/12/2019",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.858272711192257,45.806367634150405],
+          [4.85855875832948,45.80605972117402],
+          [4.858709629608882,45.80598057714846],
+          [4.860310965085631,45.80427327015536],
+          [4.860719475727535,45.80388819414134],
+          [4.860964251700494, 45.80377488373037],
+          [4.861038853555755, 45.80375524645373]
+        ]
+      }
+    },
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "LeclercEst-commun",
+        "line": 13,
+				"name": "Caluire - Avenue Leclerc Est",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861038853555755, 45.80375524645373],
+					[4.8608644, 45.8037219],
+					[4.8607518, 45.8036341],
+					[4.8606855, 45.8035094],
+					[4.8598175, 45.8032739]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "ChSansNom-commun",
+        "line": 13,
+        "name": "Chemin sans nom",
+        "status": "done",
+        "doneAt": "15/11/2005",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8598175, 45.8032739],
+					[4.859897, 45.803126],
+					[4.860606, 45.8024286],
+					[4.8608048, 45.802059],
+					[4.8613282, 45.8014077]
+        ]
+      }
+    },
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "CombeMartin-commun",
+				"line": 13,
+				"name": "Chemin de Combe-Martin",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8613282, 45.8014077],
+					[4.861474, 45.8013338],
+					[4.8614939, 45.8012368],
+					[4.8634883, 45.7987701],
+					[4.8638129, 45.7975597]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Cottage-commun",
+				"line": 13,
+				"name": "Avenue des Cottages",
+				"status": "done",
+				"doneAt":"01/06/2005",
+				"type": "velorue",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8638129, 45.7975597],
+					[4.863263, 45.7964972],
+					[4.8632166, 45.7963263],
+					[4.8632431, 45.7961461],
+					[4.8624281, 45.7958828],
+					[4.8622426, 45.795795],
+					[4.8619245, 45.7955548],
+					[4.8618848, 45.7954439],
+					[4.8618914, 45.7953746],
+					[4.8619511, 45.7946632],
+					[4.8620571, 45.7944923],
+					[4.8625673, 45.7942336],
+					[4.8633027, 45.7940488],
+					[4.863528, 45.7938131],
+					[4.8636407, 45.7934158],
+					[4.8639322, 45.793171],
+					[4.864078, 45.7926905],
+					[4.8640316, 45.7926258],
+					[4.8639057, 45.7926628],
+					[4.8636009, 45.7928707],
+					[4.863422, 45.7929307],
+					[4.8631371, 45.7930601],
+					[4.8629781, 45.7931895],
+					[4.862713, 45.7934482],
+					[4.8626203, 45.7935082],
+					[4.862501, 45.7935082],
+					[4.8623022, 45.7934343],
+					[4.8621432, 45.793402],
+					[4.8619378, 45.7934343],
+					[4.8617059, 45.7935129],
+					[4.8614541, 45.7936284],
+					[4.8611824, 45.7938547],
+					[4.8609373, 45.7940626],
+					[4.8608114, 45.7941827]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Soldats-commun",
+				"line": 13,
+				"name": "Ancienne Montée des Soldats",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8608114, 45.7941827],
+					[4.8606921, 45.7941827],
+					[4.8605994, 45.794058],
+					[4.8603741, 45.7937207],
+					[4.8602283, 45.7934528],
+					[4.8602217, 45.7932264],
+					[4.8603211, 45.7929307],
+					[4.8605265, 45.7925519],
+					[4.8608313, 45.7921962],
+					[4.8611891, 45.7918681],
+					[4.8613945, 45.7916048],
+					[4.8614475, 45.7914108],
+					[4.861368, 45.7912583]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "StClair-commun",
+				"line": 13,
+				"name": "Carrefour St-Clair",
+				"status": "postponed",
+				"type": "voie-bus",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861368, 45.7912583],
+					[4.86041733053915, 45.79100811545707]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 13,
+				"name": "Pont Poincaré",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.86041733053915, 45.79100811545707],
+					[4.860364367315626, 45.79044878998151],
+					[4.860390478357509, 45.790106257934966],
+					[4.860437667865455, 45.789975900028956],
+					[4.860520042904412, 45.789506000349775],
+					[4.860591556394212, 45.78906148643597],
+					[4.860533469726917, 45.78843527348124],
+					[4.860474775179426, 45.7878955668458],
+					[4.860322924366244, 45.78671067566097],
+					[4.860233298396281, 45.78585471352106],
+					[4.860193859377425, 45.785672930523575],
+					[4.860092207916509, 45.785316746212956],
+					[4.860078333469829, 45.7851751824118],
+					[4.860036397028863, 45.78482105370692],
+					[4.860043357052177, 45.78477515935958],
+					[4.860028376055567, 45.784614639552274]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 13,
+				"name": "Détour via Passerelle de la Paix",
+				"status": "done",
+				"doneAt": "20/11/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.8591117788897975, 45.78495695014692],
+					[4.858920938610424, 45.785315694739126],
+					[4.858696908717349, 45.78546613533223],
+					[4.858456284016654, 45.78554714163775],
+					[4.858049711247332, 45.78563972012799],
+					[4.8570706176398915, 45.78566865087495],
+					[4.855709843472482, 45.78558764474644],
+					[4.854921590144414, 45.78548349383635],
+					[4.854747344671239, 45.78606789364676],
+					[4.854274408808493, 45.78810457181356]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 13,
+				"name": "Détour via St-Clair",
+				"status": "postponed",
+				"variante": true,
+				"type": "aucun",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.854274408808493, 45.78810457181356],
+					[4.854772253015966, 45.7881392871727],
+					[4.8588628729201275, 45.78805249873412],
+					[4.8588628729201275, 45.7882376472397],
+					[4.859053713199472, 45.788336007133125],
+					[4.859286040495704, 45.78879308906647],
+					[4.859402204144459, 45.78952788381227],
+					[4.858979036567575, 45.78973038459827],
+					[4.8589541443582505, 45.789903956115296],
+					[4.859161574588455, 45.79040730769424],
+					[4.859028816132138, 45.790667661605056],
+					[4.859974720127099, 45.790991655884596],
+					[4.860417250867499, 45.791008478328905]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Bonnevay127-commun",
+				"line": 13,
+				"name": "Transbordeur Nord",
+				"status": "done",
+				"doneAt": "24/10/2025",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.85915263804057, 45.78461590794164],
+					[4.860028376055567, 45.784614639552274],
+					[4.861193194938238, 45.78457073986618],
+					[4.862144082681112, 45.78452557526816]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Bonnevay-commun",
+				"line": 13,
+				"name": "Boulevard Laurent Bonnevay",
+				"status": "done",
+				"doneAt": "04/06/2026",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.862144082681112, 45.78452557526816],
+					[4.8635545, 45.7844344],
+					[4.8640294, 45.784457],
+					[4.8640726, 45.7844118],
+					[4.8641409, 45.7843943],
+					[4.8647454, 45.7843792],
+					[4.865026, 45.7843365],
+					[4.8650944, 45.7843064]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "BohrOuest-commun",
+				"line": 13,
+				"name": "Boulevard Niels Bohr Ouest",
+				"status": "done",
+				"doneAt": "31/08/2021",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8650944, 45.7843064],
+					[4.8653427, 45.7843591],
+					[4.8657204, 45.7843917],
+					[4.8660227, 45.7844118],
+					[4.866173785472881, 45.784361876081945],
+					[4.8665616, 45.7843996],
+					[4.8666785, 45.784439],
+					[4.8683297, 45.7845928],
+					[4.868944287300109, 45.78470387501975],
+					[4.870253, 45.7849161]
+				]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Gaston Berger Nord",
+        "status": "done",
+        "doneAt": "01/09/2008",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.870253, 45.7849161],
+					[4.8719662, 45.781118]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Gaston Berger Sud",
+        "status": "done",
+        "doneAt": "01/06/2025",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8719662, 45.781118],
+					[4.8718327, 45.7809921],
+					[4.8717755, 45.7808925],
+					[4.8718708, 45.7806399],
+					[4.8723663, 45.7795833],
+					[4.8725283, 45.7792111]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Tram T6 - Spréafico",
+        "status": "done",
+        "doneAt": "01/10/2025",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8725283, 45.7792111],
+					[4.8726236, 45.7789121],
+					[4.8729444, 45.7782064],
+					[4.8736689, 45.7768588],
+					[4.8737666, 45.7767262],
+					[4.8739259, 45.7766617],
+					[4.8741703, 45.7766567]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue Colin",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8741703, 45.7766567],
+					[4.8741086, 45.77645],
+					[4.8740592, 45.7763166],
+					[4.8742259, 45.7733654],
+					[4.874195, 45.7731846],
+					[4.8741086, 45.7728961],
+					[4.8740099, 45.7726722],
+					[4.8738061, 45.7723234],
+					[4.8737629, 45.7721641],
+					[4.8737321, 45.7719402],
+					[4.8737382, 45.7718369]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Cours de la République",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8737382, 45.7718369],
+					[4.8737629, 45.7710188],
+					[4.8737321, 45.770881],
+					[4.873749, 45.7705707],
+					[4.8738865, 45.7677506],
+					[4.8739177, 45.7676067],
+					[4.8739239, 45.7673365],
+					[4.8740677, 45.7652791],
+					[4.8741364, 45.7641413],
+					[4.8741314, 45.7639934]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Giratoire du Totem",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8741314, 45.7639934],
+					[4.8742145, 45.7639773],
+					[4.874293, 45.7639354],
+					[4.8743438, 45.7638742],
+					[4.8743669, 45.7638098],
+					[4.8743669, 45.7637421],
+					[4.8743438, 45.7636713],
+					[4.8742838, 45.7636069],
+					[4.8741914, 45.763565],
+					[4.8740899, 45.7635425],
+					[4.8740206, 45.7635392]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Marc Sangnier Nord",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8740206, 45.7635392],
+					[4.8739837, 45.7620641],
+					[4.8749809, 45.7607082],
+					[4.8749901, 45.7606373]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Marc Sangnier Sud",
+        "status": "done",
+        "doneAt": "01/09/2008",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8749901, 45.7606373],
+					[4.8765044, 45.7585115],
+					[4.8765644, 45.7583988],
+					[4.8765829, 45.7582796],
+					[4.8765321, 45.7579414],
+					[4.8761535, 45.7559669],
+					[4.8761628, 45.7558122],
+					[4.876329, 45.7556415]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Place des Maisons Neuves",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.876329, 45.7556415],
+					[4.8769594, 45.755803]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue Meunier",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8769594, 45.755803],
+					[4.8772979, 45.7550692],
+					[4.8772979, 45.7548991]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue Feuillat large",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8772979, 45.7548991],
+					[4.8769642, 45.7530957]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue Feuillat étroite",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8769642, 45.7530957],
+          [4.8768777, 45.752666]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "CollegeFoucauld-commun",
+        "line": 13,
+        "name": "Collège Foucauld",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.878445865253354, 45.75275617910606],
+          [4.877368296058478, 45.75270258763024],
+          [4.8768948, 45.7526662]
+        ]
+      }
+    },  
+  
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "VerneBalzac-commun",
+        "line": 13,
+        "name": "Parc Georges Bazin",
+        "status": "done",
+        "doneAt": "10/04/2006",
+        "type": "voie-verte",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8846608, 45.7542036],
+					[4.8840778, 45.7539109],
+					[4.8833147, 45.7535432],
+					[4.8828848, 45.7533579],
+					[4.8825011, 45.7532285],
+					[4.882118, 45.753114],
+					[4.8817849, 45.7530345],
+					[4.8814898, 45.7529757],
+					[4.8810931, 45.7529167],
+					[4.8806172, 45.7528698],
+					[4.879205, 45.7527963],
+					[4.878445865253354, 45.75275617910606]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "id": "RecBalzac-commun",
+        "name": "Reconnaissance Balzac Sud",
+        "status": "done",
+        "doneAt": "20/03/2026",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8846608, 45.7542036],
+          [4.8853869, 45.7541151],
+          [4.8857173, 45.7541419]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "RteGenasOuest-commun",
+        "line": 13,
+        "name": "Route de Genas Ouest",
+        "status": "done",
+        "doneAt": "20/03/2026",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8857173, 45.7541419],
+          [4.8863244, 45.7541634],
+          [4.886432, 45.7542143],
+          [4.8875039, 45.7542572],
+          [4.8886027, 45.7541955],
+          [4.8935682, 45.7539543],
+          [4.8948937, 45.7537184],
+          [4.8967187, 45.7533404],
+          [4.8972679758304025, 45.75320870739244],
+          [4.897952, 45.7530106],
+          [4.8980634, 45.7528525],
+          [4.8980711, 45.7527131],
+          [4.8983093, 45.7526621]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue du Vinatier Nord",
+        "status": "done",
+        "doneAt": "15/01/2026",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8983093, 45.7526621],
+					[4.898106, 45.7523193],
+					[4.8977328, 45.751592]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue du Vinatier Sud",
+        "status": "done",
+        "doneAt": "15/01/2026",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8977328, 45.751592],
+					[4.8975783, 45.7511879],
+					[4.8973596, 45.7503617],
+					[4.8972437, 45.7498858],
+					[4.8970764, 45.7489159],
+					[4.8969863, 45.7480628],
+					[4.8969606, 45.7477574]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Pinel Nord",
+        "status": "done",
+        "doneAt": "01/11/2019",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8969606, 45.7477574],
+					[4.8968576, 45.7473264],
+					[4.8967161, 45.7469133],
+					[4.896433, 45.7463744],
+					[4.8961241, 45.7457548],
+					[4.8949916, 45.7436352],
+					[4.8947986, 45.7434107],
+					[4.8945412, 45.7430335],
+					[4.894392, 45.7427812],
+					[4.8939989, 45.742055],
+					[4.8937446, 45.7416838],
+					[4.8936289, 45.741474],
+					[4.8933283, 45.74092],
+					[4.8927212, 45.7397402],
+					[4.8925285, 45.7393421],
+					[4.8924514, 45.7390892]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Pinel Essarts",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8924514, 45.7390892],
+					[4.8923126, 45.7387826],
+					[4.8920429, 45.7385298],
+					[4.8898846, 45.7350974],
+					[4.889083, 45.7335695],
+					[4.888767, 45.7330261],
+					[4.888582, 45.732601],
+					[4.8884741, 45.732332],
+					[4.8882197, 45.7313044],
+					[4.8880116, 45.7306587],
+					[4.8878035, 45.7303951]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Pinel Mermoz",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8878035, 45.7303951],
+					[4.8873564, 45.7299861],
+					[4.8870404, 45.7296579],
+					[4.8868939, 45.7294373],
+					[4.8868785, 45.729136],
+					[4.8869093, 45.7285334],
+					[4.887156, 45.7260636]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Pinel Sud",
+        "status": "done",
+        "doneAt": "01/09/2008",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.887156, 45.7260636],
+					[4.8874104, 45.7232762],
+					[4.8874566, 45.7221838],
+					[4.8875106, 45.7220708],
+					[4.8876339, 45.7220224],
+					[4.8877187, 45.7219524],
+					[4.8877341, 45.7218502],
+					[4.8876339, 45.7217318],
+					[4.8875954, 45.7215811],
+					[4.8876008, 45.721513],
+					[4.8875301, 45.7214707],
+					[4.8876413, 45.7203015]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Métro Parilly Nord",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8876413, 45.7203015],
+					[4.8877491, 45.7202873],
+					[4.8879951, 45.7201132],
+					[4.8886454, 45.7196027],
+					[4.888606380524664, 45.71955872905621]
+        ]
+      }
+    },
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Parilly-commun",
+				"line": 13,
+				"name": "Métro Parilly Est",
+				"status": "done",
+				"doneAt": "01/09/2018",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.887302750505967, 45.71868781432993],
+					[4.8884895135254, 45.71948549025497],
+					[4.888606380524664, 45.71955872905621]
+				]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Jules Guesde",
+        "status": "done",
+        "doneAt": "01/06/2005",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.887302750505967, 45.71868781432993],
+					[4.8875536, 45.7184993],
+					[4.8876008, 45.7179817],
+					[4.8876379, 45.7179088],
+					[4.8876648, 45.7176971],
+					[4.8879075, 45.7154878],
+					[4.8879108, 45.7154078],
+					[4.8880591, 45.7138855],
+					[4.888049, 45.7131491],
+					[4.8880018, 45.7126903],
+					[4.8879277, 45.7121373],
+					[4.8873614, 45.7098736],
+					[4.8871895, 45.7092359],
+					[4.8869738, 45.7085088],
+					[4.8869132, 45.7084359],
+					[4.8868896, 45.7083747],
+          [4.8866537, 45.7081864]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Croizat Nord",
+        "status": "done",
+        "doneAt": "10/09/2016",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8866537, 45.7081864],
+					[4.8868155, 45.7080876],
+					[4.8869401, 45.7079441],
+					[4.8870412, 45.707777],
+					[4.8871524, 45.7075511],
+					[4.8872299, 45.7074029],
+					[4.8873074, 45.7071675],
+					[4.8873445, 45.706911],
+          [4.8873602, 45.7069154]
+        ]
+      }
+    },
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Coblod-commun",
+				"line": 13,
+				"name": "Gare de Vénissieux Ouest",
+				"status": "done",
+				"doneAt": "10/09/2016",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8873602, 45.7069154],
+          [4.8873614, 45.7059839],
+					[4.8873951, 45.7058521],
+					[4.8873984, 45.7055768],
+					[4.8874119, 45.7055321],
+					[4.8874153, 45.705172],
+					[4.8874018, 45.7050967],
+					[4.8873951, 45.7035906],
+					[4.8873883, 45.7035342],
+					[4.8873951, 45.7032376],
+					[4.8873849, 45.703167],
+          [4.8873927, 45.703174]
+				]
+			}
+		},
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Croizat Centre",
+        "status": "done",
+        "doneAt": "01/06/2005",
+        "type": "bidirectionnelle",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8873927, 45.703174],
+          [4.8873957, 45.7004554]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Boulevard Croizat Sud",
+        "status": "done",
+        "doneAt": "01/10/2022",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8873957, 45.7004554],
+					[4.8874507, 45.6970436],
+					[4.8873273, 45.6970196],
+          [4.887389, 45.6967657]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue Jacques Duclos",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.887389, 45.6967657],
+					[4.887828, 45.6967801],
+					[4.8879583, 45.6969238],
+          [4.8889186, 45.6970867]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue Parmentier",
+        "status": "done",
+        "doneAt": "01/01/2012",
+        "type": "velorue",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8889186, 45.6970867],
+          [4.8896319, 45.6947536]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Ecole Louis Pasteur",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8896319, 45.6947536],
+					[4.8898651, 45.6940445],
+          [4.8900298, 45.6934887]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Route de Corbas",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8900298, 45.6934887],
+					[4.8901738, 45.6920322],
+					[4.8902424, 45.6916585],
+					[4.890359, 45.6914237],
+					[4.8908734, 45.6905853],
+					[4.8909763, 45.6903122],
+					[4.8911204, 45.6895168],
+					[4.8911958, 45.6887214],
+					[4.8911478, 45.6884818],
+					[4.8910408, 45.6883505],
+					[4.8910654, 45.6881706],
+					[4.8912371, 45.6880763],
+					[4.8914334, 45.6873735],
+					[4.8916543, 45.6865165],
+          [4.8918383, 45.6861308],
+          [4.8920837, 45.6859165]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Route de Lyon",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8920837, 45.6859165],
+					[4.8922431, 45.685788],
+					[4.8930897, 45.6849223],
+					[4.8932246, 45.6846909],
+					[4.8944515, 45.6801482],
+					[4.8957519, 45.6772252],
+					[4.8959482, 45.6768394],
+					[4.8960955, 45.676728],
+					[4.896758, 45.6766423],
+					[4.8970279, 45.6765651],
+					[4.897948, 45.6760165],
+					[4.8981811, 45.6759051],
+					[4.8984633, 45.6758536],
+					[4.8985982, 45.6757593],
+          [4.8987823, 45.6756822]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Corbas - Rue du Champ Blanc",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8987823, 45.6756822],
+					[4.8988927, 45.6754936],
+					[4.8992975, 45.6753736],
+          [4.8997883, 45.6752364],
+					[4.8999232, 45.6751336]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Corbas - Avenue Salvador Allende",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8999232, 45.6751336],
+          [4.899911, 45.6746964],
+					[4.8999723, 45.6742849],
+					[4.9001686, 45.6734619],
+					[4.9003036, 45.6725275],
+					[4.9003783, 45.6720474],
+					[4.900388, 45.6717977],
+					[4.9003301, 45.6716425],
+					[4.9002142, 45.6715447],
+          [4.8998713, 45.6713726],
+					[4.8996009, 45.6712848]
+        ]
+      }
+    },
+		{
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Corbas Centre",
+        "status": "postponed",
+        "type": "zone-de-rencontre",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8996009, 45.6712848],
+          [4.8989296, 45.671133],
+					[4.8987075, 45.671079],
+					[4.8985868, 45.6710216],
+					[4.8985095, 45.6708664]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue des Vignes",
+        "status": "done",
+        "doneAt": "01/01/2015",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8985095, 45.6708664],
+          [4.8983693, 45.6704595],
+					[4.8979936, 45.6703245],
+					[4.8974353, 45.6700244],
+					[4.8969522, 45.6696868],
+          [4.8965195, 45.6691739]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Avenue de Corbetta",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.8965195, 45.6691739],
+          [4.8960382, 45.6686619],
+					[4.8954218, 45.6675572],
+					[4.8951768, 45.6669273],
+					[4.894989, 45.6661408],
+					[4.8948774, 45.6649673],
+					[4.8948565, 45.6638128],
+					[4.8948819, 45.6632207],
+					[4.8950167, 45.6623648],
+					[4.8950784, 45.6621548]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Rue du Midi",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8950784, 45.6621548],
+					[4.895294, 45.6616434],
+					[4.8954256, 45.6616242],
+					[4.8955349, 45.6615883],
+					[4.8955992, 45.6615029],
+					[4.8956956, 45.661386],
+					[4.8958218, 45.6612334],
+					[4.9003416, 45.6595146],
+          [4.9004716, 45.65948],
+					[4.9006032, 45.6595189]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Route de Marennes",
+        "status": "done",
+        "doneAt": "01/09/2016",
+        "type": "bilaterale",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9006032, 45.6595189],
+          [4.9007475, 45.659533],
+					[4.9008031, 45.6594817],
+					[4.9008993, 45.6594499],
+					[4.9009601, 45.6593968],
+					[4.9009651, 45.6593384],
+					[4.9009423, 45.6592518],
+					[4.9009438, 45.6591603],
+					[4.9033413, 45.6565105],
+					[4.9034385, 45.6565183],
+					[4.9035274, 45.6564969],
+					[4.9035885, 45.656462],
+					[4.9036385, 45.6563979],
+					[4.9036524, 45.6563339],
+          [4.9036357, 45.6562698]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 13,
+        "name": "Corbas Aérodrome",
+        "status": "done",
+        "doneAt": "01/09/2015",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-13#test"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+					[4.9036357, 45.6562698],
+					[4.9037592, 45.6560997],
+					[4.9053956, 45.6543109]
+
+        ]
+      }
+    }
+  ]
 }
