@@ -635,64 +635,15 @@
         ]
       }
     },
-
-
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 7,
-        "name": "Jonction Chemin Petit - Voie verte",
-        "status": "done",
-        "doneAt": "25/04/2025",
-        "type": "voie-verte",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.858104429338937,45.80692054398821],
-          [4.8580423946538644,45.80665808746926],
-          [4.85808155458264,45.806575630216315],
-          [4.858196794314765,45.80650036404664],
-          [4.858272711192257,45.806367634150405]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "line": 7,
-        "name": "Chemin Petit",
-        "status": "done",
-        "doneAt": "31/12/2019",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.858272711192257,45.806367634150405],
-          [4.85855875832948,45.80605972117402],
-          [4.858709629608882,45.80598057714846],
-          [4.860310965085631,45.80427327015536],
-          [4.860719475727535,45.80388819414134],
-          [4.860964251700494, 45.80377488373037],
-          [4.861038853555755, 45.80375524645373]
-        ]
-      }
-    },
-
-
 		{
 			"type": "Feature",
 			"properties": {
-				"line": 2,
+				"id": "LeclercEst-commun",
+        "line": 7,
 				"name": "Caluire - Avenue Leclerc Est",
 				"status": "postponed",
 				"type": "aucun",
-				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
+				"link": "/voie-lyonnaise-7#voie-de-la-dombes",
 				"quality": "unsatisfactory"
 			},
 			"geometry": {
@@ -709,6 +660,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "ChSansNom-commun",
         "line": 7,
         "name": "Chemin sans nom",
         "status": "done",
