@@ -260,7 +260,7 @@
 			"properties": {
 				"id": "Berliet-commun",
 				"line": 5,
-				"name": "Gare de Vénissieux",
+				"name": "Gare de Vénissieux Nord",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -349,7 +349,7 @@
 			"properties": {
 				"id": "Coblod-commun",
 				"line": 5,
-				"name": "Boulevard Croizat",
+				"name": "Gare de Vénissieux Ouest",
 				"status": "done",
 				"doneAt": "10/09/2016",
 				"type": "bidirectionnelle",
@@ -359,8 +359,18 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.8873927, 45.703174],
-					[4.8873602, 45.7069154]
+					[4.8873602, 45.7069154],
+          			[4.8873614, 45.7059839],
+					[4.8873951, 45.7058521],
+					[4.8873984, 45.7055768],
+					[4.8874119, 45.7055321],
+					[4.8874153, 45.705172],
+					[4.8874018, 45.7050967],
+					[4.8873951, 45.7035906],
+					[4.8873883, 45.7035342],
+					[4.8873951, 45.7032376],
+					[4.8873849, 45.703167],
+          			[4.8873927, 45.703174]
 				]
 			}
 		},
@@ -2058,6 +2068,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Bonnevay-commun",
 				"line": 5,
 				"name": "Boulevard Laurent Bonnevay",
 				"status": "done",
@@ -2083,8 +2094,9 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "BohrOuest-commun",
 				"line": 5,
-				"name": "Boulevard Niels Bohr",
+				"name": "Boulevard Niels Bohr Ouest",
 				"status": "done",
 				"doneAt": "31/08/2021",
 				"type": "voie-verte",
@@ -2099,12 +2111,29 @@
 					[4.8657204, 45.7843917],
 					[4.8660227, 45.7844118],
 					[4.866173785472881, 45.784361876081945],
-					[4.866173785472881, 45.784361876081945],
-					[4.866426744816749, 45.78437289342651],
-					[4.867758342210067, 45.78451139571389],
-					[4.868325879611774, 45.78455002311949],
+					[4.8665616, 45.7843996],
+					[4.8666785, 45.784439],
+					[4.8683297, 45.7845928],
 					[4.868944287300109, 45.78470387501975],
-					[4.871073961257935, 45.785089187585115],
+					[4.870253, 45.7849161]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 5,
+				"name": "Boulevard Niels Bohr Est",
+				"status": "done",
+				"doneAt": "31/08/2021",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#boulevard-niels-bohr"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.870253, 45.7849161],
 					[4.873225092887878, 45.78549694264219],
 					[4.875639081001282, 45.78602814200438],
 					[4.876567125320435, 45.78624136849364]

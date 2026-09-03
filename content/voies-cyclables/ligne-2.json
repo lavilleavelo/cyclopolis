@@ -71,7 +71,7 @@
 			"type": "Feature",
 			"properties": {
 				"line": 2,
-				"name": "Grand Chemin de Fontaine Sud",
+				"name": "Grand Chemin de Fontaines Sud",
 				"status": "done",
 				"doneAt": "01/06/2005",
 				"type": "zone-de-rencontre",
@@ -642,6 +642,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "CombeMartin-commun",
 				"line": 2,
 				"name": "Chemin de Combe-Martin",
 				"status": "postponed",
@@ -663,6 +664,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Cottage-commun",
 				"line": 2,
 				"name": "Avenue des Cottages",
 				"status": "done",
@@ -714,6 +716,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Soldats-commun",
 				"line": 2,
 				"name": "Ancienne Montée des Soldats",
 				"status": "postponed",
@@ -743,6 +746,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "StClair-commun",
 				"line": 2,
 				"name": "Carrefour St-Clair",
 				"status": "postponed",
@@ -1312,7 +1316,7 @@
 			"type": "Feature",
 			"properties": {
 				"line": 2,
-				"name": "Avenue Jules Guesde",
+				"name": "Porte de Parilly",
 				"status": "done",
 				"link": "/voie-lyonnaise-2#quartier-de-parilly",
 				"doneAt": "01/09/2018",
@@ -1334,8 +1338,9 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Parilly-commun",
 				"line": 2,
-				"name": "Métro Parilly",
+				"name": "Métro Parilly Est",
 				"status": "done",
 				"doneAt": "01/09/2018",
 				"type": "bidirectionnelle",
