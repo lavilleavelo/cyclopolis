@@ -818,6 +818,286 @@
 				]
 			}
 		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"BohrEst-commun",
+				"line": 13,
+				"name": "Boulevard Niels Bohr Est",
+				"status": "done",
+				"doneAt": "31/08/2021",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.870253, 45.7849161],
+					[4.873225092887878, 45.78549694264219],
+					[4.875639081001282, 45.78602814200438],
+					[4.876567125320435, 45.78624136849364]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Sports-commun",
+				"line": 13,
+				"name": "Rue des Sports",
+				"status": "done",
+				"doneAt": "31/08/2021",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.876567125320435, 45.78624136849364],
+					[4.87672670894372, 45.785873663050765],
+					[4.876890998152447, 45.7856974278121],
+					[4.877287368752974, 45.784826548643515],
+					[4.877075097949387, 45.78447494618939],
+					[4.877519623313248, 45.78346798216612],
+					[4.877143455217293, 45.78322534180985],
+					[4.877199044805195, 45.78255851628476]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "BiblioI-commun",
+				"line": 13,
+				"name": "Bibliothèque INSA",
+				"status": "done",
+				"doneAt": "31/08/2021",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.877199044805195, 45.78255851628476],
+					[4.877317297826664, 45.7822875659929]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "EinsteinI-commun",
+				"line": 13,
+				"name": "Einstein INSA",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.879090196028102, 45.782714075198534],
+					[4.877317297826664, 45.7822875659929]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Rue Jean-Baptiste Clément",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.879090196028102, 45.782714075198534],
+					[4.8791135, 45.7825504],
+					[4.8823735, 45.781061]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Place de Croix-Luizet",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8823735, 45.781061],
+					[4.8831192, 45.7804865]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Rue Château-Gaillard",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8831192, 45.7804865],
+					[4.8831934, 45.7801625],
+					[4.8832509, 45.7799873],
+					[4.8835011, 45.778884],
+					[4.8836633, 45.7784832],
+					[4.8838256, 45.7781908]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Rue des Bienvenus",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8838256, 45.7781908],
+					[4.8838729, 45.7778796],
+					[4.8852251, 45.7713156],
+					[4.8851845, 45.7712024]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Avenue du Commandant l'Herminier",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8851845, 45.7712024],
+					[4.8847856, 45.7691887],
+					[4.8847586, 45.7689624],
+					[4.884434, 45.7684578]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Rue Docteur Rollet",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.884434, 45.7684578],
+					[4.8843597, 45.7682455],
+					[4.8845839, 45.7647213]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Avenue Auguste Blanqui",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8845839, 45.7647213],
+					[4.8847935, 45.7609009]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Perrin - Le Rize",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8847935, 45.7609009],
+					[4.885095, 45.7586339],
+					[4.8851934, 45.7581363]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Rue Antonin Perrin",
+				"status": "done",
+        "doneAt": "01/06/2005",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8851934, 45.7581363],
+					[4.8855926, 45.7549346]
+				]
+			}
+		},
+    {
+			"type": "Feature",
+			"properties": {
+				"line": 13,
+				"name": "Reconnaissance Balzac Est",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+          [4.8855926, 45.7549346],
+					[4.8856466, 45.7547088],
+					[4.8857173, 45.7541419]
+				]
+			}
+		},
     {
       "type": "Feature",
       "properties": {

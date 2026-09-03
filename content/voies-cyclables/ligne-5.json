@@ -2122,6 +2122,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"BohrEst-commun",
 				"line": 5,
 				"name": "Boulevard Niels Bohr Est",
 				"status": "done",
@@ -2143,6 +2144,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Sports-commun",
 				"line": 5,
 				"name": "Rue des Sports",
 				"status": "done",
