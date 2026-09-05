@@ -114,7 +114,7 @@
 			"properties": {
 				"line": 5,
 				"name": "Traversée A43",
-				"status": "postponed",
+				"status": "priority-2030",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -1811,8 +1811,8 @@
 			"properties": {
 				"id": "Mouton-commun",
 				"line": 5,
-				"name": "Place du Port Mouton",
-				"status": "postponed",
+				"name": "Place du Port Mouton Nord",
+				"status": "priority-2030",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#rue-roquette"

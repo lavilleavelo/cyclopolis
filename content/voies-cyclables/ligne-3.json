@@ -683,7 +683,7 @@
       "properties": {
         "line": 3,
         "name": "Giratoire Pont Leclerc Nord",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -708,7 +708,7 @@
         "id": "PontLeclerc-commun",
         "line": 3,
         "name": "Giratoire Pont Leclerc Sud",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -792,7 +792,7 @@
         "id": "Bocuse-commun",
         "line": 3,
         "name": "Giratoire Pont Bocuse",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
@@ -1092,11 +1092,11 @@
       "type": "Feature",
       "properties": {
         "line": 3,
-        "name": "Place du Port Mouton",
+        "name": "Place du Port Mouton Est",
         "link": "/voie-lyonnaise-3#pont-clémenceau-au-pont-koenig",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
-        "status": "postponed"
+        "status": "priority-2030"
       },
       "geometry": {
         "type": "LineString",
