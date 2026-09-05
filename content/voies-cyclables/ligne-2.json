@@ -68,6 +68,189 @@
 			}
 		},
 		{
+		"type": "Feature",
+		"properties": {
+			"line": 2,
+			"name": "Cailloux - Route des Prolières",
+			"status": "done",
+			"doneAt": "01/01/2002",
+			"type": "velorue",
+			"quality": "satisfactory",
+			"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+		},
+		"geometry": {
+			"type": "LineString",
+			"coordinates": [
+				[4.8724757, 45.8522366],
+				[4.8721938, 45.8521992],
+				[4.871807, 45.8520583],
+				[4.8714729, 45.8521012],
+				[4.8710422, 45.8521747],
+				[4.870251, 45.8521624],
+				[4.8700136, 45.8520828],
+				[4.8691521, 45.8516481],
+				[4.8684401, 45.8513481],
+				[4.8680005, 45.8512072],
+				[4.8672797, 45.8510419],
+				[4.866383, 45.8505949],
+				[4.8654072, 45.8502214],
+				[4.8647831, 45.8496703],
+				[4.8644314, 45.8488559],
+				[4.8644226, 45.8483661],
+				[4.8641325, 45.8481273],
+				[4.8633238, 45.8478701],
+				[4.8625502, 45.8477292],
+				[4.8621634, 45.8475333],
+				[4.8611085, 45.8468107],
+				[4.8608008, 45.8463025],
+				[4.8608623, 45.8461677]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Fontaines St-Martin - Rue des Prolières",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.8608623, 45.8461677],
+			[4.860581, 45.8460759],
+			[4.8601942, 45.8458616],
+			[4.8597811, 45.8457146],
+			[4.859491, 45.8456656],
+			[4.859025, 45.8457268],
+			[4.858269, 45.8458983],
+			[4.8579779, 45.845903],
+			[4.8576527, 45.8458479],
+			[4.8573801, 45.8456826],
+			[4.8564835, 45.8450274]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Fontaines St-Martin - Chemin des Vosges",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.8564835, 45.8450274],
+			[4.8565626, 45.8444578],
+			[4.8564923, 45.844121],
+			[4.856334, 45.8439067],
+			[4.8560527, 45.8437107],
+			[4.8558505, 45.8434352],
+			[4.8554725, 45.8432086],
+			[4.8553773, 45.8431722],
+			[4.8554216, 45.8431293],
+			[4.8554331, 45.8430718],
+			[4.8554114, 45.843021],
+			[4.8553556, 45.8429757],
+			[4.8552858, 45.8429454],
+			[4.855184, 45.8429341]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Fontaines St-Martin - Montée de la Ruelle",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.855184, 45.8429341],
+			[4.8551451, 45.84267]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Rue du Buisson",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "velorue",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.8551451, 45.84267],
+			[4.8550457, 45.8426401],
+			[4.8549394, 45.8425652],
+			[4.8544703, 45.8421839],
+			[4.854048, 45.8417699],
+			[4.8534459, 45.8410727],
+			[4.853313, 45.8408439],
+			[4.8513738, 45.8401303],
+			[4.8501697, 45.8398361],
+			[4.8494737, 45.8395964],
+			[4.8493721, 45.8397544],
+			[4.8476538, 45.8390532],
+			[4.8476807, 45.8390636]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Rue des Mollières",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.8476807, 45.8390636],
+			[4.8475076, 45.8389021]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 2,
+        "name": "Grand Chemin de Fontaines Nord",
+        "status": "done",
+        "doneAt": "01/01/2002",
+        "type": "zone-de-rencontre",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+			[4.8475076, 45.8389021],
+			[4.84712, 45.8383692],
+			[4.8468829, 45.8376649]
+        ]
+      }
+    },
+		{
 			"type": "Feature",
 			"properties": {
 				"line": 2,
@@ -472,8 +655,9 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Clemenceau-commun",
 				"line": 2,
-				"name": "Caluire - Quai Clémenceau",
+				"name": "Caluire - Quai Clémenceau Nord",
 				"status": "postponed",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
@@ -495,6 +679,30 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"Clemenceau-commun",
+				"line": 2,
+				"name": "Caluire - Quai Clémenceau Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.831795544871056, 45.79602553322215],
+					[4.8304885, 45.795797],
+					[4.830174, 45.7956985],
+					[4.8289866, 45.7951884],
+					[4.8286015, 45.7949781],
+					[4.8277543, 45.7944277]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"MonteeCaluire-commun",
 				"line": 2,
 				"name": "Montée Castellane",
 				"status": "postponed",
@@ -554,6 +762,57 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"MonteeCaluire-commun",
+				"line": 2,
+				"name": "Caluire - Montée des Forts",
+				"status": "done",
+				"doneAt": "01/06/2020",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8277543, 45.7944277],
+					[4.8279982, 45.7942531],
+					[4.8282742, 45.7940786],
+					[4.828486, 45.7939936],
+					[4.8287363, 45.7939757],
+					[4.8289289, 45.794016],
+					[4.8295964, 45.7943337],
+					[4.8298082, 45.7944277],
+					[4.8299558, 45.7944679],
+					[4.8301355, 45.7944814],
+					[4.8303152, 45.7944814],
+					[4.831156, 45.7943963],
+					[4.831586, 45.7943337],
+					[4.831817, 45.7942755],
+					[4.8325166, 45.7942308],
+					[4.8328311, 45.7941413],
+					[4.8331135, 45.794016],
+					[4.8332611, 45.7939041],
+					[4.8338709, 45.7933089],
+					[4.8342046, 45.7929599],
+					[4.8343586, 45.7928256],
+					[4.8345768, 45.7927674],
+					[4.8348721, 45.792754],
+					[4.8351352, 45.7927406],
+					[4.8353214, 45.7926914],
+					[4.8354369, 45.7926153],
+					[4.835822, 45.7921454],
+					[4.8359503, 45.7920335],
+					[4.8361686, 45.7919351],
+					[4.8363739, 45.7918724],
+					[4.8369644, 45.7918008],
+					[4.8371698, 45.791765],
+					[4.8375292, 45.7916173]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
 				"line": 2,
 				"name": "Rue Jean Moulin",
 				"status": "postponed",
@@ -572,6 +831,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"CaluirePlateau-commun",
 				"line": 2,
 				"name": "Avenue Pierre Terrasse",
 				"status": "postponed",
@@ -584,6 +844,70 @@
 				"coordinates": [
 					[4.846961, 45.7993688],
 					[4.84923540877918, 45.79871420824841]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"CaluirePlateau-commun",
+				"line": 2,
+				"name": "Caluire - Avenue Jean Monnet",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8375292, 45.7916173],
+					[4.8385882, 45.791134],
+					[4.839765145614819,45.79050272024264]
+				]
+			}
+		},
+		{
+				"type": "Feature",
+				"properties": {
+					"id":"SangnierS-commun",
+					"line": 2,
+					"name": "Avenue Marc Sangnier Sud",
+					"status": "postponed",
+					"type": "aucun",
+					"quality": "unsatisfactory",
+					"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
+				},
+				"geometry": {
+					"type": "LineString",
+					"coordinates": [
+					[4.839765145614819,45.79050272024264],
+					[4.840743299361407,45.79124331882012],
+					[4.8408069417008335,45.79139057930554],
+					[4.842074398487369,45.79233708234812],
+					[4.843464267470154,45.793357909460305],
+					[4.844703987013361,45.7942917636295],
+					[4.847999808734187,45.796770134501116],
+					[4.8481427200115945,45.79700630741187]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SangnierN-commun",
+				"line": 2,
+				"name": "Avenue Marc Sangnier Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[4.8481427200115945,45.79700630741187],
+				[4.84923540877918,45.79871420824841]
 				]
 			}
 		},
@@ -829,10 +1153,11 @@
 			"properties": {
 				"id": "variantePoincaré",
 				"line": 2,
-				"name": "Détour via St-Clair",
-				"status": "postponed",
+				"name": "Parc de Saint-Clair",
+				"status": "done",
+				"doneAt": "01/01/2011",
 				"variante": true,
-				"type": "aucun",
+				"type": "voie-verte",
 				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
 				"quality": "unsatisfactory"
 			},
@@ -845,6 +1170,25 @@
 					[4.8588628729201275, 45.7882376472397],
 					[4.859053713199472, 45.788336007133125],
 					[4.859286040495704, 45.78879308906647],
+					[4.859402204144459, 45.78952788381227]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 2,
+				"name": "St-Clair Centre",
+				"status": "postponed",
+				"variante": true,
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
 					[4.859402204144459, 45.78952788381227],
 					[4.858979036567575, 45.78973038459827],
 					[4.8589541443582505, 45.789903956115296],
