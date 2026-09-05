@@ -680,7 +680,7 @@
         "line": 8,
         "id": "Ch-Vallon-commun",
         "name": "Chemin Vernique/Vallon",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#tassin-valvert-à-victor-hugo"
@@ -1352,9 +1352,9 @@
       "properties": {
         "line": 8,
         "name": "Rue Camille Roy",
-        "status": "wip",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
+        "status": "priority-2030",
+        "type": "aucun",
+        "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#rue-camille-roy"
       },
       "geometry": {
@@ -1371,7 +1371,7 @@
       "properties": {
         "line": 8,
         "name": "Rue et Pont de l'Epargne",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#rue-et-pont-de-lepargne"
