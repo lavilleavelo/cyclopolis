@@ -177,7 +177,8 @@
       "properties": {
         "line": 6,
         "name": "Chemin de Halage de Crépieux",
-        "status": "postponed",
+        "status": "done",
+        "doneAt": "01/02/2005",
         "type": "voie-verte",
         "quality":"unsatisfactory",
         "link": "/voie-lyonnaise-6#chemin-de-halage-de-crépieux"
