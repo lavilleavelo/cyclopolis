@@ -503,27 +503,24 @@
 			"properties": {
 				"id": "variantePoincaré",
 				"line": 13,
-				"name": "Détour via Passerelle de la Paix",
-				"status": "done",
-				"doneAt": "20/11/2025",
-				"type": "voie-verte",
+				"name": "St-Clair Centre",
+				"status": "postponed",
+				"variante": true,
+				"text": "Variante provisoire par Passerelle de la Paix",
+				"type": "aucun",
 				"link": "/voie-lyonnaise-13#test",
-				"quality": "satisfactory"
+				"quality": "unsatisfactory"
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.859096014315483, 45.78473198447127],
-					[4.8591117788897975, 45.78495695014692],
-					[4.858920938610424, 45.785315694739126],
-					[4.858696908717349, 45.78546613533223],
-					[4.858456284016654, 45.78554714163775],
-					[4.858049711247332, 45.78563972012799],
-					[4.8570706176398915, 45.78566865087495],
-					[4.855709843472482, 45.78558764474644],
-					[4.854921590144414, 45.78548349383635],
-					[4.854747344671239, 45.78606789364676],
-					[4.854274408808493, 45.78810457181356]
+					[4.859402204144459, 45.78952788381227],
+					[4.858979036567575, 45.78973038459827],
+					[4.8589541443582505, 45.789903956115296],
+					[4.859161574588455, 45.79040730769424],
+					[4.859028816132138, 45.790667661605056],
+					[4.859974720127099, 45.790991655884596],
+					[4.860417250867499, 45.791008478328905]
 				]
 			}
 		},
@@ -531,11 +528,12 @@
 			"type": "Feature",
 			"properties": {
 				"id": "variantePoincaré",
-				"line": 2,
+				"line": 13,
 				"name": "Parc de Saint-Clair",
 				"status": "done",
 				"doneAt": "01/01/2011",
 				"variante": true,
+				"text": "Variante provisoire par Passerelle de la Paix",
 				"type": "voie-verte",
 				"link": "/voie-lyonnaise-13#test",
 				"quality": "unsatisfactory"
@@ -558,23 +556,50 @@
 			"properties": {
 				"id": "variantePoincaré",
 				"line": 13,
-				"name": "St-Clair Centre",
-				"status": "postponed",
+				"name": "Passerelle de la Paix",
+				"status": "done",
+				"doneAt": "20/11/2025",
 				"variante": true,
-				"type": "aucun",
+				"text" : "Variante provisoire par Passerelle de la Paix",
+				"type": "voie-verte",
 				"link": "/voie-lyonnaise-13#test",
-				"quality": "unsatisfactory"
+				"quality": "satisfactory"
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.859402204144459, 45.78952788381227],
-					[4.858979036567575, 45.78973038459827],
-					[4.8589541443582505, 45.789903956115296],
-					[4.859161574588455, 45.79040730769424],
-					[4.859028816132138, 45.790667661605056],
-					[4.859974720127099, 45.790991655884596],
-					[4.860417250867499, 45.791008478328905]
+					[4.854921590144414, 45.78548349383635],
+					[4.854747344671239, 45.78606789364676],
+					[4.854274408808493, 45.78810457181356]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 13,
+				"name": "Cité Internationale Est",
+				"status": "done",
+				"doneAt": "20/11/2025",
+				"variante": true,
+				"text" : "Variante provisoire par Passerelle de la Paix",
+				"type": "zone-de-rencontre",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.8591117788897975, 45.78495695014692],
+					[4.858920938610424, 45.785315694739126],
+					[4.858696908717349, 45.78546613533223],
+					[4.858456284016654, 45.78554714163775],
+					[4.858049711247332, 45.78563972012799],
+					[4.8570706176398915, 45.78566865087495],
+					[4.855709843472482, 45.78558764474644],
+					[4.854921590144414, 45.78548349383635]
 				]
 			}
 		},
@@ -748,6 +773,8 @@
 				"line": 13,
 				"name": "Rue Jean-Baptiste Clément",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -767,6 +794,8 @@
 				"line": 13,
 				"name": "Place de Croix-Luizet",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -774,7 +803,7 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-          [4.8823735, 45.781061],
+          			[4.8823735, 45.781061],
 					[4.8831192, 45.7804865]
 				]
 			}
@@ -785,6 +814,8 @@
 				"line": 13,
 				"name": "Rue Château-Gaillard",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -807,6 +838,8 @@
 				"line": 13,
 				"name": "Rue des Bienvenus",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -827,6 +860,8 @@
 				"line": 13,
 				"name": "Avenue du Commandant l'Herminier",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -847,6 +882,8 @@
 				"line": 13,
 				"name": "Rue Docteur Rollet",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -866,6 +903,8 @@
 				"line": 13,
 				"name": "Avenue Auguste Blanqui",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -884,6 +923,8 @@
 				"line": 13,
 				"name": "Perrin - Le Rize",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -903,7 +944,9 @@
 				"line": 13,
 				"name": "Rue Antonin Perrin",
 				"status": "done",
-        "doneAt": "01/06/2005",
+        		"doneAt": "01/06/2005",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bilaterale",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -911,17 +954,19 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-          [4.8851934, 45.7581363],
+          			[4.8851934, 45.7581363],
 					[4.8855926, 45.7549346]
 				]
 			}
 		},
-    {
+    	{
 			"type": "Feature",
 			"properties": {
 				"line": 13,
 				"name": "Reconnaissance Balzac Est",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Est",
 				"type": "bandes-cyclables",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -929,7 +974,7 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-          [4.8855926, 45.7549346],
+          			[4.8855926, 45.7549346],
 					[4.8856466, 45.7547088],
 					[4.8857173, 45.7541419]
 				]
@@ -942,6 +987,8 @@
         "name": "Avenue Gaston Berger Nord",
         "status": "done",
         "doneAt": "01/09/2008",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -961,6 +1008,8 @@
         "name": "Avenue Gaston Berger Sud",
         "status": "done",
         "doneAt": "01/06/2025",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -968,12 +1017,12 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8719662, 45.781118],
-					[4.8718327, 45.7809921],
-					[4.8717755, 45.7808925],
-					[4.8718708, 45.7806399],
-					[4.8723663, 45.7795833],
-					[4.8725283, 45.7792111]
+			[4.8719662, 45.781118],
+			[4.8718327, 45.7809921],
+			[4.8717755, 45.7808925],
+			[4.8718708, 45.7806399],
+			[4.8723663, 45.7795833],
+			[4.8725283, 45.7792111]
         ]
       }
     },
@@ -984,6 +1033,8 @@
         "name": "Tram T6 - Spréafico",
         "status": "done",
         "doneAt": "01/10/2025",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -991,13 +1042,13 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8725283, 45.7792111],
-					[4.8726236, 45.7789121],
-					[4.8729444, 45.7782064],
-					[4.8736689, 45.7768588],
-					[4.8737666, 45.7767262],
-					[4.8739259, 45.7766617],
-					[4.8741703, 45.7766567]
+			[4.8725283, 45.7792111],
+			[4.8726236, 45.7789121],
+			[4.8729444, 45.7782064],
+			[4.8736689, 45.7768588],
+			[4.8737666, 45.7767262],
+			[4.8739259, 45.7766617],
+			[4.8741703, 45.7766567]
         ]
       }
     },
@@ -1007,6 +1058,8 @@
         "line": 13,
         "name": "Rue Colin",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1014,17 +1067,17 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8741703, 45.7766567],
-					[4.8741086, 45.77645],
-					[4.8740592, 45.7763166],
-					[4.8742259, 45.7733654],
-					[4.874195, 45.7731846],
-					[4.8741086, 45.7728961],
-					[4.8740099, 45.7726722],
-					[4.8738061, 45.7723234],
-					[4.8737629, 45.7721641],
-					[4.8737321, 45.7719402],
-					[4.8737382, 45.7718369]
+          	[4.8741703, 45.7766567],
+			[4.8741086, 45.77645],
+			[4.8740592, 45.7763166],
+			[4.8742259, 45.7733654],
+			[4.874195, 45.7731846],
+			[4.8741086, 45.7728961],
+			[4.8740099, 45.7726722],
+			[4.8738061, 45.7723234],
+			[4.8737629, 45.7721641],
+			[4.8737321, 45.7719402],
+			[4.8737382, 45.7718369]
         ]
       }
     },
@@ -1034,6 +1087,8 @@
         "line": 13,
         "name": "Cours de la République",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1041,16 +1096,16 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8737382, 45.7718369],
-					[4.8737629, 45.7710188],
-					[4.8737321, 45.770881],
-					[4.873749, 45.7705707],
-					[4.8738865, 45.7677506],
-					[4.8739177, 45.7676067],
-					[4.8739239, 45.7673365],
-					[4.8740677, 45.7652791],
-					[4.8741364, 45.7641413],
-					[4.8741314, 45.7639934]
+          	[4.8737382, 45.7718369],
+			[4.8737629, 45.7710188],
+			[4.8737321, 45.770881],
+			[4.873749, 45.7705707],
+			[4.8738865, 45.7677506],
+			[4.8739177, 45.7676067],
+			[4.8739239, 45.7673365],
+			[4.8740677, 45.7652791],
+			[4.8741364, 45.7641413],
+			[4.8741314, 45.7639934]
         ]
       }
     },
@@ -1060,6 +1115,8 @@
         "line": 13,
         "name": "Giratoire du Totem",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1067,17 +1124,17 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8741314, 45.7639934],
-					[4.8742145, 45.7639773],
-					[4.874293, 45.7639354],
-					[4.8743438, 45.7638742],
-					[4.8743669, 45.7638098],
-					[4.8743669, 45.7637421],
-					[4.8743438, 45.7636713],
-					[4.8742838, 45.7636069],
-					[4.8741914, 45.763565],
-					[4.8740899, 45.7635425],
-					[4.8740206, 45.7635392]
+          	[4.8741314, 45.7639934],
+			[4.8742145, 45.7639773],
+			[4.874293, 45.7639354],
+			[4.8743438, 45.7638742],
+			[4.8743669, 45.7638098],
+			[4.8743669, 45.7637421],
+			[4.8743438, 45.7636713],
+			[4.8742838, 45.7636069],
+			[4.8741914, 45.763565],
+			[4.8740899, 45.7635425],
+			[4.8740206, 45.7635392]
         ]
       }
     },
@@ -1087,6 +1144,8 @@
         "line": 13,
         "name": "Avenue Marc Sangnier Nord",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1094,10 +1153,10 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8740206, 45.7635392],
-					[4.8739837, 45.7620641],
-					[4.8749809, 45.7607082],
-					[4.8749901, 45.7606373]
+          	[4.8740206, 45.7635392],
+			[4.8739837, 45.7620641],
+			[4.8749809, 45.7607082],
+			[4.8749901, 45.7606373]
         ]
       }
     },
@@ -1108,6 +1167,8 @@
         "name": "Avenue Marc Sangnier Sud",
         "status": "done",
         "doneAt": "01/09/2008",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bilaterale",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1115,14 +1176,14 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8749901, 45.7606373],
-					[4.8765044, 45.7585115],
-					[4.8765644, 45.7583988],
-					[4.8765829, 45.7582796],
-					[4.8765321, 45.7579414],
-					[4.8761535, 45.7559669],
-					[4.8761628, 45.7558122],
-					[4.876329, 45.7556415]
+   	        [4.8749901, 45.7606373],
+			[4.8765044, 45.7585115],
+			[4.8765644, 45.7583988],
+			[4.8765829, 45.7582796],
+			[4.8765321, 45.7579414],
+			[4.8761535, 45.7559669],
+			[4.8761628, 45.7558122],
+			[4.876329, 45.7556415]
         ]
       }
     },
@@ -1132,6 +1193,8 @@
         "line": 13,
         "name": "Place des Maisons Neuves",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1139,8 +1202,8 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.876329, 45.7556415],
-					[4.8769594, 45.755803]
+          	[4.876329, 45.7556415],
+			[4.8769594, 45.755803]
         ]
       }
     },
@@ -1150,6 +1213,8 @@
         "line": 13,
         "name": "Rue Meunier",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1157,9 +1222,9 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8769594, 45.755803],
-					[4.8772979, 45.7550692],
-					[4.8772979, 45.7548991]
+       	   [4.8769594, 45.755803],
+			[4.8772979, 45.7550692],
+			[4.8772979, 45.7548991]
         ]
       }
     },
@@ -1169,6 +1234,8 @@
         "line": 13,
         "name": "Rue Feuillat large",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"
@@ -1176,8 +1243,8 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8772979, 45.7548991],
-					[4.8769642, 45.7530957]
+          	[4.8772979, 45.7548991],
+			[4.8769642, 45.7530957]
         ]
       }
     },
@@ -1187,6 +1254,8 @@
         "line": 13,
         "name": "Rue Feuillat étroite",
         "status": "postponed",
+		"variante": true,
+		"text": "variante Ouest",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-13#test"

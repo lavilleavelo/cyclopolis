@@ -851,36 +851,8 @@
       "properties": {
         "id": "Barbe-commun",
         "line": 3,
-        "name": "Quai Raoul Carrié",
+        "name": "Gde Rue de Saint Rambert & Termier",
         "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-3#neuville-sur-saône-à-saint-rambert"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.839157418246998, 45.802784532756064],
-          [4.8387218248955435, 45.801766686008584],
-          [4.838409706739142, 45.80135938729437],
-          [4.837771654129028, 45.80075755554231],
-          [4.836815194232855, 45.80022843351546],
-          [4.8358190059661865, 45.799755270962166],
-          [4.831871115758162, 45.798557831464315],
-          [4.831059727875555, 45.798218640954275],
-          [4.8304759395564645, 45.797975559948014]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Barbe-commun",
-        "line": 3,
-        "name": "Variante - Gde Rue de Saint Rambert & Termier",
-        "status": "done",
-        "variante": true,
-        "doneAt": "01/09/2020",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-3#saint-rambert-à-pont-de-lîle-barbe"

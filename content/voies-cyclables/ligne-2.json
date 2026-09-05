@@ -555,36 +555,8 @@
 			"properties": {
 				"id": "Barbe-commun",
 				"line": 2,
-				"name": "Quai Raoul Carrié",
+				"name": "Gde Rue de Saint Rambert & Termier",
 				"status": "postponed",
-				"type": "aucun",
-				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
-				"quality": "unsatisfactory"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.839157418246998, 45.802784532756064],
-					[4.8387218248955435, 45.801766686008584],
-					[4.838409706739142, 45.80135938729437],
-					[4.837771654129028, 45.80075755554231],
-					[4.836815194232855, 45.80022843351546],
-					[4.8358190059661865, 45.799755270962166],
-					[4.831871115758162, 45.798557831464315],
-					[4.831059727875555, 45.798218640954275],
-					[4.8304759395564645, 45.797975559948014]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "Barbe-commun",
-				"line": 2,
-				"name": "Variante - Gde Rue de Saint Rambert & Termier",
-				"status": "done",
-				"variante": true,
-				"doneAt": "01/09/2020",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe",
 				"quality": "unsatisfactory"
@@ -659,6 +631,8 @@
 				"line": 2,
 				"name": "Caluire - Quai Clémenceau Nord",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Castellane",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
 				"quality": "unsatisfactory"
@@ -683,6 +657,8 @@
 				"line": 2,
 				"name": "Caluire - Quai Clémenceau Sud",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Montée des Forts",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
@@ -706,6 +682,8 @@
 				"line": 2,
 				"name": "Montée Castellane",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Castellane",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
 				"quality": "unsatisfactory"
@@ -766,6 +744,8 @@
 				"line": 2,
 				"name": "Caluire - Montée des Forts",
 				"status": "done",
+				"variante": true,
+				"text": "Variante Montée des Forts",
 				"doneAt": "01/06/2020",
 				"type": "bilaterale",
 				"quality": "unsatisfactory",
@@ -816,6 +796,8 @@
 				"line": 2,
 				"name": "Rue Jean Moulin",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Castellane",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
 				"quality": "unsatisfactory"
@@ -835,6 +817,8 @@
 				"line": 2,
 				"name": "Avenue Pierre Terrasse",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Castellane",
 				"type": "aucun",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord",
 				"quality": "unsatisfactory"
@@ -854,6 +838,8 @@
 				"line": 2,
 				"name": "Caluire - Avenue Jean Monnet",
 				"status": "postponed",
+				"variante": true,
+				"text": "Variante Montée des Forts",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
@@ -870,9 +856,9 @@
 		{
 				"type": "Feature",
 				"properties": {
-					"id":"SangnierS-commun",
+					"id":"Sangnier-commun",
 					"line": 2,
-					"name": "Avenue Marc Sangnier Sud",
+					"name": "Avenue Marc Sangnier",
 					"status": "postponed",
 					"type": "aucun",
 					"quality": "unsatisfactory",
@@ -888,26 +874,8 @@
 					[4.843464267470154,45.793357909460305],
 					[4.844703987013361,45.7942917636295],
 					[4.847999808734187,45.796770134501116],
-					[4.8481427200115945,45.79700630741187]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"id": "SangnierN-commun",
-				"line": 2,
-				"name": "Avenue Marc Sangnier Nord",
-				"status": "postponed",
-				"type": "aucun",
-				"quality": "unsatisfactory",
-				"link": "/voie-lyonnaise-2#traversée-du-plateau-nord"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-				[4.8481427200115945,45.79700630741187],
-				[4.84923540877918,45.79871420824841]
+					[4.8481427200115945,45.79700630741187],
+					[4.84923540877918,45.79871420824841]
 				]
 			}
 		},
@@ -1124,27 +1092,24 @@
 			"properties": {
 				"id": "variantePoincaré",
 				"line": 2,
-				"name": "Détour via Passerelle de la Paix",
-				"status": "done",
-				"doneAt": "20/11/2025",
-				"type": "voie-verte",
+				"name": "St-Clair Centre",
+				"status": "postponed",
+				"variante": true,
+				"text": "Variante provisoire par Passerelle de la Paix",
+				"type": "aucun",
 				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-				"quality": "satisfactory"
+				"quality": "unsatisfactory"
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.859096014315483, 45.78473198447127],
-					[4.8591117788897975, 45.78495695014692],
-					[4.858920938610424, 45.785315694739126],
-					[4.858696908717349, 45.78546613533223],
-					[4.858456284016654, 45.78554714163775],
-					[4.858049711247332, 45.78563972012799],
-					[4.8570706176398915, 45.78566865087495],
-					[4.855709843472482, 45.78558764474644],
-					[4.854921590144414, 45.78548349383635],
-					[4.854747344671239, 45.78606789364676],
-					[4.854274408808493, 45.78810457181356]
+					[4.859402204144459, 45.78952788381227],
+					[4.858979036567575, 45.78973038459827],
+					[4.8589541443582505, 45.789903956115296],
+					[4.859161574588455, 45.79040730769424],
+					[4.859028816132138, 45.790667661605056],
+					[4.859974720127099, 45.790991655884596],
+					[4.860417250867499, 45.791008478328905]
 				]
 			}
 		},
@@ -1157,6 +1122,7 @@
 				"status": "done",
 				"doneAt": "01/01/2011",
 				"variante": true,
+				"text": "Variante provisoire par Passerelle de la Paix",
 				"type": "voie-verte",
 				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
 				"quality": "unsatisfactory"
@@ -1179,23 +1145,50 @@
 			"properties": {
 				"id": "variantePoincaré",
 				"line": 2,
-				"name": "St-Clair Centre",
-				"status": "postponed",
+				"name": "Passerelle de la Paix",
+				"status": "done",
+				"doneAt": "20/11/2025",
 				"variante": true,
-				"type": "aucun",
+				"text" : "Variante provisoire par Passerelle de la Paix",
+				"type": "voie-verte",
 				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
-				"quality": "unsatisfactory"
+				"quality": "satisfactory"
 			},
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.859402204144459, 45.78952788381227],
-					[4.858979036567575, 45.78973038459827],
-					[4.8589541443582505, 45.789903956115296],
-					[4.859161574588455, 45.79040730769424],
-					[4.859028816132138, 45.790667661605056],
-					[4.859974720127099, 45.790991655884596],
-					[4.860417250867499, 45.791008478328905]
+					[4.854921590144414, 45.78548349383635],
+					[4.854747344671239, 45.78606789364676],
+					[4.854274408808493, 45.78810457181356]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "variantePoincaré",
+				"line": 2,
+				"name": "Cité Internationale Est",
+				"status": "done",
+				"doneAt": "20/11/2025",
+				"variante": true,
+				"text" : "Variante provisoire par Passerelle de la Paix",
+				"type": "zone-de-rencontre",
+				"link": "/voie-lyonnaise-2#carrefour-saint-clair-et-pont-poincaré",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.859096014315483, 45.78473198447127],
+					[4.8591117788897975, 45.78495695014692],
+					[4.858920938610424, 45.785315694739126],
+					[4.858696908717349, 45.78546613533223],
+					[4.858456284016654, 45.78554714163775],
+					[4.858049711247332, 45.78563972012799],
+					[4.8570706176398915, 45.78566865087495],
+					[4.855709843472482, 45.78558764474644],
+					[4.854921590144414, 45.78548349383635]
 				]
 			}
 		},

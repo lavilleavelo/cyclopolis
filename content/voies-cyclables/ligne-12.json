@@ -478,7 +478,7 @@
         "id": "Presquile-commun",
         "line": 12,
         "name": "Traversée Presqu'île (par Bellecour)",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-12#traversée-de-la-presquîle-de-lyon"
@@ -497,7 +497,7 @@
       "properties": {
         "line": 12,
         "name": "Pont de la Guillotière",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-12#pont-de-la-guillotière-à-grange-blanche"
@@ -659,7 +659,7 @@
       "properties": {
         "line": 12,
         "name": "Bron - Boutasse",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
@@ -736,6 +736,8 @@
         "name": "Bron - Avenue de Tassigny",
         "status": "done",
         "doneAt": "10/04/2012",
+        "variante": true,
+        "text": "variante Rousset",
         "type": "bidirectionnelle",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"

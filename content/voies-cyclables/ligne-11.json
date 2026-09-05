@@ -1123,7 +1123,7 @@
         "id": "RenoirDauphine-commun",
         "line": 11,
         "name": "Renoir - Dauphiné",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-11#avenue-félix-faure-vivier-merle-à-esplanade-mandela"
@@ -1177,7 +1177,7 @@
         "id": "Lacassagne-commun",
         "line": 11,
         "name": "Avenue Lacassagne Sud",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "voie-bus",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-11#dauphiné-lacassagne-à-reconnaissance-balzac"
