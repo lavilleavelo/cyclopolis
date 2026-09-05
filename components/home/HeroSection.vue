@@ -48,7 +48,7 @@
                 class="text-lvv-blue-600 font-medium hover:underline"
                 ><strong>{{ assoName }}</strong></a
               >
-              pour suivre le développement du nouveau réseau vélo sécurisé Lyonnais.
+              pour suivre le développement du grand réseau vélo sécurisé Lyonnais.
             </p>
             <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
               <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">

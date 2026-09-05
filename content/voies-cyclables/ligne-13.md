@@ -1,7 +1,7 @@
 ---
 name: Voie Lyonnaise 13
 line: 13
-from: Rillieux-la-Pape
+from: Fontaines s/ Saône
 to: Corbas
 description: À compléter
 trafic: ''
