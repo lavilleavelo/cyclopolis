@@ -2002,9 +2002,10 @@
 			"type": "Feature",
 			"properties": {
 				"line": 2,
-				"name": "Mions - Rue du 23 août 1944 Sud",
-				"status": "postponed",
-				"type": "bandes-cyclables",
+				"name": "Mions - Avenue des Tilleuls",
+				"status": "done",
+				"doneAt": "01/06/2020",
+				"type": "bilaterale",
 				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
 				"quality": "unsatisfactory"
 			},
@@ -2012,12 +2013,55 @@
 				"type": "LineString",
 				"coordinates": [
 					[4.9503188, 45.6692416],
-					[4.9510221, 45.6668684],
-					[4.951473, 45.6656788],
-					[4.9519465, 45.6646152],
-					[4.9524538, 45.6636382],
-					[4.952668, 45.6632837],
-					[4.9529273, 45.6630552]
+					[4.9529005, 45.6692676]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Mions - Avenue Jules Ferry",
+				"status": "done",
+				"doneAt": "01/06/2015",
+				"type": "voie-verte",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9529005, 45.6692676],
+					[4.9529986, 45.6666806],
+					[4.9534803, 45.66669],
+					[4.953739, 45.6662006],
+					[4.9537791, 45.666051],
+					[4.9539263, 45.6647201],
+					[4.9541449, 45.6637039]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 2,
+				"name": "Mions - Avenue De Gaulle",
+				"status": "postponed",
+				"type": "aucun",
+				"link": "/voie-lyonnaise-2#route-de-lyon-rue-des-alouettes-à-rue-diderot",
+				"quality": "unsatisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9541449, 45.6637039],
+					[4.9548184, 45.6638535],
+					[4.9553001, 45.6639408],
+					[4.9557773, 45.6640156],
+					[4.9562322, 45.6640593],
+					[4.9566604, 45.6640624],
+					[4.9568254, 45.6640624],
+					[4.9569771, 45.6640063]
 				]
 			}
 		}
