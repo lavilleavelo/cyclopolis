@@ -238,7 +238,7 @@
 				"id": "Cot-commun",
 				"line": 5,
 				"name": "Rue des Combats du 24 Août 1944",
-				"status": "done",
+				"status": "planned",
 				"variante": true,
 				"text": "variante Nord",
 				"type": "bidirectionnelle",
@@ -262,6 +262,8 @@
 				"line": 5,
 				"name": "Gare de Vénissieux Nord",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Nord",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -285,6 +287,8 @@
 				"line": 5,
 				"name": "Boulevard Coblod",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Sud",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -330,6 +334,8 @@
 				"line": 5,
 				"name": "Montée du Lyonnais",
 				"status": "planned",
+				"variante": true,
+				"text": "variante Sud",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#traversée-vallée-de-la-chimie"
@@ -900,7 +906,6 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.815988402129236, 45.71382570856283],
 					[4.817267726957937, 45.71396524612453],
 					[4.819320165274689, 45.71418732326234]
 				]
@@ -956,7 +961,7 @@
 				"line": 5,
 				"name": "Yzeron - Gare Oullins",
 				"status": "planned",
-				"text": "variante A",
+				"text": "variante Nord",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -977,10 +982,10 @@
 			"properties": {
 				"id": "YzeronOuest-commun",
 				"line": 5,
-				"name": "Berge Yzeron Ouest - scénario A",
+				"name": "Berge Yzeron Ouest",
 				"status": "postponed",
 				"variante": true,
-				"text": "variante A",
+				"text": "variante Nord",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1009,7 +1014,7 @@
 				"name": "Oullins Herriot",
 				"status": "postponed",
 				"variante": true,
-				"text": "variante A",
+				"text": "variante Nord",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1029,10 +1034,10 @@
 			"properties": {
 				"id": "OullinsChabriere-commun",
 				"line": 5,
-				"name": "Parc Chabrières-Arles - scénario A",
+				"name": "Parc Chabrières-Arles",
 				"status": "postponed",
 				"variante": true,
-				"text": "variante A",
+				"text": "variante Nord",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1070,10 +1075,10 @@
 			"properties": {
 				"id": "OullinsB-commun",
 				"line": 5,
-				"name": "Rue Sémard & Aulagne - scénario B",
+				"name": "Rue Sémard & Aulagne",
 				"status": "postponed",
 				"variante": true,
-				"text": "variante B",
+				"text": "variante Sud",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1098,11 +1103,11 @@
 			"properties": {
 				"id": "OullinsRhone-commun",
 				"line": 5,
-				"name": "Avenue du Rhône - scénario B",
+				"name": "Avenue du Rhône",
 				"status": "done",
 				"variante": true,
 				"doneAt": "31/12/2013",
-				"text": "variante B",
+				"text": "variante Sud",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1122,10 +1127,10 @@
 			"properties": {
 				"id": "BoulZolaEst-commun",
 				"line": 5,
-				"name": "Boulevard Emile Zola Est - Scénario B",
+				"name": "Boulevard Emile Zola Est",
 				"status": "postponed",
 				"variante": true,
-				"text": "variante B",
+				"text": "variante Sud",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#boulevard-de-lyzeron-à-gare-doullins"
@@ -1506,6 +1511,8 @@
 				"name": "Carrefour Libération",
 				"status": "done",
 				"doneAt": "03/06/2013",
+				"variante": true,
+				"text": "variante Raude",
 				"type": "bidirectionnelle",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-5#tassin-sud"
@@ -1525,6 +1532,8 @@
 				"line": 5,
 				"name": "Avenue de Lauterbourg",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Constellation",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#tassin-sud"
@@ -1550,6 +1559,8 @@
 				"line": 5,
 				"name": "Avenue De Gaulle Sud",
 				"status": "postponed",
+				"variante": true,
+				"text": "variante Raude",
 				"type": "aucun",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-5#tassin-sud"
