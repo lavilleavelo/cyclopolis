@@ -412,7 +412,7 @@
 				"id": "PontLeclerc-commun",
 				"line": 2,
 				"name": "Giratoire Pont Leclerc Sud",
-				"status": "postponed",
+				"status": "priority-2030",
 				"type": "voie-bus",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
@@ -496,7 +496,7 @@
 				"id": "Bocuse-commun",
 				"line": 2,
 				"name": "Giratoire Pont Bocuse",
-				"status": "postponed",
+				"status": "priority-2030",
 				"type": "voie-bus",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-2#fontaines-sur-saône-à-lîle-barbe"
