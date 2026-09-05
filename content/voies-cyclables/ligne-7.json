@@ -738,6 +738,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "SangnierN-commun",
         "line": 7,
         "name": "Avenue Marc Sangnier Nord",
         "status": "postponed",
@@ -756,6 +757,7 @@
     {
       "type": "Feature",
       "properties": {
+        "id":"SangnierS-commun",
         "line": 7,
         "name": "Avenue Marc Sangnier Sud",
         "status": "postponed",
@@ -781,8 +783,9 @@
       "type": "Feature",
       "properties": {
         "line": 7,
-        "name": "Voie verte de la Dombes - Sud",
-        "status": "postponed",
+        "name": "Caluire - Voie verte de la Dombes",
+        "status": "done",
+        "doneAt": "01/07/1996",
         "type": "voie-verte",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#voie-de-la-dombes"
@@ -804,7 +807,7 @@
         "line": 7,
         "name": "Cuire - Chemin du Penthod",
         "status": "done",
-        "doneAt": "01/07/2005",
+        "doneAt": "01/07/2014",
         "type": "velorue",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-7#métro-cuire-et-infirmerie-protestante"
@@ -827,7 +830,7 @@
         "line": 7,
         "name": "Cuire - Place Jules Ferry",
         "status": "done",
-        "doneAt":"01/07/2012",
+        "doneAt":"01/07/2014",
         "type": "zone-de-rencontre",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#métro-cuire-et-infirmerie-protestante"
