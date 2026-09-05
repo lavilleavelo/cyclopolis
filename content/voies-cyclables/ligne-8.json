@@ -1193,6 +1193,34 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "Fulchiron-commun",
+        "line": 8,
+        "name": "Quai Fulchiron",
+        "status": "done",
+        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon",
+        "doneAt": "31/12/2019",
+        "quality": "satisfactory",
+        "type": "bidirectionnelle"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.821635484695435, 45.7517254720919],
+          [4.8224616050720215, 45.75258638397264],
+          [4.8231858015060425, 45.75330504806818],
+          [4.823464751243591, 45.753634432685836],
+          [4.8243337869644165, 45.75555455658702],
+          [4.824521541595459, 45.7560298986956],
+          [4.825074076652527, 45.75671857614265],
+          [4.825648069381714, 45.757351103918374],
+          [4.827225208282471, 45.758923035387],
+          [4.8280060273045535, 45.75972816081131]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "id": "Perrache-commun",
         "line": 8,
         "name": "Traversée Presqu'île (par Perrache)",
@@ -1235,6 +1263,25 @@
           [4.83013555163204, 45.7511377138502],
           [4.8304692997084535, 45.75104688654649],
           [4.8312482786904525, 45.750824615948005],
+          [4.832063064909362, 45.750593356342044]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Conde-commun",
+        "line": 8,
+        "name": "Pont de l'Université - Condé",
+        "status": "postponed",
+        "type": "voie-bus",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8338006768830155, 45.753082372135076],
           [4.832063064909362, 45.750593356342044]
         ]
       }
