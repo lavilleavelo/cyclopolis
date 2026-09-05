@@ -1152,47 +1152,6 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "Bonaparte-commun",
-        "line": 8,
-        "name": "Pont Bonaparte - Chambonnet",
-        "status": "done",
-        "doneAt": "04/07/2025",
-        "type": "bidirectionnelle",
-        "quality": "satisfactory",
-        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8280060273045535, 45.75972816081131],
-          [4.829598412924241, 45.75923993359143],
-          [4.830851765912087, 45.75884749645334]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "Presquile-commun",
-        "line": 8,
-        "name": "Traversée Presqu'île (par Bellecour)",
-        "status": "postponed",
-        "type": "voie-bus",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.830851765912087, 45.75884749645334],
-          [4.834175882882562, 45.75795745946414],
-          [4.836761844916594,45.75730585999979]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "id": "Fulchiron-commun",
         "line": 8,
         "name": "Quai Fulchiron",
@@ -1224,7 +1183,7 @@
         "id": "Perrache-commun",
         "line": 8,
         "name": "Traversée Presqu'île (par Perrache)",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#traversée-de-la-presquîle-de-lyon"
@@ -1283,27 +1242,6 @@
         "coordinates": [
           [4.8338006768830155, 45.753082372135076],
           [4.832063064909362, 45.750593356342044]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "UniversitéGuillotière-commun",
-        "line": 8,
-        "name": "Pont Guillotière - Pont Université",
-        "status": "postponed",
-        "type": "voie-bus",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-8#pont-université-à-mermoz-pinel"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8338006768830155,45.753082372135076],
-          [4.834404648277484,45.7539941241597],
-          [4.83588314859162,45.75582217405276],
-          [4.836761844916594,45.75730585999979]
         ]
       }
     },
@@ -1576,7 +1514,7 @@
       "properties": {
         "line": 8,
         "name": "Rue Lionel Terray Ouest",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "bandes-cyclables",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-8#rue-lionel-terray"

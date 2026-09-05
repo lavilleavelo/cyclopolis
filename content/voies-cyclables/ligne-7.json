@@ -734,28 +734,9 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "SangnierN-commun",
+        "id":"Sangnier-commun",
         "line": 7,
-        "name": "Avenue Marc Sangnier Nord",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
-        "link": "/voie-lyonnaise-7#voie-de-la-dombes"
-      },
-      "geometry": {
-        "type": "LineString",
-        "coordinates": [
-          [4.8481427200115945,45.79700630741187],
-          [4.84923540877918,45.79871420824841]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id":"SangnierS-commun",
-        "line": 7,
-        "name": "Avenue Marc Sangnier Sud",
+        "name": "Avenue Marc Sangnier",
         "status": "postponed",
         "type": "aucun",
         "quality": "unsatisfactory",
@@ -771,7 +752,8 @@
           [4.843464267470154,45.793357909460305],
           [4.844703987013361,45.7942917636295],
           [4.847999808734187,45.796770134501116],
-          [4.8481427200115945,45.79700630741187]
+          [4.8481427200115945,45.79700630741187],
+          [4.84923540877918,45.79871420824841]
         ]
       }
     },
@@ -1853,9 +1835,12 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "Feyzin-commun",
         "line": 7,
         "name": "Feyzin Centre",
         "status": "postponed",
+        "variante": "true",
+        "text": "variante directe",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#traversée-de-feyzin"
@@ -1872,9 +1857,12 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "Feyzin-commun",
         "line": 7,
         "name": "Rue de la Roseraie",
         "status": "done",
+        "variante": "true",
+        "text": "variante détour Ouest",
         "doneAt": "01/07/2005",
         "type": "velorue",
         "quality": "satisfactory",
@@ -1892,9 +1880,12 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "Feyzin-commun",
         "line": 7,
         "name": "Chemin de Beauregard",
         "status": "done",
+        "variante": "true",
+        "text": "variante détour Ouest",
         "doneAt":"01/07/2005",
         "type": "velorue",
         "quality": "satisfactory",
@@ -1923,9 +1914,12 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "Feyzin-commun",
         "line": 7,
         "name": "Rue de la Mairie",
         "status": "postponed",
+        "variante": "true",
+        "text": "variante détour Ouest",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-7#traversée-de-feyzin"

@@ -1133,7 +1133,7 @@
       "properties": {
         "line": 9,
         "name": "Passerelle Oullins-Gerland",
-        "status": "postponed",
+        "status": "priority-2030",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#franchissement-du-rhône"
@@ -1181,10 +1181,10 @@
       "properties": {
         "id": "YzeronOuest-commun",
         "line": 9,
-        "name": "Berge Yzeron Ouest - scénario A",
+        "name": "Berge Yzeron Ouest",
         "status": "postponed",
         "variante": true,
-        "text": "variante A",
+        "text": "variante Nord",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1213,7 +1213,7 @@
         "name": "Oullins Herriot",
         "status": "postponed",
         "variante": true,
-        "text": "variante A",
+        "text": "variante Nord",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1233,10 +1233,10 @@
       "properties": {
         "id": "OullinsChabriere-commun",
         "line": 9,
-        "name": "Parc Chabrières-Arles - scénario A",
+        "name": "Parc Chabrières-Arles",
         "status": "postponed",
         "variante": true,
-        "text": "variante A",
+        "text": "variante Nord",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1276,7 +1276,7 @@
         "line": 9,
         "name": "Yzeron - Gare Oullins",
         "status": "planned",
-        "text": "variante B",
+        "text": "variante Sud",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1297,10 +1297,10 @@
       "properties": {
         "id": "OullinsB-commun",
         "line": 9,
-        "name": "Rue Sémard & Aulagne - scénario B",
+        "name": "Rue Sémard & Aulagne",
         "status": "postponed",
         "variante": true,
-        "text": "variante B",
+        "text": "variante Sud",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1325,11 +1325,11 @@
       "properties": {
         "id": "OullinsRhone-commun",
         "line": 9,
-        "name": "Avenue du Rhône - scénario B",
+        "name": "Avenue du Rhône",
         "status": "done",
         "variante": true,
         "doneAt": "31/12/2013",
-        "text": "variante B",
+        "text": "variante Sud",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"
@@ -1349,10 +1349,10 @@
       "properties": {
         "id": "BoulZolaEst-commun",
         "line": 9,
-        "name": "Boulevard Emile Zola Est - Scénario B",
+        "name": "Boulevard Emile Zola Est",
         "status": "postponed",
         "variante": true,
-        "text": "variante B",
+        "text": "variante Sud",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-9#traversée-doullins"

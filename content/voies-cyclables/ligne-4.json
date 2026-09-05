@@ -473,6 +473,8 @@
         "line": 4,
         "name": "Variante Lanessan",
         "status": "postponed",
+        "variante": "true",
+        "text": "Variante abandonnée",
         "type": "aucun",
         "quality": "unsatisfactory",
         "link": "/voie-lyonnaise-4#avenue-de-montlouis-à-rue-juttet"
