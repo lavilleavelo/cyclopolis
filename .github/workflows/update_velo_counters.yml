@@ -3,12 +3,11 @@ name: Update Velo Counters
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 1 * *' # every 1st day of each month
+    - cron: '7 16 1 * *' # le 1er de chaque mois, ~18h00 heure de Paris (minute impaire = moins de retard)
 
 jobs:
   update_counters:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
@@ -26,7 +25,7 @@ jobs:
         run: node .github/scripts/update-velo-counters.js
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v8
         with:
           commit-message: '[Automatique] Mise à jour des compteurs vélo'
           title: 'Compteurs - Mise à jour automatique des compteurs vélo'
@@ -34,3 +33,4 @@ jobs:
           base: main
           branch: update-counters-${{ github.run_id }}
           delete-branch: true
+          reviewers: StephaneColson

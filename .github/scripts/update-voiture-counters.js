@@ -60,8 +60,8 @@ async function getCompteurData({ idsPdc }) {
       console.error('[getCompteurData] An error happened while fetching counter data');
       process.exit(1);
     }
-    // petite pause pour ne pas se faire jeter avec un "TOO MANY REQUESTS"
-    await sleep(15000);
+    // pause pour ne pas se faire jeter avec un "TOO MANY REQUESTS"
+    await sleep(30000);
   }
 
   if (idsPdc.length === 1) return resByIdPdc[idsPdc[0]];
