@@ -3,7 +3,11 @@ name: Update Voiture Counters
 on:
   workflow_dispatch:
   schedule:
-    - cron: '7 16 1 * *' # le 1er de chaque mois, ~18h00 heure de Paris (minute impaire = moins de retard)
+    - cron: '7 16 1 * *'
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   update_counters:
