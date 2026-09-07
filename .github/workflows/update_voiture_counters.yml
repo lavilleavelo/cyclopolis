@@ -5,9 +5,9 @@ on:
   schedule:
     - cron: '7 16 1 * *'
 
+# La PR est créée avec un token GitHub App (cyclopolis-bot) pour que ça lance la CI
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   update_counters:
@@ -28,9 +28,19 @@ jobs:
       - name: Run Update Counters Script
         run: node .github/scripts/update-voiture-counters.js
 
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ steps.app-token.outputs.token }}
           commit-message: '[Automatique] Mise à jour des compteurs voiture'
           title: 'Compteurs - Mise à jour automatique des compteurs voiture'
           body: 'Mise à jour automatique des compteurs via une github action.'
