@@ -10,19 +10,21 @@ const path = require('path');
 const dayjs = require('dayjs');
 dayjs().format();
 
+const CONCURRENCY = 8;
+const MAX_ATTEMPTS = 3;
+const FETCH_TIMEOUT_MS = 60_000;
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
 (async () => {
+  const startedAt = Date.now();
   const allCounters = await getAllCounters();
   const trackedCounters = getTrackedCounters();
-  for (const { file, counter: trackCounter } of trackedCounters) {
-    console.log(`<<<<<<< ${trackCounter.name} >>>>>>>`);
-    const counter = allCounters.find((c) => c.idPdc === trackCounter.idPdc);
-    if (!counter) {
-      console.error('counter not found', { trackCounter });
-      continue;
-    }
-    const { flowIds } = counter;
-    const updatedCounts = await getUpdatedCounts({ idPdc: trackCounter.idPdc, flowIds });
-    updateFile({ file, counter: { ...trackCounter, counts: updatedCounts } });
+  const failures = [];
+
+  for (let i = 0; i < trackedCounters.length; i += CONCURRENCY) {
+    const batch = trackedCounters.slice(i, i + CONCURRENCY);
+    await Promise.all(batch.map((tracked) => updateCounter({ tracked, allCounters, failures })));
   }
 
   if (allCounters.length !== trackedCounters.length) {
@@ -33,17 +35,39 @@ dayjs().format();
       }
     }
   }
+
+  console.log(`\n${trackedCounters.length} counters processed in ${Math.round((Date.now() - startedAt) / 1000)}s`);
+
+  if (failures.length > 0) {
+    console.error(`\n${failures.length} counter(s) could not be updated:`);
+    for (const { name, error } of failures) {
+      console.error(`- ${name}: ${error.message}`);
+    }
+    process.exit(1);
+  }
 })();
 
+async function updateCounter({ tracked, allCounters, failures }) {
+  const { file, counter: trackCounter } = tracked;
+  const counter = allCounters.find((c) => c.idPdc === trackCounter.idPdc);
+  if (!counter) {
+    console.error(`<<<<<<< ${trackCounter.name} >>>>>>> counter not found`, { trackCounter });
+    return;
+  }
+
+  try {
+    const updatedCounts = await getUpdatedCounts({ idPdc: trackCounter.idPdc, flowIds: counter.flowIds });
+    updateFile({ file, counter: { ...trackCounter, counts: updatedCounts } });
+    console.log(`<<<<<<< ${trackCounter.name} >>>>>>>`);
+  } catch (error) {
+    console.error(`<<<<<<< ${trackCounter.name} >>>>>>> FAILED: ${error.message}`);
+    failures.push({ name: trackCounter.name, error });
+  }
+}
+
 async function getAllCounters() {
-  /**
-   * The `pratiques` query parameter is a comma separated list of the following optional integers:
-   * - 1 marche
-   * - 2 vélo
-   * - 13 trottinette
-   */
   const URL = 'https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/3902?withNull=true&pratiques=2,13';
-  const res = await fetch(URL);
+  const res = await fetch(URL, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (res.ok) {
     const allCounters = await res.json();
     return allCounters.map((counter) => ({
@@ -56,6 +80,7 @@ async function getAllCounters() {
     process.exit(1);
   }
 }
+
 function getTrackedCounters() {
   const files = fs.readdirSync('content/compteurs/velo');
   return files.map((file) => {
@@ -69,32 +94,45 @@ function getTrackedCounters() {
 }
 
 async function getUpdatedCounts({ idPdc, flowIds }) {
-  const URL = `https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/${idPdc}?`;
-  const res = await fetch(
-    URL +
-      new URLSearchParams({
-        idOrganisme: '3902',
-        idPdc,
-        flowIds,
-        debut: '01/01/2015',
-        fin: dayjs().startOf('month').format('DD/MM/YYYY'),
-        interval: '6', // month
-      }),
-  );
-  if (res.ok) {
-    const counts = await res.json();
-    return counts.map((count) => {
-      const date = new Date(count[0]);
-      const year = date.toLocaleDateString('fr-FR', { year: 'numeric' });
-      const month = date.toLocaleDateString('fr-FR', { month: '2-digit' });
-      return {
-        month: `${year}-${month}-01`,
-        count: Number(count[1]),
-      };
+  const URL =
+    `https://www.eco-visio.net/api/aladdin/1.0.0/pbl/publicwebpageplus/data/${idPdc}?` +
+    new URLSearchParams({
+      idOrganisme: '3902',
+      idPdc,
+      flowIds,
+      debut: '01/01/2015',
+      fin: dayjs().startOf('month').format('DD/MM/YYYY'),
+      interval: '6', // month
     });
-  } else {
-    console.error('[getUpdatedCounts] An error happened while fetching counts', res);
-    process.exit(1);
+
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const res = await fetch(URL, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      }
+
+      const counts = await res.json();
+      return counts.map((count) => {
+        const date = new Date(count[0]);
+        const year = date.toLocaleDateString('fr-FR', { year: 'numeric' });
+        const month = date.toLocaleDateString('fr-FR', { month: '2-digit' });
+        return {
+          month: `${year}-${month}-01`,
+          count: Number(count[1]),
+        };
+      });
+    } catch (error) {
+      if (attempt === MAX_ATTEMPTS) {
+        throw error;
+      }
+
+      const delay = attempt * 5000;
+      console.warn(
+        `[getUpdatedCounts] idPdc=${idPdc} attempt ${attempt}/${MAX_ATTEMPTS} failed (${error.message}), retrying in ${delay / 1000}s`,
+      );
+      await sleep(delay);
+    }
   }
 }
 
