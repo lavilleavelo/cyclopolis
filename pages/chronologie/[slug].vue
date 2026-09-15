@@ -59,7 +59,7 @@
                 class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
                 :style="{ backgroundColor: getLineColor(line) }"
               >
-                {{ line }}
+                {{ getLineLabel(line) }}
               </div>
             </div>
             <div class="flex-1 min-w-0">
@@ -122,7 +122,7 @@
                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-white no-underline hover:opacity-80 transition-opacity"
                       :style="{ backgroundColor: getLineColor(pl.line) }"
                     >
-                      {{ getRevName('abbreviated') }}{{ pl.line }}
+                      {{ getLineShortName(pl.line, '') }}
                       <Icon name="mdi:arrow-right" class="h-3.5 w-3.5" />
                     </a>
                     <a
@@ -152,7 +152,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-const { getRevName } = useConfig();
+const { getLineLabel, getLineShortName } = useConfig();
 const { getLineColor } = useColors();
 const { displayDistanceInKm } = useStats();
 

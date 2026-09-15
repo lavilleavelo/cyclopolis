@@ -1,21 +1,21 @@
 <template>
   <a :href="href" :style="`color: ${color}; `" class="no-underline inline-flex items-center gap-2">
     <span :style="`--underline-color: ${color};`" class="animated-underline text-decoration-color: ${color};">{{
-      getRevName('singular')
+      getLinesName([Number(line)])
     }}</span>
     <span
       class="not-prose inline-flex no-underline items-center justify-center rounded-full text-white leading-none"
       :style="`background-color: ${color};`"
       :class="size === 'sm' ? 'text-lg h-6 w-6' : 'h-10 w-10'"
     >
-      {{ line }}
+      {{ getLineLabel(Number(line)) }}
     </span>
   </a>
 </template>
 
 <script setup lang="ts">
 const { getLineColor } = useColors();
-const { getRevName } = useConfig();
+const { getLinesName, getLineLabel } = useConfig();
 const { getVoieCyclablePath } = useUrl();
 
 const props = withDefaults(

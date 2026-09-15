@@ -12,7 +12,7 @@
           :style="`background-color: ${getLineColor(line)}`"
         >
           <a :href="`/voie-lyonnaise-${line}`">
-            {{ line }}
+            {{ getLineLabel(line) }}
           </a>
         </div>
       </div>
@@ -75,7 +75,7 @@
 import type { LaneQuality, LineStringFeature } from '~/types';
 
 const { getLineColor } = useColors();
-const { getRevName, displayQuality } = useConfig();
+const { getLinesName, getLineLabel, displayQuality } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
 const { getSectionDetailsUrl } = useUrl();
 
@@ -85,9 +85,7 @@ const { feature, lines, hasDetailsPanel } = defineProps<{
   hasDetailsPanel: boolean;
 }>();
 
-const title = computed(() => {
-  return lines.length > 1 ? getRevName() : getRevName('singular');
-});
+const title = computed(() => getLinesName(lines));
 
 function getDoneAtText(doneAt: string): string {
   const [day, month, year] = doneAt.split('/');
