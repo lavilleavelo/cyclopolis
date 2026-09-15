@@ -1,9 +1,9 @@
 <template>
   <div class="bg-white not-prose flex items-center justify-center" :style="`background-color: ${color}`">
     <div class="p-1 text-white text-lg font-black">
-      {{ getRevName('singular') }}
+      {{ getLinesName([feature.properties.line]) }}
       <span class="h-6 w-6 text-sm rounded-full inline-flex items-center justify-center border-2 border-white">
-        {{ feature.properties.line }}
+        {{ getLineLabel(feature.properties.line) }}
       </span>
     </div>
   </div>
@@ -60,7 +60,7 @@ import { onKeyStroke } from '@vueuse/core';
 import type { PerspectiveFeature } from '~/types';
 
 const { getLineColor } = useColors();
-const { getRevName } = useConfig();
+const { getLinesName, getLineLabel } = useConfig();
 
 const { feature } = defineProps<{
   feature: PerspectiveFeature;

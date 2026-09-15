@@ -86,7 +86,7 @@ import type { CompteurFeature } from '~/types';
 const { path } = useRoute();
 const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
-const { displayQuality } = useConfig();
+const { displayQuality, getLineName } = useConfig();
 const { getCompteursFeatures } = useMap();
 
 const props = withDefaults(
@@ -157,8 +157,8 @@ function downloadGpx() {
   const gpx = GeoJsonToGpx(geojson.value, {
     creator: 'Cyclopolis - La Ville à Vélo',
     metadata: {
-      name: `Voie Lyonnaise ${props.voie.line}`,
-      desc: `Tracé de la voie lyonnaise ${props.voie.line} - Source: La Ville à Vélo`,
+      name: getLineName(props.voie.line),
+      desc: `Tracé de la ${getLineName(props.voie.line)} - Source: La Ville à Vélo`,
       author: {
         name: 'Cyclopolis - La Ville à Vélo',
         link: {

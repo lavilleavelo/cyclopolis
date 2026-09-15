@@ -10,12 +10,12 @@
     <ContentFrame :description="voie.description" :image-url="voie.photos?.length ? undefined : voie.cover">
       <template #header>
         <h1 class="text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          {{ getRevName('singular') }}
+          {{ getLinesName([voie.line]) }}
           <div
             class="mt-2 h-12 w-12 rounded-full flex items-center justify-center text-white font-bold mx-auto transition-colors"
             :style="`background-color: ${color}`"
           >
-            {{ voie.line }}
+            {{ getLineLabel(voie.line) }}
           </div>
         </h1>
       </template>
@@ -25,7 +25,7 @@
         class="relative group cursor-pointer mb-6"
         @click="photoGallery?.open(0)"
       >
-        <img :src="voie.cover" :alt="`Voie Lyonnaise ${voie.line}`" class="w-full rounded-lg" loading="lazy" />
+        <img :src="voie.cover" :alt="getLineName(voie.line)" class="w-full rounded-lg" loading="lazy" />
         <div
           class="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center"
         >
@@ -96,7 +96,7 @@ const props = withDefaults(
 );
 
 const { getLineColor } = useColors();
-const { getRevName } = useConfig();
+const { getLinesName, getLineName, getLineLabel } = useConfig();
 const { getVoieCyclableRegex } = useUrl();
 
 const color = computed(() => getLineColor(Number(props.line)));

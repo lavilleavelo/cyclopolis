@@ -17,7 +17,7 @@
             class="inline-flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold text-white border border-white/50"
             :style="{ backgroundColor: getLineColor(line) }"
           >
-            {{ line }}
+            {{ getLineLabel(line) }}
           </span>
         </div>
       </div>
@@ -126,6 +126,7 @@ defineEmits<{
 }>();
 
 const { getLineColor } = useColors();
+const { getLineLabel } = useConfig();
 const { isCountInMaintenance, findSameMonthYearsAgo, findCountForMonth, aggregateMatchedYears } = useCounterUtils();
 
 const arrondissement = props.counter.arrondissement;

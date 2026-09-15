@@ -11,7 +11,11 @@ export const useUrl = () => {
   }
 
   function getVoieCyclableRegex() {
-    const lines = Array.from({ length: config.nbVoiesCyclables }, (_, index) => config.nbVoiesCyclables - index);
+    // le réseau complémentaire a sa propre page, comme une voie cyclable
+    const lines = [
+      ...Array.from({ length: config.nbVoiesCyclables }, (_, index) => config.nbVoiesCyclables - index),
+      config.complementaryNetwork.line,
+    ];
     return new RegExp(`${config.slug}-(${lines.join('|')})\\b`);
   }
 

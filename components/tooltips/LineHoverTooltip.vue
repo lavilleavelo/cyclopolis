@@ -8,7 +8,7 @@
           class="h-8 w-8 rounded-full flex items-center justify-center text-white text-base font-bold"
           :style="`background-color: ${getLineColor(line)}`"
         >
-          {{ line }}
+          {{ getLineLabel(line) }}
         </div>
       </div>
     </div>
@@ -61,6 +61,7 @@
 import type { LaneQuality, LineStringFeature } from '~/types';
 
 const { getLineColor } = useColors();
+const { getLineLabel } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
 const { getSectionDetailsUrl } = useUrl();
 

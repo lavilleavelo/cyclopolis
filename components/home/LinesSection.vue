@@ -10,14 +10,17 @@
           class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
           :style="`background-color: ${getLineColor(voie.line)}`"
         >
-          {{ voie.line }}
+          {{ getLineLabel(voie.line) }}
         </div>
       </div>
       <div class="flex-1 min-w-0">
         <NuxtLink :to="getVoieCyclablePath(voie.line)" class="focus:outline-none">
           <span class="absolute inset-0" aria-hidden="true" />
-          <p class="text-sm font-medium text-gray-900">Ligne {{ voie.line }}</p>
-          <p class="text-sm text-gray-500 truncate">{{ voie.from }} → {{ voie.to }}</p>
+          <p class="text-sm font-medium text-gray-900">
+            {{ isComplementaryLine(voie.line) ? getLineName(voie.line) : `Ligne ${voie.line}` }}
+          </p>
+          <p v-if="voie.from || voie.to" class="text-sm text-gray-500 truncate">{{ voie.from }} → {{ voie.to }}</p>
+          <p v-else class="text-sm text-gray-500 truncate">{{ voie.description }}</p>
         </NuxtLink>
       </div>
     </div>
@@ -27,6 +30,7 @@
 <script setup lang="ts">
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
+const { getLineLabel, getLineName, isComplementaryLine } = useConfig();
 
 const { voies } = await useGetVoiesCyclablesNums();
 </script>

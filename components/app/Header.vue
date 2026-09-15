@@ -140,7 +140,7 @@
                           class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
                           :style="`background-color: ${getLineColor(voie.line)}`"
                         >
-                          {{ voie.line }}
+                          {{ getLineLabel(voie.line) }}
                         </div>
                       </div>
                     </NuxtLink>
@@ -355,7 +355,7 @@
                     class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
                     :style="`background-color: ${getLineColor(voie.line)}`"
                   >
-                    {{ voie.line }}
+                    {{ getLineLabel(voie.line) }}
                   </div>
                 </div>
               </NuxtLink>
@@ -374,7 +374,7 @@ import SettingsPopover from './SettingsPopover.vue';
 import type GlobalSearch from '~/components/GlobalSearch.vue';
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
-const { getAssoName } = useConfig();
+const { getAssoName, getLineLabel } = useConfig();
 const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
