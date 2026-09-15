@@ -473,7 +473,7 @@
         "line": 4,
         "name": "Variante Lanessan",
         "status": "postponed",
-        "variante": "true",
+        "variante": true,
         "text": "Variante abandonnée",
         "type": "aucun",
         "quality": "unsatisfactory",

@@ -1,4 +1,5 @@
 import type { Collections } from '@nuxt/content';
+import config from '~/config.json';
 
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
@@ -6,10 +7,28 @@ type ColoredLineStringFeature = Extract<
 > & { properties: { color: string } };
 
 /** opacité des tronçons appartenant à une variante, pour les distinguer du tracé principal */
-export const VARIANTE_OPACITY = 0.65;
+export const VARIANTE_OPACITY = 0.4;
 
-// features plotted last are on top
-const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11].reverse();
+/** largeur (en px) des tronçons sur la carte */
+export const SECTION_LINE_WIDTH = 4;
+/** les tronçons du réseau complémentaire sont tracés plus fin que les voies cyclables */
+export const COMPLEMENTARY_SECTION_LINE_WIDTH = 2.5;
+export const COMPLEMENTARY_LINE_WIDTH_RATIO = COMPLEMENTARY_SECTION_LINE_WIDTH / SECTION_LINE_WIDTH;
+
+export function isComplementaryLine(line: number | undefined): boolean {
+  return line === config.complementaryNetwork.line;
+}
+
+/** largeur d'un tronçon : réduite pour le réseau complémentaire, normale sinon */
+export function getSectionLineWidth(line: number | undefined, width = SECTION_LINE_WIDTH): number {
+  if (isComplementaryLine(line)) {
+    return width * COMPLEMENTARY_LINE_WIDTH_RATIO;
+  }
+  return width;
+}
+
+// features plotted last are on top. Le réseau complémentaire est tracé en premier, sous les voies cyclables.
+const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11, 13, config.complementaryNetwork.line].reverse();
 
 export function sortByLine(
   featureA: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -48,7 +67,7 @@ export function getCrossIconUrl(pixelRatio = 1, lineWidth = 3): string {
   return canvas.toDataURL();
 }
 
-export function createLineShieldIcon(lineNumber: number, color: string, pixelRatio = 1): HTMLCanvasElement {
+export function createLineShieldIcon(label: string, color: string, pixelRatio = 1): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const size = 64;
 
@@ -76,28 +95,24 @@ export function createLineShieldIcon(lineNumber: number, color: string, pixelRat
   ctx.lineWidth = 3;
   ctx.stroke();
 
-  // line number
+  // line label
   ctx.fillStyle = '#ffffff';
   ctx.font = 'bold 28px sans-serif';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText(String(lineNumber), centerX, centerY + 3);
+  ctx.fillText(label, centerX, centerY + 3);
 
   return canvas;
 }
 
-export function createCompositeLineShieldIcon(
-  lineNumbers: number[],
-  colors: string[],
-  pixelRatio = 1,
-): HTMLCanvasElement {
+export function createCompositeLineShieldIcon(labels: string[], colors: string[], pixelRatio = 1): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const iconSize = 64;
   const radius = iconSize / 2 - 4;
   const overlapPercent = 0.3; // 30% overlap
   const spacing = iconSize - iconSize * overlapPercent; // Distance between circle centers
 
-  canvas.width = (iconSize + spacing * (lineNumbers.length - 1)) * pixelRatio;
+  canvas.width = (iconSize + spacing * (labels.length - 1)) * pixelRatio;
   canvas.height = iconSize * pixelRatio;
 
   const ctx = canvas.getContext('2d');
@@ -106,7 +121,7 @@ export function createCompositeLineShieldIcon(
   }
   ctx.scale(pixelRatio, pixelRatio);
 
-  lineNumbers.forEach((lineNumber, index) => {
+  labels.forEach((label, index) => {
     const color = colors[index];
     const x = index * spacing + iconSize / 2;
     const centerY = iconSize / 2;
@@ -124,12 +139,12 @@ export function createCompositeLineShieldIcon(
     ctx.arc(x, centerY, radius, 0, 2 * Math.PI);
     ctx.stroke();
 
-    // line number
+    // line label
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 28px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(String(lineNumber), x, centerY + 3);
+    ctx.fillText(label, x, centerY + 3);
   });
 
   return canvas;

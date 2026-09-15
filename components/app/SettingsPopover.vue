@@ -178,10 +178,10 @@
                 </button>
               </div>
               <div class="grid grid-cols-4 gap-2">
-                <div v-for="id in config.nbVoiesCyclables" :key="id" class="flex flex-col items-center">
-                  <label :for="`color-line-${id}`" class="text-xs text-gray-500 mb-1"
-                    >{{ config.revName.abbreviated }}{{ id }}</label
-                  >
+                <div v-for="id in getAllLineNumbers()" :key="id" class="flex flex-col items-center">
+                  <label :for="`color-line-${id}`" class="text-xs text-gray-500 mb-1">{{
+                    getLineShortName(id, '')
+                  }}</label>
                   <input
                     :id="`color-line-${id}`"
                     type="color"
@@ -227,10 +227,10 @@ import {
   Switch,
 } from '@headlessui/vue';
 import { useDebounceFn } from '@vueuse/core';
-import config from '~/config.json';
 import { MAP_STYLE_OPTIONS } from '~/helpers/mapStyles';
 
 const { getLineColor } = useColors();
+const { getAllLineNumbers, getLineShortName } = useConfig();
 const { palette, customColors, reduceMotion, mapStyle } = useSettings();
 
 const PALETTE_OPTIONS: { id: 'default' | 'accessible'; label: string; description: string }[] = [

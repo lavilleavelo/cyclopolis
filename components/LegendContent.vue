@@ -45,13 +45,15 @@
     <div class="my-auto">reporté</div>
 
     <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
-      <div :class="['bg-lvv-blue-600 opacity-[0.65]', lineHeightClass]" />
+      <div :class="['bg-lvv-blue-600', lineHeightClass]" :style="{ opacity: VARIANTE_OPACITY }" />
     </div>
     <div class="my-auto">variante</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { VARIANTE_OPACITY } from '~/helpers/map-utils';
+
 const props = withDefaults(
   defineProps<{
     size?: 'small' | 'large';

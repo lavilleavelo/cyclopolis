@@ -10,7 +10,12 @@ export const useGetVoiesCyclablesNums = async () => {
 
 export function getLine(geojson: Collections['voiesCyclablesGeojson']): number {
   const lineStringFeature = geojson.features.find(isLineStringFeature);
-  return lineStringFeature?.properties.line as number;
+  if (lineStringFeature) {
+    return lineStringFeature.properties.line;
+  }
+  // fichier sans tronçon (ligne en cours de saisie) : le numéro est déduit du nom du fichier
+  const match = geojson.path?.match(/ligne-(\d+)$/);
+  return match ? Number(match[1]) : NaN;
 }
 
 export const useVoiesCyclablesGeojson = async () => {

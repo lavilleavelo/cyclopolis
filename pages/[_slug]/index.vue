@@ -6,7 +6,7 @@
 import VoieCyclableDetails from '~/components/VoieCyclableDetails.vue';
 
 const { path } = useRoute();
-const { getRevName } = useConfig();
+const { getLineName } = useConfig();
 const { getVoieCyclableRegex } = useUrl();
 
 const regex = getVoieCyclableRegex();
@@ -22,10 +22,11 @@ const { data: voie } = await useAsyncData(path, () => {
   return queryCollection('voiesCyclablesPage').where('line', '=', Number(line)).first();
 });
 
-const description = `Tout savoir sur la ${getRevName('singular')} ${line}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
+const lineName = getLineName(Number(line));
+const description = `Tout savoir sur la ${lineName}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
 
 useHead({
-  title: `${getRevName('singular')} ${line}`,
+  title: lineName,
   meta: [
     // description
     { key: 'description', name: 'description', content: description },

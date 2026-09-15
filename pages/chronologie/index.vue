@@ -19,7 +19,7 @@
           <span class="hidden sm:inline">Toutes les lignes</span>
         </button>
         <button
-          v-for="line in getNbVoiesCyclables()"
+          v-for="line in getAllLineNumbers()"
           :key="line"
           type="button"
           class="w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-bold text-white transition-all"
@@ -29,7 +29,7 @@
           :style="{ backgroundColor: getLineColor(line), '--tw-ring-color': getLineColor(line) }"
           @click="toggleLine(line)"
         >
-          {{ line }}
+          {{ getLineLabel(line) }}
         </button>
       </div>
 
@@ -65,7 +65,7 @@
           {{
             Array.from(selectedLines)
               .sort((a, b) => a - b)
-              .map((l) => `${getRevName('abbreviated')}${l}`)
+              .map((l) => getLineShortName(l, ''))
               .join(', ')
           }}</template
         >, soit
@@ -122,7 +122,7 @@
                     class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
                     :style="{ backgroundColor: getLineColor(line) }"
                   >
-                    {{ line }}
+                    {{ getLineLabel(line) }}
                   </div>
                 </div>
                 <div class="flex-1 min-w-0">
@@ -189,7 +189,7 @@
                           class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium text-white no-underline hover:opacity-80 transition-opacity"
                           :style="{ backgroundColor: getLineColor(pl.line) }"
                         >
-                          {{ getRevName('abbreviated') }}{{ pl.line }}
+                          {{ getLineShortName(pl.line, '') }}
                           <Icon name="mdi:arrow-right" class="h-3.5 w-3.5" />
                         </a>
                         <a
@@ -215,7 +215,7 @@
             {{
               Array.from(selectedLines)
                 .sort((a, b) => a - b)
-                .map((l) => `${getRevName('abbreviated')}${l}`)
+                .map((l) => getLineShortName(l, ''))
                 .join(', ')
             }}</template
           >.
@@ -232,7 +232,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-const { getRevName, getNbVoiesCyclables } = useConfig();
+const { getRevName, getAllLineNumbers, getLineLabel, getLineShortName } = useConfig();
 const { getLineColor } = useColors();
 const { displayDistanceInKm } = useStats();
 

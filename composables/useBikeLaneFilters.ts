@@ -11,7 +11,6 @@ import {
 } from '~/types';
 import type { Collections } from '@nuxt/content';
 import { useRoute, useRouter } from 'vue-router';
-import config from '~/config.json';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
@@ -19,6 +18,7 @@ dayjs.locale('fr');
 export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
   const { getLineColor } = useColors();
+  const { getLineShortName } = useConfig();
   const route = useRoute();
   const router = useRouter();
   const currentPage = route.name;
@@ -233,7 +233,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
             .map((line) => {
               const color = getLineColor(line);
               return {
-                label: `${config.revName.abbreviated} ${line}`,
+                label: getLineShortName(line),
                 isEnabled: true,
                 line,
                 color,

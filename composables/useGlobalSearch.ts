@@ -1,6 +1,5 @@
 import { removeDiacritics } from '~/helpers/helpers';
 import { isLineStringFeature } from '~/types';
-import config from '~/config.json';
 
 function levenshtein(a: string, b: string): number {
   const m = a.length;
@@ -66,6 +65,7 @@ const staticPages: SearchResult[] = [
 ];
 
 export function useGlobalSearch() {
+  const { getLineName, getLineShortName } = useConfig();
   const results = ref<SearchResult[]>([]);
   const loading = ref(false);
   const loaded = ref(false);
@@ -108,7 +108,7 @@ export function useGlobalSearch() {
         sectionResults.push({
           type: 'section',
           label: feature.properties.name,
-          sublabel: `${config.revName.abbreviated} ${feature.properties.line}`,
+          sublabel: getLineShortName(feature.properties.line),
           href,
           line: feature.properties.line,
           status: feature.properties.status,
@@ -121,7 +121,7 @@ export function useGlobalSearch() {
     for (const line of Array.from(lines).sort((a, b) => a - b)) {
       voieResults.push({
         type: 'voie',
-        label: `${config.revName.singular} ${line}`,
+        label: getLineName(line),
         sublabel: voieEndpoints.has(line) ? `${voieEndpoints.get(line)!.from} → ${voieEndpoints.get(line)!.to}` : '',
         href: `/voie-lyonnaise-${line}`,
         line,

@@ -30,6 +30,7 @@ import {
   getUsedCompositeIcons,
   groupFeaturesByColor,
   VARIANTE_OPACITY,
+  COMPLEMENTARY_LINE_WIDTH_RATIO,
 } from '~/helpers/map-utils';
 import { type CanvasDashAnimator, createCanvasDashAnimator } from '~/helpers/canvas-animator';
 import printConfig from '~/print-config.json';
@@ -70,6 +71,19 @@ const VARIANTE_AWARE_LAYER_IDS = [
 
 const isVarianteExpression: maplibregl.ExpressionSpecification = ['boolean', ['get', 'variante'], false];
 const isHoveredExpression: maplibregl.ExpressionSpecification = ['boolean', ['feature-state', 'hover'], false];
+const { getAllLineNumbers, getLineLabel, getComplementaryNetwork } = useConfig();
+const isComplementaryLineExpression: maplibregl.ExpressionSpecification = [
+  '==',
+  ['get', 'line'],
+  getComplementaryNetwork().line,
+];
+
+/**
+ * largeur d'une couche de tronçons : les tronçons du réseau complémentaire sont tracés plus fin.
+ */
+function getLineWidth(width: number): maplibregl.ExpressionSpecification {
+  return ['case', isComplementaryLineExpression, width * COMPLEMENTARY_LINE_WIDTH_RATIO, width];
+}
 
 function isVarianteAwareLayer(layerId: string) {
   return (
@@ -95,9 +109,9 @@ const PRIORITY_2030_HALO_WIDTH: maplibregl.ExpressionSpecification = [
   ['linear'],
   ['zoom'],
   11,
-  4,
+  getLineWidth(4),
   14,
-  15,
+  getLineWidth(15),
 ];
 
 function getPriority2030HaloOpacity(
@@ -143,7 +157,6 @@ type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
 > & { properties: { color: string; showLabel?: boolean } };
-const { getNbVoiesCyclables } = useConfig();
 
 // en mode `print`, pas de canvas d'animation et icônes en hd
 const PRINT_ICON_PIXEL_RATIO = 4;
@@ -243,9 +256,7 @@ export const useMap = ({
       }
     }
 
-    const totalLines = getNbVoiesCyclables();
-
-    for (let line = 1; line <= totalLines; line++) {
+    for (const line of getAllLineNumbers()) {
       const id = `line-shield-${line}`;
       if (map.hasImage(id)) {
         if (!force) {
@@ -255,7 +266,7 @@ export const useMap = ({
       }
 
       const color = getLineColor(line);
-      const canvas = createLineShieldIcon(line, color, iconPixelRatio);
+      const canvas = createLineShieldIcon(getLineLabel(line), color, iconPixelRatio);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
         map.addImage(id, imageData, { pixelRatio: iconPixelRatio });
@@ -276,7 +287,7 @@ export const useMap = ({
 
       const lineNumbers = combo.split('-').map(Number);
       const colors = lineNumbers.map((line) => getLineColor(line));
-      const canvas = createCompositeLineShieldIcon(lineNumbers, colors, iconPixelRatio);
+      const canvas = createCompositeLineShieldIcon(lineNumbers.map(getLineLabel), colors, iconPixelRatio);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
         map.addImage(id, imageData, { pixelRatio: iconPixelRatio });
@@ -300,8 +311,8 @@ export const useMap = ({
       source: 'unsatisfactory-sections',
       minzoom: UNSATISFACTORY_SECTIONS_MIN_ZOOM,
       paint: {
-        'line-gap-width': SECTION_STYLE.unsatisfactory.gapWidth,
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-gap-width': getLineWidth(SECTION_STYLE.unsatisfactory.gapWidth),
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': SECTION_STYLE.unsatisfactory.color,
         'line-dasharray': SECTION_STYLE.unsatisfactory.dasharray,
         'line-opacity': getBaseOpacity('unsatisfactory-sections'),
@@ -351,8 +362,8 @@ export const useMap = ({
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
-        'line-gap-width': 5,
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-gap-width': getLineWidth(5),
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': 'rgba(0, 0, 0, 0.0)',
       },
     });
@@ -363,8 +374,8 @@ export const useMap = ({
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
-        'line-gap-width': 5,
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-gap-width': getLineWidth(5),
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['case', ['boolean', ['feature-state', 'hover'], false], '#433E61', 'rgba(255,255,255,0)'],
       },
     });
@@ -375,7 +386,7 @@ export const useMap = ({
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
-        'line-gap-width': SECTION_STYLE.lineWidth,
+        'line-gap-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-width': SECTION_STYLE.contourWidth,
         'line-color': 'rgba(0, 0, 0, 0.0)',
       },
@@ -386,7 +397,7 @@ export const useMap = ({
       type: 'line',
       source: 'all-sections',
       paint: {
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': '#ffffff',
       },
     });
@@ -496,7 +507,7 @@ export const useMap = ({
       type: 'line',
       source: 'done-sections',
       paint: {
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['get', 'color'],
         'line-opacity': getBaseOpacity('done-sections'),
       },
@@ -533,7 +544,7 @@ export const useMap = ({
         visibility: staticWipVisibility,
       },
       paint: {
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['get', 'color'],
         'line-dasharray': SECTION_STYLE.wipDasharray,
         'line-opacity': getBaseOpacity('wip-sections'),
@@ -616,7 +627,7 @@ export const useMap = ({
       type: 'line',
       source: 'planned-sections',
       paint: {
-        'line-width': SECTION_STYLE.lineWidth,
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['get', 'color'],
         'line-dasharray': SECTION_STYLE.plannedDasharray,
         'line-opacity': getBaseOpacity('planned-sections'),
@@ -665,7 +676,7 @@ export const useMap = ({
       type: 'line',
       source: 'priority-2030-sections',
       paint: {
-        'line-width': 4,
+        'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['get', 'color'],
         'line-dasharray': [2, 4],
         'line-opacity': getBaseOpacity('priority-2030-sections'),
@@ -709,7 +720,7 @@ export const useMap = ({
   function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const featuresByColor = groupFeaturesByColor(features);
 
-    for (let line = 1; line <= getNbVoiesCyclables(); line++) {
+    for (const line of getAllLineNumbers()) {
       const lineColor = getLineColor(line);
       if (!featuresByColor[lineColor]) {
         upsertMapSource(map, `postponed-sections-${lineColor}`, []);
@@ -1686,9 +1697,8 @@ export const useMap = ({
     };
 
     const { getLineColor } = useColors();
-    const { getNbVoiesCyclables } = useConfig();
     const postponedLayerIds: string[] = [];
-    for (let line = 1; line <= getNbVoiesCyclables(); line++) {
+    for (const line of getAllLineNumbers()) {
       const lineColor = getLineColor(line);
       postponedLayerIds.push(`postponed-symbols-${lineColor}`, `postponed-text-${lineColor}`);
     }
@@ -1742,7 +1752,9 @@ export const useMap = ({
         }
       }
 
-      const colors = Array.from({ length: getNbVoiesCyclables() }, (_, i) => getLineColor(i + 1)).reverse();
+      const colors = getAllLineNumbers()
+        .map((line) => getLineColor(line))
+        .reverse();
 
       for (const color of colors) {
         if (!map.getLayer(`postponed-text-${color}`)) {

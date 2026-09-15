@@ -67,7 +67,7 @@
                   class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
                   :style="{ backgroundColor: getLineColor(result.line) }"
                 >
-                  {{ result.line }}
+                  {{ getLineLabel(result.line) }}
                 </div>
               </button>
             </div>
@@ -130,6 +130,7 @@ const StatusBadge = defineComponent({
 });
 
 const { getLineColor } = useColors();
+const { getLineLabel } = useConfig();
 const { results, loading, search, loadIndex } = useGlobalSearch();
 const router = useRouter();
 

@@ -24,7 +24,7 @@ import MapPlaceholder from '~/components/MapPlaceholder.vue';
 
 const { path } = useRoute();
 const { getVoieCyclableRegex } = useUrl();
-const { getRevName } = useConfig();
+const { getLineName } = useConfig();
 
 const regex = getVoieCyclableRegex();
 const match = path.match(regex);
@@ -61,9 +61,10 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allFeatures: features,
 });
 
-const description = `Carte de la ${getRevName('singular')} ${line}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés.`;
+const lineName = getLineName(Number(line));
+const description = `Carte de la ${lineName}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés.`;
 useHead({
-  title: `Carte de la ${getRevName('singular')} ${line}`,
+  title: `Carte de la ${lineName}`,
   meta: [
     // description
     { key: 'description', name: 'description', content: description },

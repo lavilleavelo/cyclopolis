@@ -4,7 +4,7 @@
     v-if="isLargeScreen"
     :open="isPanelOpen"
     panel-id="voie-cyclable-details-sidebar"
-    :title="`Voie Lyonnaise ${selectedLine}`"
+    :title="panelTitle"
     width="w-[1015px]"
     min-width="min-w-[700px]"
     content-classes="p-0"
@@ -34,7 +34,7 @@
   >
     <template #title>
       <div class="flex gap-2 align-middle items-center">
-        <h2 class="text-lg font-medium leading-6">Voie Lyonnaise {{ selectedLine }}</h2>
+        <h2 class="text-lg font-medium leading-6">{{ panelTitle }}</h2>
         <a
           v-if="pathToLine"
           :to="pathToLine"
@@ -67,6 +67,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits(['close']);
+const { getLineName } = useConfig();
 
 function getDefaultBottomSheetHeight() {
   return window?.innerHeight * 0.5;
@@ -94,6 +95,8 @@ const voieData = computed(() => {
 });
 
 const isPanelOpen = computed(() => props.open && !!props.line);
+
+const panelTitle = computed(() => (selectedLine.value ? getLineName(Number(selectedLine.value)) : ''));
 
 const pathToLine = computed(() => (selectedLine.value ? `/voie-lyonnaise-${selectedLine.value}` : null));
 
