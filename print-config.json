@@ -1,0 +1,189 @@
+{
+  "title": "Les Voies Lyonnaises",
+  "message": "Une initiative de l'association La Ville à Vélo pour suivre le développement du nouveau réseau vélo sécurisé lyonnais.",
+  "showOverviewPlan": true,
+  "overviewPlan": {
+    "default": "reel",
+    "plans": [
+      {
+        "id": "reel",
+        "label": "Réel",
+        "caption": "Réseau 2026 · réel",
+        "url": "https://cyclopolis.lavilleavelo.org/Carte_VL2026_reel.png"
+      },
+      {
+        "id": "prevu",
+        "label": "Prévu",
+        "caption": "Réseau 2026 · prévu",
+        "url": "https://cyclopolis.lavilleavelo.org/Carte_VL2026_prevu.png"
+      }
+    ],
+    "widthMm": 110,
+    "imageSize": {
+      "width": 2400,
+      "height": 2560
+    },
+    "crop": {
+      "x": 660,
+      "y": 52,
+      "width": 1712,
+      "height": 2464
+    }
+  },
+  "format": "A2",
+  "orientation": "landscape",
+  "marginMm": 2,
+  "scaleDenominator": 50000,
+  "center": [4.85171, 45.76485],
+  "dpi": 300,
+  "symbolScale": 1,
+  "lineWidthScale": 0.9,
+  "crossIconSize": 0.85,
+  "crossLineWidth": 2.2,
+  "constructionIconSize": 0.38,
+  "statusTextSize": 6.5,
+  "detailZoomOffset": 0.5,
+  "extraTileZoom": 1,
+  "neighbourhoodTextSize": 6.5,
+  "streetTextSize": 6,
+  "hiddenPlaces": ["Charmettes", "Cité Internationale", "Les Brotteaux"],
+  "placeOffsets": {
+    "La Croix-Rousse": [-3, 0],
+    "Préfecture": [1.7, 0.9],
+    "Saint-Clair": [-2.5, -1.4],
+    "Le Mas du Taureau": [3, -1.2],
+    "Cyprian": [0, -1.6],
+    "Bellecour": [0, -1],
+    "Part-Dieu": [0, -0.9],
+    "Pré de l'Herpe": [-3, 1.6],
+    "Les Brosses": [1.4, 0],
+    "Les Sept Chemins": [-2.5, 2.2],
+    "6e Arrondissement": [1.5, 0],
+    "Cordeliers": [-1.2, 0.8],
+    "Point du Jour": [0, 1.4],
+    "5e Arrondissement": [0, 1.4],
+    "Saint-Just": [2.6, -1.4],
+    "Champagne-au-Mont-d'Or": [-5, 0.3],
+    "Oullins": [-3.2, -0.4],
+    "Poleymieux-au-Mont-d'Or": [0, 1.7]
+  },
+  "streetOffsets": {
+    "Cours Lafayette": [5.5, 1],
+    "Rue Vauban": [4, 1],
+    "Av. Barthélémy Buyer": [4, -1],
+    "Rue Grenette": [0, -1],
+    "Rue Garibaldi": [-8, 1],
+    "Cours Albert Thomas": [0, -1.7],
+    "Av. Lacassagne": [0, -1],
+    "Rue de Bonnel": [0, -1],
+    "Bd Vivier-Merle": [0, -1],
+    "Bd du 11 Nov. 1918": [0, 1.2],
+    "Av. Jean Mermoz": [0, -1.6],
+    "Route de Genas": [0, 1.1]
+  },
+  "priorityStreets": ["Cours Gambetta"],
+  "hiddenStreets": ["Autoroute du Soleil"],
+  "extraStreetLabels": [
+    {
+      "name": "Rue Francis de Pressensé",
+      "coordinates": [
+        [4.868, 45.7724],
+        [4.87, 45.7718],
+        [4.8778, 45.7719],
+        [4.8872, 45.7712],
+        [4.8899, 45.7699],
+        [4.8966, 45.7693]
+      ]
+    },
+    {
+      "name": "Rue Grenette",
+      "coordinates": [
+        [4.8311, 45.76314],
+        [4.8381, 45.76364]
+      ]
+    },
+    {
+      "name": "Av. des Frères Lumière",
+      "coordinates": [
+        [4.8595, 45.7471],
+        [4.8653, 45.7454],
+        [4.8712, 45.7439],
+        [4.8785, 45.7427]
+      ]
+    },
+    {
+      "name": "Av. Rockefeller",
+      "coordinates": [
+        [4.8791, 45.7427],
+        [4.885, 45.7413],
+        [4.892, 45.739]
+      ]
+    },
+    {
+      "name": "Cours Albert Thomas",
+      "coordinates": [
+        [4.8693, 45.74622],
+        [4.8757, 45.74402],
+        [4.8791, 45.7427],
+        [4.8821, 45.742]
+      ]
+    },
+    {
+      "name": "Av. Lacassagne",
+      "coordinates": [
+        [4.8745, 45.7505],
+        [4.87782, 45.74893],
+        [4.88676, 45.74637]
+      ]
+    },
+    {
+      "name": "Rue de Bonnel",
+      "coordinates": [
+        [4.8418, 45.76135],
+        [4.8462, 45.76168],
+        [4.8503, 45.762]
+      ]
+    },
+    {
+      "name": "Bd Vivier-Merle",
+      "coordinates": [
+        [4.85945, 45.752],
+        [4.8591, 45.7552],
+        [4.85865, 45.7584]
+      ]
+    },
+    {
+      "name": "Bd du 11 Nov. 1918",
+      "coordinates": [
+        [4.8683, 45.77892],
+        [4.87162, 45.77891],
+        [4.87307, 45.77919],
+        [4.8793, 45.7799]
+      ]
+    },
+    {
+      "name": "Cours Émile Zola",
+      "coordinates": [
+        [4.8685, 45.77052],
+        [4.8735, 45.77011],
+        [4.8785, 45.7697]
+      ]
+    },
+    {
+      "name": "Av. Jean Mermoz",
+      "coordinates": [
+        [4.8752, 45.7345],
+        [4.8806, 45.7327],
+        [4.8861, 45.731]
+      ]
+    },
+    {
+      "name": "Route de Genas",
+      "coordinates": [
+        [4.9045, 45.75166],
+        [4.90938, 45.75068],
+        [4.915, 45.74928]
+      ]
+    }
+  ]
+}

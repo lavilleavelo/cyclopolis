@@ -17,10 +17,12 @@ export function sortByLine(
   return sortOrder.indexOf(lineA) - sortOrder.indexOf(lineB);
 }
 
-export function getCrossIconUrl(): string {
+export const CROSS_ICON_SIZE = 8;
+
+export function getCrossIconUrl(pixelRatio = 1, lineWidth = 3): string {
   const canvas = document.createElement('canvas');
-  canvas.width = 8; // Set the desired width of your icon
-  canvas.height = 8; // Set the desired height of your icon
+  canvas.width = CROSS_ICON_SIZE * pixelRatio; // Set the desired width of your icon
+  canvas.height = CROSS_ICON_SIZE * pixelRatio; // Set the desired height of your icon
   const context = canvas.getContext('2d');
   if (!context) {
     return '';
@@ -30,30 +32,31 @@ export function getCrossIconUrl(): string {
   context.beginPath();
   context.moveTo(0, 0);
   context.lineTo(canvas.width, canvas.height);
-  context.lineWidth = 3;
+  context.lineWidth = lineWidth * pixelRatio;
   context.stroke();
 
   // Draw the second diagonal line of the "X"
   context.beginPath();
   context.moveTo(0, canvas.height);
   context.lineTo(canvas.width, 0);
-  context.lineWidth = 3;
+  context.lineWidth = lineWidth * pixelRatio;
   context.stroke();
 
   return canvas.toDataURL();
 }
 
-export function createLineShieldIcon(lineNumber: number, color: string): HTMLCanvasElement {
+export function createLineShieldIcon(lineNumber: number, color: string, pixelRatio = 1): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const size = 64;
 
-  canvas.width = size;
-  canvas.height = size;
+  canvas.width = size * pixelRatio;
+  canvas.height = size * pixelRatio;
 
   const ctx = canvas.getContext('2d');
   if (!ctx) {
     return canvas;
   }
+  ctx.scale(pixelRatio, pixelRatio);
 
   const centerX = size / 2;
   const centerY = size / 2;
@@ -80,20 +83,25 @@ export function createLineShieldIcon(lineNumber: number, color: string): HTMLCan
   return canvas;
 }
 
-export function createCompositeLineShieldIcon(lineNumbers: number[], colors: string[]): HTMLCanvasElement {
+export function createCompositeLineShieldIcon(
+  lineNumbers: number[],
+  colors: string[],
+  pixelRatio = 1,
+): HTMLCanvasElement {
   const canvas = document.createElement('canvas');
   const iconSize = 64;
   const radius = iconSize / 2 - 4;
   const overlapPercent = 0.3; // 30% overlap
   const spacing = iconSize - iconSize * overlapPercent; // Distance between circle centers
 
-  canvas.width = iconSize + spacing * (lineNumbers.length - 1);
-  canvas.height = iconSize;
+  canvas.width = (iconSize + spacing * (lineNumbers.length - 1)) * pixelRatio;
+  canvas.height = iconSize * pixelRatio;
 
   const ctx = canvas.getContext('2d');
   if (!ctx) {
     return canvas;
   }
+  ctx.scale(pixelRatio, pixelRatio);
 
   lineNumbers.forEach((lineNumber, index) => {
     const color = colors[index];
@@ -243,16 +251,16 @@ export function groupFeaturesByColor(features: ColoredLineStringFeature[]) {
   return featuresByColor;
 }
 
-export function createConstructionIcon(): HTMLCanvasElement {
+export function createConstructionIcon(pixelRatio = 1): HTMLCanvasElement {
   const size = 48;
   const canvas = document.createElement('canvas');
-  canvas.width = size;
-  canvas.height = size;
+  canvas.width = size * pixelRatio;
+  canvas.height = size * pixelRatio;
 
   const ctx = canvas.getContext('2d');
   if (!ctx) return canvas;
 
-  ctx.scale(2, 2);
+  ctx.scale(2 * pixelRatio, 2 * pixelRatio);
 
   ctx.lineWidth = 2;
   ctx.lineCap = 'round';

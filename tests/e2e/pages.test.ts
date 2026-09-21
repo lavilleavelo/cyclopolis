@@ -85,4 +85,12 @@ describe('Pages HTML rendering', () => {
       expect(html).toContain('partenaires');
     });
   });
+
+  describe('Impression', () => {
+    it('renders the print page', async () => {
+      const html = await fetchHTML('/print');
+      expect(html).toContain('Imprimer la carte des Voies Lyonnaises');
+      expect(html).toContain('@page { size: 594mm 420mm; margin: 0; }');
+    });
+  });
 });

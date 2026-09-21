@@ -38,6 +38,7 @@ const links = [
   { name: 'Mentions légales', path: '/mentions-legales' },
   { name: 'Historique', path: '/historique' },
   { name: 'Sites partenaires', path: '/sites-partenaires' },
+  { name: 'Imprimer la carte', path: '/print' },
 ];
 
 const socials = [

@@ -31,6 +31,17 @@ import {
   groupFeaturesByColor,
 } from '~/helpers/map-utils';
 import { type CanvasDashAnimator, createCanvasDashAnimator } from '~/helpers/canvas-animator';
+import printConfig from '~/print-config.json';
+
+export const UNSATISFACTORY_SECTIONS_MIN_ZOOM = 13;
+
+export const SECTION_STYLE = {
+  lineWidth: 4,
+  contourWidth: 1,
+  wipDasharray: [2, 2],
+  plannedDasharray: [2, 4],
+  unsatisfactory: { gapWidth: 5, color: '#c84271', dasharray: [0.8, 0.8] },
+};
 
 const DIMMED_OPACITY = 0.2;
 const NORMAL_OPACITY = 1;
@@ -42,7 +53,18 @@ type ColoredLineStringFeature = Extract<
 > & { properties: { color: string; showLabel?: boolean } };
 const { getNbVoiesCyclables } = useConfig();
 
-export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: boolean } = {}) => {
+// en mode `print`, pas de canvas d'animation et icônes en hd
+const PRINT_ICON_PIXEL_RATIO = 4;
+
+export const useMap = ({
+  updateUrlOnFeatureClick,
+  print = false,
+}: { updateUrlOnFeatureClick?: boolean; print?: boolean } = {}) => {
+  const iconPixelRatio = print ? PRINT_ICON_PIXEL_RATIO : 1;
+  const crossIconSize = print ? printConfig.crossIconSize : 1.2;
+  const crossLineWidth = print ? printConfig.crossLineWidth : undefined;
+  const constructionIconSize = print ? printConfig.constructionIconSize : 0.5;
+  const statusTextSize = print ? printConfig.statusTextSize : 14;
   const { getLineColor } = useColors();
   const { getLineStringDistance } = useStats();
   const router = useRouter();
@@ -104,17 +126,17 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       { id: 'camera-icon', url: '/icons/camera.png', sdf: true },
       { id: 'pump-icon', url: '/icons/pump.png', sdf: true },
       { id: 'danger-icon', url: '/icons/danger.png', sdf: false },
-      { id: 'cross-icon', url: getCrossIconUrl(), sdf: true },
+      { id: 'cross-icon', url: getCrossIconUrl(iconPixelRatio, crossLineWidth), sdf: true, pixelRatio: iconPixelRatio },
     ];
 
     await Promise.all(
-      imagesToLoad.map(async ({ id, url, sdf }) => {
+      imagesToLoad.map(async ({ id, url, sdf, pixelRatio }) => {
         if (map.hasImage(id)) {
           return;
         }
         const image = await map.loadImage(url);
         if (image) {
-          map.addImage(id, image.data, { sdf });
+          map.addImage(id, image.data, { sdf, pixelRatio });
         }
       }),
     );
@@ -122,10 +144,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     const constructionIconId = 'construction-icon';
     if (!map.hasImage(constructionIconId) || force) {
       if (force && map.hasImage(constructionIconId)) map.removeImage(constructionIconId);
-      const canvas = createConstructionIcon();
+      const canvas = createConstructionIcon(iconPixelRatio);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
-        map.addImage(constructionIconId, imageData, { sdf: false });
+        map.addImage(constructionIconId, imageData, { sdf: false, pixelRatio: iconPixelRatio });
       }
     }
 
@@ -141,10 +163,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       }
 
       const color = getLineColor(line);
-      const canvas = createLineShieldIcon(line, color);
+      const canvas = createLineShieldIcon(line, color, iconPixelRatio);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
-        map.addImage(id, imageData);
+        map.addImage(id, imageData, { pixelRatio: iconPixelRatio });
         shieldImages.set(id, canvas);
       }
     }
@@ -162,10 +184,10 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
 
       const lineNumbers = combo.split('-').map(Number);
       const colors = lineNumbers.map((line) => getLineColor(line));
-      const canvas = createCompositeLineShieldIcon(lineNumbers, colors);
+      const canvas = createCompositeLineShieldIcon(lineNumbers, colors, iconPixelRatio);
       const imageData = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height);
       if (imageData) {
-        map.addImage(id, imageData);
+        map.addImage(id, imageData, { pixelRatio: iconPixelRatio });
         shieldImages.set(id, canvas);
       }
     });
@@ -184,12 +206,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       id: 'unsatisfactory-sections',
       type: 'line',
       source: 'unsatisfactory-sections',
-      minzoom: 13,
+      minzoom: UNSATISFACTORY_SECTIONS_MIN_ZOOM,
       paint: {
-        'line-gap-width': 5,
-        'line-width': 4,
-        'line-color': '#c84271',
-        'line-dasharray': [0.8, 0.8],
+        'line-gap-width': SECTION_STYLE.unsatisfactory.gapWidth,
+        'line-width': SECTION_STYLE.lineWidth,
+        'line-color': SECTION_STYLE.unsatisfactory.color,
+        'line-dasharray': SECTION_STYLE.unsatisfactory.dasharray,
       },
     });
   }
@@ -237,7 +259,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: { 'line-cap': 'round' },
       paint: {
         'line-gap-width': 5,
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': 'rgba(0, 0, 0, 0.0)',
       },
     });
@@ -249,7 +271,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       layout: { 'line-cap': 'round' },
       paint: {
         'line-gap-width': 5,
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['case', ['boolean', ['feature-state', 'hover'], false], '#433E61', 'rgba(255,255,255,0)'],
       },
     });
@@ -260,8 +282,8 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       source: 'all-sections',
       layout: { 'line-cap': 'round' },
       paint: {
-        'line-gap-width': 4,
-        'line-width': 1,
+        'line-gap-width': SECTION_STYLE.lineWidth,
+        'line-width': SECTION_STYLE.contourWidth,
         'line-color': 'rgba(0, 0, 0, 0.0)',
       },
     });
@@ -271,7 +293,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'all-sections',
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': '#ffffff',
       },
     });
@@ -370,7 +392,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'done-sections',
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
       },
     });
@@ -382,29 +404,33 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       return;
     }
 
-    if (wipAnimator) {
-      wipAnimator.setFeatures(features);
-    } else {
-      wipAnimator = createCanvasDashAnimator(map, features);
+    if (!print) {
+      if (wipAnimator) {
+        wipAnimator.setFeatures(features);
+      } else {
+        wipAnimator = createCanvasDashAnimator(map, features);
+      }
+      wipAnimator.setImages(shieldImages);
+      wipAnimator.setVisible(!reduceMotion.value);
     }
-    wipAnimator.setImages(shieldImages);
-    wipAnimator.setVisible(!reduceMotion.value);
 
     if (upsertMapSource(map, 'wip-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
       return;
     }
+
+    const staticWipVisibility = print || reduceMotion.value ? 'visible' : 'none';
 
     map.addLayer({
       id: 'wip-sections',
       type: 'line',
       source: 'wip-sections',
       layout: {
-        visibility: reduceMotion.value ? 'visible' : 'none',
+        visibility: staticWipVisibility,
       },
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
-        'line-dasharray': [2, 2],
+        'line-dasharray': SECTION_STYLE.wipDasharray,
       },
     });
 
@@ -414,12 +440,12 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       source: 'wip-sections',
       layout: {
         'icon-image': 'construction-icon',
-        'icon-size': 0.5,
+        'icon-size': constructionIconSize,
         'symbol-placement': 'line',
         'symbol-spacing': ['interpolate', ['linear'], ['zoom'], 13, 80, 16, 250],
         'icon-allow-overlap': true,
         'icon-anchor': 'bottom',
-        visibility: reduceMotion.value ? 'visible' : 'none',
+        visibility: staticWipVisibility,
       },
     });
 
@@ -432,7 +458,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
         'symbol-placement': 'line-center',
         'symbol-spacing': 1000000,
-        visibility: reduceMotion.value ? 'visible' : 'none',
+        visibility: staticWipVisibility,
       },
     });
   }
@@ -442,7 +468,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
   watch(
     reduceMotion,
     (shouldReduce) => {
-      if (!currentMap) return;
+      if (!currentMap || print) {
+        return;
+      }
 
       const visibility = shouldReduce ? 'visible' : 'none';
       if (currentMap.getLayer('wip-node-icons')) {
@@ -482,9 +510,9 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'planned-sections',
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
-        'line-dasharray': [2, 4],
+        'line-dasharray': SECTION_STYLE.plannedDasharray,
       },
     });
   }
@@ -502,7 +530,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'variante-sections',
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
         'line-dasharray': [2, 2],
         'line-opacity': 0.5,
@@ -521,7 +549,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         'symbol-spacing': 120,
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante'],
-        'text-size': 14,
+        'text-size': statusTextSize,
       },
     });
 
@@ -550,7 +578,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
       type: 'line',
       source: 'variante-postponed-sections',
       paint: {
-        'line-width': 4,
+        'line-width': SECTION_STYLE.lineWidth,
         'line-color': ['get', 'color'],
         'line-dasharray': [2, 2],
         'line-opacity': 0.5,
@@ -569,7 +597,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
         'symbol-spacing': 120,
         'text-font': ['Open Sans Regular'],
         'text-field': ['coalesce', ['get', 'text'], 'variante reportée'],
-        'text-size': 14,
+        'text-size': statusTextSize,
       },
     });
 
@@ -606,7 +634,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           'symbol-placement': 'line',
           'symbol-spacing': 1,
           'icon-image': 'cross-icon',
-          'icon-size': 1.2,
+          'icon-size': crossIconSize,
         },
         paint: {
           'icon-color': color,
@@ -625,7 +653,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
           'symbol-spacing': 150,
           'text-font': ['Open Sans Regular'],
           'text-field': 'reporté',
-          'text-size': 14,
+          'text-size': statusTextSize,
         },
       });
       map.on('mouseenter', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = 'pointer'));
@@ -1724,6 +1752,22 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     moveLayerToTop('compteurs-mixed-labels');
   }
 
+  function raiseLayersBelowShields({ map, layerIds }: { map: MaplibreType; layerIds: string[] }) {
+    if (map.getLayer('wip-shields')) {
+      map.moveLayer('wip-shields');
+    }
+
+    const shieldLayerIds = ['section-names', 'section-names-low-zoom', 'section-names-high-zoom', 'wip-shields'];
+    const firstShieldLayerId = map
+      .getStyle()
+      .layers.map((layer) => layer.id)
+      .find((layerId) => shieldLayerIds.includes(layerId));
+
+    for (const layerId of layerIds) {
+      map.moveLayer(layerId, firstShieldLayerId);
+    }
+  }
+
   function highlightCounter({ map, counterName }: { map: MaplibreType; counterName: string | null }) {
     if (map.getLayer('compteurs')) {
       if (counterName) {
@@ -1887,6 +1931,7 @@ export const useMap = ({ updateUrlOnFeatureClick }: { updateUrlOnFeatureClick?: 
     handleMapClick,
     handleMapHover,
     highlightLines,
+    raiseLayersBelowShields,
     highlightCounter,
     showFeatureTooltip,
   };
