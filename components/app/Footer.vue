@@ -2,7 +2,7 @@
   <footer class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl bg-white border-t border-gray-200">
     <div class="max-w-7xl mx-auto pt-6 pb-12 px-4 overflow-hidden sm:px-6 lg:px-8">
       <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
-        <div v-for="item in links" :key="item.name" class="px-5 py-2">
+        <div v-for="item in links" :key="item.name" class="px-5 py-2" :class="{ 'hidden md:block': item.desktopOnly }">
           <NuxtLink :to="item.path" class="text-base text-gray-500 hover:text-gray-900">
             {{ item.name }}
           </NuxtLink>
@@ -38,7 +38,7 @@ const links = [
   { name: 'Mentions légales', path: '/mentions-legales' },
   { name: 'Historique', path: '/historique' },
   { name: 'Sites partenaires', path: '/sites-partenaires' },
-  { name: 'Imprimer la carte', path: '/print' },
+  { name: 'Imprimer la carte', path: '/print', desktopOnly: true },
 ];
 
 const socials = [

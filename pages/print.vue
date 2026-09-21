@@ -1,6 +1,23 @@
 <template>
   <ClientOnly>
-    <div class="print-page flex h-screen bg-gray-200 text-gray-900">
+    <div
+      v-if="isSmallScreen"
+      class="flex min-h-screen flex-col items-center justify-center gap-4 bg-gray-100 p-6 text-center text-gray-900"
+    >
+      <Icon name="mdi:printer-off" class="h-12 w-12 text-lvv-blue-600" />
+      <h1 class="text-xl font-bold">Impression indisponible sur téléphone</h1>
+      <p class="max-w-sm text-gray-600">
+        Ouvrez cette page depuis un ordinateur pour imprimer la carte des {{ getRevName() }}.
+      </p>
+      <NuxtLink
+        to="/carte-interactive"
+        class="rounded-md bg-lvv-blue-600 px-4 py-2 font-medium text-white hover:bg-lvv-blue-500"
+      >
+        Voir la carte interactive
+      </NuxtLink>
+    </div>
+
+    <div v-else class="print-page flex h-screen bg-gray-200 text-gray-900">
       <aside class="print-toolbar flex w-80 flex-none flex-col gap-5 overflow-y-auto bg-white p-5 shadow-lg">
         <div>
           <NuxtLink to="/carte-interactive" class="text-sm text-lvv-blue-600 hover:underline">
@@ -125,9 +142,7 @@
             <Icon :name="isRendering ? 'svg-spinners:ring-resize' : 'mdi:printer'" class="h-5 w-5" />
             {{ isRendering ? 'Préparation de la carte…' : 'Imprimer / enregistrer en PDF' }}
           </button>
-          <p class="text-xs text-gray-500">
-            paramètres d'impression :<br/>marges « aucune », échelle 100 %.
-          </p>
+          <p class="text-xs text-gray-500">paramètres d'impression :<br />marges « aucune », échelle 100 %.</p>
         </div>
       </aside>
 
@@ -226,7 +241,7 @@
 </template>
 
 <script setup lang="ts">
-import { useElementSize, useEventListener } from '@vueuse/core';
+import { useElementSize, useEventListener, useMediaQuery } from '@vueuse/core';
 import type PrintMap from '~/components/print/PrintMap.vue';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import qrCodeUrl from '~/assets/qr-cyclopolis.svg';
@@ -263,6 +278,8 @@ definePageMeta({
 });
 
 const { getRevName, getAssoName } = useConfig();
+
+const isSmallScreen = useMediaQuery('(max-width: 767px)');
 
 const { geojsons } = await useVoiesCyclablesGeojson();
 const { voies } = await useGetVoiesCyclablesNums();
