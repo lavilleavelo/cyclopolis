@@ -14,14 +14,26 @@ import { type LngLatLike, Map as MaplibreMap } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import {
   EXTRA_STREET_LABELS_ID,
+  METRO_STATIONS_ID,
+  OPTIONAL_STREET_LABELS_BEFORE_ID,
+  OPTIONAL_STREET_LABELS_ID,
   PRIORITY_STREET_NAME_LAYER,
+  TRAIN_STATIONS_ID,
+  addMetroStationIcons,
   getExtraStreetLabels,
+  getMetroStations,
+  getTrainStations,
   getPrintMapStyle,
+  isNeighbourhoodLabelLayer,
+  isPlaceLabelLayer,
   isRaisedLabelLayer,
   scaleOverlayLayers,
 } from '~/helpers/printMapStyle';
 import { getEffectiveDpi, getPrintPixelRatio, getZoomForScale, mmToPx } from '~/helpers/print';
 import settings from '~/print-config.json';
+
+import streetLabels from '~/print-street-labels.json';
+import transit from '~/print-transit.json';
 
 const FALLBACK_MAX_CANVAS_SIZE = 4096;
 const IDLE_TIMEOUT_MS = 60_000;
@@ -171,6 +183,8 @@ onMounted(() => {
   const style = getPrintMapStyle({
     detailZoomOffset: settings.detailZoomOffset,
     extraTileZoom: settings.extraTileZoom,
+    paperBasemap: settings.paperBasemap,
+    labelFonts: settings.labelFonts,
     priorityStreetNames: settings.priorityStreets,
     hiddenStreetNames: [...settings.hiddenStreets, ...settings.extraStreetLabels.map((label) => label.name)],
     hiddenPlaceNames: settings.hiddenPlaces,
@@ -226,14 +240,58 @@ onMounted(() => {
       await loadImages({ map: target, features: props.features });
       plotFeatures({ map: target, features: props.features });
       highlightLines({ map: target, selections: null });
-      raiseLayersBelowShields({ map: target, layerIds: [...basemapLayerIds].filter(isRaisedLabelLayer) });
+      addMetroStationIcons(target, transit.lineColors);
+      for (const { source, layer } of [
+        getMetroStations({
+          stations: transit.metroStations,
+          streetTextSize: settings.streetTextSize,
+          labelFonts: settings.labelFonts,
+        }),
+        getTrainStations({
+          stations: transit.trainStations,
+          streetTextSize: settings.streetTextSize,
+          labelFonts: settings.labelFonts,
+        }),
+      ]) {
+        target.addSource(layer.id, source);
+        target.addLayer(layer);
+      }
+
+      const raisedLabelLayerIds = [...basemapLayerIds].filter(isRaisedLabelLayer);
+      const postponedLayerIds = target
+        .getStyle()
+        .layers.map((layer) => layer.id)
+        .filter((layerId) => layerId.startsWith('postponed-'));
+      raiseLayersBelowShields({
+        map: target,
+        layerIds: [
+          ...raisedLabelLayerIds.filter((layerId) => !isPlaceLabelLayer(layerId)),
+          ...postponedLayerIds,
+          ...raisedLabelLayerIds.filter(isNeighbourhoodLabelLayer),
+          METRO_STATIONS_ID,
+          TRAIN_STATIONS_ID,
+          ...raisedLabelLayerIds.filter((layerId) => isPlaceLabelLayer(layerId) && !isNeighbourhoodLabelLayer(layerId)),
+        ],
+      });
       const extraStreetLabels = getExtraStreetLabels({
         labels: settings.extraStreetLabels,
         streetTextSize: settings.streetTextSize,
         streetOffsets: settings.streetOffsets,
+        paperBasemap: settings.paperBasemap,
+        labelFonts: settings.labelFonts,
       });
       target.addSource(EXTRA_STREET_LABELS_ID, extraStreetLabels.source);
       target.addLayer(extraStreetLabels.layer);
+      const optionalStreetLabels = getExtraStreetLabels({
+        labels: streetLabels.optionalStreetLabels,
+        streetTextSize: settings.streetTextSize,
+        streetOffsets: settings.streetOffsets,
+        paperBasemap: settings.paperBasemap,
+        labelFonts: settings.labelFonts,
+        optional: true,
+      });
+      target.addSource(OPTIONAL_STREET_LABELS_ID, optionalStreetLabels.source);
+      target.addLayer(optionalStreetLabels.layer, OPTIONAL_STREET_LABELS_BEFORE_ID);
       if (target.getLayer(PRIORITY_STREET_NAME_LAYER)) {
         target.moveLayer(PRIORITY_STREET_NAME_LAYER);
       }

@@ -48,6 +48,8 @@
         <span>{{ voie.from }} – {{ voie.to }}</span>
       </li>
     </ul>
+
+    <p v-if="attribution" class="print-legend__attribution">{{ attribution }}</p>
   </div>
 </template>
 
@@ -69,6 +71,7 @@ const props = defineProps<{
   lineWidthScale: number;
   crossIconSize: number;
   crossLineWidth: number;
+  attribution?: string;
 }>();
 
 const { getLineColor } = useColors();
@@ -171,6 +174,15 @@ const crossesPath = computed(() => {
   align-items: center;
   gap: 2mm;
   font-size: 9.5pt;
+}
+
+.print-legend__attribution {
+  margin-top: 4mm;
+  padding-top: 2.5mm;
+  border-top: 0.2mm solid #9ca3af;
+  font-size: 6.5pt;
+  line-height: 1.3;
+  color: #4b5563;
 }
 
 .print-legend__shield {

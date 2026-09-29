@@ -208,6 +208,7 @@
                   :line-width-scale="settings.lineWidthScale"
                   :cross-icon-size="settings.crossIconSize"
                   :cross-line-width="settings.crossLineWidth"
+                  :attribution="attribution"
                 />
               </div>
 
@@ -221,7 +222,7 @@
                     <div class="print-scale__bar" :style="{ width: `${scaleBar.widthMm}mm` }" />
                     <div>{{ scaleBar.label }} · {{ scaleLabel }}</div>
                   </div>
-                  <div class="print-meta__attribution">Carte générée en {{ generationDate }} · {{ ATTRIBUTION }}</div>
+                  <div v-if="!showLegend" class="print-meta__attribution">{{ attribution }}</div>
                 </div>
               </footer>
 
@@ -270,7 +271,8 @@ const ORIENTATIONS: { id: PaperOrientation; label: string }[] = [
 const SCALE_BAR_MAX_WIDTH_MM = 60;
 const PREVIEW_PADDING_PX = 48;
 const MIN_DPI_RATIO = 0.95;
-const ATTRIBUTION = '© DINUM (data.gouv.fr) © OpenMapTiles © Contributeurs OpenStreetMap';
+const ATTRIBUTION =
+  '© DINUM (data.gouv.fr) © OpenMapTiles © Contributeurs OpenStreetMap · Métro : TCL (SYTRAL), data.grandlyon.com';
 
 definePageMeta({
   pageTransition: false,
@@ -342,6 +344,7 @@ const errorMessage = ref<string | null>(null);
 const warningMessage = ref<string | null>(null);
 
 const generationDate = new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+const attribution = `Carte générée en ${generationDate} · ${ATTRIBUTION}`;
 
 const subtitleParts = computed(() => {
   return subtitle.value.split(new RegExp(`(${getAssoName()})`)).filter((part) => part.length > 0);

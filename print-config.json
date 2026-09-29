@@ -34,7 +34,7 @@
   "orientation": "landscape",
   "marginMm": 2,
   "scaleDenominator": 50000,
-  "center": [4.85171, 45.76485],
+  "center": [4.84419, 45.76398],
   "dpi": 300,
   "symbolScale": 1,
   "lineWidthScale": 0.9,
@@ -44,45 +44,81 @@
   "statusTextSize": 6.5,
   "detailZoomOffset": 0.5,
   "extraTileZoom": 1,
+  "paperBasemap": true,
+  "labelFonts": {
+    "street": "Roboto Condensed Bold",
+    "commune": "Roboto Bold",
+    "neighbourhood": "Roboto Condensed Bold"
+  },
   "neighbourhoodTextSize": 6.5,
   "streetTextSize": 6,
-  "hiddenPlaces": ["Charmettes", "Cité Internationale", "Les Brotteaux"],
+  "hiddenPlaces": [
+    "Charmettes",
+    "Cité Internationale",
+    "Les Brotteaux",
+    "Cuire-le-Haut",
+    "Gare",
+    "Bellecour",
+    "Bonnevay",
+    "Charpennes",
+    "Cordeliers",
+    "Cusset",
+    "Gorge de Loup",
+    "Grange Blanche",
+    "Gratte-Ciel",
+    "Jean-Macé",
+    "La Croix-Rousse",
+    "La Guillotière",
+    "Laënnec",
+    "Mermoz",
+    "Part-Dieu",
+    "Sans Souci",
+    "Vaise",
+    "Valmy",
+    "Vieux Lyon",
+    "Saint-Just",
+    "La Soie"
+  ],
   "placeOffsets": {
-    "La Croix-Rousse": [-3, 0],
     "Préfecture": [1.7, 0.9],
     "Saint-Clair": [-2.5, -1.4],
     "Le Mas du Taureau": [3, -1.2],
     "Cyprian": [0, -1.6],
-    "Bellecour": [0, -1],
-    "Part-Dieu": [0, -0.9],
     "Pré de l'Herpe": [-3, 1.6],
     "Les Brosses": [1.4, 0],
     "Les Sept Chemins": [-2.5, 2.2],
     "6e Arrondissement": [1.5, 0],
-    "Cordeliers": [-1.2, 0.8],
     "Point du Jour": [0, 1.4],
     "5e Arrondissement": [0, 1.4],
-    "Saint-Just": [2.6, -1.4],
     "Champagne-au-Mont-d'Or": [-5, 0.3],
     "Oullins": [-3.2, -0.4],
-    "Poleymieux-au-Mont-d'Or": [0, 1.7]
+    "Poleymieux-au-Mont-d'Or": [0, 1.7],
+    "Caluire-et-Cuire": [-5.8, 5.4],
+    "Rillieux-la-Pape": [-0.5, -1.3],
+    "3e Arrondissement": [1.2, 0],
+    "La Balme": [-2.2, 0],
+    "Cité Tase": [-1, 0]
   },
   "streetOffsets": {
     "Cours Lafayette": [5.5, 1],
-    "Rue Vauban": [4, 1],
-    "Av. Barthélémy Buyer": [4, -1],
+    "Rue Vauban": [0, -1],
+    "Av. Barthélémy Buyer": [0, -1.2],
     "Rue Grenette": [0, -1],
-    "Rue Garibaldi": [-8, 1],
+    "Rue Garibaldi": [3, 1.2],
     "Cours Albert Thomas": [0, -1.7],
     "Av. Lacassagne": [0, -1],
-    "Rue de Bonnel": [0, -1],
-    "Bd Vivier-Merle": [0, -1],
+    "Rue de Bonnel": [1, -1.2],
+    "Bd Vivier-Merle": [0, -1.2],
     "Bd du 11 Nov. 1918": [0, 1.2],
     "Av. Jean Mermoz": [0, -1.6],
-    "Route de Genas": [0, 1.1]
+    "Route de Genas": [0, 1.1],
+    "Quai Victor Augagneur": [0, -1.2],
+    "Av. des Frères Lumière": [0, 1],
+    "Cours Émile Zola": [0, 1],
+    "Bd Charles de Gaulle": [0, -1.2]
   },
   "priorityStreets": ["Cours Gambetta"],
-  "hiddenStreets": ["Autoroute du Soleil"],
+  "hiddenStreets": ["Autoroute du Soleil", "Bd du 11 Novembre 1918", "Av. de la Table de Pierre"],
   "extraStreetLabels": [
     {
       "name": "Rue Francis de Pressensé",
@@ -164,9 +200,11 @@
     {
       "name": "Cours Émile Zola",
       "coordinates": [
-        [4.8685, 45.77052],
-        [4.8735, 45.77011],
-        [4.8785, 45.7697]
+        [4.86863, 45.77101],
+        [4.87091, 45.771],
+        [4.87339, 45.77064],
+        [4.87656, 45.77005],
+        [4.8793, 45.76956]
       ]
     },
     {
@@ -183,6 +221,130 @@
         [4.9045, 45.75166],
         [4.90938, 45.75068],
         [4.915, 45.74928]
+      ]
+    },
+    {
+      "name": "Bd de la Bataille de Stalingrad",
+      "coordinates": [
+        [4.86006, 45.78204],
+        [4.85979, 45.77962],
+        [4.85907, 45.77624],
+        [4.85887, 45.77437],
+        [4.85871, 45.77283],
+        [4.85859, 45.77088],
+        [4.85846, 45.77007]
+      ]
+    },
+    {
+      "name": "Rue Garibaldi",
+      "coordinates": [
+        [4.85106, 45.76573],
+        [4.85123, 45.76481],
+        [4.85141, 45.76367],
+        [4.85167, 45.76274],
+        [4.85194, 45.76137],
+        [4.85218, 45.76007],
+        [4.85241, 45.75872],
+        [4.85261, 45.75756]
+      ]
+    },
+    {
+      "name": "Av. Félix Faure",
+      "coordinates": [
+        [4.86319, 45.75415],
+        [4.86397, 45.75425],
+        [4.86656, 45.75456],
+        [4.86787, 45.75473],
+        [4.87083, 45.75508],
+        [4.87267, 45.75531]
+      ]
+    },
+    {
+      "name": "Allée Achille Lignon",
+      "coordinates": [
+        [4.84441, 45.77776],
+        [4.84472, 45.77795],
+        [4.84469, 45.77806],
+        [4.84539, 45.77899],
+        [4.84622, 45.77991],
+        [4.8475, 45.78105],
+        [4.84927, 45.78227],
+        [4.85096, 45.7832],
+        [4.85266, 45.78399]
+      ]
+    },
+    {
+      "name": "Quai Victor Augagneur",
+      "coordinates": [
+        [4.84138, 45.76321],
+        [4.84118, 45.76136],
+        [4.841, 45.76001],
+        [4.84084, 45.75838],
+        [4.84078, 45.75766],
+        [4.84073, 45.75726],
+        [4.84067, 45.7569],
+        [4.84057, 45.75664],
+        [4.84051, 45.75652]
+      ]
+    },
+    {
+      "name": "Avenue Leclerc",
+      "coordinates": [
+        [4.82442, 45.73756],
+        [4.82414, 45.73711],
+        [4.82378, 45.73629],
+        [4.82361, 45.73544],
+        [4.8236, 45.73524],
+        [4.82368, 45.7344],
+        [4.82371, 45.73373],
+        [4.82371, 45.7324]
+      ]
+    },
+    {
+      "name": "Av. Tony Garnier",
+      "coordinates": [
+        [4.8262, 45.72654],
+        [4.82868, 45.72658],
+        [4.83076, 45.7266],
+        [4.83147, 45.7266],
+        [4.83368, 45.72646],
+        [4.8368, 45.72626]
+      ]
+    },
+    {
+      "name": "Av. Albert Einstein",
+      "coordinates": [
+        [4.87499, 45.77952],
+        [4.87523, 45.7798],
+        [4.87605, 45.78126],
+        [4.87654, 45.78193],
+        [4.87691, 45.78217],
+        [4.87732, 45.78229],
+        [4.87909, 45.78271],
+        [4.88379, 45.78376]
+      ]
+    },
+    {
+      "name": "Av. Barthélémy Buyer",
+      "coordinates": [
+        [4.80859, 45.75931],
+        [4.80621, 45.76008],
+        [4.80503, 45.76033],
+        [4.80468, 45.76052],
+        [4.80401, 45.76124],
+        [4.80222, 45.76264],
+        [4.80145, 45.76307],
+        [4.80026, 45.7635]
+      ]
+    },
+    {
+      "name": "Quai Joseph Gillet",
+      "coordinates": [
+        [4.81033, 45.77626],
+        [4.81052, 45.77721],
+        [4.8118, 45.78029],
+        [4.81245, 45.7813],
+        [4.81349, 45.78252]
       ]
     }
   ]

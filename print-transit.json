@@ -1,0 +1,436 @@
+{
+  "source": "Métro : TCL (SYTRAL), data.grandlyon.com, tcl_sytral.tclarret et tcllignemf_2_0_0 ; gares : OpenStreetMap ; septembre 2026",
+  "lineColors": {
+    "A": "#E8308A",
+    "B": "#0075BF",
+    "C": "#EC6608",
+    "D": "#009E3D"
+  },
+  "metroStations": [
+    {
+      "station": "Ampère",
+      "label": "Ampère",
+      "lines": ["A"],
+      "coordinates": [4.82921, 45.75311]
+    },
+    {
+      "station": "Bellecour",
+      "label": "Bellecour",
+      "lines": ["A", "D"],
+      "coordinates": [4.83347, 45.75712]
+    },
+    {
+      "station": "Brotteaux",
+      "label": "Brotteaux",
+      "lines": ["B"],
+      "coordinates": [4.85943, 45.76689]
+    },
+    {
+      "station": "Charpennes",
+      "label": "Charpennes",
+      "lines": ["A", "B"],
+      "coordinates": [4.86378, 45.77045]
+    },
+    {
+      "station": "Cordeliers",
+      "label": "Cordeliers",
+      "lines": ["A"],
+      "coordinates": [4.83581, 45.76345]
+    },
+    {
+      "station": "Croix-Paquet",
+      "label": "Croix-Paquet",
+      "lines": ["C"],
+      "coordinates": [4.83624, 45.77094]
+    },
+    {
+      "station": "Croix-Rousse",
+      "label": "Croix-Rousse",
+      "lines": ["C"],
+      "coordinates": [4.83182, 45.77453]
+    },
+    {
+      "station": "Cuire",
+      "label": "Cuire",
+      "lines": ["C"],
+      "coordinates": [4.8325, 45.78526]
+    },
+    {
+      "station": "Cusset",
+      "label": "Cusset",
+      "lines": ["A"],
+      "coordinates": [4.90028, 45.76571]
+    },
+    {
+      "station": "Debourg",
+      "label": "Debourg",
+      "lines": ["B"],
+      "coordinates": [4.83397, 45.73195]
+    },
+    {
+      "station": "Flachet",
+      "label": "Flachet",
+      "lines": ["A"],
+      "coordinates": [4.89005, 45.76759]
+    },
+    {
+      "station": "Foch",
+      "label": "Foch",
+      "lines": ["A"],
+      "coordinates": [4.84448, 45.76877]
+    },
+    {
+      "station": "Part-Dieu",
+      "label": "",
+      "lines": ["B"],
+      "coordinates": [4.85725, 45.76162]
+    },
+    {
+      "station": "Gare d'Oullins",
+      "label": "",
+      "lines": ["B"],
+      "coordinates": [4.81451, 45.71669]
+    },
+    {
+      "station": "Gare de Vaise",
+      "label": "",
+      "lines": ["D"],
+      "coordinates": [4.80379, 45.7798]
+    },
+    {
+      "station": "Gare de Vénissieux",
+      "label": "",
+      "lines": ["D"],
+      "coordinates": [4.88802, 45.70559]
+    },
+    {
+      "station": "Garibaldi",
+      "label": "Garibaldi",
+      "lines": ["D"],
+      "coordinates": [4.85421, 45.75143]
+    },
+    {
+      "station": "Gorge de Loup",
+      "label": "",
+      "lines": ["D"],
+      "coordinates": [4.80549, 45.76643]
+    },
+    {
+      "station": "Grange Blanche",
+      "label": "Grange Blanche",
+      "lines": ["D"],
+      "coordinates": [4.87895, 45.74289]
+    },
+    {
+      "station": "Gratte-Ciel",
+      "label": "Gratte-Ciel",
+      "lines": ["A"],
+      "coordinates": [4.88218, 45.76904]
+    },
+    {
+      "station": "Guillotière",
+      "label": "Guillotière",
+      "lines": ["D"],
+      "coordinates": [4.84255, 45.75544]
+    },
+    {
+      "station": "Hénon",
+      "label": "Hénon",
+      "lines": ["C"],
+      "coordinates": [4.82752, 45.77927]
+    },
+    {
+      "station": "Hôtel de Ville",
+      "label": "Hôtel de Ville",
+      "lines": ["A", "C"],
+      "coordinates": [4.83601, 45.76759]
+    },
+    {
+      "station": "Jean Macé",
+      "label": "",
+      "lines": ["B"],
+      "coordinates": [4.84241, 45.74618]
+    },
+    {
+      "station": "Laënnec",
+      "label": "Laënnec",
+      "lines": ["D"],
+      "coordinates": [4.8863, 45.73869]
+    },
+    {
+      "station": "Laurent Bonnevay",
+      "label": "Laurent Bonnevay",
+      "lines": ["A"],
+      "coordinates": [4.9095, 45.76398]
+    },
+    {
+      "station": "Masséna",
+      "label": "Masséna",
+      "lines": ["A"],
+      "coordinates": [4.85337, 45.76958]
+    },
+    {
+      "station": "Mermoz-Pinel",
+      "label": "Mermoz-Pinel",
+      "lines": ["D"],
+      "coordinates": [4.88725, 45.73048]
+    },
+    {
+      "station": "Monplaisir-Lumière",
+      "label": "Monplaisir-Lumière",
+      "lines": ["D"],
+      "coordinates": [4.87183, 45.74536]
+    },
+    {
+      "station": "Oullins Centre",
+      "label": "Oullins Centre",
+      "lines": ["B"],
+      "coordinates": [4.80541, 45.71436]
+    },
+    {
+      "station": "Parilly",
+      "label": "Parilly",
+      "lines": ["D"],
+      "coordinates": [4.88745, 45.71976]
+    },
+    {
+      "station": "Perrache",
+      "label": "Perrache",
+      "lines": ["A"],
+      "coordinates": [4.82695, 45.74978]
+    },
+    {
+      "station": "Place Guichard",
+      "label": "Place Guichard",
+      "lines": ["B"],
+      "coordinates": [4.84761, 45.7594]
+    },
+    {
+      "station": "Place Jean Jaurès",
+      "label": "Place Jean Jaurès",
+      "lines": ["B"],
+      "coordinates": [4.83749, 45.73785]
+    },
+    {
+      "station": "République",
+      "label": "République",
+      "lines": ["A"],
+      "coordinates": [4.87367, 45.77061]
+    },
+    {
+      "station": "Sans Souci",
+      "label": "Sans Souci",
+      "lines": ["D"],
+      "coordinates": [4.86482, 45.74777]
+    },
+    {
+      "station": "Saxe-Gambetta",
+      "label": "Saxe-Gambetta",
+      "lines": ["B", "D"],
+      "coordinates": [4.84701, 45.75378]
+    },
+    {
+      "station": "Hôpitaux Sud",
+      "label": "Hôpitaux Sud",
+      "lines": ["B"],
+      "coordinates": [4.80467, 45.70121]
+    },
+    {
+      "station": "Stade de Gerland",
+      "label": "Stade de Gerland",
+      "lines": ["B"],
+      "coordinates": [4.83127, 45.7274]
+    },
+    {
+      "station": "Valmy",
+      "label": "Valmy",
+      "lines": ["D"],
+      "coordinates": [4.80543, 45.77478]
+    },
+    {
+      "station": "La Soie",
+      "label": "Vaulx-en-Velin\nLa Soie",
+      "lines": ["A"],
+      "coordinates": [4.92107, 45.76098],
+      "labelOffset": 1.8
+    },
+    {
+      "station": "Vieux Lyon",
+      "label": "Vieux Lyon",
+      "lines": ["D"],
+      "coordinates": [4.82651, 45.7601]
+    }
+  ],
+  "trainStations": [
+    {
+      "station": "Alaï",
+      "label": "Alaï",
+      "coordinates": [4.77186, 45.75232]
+    },
+    {
+      "station": "Beynost",
+      "label": "",
+      "coordinates": [5.00762, 45.83397]
+    },
+    {
+      "station": "Casino-Lacroix-Laval",
+      "label": "Casino-Lacroix-Laval",
+      "coordinates": [4.73092, 45.78781]
+    },
+    {
+      "station": "Chaponost",
+      "label": "",
+      "coordinates": [4.7643, 45.69849]
+    },
+    {
+      "station": "Charbonnières-les-Bains",
+      "label": "",
+      "coordinates": [4.73589, 45.78211]
+    },
+    {
+      "station": "Collonges Fontaines",
+      "label": "Collonges-Fontaines",
+      "coordinates": [4.84635, 45.82909]
+    },
+    {
+      "station": "Couzon-au-Mont-d'Or",
+      "label": "",
+      "coordinates": [4.82928, 45.8487]
+    },
+    {
+      "station": "Crépieux-La Pape",
+      "label": "",
+      "coordinates": [4.89229, 45.80384]
+    },
+    {
+      "station": "Dardilly-le-Jubin",
+      "label": "Dardilly-le-Jubin",
+      "coordinates": [4.76134, 45.8151]
+    },
+    {
+      "station": "Dommartin-Lissieu",
+      "label": "Dommartin-Lissieu",
+      "coordinates": [4.73449, 45.83978]
+    },
+    {
+      "station": "Fleurieux-sur-l'Arbresle",
+      "label": "",
+      "coordinates": [4.66041, 45.845]
+    },
+    {
+      "station": "Fourvière",
+      "label": "",
+      "coordinates": [4.82145, 45.76238]
+    },
+    {
+      "station": "Francheville",
+      "label": "",
+      "coordinates": [4.76963, 45.73371]
+    },
+    {
+      "station": "Irigny - Yvours",
+      "label": "Irigny-Yvours",
+      "coordinates": [4.83225, 45.68951]
+    },
+    {
+      "station": "La Tour-de-Salvagny",
+      "label": "",
+      "coordinates": [4.7165, 45.79987]
+    },
+    {
+      "station": "Lentilly",
+      "label": "",
+      "coordinates": [4.66705, 45.82166]
+    },
+    {
+      "station": "Lentilly-Charpenay",
+      "label": "Lentilly-Charpenay",
+      "coordinates": [4.6824, 45.81653]
+    },
+    {
+      "station": "Les Flachères",
+      "label": "Les Flachères",
+      "coordinates": [4.75412, 45.7774]
+    },
+    {
+      "station": "Lyon Jean Macé",
+      "label": "Jean Macé",
+      "coordinates": [4.84183, 45.74496]
+    },
+    {
+      "station": "Lyon Part-Dieu",
+      "label": "Part-Dieu",
+      "coordinates": [4.86013, 45.76018]
+    },
+    {
+      "station": "Lyon Vaise",
+      "label": "Gare de Vaise",
+      "coordinates": [4.80354, 45.78028]
+    },
+    {
+      "station": "Lyon-Gorge-de-Loup",
+      "label": "Gorge de Loup",
+      "coordinates": [4.80456, 45.76599]
+    },
+    {
+      "station": "Lyon-Perrache",
+      "label": "",
+      "coordinates": [4.82533, 45.74832]
+    },
+    {
+      "station": "Lyon-Saint-Paul",
+      "label": "Saint-Paul",
+      "coordinates": [4.82667, 45.76612]
+    },
+    {
+      "station": "Minimes - Théâtres romains",
+      "label": "Minimes",
+      "coordinates": [4.82133, 45.75864]
+    },
+    {
+      "station": "Miribel",
+      "label": "",
+      "coordinates": [4.95388, 45.82207]
+    },
+    {
+      "station": "Oullins",
+      "label": "Gare d'Oullins",
+      "coordinates": [4.81339, 45.71668]
+    },
+    {
+      "station": "Saint-Fons",
+      "label": "",
+      "coordinates": [4.85237, 45.70564]
+    },
+    {
+      "station": "Saint-Just",
+      "label": "Saint-Just",
+      "coordinates": [4.81629, 45.75715]
+    },
+    {
+      "station": "Saint-Priest",
+      "label": "",
+      "coordinates": [4.9345, 45.68637]
+    },
+    {
+      "station": "Sathonay-Rillieux",
+      "label": "Sathonay-Rillieux",
+      "coordinates": [4.87552, 45.82008]
+    },
+    {
+      "station": "Tassin",
+      "label": "",
+      "coordinates": [4.75862, 45.7617]
+    },
+    {
+      "station": "Vénissieux",
+      "label": "Gare de Vénissieux",
+      "coordinates": [4.8883, 45.70506]
+    },
+    {
+      "station": "Écully la Demi-Lune",
+      "label": "Écully-la-Demi-Lune",
+      "coordinates": [4.77926, 45.76581]
+    }
+  ]
+}
