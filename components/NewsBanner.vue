@@ -67,12 +67,13 @@
           <circle cx="1" cy="1" r="1" />
         </svg>
       </div>
-      <NuxtLink :to="lastNewsItem.url ?? '/historique'">
+      <NuxtLink :to="lastNewsItem.url ?? '/historique'" @click="closeNewsBanner">
         {{ lastNewsItem.newsBannerText }}
       </NuxtLink>
       <NuxtLink
         :to="lastNewsItem.url ?? '/historique'"
         class="flex-none text-lvv-blue-600 py-1 text-sm font-semibold hover:underline"
+        @click="closeNewsBanner"
       >
         Lire l'annonce <span aria-hidden="true">&rarr;</span>
       </NuxtLink>
