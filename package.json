@@ -24,7 +24,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "@vue/test-utils": "^2.5.1",
     "dayjs": "^1.11.23",
-    "eslint": "^9.39.5",
+    "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",
     "happy-dom": "^20.14.5",
     "nuxt": "^4.5.2",
