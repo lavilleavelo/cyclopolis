@@ -74,6 +74,8 @@
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
+    <CounterDetailedStats :counter="{ type: 'velo', idPdc: counter.idPdc }" :name="counter.name" />
+
     <template v-if="counter.limitation">
       <h2>Limitation</h2>
       <p>{{ counter.limitation }}</p>

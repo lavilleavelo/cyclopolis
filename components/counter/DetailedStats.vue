@@ -1,0 +1,265 @@
+<template>
+  <p v-if="status === 'error'" class="mt-8 text-sm italic">
+    Les statistiques détaillées de ce compteur (heures de pointe, évolution journalière, records) sont momentanément
+    indisponibles.
+  </p>
+
+  <div v-else>
+    <h2>Semaine, weekend et vacances</h2>
+    <p>
+      Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée. Les jours ouvrés
+      sont séparés entre période scolaire et vacances scolaires (académie de Lyon).
+    </p>
+
+    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <template v-if="stats">
+        <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Jour ouvré</div>
+          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatOptionalCount(stats.averages.weekday) }}</div>
+          <div class="text-xs text-gray-500 mt-1">hors vacances scolaires</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Vacances scolaires</div>
+          <div class="text-2xl font-bold mt-1" :style="{ color: SCHOOL_HOLIDAY_COLOR }">
+            {{ formatOptionalCount(stats.averages.schoolHoliday) }}
+          </div>
+          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(stats.averages.schoolHoliday) }}</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Weekend et fériés</div>
+          <div class="text-2xl font-bold text-lvv-pink mt-1">{{ formatOptionalCount(stats.averages.weekend) }}</div>
+          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(stats.averages.weekend) }}</div>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Heures de pointe</div>
+          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ peakHoursLabel }}</div>
+          <div class="text-xs text-gray-500 mt-1">jours ouvrés hors vacances</div>
+        </div>
+      </template>
+      <template v-else>
+        <div v-for="i in 4" :key="i" class="h-[104px] bg-gray-100 rounded-lg animate-pulse" />
+      </template>
+    </div>
+
+    <template v-if="stats">
+      <ChartHourlyProfile
+        :unit="unit"
+        :title="`${unitLabel} par heure - ${name}`"
+        :stats="stats"
+        class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+      />
+      <ChartWeekdayProfile
+        :unit="unit"
+        :title="`${unitLabel} par jour de la semaine - ${name}`"
+        :stats="stats"
+        class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+      />
+      <p class="text-sm">
+        Moyennes calculées du {{ formatDay(stats.period.from) }} au {{ formatDay(stats.period.to) }}, hors jours de
+        panne du compteur. La moyenne par jour de la semaine exclut les vacances scolaires et les jours fériés.
+      </p>
+    </template>
+    <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
+
+    <h2>Évolution journalière</h2>
+    <p>
+      Nombre de {{ unit }} chaque jour. La moyenne sur 7 jours lisse l'alternance semaine / weekend et fait ressortir
+      les tendances : vacances, météo, grèves…
+    </p>
+    <template v-if="stats">
+      <ChartDailyEvolution
+        :unit="unit"
+        :title="`${dailyTitle} - ${name}`"
+        :stats="stats"
+        :live-days="liveDays"
+        :highlighted-days="hourlyDays"
+        class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+        @select-day="addHourlyDay"
+      />
+
+      <h3>Heure par heure</h3>
+      <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
+      <ChartHourlyDays
+        :unit="unit"
+        :counter="counter"
+        :title="`${unitLabel} heure par heure - ${name}`"
+        :stats="stats"
+        :live-days="liveDays"
+        :days="hourlyDays"
+        class="mt-4 lg:p-4 lg:rounded-lg lg:shadow-md"
+        @add="addHourlyDay"
+        @remove="removeHourlyDay"
+      />
+    </template>
+    <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
+
+    <h2>Records</h2>
+    <p>Les journées les plus fréquentées depuis la mise en service du compteur.</p>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <template v-if="stats">
+        <div v-if="stats.records.allTime" class="relative bg-white rounded-lg shadow-sm p-4 text-center">
+          <span
+            v-if="isRecent(stats.records.allTime.day)"
+            class="absolute -top-2 right-2 px-2 py-0.5 rounded-full bg-lvv-pink text-white text-xs font-semibold"
+          >
+            Nouveau record
+          </span>
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Record journalier</div>
+          <div class="text-2xl font-bold text-lvv-pink mt-1">{{ formatCount(stats.records.allTime.count) }}</div>
+          <div class="text-xs text-gray-500 mt-1">{{ formatDay(stats.records.allTime.day) }}</div>
+        </div>
+        <div v-if="lastYearRecord" class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Record {{ lastYearRecord.year }}</div>
+          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(lastYearRecord.count) }}</div>
+          <div class="text-xs text-gray-500 mt-1">{{ formatDay(lastYearRecord.day) }}</div>
+        </div>
+        <div v-if="stats.records.hour" class="bg-white rounded-lg shadow-sm p-4 text-center">
+          <div class="text-xs text-gray-500 uppercase tracking-wide">Record horaire</div>
+          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(stats.records.hour.count) }}</div>
+          <div class="text-xs text-gray-500 mt-1">
+            {{ formatDay(stats.records.hour.day) }}, {{ stats.records.hour.hour }}h – {{ stats.records.hour.hour + 1 }}h
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <div v-for="i in 3" :key="i" class="h-[104px] bg-gray-100 rounded-lg animate-pulse" />
+      </template>
+    </div>
+
+    <div v-if="stats" class="grid grid-cols-1 lg:grid-cols-2 gap-x-8">
+      <div>
+        <h3>Les 10 meilleures journées</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th class="text-right">{{ unitLabel }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(record, index) in stats.records.top" :key="record.day">
+              <td class="tabular-nums">{{ index + 1 }}</td>
+              <td>
+                {{ formatDay(record.day, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) }}
+              </td>
+              <td class="text-right tabular-nums">{{ formatCount(record.count) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Record de chaque année</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Année</th>
+              <th>Date</th>
+              <th class="text-right">{{ unitLabel }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="record in recordsByYear" :key="record.year">
+              <td class="tabular-nums">
+                {{ record.year }}
+                <span v-if="record.year === currentYear" class="text-xs text-gray-400">(en cours)</span>
+              </td>
+              <td>{{ formatDay(record.day, { day: 'numeric', month: 'short' }) }}</td>
+              <td class="text-right tabular-nums">{{ formatCount(record.count) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import {
+  DAY_COMPARISON_COLORS,
+  SCHOOL_HOLIDAY_COLOR,
+  capitalize,
+  dayToTimestamp,
+  formatCount,
+  formatDay,
+  useCounterDetailedStats,
+  useCounterLiveDays,
+  type CounterRef,
+  type SelectedDay,
+} from '~/composables/useCounterDetailedStats';
+
+const RECENT_RECORD_DAYS = 30;
+
+const props = defineProps<{ counter: CounterRef; name: string }>();
+
+const unit = computed(() => (props.counter.type === 'velo' ? 'passages' : 'véhicules'));
+const unitLabel = computed(() => capitalize(unit.value));
+const dailyTitle = computed(() =>
+  props.counter.type === 'velo' ? 'Fréquentation cycliste journalière' : 'Fréquentation voiture journalière',
+);
+
+const { data: stats, status } = useCounterDetailedStats(props.counter);
+const { data: liveDays } = useCounterLiveDays(props.counter);
+
+const hourlyDays = ref<SelectedDay[]>([]);
+
+function addHourlyDay(day: string) {
+  if (hourlyDays.value.some((selected) => selected.day === day)) {
+    return;
+  }
+
+  const kept = hourlyDays.value.slice(-(DAY_COMPARISON_COLORS.length - 1));
+  const usedColors = new Set(kept.map((selected) => selected.color));
+  const color = DAY_COMPARISON_COLORS.find((candidate) => !usedColors.has(candidate)) ?? DAY_COMPARISON_COLORS[0];
+  hourlyDays.value = [...kept, { day, color }];
+}
+
+function removeHourlyDay(day: string) {
+  hourlyDays.value = hourlyDays.value.filter((selected) => selected.day !== day);
+}
+
+const currentYear = computed(() => (stats.value ? Number(stats.value.lastDay.slice(0, 4)) : null));
+
+const lastYearRecord = computed(() => {
+  const byYear = stats.value?.records.byYear ?? [];
+  const current = byYear.find((record) => record.year === currentYear.value);
+  if (current && current.day === stats.value?.records.allTime?.day) {
+    return byYear.find((record) => record.year === currentYear.value! - 1) ?? null;
+  }
+
+  return current ?? null;
+});
+
+const recordsByYear = computed(() => [...(stats.value?.records.byYear ?? [])].reverse());
+
+function gapLabel(average: number | null): string {
+  const weekday = stats.value?.averages.weekday;
+  if (!weekday || average === null) {
+    return `${unit.value} / jour`;
+  }
+
+  const gap = Math.round((average / weekday - 1) * 100);
+  return `${gap > 0 ? '+' : gap < 0 ? '−' : ''}${Math.abs(gap)} % par rapport au jour ouvré`;
+}
+
+const peakHoursLabel = computed(() => {
+  const { morning, evening } = stats.value?.peakHours ?? {};
+  return [morning, evening]
+    .filter((peak) => peak)
+    .map((peak) => `${peak!.hour}h`)
+    .join(' · ');
+});
+
+function formatOptionalCount(count: number | null): string {
+  return count === null ? '–' : formatCount(count);
+}
+
+function isRecent(day: string): boolean {
+  if (!stats.value) {
+    return false;
+  }
+
+  return dayToTimestamp(stats.value.lastDay) - dayToTimestamp(day) < RECENT_RECORD_DAYS * 24 * 60 * 60 * 1000;
+}
+</script>
