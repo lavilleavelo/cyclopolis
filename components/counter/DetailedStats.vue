@@ -79,7 +79,7 @@
     <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
 
     <ProseH3 id="heure-par-heure">Heure par heure</ProseH3>
-    <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
+    <p>Cliquez sur une journée du graphique ou sur un record, ou choisissez une date pour la voir heure par heure.</p>
     <ChartHourlyDays
       v-if="stats"
       :unit="unit"
@@ -98,7 +98,12 @@
 
     <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
       <template v-if="stats">
-        <div v-if="stats.records.allTime" class="relative bg-white rounded-lg shadow-sm p-4 text-center">
+        <a
+          v-if="stats.records.allTime"
+          href="#heure-par-heure"
+          class="not-prose relative block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
+          @click="addHourlyDay(stats.records.allTime.day)"
+        >
           <span
             v-if="isRecent(stats.records.allTime.day)"
             class="absolute -top-2 right-2 px-2 py-0.5 rounded-full bg-lvv-pink text-white text-xs font-semibold"
@@ -108,19 +113,29 @@
           <div class="text-xs text-gray-500 uppercase tracking-wide">Record journalier</div>
           <div class="text-2xl font-bold text-lvv-pink mt-1">{{ formatCount(stats.records.allTime.count) }}</div>
           <div class="text-xs text-gray-500 mt-1">{{ formatDay(stats.records.allTime.day) }}</div>
-        </div>
-        <div v-if="lastYearRecord" class="bg-white rounded-lg shadow-sm p-4 text-center">
+        </a>
+        <a
+          v-if="lastYearRecord"
+          href="#heure-par-heure"
+          class="not-prose block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
+          @click="addHourlyDay(lastYearRecord.day)"
+        >
           <div class="text-xs text-gray-500 uppercase tracking-wide">Record {{ lastYearRecord.year }}</div>
           <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(lastYearRecord.count) }}</div>
           <div class="text-xs text-gray-500 mt-1">{{ formatDay(lastYearRecord.day) }}</div>
-        </div>
-        <div v-if="stats.records.hour" class="bg-white rounded-lg shadow-sm p-4 text-center">
+        </a>
+        <a
+          v-if="stats.records.hour"
+          href="#heure-par-heure"
+          class="not-prose block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
+          @click="addHourlyDay(stats.records.hour.day)"
+        >
           <div class="text-xs text-gray-500 uppercase tracking-wide">Record horaire</div>
           <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(stats.records.hour.count) }}</div>
           <div class="text-xs text-gray-500 mt-1">
             {{ formatDay(stats.records.hour.day) }}, {{ stats.records.hour.hour }}h – {{ stats.records.hour.hour + 1 }}h
           </div>
-        </div>
+        </a>
       </template>
       <template v-else>
         <div v-for="i in 3" :key="i" class="h-[104px] bg-gray-100 rounded-lg animate-pulse" />
@@ -142,7 +157,9 @@
             <tr v-for="(record, index) in stats.records.top" :key="record.day">
               <td class="tabular-nums">{{ index + 1 }}</td>
               <td>
-                {{ formatDay(record.day, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) }}
+                <a href="#heure-par-heure" @click="addHourlyDay(record.day)">
+                  {{ formatDay(record.day, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) }}
+                </a>
               </td>
               <td class="text-right tabular-nums">{{ formatCount(record.count) }}</td>
             </tr>
@@ -165,7 +182,11 @@
                 {{ record.year }}
                 <span v-if="record.year === currentYear" class="text-xs text-gray-400">(en cours)</span>
               </td>
-              <td>{{ formatDay(record.day, { day: 'numeric', month: 'short' }) }}</td>
+              <td>
+                <a href="#heure-par-heure" @click="addHourlyDay(record.day)">
+                  {{ formatDay(record.day, { day: 'numeric', month: 'short' }) }}
+                </a>
+              </td>
               <td class="text-right tabular-nums">{{ formatCount(record.count) }}</td>
             </tr>
           </tbody>
