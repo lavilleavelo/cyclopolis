@@ -205,7 +205,6 @@ export class CanvasDashAnimator {
           segmentsAdded++;
         } else {
           movedTo = false;
-          prevCoord = currCoord;
           prevP = this.map.project(currCoord);
         }
 
