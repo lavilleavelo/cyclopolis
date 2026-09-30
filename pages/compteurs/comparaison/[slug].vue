@@ -61,6 +61,13 @@
     <p>Comparaison mois par mois de la fréquentation vélo et voiture.</p>
     <ChartComparisonMonthly :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
+    <CounterComparisonDetailedStats
+      v-if="voitureCounter?.idsPdc"
+      :velo-id-pdc="veloCounter.idPdc"
+      :voiture-ids-pdc="voitureCounter.idsPdc"
+      :name="veloCounter.name"
+    />
+
     <h2>Source des données</h2>
     <p>
       Les données des compteurs vélo proviennent de
