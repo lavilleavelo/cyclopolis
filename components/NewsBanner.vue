@@ -87,11 +87,19 @@
 </template>
 
 <script setup lang="ts">
+const MAX_NEWS_AGE_MONTHS = 3;
+
 const { data: lastNewsItem } = await useAsyncData(() => {
   return queryCollection('news').order('date', 'DESC').first();
 });
 
 const showBanner = ref(false);
+
+function isRecent(date: string): boolean {
+  const oldestDate = new Date();
+  oldestDate.setMonth(oldestDate.getMonth() - MAX_NEWS_AGE_MONTHS);
+  return new Date(date) >= oldestDate;
+}
 
 onMounted(() => {
   // if the banner was closed more than 7 days ago, show it again
@@ -105,7 +113,11 @@ onMounted(() => {
     }
   }
 
-  if (lastNewsItem.value && localStorage.getItem('isNewsBannerClosed') !== 'true') {
+  if (
+    lastNewsItem.value &&
+    isRecent(lastNewsItem.value.date) &&
+    localStorage.getItem('isNewsBannerClosed') !== 'true'
+  ) {
     nextTick(() => {
       setTimeout(() => {
         showBanner.value = true;
