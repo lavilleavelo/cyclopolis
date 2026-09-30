@@ -44,6 +44,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       maptilerKey: process.env.MAPTILER_KEY,
+      counterStatsApiUrl: 'https://carte.lavilleavelo.org',
     },
   },
 
