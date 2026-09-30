@@ -53,12 +53,12 @@ export default <RouterConfig>{
       return;
     }
 
-    if (from.matched.length > 0 && to.path === from.path && to.hash === from.hash) {
+    if (from.matched.length > 0 && to.path === from.path && to.hash === from.hash && to.fullPath !== from.fullPath) {
       return;
     }
 
     if (to.hash) {
-      const samePage = from.matched.length > 0 && to.path === from.path;
+      const samePage = from.matched.length > 0 && to.path === from.path && to.hash !== from.hash;
       scrollWhileSettling(() => anchorTop(to.hash, navbarOffset), samePage ? 'smooth' : 'instant');
       return;
     }
