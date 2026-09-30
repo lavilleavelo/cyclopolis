@@ -439,6 +439,19 @@ onMounted(() => {
   );
 
   watch(
+    () =>
+      props.fitBoundsFeatures
+        ?.map((feature) => JSON.stringify(feature.geometry.coordinates))
+        .sort()
+        .join(),
+    () => {
+      if (props.fitBoundsFeatures?.length) {
+        fitBounds({ map, features: props.fitBoundsFeatures });
+      }
+    },
+  );
+
+  watch(
     () => [props.totalDistance, props.filteredDistance],
     ([totalDistance, filteredDistance]) => {
       if (filterControl.value && totalDistance && filteredDistance !== undefined) {

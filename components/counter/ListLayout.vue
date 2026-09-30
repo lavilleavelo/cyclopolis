@@ -22,6 +22,7 @@
           </template>
           <Map
             :features="filteredFeatures"
+            :fit-bounds-features="counterFeatures"
             :options="{ roundedCorners: false, legend: false, filter: false, cooperativeGestures: !isWideScreen() }"
             :class="MAP_HEIGHT_CLASSES"
             :highlighted-counter="highlightedCounter"
@@ -263,6 +264,8 @@ const referenceYearOffset = defineModel<number>('referenceYearOffset', { require
 const displayMode = defineModel<DisplayMode>('displayMode', { required: true });
 const comparisonPeriod = defineModel<ComparisonPeriod>('comparisonPeriod', { required: true });
 const showMap = defineModel<boolean>('showMap', { required: true });
+
+const counterFeatures = computed(() => props.filteredFeatures.filter((feature) => feature.geometry.type === 'Point'));
 
 function isWideScreen(): boolean {
   return window.matchMedia('(min-width: 1280px)').matches;
