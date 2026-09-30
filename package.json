@@ -39,7 +39,7 @@
     "@dwayneparton/geojson-to-gpx": "^0.2.0",
     "@maplibre/maplibre-gl-geocoder": "^1.9.4",
     "@panoramax/web-viewer": "^4.4.0",
-    "@vueuse/core": "^14.4.0",
+    "@vueuse/core": "^15.0.0",
     "better-sqlite3": "^13.0.3",
     "highcharts": "^12.6.2",
     "highcharts-vue": "^2.0.2",
