@@ -29,7 +29,7 @@
     "happy-dom": "^20.14.5",
     "nuxt": "^4.5.2",
     "nuxt-umami": "^3.2.1",
-    "oxfmt": "^0.44.0",
+    "oxfmt": "^0.71.0",
     "playwright-core": "^1.63.0",
     "sitemap": "^9.0.1",
     "typescript": "^6.0.3",
