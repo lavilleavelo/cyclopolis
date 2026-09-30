@@ -67,11 +67,13 @@
 
 <script setup lang="ts">
 import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
+import { integerQueryParam, useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 import type { Count } from '~/types';
 
 const props = defineProps({
   title: { type: String, required: true },
   data: { type: Object, required: true },
+  syncUrl: { type: Boolean, default: false },
 });
 
 const mode = ref<'single' | 'multi'>('single');
@@ -124,6 +126,12 @@ const yearCountOptions = computed(() => {
   }
   return options;
 });
+
+if (props.syncUrl) {
+  useQueryParam('comparaison', mode, valuesQueryParam({ mois: 'single', evolution: 'multi' }));
+  useQueryParam('comparaison-mois', selectedMonth, integerQueryParam(0, 11, 1));
+  useQueryParam('comparaison-annees', selectedYearCount, integerQueryParam(2, allYears.length));
+}
 
 const singleMonthCounts = computed(() => {
   return counts

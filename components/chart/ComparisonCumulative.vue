@@ -43,9 +43,12 @@
 </template>
 
 <script setup lang="ts">
+import { integerQueryParam, useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
+
 const props = defineProps<{
   name: string;
   data: { month: string; veloCount: number; voitureCount: number }[];
+  syncUrl?: boolean;
 }>();
 
 const mode = ref<'monthly' | 'rolling'>('monthly');
@@ -59,6 +62,11 @@ const yearCountOptions = computed(() => {
   }
   return options;
 });
+
+if (props.syncUrl) {
+  useQueryParam('cumul', mode, valuesQueryParam({ mois: 'monthly', glissant: 'rolling' }));
+  useQueryParam('cumul-annees', selectedYearCount, integerQueryParam(2, allYears.length));
+}
 
 const lastRecord = props.data[props.data.length - 1]!;
 const latestDate = new Date(lastRecord.month);

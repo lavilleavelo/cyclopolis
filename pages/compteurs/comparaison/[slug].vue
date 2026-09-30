@@ -48,18 +48,33 @@
       Évolution de la part relative des vélos et des voitures chaque année. Ce graphique permet de visualiser le
       rééquilibrage entre les deux modes de transport.
     </p>
-    <ChartComparisonShare :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+    <ChartComparisonShare
+      sync-url
+      :data="data"
+      :name="veloCounter.name"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
 
     <ProseH2 id="trafic-cumule">Trafic cumulé</ProseH2>
     <p>
       Volume total de passages (vélos + voitures) par année, permettant de visualiser l'évolution globale du trafic sur
       cet axe.
     </p>
-    <ChartComparisonCumulative :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+    <ChartComparisonCumulative
+      sync-url
+      :data="data"
+      :name="veloCounter.name"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
 
     <ProseH2 id="evolution-mensuelle">Évolution mensuelle</ProseH2>
     <p>Comparaison mois par mois de la fréquentation vélo et voiture.</p>
-    <ChartComparisonMonthly :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+    <ChartComparisonMonthly
+      sync-url
+      :data="data"
+      :name="veloCounter.name"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
 
     <CounterComparisonDetailedStats
       v-if="voitureCounter?.idsPdc"

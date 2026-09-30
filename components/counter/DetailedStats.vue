@@ -102,7 +102,7 @@
           v-if="stats.records.allTime"
           href="#heure-par-heure"
           class="not-prose relative block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
-          @click="addHourlyDay(stats.records.allTime.day)"
+          @click.prevent="showHourlyDay(stats.records.allTime.day)"
         >
           <span
             v-if="isRecent(stats.records.allTime.day)"
@@ -118,7 +118,7 @@
           v-if="lastYearRecord"
           href="#heure-par-heure"
           class="not-prose block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
-          @click="addHourlyDay(lastYearRecord.day)"
+          @click.prevent="showHourlyDay(lastYearRecord.day)"
         >
           <div class="text-xs text-gray-500 uppercase tracking-wide">Record {{ lastYearRecord.year }}</div>
           <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(lastYearRecord.count) }}</div>
@@ -128,7 +128,7 @@
           v-if="stats.records.hour"
           href="#heure-par-heure"
           class="not-prose block bg-white rounded-lg shadow-sm p-4 text-center transition-shadow hover:shadow-md"
-          @click="addHourlyDay(stats.records.hour.day)"
+          @click.prevent="showHourlyDay(stats.records.hour.day)"
         >
           <div class="text-xs text-gray-500 uppercase tracking-wide">Record horaire</div>
           <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatCount(stats.records.hour.count) }}</div>
@@ -157,7 +157,7 @@
             <tr v-for="(record, index) in stats.records.top" :key="record.day">
               <td class="tabular-nums">{{ index + 1 }}</td>
               <td>
-                <a href="#heure-par-heure" @click="addHourlyDay(record.day)">
+                <a href="#heure-par-heure" @click.prevent="showHourlyDay(record.day)">
                   {{ formatDay(record.day, { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }) }}
                 </a>
               </td>
@@ -183,7 +183,7 @@
                 <span v-if="record.year === currentYear" class="text-xs text-gray-400">(en cours)</span>
               </td>
               <td>
-                <a href="#heure-par-heure" @click="addHourlyDay(record.day)">
+                <a href="#heure-par-heure" @click.prevent="showHourlyDay(record.day)">
                   {{ formatDay(record.day, { day: 'numeric', month: 'short' }) }}
                 </a>
               </td>
@@ -209,6 +209,7 @@ import {
   type CounterRef,
   type SelectedDay,
 } from '~/composables/useCounterDetailedStats';
+import { useQueryParam, useUrlHash } from '~/composables/useQueryParam';
 
 const RECENT_RECORD_DAYS = 30;
 
@@ -224,6 +225,15 @@ const { data: stats, status } = useCounterDetailedStats(props.counter);
 const { data: liveDays } = useCounterLiveDays(props.counter);
 
 const hourlyDays = ref<SelectedDay[]>([]);
+useQueryParam('horaire', hourlyDays, {
+  parse: (value) => {
+    const days = [...new Set(value.split(','))]
+      .filter((day) => /^\d{4}-\d{2}-\d{2}$/.test(day))
+      .slice(0, DAY_COMPARISON_COLORS.length);
+    return days.length > 0 ? days.map((day, index) => ({ day, color: DAY_COMPARISON_COLORS[index]! })) : undefined;
+  },
+  serialize: (days) => days.map((selected) => selected.day).join(','),
+});
 
 function addHourlyDay(day: string) {
   if (hourlyDays.value.some((selected) => selected.day === day)) {
@@ -234,6 +244,17 @@ function addHourlyDay(day: string) {
   const usedColors = new Set(kept.map((selected) => selected.color));
   const color = DAY_COMPARISON_COLORS.find((candidate) => !usedColors.has(candidate)) ?? DAY_COMPARISON_COLORS[0];
   hourlyDays.value = [...kept, { day, color }];
+}
+
+const setUrlHash = useUrlHash();
+
+function showHourlyDay(day: string) {
+  addHourlyDay(day);
+  if (window.location.hash === '#heure-par-heure') {
+    document.getElementById('heure-par-heure')?.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    setUrlHash('#heure-par-heure');
+  }
 }
 
 function removeHourlyDay(day: string) {

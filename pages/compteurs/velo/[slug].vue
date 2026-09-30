@@ -53,7 +53,12 @@
 
     <ProseH2 id="total-des-passages-par-annee">Total des passages par année</ProseH2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur vélo chaque année.</p>
-    <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
+    <ChartTotalByYear
+      :title="graphTitles.totalByYear"
+      :data="counter"
+      sync-url
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
 
     <ProseH2 id="historique-mensuel">Historique mensuel</ProseH2>
     <p>Nombre de passages détecté chaque mois depuis la mise en service du compteur.</p>
@@ -69,6 +74,7 @@
       mois sur plusieurs années.
     </p>
     <ChartMonthComparison
+      sync-url
       :title="graphTitles.monthComparison"
       :data="counter"
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
@@ -93,10 +99,13 @@
 
 <script setup>
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
 import { buildCounterStats } from '~/composables/useCounterStats';
+import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 import { getLine, useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { path } = useRoute();
+useQueryParam('vue', useChartDisplayMode(), valuesQueryParam({ total: 'total', jour: 'daily' }));
 const { withoutTrailingSlash } = useUrl();
 const { getCompteursFeatures } = useMap();
 const { geojsons: vlGeojsons } = await useVoiesCyclablesGeojson();

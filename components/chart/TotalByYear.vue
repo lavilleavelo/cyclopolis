@@ -38,14 +38,19 @@
 
 <script setup lang="ts">
 import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
+import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 import type { Count } from '~/types';
 
 const props = defineProps({
   title: { type: String, required: true },
   data: { type: Object, required: true },
+  syncUrl: { type: Boolean, default: false },
 });
 
 const mode = ref<'ytd' | 'rolling'>('rolling');
+if (props.syncUrl) {
+  useQueryParam('annuel', mode, valuesQueryParam({ glissant: 'rolling', adate: 'ytd' }));
+}
 const displayMode = useChartDisplayMode();
 
 const counts: Count[] = props.data.counts;

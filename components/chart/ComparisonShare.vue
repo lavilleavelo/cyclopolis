@@ -39,11 +39,13 @@
 </template>
 
 <script setup lang="ts">
+import { integerQueryParam, useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 import { addShareChartIcons, destroyChartIcons } from '~/helpers/chartIcons';
 
 const props = defineProps<{
   name: string;
   data: { month: string; veloCount: number; voitureCount: number }[];
+  syncUrl?: boolean;
 }>();
 
 const mode = ref<'yearly' | 'monthly'>('monthly');
@@ -57,6 +59,11 @@ const yearCountOptions = computed(() => {
   }
   return options;
 });
+
+if (props.syncUrl) {
+  useQueryParam('repartition', mode, valuesQueryParam({ mois: 'monthly', annee: 'yearly' }));
+  useQueryParam('repartition-annees', selectedYearCount, integerQueryParam(2, allYears.length));
+}
 
 function toPct(velo: number, voiture: number) {
   const total = velo + voiture;

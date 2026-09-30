@@ -31,6 +31,7 @@ import {
   type CounterProfile,
   type DayType,
 } from '~/composables/useCounterDetailedStats';
+import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 
 const DAY_TYPES: { value: DayType; label: string }[] = [
   { value: 'weekday', label: 'Jours ouvrés' },
@@ -42,6 +43,12 @@ const props = defineProps<{ title: string; subtitle: string; velo: CounterProfil
 
 const dayType = ref<DayType>('weekday');
 const mode = ref<'count' | 'share'>('count');
+useQueryParam(
+  'profil-type',
+  dayType,
+  valuesQueryParam<DayType>({ ouvre: 'weekday', vacances: 'schoolHoliday', weekend: 'weekend' }),
+);
+useQueryParam('profil', mode, valuesQueryParam({ passages: 'count', part: 'share' }));
 
 type TooltipContext = { points?: { point: { index: number } }[] };
 

@@ -94,10 +94,12 @@
 
 <script setup lang="ts">
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue';
+import { integerQueryParam, useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 
 const props = defineProps<{
   name: string;
   data: { month: string; veloCount: number; voitureCount: number }[];
+  syncUrl?: boolean;
 }>();
 
 const mode = ref<'monthly' | 'single'>('monthly');
@@ -130,6 +132,15 @@ const months = [
 const lastRecord = props.data[props.data.length - 1];
 const lastRecordMonth = lastRecord ? new Date(lastRecord.month).getMonth() : 0;
 const selectedMonth = ref(months.find((m) => m.value === lastRecordMonth)!);
+
+if (props.syncUrl) {
+  useQueryParam('mensuel', mode, valuesQueryParam({ mois: 'monthly', comparaison: 'single' }));
+  useQueryParam('mensuel-annees', selectedYearCount, integerQueryParam(2, allYears.length));
+  useQueryParam('mensuel-mois', selectedMonth, {
+    parse: (value) => months[Number(value) - 1],
+    serialize: (month) => String(month.value + 1),
+  });
+}
 
 const singleMonthChartOptions = computed(() => {
   const filtered = props.data

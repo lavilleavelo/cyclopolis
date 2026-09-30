@@ -33,6 +33,7 @@ import {
   formatPercent,
   type CounterDetailedStats,
 } from '~/composables/useCounterDetailedStats';
+import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 
 const RANGES = [
   { label: '3 mois', days: 91 },
@@ -59,6 +60,13 @@ const emit = defineEmits<{ selectDay: [day: string] }>();
 const selectedDays = ref<number | null>(365);
 const mode = ref<'count' | 'share'>('count');
 const showSchoolHolidays = ref(true);
+useQueryParam(
+  'journalier-plage',
+  selectedDays,
+  valuesQueryParam<number | null>({ '3m': 91, '1a': 365, '3a': 3 * 365, tout: null }),
+);
+useQueryParam('journalier', mode, valuesQueryParam({ passages: 'count', part: 'share' }));
+useQueryParam('journalier-vacances', showSchoolHolidays, valuesQueryParam({ 1: true, 0: false }));
 
 type Point = [number, number | null];
 type TooltipContext = { x: number };

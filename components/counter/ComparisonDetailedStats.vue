@@ -95,6 +95,7 @@ import {
   type CounterRef,
   type DayType,
 } from '~/composables/useCounterDetailedStats';
+import { dayQueryParam, useQueryParam } from '~/composables/useQueryParam';
 
 const PEAK_SHARE_HOURS = [6, 22];
 const DEFAULT_PEAK_HOURS = [8, 18];
@@ -114,6 +115,11 @@ const lastCommonDay = computed(() => [velo.value?.lastDay ?? '', voiture.value?.
 
 const day = ref<string | null>(null);
 const period = ref<'recent' | number>('recent');
+useQueryParam('horaire', day, dayQueryParam());
+useQueryParam('profil-periode', period, {
+  parse: (value) => (/^\d{4}$/.test(value) ? Number(value) : undefined),
+  serialize: (value) => String(value),
+});
 
 const currentYear = computed(() => (lastCommonDay.value ? Number(lastCommonDay.value.slice(0, 4)) : null));
 
