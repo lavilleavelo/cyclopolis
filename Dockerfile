@@ -1,12 +1,13 @@
-FROM node:24-slim AS builder
+FROM node:26-slim AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN npm -g i corepack && corepack enable
+RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN npm run generate
+RUN pnpm run generate
 
 FROM nginx:alpine
 

@@ -39,7 +39,7 @@ Look at the [nuxt 4 documentation](https://nuxt.com/docs/4.x/getting-started/int
 Make sure to install the dependencies:
 
 ```bash
-npm ci
+pnpm install
 ```
 
 ## Development Server
@@ -47,7 +47,7 @@ npm ci
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ## Production
@@ -55,11 +55,11 @@ npm run dev
 Build the application for production:
 
 ```bash
-npm run generate
+pnpm generate
 ```
 
 Locally preview production build:
 
 ```bash
-npm run preview
+pnpm preview
 ```

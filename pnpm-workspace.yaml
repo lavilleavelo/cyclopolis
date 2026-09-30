@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  unrs-resolver: false
+engineStrict: true
+packages:
+  - .
+verifyDepsBeforeRun: install

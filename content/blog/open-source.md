@@ -57,14 +57,14 @@ Vous pouvez cloner le site directement sur votre poste local.
 git clone git@github.com:lavilleavelo/cyclopolis.git
 ```
 
-Puis installer les dépendances
+Puis installer les dépendances avec [pnpm](https://pnpm.io/fr/installation)
 ```
-npm install
+pnpm install
 ```
 
 Puis le faire tourner en local
 ```
-npm run dev
+pnpm dev
 ```
 
 ça y est : vous avez votre clone de Cyclopolis qui tourne sur votre poste.
@@ -109,7 +109,7 @@ Nous avons longtemps utilisé [Netlify](https://www.netlify.com) qui une offre u
 
 Voici par exemple une configuration possible sur Netlify (section Build & Deploy) :
 ```
-Build command : npm run generate
+Build command : pnpm generate
 Publish directory : dist
 ```
 
