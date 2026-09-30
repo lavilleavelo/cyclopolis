@@ -27,7 +27,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "happy-dom": "^20.8.9",
-    "nuxt": "^4.4.2",
+    "nuxt": "^4.5.2",
     "nuxt-umami": "^3.2.1",
     "oxfmt": "^0.44.0",
     "playwright-core": "^1.59.1",
