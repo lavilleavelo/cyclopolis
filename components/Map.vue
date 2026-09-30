@@ -51,9 +51,11 @@ import {
   type LngLatLike,
   Map as MaplibreMap,
   NavigationControl,
+  setWorkerUrl,
 } from 'maplibre-gl';
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import { getMapStyle } from '~/helpers/mapStyles';
 import LegendControl from '@/maplibre/LegendControl';
 import LegendInlineControl from '@/maplibre/LegendInlineControl';
@@ -69,6 +71,8 @@ import FilterPanel from '~/components/FilterPanel.vue';
 import LegendInline from '~/components/LegendInline.vue';
 import MaplibreGeocoder, { type MaplibreGeocoderFeatureResults } from '@maplibre/maplibre-gl-geocoder';
 import '~/assets/geocoder-style.css';
+
+setWorkerUrl(workerUrl);
 
 const { displayDistanceInKm, displayPercent } = useStats();
 

@@ -10,8 +10,9 @@
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
-import { type LngLatLike, Map as MaplibreMap } from 'maplibre-gl';
+import { type LngLatLike, Map as MaplibreMap, setWorkerUrl } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import {
   EXTRA_STREET_LABELS_ID,
   METRO_STATIONS_ID,
@@ -34,6 +35,8 @@ import settings from '~/print-config.json';
 
 import streetLabels from '~/print-street-labels.json';
 import transit from '~/print-transit.json';
+
+setWorkerUrl(workerUrl);
 
 const FALLBACK_MAX_CANVAS_SIZE = 4096;
 const IDLE_TIMEOUT_MS = 60_000;
