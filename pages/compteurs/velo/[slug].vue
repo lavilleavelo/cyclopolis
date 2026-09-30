@@ -86,6 +86,8 @@
       Les données proviennent de
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
     </p>
+
+    <CounterPhotos :id-pdc="counter.idPdc" :name="counter.name" />
   </ContentFrame>
 </template>
 
