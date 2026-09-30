@@ -1789,10 +1789,17 @@ export const useMap = ({
           '#FFD700',
           '#fff',
         ]);
+        map.setLayoutProperty('compteurs', 'circle-sort-key', [
+          'case',
+          ['==', ['get', 'name'], counterName],
+          2,
+          ['get', 'circleSortKey'],
+        ]);
       } else {
         map.setPaintProperty('compteurs', 'circle-radius', ['get', 'circleRadius']);
         map.setPaintProperty('compteurs', 'circle-stroke-width', ['get', 'circleStrokeWidth']);
         map.setPaintProperty('compteurs', 'circle-stroke-color', '#fff');
+        map.setLayoutProperty('compteurs', 'circle-sort-key', ['get', 'circleSortKey']);
       }
     }
 
@@ -1824,11 +1831,18 @@ export const useMap = ({
             0.75,
             0.5,
           ]);
+          map.setLayoutProperty('compteurs-mixed', 'symbol-sort-key', [
+            'case',
+            ['==', ['get', 'name'], counterName],
+            2,
+            ['get', 'circleSortKey'],
+          ]);
         }
       } else {
         map.setFilter('compteurs-mixed-highlight', ['==', ['get', 'name'], '']);
         if (map.getLayer('compteurs-mixed')) {
           map.setLayoutProperty('compteurs-mixed', 'icon-size', 0.5);
+          map.setLayoutProperty('compteurs-mixed', 'symbol-sort-key', ['get', 'circleSortKey']);
         }
       }
     }
