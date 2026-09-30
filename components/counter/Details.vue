@@ -31,27 +31,36 @@
       </a>
     </div>
 
-    <h3>Fréquentation annuelle</h3>
+    <h2>Fréquentation annuelle</h2>
     <ChartComparisonHistogram
       :data="comparisonData"
       :name="veloCounter.name"
       class="lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
-    <h3>Répartition vélo / voiture</h3>
+    <h2>Répartition vélo / voiture</h2>
     <ChartComparisonShare :data="comparisonData" :name="veloCounter.name" class="lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h3>Trafic cumulé</h3>
+    <h2>Trafic cumulé</h2>
     <ChartComparisonCumulative
       :data="comparisonData"
       :name="veloCounter.name"
       class="lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
-    <h3>Évolution mensuelle</h3>
+    <h2>Évolution mensuelle</h2>
     <ChartComparisonMonthly :data="comparisonData" :name="veloCounter.name" class="lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h3>Source des données</h3>
+    <CounterComparisonDetailedStats
+      v-if="voitureCounter.idsPdc"
+      :key="veloCounter.path"
+      :velo-id-pdc="veloCounter.idPdc"
+      :voiture-ids-pdc="voitureCounter.idsPdc"
+      :name="veloCounter.name"
+      embedded
+    />
+
+    <h2>Source des données</h2>
     <p class="text-sm text-gray-500">
       Données vélo&nbsp;:
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>. Données
@@ -71,6 +80,8 @@
     <CounterMaintenanceBanner :counts="counter.counts" />
 
     <p v-if="counter.description" class="text-gray-500">{{ counter.description }}</p>
+
+    <CounterStatsSummary v-if="counterStats" :stats="counterStats" embedded />
 
     <div v-if="isVelo && (counter.lines?.length || 0) > 0" class="text-center text-sm">
       Ce compteur est installé sur
@@ -107,21 +118,23 @@
       </a>
     </div>
 
-    <h3>Total des passages par année</h3>
+    <h2>Total des passages par année</h2>
     <ChartTotalByYear
       :title="`Fréquentation ${isVelo ? 'cycliste' : 'voiture'} annuelle - ${counter.name}`"
       :data="counter"
       class="lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
-    <h3>Comparaison des passages</h3>
+    <h2>Comparaison des passages</h2>
     <ChartMonthComparison
       :title="`Fréquentation ${isVelo ? 'cycliste' : 'voiture'} - ${counter.name}`"
       :data="counter"
       class="lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
-    <h3>Source des données</h3>
+    <CounterDetailedStats v-if="counterRef" :key="counter.path" :counter="counterRef" :name="counter.name" embedded />
+
+    <h2>Source des données</h2>
     <p v-if="isVelo" class="text-sm text-gray-500">
       Les données proviennent de
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
@@ -130,10 +143,14 @@
       Les données proviennent de
       <a href="https://avatar.cerema.fr/cartographie" target="_blank">avatar.cerema.fr</a>.
     </p>
+
+    <CounterPhotos v-if="isVelo" :key="counter.path" :id-pdc="counter.idPdc" :name="counter.name" embedded />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { CounterRef } from '~/composables/useCounterDetailedStats';
+import { buildCounterStats } from '~/composables/useCounterStats';
 import type { Count } from '~/types';
 
 const props = defineProps<{
@@ -204,6 +221,22 @@ const { data: matchingCounter } = await useAsyncData(
 );
 
 const loading = computed(() => loadingSingle.value || loadingVelo.value || loadingVoiture.value);
+
+const counterStats = computed(() =>
+  counter.value ? buildCounterStats(counter.value.counts, isVelo.value ? 'vélos' : 'voitures') : null,
+);
+
+const counterRef = computed<CounterRef | null>(() => {
+  if (!counter.value) {
+    return null;
+  }
+
+  if (isVelo.value) {
+    return { type: 'velo', idPdc: counter.value.idPdc };
+  }
+
+  return counter.value.idsPdc ? { type: 'voiture', idsPdc: counter.value.idsPdc } : null;
+});
 
 const comparisonData = computed(() => {
   if (!veloCounter.value || !voitureCounter.value) return [];

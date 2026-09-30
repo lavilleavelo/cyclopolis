@@ -34,7 +34,7 @@ describe('Counters on interactive map', () => {
       const sidebar = page.locator('#counter-details-sidebar, #counter-details-bottom-sheet');
       await sidebar.waitFor({ timeout: 10_000 });
 
-      await sidebar.locator('h3').first().waitFor({ timeout: 15_000 });
+      await sidebar.getByRole('heading', { name: 'Total des passages par année' }).waitFor({ timeout: 15_000 });
 
       const content = await sidebar.textContent();
       expect(content).toContain('Compteur vélo');
@@ -52,7 +52,7 @@ describe('Counters on interactive map', () => {
       const sidebar = page.locator('#counter-details-sidebar, #counter-details-bottom-sheet');
       await sidebar.waitFor({ timeout: 10_000 });
 
-      await sidebar.locator('h3').first().waitFor({ timeout: 15_000 });
+      await sidebar.getByRole('heading', { name: 'Fréquentation annuelle' }).waitFor({ timeout: 15_000 });
 
       const content = await sidebar.textContent();
       expect(content).toContain('Fréquentation annuelle');
