@@ -89,6 +89,7 @@
 
 <script setup lang="ts">
 const MAX_NEWS_AGE_MONTHS = 3;
+const CLOSED_NEWS_KEY = 'closedNews';
 
 const { data: lastNewsItem } = await useAsyncData(() => {
   return queryCollection('news').order('date', 'DESC').first();
@@ -103,21 +104,10 @@ function isRecent(date: string): boolean {
 }
 
 onMounted(() => {
-  // if the banner was closed more than 7 days ago, show it again
-  const newsBannerClosedAt = localStorage.getItem('newsBannerClosedAt');
-  if (newsBannerClosedAt) {
-    const diffInMilliseconds = +new Date() - +new Date(newsBannerClosedAt);
-    const diffInHours = diffInMilliseconds / (1000 * 60 * 60);
-    if (diffInHours > 24 * 7) {
-      localStorage.removeItem('isNewsBannerClosed');
-      localStorage.removeItem('newsBannerClosedAt');
-    }
-  }
-
   if (
     lastNewsItem.value &&
     isRecent(lastNewsItem.value.date) &&
-    localStorage.getItem('isNewsBannerClosed') !== 'true'
+    localStorage.getItem(CLOSED_NEWS_KEY) !== lastNewsItem.value.path
   ) {
     nextTick(() => {
       setTimeout(() => {
@@ -129,8 +119,9 @@ onMounted(() => {
 
 function closeNewsBanner() {
   showBanner.value = false;
-  localStorage.setItem('isNewsBannerClosed', 'true');
-  localStorage.setItem('newsBannerClosedAt', new Date().toISOString());
+  if (lastNewsItem.value) {
+    localStorage.setItem(CLOSED_NEWS_KEY, lastNewsItem.value.path);
+  }
 }
 
 function formatDate(date: string) {
