@@ -39,25 +39,25 @@
       </NuxtLink>
     </div>
 
-    <h2>Fréquentation annuelle</h2>
+    <ProseH2 id="frequentation-annuelle">Fréquentation annuelle</ProseH2>
     <p>Comparaison du nombre total de passages par année entre les vélos et les voitures sur cet axe.</p>
     <ChartComparisonHistogram :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h2>Répartition vélo / voiture</h2>
+    <ProseH2 id="repartition-velo-voiture">Répartition vélo / voiture</ProseH2>
     <p>
       Évolution de la part relative des vélos et des voitures chaque année. Ce graphique permet de visualiser le
       rééquilibrage entre les deux modes de transport.
     </p>
     <ChartComparisonShare :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h2>Trafic cumulé</h2>
+    <ProseH2 id="trafic-cumule">Trafic cumulé</ProseH2>
     <p>
       Volume total de passages (vélos + voitures) par année, permettant de visualiser l'évolution globale du trafic sur
       cet axe.
     </p>
     <ChartComparisonCumulative :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h2>Évolution mensuelle</h2>
+    <ProseH2 id="evolution-mensuelle">Évolution mensuelle</ProseH2>
     <p>Comparaison mois par mois de la fréquentation vélo et voiture.</p>
     <ChartComparisonMonthly :data="data" :name="veloCounter.name" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
@@ -68,7 +68,7 @@
       :name="veloCounter.name"
     />
 
-    <h2>Source des données</h2>
+    <ProseH2 id="source-des-donnees">Source des données</ProseH2>
     <p>
       Les données des compteurs vélo proviennent de
       <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.

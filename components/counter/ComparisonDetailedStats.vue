@@ -4,7 +4,7 @@
   </p>
 
   <div v-else>
-    <h2>Semaine, weekend et vacances</h2>
+    <ProseH2 id="semaine-weekend-et-vacances">Semaine, weekend et vacances</ProseH2>
     <p>Part des vélos dans le trafic (vélos et voitures) selon le type de jour et l'heure.</p>
 
     <div class="flex items-center gap-2 mt-6">
@@ -44,7 +44,7 @@
     />
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <h2>Évolution de la part du vélo</h2>
+    <ProseH2 id="evolution-de-la-part-du-velo">Évolution de la part du vélo</ProseH2>
     <p>Part des vélos dans le trafic, année par année, aux heures de pointe et sur la journée.</p>
     <ChartComparisonPeakEvolution
       v-if="velo && veloYearly && voitureYearly && currentYear"
@@ -58,31 +58,31 @@
     />
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <h2>Évolution journalière</h2>
+    <ProseH2 id="evolution-journaliere">Évolution journalière</ProseH2>
     <p>Moyenne sur 7 jours des vélos et des voitures.</p>
-    <template v-if="velo && voiture">
-      <ChartComparisonDailyEvolution
-        :title="`Fréquentation journalière vélo et voiture - ${name}`"
-        :velo="velo"
-        :voiture="voiture"
-        :selected-day="day"
-        class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
-        @select-day="day = $event"
-      />
-
-      <h3>Heure par heure</h3>
-      <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
-      <ChartComparisonHourlyDay
-        v-model:day="day"
-        :title="`Vélos et voitures heure par heure - ${name}`"
-        :velo-counter="veloCounter"
-        :voiture-counter="voitureCounter"
-        :min="firstCommonDay"
-        :max="lastCommonDay"
-        class="mt-4 lg:p-4 lg:rounded-lg lg:shadow-md"
-      />
-    </template>
+    <ChartComparisonDailyEvolution
+      v-if="velo && voiture"
+      :title="`Fréquentation journalière vélo et voiture - ${name}`"
+      :velo="velo"
+      :voiture="voiture"
+      :selected-day="day"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+      @select-day="day = $event"
+    />
     <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
+
+    <ProseH3 id="heure-par-heure">Heure par heure</ProseH3>
+    <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
+    <ChartComparisonHourlyDay
+      v-if="velo && voiture"
+      v-model:day="day"
+      :title="`Vélos et voitures heure par heure - ${name}`"
+      :velo-counter="veloCounter"
+      :voiture-counter="voitureCounter"
+      :min="firstCommonDay"
+      :max="lastCommonDay"
+      class="mt-4 lg:p-4 lg:rounded-lg lg:shadow-md"
+    />
   </div>
 </template>
 

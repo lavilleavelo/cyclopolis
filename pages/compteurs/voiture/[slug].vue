@@ -39,11 +39,11 @@
     </div>
     <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
 
-    <h2>Total des passages par année</h2>
+    <ProseH2 id="total-des-passages-par-annee">Total des passages par année</ProseH2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur voiture chaque année.</p>
     <ChartTotalByYear :title="graphTitles.totalByYear" :data="counter" class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md" />
 
-    <h2>Historique mensuel</h2>
+    <ProseH2 id="historique-mensuel">Historique mensuel</ProseH2>
     <p>Nombre de passages détecté chaque mois depuis la mise en service du compteur.</p>
     <ChartMonthlyHistogram
       :title="graphTitles.monthlyHistogram"
@@ -52,7 +52,7 @@
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
     />
 
-    <h2>Comparaison des passages</h2>
+    <ProseH2 id="comparaison-des-passages">Comparaison des passages</ProseH2>
     <p>
       Comparez la fréquentation voiture pour un mois donné à travers les années, ou visualisez l'évolution mois par mois
       sur plusieurs années.
@@ -66,11 +66,11 @@
     <CounterDetailedStats :counter="{ type: 'voiture', idsPdc: counter.idsPdc }" :name="counter.name" />
 
     <template v-if="counter.limitation">
-      <h2>Limitation</h2>
+      <ProseH2 id="limitation">Limitation</ProseH2>
       <p>{{ counter.limitation }}</p>
     </template>
 
-    <h2>Source des données</h2>
+    <ProseH2 id="source-des-donnees">Source des données</ProseH2>
     <p>
       Les données proviennent de <a href="https://avatar.cerema.fr/cartographie" target="_blank">avatar.cerema.fr</a>.
     </p>

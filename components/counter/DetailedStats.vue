@@ -5,7 +5,7 @@
   </p>
 
   <div v-else>
-    <h2>Semaine, weekend et vacances</h2>
+    <ProseH2 id="semaine-weekend-et-vacances">Semaine, weekend et vacances</ProseH2>
     <p>
       Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée. Les jours ouvrés
       sont séparés entre période scolaire et vacances scolaires (académie de Lyon).
@@ -61,39 +61,39 @@
     </template>
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <h2>Évolution journalière</h2>
+    <ProseH2 id="evolution-journaliere">Évolution journalière</ProseH2>
     <p>
       Nombre de {{ unit }} chaque jour. La moyenne sur 7 jours lisse l'alternance semaine / weekend et fait ressortir
       les tendances : vacances, météo, grèves…
     </p>
-    <template v-if="stats">
-      <ChartDailyEvolution
-        :unit="unit"
-        :title="`${dailyTitle} - ${name}`"
-        :stats="stats"
-        :live-days="liveDays"
-        :highlighted-days="hourlyDays"
-        class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
-        @select-day="addHourlyDay"
-      />
-
-      <h3>Heure par heure</h3>
-      <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
-      <ChartHourlyDays
-        :unit="unit"
-        :counter="counter"
-        :title="`${unitLabel} heure par heure - ${name}`"
-        :stats="stats"
-        :live-days="liveDays"
-        :days="hourlyDays"
-        class="mt-4 lg:p-4 lg:rounded-lg lg:shadow-md"
-        @add="addHourlyDay"
-        @remove="removeHourlyDay"
-      />
-    </template>
+    <ChartDailyEvolution
+      v-if="stats"
+      :unit="unit"
+      :title="`${dailyTitle} - ${name}`"
+      :stats="stats"
+      :live-days="liveDays"
+      :highlighted-days="hourlyDays"
+      class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
+      @select-day="addHourlyDay"
+    />
     <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <h2>Records</h2>
+    <ProseH3 id="heure-par-heure">Heure par heure</ProseH3>
+    <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
+    <ChartHourlyDays
+      v-if="stats"
+      :unit="unit"
+      :counter="counter"
+      :title="`${unitLabel} heure par heure - ${name}`"
+      :stats="stats"
+      :live-days="liveDays"
+      :days="hourlyDays"
+      class="mt-4 lg:p-4 lg:rounded-lg lg:shadow-md"
+      @add="addHourlyDay"
+      @remove="removeHourlyDay"
+    />
+
+    <ProseH2 id="records">Records</ProseH2>
     <p>Les journées les plus fréquentées depuis la mise en service du compteur.</p>
 
     <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
