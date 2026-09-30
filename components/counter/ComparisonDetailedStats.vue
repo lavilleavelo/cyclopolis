@@ -4,7 +4,7 @@
   </p>
 
   <div v-else>
-    <ProseH2 id="semaine-weekend-et-vacances">Semaine, weekend et vacances</ProseH2>
+    <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>Part des vélos dans le trafic (vélos et voitures) selon le type de jour et l'heure.</p>
 
     <div class="flex items-center gap-2 mt-6">
@@ -21,7 +21,7 @@
       </select>
     </div>
 
-    <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="mt-4 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
       <template v-if="veloProfile && voitureProfile">
         <div v-for="tile in shareTiles" :key="tile.label" class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">{{ tile.label }}</div>
@@ -40,11 +40,12 @@
       :subtitle="periodLabel"
       :velo="veloProfile"
       :voiture="voitureProfile"
+      :sync-url="!embedded"
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
     />
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <ProseH2 id="evolution-de-la-part-du-velo">Évolution de la part du vélo</ProseH2>
+    <ProseH2 :id="anchor('evolution-de-la-part-du-velo')">Évolution de la part du vélo</ProseH2>
     <p>Part des vélos dans le trafic, année par année, aux heures de pointe et sur la journée.</p>
     <ChartComparisonPeakEvolution
       v-if="velo && veloYearly && voitureYearly && currentYear"
@@ -58,7 +59,7 @@
     />
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <ProseH2 id="evolution-journaliere">Évolution journalière</ProseH2>
+    <ProseH2 :id="anchor('evolution-journaliere')">Évolution journalière</ProseH2>
     <p>Moyenne sur 7 jours des vélos et des voitures.</p>
     <ChartComparisonDailyEvolution
       v-if="velo && voiture"
@@ -66,12 +67,13 @@
       :velo="velo"
       :voiture="voiture"
       :selected-day="day"
+      :sync-url="!embedded"
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       @select-day="day = $event"
     />
     <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <ProseH3 id="heure-par-heure">Heure par heure</ProseH3>
+    <ProseH3 :id="anchor('heure-par-heure')">Heure par heure</ProseH3>
     <p>Cliquez sur une journée du graphique ou choisissez une date pour la voir heure par heure.</p>
     <ChartComparisonHourlyDay
       v-if="velo && voiture"
@@ -100,7 +102,7 @@ import { dayQueryParam, useQueryParam } from '~/composables/useQueryParam';
 const PEAK_SHARE_HOURS = [6, 22];
 const DEFAULT_PEAK_HOURS = [8, 18];
 
-const props = defineProps<{ veloIdPdc: number; voitureIdsPdc: number[]; name: string }>();
+const props = defineProps<{ veloIdPdc: number; voitureIdsPdc: number[]; name: string; embedded?: boolean }>();
 
 const veloCounter: CounterRef = { type: 'velo', idPdc: props.veloIdPdc };
 const voitureCounter: CounterRef = { type: 'voiture', idsPdc: props.voitureIdsPdc };
@@ -115,11 +117,17 @@ const lastCommonDay = computed(() => [velo.value?.lastDay ?? '', voiture.value?.
 
 const day = ref<string | null>(null);
 const period = ref<'recent' | number>('recent');
-useQueryParam('horaire', day, dayQueryParam());
-useQueryParam('profil-periode', period, {
-  parse: (value) => (/^\d{4}$/.test(value) ? Number(value) : undefined),
-  serialize: (value) => String(value),
-});
+if (!props.embedded) {
+  useQueryParam('horaire', day, dayQueryParam());
+  useQueryParam('profil-periode', period, {
+    parse: (value) => (/^\d{4}$/.test(value) ? Number(value) : undefined),
+    serialize: (value) => String(value),
+  });
+}
+
+function anchor(id: string): string | undefined {
+  return props.embedded ? undefined : id;
+}
 
 const currentYear = computed(() => (lastCommonDay.value ? Number(lastCommonDay.value.slice(0, 4)) : null));
 

@@ -1,6 +1,6 @@
 <template>
   <template v-if="photos.length > 0">
-    <ProseH2 id="photos-du-compteur">Photos du compteur</ProseH2>
+    <ProseH2 :id="embedded ? undefined : 'photos-du-compteur'">Photos du compteur</ProseH2>
     <div class="not-prose mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
       <a
         v-for="(photo, index) in photos"
@@ -27,7 +27,7 @@
 import PhotoGalleryDialog from '~/components/media/PhotoGalleryDialog.vue';
 import { useCounterPhotos } from '~/composables/useCounterDetailedStats';
 
-const props = defineProps<{ idPdc: number; name: string }>();
+const props = defineProps<{ idPdc: number; name: string; embedded?: boolean }>();
 
 const photos = await useCounterPhotos(props.idPdc);
 const gallery = ref<InstanceType<typeof PhotoGalleryDialog> | null>(null);

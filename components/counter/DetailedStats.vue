@@ -5,13 +5,13 @@
   </p>
 
   <div v-else>
-    <ProseH2 id="semaine-weekend-et-vacances">Semaine, weekend et vacances</ProseH2>
+    <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>
       Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée. Les jours ouvrés
       sont séparés entre période scolaire et vacances scolaires (académie de Lyon).
     </p>
 
-    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div class="mt-6 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
       <template v-if="stats">
         <div class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">Jour ouvré</div>
@@ -61,7 +61,7 @@
     </template>
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <ProseH2 id="evolution-journaliere">Évolution journalière</ProseH2>
+    <ProseH2 :id="anchor('evolution-journaliere')">Évolution journalière</ProseH2>
     <p>
       Nombre de {{ unit }} chaque jour. La moyenne sur 7 jours lisse l'alternance semaine / weekend et fait ressortir
       les tendances : vacances, météo, grèves…
@@ -73,12 +73,13 @@
       :stats="stats"
       :live-days="liveDays"
       :highlighted-days="hourlyDays"
+      :sync-url="!embedded"
       class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       @select-day="addHourlyDay"
     />
     <div v-else class="mt-8 h-[380px] bg-gray-100 rounded-lg animate-pulse" />
 
-    <ProseH3 id="heure-par-heure">Heure par heure</ProseH3>
+    <ProseH3 :id="anchor('heure-par-heure')" ref="hourlyHeading">Heure par heure</ProseH3>
     <p>Cliquez sur une journée du graphique ou sur un record, ou choisissez une date pour la voir heure par heure.</p>
     <ChartHourlyDays
       v-if="stats"
@@ -93,7 +94,7 @@
       @remove="removeHourlyDay"
     />
 
-    <ProseH2 id="records">Records</ProseH2>
+    <ProseH2 :id="anchor('records')">Records</ProseH2>
     <p>Les journées les plus fréquentées depuis la mise en service du compteur.</p>
 
     <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -142,7 +143,7 @@
       </template>
     </div>
 
-    <div v-if="stats" class="grid grid-cols-1 lg:grid-cols-2 gap-x-8">
+    <div v-if="stats" class="grid grid-cols-1 gap-x-8" :class="{ 'lg:grid-cols-2': !embedded }">
       <div>
         <h3>Les 10 meilleures journées</h3>
         <table>
@@ -197,6 +198,7 @@
 </template>
 
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue';
 import {
   DAY_COMPARISON_COLORS,
   SCHOOL_HOLIDAY_COLOR,
@@ -213,7 +215,7 @@ import { useQueryParam, useUrlHash } from '~/composables/useQueryParam';
 
 const RECENT_RECORD_DAYS = 30;
 
-const props = defineProps<{ counter: CounterRef; name: string }>();
+const props = defineProps<{ counter: CounterRef; name: string; embedded?: boolean }>();
 
 const unit = computed(() => (props.counter.type === 'velo' ? 'passages' : 'véhicules'));
 const unitLabel = computed(() => capitalize(unit.value));
@@ -225,15 +227,17 @@ const { data: stats, status } = useCounterDetailedStats(props.counter);
 const { data: liveDays } = useCounterLiveDays(props.counter);
 
 const hourlyDays = ref<SelectedDay[]>([]);
-useQueryParam('horaire', hourlyDays, {
-  parse: (value) => {
-    const days = [...new Set(value.split(','))]
-      .filter((day) => /^\d{4}-\d{2}-\d{2}$/.test(day))
-      .slice(0, DAY_COMPARISON_COLORS.length);
-    return days.length > 0 ? days.map((day, index) => ({ day, color: DAY_COMPARISON_COLORS[index]! })) : undefined;
-  },
-  serialize: (days) => days.map((selected) => selected.day).join(','),
-});
+if (!props.embedded) {
+  useQueryParam('horaire', hourlyDays, {
+    parse: (value) => {
+      const days = [...new Set(value.split(','))]
+        .filter((day) => /^\d{4}-\d{2}-\d{2}$/.test(day))
+        .slice(0, DAY_COMPARISON_COLORS.length);
+      return days.length > 0 ? days.map((day, index) => ({ day, color: DAY_COMPARISON_COLORS[index]! })) : undefined;
+    },
+    serialize: (days) => days.map((selected) => selected.day).join(','),
+  });
+}
 
 function addHourlyDay(day: string) {
   if (hourlyDays.value.some((selected) => selected.day === day)) {
@@ -247,14 +251,19 @@ function addHourlyDay(day: string) {
 }
 
 const setUrlHash = useUrlHash();
+const hourlyHeading = ref<ComponentPublicInstance | null>(null);
 
 function showHourlyDay(day: string) {
   addHourlyDay(day);
-  if (window.location.hash === '#heure-par-heure') {
-    document.getElementById('heure-par-heure')?.scrollIntoView({ behavior: 'smooth' });
+  if (props.embedded || window.location.hash === '#heure-par-heure') {
+    hourlyHeading.value?.$el.scrollIntoView({ behavior: 'smooth' });
   } else {
     setUrlHash('#heure-par-heure');
   }
+}
+
+function anchor(id: string): string | undefined {
+  return props.embedded ? undefined : id;
 }
 
 function removeHourlyDay(day: string) {

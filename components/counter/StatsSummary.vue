@@ -1,5 +1,5 @@
 <template>
-  <div v-if="stats.totalSinceStart > 0" class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+  <div v-if="stats.totalSinceStart > 0" class="mt-6 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
     <div class="bg-white rounded-lg shadow-sm p-4 text-center">
       <div class="text-xs text-gray-500 uppercase tracking-wide">Moyenne / jour</div>
       <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatNumber(stats.twelveMonthAverageDaily) }}</div>
@@ -51,7 +51,7 @@
 <script setup lang="ts">
 import type { CounterStats } from '~/composables/useCounterStats';
 
-defineProps<{ stats: CounterStats }>();
+defineProps<{ stats: CounterStats; embedded?: boolean }>();
 
 function formatNumber(n: number): string {
   return Math.round(n).toLocaleString('fr-FR');

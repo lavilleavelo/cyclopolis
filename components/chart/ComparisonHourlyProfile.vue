@@ -39,16 +39,24 @@ const DAY_TYPES: { value: DayType; label: string }[] = [
   { value: 'weekend', label: 'Weekend et fériés' },
 ];
 
-const props = defineProps<{ title: string; subtitle: string; velo: CounterProfile; voiture: CounterProfile }>();
+const props = defineProps<{
+  title: string;
+  subtitle: string;
+  velo: CounterProfile;
+  voiture: CounterProfile;
+  syncUrl?: boolean;
+}>();
 
 const dayType = ref<DayType>('weekday');
 const mode = ref<'count' | 'share'>('count');
-useQueryParam(
-  'profil-type',
-  dayType,
-  valuesQueryParam<DayType>({ ouvre: 'weekday', vacances: 'schoolHoliday', weekend: 'weekend' }),
-);
-useQueryParam('profil', mode, valuesQueryParam({ passages: 'count', part: 'share' }));
+if (props.syncUrl) {
+  useQueryParam(
+    'profil-type',
+    dayType,
+    valuesQueryParam<DayType>({ ouvre: 'weekday', vacances: 'schoolHoliday', weekend: 'weekend' }),
+  );
+  useQueryParam('profil', mode, valuesQueryParam({ passages: 'count', part: 'share' }));
+}
 
 type TooltipContext = { points?: { point: { index: number } }[] };
 

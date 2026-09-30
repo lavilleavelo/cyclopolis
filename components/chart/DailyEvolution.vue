@@ -56,18 +56,21 @@ const props = defineProps<{
   liveDays?: LiveDay[] | null;
   highlightedDays?: SelectedDay[];
   unit?: string;
+  syncUrl?: boolean;
 }>();
 
 const emit = defineEmits<{ selectDay: [day: string] }>();
 
 const selectedDays = ref<number | null>(365);
 const showSchoolHolidays = ref(true);
-useQueryParam(
-  'journalier-plage',
-  selectedDays,
-  valuesQueryParam<number | null>({ '3m': 91, '1a': 365, '3a': 3 * 365, tout: null }),
-);
-useQueryParam('journalier-vacances', showSchoolHolidays, valuesQueryParam({ 1: true, 0: false }));
+if (props.syncUrl) {
+  useQueryParam(
+    'journalier-plage',
+    selectedDays,
+    valuesQueryParam<number | null>({ '3m': 91, '1a': 365, '3a': 3 * 365, tout: null }),
+  );
+  useQueryParam('journalier-vacances', showSchoolHolidays, valuesQueryParam({ 1: true, 0: false }));
+}
 
 type Point = [number, number | null];
 type TooltipContext = {
