@@ -21,23 +21,7 @@
 
     <CounterMaintenanceBanner :counts="veloCounter.counts" />
 
-    <div class="mt-6 flex flex-wrap justify-center gap-3">
-      <NuxtLink
-        :to="veloCounter.path"
-        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
-        Voir le compteur vélo
-      </NuxtLink>
-      <NuxtLink
-        v-if="voitureCounter"
-        :to="voitureCounter.path"
-        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
-        Voir le compteur voiture
-      </NuxtLink>
-    </div>
+    <CounterLinks :velo="veloCounter.path" :voiture="voitureCounter?.path" class="mt-6" />
 
     <ProseH2 id="frequentation-annuelle">Fréquentation annuelle</ProseH2>
     <p>Comparaison du nombre total de passages par année entre les vélos et les voitures sur cet axe.</p>
@@ -95,6 +79,8 @@
     <a href="https://avatar.cerema.fr/cartographie" target="_blank">
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
+
+    <CounterLinks :velo="veloCounter.path" :voiture="voitureCounter?.path" class="mt-10" />
   </ContentFrame>
 </template>
 

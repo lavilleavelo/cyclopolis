@@ -34,22 +34,7 @@
       </span>
     </div>
 
-    <div v-if="matchingVoitureCounter" class="mt-4 flex flex-wrap justify-center gap-3">
-      <NuxtLink
-        :to="matchingVoitureCounter.path"
-        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
-        Voir le compteur voiture
-      </NuxtLink>
-      <NuxtLink
-        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
-        Comparaison vélo / voiture
-      </NuxtLink>
-    </div>
+    <CounterLinks :voiture="matchingVoitureCounter?.path" :comparison="comparisonPath" class="mt-4" />
 
     <ProseH2 id="total-des-passages-par-annee">Total des passages par année</ProseH2>
     <p>Ce premier diagramme représente le nombre total de passages détecté par le compteur vélo chaque année.</p>
@@ -94,6 +79,8 @@
     </p>
 
     <CounterPhotos :id-pdc="counter.idPdc" :name="counter.name" />
+
+    <CounterLinks :voiture="matchingVoitureCounter?.path" :comparison="comparisonPath" class="mt-10" />
   </ContentFrame>
 </template>
 
@@ -126,6 +113,10 @@ const { data: matchingVoitureCounter } = await useAsyncData(`voiture-match-${pat
     .where('cyclopolisId', '=', counter.value.cyclopolisId)
     .first();
 });
+
+const comparisonPath = computed(() =>
+  matchingVoitureCounter.value ? `/compteurs/comparaison/${counter.value.cyclopolisId}` : undefined,
+);
 
 const graphTitles = {
   totalByYear: `Fréquentation cycliste annuelle - ${counter.value.name}`,

@@ -21,22 +21,7 @@
 
     <CounterMaintenanceBanner :counts="counter.counts" />
 
-    <div v-if="matchingVeloCounter" class="mt-4 flex flex-wrap justify-center gap-3">
-      <NuxtLink
-        :to="matchingVeloCounter.path"
-        class="flex items-center gap-2 px-4 py-2 bg-pink-50 hover:bg-pink-100 rounded-lg transition-colors text-lvv-pink font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-bicycle-16-regular" class="text-lg" />
-        Voir le compteur vélo
-      </NuxtLink>
-      <NuxtLink
-        :to="`/compteurs/comparaison/${counter.cyclopolisId}`"
-        class="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors text-lvv-blue-600 font-medium text-sm no-underline"
-      >
-        <Icon name="fluent:vehicle-car-profile-ltr-16-regular" class="text-lg" />
-        Comparaison vélo / voiture
-      </NuxtLink>
-    </div>
+    <CounterLinks :velo="matchingVeloCounter?.path" :comparison="comparisonPath" class="mt-4" />
     <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
 
     <ProseH2 id="total-des-passages-par-annee">Total des passages par année</ProseH2>
@@ -83,6 +68,8 @@
     <a href="https://avatar.cerema.fr/cartographie" target="_blank">
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
+
+    <CounterLinks :velo="matchingVeloCounter?.path" :comparison="comparisonPath" class="mt-10" />
   </ContentFrame>
 </template>
 
@@ -113,6 +100,10 @@ const { data: matchingVeloCounter } = await useAsyncData(`velo-match-${path}`, (
     .where('cyclopolisId', '=', counter.value.cyclopolisId)
     .first();
 });
+
+const comparisonPath = computed(() =>
+  matchingVeloCounter.value ? `/compteurs/comparaison/${counter.value.cyclopolisId}` : undefined,
+);
 
 const graphTitles = {
   totalByYear: `Fréquentation voiture annuelle - ${counter.value.name}`,
