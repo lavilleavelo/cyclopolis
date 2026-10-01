@@ -123,13 +123,19 @@ if (!veloCounter.value || !voitureCounter.value) {
 const data = computed(() => {
   if (!voitureCounter.value || !veloCounter.value) return [];
 
-  return voitureCounter.value.counts.map((voitureCount: Count) => {
+  return voitureCounter.value.counts.flatMap((voitureCount: Count) => {
     const veloCount = veloCounter.value?.counts.find((veloCount: Count) => veloCount.month === voitureCount.month);
-    return {
-      month: voitureCount.month,
-      veloCount: veloCount?.count || 0,
-      voitureCount: voitureCount.count,
-    };
+    if (!veloCount) {
+      return [];
+    }
+
+    return [
+      {
+        month: voitureCount.month,
+        veloCount: veloCount.count,
+        voitureCount: voitureCount.count,
+      },
+    ];
   });
 });
 
