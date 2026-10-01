@@ -7,19 +7,7 @@
     <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>Part des vélos dans le trafic (vélos et voitures) selon le type de jour et l'heure.</p>
 
-    <div class="flex items-center gap-2 mt-6">
-      <label for="comparison-period" class="text-xs text-gray-500 whitespace-nowrap lg:text-sm">Période</label>
-      <select
-        id="comparison-period"
-        v-model="period"
-        class="text-xs border border-gray-300 rounded-md shadow-sm focus:ring-lvv-blue-600 focus:border-lvv-blue-600 py-1 pl-2 pr-6"
-      >
-        <option value="recent">12 derniers mois</option>
-        <option v-for="year in years" :key="year" :value="year">
-          {{ year }}{{ year === currentYear ? ' (en cours)' : '' }}
-        </option>
-      </select>
-    </div>
+    <CounterPeriodSelect v-model="period" :years="years" :current-year="currentYear" />
 
     <div class="mt-4 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
       <template v-if="veloProfile && voitureProfile">
@@ -91,11 +79,16 @@
 <script setup lang="ts">
 import {
   formatCount,
-  formatDay,
+  monthsRange,
+  selectProfile,
+  statsPeriodLabel,
+  statsPeriodQueryParam,
   useCounterDetailedStats,
+  useCounterPeriodStats,
   useCounterYearlyStats,
   type CounterRef,
   type DayType,
+  type StatsPeriod,
 } from '~/composables/useCounterDetailedStats';
 import { dayQueryParam, useQueryParam } from '~/composables/useQueryParam';
 
@@ -116,14 +109,15 @@ const firstCommonDay = computed(() => [velo.value?.firstDay ?? '', voiture.value
 const lastCommonDay = computed(() => [velo.value?.lastDay ?? '', voiture.value?.lastDay ?? ''].sort()[0]);
 
 const day = ref<string | null>(null);
-const period = ref<'recent' | number>('recent');
+const period = ref<StatsPeriod>('recent');
 if (!props.embedded) {
   useQueryParam('horaire', day, dayQueryParam());
-  useQueryParam('profil-periode', period, {
-    parse: (value) => (/^\d{4}$/.test(value) ? Number(value) : undefined),
-    serialize: (value) => String(value),
-  });
+  useQueryParam('profil-periode', period, statsPeriodQueryParam());
 }
+
+const monthsPeriodRange = computed(() => monthsRange(period.value, lastCommonDay.value));
+const { data: veloMonths } = useCounterPeriodStats(veloCounter, monthsPeriodRange);
+const { data: voitureMonths } = useCounterPeriodStats(voitureCounter, monthsPeriodRange);
 
 function anchor(id: string): string | undefined {
   return props.embedded ? undefined : id;
@@ -142,20 +136,18 @@ const years = computed(() =>
     .sort((a, b) => b - a),
 );
 
-const veloProfile = computed(() =>
-  period.value === 'recent' ? velo.value : veloYearly.value?.find((year) => year.year === period.value),
-);
+const veloProfile = computed(() => selectProfile(period.value, velo.value, veloYearly.value, veloMonths.value));
 const voitureProfile = computed(() =>
-  period.value === 'recent' ? voiture.value : voitureYearly.value?.find((year) => year.year === period.value),
+  selectProfile(period.value, voiture.value, voitureYearly.value, voitureMonths.value),
 );
 
-const periodLabel = computed(() => {
-  if (period.value !== 'recent') {
-    return `Année ${period.value}${period.value === currentYear.value ? ' (en cours)' : ''}`;
-  }
-
-  return velo.value ? `Du ${formatDay(velo.value.period.from)} au ${formatDay(velo.value.period.to)}` : '';
-});
+const periodLabel = computed(() =>
+  statsPeriodLabel(
+    period.value,
+    period.value === 'recent' ? velo.value?.period : monthsPeriodRange.value,
+    currentYear.value,
+  ),
+);
 
 function share(bikes: number | null, cars: number | null): number | null {
   if (bikes === null || cars === null || bikes + cars === 0) {

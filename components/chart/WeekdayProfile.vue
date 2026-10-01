@@ -10,12 +10,12 @@ import {
   WEEKEND_COLOR,
   capitalize,
   formatCount,
-  type CounterDetailedStats,
+  type CounterProfile,
 } from '~/composables/useCounterDetailedStats';
 
 const DAYS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 
-const props = defineProps<{ title: string; stats: CounterDetailedStats; unit?: string }>();
+const props = defineProps<{ title: string; subtitle?: string; stats: CounterProfile; unit?: string }>();
 
 type TooltipContext = { y: number; point: { index: number } };
 
@@ -23,6 +23,7 @@ const chartOptions = computed(() => ({
   chart: { type: 'column', height: 300 },
   lang: { locale: 'fr-FR' },
   title: { text: props.title },
+  subtitle: { text: props.subtitle },
   credits: { enabled: false },
   legend: { enabled: false },
   xAxis: { categories: DAYS.map((day) => `${day.slice(0, 3)}.`) },

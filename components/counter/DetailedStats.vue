@@ -7,30 +7,34 @@
   <div v-else>
     <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>
-      Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée, sur les douze
-      derniers mois<span v-if="stats"> (du {{ formatDay(stats.period.from) }} au {{ formatDay(stats.period.to) }})</span
-      >, hors jours de panne du compteur. Les jours ouvrés sont séparés entre période scolaire et vacances scolaires
-      (académie de Lyon). La moyenne par jour de la semaine exclut les vacances scolaires et les jours fériés.
+      Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée, sur la période
+      choisie ci-dessous (par défaut les douze derniers mois), hors jours de panne du compteur. Les jours ouvrés sont
+      séparés entre période scolaire et vacances scolaires (académie de Lyon). La moyenne par jour de la semaine exclut
+      les vacances scolaires et les jours fériés.
     </p>
 
-    <div class="mt-6 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
-      <template v-if="stats">
+    <CounterPeriodSelect v-model="period" :years="years" :current-year="currentYear" />
+
+    <div class="mt-4 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
+      <template v-if="profile">
         <div class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">Jour ouvré</div>
-          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">{{ formatOptionalCount(stats.averages.weekday) }}</div>
+          <div class="text-2xl font-bold text-lvv-blue-600 mt-1">
+            {{ formatOptionalCount(profile.averages.weekday) }}
+          </div>
           <div class="text-xs text-gray-500 mt-1">hors vacances scolaires</div>
         </div>
         <div class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">Vacances scolaires</div>
           <div class="text-2xl font-bold mt-1" :style="{ color: SCHOOL_HOLIDAY_COLOR }">
-            {{ formatOptionalCount(stats.averages.schoolHoliday) }}
+            {{ formatOptionalCount(profile.averages.schoolHoliday) }}
           </div>
-          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(stats.averages.schoolHoliday) }}</div>
+          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(profile.averages.schoolHoliday) }}</div>
         </div>
         <div class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">Weekend et fériés</div>
-          <div class="text-2xl font-bold text-lvv-pink mt-1">{{ formatOptionalCount(stats.averages.weekend) }}</div>
-          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(stats.averages.weekend) }}</div>
+          <div class="text-2xl font-bold text-lvv-pink mt-1">{{ formatOptionalCount(profile.averages.weekend) }}</div>
+          <div class="text-xs text-gray-500 mt-1">{{ gapLabel(profile.averages.weekend) }}</div>
         </div>
         <div class="bg-white rounded-lg shadow-sm p-4 text-center">
           <div class="text-xs text-gray-500 uppercase tracking-wide">Heures de pointe</div>
@@ -43,17 +47,19 @@
       </template>
     </div>
 
-    <template v-if="stats">
+    <template v-if="profile">
       <ChartHourlyProfile
         :unit="unit"
         :title="`${unitLabel} par heure - ${name}`"
-        :stats="stats"
+        :subtitle="periodLabel"
+        :stats="profile"
         class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       />
       <ChartWeekdayProfile
         :unit="unit"
         :title="`${unitLabel} par jour de la semaine - ${name}`"
-        :stats="stats"
+        :subtitle="periodLabel"
+        :stats="profile"
         class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       />
     </template>
@@ -204,10 +210,17 @@ import {
   dayToTimestamp,
   formatCount,
   formatDay,
+  monthsRange,
+  selectProfile,
+  statsPeriodLabel,
+  statsPeriodQueryParam,
   useCounterDetailedStats,
   useCounterLiveDays,
+  useCounterPeriodStats,
+  useCounterYearlyStats,
   type CounterRef,
   type SelectedDay,
+  type StatsPeriod,
 } from '~/composables/useCounterDetailedStats';
 import { useQueryParam, useUrlHash } from '~/composables/useQueryParam';
 
@@ -223,9 +236,22 @@ const dailyTitle = computed(() =>
 
 const { data: stats, status } = useCounterDetailedStats(props.counter);
 const { data: liveDays } = useCounterLiveDays(props.counter);
+const { data: yearly } = useCounterYearlyStats(props.counter);
+
+const period = ref<StatsPeriod>('recent');
+const monthsPeriodRange = computed(() => monthsRange(period.value, stats.value?.lastDay));
+const { data: monthsStats } = useCounterPeriodStats(props.counter, monthsPeriodRange);
+const profile = computed(() => selectProfile(period.value, stats.value, yearly.value, monthsStats.value));
+const years = computed(() =>
+  (yearly.value ?? [])
+    .filter((year) => year.averages.weekday !== null)
+    .map((year) => year.year)
+    .sort((a, b) => b - a),
+);
 
 const hourlyDays = ref<SelectedDay[]>([]);
 if (!props.embedded) {
+  useQueryParam('profil-periode', period, statsPeriodQueryParam());
   useQueryParam('horaire', hourlyDays, {
     parse: (value) => {
       const days = [...new Set(value.split(','))]
@@ -270,6 +296,14 @@ function removeHourlyDay(day: string) {
 
 const currentYear = computed(() => (stats.value ? Number(stats.value.lastDay.slice(0, 4)) : null));
 
+const periodLabel = computed(() =>
+  statsPeriodLabel(
+    period.value,
+    period.value === 'recent' ? stats.value?.period : monthsPeriodRange.value,
+    currentYear.value,
+  ),
+);
+
 const lastYearRecord = computed(() => {
   const byYear = stats.value?.records.byYear ?? [];
   const current = byYear.find((record) => record.year === currentYear.value);
@@ -283,7 +317,7 @@ const lastYearRecord = computed(() => {
 const recordsByYear = computed(() => [...(stats.value?.records.byYear ?? [])].reverse());
 
 function gapLabel(average: number | null): string {
-  const weekday = stats.value?.averages.weekday;
+  const weekday = profile.value?.averages.weekday;
   if (!weekday || average === null) {
     return `${unit.value} / jour`;
   }
@@ -293,7 +327,7 @@ function gapLabel(average: number | null): string {
 }
 
 const peakHoursLabel = computed(() => {
-  const { morning, evening } = stats.value?.peakHours ?? {};
+  const { morning, evening } = profile.value?.peakHours ?? {};
   return [morning, evening]
     .filter((peak) => peak)
     .map((peak) => `${peak!.hour}h`)

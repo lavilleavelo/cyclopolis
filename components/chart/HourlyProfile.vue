@@ -11,10 +11,10 @@ import {
   WEEKEND_COLOR,
   capitalize,
   formatCount,
-  type CounterDetailedStats,
+  type CounterProfile,
 } from '~/composables/useCounterDetailedStats';
 
-const props = defineProps<{ title: string; stats: CounterDetailedStats; unit?: string }>();
+const props = defineProps<{ title: string; subtitle?: string; stats: CounterProfile; unit?: string }>();
 
 type TooltipContext = {
   points?: { y: number; point: { index: number }; series: { name: string; color: string } }[];
@@ -29,6 +29,7 @@ const chartOptions = computed(() => {
     chart: { type: 'line', height: 340 },
     lang: { locale: 'fr-FR' },
     title: { text: props.title },
+    subtitle: { text: props.subtitle },
     credits: { enabled: false },
     xAxis: {
       categories: weekday.map((_, hour) => `${hour}h`),

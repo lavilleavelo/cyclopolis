@@ -1,3 +1,6 @@
+import type { Ref } from 'vue';
+import type { QueryParamCodec } from '~/composables/useQueryParam';
+
 export type DayCount = { day: string; count: number };
 export type HourPeak = { hour: number; count: number };
 export type SchoolHoliday = { start: string; end: string; name: string };
@@ -70,6 +73,83 @@ export function useCounterYearlyStats(counter: CounterRef) {
     server: false,
     lazy: true,
   });
+}
+
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export type StatsPeriod = 'recent' | '3-mois' | '6-mois' | number;
+
+export type StatsRange = { from: string; to: string };
+
+export const STATS_PERIOD_OPTIONS: { value: StatsPeriod; label: string; months?: number }[] = [
+  { value: '3-mois', label: '3 derniers mois', months: 3 },
+  { value: '6-mois', label: '6 derniers mois', months: 6 },
+  { value: 'recent', label: '12 derniers mois' },
+];
+
+export function statsPeriodQueryParam(): QueryParamCodec<StatsPeriod> {
+  return {
+    parse: (value) => {
+      if (/^\d{4}$/.test(value)) {
+        return Number(value);
+      }
+
+      return STATS_PERIOD_OPTIONS.find((option) => option.value === value)?.value;
+    },
+    serialize: (value) => String(value),
+  };
+}
+
+export function monthsRange(period: StatsPeriod, lastDay: string | null | undefined): StatsRange | null {
+  const months = STATS_PERIOD_OPTIONS.find((option) => option.value === period)?.months;
+  if (!months || !lastDay) {
+    return null;
+  }
+
+  const next = new Date(dayToTimestamp(lastDay) + DAY_MS);
+  const month = next.getUTCMonth() - months;
+  const lastDayOfMonth = new Date(Date.UTC(next.getUTCFullYear(), month + 1, 0)).getUTCDate();
+  const from = new Date(Date.UTC(next.getUTCFullYear(), month, Math.min(next.getUTCDate(), lastDayOfMonth)));
+  return { from: from.toISOString().slice(0, 10), to: lastDay };
+}
+
+export function useCounterPeriodStats(counter: CounterRef, range: Ref<StatsRange | null>) {
+  const { url, query } = counterEndpoint(counter, 'stats');
+  return useAsyncData(
+    () => `counter-period-stats-${counterKey(counter)}-${range.value?.from ?? ''}-${range.value?.to ?? ''}`,
+    () =>
+      range.value ? $fetch<CounterDetailedStats>(url, { query: { ...query, ...range.value } }) : Promise.resolve(null),
+    { server: false, lazy: true },
+  );
+}
+
+export function selectProfile(
+  period: StatsPeriod,
+  recent: CounterProfile | null | undefined,
+  yearly: YearlyStats[] | null | undefined,
+  months: CounterProfile | null | undefined,
+): CounterProfile | null | undefined {
+  if (period === 'recent') {
+    return recent;
+  }
+
+  if (typeof period === 'number') {
+    return yearly?.find((stats) => stats.year === period);
+  }
+
+  return months;
+}
+
+export function statsPeriodLabel(
+  period: StatsPeriod,
+  range: StatsRange | null | undefined,
+  currentYear: number | null,
+): string {
+  if (typeof period === 'number') {
+    return `Année ${period}${period === currentYear ? ' (en cours)' : ''}`;
+  }
+
+  return range ? `Du ${formatDay(range.from)} au ${formatDay(range.to)}` : '';
 }
 
 export type CounterPhoto = { url: string; thumbnail: string };
