@@ -1,6 +1,6 @@
 <template>
   <template v-if="photos.length > 0">
-    <ProseH2 :id="embedded ? undefined : 'photos-du-compteur'">Photos du compteur</ProseH2>
+    <ProseH3 :id="embedded ? undefined : 'photos-du-compteur'">Photos du compteur</ProseH3>
     <div class="not-prose mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
       <a
         v-for="(photo, index) in photos"

@@ -80,6 +80,8 @@
 
     <CounterPhotos :id-pdc="counter.idPdc" :name="counter.name" />
 
+    <CounterSensor :id-pdc="counter.idPdc" :name="counter.name" />
+
     <CounterLinks :voiture="matchingVoitureCounter?.path" :comparison="comparisonPath" class="mt-10" />
   </ContentFrame>
 </template>
