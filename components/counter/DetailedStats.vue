@@ -7,8 +7,10 @@
   <div v-else>
     <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>
-      Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée. Les jours ouvrés
-      sont séparés entre période scolaire et vacances scolaires (académie de Lyon).
+      Fréquentation moyenne selon le type de jour, et répartition des {{ unit }} au fil de la journée, sur les douze
+      derniers mois<span v-if="stats"> (du {{ formatDay(stats.period.from) }} au {{ formatDay(stats.period.to) }})</span
+      >, hors jours de panne du compteur. Les jours ouvrés sont séparés entre période scolaire et vacances scolaires
+      (académie de Lyon). La moyenne par jour de la semaine exclut les vacances scolaires et les jours fériés.
     </p>
 
     <div class="mt-6 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
@@ -54,10 +56,6 @@
         :stats="stats"
         class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       />
-      <p class="text-sm">
-        Moyennes calculées du {{ formatDay(stats.period.from) }} au {{ formatDay(stats.period.to) }}, hors jours de
-        panne du compteur. La moyenne par jour de la semaine exclut les vacances scolaires et les jours fériés.
-      </p>
     </template>
     <div v-else class="mt-8 h-[340px] bg-gray-100 rounded-lg animate-pulse" />
 
