@@ -21,6 +21,15 @@
 
     <CounterMaintenanceBanner :counts="veloCounter.counts" />
 
+    <p
+      v-for="limitation in limitations"
+      :key="limitation"
+      class="not-prose mt-4 rounded-md border border-gray-200 bg-gray-50 px-3 py-2 text-center text-sm text-gray-700"
+    >
+      <Icon name="mdi:information-outline" class="align-text-bottom text-gray-500" />
+      {{ limitation }}
+    </p>
+
     <CounterLinks :velo="veloCounter.path" :voiture="voitureCounter?.path" class="mt-6" />
 
     <ProseH2 id="frequentation-annuelle">Fréquentation annuelle</ProseH2>
@@ -119,6 +128,10 @@ if (!veloCounter.value || !voitureCounter.value) {
   const router = useRouter();
   router.push({ path: '/404' });
 }
+
+const limitations = computed(() =>
+  [veloCounter.value?.limitation, voitureCounter.value?.limitation].filter((text): text is string => Boolean(text)),
+);
 
 const data = computed(() => {
   if (!voitureCounter.value || !veloCounter.value) return [];

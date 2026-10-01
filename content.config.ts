@@ -138,6 +138,7 @@ export default defineContentConfig({
         idsPdc: z.array(z.number()).optional(),
         cyclopolisId: z.string().optional(),
         coordinates: z.array(z.number()).length(2),
+        limitation: z.string().optional(),
         points: z
           .array(
             z.object({

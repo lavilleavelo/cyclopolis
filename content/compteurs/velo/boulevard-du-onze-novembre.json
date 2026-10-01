@@ -1,6 +1,7 @@
 {
   "name": "Boulevard du 11 Novembre 1918",
   "description": "Le compteur vélo du boulevard du 11 Novembre 1918 à Villeurbanne.",
+  "limitation": "Le compteur vélo est installé sur la piste cyclable. Les vélos qui roulent sur la voie de bus ne sont pas comptés.",
   "arrondissement": "Villeurbanne",
   "idPdc": 100053287,
   "coordinates": [
