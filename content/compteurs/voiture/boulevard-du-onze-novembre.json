@@ -10,6 +10,30 @@
     4.865278,
     45.778994
   ],
+  "points": [
+    {
+      "idPdc": 2135,
+      "name": "11 Novembre_Tonkin_Condorcet",
+      "road": "BD DU 11 NOVEMBRE 1918",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.865442970123016,
+        45.77900125379037
+      ]
+    },
+    {
+      "idPdc": 2142,
+      "name": "11 Novembre_Boulevard_Condorcet",
+      "road": "BD DU 11 NOVEMBRE 1918",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.868301400658456,
+        45.77887669322897
+      ]
+    }
+  ],
   "cyclopolisId": "boulevard-du-onze-novembre",
   "counts": [
     {

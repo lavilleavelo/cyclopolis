@@ -10,6 +10,30 @@
     4.882434,
     45.768999
   ],
+  "points": [
+    {
+      "idPdc": 1728,
+      "name": "Zola_Verlaine_France",
+      "road": "CRS EMILE ZOLA",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.88162686912704,
+        45.769109200743
+      ]
+    },
+    {
+      "idPdc": 2445,
+      "name": "Zola_France_Branly",
+      "road": "CRS EMILE ZOLA",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.882702984825198,
+        45.76895864665649
+      ]
+    }
+  ],
   "cyclopolisId": "cours-emile-zola",
   "counts": [
     {

@@ -14,6 +14,30 @@
     4.821394085884095,
     45.749662972658086
   ],
+  "points": [
+    {
+      "idPdc": 1831,
+      "name": "Rambaud_Suchet_Bichat",
+      "road": "QU RAMBAUD",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.820991151574328,
+        45.74930589801511
+      ]
+    },
+    {
+      "idPdc": 1832,
+      "name": "Rambaud_Dugas Montbel_Kitchener",
+      "road": "QU RAMBAUD",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.821564219570951,
+        45.74963352007629
+      ]
+    }
+  ],
   "cyclopolisId": "quai-rambaud",
   "counts": [
     {

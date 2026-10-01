@@ -9,6 +9,19 @@
     4.839424,
     45.76356
   ],
+  "points": [
+    {
+      "idPdc": 1345,
+      "name": "Pt Lafayette_Moulin_Augagneur",
+      "road": "PONT LAFAYETTE",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.839322855843545,
+        45.76352270206952
+      ]
+    }
+  ],
   "cyclopolisId": "pont-lafayette",
   "counts": [
     {

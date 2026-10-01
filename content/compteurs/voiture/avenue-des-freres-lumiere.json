@@ -9,6 +9,19 @@
     4.860589,
     45.74689
   ],
+  "points": [
+    {
+      "idPdc": 1730,
+      "name": "Lumiere_Tchecoslovaques_Berliet",
+      "road": "AV DES FRERES LUMIERE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.860695750415228,
+        45.74685669278566
+      ]
+    }
+  ],
   "cyclopolisId": "avenue-des-freres-lumiere",
   "counts": [
     {

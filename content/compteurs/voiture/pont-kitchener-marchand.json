@@ -15,6 +15,30 @@
     4.822335,
     45.751426
   ],
+  "points": [
+    {
+      "idPdc": 1351,
+      "name": "Kitchener_Joffre_Fulchiron",
+      "road": "PONT KITCHENER MARCHAND",
+      "direction": "Sens 1",
+      "lanes": 3,
+      "coordinates": [
+        4.823224641083281,
+        45.75116181983255
+      ]
+    },
+    {
+      "idPdc": 1313,
+      "name": "Kitchener_Etroits_Rambaud",
+      "road": "PONT KITCHENER MARCHAND",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.821726283269451,
+        45.75158034045725
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

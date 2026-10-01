@@ -15,6 +15,30 @@
     4.814421133922526,
     45.77449789129417
   ],
+  "points": [
+    {
+      "idPdc": 1927,
+      "name": "Sortie_Voies_Nord_XRousse",
+      "road": "AV DE BIRMINGHAM",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.814421133922526,
+        45.77449789129417
+      ]
+    },
+    {
+      "idPdc": 1928,
+      "name": "Entree_Voies_Sud_XRousse",
+      "road": "TUNNEL DE LA CROIX-ROUSSE",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.814408990727481,
+        45.77440826971375
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

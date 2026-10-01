@@ -15,6 +15,30 @@
     4.819893,
     45.733566
   ],
+  "points": [
+    {
+      "idPdc": 1486,
+      "name": "Pt Pasteur_Perrache_Perrin",
+      "road": "PONT PASTEUR",
+      "direction": "Sens 1",
+      "lanes": 3,
+      "coordinates": [
+        4.82209678503621,
+        45.73292124734862
+      ]
+    },
+    {
+      "idPdc": 1487,
+      "name": "Pasteur_Perrin_Perrache",
+      "road": "PONT PASTEUR",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.819967272818205,
+        45.73356496190939
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

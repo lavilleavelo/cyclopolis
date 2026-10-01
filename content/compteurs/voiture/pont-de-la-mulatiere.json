@@ -15,6 +15,30 @@
     4.815759,
     45.729642
   ],
+  "points": [
+    {
+      "idPdc": 3034,
+      "name": "Voie_A7_LaMulatiere_Marseille_1",
+      "road": "A7N_PONT PASTEUR_LA MULATIERE",
+      "direction": "Sens 1",
+      "lanes": 3,
+      "coordinates": [
+        4.815664401018978,
+        45.72962598867895
+      ]
+    },
+    {
+      "idPdc": 3035,
+      "name": "Voie_A7_LaMulatiere_Paris_1",
+      "road": "A7N_LA MULATIERE_PONT PASTEUR",
+      "direction": "Sens 2",
+      "lanes": 3,
+      "coordinates": [
+        4.815802345228621,
+        45.72965914854434
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2019-01-01",

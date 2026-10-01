@@ -10,6 +10,30 @@
     4.829711,
     45.763259
   ],
+  "points": [
+    {
+      "idPdc": 1360,
+      "name": "Pt Juin_Rolland_St. Antoine",
+      "road": "PONT ALPHONSE JUIN",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.829517242760205,
+        45.76327129726324
+      ]
+    },
+    {
+      "idPdc": 1830,
+      "name": "Pt Juin_St.Antoine_Rolland",
+      "road": "PONT ALPHONSE JUIN",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.831135186860958,
+        45.76328554716354
+      ]
+    }
+  ],
   "cyclopolisId": "pont-marechal-juin",
   "counts": [
     {

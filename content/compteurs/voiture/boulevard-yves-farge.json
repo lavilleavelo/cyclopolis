@@ -10,6 +10,30 @@
     4.835262,
     45.744495
   ],
+  "points": [
+    {
+      "idPdc": 1735,
+      "name": "Farge_Servant_Lagrange",
+      "road": "R DE MARSEILLE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.835848741330775,
+        45.74537531947698
+      ]
+    },
+    {
+      "idPdc": 1736,
+      "name": "Farge_Lagrange_Servant",
+      "road": "BD YVES FARGES",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.835359064399869,
+        45.74449557527347
+      ]
+    }
+  ],
   "cyclopolisId": "boulevard-yves-farge",
   "counts": [
     {

@@ -15,6 +15,30 @@
     4.8295024,
     45.7665279
   ],
+  "points": [
+    {
+      "idPdc": 1593,
+      "name": "Pt Feuillee_Bondy_Pecherie",
+      "road": "PONT DE LA FEUILLEE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.828901544876173,
+        45.7662999669453
+      ]
+    },
+    {
+      "idPdc": 1594,
+      "name": "Pt Feuillee_St Vincent_Body",
+      "road": "PONT DE LA FEUILLEE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.829908374918122,
+        45.76671073401533
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

@@ -10,6 +10,30 @@
     4.859796,
     45.749571
   ],
+  "points": [
+    {
+      "idPdc": 1844,
+      "name": "Thomas_Mouton Duvernett_Vivier Merle",
+      "road": "CRS ALBERT THOMAS",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.860393146109296,
+        45.74943337078293
+      ]
+    },
+    {
+      "idPdc": 1845,
+      "name": "Thomas_Dauphine_Gambetta",
+      "road": "CRS ALBERT THOMAS",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.860330525440633,
+        45.74936877872811
+      ]
+    }
+  ],
   "cyclopolisId": "cours-albert-thomas",
   "counts": [
     {

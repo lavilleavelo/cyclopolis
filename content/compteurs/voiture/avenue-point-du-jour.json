@@ -10,6 +10,30 @@
     4.798417,
     45.756463
   ],
+  "points": [
+    {
+      "idPdc": 1817,
+      "name": "Point du Jour_Locard_Aqueducs",
+      "road": "AV DU POINT DU JOUR",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.798423323582584,
+        45.75647653633346
+      ]
+    },
+    {
+      "idPdc": 1818,
+      "name": "Point du Jour_Tessier_Locard",
+      "road": "AV DU POINT DU JOUR",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.798445933710338,
+        45.75644407280921
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

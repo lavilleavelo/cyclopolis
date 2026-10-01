@@ -9,6 +9,19 @@
     4.806566,
     45.764655
   ],
+  "points": [
+    {
+      "idPdc": 1854,
+      "name": "Audry_Loyasse_Berthet",
+      "road": "R PIERRE AUDRY",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.806277456929426,
+        45.76510900901759
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2022-02-01",

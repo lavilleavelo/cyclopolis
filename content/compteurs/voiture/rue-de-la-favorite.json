@@ -10,6 +10,30 @@
     4.80703,
     45.756574
   ],
+  "points": [
+    {
+      "idPdc": 1975,
+      "name": "Favorite_Pommieres_Point du Jour",
+      "road": "R DE LA FAVORITE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.807091473037326,
+        45.75659341830756
+      ]
+    },
+    {
+      "idPdc": 2492,
+      "name": "Favorite_Point du Jour_Pommieres",
+      "road": "R DE LA FAVORITE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.807196328562198,
+        45.75656636090287
+      ]
+    }
+  ],
   "cyclopolisId": "rue-de-la-favorite",
   "counts": [
     {

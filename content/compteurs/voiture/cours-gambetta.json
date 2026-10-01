@@ -9,6 +9,19 @@
     4.845022,
     45.754564
   ],
+  "points": [
+    {
+      "idPdc": 1550,
+      "name": "Gambetta_Fuzier_Peri",
+      "road": "CRS GAMBETTA",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.84509228773754,
+        45.75456769141947
+      ]
+    }
+  ],
   "cyclopolisId": "cours-gambetta",
   "counts": [
     {

@@ -9,6 +9,19 @@
     4.8198007,
     45.7526088
   ],
+  "points": [
+    {
+      "idPdc": 1590,
+      "name": "Choulans_St Laurent_Etroits_2",
+      "road": "CHE DE CHOULANS",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.819801701248991,
+        45.75260844815072
+      ]
+    }
+  ],
   "cyclopolisId": "montee-choulans",
   "counts": [
     {

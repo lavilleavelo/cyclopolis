@@ -10,6 +10,30 @@
     4.849714,
     45.729288
   ],
+  "points": [
+    {
+      "idPdc": 3000,
+      "name": "Ch Lacour_Champagneux_SJ de Dieu",
+      "road": "R CHALLEMEL LACOUR",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.847051412159597,
+        45.72926617039273
+      ]
+    },
+    {
+      "idPdc": 3001,
+      "name": "Ch Lacour_SJ de Dieu_Champagneux",
+      "road": "R CHALLEMEL LACOUR",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.849692066005318,
+        45.72924418423354
+      ]
+    }
+  ],
   "names": [
     "Rue_Challemel_O",
     "Rue_Challemel_E"

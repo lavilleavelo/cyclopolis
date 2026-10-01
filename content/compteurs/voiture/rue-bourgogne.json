@@ -10,6 +10,30 @@
     4.803056,
     45.777932
   ],
+  "points": [
+    {
+      "idPdc": 1308,
+      "name": "Bourgogne_Claire_Tissot",
+      "road": "R DE BOURGOGNE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.802737037670648,
+        45.77825079871286
+      ]
+    },
+    {
+      "idPdc": 2386,
+      "name": "Bourgogne_Chinard_Claire",
+      "road": "R DE BOURGOGNE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.803366397977282,
+        45.77758386267942
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

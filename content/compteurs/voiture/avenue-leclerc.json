@@ -10,6 +10,30 @@
     4.83222,
     45.745959
   ],
+  "points": [
+    {
+      "idPdc": 1732,
+      "name": "Leclerc_Servant_Nadaud",
+      "road": "AV LECLERC",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.832314490776003,
+        45.74617685965595
+      ]
+    },
+    {
+      "idPdc": 1733,
+      "name": "Leclerc_Lagrange_Servant",
+      "road": "AV LECLERC",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.832048770882539,
+        45.74569825801353
+      ]
+    }
+  ],
   "cyclopolisId": "avenue-leclerc",
   "counts": [
     {

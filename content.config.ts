@@ -138,6 +138,18 @@ export default defineContentConfig({
         idsPdc: z.array(z.number()).optional(),
         cyclopolisId: z.string().optional(),
         coordinates: z.array(z.number()).length(2),
+        points: z
+          .array(
+            z.object({
+              idPdc: z.number(),
+              name: z.string(),
+              road: z.string().nullable(),
+              direction: z.string().nullable(),
+              lanes: z.number().nullable(),
+              coordinates: z.array(z.number()).length(2),
+            }),
+          )
+          .optional(),
         lines: z.array(z.number()).optional(),
         counts: z.array(
           z.object({

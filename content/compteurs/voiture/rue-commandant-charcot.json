@@ -10,6 +10,30 @@
     4.807874,
     45.75517
   ],
+  "points": [
+    {
+      "idPdc": 1658,
+      "name": "Charcot_Point du Jour_Castors",
+      "road": "R COMMANDANT CHARCOT",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.808350128352617,
+        45.75537017229401
+      ]
+    },
+    {
+      "idPdc": 1659,
+      "name": "Charcot_Castors_Point du Jour",
+      "road": "R COMMANDANT CHARCOT",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.807327962634307,
+        45.75490473078567
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

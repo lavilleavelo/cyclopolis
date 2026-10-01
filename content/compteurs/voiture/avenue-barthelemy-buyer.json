@@ -10,6 +10,30 @@
     4.795461,
     45.763663
   ],
+  "points": [
+    {
+      "idPdc": 1713,
+      "name": "Buyer_Apollinaire_Benoit",
+      "road": "AV BARTHELEMY BUYER",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.796783863134081,
+        45.76362003452447
+      ]
+    },
+    {
+      "idPdc": 1816,
+      "name": "Buyer_Bellemain_Champvert",
+      "road": "AV BARTHELEMY BUYER",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.793805560754604,
+        45.76383788033624
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

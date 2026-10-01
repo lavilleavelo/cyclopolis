@@ -10,6 +10,30 @@
     4.851356,
     45.737202
   ],
+  "points": [
+    {
+      "idPdc": 2476,
+      "name": "XBarret_Brachet_Vienne",
+      "road": "R DE LA CROIX BARRET",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.851328316292465,
+        45.73718007042669
+      ]
+    },
+    {
+      "idPdc": 2833,
+      "name": "XBarret_Vienne_Chollat",
+      "road": "R DE LA CROIX BARRET",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.851320666179436,
+        45.73720602302242
+      ]
+    }
+  ],
   "names": [
     "xbarret_Brachet",
     "xbarret_Chollat"

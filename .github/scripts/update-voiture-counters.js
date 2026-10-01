@@ -18,6 +18,7 @@ const MAX_ROWS_PER_REQUEST = 10_000;
 const MAX_ATTEMPTS = 4;
 const RETRY_AFTER_429_MS = 65_000;
 const FETCH_TIMEOUT_MS = 60_000;
+const COUNT_POINT_FIELDS = 'id,station_name,punctual_position,op_road_name,op_direction,lane_number';
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -28,11 +29,13 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
   console.log(`${trackedCounters.length} counters, ${idsPdc.length} Cerema count points`);
 
   const countsByIdPdc = await getCountsByIdPdc({ idsPdc });
+  const countPointsById = await getCountPointsById();
 
   for (const { file, counter } of trackedCounters) {
     console.log(`<<<<<<< ${counter.name} >>>>>>>`);
     const counts = getCompteurData({ idsPdc: counter.idsPdc, countsByIdPdc });
-    updateFile({ file, counter: { ...counter, counts } });
+    const points = getPoints({ idsPdc: counter.idsPdc, countPointsById });
+    updateFile({ file, counter: { ...counter, points: points.length > 0 ? points : counter.points, counts } });
   }
 
   console.log(`\n${trackedCounters.length} counters processed in ${Math.round((Date.now() - startedAt) / 1000)}s`);
@@ -81,11 +84,53 @@ async function fetchAggregatedMeasures({ idsPdc, startTime, endTime }) {
     aggregation_period: 'month',
     limit: MAX_ROWS_PER_REQUEST,
   });
-  const URL = 'https://avatar.cerema.fr/api/aggregated_measures/?' + params.toString();
+  const rows = await fetchCeremaJson('https://avatar.cerema.fr/api/aggregated_measures/?' + params.toString());
+  if (rows.length >= MAX_ROWS_PER_REQUEST) {
+    console.error(
+      `[fetchAggregatedMeasures] ${rows.length} rows returned: the API cap is reached, lower IDS_PER_REQUEST`,
+    );
+    process.exit(1);
+  }
+  return rows;
+}
 
+async function getCountPointsById() {
+  const countPoints = await fetchCeremaJson('https://avatar.cerema.fr/api/countpoints/?limit=0', {
+    'X-Fields': COUNT_POINT_FIELDS,
+  });
+  console.log(`fetched ${countPoints.length} Cerema count points`);
+  return new Map(countPoints.map((countPoint) => [countPoint.id, countPoint]));
+}
+
+function getPoints({ idsPdc, countPointsById }) {
+  return [...new Set(idsPdc)].flatMap((idPdc) => {
+    const countPoint = countPointsById.get(idPdc);
+    if (!countPoint?.punctual_position) {
+      console.warn(`[getPoints] no position for count point ${idPdc}`);
+      return [];
+    }
+
+    return [
+      {
+        idPdc,
+        name: countPoint.station_name,
+        road: countPoint.op_road_name,
+        direction: countPoint.op_direction,
+        lanes: countPoint.lane_number,
+        coordinates: parsePosition(countPoint.punctual_position),
+      },
+    ];
+  });
+}
+
+function parsePosition(position) {
+  return position.replace('POINT (', '').replace(')', '').split(' ').map(Number);
+}
+
+async function fetchCeremaJson(URL, headers = {}) {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
-      const res = await fetch(URL, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      const res = await fetch(URL, { headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
       if (res.status === 429) {
         throw new RateLimitError(await res.text());
       }
@@ -94,22 +139,15 @@ async function fetchAggregatedMeasures({ idsPdc, startTime, endTime }) {
         throw new Error(`HTTP ${res.status} ${res.statusText}`);
       }
 
-      const rows = await res.json();
-      if (rows.length >= MAX_ROWS_PER_REQUEST) {
-        console.error(
-          `[fetchAggregatedMeasures] ${rows.length} rows returned: the API cap is reached, lower IDS_PER_REQUEST`,
-        );
-        process.exit(1);
-      }
-      return rows;
+      return await res.json();
     } catch (error) {
       if (attempt === MAX_ATTEMPTS) {
-        console.error('[fetchAggregatedMeasures] An error happened while fetching counter data', error.message);
+        console.error(`[fetchCeremaJson] An error happened while fetching ${URL}`, error.message);
         process.exit(1);
       }
       const delay = error instanceof RateLimitError ? RETRY_AFTER_429_MS : attempt * 5000;
       console.warn(
-        `[fetchAggregatedMeasures] attempt ${attempt}/${MAX_ATTEMPTS} failed (${error.message}), retrying in ${delay / 1000}s`,
+        `[fetchCeremaJson] attempt ${attempt}/${MAX_ATTEMPTS} failed (${error.message}), retrying in ${delay / 1000}s`,
       );
       await sleep(delay);
     }

@@ -10,6 +10,30 @@
     4.841592,
     45.744772
   ],
+  "points": [
+    {
+      "idPdc": 1737,
+      "name": "Jaures_Berthelot_Lagrange",
+      "road": "AV JEAN JAURES",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.841540625808643,
+        45.74476099858288
+      ]
+    },
+    {
+      "idPdc": 1738,
+      "name": "Jaures_Lagrange_Berthelot",
+      "road": "AV JEAN JAURES",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.841093722571584,
+        45.74385213565068
+      ]
+    }
+  ],
   "cyclopolisId": "jean-jaures",
   "counts": [
     {

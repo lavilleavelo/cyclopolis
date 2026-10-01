@@ -12,6 +12,19 @@
     4.829507,
     45.7827
   ],
+  "points": [
+    {
+      "idPdc": 1772,
+      "name": "Canuts_Cuire_Boucle",
+      "road": "BD DES CANUTS",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.829553157407846,
+        45.78274891939103
+      ]
+    }
+  ],
   "cyclopolisId": "boulevard-canuts",
   "counts": [
     {

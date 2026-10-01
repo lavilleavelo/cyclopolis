@@ -9,6 +9,19 @@
     4.830654,
     45.758873
   ],
+  "points": [
+    {
+      "idPdc": 1365,
+      "name": "Chambonnet_Bellecour_Tilsitt",
+      "road": "PL BELLECOUR",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.830665199758137,
+        45.75886612743784
+      ]
+    }
+  ],
   "cyclopolisId": "place-bellecour",
   "counts": [
     {

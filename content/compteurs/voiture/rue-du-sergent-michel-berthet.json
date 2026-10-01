@@ -10,6 +10,30 @@
     4.805501,
     45.771591
   ],
+  "points": [
+    {
+      "idPdc": 1437,
+      "name": "Berthet_Cottin_St. Pierre de Vaise",
+      "road": "R DU SERGENT MICHEL BERTHET",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.805492095501131,
+        45.77153263140906
+      ]
+    },
+    {
+      "idPdc": 1438,
+      "name": "Berthet_Cottin_Gorge de Loup",
+      "road": "R DU SERGENT MICHEL BERTHET",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.805461220408855,
+        45.77086661915867
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

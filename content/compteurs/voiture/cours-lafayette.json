@@ -9,6 +9,19 @@
     4.859872,
     45.763638
   ],
+  "points": [
+    {
+      "idPdc": 1837,
+      "name": "Lafayette_Lalande_Thiers",
+      "road": "CRS LAFAYETTE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.859736879326821,
+        45.76364809697646
+      ]
+    }
+  ],
   "cyclopolisId": "cours-lafayette",
   "counts": [
     {

@@ -10,6 +10,30 @@
     4.7773432,
     45.7639591
   ],
+  "points": [
+    {
+      "idPdc": 1703,
+      "name": "Republique_Ferry_Foch",
+      "road": "AV DE LA REPUBLIQUE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.775455796103307,
+        45.76373407038437
+      ]
+    },
+    {
+      "idPdc": 1895,
+      "name": "Republique_Clemenceau_Vauban",
+      "road": "AV DE LA REPUBLIQUE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.779695560682032,
+        45.76390794408128
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

@@ -9,6 +9,19 @@
     4.860497,
     45.750157
   ],
+  "points": [
+    {
+      "idPdc": 1866,
+      "name": "Mouton Duvernet_Police_Faure",
+      "road": "R DU GENERAL MOUTON DUVERNET",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.860946365523155,
+        45.75104618013898
+      ]
+    }
+  ],
   "cyclopolisId": "rue-mouton-duvernet",
   "counts": [
     {

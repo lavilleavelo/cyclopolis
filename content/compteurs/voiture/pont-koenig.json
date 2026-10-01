@@ -14,6 +14,30 @@
     4.813917,
     45.770206
   ],
+  "points": [
+    {
+      "idPdc": 2012,
+      "name": "Koenig_Gilllet_Arloing",
+      "road": "PONT DU GENERAL KOENING",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.814076450694944,
+        45.77033535485264
+      ]
+    },
+    {
+      "idPdc": 2013,
+      "name": "Koenig_Chauveau_St Vincent",
+      "road": "PONT DU GENERAL KOENING",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.812656966593709,
+        45.76998751462368
+      ]
+    }
+  ],
   "cyclopolisId": "pont-koenig",
   "counts": [
     {

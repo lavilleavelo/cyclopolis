@@ -9,6 +9,19 @@
     4.968715,
     45.733439
   ],
+  "points": [
+    {
+      "idPdc": 1673,
+      "name": "Perrache_Pt. Mulatiere_Pt. Pasteur",
+      "road": "BRETELLE PONT PASTEUR",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.817519998367425,
+        45.73275750039723
+      ]
+    }
+  ],
   "cyclopolisId": "dauphine-chassieu",
   "counts": [
     {

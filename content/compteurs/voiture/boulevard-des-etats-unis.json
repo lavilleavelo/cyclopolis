@@ -10,6 +10,30 @@
     4.864556,
     45.73351
   ],
+  "points": [
+    {
+      "idPdc": 1552,
+      "name": "Etats Unis_Sarrazin_Beauvisage",
+      "road": "BD DES ETATS-UNIS",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.866197427792258,
+        45.73102998674451
+      ]
+    },
+    {
+      "idPdc": 1976,
+      "name": "Etas-Unis_Chapelle_Cazeneuve",
+      "road": "BD DES ETATS-UNIS",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.864478513736645,
+        45.73353203278597
+      ]
+    }
+  ],
   "cyclopolisId": "boulevard-des-etats-unis",
   "counts": [
     {

@@ -9,6 +9,19 @@
     4.850044,
     45.739379
   ],
+  "points": [
+    {
+      "idPdc": 1534,
+      "name": "Universite_Anvers_Prado",
+      "road": "R DE L'UNIVERSITE",
+      "direction": "Sens 2",
+      "lanes": 3,
+      "coordinates": [
+        4.841750492225802,
+        45.74932448659782
+      ]
+    }
+  ],
   "cyclopolisId": "rue-paul-duvivier",
   "counts": [
     {

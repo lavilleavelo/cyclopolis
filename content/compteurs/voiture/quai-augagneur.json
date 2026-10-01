@@ -9,6 +9,19 @@
     4.840736023382916,
     45.75718204458686
   ],
+  "points": [
+    {
+      "idPdc": 1990,
+      "name": "Augagneur_Collomb_Jutard",
+      "road": "QU VICTOR AUGAGNEUR",
+      "direction": "Sens 1",
+      "lanes": 3,
+      "coordinates": [
+        4.840736023382916,
+        45.75718204458686
+      ]
+    }
+  ],
   "cyclopolisId": "quai-augagneur",
   "counts": [
     {

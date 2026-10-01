@@ -12,6 +12,19 @@
     4.8195,
     45.766506
   ],
+  "points": [
+    {
+      "idPdc": 1946,
+      "name": "Scize_Roche_Greillon",
+      "road": "QU PIERRE SCIZE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.81619841764119,
+        45.7667506922319
+      ]
+    }
+  ],
   "cyclopolisId": "quai-pierre-scize",
   "counts": [
     {

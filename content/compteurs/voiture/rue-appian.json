@@ -9,6 +9,19 @@
     4.810693,
     45.757044
   ],
+  "points": [
+    {
+      "idPdc": 1974,
+      "name": "Appian_Favorite_Fosses de Trion",
+      "road": "R APPIAN",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.810807061802072,
+        45.75701207933803
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

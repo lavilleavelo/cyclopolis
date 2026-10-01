@@ -11,6 +11,30 @@
     4.832011,
     45.748339
   ],
+  "points": [
+    {
+      "idPdc": 1480,
+      "name": "Pt Gallieni_Gailleton_Leclerc_TD",
+      "road": "PONT GALLIENI",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.832127523391692,
+        45.74825775855916
+      ]
+    },
+    {
+      "idPdc": 2149,
+      "name": "Pt Gallieni_Gailleton_Leclerc_Tà D",
+      "road": "PONT GALLIENI",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.8321045748531,
+        45.74822269123763
+      ]
+    }
+  ],
   "cyclopolisId": "pont-gallieni",
   "counts": [
     {

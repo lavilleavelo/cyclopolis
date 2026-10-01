@@ -14,6 +14,30 @@
     4.900309,
     45.736295
   ],
+  "points": [
+    {
+      "idPdc": 1977,
+      "name": "Roosevelt_Iris_Guillandes",
+      "road": "AV FRANKLIN ROOSEVELT",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.89578278812165,
+        45.73786791207364
+      ]
+    },
+    {
+      "idPdc": 1978,
+      "name": "Roosevelt_Iris_Bonnevay",
+      "road": "AV FRANKLIN ROOSEVELT",
+      "direction": "Sens 1",
+      "lanes": 2,
+      "coordinates": [
+        4.89965401552028,
+        45.73653104680731
+      ]
+    }
+  ],
   "cyclopolisId": "avenue-franklin-roosevelt",
   "counts": [
     {

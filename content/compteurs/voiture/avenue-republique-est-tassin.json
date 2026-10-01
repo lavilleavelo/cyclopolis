@@ -10,6 +10,30 @@
     4.783302,
     45.764108
   ],
+  "points": [
+    {
+      "idPdc": 1621,
+      "name": "Republique_ Vernique_Vauboin",
+      "road": "AV DE LA REPUBLIQUE",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.783502697189899,
+        45.76411549399766
+      ]
+    },
+    {
+      "idPdc": 1684,
+      "name": "Repubique_Vauboin_Hesperides",
+      "road": "AV DE LA REPUBLIQUE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.783637784521837,
+        45.76409398788197
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

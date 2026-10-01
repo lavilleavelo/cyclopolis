@@ -10,6 +10,19 @@
     4.810693,
     45.757044
   ],
+  "points": [
+    {
+      "idPdc": 1740,
+      "name": "Vienne_Delore_Repos",
+      "road": "RTE DE VIENNE",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.852082573592607,
+        45.73880697004238
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",

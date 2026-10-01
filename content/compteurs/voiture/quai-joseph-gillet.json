@@ -14,6 +14,30 @@
     4.812407,
     45.781143
   ],
+  "points": [
+    {
+      "idPdc": 1596,
+      "name": "Gillet_Ypres_Masaryk",
+      "road": "QU CLEMENCEAU",
+      "direction": "Sens 2",
+      "lanes": 1,
+      "coordinates": [
+        4.812318441971554,
+        45.78115018681175
+      ]
+    },
+    {
+      "idPdc": 2060,
+      "name": "Gillet_Schuman_Ypres",
+      "road": "QU CLEMENCEAU",
+      "direction": "Sens 1",
+      "lanes": 1,
+      "coordinates": [
+        4.811848829638536,
+        45.78015817739139
+      ]
+    }
+  ],
   "cyclopolisId": "quai-joseph-gillet",
   "counts": [
     {

@@ -15,6 +15,30 @@
     4.835739,
     45.752412
   ],
+  "points": [
+    {
+      "idPdc": 1332,
+      "name": "Pt Universite_Bernard_Gailleton TG",
+      "road": "PONT DE L'UNIVERSITE",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.835759253402495,
+        45.7523510710506
+      ]
+    },
+    {
+      "idPdc": 1333,
+      "name": "Pt Universite_Bernard_Gailleton TD",
+      "road": "PONT DE L'UNIVERSITE",
+      "direction": "Sens 2",
+      "lanes": 2,
+      "coordinates": [
+        4.83579577856495,
+        45.7523930544006
+      ]
+    }
+  ],
   "counts": [
     {
       "month": "2018-01-01",
