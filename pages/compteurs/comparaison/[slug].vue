@@ -80,6 +80,15 @@
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
 
+    <CounterComparisonSensors
+      v-if="voitureCounter?.points?.length"
+      :velo-id-pdc="veloCounter.idPdc"
+      :velo-name="veloCounter.name"
+      :velo-coordinates="veloCounter.coordinates"
+      :voiture-ids-pdc="voitureCounter.idsPdc"
+      :voiture-points="voitureCounter.points"
+    />
+
     <CounterLinks :velo="veloCounter.path" :voiture="voitureCounter?.path" class="mt-10" />
   </ContentFrame>
 </template>
