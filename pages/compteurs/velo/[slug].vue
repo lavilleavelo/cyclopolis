@@ -20,7 +20,7 @@
       />
     </ClientOnly>
 
-    <CounterMaintenanceBanner :counts="counter.counts" />
+    <CounterMaintenanceBanner :counts="counter.counts" :counter="{ type: 'velo', idPdc: counter.idPdc }" />
 
     <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
 

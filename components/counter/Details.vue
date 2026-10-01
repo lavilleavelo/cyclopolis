@@ -10,7 +10,11 @@
       <p class="text-sm text-gray-500">{{ veloCounter.arrondissement }}</p>
     </div>
 
-    <CounterMaintenanceBanner :counts="veloCounter.counts" />
+    <CounterMaintenanceBanner
+      :key="veloCounter.path"
+      :counts="veloCounter.counts"
+      :counter="{ type: 'velo', idPdc: veloCounter.idPdc }"
+    />
 
     <div class="mt-4 flex flex-wrap justify-center gap-3">
       <a
@@ -77,7 +81,7 @@
       <p class="text-sm text-gray-500">{{ counter.arrondissement }}</p>
     </div>
 
-    <CounterMaintenanceBanner :counts="counter.counts" />
+    <CounterMaintenanceBanner :key="counter.path" :counts="counter.counts" :counter="counterRef" />
 
     <p v-if="counter.description" class="text-gray-500">{{ counter.description }}</p>
 

@@ -19,7 +19,7 @@
       />
     </ClientOnly>
 
-    <CounterMaintenanceBanner :counts="veloCounter.counts" />
+    <CounterMaintenanceBanner :counts="veloCounter.counts" :counter="{ type: 'velo', idPdc: veloCounter.idPdc }" />
 
     <p
       v-for="limitation in limitations"

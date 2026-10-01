@@ -19,7 +19,7 @@
       />
     </ClientOnly>
 
-    <CounterMaintenanceBanner :counts="counter.counts" />
+    <CounterMaintenanceBanner :counts="counter.counts" :counter="{ type: 'voiture', idsPdc: counter.idsPdc }" />
 
     <CounterLinks :velo="matchingVeloCounter?.path" :comparison="comparisonPath" class="mt-4" />
     <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
