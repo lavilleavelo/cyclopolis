@@ -69,6 +69,8 @@
       <img src="https://cyclopolis.lavilleavelo.org/avatar_cerema.png" alt="Logo Cerema" class="h-12" />
     </a>
 
+    <CounterCountPoints v-if="counter.points?.length" :points="counter.points" :ids-pdc="counter.idsPdc" />
+
     <CounterLinks :velo="matchingVeloCounter?.path" :comparison="comparisonPath" class="mt-10" />
   </ContentFrame>
 </template>

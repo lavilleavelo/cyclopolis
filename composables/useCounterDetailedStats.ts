@@ -14,6 +14,7 @@ export type CounterDetailedStats = {
   name?: string;
   pointIds?: number[];
   quality?: { measuredShare: number | null };
+  points?: CarPointStats[];
   firstDay: string;
   lastDay: string;
   syncedAt: string | null;
@@ -29,6 +30,17 @@ export type CounterDetailedStats = {
     top: DayCount[];
     hour: (DayCount & { hour: number }) | null;
   };
+};
+
+export type DayRange = { from: string; to: string };
+
+export type CarPointStats = {
+  id: number;
+  average: number | null;
+  share: number | null;
+  measuredShare: number | null;
+  lastDay?: string | null;
+  gaps?: DayRange[];
 };
 
 export const WEEKDAY_COLOR = '#152B68';

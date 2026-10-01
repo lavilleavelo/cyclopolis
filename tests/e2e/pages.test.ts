@@ -59,6 +59,13 @@ describe('Pages HTML rendering', () => {
       expect(html).toContain('compteurs voiture');
       expect(html).toContain('Chercher un compteur');
     });
+
+    it('renders count points on a car counter page', async () => {
+      const html = await fetchHTML('/compteurs/voiture/avenue-jean-jaures');
+      expect(html).toContain('Points de comptage');
+      expect(html).toContain('Berthelot → Lagrange');
+      expect(html).toContain('un par sens de circulation');
+    });
   });
 
   describe('Compteurs comparaison', () => {
