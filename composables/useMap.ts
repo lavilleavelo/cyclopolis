@@ -1,6 +1,6 @@
 import type { Collections } from '@nuxt/content';
 import type * as maplibregl from 'maplibre-gl';
-import type { GeoJSONSource, Map as MaplibreType } from 'maplibre-gl';
+import type { GeoJSONSource, MapOptions, Map as MaplibreType, PaddingOptions } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
 import { createApp, defineComponent, h, Suspense, watch, onUnmounted } from 'vue';
 import {
@@ -949,15 +949,9 @@ export const useMap = ({
     }));
   }
 
-  function fitBounds({
-    map,
-    features,
-    padding = 20,
-  }: {
-    map: MaplibreType;
-    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
-    padding?: number | { top: number; bottom: number; left: number; right: number };
-  }) {
+  function getFeaturesExtent(
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>,
+  ): { point: [number, number] } | { bounds: LngLatBounds } | null {
     const allLineStringsCoordinates: [number, number][] = features
       .filter(isLineStringFeature)
       .flatMap((feature) => feature.geometry.coordinates as [number, number][]);
@@ -967,19 +961,58 @@ export const useMap = ({
       .map((feature) => feature.geometry.coordinates);
 
     if (allLineStringsCoordinates.length === 0 && allPointsCoordinates.length === 0) {
-      return;
+      return null;
     }
 
     if (features.length === 1 && allPointsCoordinates.length === 1 && allLineStringsCoordinates.length === 0) {
-      map.flyTo({ center: allPointsCoordinates[0] as [number, number], zoom: 14, duration: 300 });
-    } else {
-      const allCoordinates = [...allLineStringsCoordinates, ...allPointsCoordinates];
-      const bounds = new LngLatBounds(allCoordinates[0], allCoordinates[0]);
-      for (const coord of allCoordinates) {
-        bounds.extend(coord);
-      }
-      map.fitBounds(bounds, { padding, maxZoom: 14 });
+      return { point: allPointsCoordinates[0] as [number, number] };
     }
+
+    const allCoordinates = [...allLineStringsCoordinates, ...allPointsCoordinates];
+    const bounds = new LngLatBounds(allCoordinates[0], allCoordinates[0]);
+    for (const coord of allCoordinates) {
+      bounds.extend(coord);
+    }
+    return { bounds };
+  }
+
+  function fitBounds({
+    map,
+    features,
+    padding = 20,
+  }: {
+    map: MaplibreType;
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    padding?: number | PaddingOptions;
+  }) {
+    const extent = getFeaturesExtent(features);
+    if (!extent) {
+      return;
+    }
+
+    if ('point' in extent) {
+      map.flyTo({ center: extent.point, zoom: 14, duration: 300 });
+    } else {
+      map.fitBounds(extent.bounds, { padding, maxZoom: 14 });
+    }
+  }
+
+  function getInitialCamera({
+    features,
+    padding = 20,
+  }: {
+    features: Array<Collections['voiesCyclablesGeojson']['features'][0] | CompteurFeature>;
+    padding?: number | PaddingOptions;
+  }): Pick<MapOptions, 'center' | 'zoom' | 'bounds' | 'fitBoundsOptions'> | null {
+    const extent = getFeaturesExtent(features);
+    if (!extent) {
+      return null;
+    }
+
+    if ('point' in extent) {
+      return { center: extent.point, zoom: 14 };
+    }
+    return { bounds: extent.bounds, fitBoundsOptions: { padding, maxZoom: 14 } };
   }
 
   function plotFeatures({
@@ -1942,6 +1975,7 @@ export const useMap = ({
     plotFeatures,
     getCompteursFeatures,
     fitBounds,
+    getInitialCamera,
     handleMapClick,
     handleMapHover,
     highlightLines,

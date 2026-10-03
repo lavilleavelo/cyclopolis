@@ -122,6 +122,7 @@ const {
   loadImages,
   plotFeatures,
   fitBounds,
+  getInitialCamera,
   handleMapClick,
   handleMapHover,
   highlightLines,
@@ -172,12 +173,49 @@ const mapReady = ref(false);
 
 const { mapStyle } = useSettings();
 
+function findDeepLinkedCounter() {
+  if (route.query.modal !== 'counter' || !route.query.counterLink) {
+    return null;
+  }
+  const counterFeature = props.features.find(
+    (f) => f.geometry.type === 'Point' && 'link' in f.properties && f.properties.link === route.query.counterLink,
+  );
+  return counterFeature?.geometry.type === 'Point' ? counterFeature : null;
+}
+
+function findDeepLinkedSection() {
+  const highlightSection = getHighlightSection();
+  if (!highlightSection) {
+    return null;
+  }
+  const section = props.features.find((f) => {
+    if (f.geometry.type !== 'LineString') {
+      return false;
+    }
+    if (!('line' in f.properties) || f.properties.line !== +(route.query.line || -1)) {
+      return false;
+    }
+    return 'name' in f.properties && f.properties.name === highlightSection;
+  });
+  return section?.geometry.type === 'LineString' ? section : null;
+}
+
 onMounted(() => {
+  const counterFeature = findDeepLinkedCounter();
+  const section = counterFeature ? null : findDeepLinkedSection();
+  const sectionPadding =
+    window.innerWidth < 1024 ? { bottom: window.innerHeight * 0.75, top: 0, left: 20, right: 20 } : 20;
+
+  const initialCamera = counterFeature
+    ? getInitialCamera({ features: [counterFeature] })
+    : section
+      ? getInitialCamera({ features: [section], padding: sectionPadding })
+      : getInitialCamera({ features: props.fitBoundsFeatures ?? props.features });
+
   const map = new MaplibreMap({
     container: mapContainer.value!,
     style: getMapStyle(mapStyle.value),
-    center: config.center as LngLatLike,
-    zoom: config.zoom,
+    ...(initialCamera ?? { center: config.center as LngLatLike, zoom: config.zoom }),
     pixelRatio: Math.min(window.devicePixelRatio, 2),
     attributionControl: false,
     cooperativeGestures: options.cooperativeGestures,
@@ -309,88 +347,17 @@ onMounted(() => {
     map.addControl(logoControl, 'bottom-right');
   }
 
-  async function onMapLoaded() {
-    await loadImages({ map, features: props.features });
-    plotFeatures({ map, features: props.features });
-    highlightLines({ map, selections: null });
-
-    if (route.query.modal === 'counter' && route.query.counterLink) {
-      const counterFeature = props.features.find(
-        (f) => f.geometry.type === 'Point' && 'link' in f.properties && f.properties.link === route.query.counterLink,
-      );
-      if (counterFeature && counterFeature.geometry.type === 'Point') {
-        highlightCounter({ map, counterName: counterFeature.properties.name });
-        const coords = counterFeature.geometry.coordinates as [number, number];
-        return new Promise<void>((resolve) => {
-          map.once('moveend', () => {
-            map.once('idle', () => {
-              const point = map.project(coords);
-              handleMapClick({
-                map,
-                features: props.features,
-                hasDetailsPanel: options.showDetailsPanel,
-                clickEvent: {
-                  lngLat: new LngLat(coords[0], coords[1]),
-                  point,
-                  originalEvent: new MouseEvent('click'),
-                  target: map,
-                  type: 'click',
-                  preventDefault: () => {},
-                  defaultPrevented: false,
-                  _defaultPrevented: false,
-                },
-              });
-              resolve();
-            });
-          });
-          fitBounds({ map, features: [counterFeature] });
-        });
-      }
-      return;
-    }
-
-    const highlightSection = getHighlightSection();
-    if (!+(route.query.line || -1) || !highlightSection) {
-      fitBounds({ map, features: props.fitBoundsFeatures ?? props.features });
-      return;
-    }
-
-    const section = props.features.find((f) => {
-      if (f.geometry.type !== 'LineString') {
-        return false;
-      }
-      if (!('line' in f.properties) || f.properties.line !== +(route.query.line || -1)) {
-        return false;
-      }
-      return 'name' in f.properties && f.properties.name === highlightSection;
-    });
-    if (section?.geometry?.type !== 'LineString') {
-      return;
-    }
-
+  // small hack: simulate a click event to open the popup
+  function clickWhenIdle(coords: [number, number]) {
     return new Promise<void>((resolve) => {
-      map.once('moveend', () => {
-        const coordinates = structuredClone(section.geometry.coordinates);
-        const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
-        if (coordinates.length == 2 && Array.isArray(coordinates[0]) && Array.isArray(coordinates[1])) {
-          midPoint[0] = (coordinates[0][0] + coordinates[1][0]) / 2;
-          midPoint[1] = (coordinates[0][1] + coordinates[1][1]) / 2;
-        }
-
-        const point = map.project(midPoint);
-
-        if (!midPoint || midPoint?.length !== 2) {
-          return resolve();
-        }
-
-        // small hack: simulate a click event to open the popup
+      map.once('idle', () => {
         handleMapClick({
           map,
           features: props.features,
           hasDetailsPanel: options.showDetailsPanel,
           clickEvent: {
-            lngLat: new LngLat(midPoint[0], midPoint[1]),
-            point,
+            lngLat: new LngLat(coords[0], coords[1]),
+            point: map.project(coords),
             originalEvent: new MouseEvent('click'),
             target: map,
             type: 'click',
@@ -401,21 +368,36 @@ onMounted(() => {
         });
         resolve();
       });
-
-      fitBounds({
-        map,
-        features: [section],
-        padding:
-          window.innerWidth < 1024
-            ? {
-                bottom: window.innerHeight * 0.75,
-                top: 0,
-                left: 20,
-                right: 20,
-              }
-            : 20,
-      });
     });
+  }
+
+  async function onMapLoaded() {
+    await loadImages({ map, features: props.features });
+    plotFeatures({ map, features: props.features });
+    highlightLines({ map, selections: null });
+
+    if (counterFeature) {
+      highlightCounter({ map, counterName: counterFeature.properties.name });
+      return clickWhenIdle(counterFeature.geometry.coordinates as [number, number]);
+    }
+
+    if (section) {
+      const coordinates = structuredClone(section.geometry.coordinates);
+      const midPoint = coordinates[Math.floor(coordinates.length / 2)] as [number, number];
+      if (coordinates.length == 2 && Array.isArray(coordinates[0]) && Array.isArray(coordinates[1])) {
+        midPoint[0] = (coordinates[0][0] + coordinates[1][0]) / 2;
+        midPoint[1] = (coordinates[0][1] + coordinates[1][1]) / 2;
+      }
+
+      if (!midPoint || midPoint?.length !== 2) {
+        return;
+      }
+      return clickWhenIdle(midPoint);
+    }
+
+    if (!initialCamera) {
+      fitBounds({ map, features: props.fitBoundsFeatures ?? props.features });
+    }
   }
 
   map.on('load', async () => {
