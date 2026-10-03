@@ -66,7 +66,7 @@ import ShrinkControl from '@/maplibre/ShrinkControl';
 import DetailPanel from '~/components/DetailPanel.vue';
 import LogoControl from '@/maplibre/LogoControl';
 
-import type { CompteurFeature, FilterActions, FiltersState } from '~/types';
+import { type CompteurFeature, type FilterActions, type FiltersState, isCompteurFeature } from '~/types';
 import config from '~/config.json';
 import FilterPanel from '~/components/FilterPanel.vue';
 import LegendInline from '~/components/LegendInline.vue';
@@ -374,14 +374,31 @@ onMounted(() => {
     });
   }
 
+  function focusDeepLinkedCounter(counter: NonNullable<ReturnType<typeof findDeepLinkedCounter>>) {
+    highlightCounter({ map, counterName: counter.properties.name });
+    const coords = counter.geometry.coordinates as [number, number];
+    if (counter.properties.name === counterFeature?.properties.name) {
+      return clickWhenIdle(coords);
+    }
+    return new Promise<void>((resolve) => {
+      map.once('moveend', () => void clickWhenIdle(coords).then(resolve));
+      fitBounds({ map, features: [counter] });
+    });
+  }
+
+  let waitingForDeepLinkedCounter = false;
+
   async function onStyleLoaded() {
     await loadImages({ map, features: props.features });
     plotFeatures({ map, features: props.features });
     highlightLines({ map, selections: null });
 
-    if (counterFeature) {
-      highlightCounter({ map, counterName: counterFeature.properties.name });
-      return clickWhenIdle(counterFeature.geometry.coordinates as [number, number]);
+    if (route.query.modal === 'counter' && route.query.counterLink) {
+      const counter = findDeepLinkedCounter();
+      if (counter) {
+        return focusDeepLinkedCounter(counter);
+      }
+      waitingForDeepLinkedCounter = !props.features.some(isCompteurFeature);
     }
 
     if (section) {
@@ -420,6 +437,14 @@ onMounted(() => {
         plotFeatures({ map, features: newFeatures });
       } catch (e) {
         console.warn('not able to plot features', e);
+      }
+
+      if (waitingForDeepLinkedCounter && newFeatures.some(isCompteurFeature)) {
+        waitingForDeepLinkedCounter = false;
+        const counter = findDeepLinkedCounter();
+        if (counter) {
+          void focusDeepLinkedCounter(counter);
+        }
       }
     },
   );

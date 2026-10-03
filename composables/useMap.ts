@@ -921,7 +921,7 @@ export const useMap = ({
     type,
     isMixed = false,
   }: {
-    counters: Collections['compteurs'][] | null;
+    counters: Pick<Collections['compteurs'], 'name' | 'path' | 'counts' | 'coordinates'>[] | null;
     type: 'compteur-velo' | 'compteur-voiture' | 'compteur-comparaison';
     isMixed?: boolean;
   }): CompteurFeature[] {

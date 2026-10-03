@@ -2,7 +2,46 @@ import { describe, it, expect } from 'vitest';
 import { setupE2E } from './setup';
 
 describe('Counters on interactive map', () => {
-  const { createPage } = setupE2E();
+  const { createPage, fetchHTML } = setupE2E();
+
+  describe('Counter data loading', () => {
+    it('does not embed counters in the map page payload', async () => {
+      const payload = await fetchHTML('/carte-interactive/_payload.json');
+      expect(payload).not.toContain('cyclopolisId');
+    });
+
+    it('serves the map counters as a static file', async () => {
+      const counters = JSON.parse(await fetchHTML('/data/map-counters.json'));
+      expect(counters.velo.length).toBeGreaterThan(0);
+      expect(counters.voiture.length).toBeGreaterThan(0);
+      expect(counters.velo[0].counts.length).toBeGreaterThan(0);
+    });
+
+    it('fetches the counters only when they are displayed', async () => {
+      const isCountersFetched = () =>
+        performance.getEntriesByType('resource').some((e) => e.name.includes('/data/map-counters.json'));
+
+      const hiddenCountersPage = await createPage('/carte-interactive');
+      await hiddenCountersPage.waitForSelector('.maplibregl-canvas', { timeout: 15_000 });
+      expect(await hiddenCountersPage.evaluate(isCountersFetched)).toBe(false);
+      await hiddenCountersPage.close();
+
+      const shownCountersPage = await createPage('/carte-interactive?counters=1');
+      await shownCountersPage.waitForSelector('.maplibregl-canvas', { timeout: 15_000 });
+      expect(await shownCountersPage.evaluate(isCountersFetched)).toBe(true);
+      await shownCountersPage.close();
+    });
+
+    it('opens the popup of a counter linked in the URL once counters are loaded', async () => {
+      const page = await createPage(
+        '/carte-interactive?modal=counter&counters=1&counterLink=/compteurs/velo/pont-morand',
+      );
+      const popup = page.locator('.maplibregl-popup');
+      await popup.waitFor({ timeout: 15_000 });
+      expect(await popup.textContent()).toContain('Pont Morand');
+      await page.close();
+    });
+  });
 
   describe('Filter panel - counter toggle', () => {
     it('shows the counter checkbox in the filter panel', async () => {

@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CompteurFeature } from '~/types';
+import type { CompteurFeature, MapCounters } from '~/types';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useVoiesCyclablesGeojson, useGetVoiesCyclablesNums } from '~/composables/useVoiesCyclables';
@@ -48,41 +48,23 @@ definePageMeta({
 const { geojsons } = await useVoiesCyclablesGeojson();
 const { voies } = await useGetVoiesCyclablesNums();
 
-const { data: veloCounters } = await useAsyncData(
-  'map-velo-counters',
-  () => {
-    if (!displayCounters()) return Promise.resolve(null);
-    return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
-  },
-  { deep: false },
-);
-
-const { data: voitureCounters } = await useAsyncData(
-  'map-voiture-counters',
-  () => {
-    if (!displayCounters()) return Promise.resolve(null);
-    return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/voiture%').all();
-  },
-  { deep: false },
-);
+const mapCounters = shallowRef<MapCounters | null>(null);
+const veloCounters = computed(() => mapCounters.value?.velo ?? []);
+const voitureCounters = computed(() => mapCounters.value?.voiture ?? []);
 
 const counterFeatures = computed<CompteurFeature[]>(() => {
-  const voitureCyclopolisIds = new Set(
-    (voitureCounters.value || []).filter((c) => c.cyclopolisId).map((c) => c.cyclopolisId),
-  );
+  const voitureCyclopolisIds = new Set(voitureCounters.value.filter((c) => c.cyclopolisId).map((c) => c.cyclopolisId));
 
-  const veloOnly = (veloCounters.value || []).filter((c) => !c.cyclopolisId);
-  const veloMixed = (veloCounters.value || []).filter((c) => c.cyclopolisId);
-  const voitureOnly = (voitureCounters.value || []).filter((c) => !c.cyclopolisId);
+  const veloOnly = veloCounters.value.filter((c) => !c.cyclopolisId);
+  const veloMixed = veloCounters.value.filter((c) => c.cyclopolisId);
+  const voitureOnly = voitureCounters.value.filter((c) => !c.cyclopolisId);
 
   const veloOnlyFeatures = getCompteursFeatures({ counters: veloOnly, type: 'compteur-velo' });
   const voitureOnlyFeatures = getCompteursFeatures({ counters: voitureOnly, type: 'compteur-voiture' });
 
   const mixedFeatures: CompteurFeature[] = veloMixed.map((counter) => {
     const hasVoiture = voitureCyclopolisIds.has(counter.cyclopolisId);
-    const voiture = hasVoiture
-      ? (voitureCounters.value || []).find((c) => c.cyclopolisId === counter.cyclopolisId)
-      : null;
+    const voiture = hasVoiture ? voitureCounters.value.find((c) => c.cyclopolisId === counter.cyclopolisId) : null;
 
     const counts = voiture
       ? voiture.counts.map((vc) => {
@@ -120,6 +102,25 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allGeojsons: computed(() => geojsons.value),
   allLines: computed(() => voies.value),
 });
+
+let mapCountersRequest: Promise<void> | null = null;
+watch(
+  filters.showCounters,
+  (showCounters) => {
+    if (import.meta.server || !showCounters || !displayCounters() || mapCountersRequest) {
+      return;
+    }
+    mapCountersRequest = $fetch<MapCounters>('/data/map-counters.json')
+      .then((counters) => {
+        mapCounters.value = counters;
+      })
+      .catch((e) => {
+        console.error('Error fetching map counters', e);
+        mapCountersRequest = null;
+      });
+  },
+  { immediate: true },
+);
 
 const description = `Découvrez la carte interactive des ${getRevName()}. Itinéraires rue par rue. Plan régulièrement mis à jour pour une information complète.`;
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
