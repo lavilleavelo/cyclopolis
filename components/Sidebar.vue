@@ -2,10 +2,10 @@
   <div
     :id="panelId"
     class="hidden lg:flex flex-col bg-white border-l transition-all ease-in-out duration-300 max-h-[calc(100dvh-90px)]"
-    :class="[open ? [sidebarClasses, 'overflow-auto'] : 'w-0 min-w-0 border-l-0 overflow-hidden']"
+    :class="[open ? [sidebarClasses, 'overflow-y-auto overflow-x-hidden'] : 'w-0 min-w-0 border-l-0 overflow-hidden']"
     :style="open ? sidebarStyle : ''"
   >
-    <template v-if="open">
+    <div v-if="open" class="flex flex-col" :class="minWidth">
       <div v-if="showHeader" class="sticky top-0 z-10 flex items-center justify-end">
         <div class="shadow-md flex gap-2 align-middle items-center rounded-bl-lg px-4" :class="headerClasses">
           <h2 v-if="title" class="text-lg font-medium leading-6">
@@ -35,7 +35,7 @@
       <div :class="contentClasses">
         <slot />
       </div>
-    </template>
+    </div>
   </div>
 </template>
 
