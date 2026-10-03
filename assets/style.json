@@ -25,7 +25,10 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://openmaptiles.geo.data.gouv.fr/data/france-vector.json"
+      "tiles": ["https://openmaptiles.data.gouv.fr/data/france-vector/{z}/{x}/{y}.pbf"],
+      "minzoom": 0,
+      "maxzoom": 14,
+      "attribution": "<a href=\"https://www.data.gouv.fr/\" target=\"_blank\">&copy; DINUM (data.gouv.fr)</a> <a href=\"https://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; Contributeurs OpenStreetMap</a>"
     }
   },
   "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite",
