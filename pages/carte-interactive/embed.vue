@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
 import { useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
+import { MAP_PRECONNECT_LINKS } from '~/helpers/map-utils';
 
 const { getRevName } = useConfig();
 
@@ -27,6 +28,7 @@ const description = `Découvrez la carte interactive des ${getRevName()}. Itiné
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
 useHead({
   title: `Carte à jour des ${getRevName()}`,
+  link: MAP_PRECONNECT_LINKS,
   meta: [
     // description
     { key: 'description', name: 'description', content: description },

@@ -17,6 +17,12 @@ export function sortByLine(
   return sortOrder.indexOf(lineA) - sortOrder.indexOf(lineB);
 }
 
+export const MAP_PRECONNECT_LINKS = [
+  'https://openmaptiles.data.gouv.fr',
+  'https://openmaptiles.geo.data.gouv.fr',
+  'https://openmaptiles.github.io',
+].map((href) => ({ rel: 'preconnect' as const, href, crossorigin: 'anonymous' as const }));
+
 export const CROSS_ICON_SIZE = 8;
 
 export function getCrossIconUrl(pixelRatio = 1, lineWidth = 3): string {

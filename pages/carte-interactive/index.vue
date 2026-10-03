@@ -34,6 +34,7 @@ import type { CompteurFeature } from '~/types';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useVoiesCyclablesGeojson, useGetVoiesCyclablesNums } from '~/composables/useVoiesCyclables';
+import { MAP_PRECONNECT_LINKS } from '~/helpers/map-utils';
 
 const { getRevName, displayCounters } = useConfig();
 const { getCompteursFeatures } = useMap();
@@ -126,7 +127,7 @@ const CANONICAL_URL = 'https://cyclopolis.fr/carte-interactive';
 
 useHead({
   title: `Carte à jour des ${getRevName()}`,
-  link: [{ rel: 'canonical', href: CANONICAL_URL }],
+  link: [{ rel: 'canonical', href: CANONICAL_URL }, ...MAP_PRECONNECT_LINKS],
   meta: [
     // description
     { key: 'description', name: 'description', content: description },
