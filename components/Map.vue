@@ -371,7 +371,7 @@ onMounted(() => {
     });
   }
 
-  async function onMapLoaded() {
+  async function onStyleLoaded() {
     await loadImages({ map, features: props.features });
     plotFeatures({ map, features: props.features });
     highlightLines({ map, selections: null });
@@ -400,9 +400,9 @@ onMounted(() => {
     }
   }
 
-  map.on('load', async () => {
+  map.once('style.load', async () => {
     try {
-      await onMapLoaded();
+      await onStyleLoaded();
     } catch (e) {
       console.error('Error during map load', e);
     } finally {
