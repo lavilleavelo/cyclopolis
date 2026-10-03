@@ -5,7 +5,7 @@
     <div class="flex rounded-lg h-full w-full">
       <div ref="mapContainer" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
       <FilterPanel
-        :open="route.query.modal === 'filters' && mapReady"
+        :open="route.query.modal === 'filters' && (mapReady || (isLargeScreen && options.canUseSidePanel))"
         :show-line-filters="options.showLineFilters"
         :show-date-filter="options.showDateFilter"
         :show-counters="options.showCounters"
@@ -17,14 +17,14 @@
       />
       <DetailPanel
         v-if="options.showDetailsPanel"
-        :open="route.query.modal === 'details' && mapReady"
+        :open="route.query.modal === 'details' && (mapReady || isLargeScreen)"
         :line="route.query.line ? +route.query.line : null"
         :voies="voies"
         @close="closeSidebar"
       />
       <CounterPanel
         v-if="options.showDetailsPanel"
-        :open="route.query.modal === 'counter' && mapReady"
+        :open="route.query.modal === 'counter' && (mapReady || isLargeScreen)"
         :counter-link="(route.query.counterLink as string) || null"
         @close="closeSidebar"
       />
@@ -44,6 +44,7 @@
 
 <script setup lang="ts">
 import type { Collections } from '@nuxt/content';
+import { useMediaQuery } from '@vueuse/core';
 import {
   AttributionControl,
   GeolocateControl,
@@ -170,6 +171,8 @@ function toggleFilterSidebar() {
 
 const mapContainer = ref<HTMLElement | null>(null);
 const mapReady = ref(false);
+
+const isLargeScreen = useMediaQuery('(min-width: 1024px)');
 
 const { mapStyle } = useSettings();
 
