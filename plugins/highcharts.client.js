@@ -1,7 +1,15 @@
-import Highcharts from 'highcharts';
-import HighchartsVue from 'highcharts-vue';
+import { defineAsyncComponent } from 'vue';
 
 export default defineNuxtPlugin((nuxtApp) => {
-  Highcharts.setOptions({ palette: { colorScheme: 'light' } });
-  nuxtApp.vueApp.use(HighchartsVue, { highcharts: Highcharts });
+  nuxtApp.vueApp.component(
+    'highcharts',
+    defineAsyncComponent(async () => {
+      const [{ default: Highcharts }, HighchartsVue] = await Promise.all([
+        import('highcharts'),
+        import('highcharts-vue'),
+      ]);
+      Highcharts.setOptions({ palette: { colorScheme: 'light' } });
+      return HighchartsVue.Chart ?? HighchartsVue.default.Chart;
+    }),
+  );
 });
