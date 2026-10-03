@@ -89,7 +89,7 @@ export class CanvasDashAnimator {
     const caps = this.map.getCanvas();
     const width = caps.clientWidth;
     const height = caps.clientHeight;
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = this.map.getPixelRatio();
 
     this.canvas.width = width * dpr;
     this.canvas.height = height * dpr;
@@ -228,7 +228,7 @@ export class CanvasDashAnimator {
   private render() {
     if (!this.map || !this.ctx || !this.canvas.isConnected) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = this.map.getPixelRatio();
     const width = this.canvas.width / dpr;
     const height = this.canvas.height / dpr;
     const bounds = this.map.getBounds();

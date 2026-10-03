@@ -178,6 +178,7 @@ onMounted(() => {
     style: getMapStyle(mapStyle.value),
     center: config.center as LngLatLike,
     zoom: config.zoom,
+    pixelRatio: Math.min(window.devicePixelRatio, 2),
     attributionControl: false,
     cooperativeGestures: options.cooperativeGestures,
   });
