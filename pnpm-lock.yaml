@@ -173,8 +173,8 @@ importers:
         specifier: ^1.9.4
         version: 1.9.4(maplibre-gl@6.11.2)
       '@panoramax/web-viewer':
-        specifier: ^4.4.0
-        version: 4.4.0
+        specifier: ^5.3.0
+        version: 5.3.0
       '@vueuse/core':
         specifier: ^15.0.0
         version: 15.0.0(vue@3.5.43(typescript@6.0.3))
@@ -829,21 +829,11 @@ packages:
   '@mapbox/tiny-sdf@2.2.0':
     resolution: {integrity: sha512-LVL4wgI9YAum5V+LNVQO6QgFBPw7/MIIY4XJPNsPDMrjEwcE+JfKk1LuIl8GnF197ejVdC9QdPaxrx5gfgdGXg==}
 
-  '@mapbox/unitbezier@0.0.1':
-    resolution: {integrity: sha512-nMkuDXFv60aBr9soUG5q+GvZYL+2KZHVvsqFCzqnkGEf46U2fvmytHaEVc1/YZbiLn8X+eR3QzX1+dwDO1lxlw==}
-
   '@mapbox/unitbezier@1.0.0':
     resolution: {integrity: sha512-fqd515fjBmANKGGsQ286E2Wvj/XvDFpGzwJxq4CI6jMQue6Oy04uCKp+JWKF00xRTmk6cEu1jPJ9p3xqH8YWqQ==}
 
-  '@mapbox/vector-tile@2.0.4':
-    resolution: {integrity: sha512-AkOLcbgGTdXScosBWwmmD7cDlvOjkg/DetGva26pIRiZPdeJYjYKarIlb4uxVzi6bwHO6EWH82eZ5Nuv4T5DUg==}
-
   '@mapbox/vector-tile@3.0.0':
     resolution: {integrity: sha512-Qf10S1uIHMk20ri/IVBnpS+esUEkVaR5Hftmz88jTInrpmWgPGJfPe3LVjjlE77trLx8tH6qjTG7uWH9hIq/0Q==}
-
-  '@mapbox/whoots-js@3.1.0':
-    resolution: {integrity: sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==}
-    engines: {node: '>=6.0.0'}
 
   '@maplibre/geojson-vt@6.1.1':
     resolution: {integrity: sha512-FVMOcmSP/yqol45t7StApEyTL5/vmqBCuFhH9n+fFuINenhaX+YgHHIt1yJ86S8kln3uJLcMvmEU2cfn6E2eCQ==}
@@ -853,10 +843,6 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       maplibre-gl: '>=4.0.0'
-
-  '@maplibre/maplibre-gl-style-spec@24.10.0':
-    resolution: {integrity: sha512-lichxSiagMEBBrqHF0trtMQH9RKh+9jUlIJl0qW0QHvt2H/tbvUWdE+ZzI2Jd0/pT7j/iavLonlPu7EQ/ixTOw==}
-    hasBin: true
 
   '@maplibre/maplibre-gl-style-spec@26.4.4':
     resolution: {integrity: sha512-hG4RZR4PBd/+6A3ODdZ3AnQRF106ZQk1y3bhwDg8bH/A4Oz2tnRUJVVWs9BZa6gXZ1d3UKe89C+Mm+olGBELvA==}
@@ -1354,8 +1340,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@panoramax/web-viewer@4.4.0':
-    resolution: {integrity: sha512-6tgxINkdbb8rRC70sTMcyc5gjsVXjca+4EEa03F3ecPc5b36krnkmoEJqC5KIBa+CxIRuZ+UkTucVVG4AENHNA==}
+  '@panoramax/web-viewer@5.3.0':
+    resolution: {integrity: sha512-QM73afTDOJwmhN+bMzTVqPmQfMptOjvxCXI7s9xa1rtpQ0dxyvZH67SQrhbso5oWB2yX1pi5GEbvJNiDCAhk9Q==}
 
   '@parcel/watcher-wasm@2.6.0':
     resolution: {integrity: sha512-dtjbDxKSDPQ8AmA+pS4OFaHE1FKrjtGpLGBxw85uKFkRorjNbvDM/aFPgqosu40wprbp1xw2ZSxIKqghCUHe2w==}
@@ -1363,28 +1349,23 @@ packages:
     bundledDependencies:
       - napi-wasm
 
-  '@photo-sphere-viewer/core@5.14.1':
-    resolution: {integrity: sha512-qrwUudrX9YZms4c2shlY/H3jUP0oh9FyGEqIDr/95ulNZgKbhQ6C/i8zDQ4j8ooFR4+z5FDORQtGvLgPyX8VCA==}
+  '@photo-sphere-viewer/core@5.15.1':
+    resolution: {integrity: sha512-nhJviczUB1xiAT/I7mGba9iDIw7DvsiK34hbR9t7kIrg9MySG33uA+a4QUk2dEOP5PjcKMj58wod8I/dQ7ePiw==}
 
-  '@photo-sphere-viewer/equirectangular-tiles-adapter@5.14.1':
-    resolution: {integrity: sha512-QHd9y5cIFXAAZInbKbh+nUz5uzSRTiR8HYApm+ONlDu8JHAp410xNhB1vNm2Q1mVgg8IigQpD9Za5mPq10fESA==}
+  '@photo-sphere-viewer/equirectangular-tiles-adapter@5.15.1':
+    resolution: {integrity: sha512-j3m38OjTKvUASU5V3gH8yAp9TAVqX5/LwVuxkWGI16q3eODHH/WyPVSEUN/GJX9m9y80/FweVoM8SduM9atR6Q==}
     peerDependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
-  '@photo-sphere-viewer/gallery-plugin@5.14.1':
-    resolution: {integrity: sha512-MzIB4Kc652yfdgPkh3xh/Kvu3XY84VkmshqZhXxa9UV4E2uNMop+vttkWeKogsaNSDT5/aEkMaFgwL/Bs/ZmRw==}
+  '@photo-sphere-viewer/markers-plugin@5.15.1':
+    resolution: {integrity: sha512-57WiHy8fcQfwid9x07ADiQJGxzcFxclbR2yIqeggzfPDguwJlCKwX5tj8brTRqwouUiHpkb80QWxHByxt45LcA==}
     peerDependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
-  '@photo-sphere-viewer/markers-plugin@5.14.1':
-    resolution: {integrity: sha512-tKMrVem19sZFVQwH6IlubEIucDD2EtwxzmWClHCEojM/+ajucuTDvO2N+I6HEqJClBcNsdHAUwA/zyY6MGOu2Q==}
+  '@photo-sphere-viewer/virtual-tour-plugin@5.15.1':
+    resolution: {integrity: sha512-9T0IZ2iyIb6yTCrP5gvb0w+SUcr5YrFurrA3M4Bk0gXdM03gRNrCxjpO2RcCiSIvGY9nXb55okP6hw5eaS10CA==}
     peerDependencies:
-      '@photo-sphere-viewer/core': 5.14.1
-
-  '@photo-sphere-viewer/virtual-tour-plugin@5.14.1':
-    resolution: {integrity: sha512-PRRQXoViKAg8g1TfagKJnvLMuuOXnGN9rvWOAs7W7J+knhcAuAenPFUax1Z5FgKli45mo21NspsPf1RV9lJHkQ==}
-    peerDependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -3382,9 +3363,6 @@ packages:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
 
-  geojson-vt@4.0.2:
-    resolution: {integrity: sha512-AV9ROqlNqoZEIJGfm1ncNjEXfkz2hdFlZf0qkVfmkwdKa8vj7H16YUOT81rJw1rdFhyEDlN2Tds91p/glzbl5A==}
-
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -4096,10 +4074,6 @@ packages:
     resolution: {integrity: sha512-ayF7iT+44LXdxJLTrTd3TLQpFDDvPCBxXxbv+pMUSuHA5Q8zyAfwkRP6aHHwNVFBUFWtxAHqwNJxF8vMZLAbVg==}
     engines: {node: '>=18'}
 
-  maplibre-gl@5.24.0:
-    resolution: {integrity: sha512-ALyFxgtd5R+65UqZ/++lOqwWcC0SNho9c27fYSyLmG7AfnAul2o46F05aDJGPbFU57wos9dgcIySHs0Xe6ia3A==}
-    engines: {node: '>=16.14.0', npm: '>=8.1.0'}
-
   maplibre-gl@6.11.2:
     resolution: {integrity: sha512-Xh06pxoipjX/Ad1sUPGhiNh9go9naCNGZZ1IJm3sIeqK1kYGuMaMDSTIGDQ2igOLfVyukJU7kvEOA089VO7Z7g==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
@@ -4657,10 +4631,6 @@ packages:
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
-  pbf@4.0.1:
-    resolution: {integrity: sha512-SuLdBvS42z33m8ejRbInMapQe8n0D3vN/Xd5fmWM3tufNgRQFBpaW2YVJxQZV4iPNqb0vEFvssMEo5w9c6BTIA==}
-    hasBin: true
-
   pbf@5.1.2:
     resolution: {integrity: sha512-mnvGdvOrIvJOBGUEdGkrVXjN8E/VkIJCkf2eS1DH2yv82ORUlLttmDt0rWY38yYZmVwciZwBUvHM20qxBZf40w==}
     hasBin: true
@@ -4710,8 +4680,8 @@ packages:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
     engines: {node: '>=4'}
 
-  pmtiles@4.3.0:
-    resolution: {integrity: sha512-wnzQeSiYT/MyO63o7AVxwt7+uKqU0QUy2lHrivM7GvecNy0m1A4voVyGey7bujnEW5Hn+ZzLdvHPoFaqrOzbPA==}
+  pmtiles@4.5.0:
+    resolution: {integrity: sha512-CBeD4SoUluFziGdy/8k7FOjQxQy486n+929W/tWophauvMICpkZ26vGBWhDt/6b1FZQWNaf4jFdT/5+q0Wii5w==}
 
   portfinder@1.0.32:
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
@@ -4989,9 +4959,6 @@ packages:
 
   quansync@0.2.11:
     resolution: {integrity: sha512-AifT7QEbW9Nri4tAwR5M/uzpBuqfZf+zwaEM/QkzEjj7NBuFD2rBuy0K3dE+8wltbezDV7JMA0WfnCPYRSYbXA==}
-
-  query-selector-shadow-dom@1.0.1:
-    resolution: {integrity: sha512-lT5yCqEBgfoMYpf3F2xQRK7zEr1rhIIZuceDK6+xRkJQ4NMbHTwXqk4NkwDwQMNqXgG9r9fyHnzwNVs6zV5KRw==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -5507,8 +5474,8 @@ packages:
   thenify@3.3.1:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
 
-  three@0.179.1:
-    resolution: {integrity: sha512-5y/elSIQbrvKOISxpwXCR4sQqHtGiOI+MKLc3SsBdDXA2hz3Mdp3X59aUp8DyybMa34aeBwbFTpdoLJaUDEWSw==}
+  three@0.185.1:
+    resolution: {integrity: sha512-5aojFCXKwnjBRZvUnt3WFfEcvUJgkN5LlijRFN95hMy8WVkG4I0QNcJE+OuWvuJ0bOdStrbfXn0pkd6/QyiAlg==}
 
   time-span@5.1.0:
     resolution: {integrity: sha512-75voc/9G4rDIJleOo4jPvN4/YC4GRZrY8yy1uU4lwrB3XEQbWve8zXoO5No4eFrGcTAMYyoY67p8jRQdtA1HbA==}
@@ -6844,23 +6811,13 @@ snapshots:
 
   '@mapbox/tiny-sdf@2.2.0': {}
 
-  '@mapbox/unitbezier@0.0.1': {}
-
   '@mapbox/unitbezier@1.0.0': {}
-
-  '@mapbox/vector-tile@2.0.4':
-    dependencies:
-      '@mapbox/point-geometry': 1.1.0
-      '@types/geojson': 7946.0.16
-      pbf: 4.0.1
 
   '@mapbox/vector-tile@3.0.0':
     dependencies:
       '@mapbox/point-geometry': 1.1.0
       '@types/geojson': 7946.0.16
       pbf: 5.1.2
-
-  '@mapbox/whoots-js@3.1.0': {}
 
   '@maplibre/geojson-vt@6.1.1':
     dependencies:
@@ -6874,15 +6831,6 @@ snapshots:
       subtag: 0.5.0
       suggestions-list: 0.0.2
       xtend: 4.0.2
-
-  '@maplibre/maplibre-gl-style-spec@24.10.0':
-    dependencies:
-      '@mapbox/jsonlint-lines-primitives': 2.0.3
-      '@mapbox/unitbezier': 1.0.0
-      json-stringify-pretty-compact: 4.0.0
-      minimist: 1.2.8
-      quickselect: 3.0.0
-      tinyqueue: 3.0.0
 
   '@maplibre/maplibre-gl-style-spec@26.4.4':
     dependencies:
@@ -7779,50 +7727,46 @@ snapshots:
   '@oxfmt/binding-win32-x64-msvc@0.71.0':
     optional: true
 
-  '@panoramax/web-viewer@4.4.0':
+  '@panoramax/web-viewer@5.3.0':
     dependencies:
       '@fontsource/atkinson-hyperlegible-next': 5.2.7
       '@fortawesome/fontawesome-svg-core': 6.7.2
       '@fortawesome/free-regular-svg-icons': 6.7.2
       '@fortawesome/free-solid-svg-icons': 6.7.2
+      '@mapbox/vector-tile': 3.0.0
+      '@maplibre/geojson-vt': 6.1.1
       '@maplibre/vt-pbf': 4.3.2
-      '@photo-sphere-viewer/core': 5.14.1
-      '@photo-sphere-viewer/equirectangular-tiles-adapter': 5.14.1(@photo-sphere-viewer/core@5.14.1)
-      '@photo-sphere-viewer/gallery-plugin': 5.14.1(@photo-sphere-viewer/core@5.14.1)
-      '@photo-sphere-viewer/markers-plugin': 5.14.1(@photo-sphere-viewer/core@5.14.1)
-      '@photo-sphere-viewer/virtual-tour-plugin': 5.14.1(@photo-sphere-viewer/core@5.14.1)
-      geojson-vt: 4.0.2
+      '@photo-sphere-viewer/core': 5.15.1
+      '@photo-sphere-viewer/equirectangular-tiles-adapter': 5.15.1(@photo-sphere-viewer/core@5.15.1)
+      '@photo-sphere-viewer/markers-plugin': 5.15.1(@photo-sphere-viewer/core@5.15.1)
+      '@photo-sphere-viewer/virtual-tour-plugin': 5.15.1(@photo-sphere-viewer/core@5.15.1)
       iconify-icon: 3.0.2
       json5: 2.2.3
       lit: 3.3.1
-      maplibre-gl: 5.24.0
-      pmtiles: 4.3.0
-      query-selector-shadow-dom: 1.0.1
+      maplibre-gl: 6.11.2
+      pbf: 5.1.2
+      pmtiles: 4.5.0
 
   '@parcel/watcher-wasm@2.6.0':
     dependencies:
       is-glob: 4.0.3
       picomatch: 4.0.7
 
-  '@photo-sphere-viewer/core@5.14.1':
+  '@photo-sphere-viewer/core@5.15.1':
     dependencies:
-      three: 0.179.1
+      three: 0.185.1
 
-  '@photo-sphere-viewer/equirectangular-tiles-adapter@5.14.1(@photo-sphere-viewer/core@5.14.1)':
+  '@photo-sphere-viewer/equirectangular-tiles-adapter@5.15.1(@photo-sphere-viewer/core@5.15.1)':
     dependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
-  '@photo-sphere-viewer/gallery-plugin@5.14.1(@photo-sphere-viewer/core@5.14.1)':
+  '@photo-sphere-viewer/markers-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)':
     dependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
-  '@photo-sphere-viewer/markers-plugin@5.14.1(@photo-sphere-viewer/core@5.14.1)':
+  '@photo-sphere-viewer/virtual-tour-plugin@5.15.1(@photo-sphere-viewer/core@5.15.1)':
     dependencies:
-      '@photo-sphere-viewer/core': 5.14.1
-
-  '@photo-sphere-viewer/virtual-tour-plugin@5.14.1(@photo-sphere-viewer/core@5.14.1)':
-    dependencies:
-      '@photo-sphere-viewer/core': 5.14.1
+      '@photo-sphere-viewer/core': 5.15.1
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -9709,8 +9653,6 @@ snapshots:
 
   gensync@1.0.0-beta.2: {}
 
-  geojson-vt@4.0.2: {}
-
   get-caller-file@2.0.5: {}
 
   get-east-asian-width@1.7.0: {}
@@ -10530,28 +10472,6 @@ snapshots:
       p-event: 6.0.1
       type-fest: 4.41.0
       web-worker: 1.5.0
-
-  maplibre-gl@5.24.0:
-    dependencies:
-      '@mapbox/jsonlint-lines-primitives': 2.0.3
-      '@mapbox/point-geometry': 1.1.0
-      '@mapbox/tiny-sdf': 2.2.0
-      '@mapbox/unitbezier': 0.0.1
-      '@mapbox/vector-tile': 2.0.4
-      '@mapbox/whoots-js': 3.1.0
-      '@maplibre/geojson-vt': 6.1.1
-      '@maplibre/maplibre-gl-style-spec': 24.10.0
-      '@maplibre/mlt': 1.3.0
-      '@maplibre/vt-pbf': 4.3.2
-      '@types/geojson': 7946.0.16
-      earcut: 3.2.4
-      gl-matrix: 3.4.4
-      kdbush: 4.1.0
-      murmurhash-js: 1.0.0
-      pbf: 4.0.1
-      potpack: 2.1.0
-      quickselect: 3.0.0
-      tinyqueue: 3.0.0
 
   maplibre-gl@6.11.2:
     dependencies:
@@ -11544,10 +11464,6 @@ snapshots:
 
   pathe@2.0.3: {}
 
-  pbf@4.0.1:
-    dependencies:
-      resolve-protobuf-schema: 2.1.0
-
   pbf@5.1.2:
     dependencies:
       resolve-protobuf-schema: 2.1.0
@@ -11584,7 +11500,7 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  pmtiles@4.3.0:
+  pmtiles@4.5.0:
     dependencies:
       fflate: 0.8.3
 
@@ -11838,8 +11754,6 @@ snapshots:
       hookified: 2.2.0
 
   quansync@0.2.11: {}
-
-  query-selector-shadow-dom@1.0.1: {}
 
   queue-microtask@1.2.3: {}
 
@@ -12535,7 +12449,7 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  three@0.179.1: {}
+  three@0.185.1: {}
 
   time-span@5.1.0:
     dependencies:
