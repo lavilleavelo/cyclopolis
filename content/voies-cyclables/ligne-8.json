@@ -1350,9 +1350,9 @@
       "properties": {
         "line": 8,
         "name": "Rue Camille Roy",
-        "status": "postponed",
-        "type": "aucun",
-        "quality": "unsatisfactory",
+        "status": "wip",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
         "link": "/voie-lyonnaise-8#rue-camille-roy"
       },
       "geometry": {
