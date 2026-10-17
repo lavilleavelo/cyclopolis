@@ -568,7 +568,7 @@
       "type": "Feature",
       "properties": {
         "line": 6,
-        "name": "Quai Perrache Centre",
+        "name": "Quai Perrache Marché Gare",
         "status": "done",
         "doneAt": "10/10/2025",
         "type": "bidirectionnelle",
@@ -579,8 +579,27 @@
         "type": "LineString",
         "coordinates": [
           [4.824055550735437, 45.74127425236173],
-          [4.823881064815481, 45.74105182421847],
-          [4.821607387257046, 45.73836389508797]
+          [4.8226075, 45.7395658]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id":"Perrache-commun",
+        "line": 6,
+        "name": "Quai Perrache Montrochet",
+        "status": "done",
+        "doneAt": "10/10/2025",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-6#quai-perrache"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8226075, 45.7395658],
+          [4.821573, 45.7383776]
         ]
       }
     },
@@ -598,7 +617,7 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.821607387257046, 45.73836389508797],
+          [4.821573, 45.7383776],
           [4.820830821990966, 45.737443627164645]
         ]
       }

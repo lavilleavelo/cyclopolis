@@ -1515,7 +1515,7 @@
       "type": "Feature",
       "properties": {
         "line": 7,
-        "name": "Route de Vienne - Grand Trou Nord",
+        "name": "Route de Vienne - Benoit Bernard",
         "status": "done",
         "doneAt": "30/08/2024",
         "type": "bidirectionnelle",
@@ -1528,8 +1528,29 @@
           [4.851784322986674,45.73933563038955],
           [4.852170250584514, 45.7381229378726],
           [4.852289591101638, 45.737956836348246],
+          [4.852498159590141, 45.7372853655493]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GrandTrou-commun",
+        "line": 7,
+        "name": "Route de Vienne - Grand Trou Nord",
+        "status": "done",
+        "doneAt" : "17/12/2024",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-7#route-de-vienne"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
           [4.852498159590141, 45.7372853655493],
-          [4.852948103892388, 45.736206182886036]
+          [4.852948103892388, 45.736206182886036],
+          [4.853098228021906,45.73574184431283],
+          [4.8532994558173925,45.73403987642686]
         ]
       }
     },
@@ -1547,8 +1568,6 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.852948103892388, 45.736206182886036],
-          [4.853098228021906,45.73574184431283],
           [4.8532994558173925,45.73403987642686],
           [4.853595380375538,45.72965253174149]
         ]
