@@ -1,4 +1,687 @@
 {
-  "type": "FeatureCollection",
-  "features": []
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Passerelle Confluence",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8123844, 45.7420401],
+					[4.8142839, 45.7414036]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Montrochet - Jean Couty",
+				"status": "done",
+				"doneAt": "02/02/2012",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8142839, 45.7414036],
+					[4.8149094, 45.7411651]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Montrochet Ouest",
+				"status": "done",
+				"doneAt": "02/02/2012",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8149094, 45.7411651],
+					[4.8150319, 45.7411786],
+					[4.8181268, 45.7398826],
+					[4.818288, 45.7397746],
+					[4.8184079, 45.7397232]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Montrochet Est",
+				"status": "done",
+				"doneAt": "10/10/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8184079, 45.7397232],
+					[4.821573, 45.7383776]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "QuaiPerrache-commun",
+				"line": 14,
+				"name": "Quai Perrache - Montrochet",
+				"status": "done",
+				"doneAt": "10/10/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.821573, 45.7383776],
+					[4.8226075, 45.7395658]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Passerelle des Girondins",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8226075, 45.7395658],
+					[4.8261994, 45.7396531]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue des Girondins Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8261994, 45.7396531],
+					[4.8276309, 45.7395001],
+					[4.8304421, 45.7389826],
+					[4.8323571, 45.7386496]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue des Girondins Est",
+				"status": "done",
+				"doneAt": "25/01/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8323571, 45.7386496],
+					[4.8370124, 45.737574]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Girondins Jaurès",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8370124, 45.737574],
+					[4.8373412, 45.7374345]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Fourcade",
+				"status": "done",
+				"doneAt": "20/09/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8373412, 45.7374345],
+					[4.8390335, 45.7368136],
+					[4.8396677, 45.7367939]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Croix Barret Ouest",
+				"status": "done",
+				"doneAt": "25/08/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8396677, 45.7367939],
+					[4.8398947, 45.7367851],
+					[4.842094, 45.7367035]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Croix Barret Est",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.842094, 45.7367035],
+					[4.842406, 45.7366918],
+					[4.8427496, 45.736652],
+					[4.8445927, 45.7366754],
+					[4.8473992, 45.7368455],
+					[4.852498159590141, 45.7372853655493]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "GrandTrou-commun",
+				"line": 14,
+				"name": "Route de Vienne - Grand Trou Nord",
+				"status": "done",
+				"doneAt": "17/12/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.852498159590141, 45.7372853655493],
+					[4.852948103892388, 45.736206182886036],
+					[4.853098228021906, 45.73574184431283],
+					[4.8532994558173925, 45.73403987642686]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Audibert et Lavirotte Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8532994558173925, 45.73403987642686],
+					[4.8556188, 45.7350256]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Audibert et Lavirotte Nord",
+				"status": "done",
+				"doneAt": "25/10/2020",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8556188, 45.7350256],
+					[4.8556731, 45.7350674],
+					[4.8565148, 45.7354697],
+					[4.8566403, 45.7355912],
+					[4.8574164, 45.7363022],
+					[4.8585131, 45.7375236],
+					[4.8590738, 45.7382855],
+					[4.8591287, 45.7384786]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Audibert et Lavirotte - Contet",
+				"status": "done",
+				"doneAt": "25/10/2020",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8591287, 45.7384786],
+					[4.8593407, 45.7391034],
+					[4.8596866, 45.7392271]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "JetdEau-commun",
+				"line": 14,
+				"name": "Carrefour Jet d'Eau Sud",
+				"status": "done",
+				"doneAt": "30/05/2025",
+				"type": "bidirectionnelle",
+				"link": "/voie-lyonnaise-13#test",
+				"quality": "satisfactory"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8596866, 45.7392271],
+					[4.8594389, 45.7395236],
+					[4.8591795, 45.7396133]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Jet d'Eau Ouest",
+				"status": "done",
+				"doneAt": "10/10/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8591795, 45.7396133],
+					[4.8592885, 45.7397924],
+					[4.8595006, 45.7398765]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue de l'Europe",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8595006, 45.7398765],
+					[4.8587333, 45.740875],
+					[4.8586056, 45.7410163],
+					[4.8585093, 45.7410578]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Hélène Dutrieux",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8585093, 45.7410578],
+					[4.8583334, 45.7413076],
+					[4.8582532, 45.7414842],
+					[4.8582069, 45.7416837],
+					[4.8582131, 45.7419055],
+					[4.8582408, 45.7420649],
+					[4.8583211, 45.7422308],
+					[4.8583705, 45.7423729],
+					[4.8583489, 45.7425151],
+					[4.8586451, 45.7437298],
+					[4.858784, 45.7441734],
+					[4.8588179, 45.744335],
+					[4.8589352, 45.7443845]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Marius Berliet - Lycée Colbert",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8589352, 45.7443845],
+					[4.8589321, 45.7444276],
+					[4.8589013, 45.7444922],
+					[4.8589136, 45.744587],
+					[4.8594262, 45.7464377],
+					[4.8594231, 45.7465389],
+					[4.859525, 45.7468899],
+					[4.8596546, 45.7471355]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Manufacture des Tabacs",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8596546, 45.7471355],
+					[4.8595929, 45.7472044],
+					[4.8601083, 45.7489868],
+					[4.8602101, 45.7490342],
+					[4.8602656, 45.7492215]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Mouton-Duvernet Sud",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8602656, 45.7492215],
+					[4.8604446, 45.7494326],
+					[4.860565, 45.7498482],
+					[4.8605712, 45.749971],
+					[4.8607625, 45.7506579],
+					[4.8608088, 45.7507462],
+					[4.860673, 45.7508582]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MoutonDuvernet-commun",
+				"line": 14,
+				"name": "Rue Mouton-Duvernet Nord",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861525405195948, 45.75715986395252],
+					[4.861468420716278, 45.7538736167393]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Vilette-commun",
+				"line": 14,
+				"name": "Rue de la Villette",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861525405195948, 45.75715986395252],
+					[4.86156446598693, 45.758263589446074],
+					[4.861588613695261, 45.7588943647132],
+					[4.861496065465587, 45.75900941517938]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Pompidou",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8615687, 45.7589911],
+					[4.8620285, 45.7590105],
+					[4.8629606, 45.7590837]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Flandin Sud",
+				"status": "done",
+				"doneAt": "25/08/2023",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8629606, 45.7590837],
+					[4.8630179, 45.7607816],
+					[4.8629683, 45.7613531]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Flandin Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "bandes-cyclables",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8629683, 45.7613531],
+					[4.8628739, 45.7636658],
+					[4.8627664, 45.7651517]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Germain",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8627664, 45.7651517],
+					[4.8635885, 45.7651671]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Bellecombe",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8635885, 45.7651671],
+					[4.8634232, 45.7663216],
+					[4.8631811, 45.7681542],
+					[4.863063, 45.7692551]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Terminus T9 - Charpennes",
+				"status": "done",
+				"doneAt": "10/05/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.863063, 45.7692551],
+					[4.8629603, 45.7693487],
+					[4.8628633, 45.7702071]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Place Charles Hernu",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8628633, 45.7702071],
+					[4.8633109, 45.7704729],
+					[4.8633069, 45.7706358]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Gabriel Péri",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8633069, 45.7706358],
+					[4.864452, 45.7713265],
+					[4.8652876, 45.7718863],
+					[4.8657949, 45.7722306],
+					[4.8658867, 45.7723123]
+				]
+			}
+		}
+	]
 }
