@@ -487,6 +487,29 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"line": 14,
+				"name": "Rue Mouton-Duvernet Centre",
+				"status": "done",
+				"doneAt": "02/06/2013",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.860673, 45.7508582],
+					[4.8611066, 45.7515464],
+          			[4.8613548, 45.7521571],
+          			[4.8614602, 45.7527545],
+          			[4.8614783, 45.7538645],
+					[4.861525405195948, 45.75715986395252]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
 				"id": "MoutonDuvernet-commun",
 				"line": 14,
 				"name": "Rue Mouton-Duvernet Nord",
@@ -572,8 +595,8 @@
 				"line": 14,
 				"name": "Rue Flandin Nord",
 				"status": "postponed",
-				"type": "aucun",
-				"quality": "bandes-cyclables",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
 			},
 			"geometry": {
