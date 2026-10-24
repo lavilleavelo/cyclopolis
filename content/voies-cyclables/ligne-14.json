@@ -705,6 +705,322 @@
 					[4.8658867, 45.7723123]
 				]
 			}
+		},
+
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard du Stade",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8926706, 45.7179844],
+					[4.8926613, 45.7181452],
+					[4.8926798, 45.7184474],
+					[4.8927396, 45.7187142],
+					[4.8928363, 45.7189906],
+					[4.8929376, 45.7191835],
+					[4.8942591, 45.7217528],
+					[4.8943558, 45.7218621]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Montée de la Gentine",
+				"status": "done",
+				"doneAt": "25/05/2020",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8943558, 45.7218621],
+					[4.8945998, 45.7220196],
+					[4.8947564, 45.7220968],
+					[4.8949682, 45.72255],
+					[4.8949755, 45.7226257],
+					[4.8949267, 45.7227333],
+					[4.8949267, 45.7228747],
+					[4.8949643, 45.7229382],
+					[4.8950142, 45.722984],
+					[4.8954608, 45.7231447],
+					[4.8964238, 45.7232778],
+					[4.8976415, 45.7235068],
+					[4.8979084, 45.7235767],
+					[4.8980411, 45.7235835],
+					[4.898128, 45.7236077]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard Emile Bollaert",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.898128, 45.7236077],
+					[4.8982971, 45.7235176],
+					[4.8985688, 45.7234276],
+					[4.8991167, 45.7233247]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin des Chasseurs",
+				"status": "done",
+				"doneAt":"02/02/2005",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8991167, 45.7233247],
+					[4.8992042, 45.723553],
+					[4.89937, 45.7237844],
+					[4.8996416, 45.724019],
+					[4.8999686, 45.7243083],
+					[4.8999547, 45.7244048],
+					[4.8997844, 45.7245494],
+					[4.8994851, 45.7246651],
+					[4.899393, 45.7247423],
+					[4.8986503, 45.725117]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Léon Bourgeois",
+				"status": "done",
+				"doneAt":"02/02/2005",
+				"type": "zone-de-rencontre",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8986503, 45.725117],
+					[4.8997954, 45.7265196]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Edouard Herriot",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8997954, 45.7265196],
+					[4.8996803, 45.7265811],
+					[4.8996182, 45.7266659],
+					[4.8996366, 45.7267624],
+					[4.8997241, 45.7268363],
+					[4.8998438, 45.7268781],
+					[4.8999716, 45.7268697],
+					[4.9000925, 45.7269938],
+					[4.900797, 45.727807],
+					[4.9009765, 45.7280609],
+					[4.9012258, 45.7289392],
+					[4.9012166, 45.7290357],
+					[4.9012534, 45.7290999],
+					[4.9013041, 45.729161],
+					[4.9014452, 45.7297487],
+					[4.9013593, 45.7303566],
+					[4.9015619, 45.7303727],
+					[4.901456, 45.731308],
+					[4.9015343, 45.7314976]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rues Bender et Voillot",
+				"status": "done",
+				"doneAt": "25/06/2014",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9015343, 45.7314976],
+					[4.9019625, 45.7319219],
+					[4.9019855, 45.7319829],
+					[4.9019395, 45.7320568],
+					[4.9021006, 45.7322336],
+					[4.9021789, 45.7324618],
+					[4.9023032, 45.7328185],
+					[4.9024137, 45.7330371],
+					[4.9025058, 45.7331624],
+					[4.9030169, 45.7335706],
+					[4.9035996, 45.7345191],
+					[4.9033912, 45.7345871],
+					[4.9033475, 45.7346153],
+					[4.9034416, 45.734824],
+					[4.9034853, 45.7350516]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Bretelle Boutasse Bonnevay",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9034853, 45.7350516],
+					[4.9035396, 45.7352044],
+					[4.9036714, 45.7353941],
+					[4.903855, 45.7357154],
+					[4.9040297, 45.7359429],
+					[4.9042311, 45.7363364],
+					[4.9041241, 45.7368362]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Jean Bouin",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9041241, 45.7368362],
+					[4.9041272, 45.7370571],
+					[4.9046817, 45.7382417],
+					[4.9048485, 45.7385426],
+					[4.9053507, 45.7387552],
+					[4.9055164, 45.7394555],
+					[4.9056316, 45.7399036],
+					[4.9058457, 45.7405011],
+					[4.9066195, 45.7430405],
+					[4.9067522, 45.7432585]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Berty Albrecht",
+				"status": "planned",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9067522, 45.7432585],
+					[4.9070136, 45.744149],
+					[4.9073596, 45.7452407],
+					[4.9074358, 45.7455256],
+					[4.907505, 45.7455884],
+					[4.9076365, 45.7456029],
+					[4.9084502, 45.745528],
+					[4.9086035, 45.7455968],
+					[4.9086609, 45.7458154],
+					[4.9087509, 45.7464772],
+					[4.9088883, 45.7466018],
+					[4.9097581, 45.7469649]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue du Capitaine Labois",
+				"status": "done",
+				"doneAt": "25/01/2023",
+				"type": "velorue",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9097581, 45.7469649],
+					[4.9097089, 45.7470313],
+					[4.9096171, 45.7470656],
+					[4.9080854, 45.7472236],
+					[4.9079115, 45.7472556],
+					[4.9078099, 45.7473472],
+					[4.9078164, 45.7474845],
+					[4.9079964, 45.748216],
+					[4.9085548, 45.7481587]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue des Gendarmes",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9085548, 45.7481587],
+					[4.9087188, 45.7489071],
+					[4.9088927, 45.7494977],
+					[4.9088927, 45.7507244]
+				]
+			}
 		}
 	]
 }
