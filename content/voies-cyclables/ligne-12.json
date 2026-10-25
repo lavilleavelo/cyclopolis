@@ -905,12 +905,29 @@
 					[4.9579973, 45.7171084],
 					[4.9580958, 45.7171394],
 					[4.9581689, 45.7171705],
-					[4.9583088, 45.7171461],
+					[4.9583088, 45.7171461]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "Pelossier-commun",
+        "line": 12,
+        "name": "Giratoire Pelossier",
+        "status": "postponed",
+        "type": "bilaterale",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-12#boulevard-pinel-à-bron-boutasse"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9583088, 45.7171461],
 					[4.9583405, 45.7170817],
 					[4.9583978, 45.7170063],
 					[4.9584359, 45.7169441],
-					[4.958509, 45.716902],
-					[4.9588205, 45.7167733]
+					[4.958509, 45.716902]
         ]
       }
     },
@@ -927,6 +944,7 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
+          [4.958509, 45.716902],
           [4.9588205, 45.7167733],
 					[4.9595801, 45.7165092],
 					[4.9666261, 45.7141385],
