@@ -1839,6 +1839,156 @@
           [4.9280485115435795, 45.71703129997303]
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Cours du IIIe Millénaire",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9280485115435795, 45.71703129997303],
+					[4.9301436, 45.7156248],
+					[4.9303639, 45.7156779],
+					[4.9306602, 45.7156991],
+					[4.9309033, 45.715646],
+					[4.9312223, 45.7154286],
+					[4.9360613, 45.7120922],
+					[4.9361676, 45.7119543],
+					[4.9362056, 45.7118005],
+					[4.9361676, 45.7116573],
+					[4.9361752, 45.7115353],
+					[4.9363803, 45.7113868],
+					[4.9390391, 45.7096257],
+					[4.9392746, 45.7095408],
+					[4.9395177, 45.7095355],
+					[4.9398139, 45.7095567]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Rue de l'Aviation Nord",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9398139, 45.7095567],
+					[4.940019, 45.7083048],
+					[4.9402013, 45.7079282],
+					[4.9403767, 45.7066025]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Rue de l'Aviation Sud",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9403767, 45.7066025],
+					[4.9404525, 45.706553],
+					[4.940465, 45.7064946],
+					[4.9404209, 45.7064363],
+					[4.9403524, 45.7064068],
+					[4.9403888, 45.7060446],
+					[4.940134, 45.7046825]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Rue Danton étroite",
+        "status": "postponed",
+        "type": "aucun",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.940134, 45.7046825],
+					[4.9403023, 45.7046793],
+					[4.94073, 45.7047175]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Rue Danton large",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.94073, 45.7047175],
+					[4.9418538, 45.704816],
+					[4.9427411, 45.7049621],
+					[4.9440742, 45.7052989],
+					[4.9458395, 45.7055436],
+					[4.94634, 45.7055944],
+					[4.9477323, 45.705801],
+					[4.9484375, 45.705855],
+					[4.9489062, 45.7058741],
+					[4.9497645, 45.7058901]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "line": 8,
+        "name": "Rond-Point Louis Roz",
+        "status": "postponed",
+        "type": "bandes-cyclables",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-8#cours-du-professeur-jean-bernard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9497645, 45.7058901],
+					[4.9498207, 45.7058327],
+					[4.9499117, 45.7057692],
+					[4.9500247, 45.7057471],
+					[4.9501346, 45.7057692],
+					[4.9502441, 45.7058267],
+					[4.9502984, 45.705909],
+					[4.9502757, 45.7060075],
+					[4.9501983, 45.7060933],
+					[4.9500949, 45.7061331],
+					[4.9499545, 45.70613],
+					[4.949848, 45.7060742],
+					[4.9497791, 45.7059952],
+					[4.9497645, 45.7058901]
+        ]
+      }
     }
   ]
 }
