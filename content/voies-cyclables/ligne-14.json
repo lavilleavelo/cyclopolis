@@ -1087,7 +1087,7 @@
 			"type": "Feature",
 			"properties": {
 				"line": 14,
-				"name": "Rue Sully",
+				"name": "Rue Sully Nord",
 				"status": "done",
 				"doneAt": "25/10/2006",
 				"type": "voie-verte",
@@ -1110,8 +1110,11 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "SullyCentre-commun",
 				"line": 14,
 				"name": "Avenue Simone Veil - OL Vallée",
+				"variante": true,
+				"text": "variante Est",
 				"status": "done",
 				"doneAt": "25/05/2015",
 				"type": "voie-verte",
@@ -1132,8 +1135,35 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "SullyCentre-commun",
+				"line": 14,
+				"name": "Rue Sully Centre",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt":"25/10/2006",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9752297, 45.7688122],
+					[4.97516, 45.7683302],
+					[4.9750902, 45.7680296],
+					[4.9749318, 45.7676184]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SullySud-commun",
 				"line": 14,
 				"name": "Avenue Simone Veil - Rocade Est",
+				"variante": true,
+				"text": "variante Est",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -1163,8 +1193,125 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "SullySud-commun",
+				"line": 14,
+				"name": "Rue Sully Sud",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9749318, 45.7676184],
+					[4.9747416, 45.767331],
+					[4.9743804, 45.7669375],
+					[4.974317, 45.7667342],
+					[4.974336, 45.7665661],
+					[4.9745135, 45.7654342],
+					[4.9750459, 45.7637761],
+					[4.9750839, 45.7635816],
+					[4.9750966, 45.7634135],
+					[4.9750586, 45.7631438],
+					[4.9748716, 45.7619981]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauTennis-commun",
+				"line": 14,
+				"name": "Rue Marceau - Tennis",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "06/09/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9748716, 45.7619981],
+					[4.9750854, 45.7619746],
+					[4.9752692, 45.7619039],
+					[4.975873, 45.7618176],
+					[4.9765893, 45.7617862],
+					[4.9769906, 45.761781],
+					[4.9770806, 45.7617705],
+					[4.9772269, 45.7617626]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauImpasse-commun",
+				"line": 14,
+				"name": "Impasse Marceau",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "06/09/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9772269, 45.7617626],
+					[4.9774556, 45.7617626],
+					[4.9796946, 45.7613205]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Marceau Biézin",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "01/04/2015",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9796946, 45.7613205],
+					[4.9797321, 45.7612655],
+					[4.9798873, 45.7612131],
+					[4.9802791, 45.7610446],
+					[4.9804246, 45.7609432],
+					[4.9804911, 45.7607968],
+					[4.980514, 45.7605513],
+					[4.9808567, 45.7604493],
+					[4.9815103, 45.7603409],
+					[4.9820679, 45.7603377],
+					[4.9828174, 45.7603536],
+					[4.9833978, 45.760191],
+					[4.9836172, 45.7601559],
+					[4.9837223, 45.7599008]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauTennis-commun",
 				"line": 14,
 				"name": "Echangeur Rocade Est",
+				"variante": true,
+				"text": "variante Est",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -1184,8 +1331,11 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "MarceauImpasse-commun",
 				"line": 14,
 				"name": "Accès parking OL Vallée",
+				"variante": true,
+				"text": "variante Est",
 				"status": "done",
 				"doneAt": "01/09/2015",
 				"type": "velorue",
