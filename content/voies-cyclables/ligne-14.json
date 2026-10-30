@@ -1602,8 +1602,9 @@
 				"coordinates": [
 					[4.9796946, 45.7613205],
 					[4.9797321, 45.7612655],
-					[4.9798873, 45.7612131],
-					[4.9802791, 45.7610446],
+					[4.9798171, 45.7612322],
+					[4.9798537, 45.7610326],
+					[4.9803783, 45.7610428],
 					[4.9804246, 45.7609432],
 					[4.9804911, 45.7607968],
 					[4.980514, 45.7605513],
@@ -1964,6 +1965,665 @@
 					[4.9502786, 45.7068256],
 					[4.9500969, 45.706379],
 					[4.9500949, 45.7061331]
+				]
+			}
+		},
+
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Sept Chemin - Pôle Multimodal",
+				"status": "done",
+				"doneAt": "01/06/2025",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.932744570156341, 45.744438232533064],
+					[4.9332754, 45.7447845],
+					[4.9333933, 45.7448667],
+					[4.9334613, 45.7449427]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Impasse Elisée Reclus",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9334613, 45.7449427],
+					[4.9336018, 45.7449743],
+					[4.935946, 45.7463919],
+					[4.9363314, 45.7467114],
+					[4.9364594, 45.7468629]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "EliseeReclus-commun",
+				"line": 14,
+				"name": "BUE - Carrefour Elisée Reclus",
+				"status": "done",
+				"doneAt": "10/04/2024",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9364594, 45.7468629],
+					[4.93630373584795, 45.74732516571994]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Elisée Reclus - ZA des Pivolles",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.93630373584795, 45.74732516571994],
+					[4.9371158, 45.747572],
+					[4.937406, 45.7477809],
+					[4.938476, 45.7487396],
+					[4.9424119, 45.751987],
+					[4.9431146, 45.7523567],
+					[4.943633, 45.7525898]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Elisée Reclus - Beauregard",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.943633, 45.7525898],
+					[4.944566, 45.7529515],
+					[4.9457756, 45.7532891],
+					[4.9467893, 45.753482],
+					[4.9478605, 45.7536266],
+					[4.9486208, 45.7537794],
+					[4.9491277, 45.7539803],
+					[4.9493235, 45.7540044]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue de France",
+				"status": "done",
+				"doneAt": "01/04/2015",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9493235, 45.7540044],
+					[4.9499137, 45.7542978],
+					[4.9505846, 45.7546489],
+					[4.9510008, 45.7548136],
+					[4.9522246, 45.755052],
+					[4.9526905, 45.7551863],
+					[4.9531067, 45.7553597],
+					[4.9536409, 45.7556761],
+					[4.9553244, 45.7568897],
+					[4.9557841, 45.7571757],
+					[4.9561568, 45.7573534],
+					[4.956809, 45.7575918],
+					[4.9590516, 45.7583026],
+					[4.9593435, 45.7583503],
+					[4.9595548, 45.7583156],
+					[4.9599275, 45.7583503],
+					[4.9602505, 45.7582723],
+					[4.9606605, 45.7581379],
+					[4.9610705, 45.7580122],
+					[4.9615799, 45.7579255],
+					[4.9624868, 45.7578649],
+					[4.963108, 45.7578345],
+					[4.9637851, 45.7578258],
+					[4.9643318, 45.7578302],
+					[4.9647729, 45.7578822],
+					[4.9651394, 45.7579385],
+					[4.9655556, 45.7580382],
+					[4.9660836, 45.7582029],
+					[4.9666085, 45.7584463],
+					[4.9671551, 45.7587584],
+					[4.9676334, 45.7589967],
+					[4.968236, 45.7592308],
+					[4.9685777, 45.7593348],
+					[4.968733, 45.7593998],
+					[4.968896, 45.7594324],
+					[4.9690568, 45.7594254],
+					[4.9692076, 45.759388],
+					[4.9693784, 45.7593038],
+					[4.9705207, 45.7586541],
+					[4.971107, 45.7584204],
+					[4.9712008, 45.7583596],
+					[4.9712309, 45.7582848],
+					[4.9712309, 45.758203],
+					[4.9713582, 45.758168],
+					[4.9714286, 45.7582311],
+					[4.9714922, 45.7582544],
+					[4.9715961, 45.7582544],
+					[4.9718808, 45.7581726],
+					[4.9726044, 45.7579412],
+					[4.9728456, 45.7578945],
+					[4.9732744, 45.7578524],
+					[4.9740583, 45.75778],
+					[4.9742359, 45.7577893],
+					[4.9744101, 45.7578244],
+					[4.9745575, 45.7578875],
+					[4.9746781, 45.7579646],
+					[4.9747953, 45.7580838],
+					[4.9748489, 45.758217],
+					[4.9750734, 45.7592501],
+					[4.9751203, 45.7593927],
+					[4.9752107, 45.7595866],
+					[4.9753548, 45.7597923],
+					[4.9755357, 45.7599816],
+					[4.9757199, 45.7601452],
+					[4.9759142, 45.7602691],
+					[4.9762157, 45.7604163],
+					[4.9764602, 45.7605098],
+					[4.9768187, 45.7606033],
+					[4.9772006, 45.7606594],
+					[4.9781888, 45.7607459],
+					[4.979636, 45.7608697],
+					[4.9798873, 45.7609118],
+					[4.9804246, 45.7609432]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Traversée Rocade Est - Echangeur 7",
+				"status": "done",
+				"doneAt": "01/10/2017",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9804233, 45.7609375],
+					[4.9803931, 45.7610427],
+					[4.9818236, 45.7610474],
+					[4.982862, 45.7610333],
+					[4.9834516, 45.7610497],
+					[4.9846007, 45.7610847],
+					[4.9854047, 45.7611338],
+					[4.9863561, 45.7612226],
+					[4.9868117, 45.7612437],
+					[4.9874281, 45.7612413],
+					[4.9878669, 45.7612717],
+					[4.9882723, 45.7612998],
+					[4.9885603, 45.7612787],
+					[4.988835, 45.761239],
+					[4.9895318, 45.761211],
+					[4.9895955, 45.7612226],
+					[4.9897127, 45.7613301],
+					[4.9897764, 45.7613301]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard Pierre Mendès France Sud",
+				"status": "done",
+				"doneAt": "01/04/2007",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9897764, 45.7613301],
+					[4.990647, 45.7659761]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Giratoire Paul Cézanne",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.990647, 45.7659761],
+					[4.9907317, 45.7662761]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard Pierre Mendès France Nord",
+				"status": "done",
+				"doneAt": "01/04/2007",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9907317, 45.7662761],
+					[4.9912592, 45.7679714],
+					[4.991719, 45.7687091],
+					[4.9921921, 45.769489],
+					[4.9926928, 45.7701739]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Giratoire du Carreau",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9926928, 45.7701739],
+					[4.9929475, 45.7704883]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard du 18 juin 1940",
+				"status": "done",
+				"doneAt": "01/04/2007",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9929475, 45.7704883],
+					[4.9931892, 45.77083],
+					[4.9941659, 45.7718056],
+					[4.9943575, 45.7719927],
+					[4.9945414, 45.7720622],
+					[4.9945874, 45.7722332]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "GareNord-commun",
+				"line": 14,
+				"name": "Rue de la Gare Nord",
+				"status": "done",
+				"doneAt": "10/04/2006",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[4.998196085158668, 45.77187069009244],
+				[4.997859222915224, 45.77186450674654],
+				[4.997642035415566, 45.77187172065055],
+				[4.9945874, 45.7722332]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MeyzieuGare-commun",
+				"line": 14,
+				"name": "Gare de Meyzieu",
+				"status": "done",
+				"doneAt": "31/10/2006",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[5.00064909530721, 45.77158100392566],
+				[4.999458167549591, 45.77172622651855],
+				[4.9986175043984815, 45.771822526218614],
+				[4.998196085158668, 45.77187069009244]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "EcoleMarieCurie-commun",
+				"line": 14,
+				"name": "Voie verte école Marie Curie",
+				"status": "done",
+				"doneAt": "20/08/2023",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[5.0039478, 45.7721066],
+				[5.0031045, 45.7722546],
+				[5.0029537, 45.7722156],
+				[5.0028364, 45.7721494],
+				[5.0027862, 45.7720404],
+				[5.002614902520747, 45.7714454809616],
+				[5.002526111356147, 45.771385564337976],
+				[5.002446342303585, 45.77135695903897],
+				[5.002362990814053, 45.77133773621914],
+				[5.002263035840407, 45.771335862173714],
+				[5.0019115110140575, 45.77137822825276],
+				[5.0015573442501875, 45.77139007586746],
+				[5.0008230836861856, 45.77150940411104],
+				[5.00064909530721, 45.77158100392566]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Joseph Dubois Nord",
+				"status": "done",
+				"doneAt": "20/08/2023",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0039478, 45.7721066],
+					[5.0046137, 45.773898],
+					[5.0049401, 45.7750529],
+					[5.005115, 45.7759881],
+					[5.0052119, 45.7768897]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Desbois Pommier",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0052119, 45.7768897],
+					[5.0052119, 45.7771256],
+					[5.0062303, 45.7772674]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin de Pommier",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0062303, 45.7772674],
+					[5.0102109, 45.777764],
+					[5.0136206, 45.7781014],
+					[5.017157, 45.7784871],
+					[5.0182513, 45.7785513],
+					[5.0190577, 45.7785594],
+					[5.0203133, 45.778463],
+					[5.0213961, 45.7783264]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Pommier - Jean Jaurès",
+				"status": "done",
+				"doneAt": "01/03/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0213961, 45.7783264],
+					[5.021638, 45.7784871],
+					[5.0220988, 45.7790575]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Jean Jaurès - Les Mouettes",
+				"status": "done",
+				"doneAt": "01/10/2020",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0220988, 45.7790575],
+					[5.0243105, 45.7822388],
+					[5.0256756, 45.7840056]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Jean Jaurès Nord",
+				"status": "done",
+				"doneAt": "01/04/2024",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0256756, 45.7840056],
+					[5.0262109, 45.7845455],
+					[5.0272026, 45.7855591],
+					[5.0276637, 45.7859964],
+					[5.027888, 45.786245],
+					[5.0287223, 45.7872395],
+					[5.0289613, 45.7875189],
+					[5.0301742, 45.7888953],
+					[5.0311997, 45.7899666],
+					[5.0313394, 45.7901178]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Giratoire Meyzieu - Jonage",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0313394, 45.7901178],
+					[5.0313357, 45.7902127],
+					[5.0312732, 45.7902409],
+					[5.0312328, 45.7902844],
+					[5.0312181, 45.7903613],
+					[5.0312622, 45.7904331],
+					[5.0313651, 45.79051],
+					[5.0315342, 45.7905177],
+					[5.0316702, 45.7904818]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Jonage - Rue Nationale",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0316702, 45.7904818],
+					[5.0319826, 45.7905664],
+					[5.0327729, 45.7908842],
+					[5.0337175, 45.7913711],
+					[5.0351181, 45.7921733],
+					[5.0363276, 45.7926989],
+					[5.0377316, 45.7932255]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Joannès Raclet",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0377316, 45.7932255],
+					[5.0377024, 45.7941617],
+					[5.0377229, 45.7951746],
+					[5.0376936, 45.7952504]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Voie verte Joannès Raclet",
+				"status": "done",
+				"doneAt": "01/09/2020",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0376936, 45.7952504],
+					[5.0378525, 45.7955465],
+					[5.0379529, 45.7958891],
+					[5.0380868, 45.7961137],
+					[5.0387765, 45.7969028]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin de Contre-Halage - Joannès Raclet",
+				"status": "done",
+				"doneAt": "01/09/2020",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[5.0387765, 45.7969028],
+					[5.0395838, 45.7977835],
+					[5.0400189, 45.798253]
 				]
 			}
 		}
