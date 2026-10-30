@@ -2513,7 +2513,46 @@
 					[4.934036238923916, 45.7494087234406],
 					[4.935465835831067, 45.74835367152046],
 					[4.935983094128716, 45.747895169521236],
+					[4.93630373584795, 45.74732516571994]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "EliseeReclus-commun",
+				"line": 5,
+				"name": "BUE - Carrefour Elisée Reclus",
+				"status": "done",
+				"doneAt": "10/04/2024",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#avenue-roosevelt-à-tram-t9"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
 					[4.93630373584795, 45.74732516571994],
+					[4.9364594, 45.7468629]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "EliseeReclus-commun",
+				"line": 5,
+				"name": "BUE - Section étroite",
+				"status": "done",
+				"doneAt": "10/04/2024",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-5#avenue-roosevelt-à-tram-t9"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9364594, 45.7468629],
 					[4.936649291773804, 45.74625966754542]
 				]
 			}
