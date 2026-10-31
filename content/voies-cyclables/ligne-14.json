@@ -1604,7 +1604,7 @@
 					[4.9797321, 45.7612655],
 					[4.9798171, 45.7612322],
 					[4.9798537, 45.7610326],
-					[4.9803783, 45.7610428],
+					[4.9803931, 45.7610427],
 					[4.9804246, 45.7609432],
 					[4.9804911, 45.7607968],
 					[4.980514, 45.7605513],
@@ -2089,7 +2089,7 @@
 				"name": "Avenue de France",
 				"status": "done",
 				"doneAt": "01/04/2015",
-				"type": "velorue",
+				"type": "voie-verte",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-13#test"
 			},
@@ -2168,7 +2168,8 @@
 					[4.9781888, 45.7607459],
 					[4.979636, 45.7608697],
 					[4.9798873, 45.7609118],
-					[4.9804246, 45.7609432]
+					[4.9804246, 45.7609432],
+					[4.9803931, 45.7610427]
 				]
 			}
 		},
@@ -2176,9 +2177,9 @@
 			"type": "Feature",
 			"properties": {
 				"line": 14,
-				"name": "Traversée Rocade Est - Echangeur 7",
+				"name": "Traversée Rocade Est - Décines Marceau",
 				"status": "done",
-				"doneAt": "01/10/2017",
+				"doneAt": "01/04/2015",
 				"type": "bilaterale",
 				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -2186,12 +2187,28 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.9804233, 45.7609375],
 					[4.9803931, 45.7610427],
 					[4.9818236, 45.7610474],
 					[4.982862, 45.7610333],
 					[4.9834516, 45.7610497],
 					[4.9846007, 45.7610847],
+					[4.9854047, 45.7611338]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Traversée Rocade Est - Meyzieu Rambion",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
 					[4.9854047, 45.7611338],
 					[4.9863561, 45.7612226],
 					[4.9868117, 45.7612437],
@@ -2623,7 +2640,7 @@
 				"coordinates": [
 					[5.0387765, 45.7969028],
 					[5.0395838, 45.7977835],
-					[5.0400189, 45.798253]
+					[5.0400379107470314, 45.798236784773565]
 				]
 			}
 		}
