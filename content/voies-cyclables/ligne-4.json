@@ -1105,7 +1105,28 @@
         "coordinates": [
           [4.9024985, 45.7672365],
 					[4.902562, 45.7667339],
-					[4.9027949, 45.7666848]
+					[4.9026995, 45.7666414]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id":"4aout-commun",
+        "line": 4,
+        "name": "Villeurbanne - Rue du 4 août 1789",
+        "status": "done",
+        "doneAt": "01/09/2019",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.9026995, 45.7666414],
+					[4.9028628, 45.7667005],
+					[4.9038382, 45.7669388]
         ]
       }
     },
@@ -1115,16 +1136,15 @@
         "line": 4,
         "name": "Villeurbanne - Avenue Marcel Cerdan",
         "status": "done",
-        "doneAt": "10/09/2019",
-        "type": "bidirectionnelle",
+        "doneAt": "01/09/2019",
+        "type": "voie-verte",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-4#cours-andré-philip-et-rue-francis-de-pressensé"
       },
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.9027949, 45.7666848],
-					[4.9038311, 45.7669389],
+          [4.9038382, 45.7669388],
 					[4.9041836, 45.7669119],
 					[4.9044304, 45.7669168],
 					[4.904656, 45.7669463],
