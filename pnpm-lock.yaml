@@ -171,7 +171,7 @@ importers:
         version: 0.2.0
       '@maplibre/maplibre-gl-geocoder':
         specifier: ^1.9.4
-        version: 1.9.4(maplibre-gl@6.11.2)
+        version: 1.9.4(maplibre-gl@6.12.0)
       '@panoramax/web-viewer':
         specifier: ^4.4.0
         version: 4.4.0
@@ -188,8 +188,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2(highcharts@13.1.1)(vue@3.5.43(typescript@6.0.3))
       maplibre-gl:
-        specifier: ^6.11.2
-        version: 6.11.2
+        specifier: ^6.12.0
+        version: 6.12.0
       zod:
         specifier: ^4.3.6
         version: 4.6.5
@@ -4100,8 +4100,8 @@ packages:
     resolution: {integrity: sha512-ALyFxgtd5R+65UqZ/++lOqwWcC0SNho9c27fYSyLmG7AfnAul2o46F05aDJGPbFU57wos9dgcIySHs0Xe6ia3A==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
 
-  maplibre-gl@6.11.2:
-    resolution: {integrity: sha512-Xh06pxoipjX/Ad1sUPGhiNh9go9naCNGZZ1IJm3sIeqK1kYGuMaMDSTIGDQ2igOLfVyukJU7kvEOA089VO7Z7g==}
+  maplibre-gl@6.12.0:
+    resolution: {integrity: sha512-DwgganVi2BhNxOpD7ob3lJC0dQQz4HfJfuQQV3XxCY3XdOzFrMqp9ylMXhRzryRsOnIezdZcklWXIIs/Q8JPjA==}
     engines: {node: '>=16.14.0', npm: '>=8.1.0'}
 
   markdown-table@3.0.4:
@@ -6866,11 +6866,11 @@ snapshots:
     dependencies:
       kdbush: 4.1.0
 
-  '@maplibre/maplibre-gl-geocoder@1.9.4(maplibre-gl@6.11.2)':
+  '@maplibre/maplibre-gl-geocoder@1.9.4(maplibre-gl@6.12.0)':
     dependencies:
       events: 3.3.0
       lodash.debounce: 4.0.8
-      maplibre-gl: 6.11.2
+      maplibre-gl: 6.12.0
       subtag: 0.5.0
       suggestions-list: 0.0.2
       xtend: 4.0.2
@@ -10553,7 +10553,7 @@ snapshots:
       quickselect: 3.0.0
       tinyqueue: 3.0.0
 
-  maplibre-gl@6.11.2:
+  maplibre-gl@6.12.0:
     dependencies:
       '@mapbox/point-geometry': 1.1.0
       '@mapbox/tiny-sdf': 2.2.0
