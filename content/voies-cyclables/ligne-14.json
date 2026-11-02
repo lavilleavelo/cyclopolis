@@ -1262,6 +1262,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"PasserrelleMandela-commun",
 				"line": 14,
 				"name": "Passerelle Nelson Mandela",
 				"status": "done",
@@ -1282,6 +1283,7 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id":"RampePasserelle-commun",
 				"line": 14,
 				"name": "Rampe Passerelle - Aviron",
 				"status": "done",
@@ -1302,9 +1304,9 @@
 		{
 			"type": "Feature",
 			"properties": {
-				"id": "RocadeEst-commun",
+				"id": "PoleSportif-commun",
 				"line": 14,
-				"name": "Chemin de Contre-Halage - Rocade Est",
+				"name": "Chemin de Contre-Halage - Pôle Sportif et de Loisirs",
 				"status": "done",
 				"doneAt": "02/02/2005",
 				"type": "velorue",
@@ -1317,6 +1319,25 @@
 					[4.9550252, 45.7751092],
 					[4.9558422, 45.7753349],
 					[4.9563727, 45.7755384],
+					[4.9566326, 45.7756679]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "RocadeEst-commun",
+				"line": 14,
+				"name": "Chemin de Contre-Halage - Rocade Est",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
 					[4.9566326, 45.7756679],
 					[4.9567918, 45.7758048],
 					[4.9569934, 45.775864],
@@ -1978,7 +1999,7 @@
 				"name": "Sept Chemin - Pôle Multimodal",
 				"status": "done",
 				"doneAt": "01/06/2025",
-				"type": "velorue",
+				"type": "voie-bus",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-13#test"
 			},
@@ -2641,6 +2662,582 @@
 					[5.0387765, 45.7969028],
 					[5.0395838, 45.7977835],
 					[5.0400379107470314, 45.798236784773565]
+				]
+			}
+		},
+
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Kimmerling",
+				"status": "done",
+				"doneAt": "20/03/2026",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8982527, 45.7527007],
+					[4.8982885, 45.7527373],
+					[4.8984173, 45.752724],
+					[4.8985629, 45.753007],
+					[4.8985414, 45.7530353]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Emile Decorps",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8985414, 45.7530353],
+					[4.8987872, 45.7535548],
+					[4.8988158, 45.7535847],
+					[4.8988612, 45.7535947],
+					[4.8991332, 45.7535648],
+					[4.8991833, 45.7540695],
+					[4.8992572, 45.7544074],
+					[4.899262, 45.7545434],
+					[4.8992525, 45.754685],
+					[4.8994243, 45.7551062],
+					[4.8998149, 45.7568815],
+					[4.8999045, 45.757269],
+					[4.8999717, 45.7582752],
+					[4.8999985, 45.7584314],
+					[4.9000836, 45.7587376],
+					[4.9006972, 45.7601156],
+					[4.9007599, 45.7601688],
+					[4.900845, 45.7601938]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Pierre Baratin Sud",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.900845, 45.7601938],
+					[4.9004464, 45.7625778],
+					[4.900424, 45.7629996],
+					[4.9004016, 45.7630902],
+					[4.9003076, 45.7631715]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Pierre Baratin Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9003076, 45.7631715],
+					[4.9005494, 45.763537],
+					[4.9010466, 45.7643744],
+					[4.9011361, 45.7646525],
+					[4.901163, 45.7649024],
+					[4.9011406, 45.7650836],
+					[4.9010881, 45.7654652]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Carrefour Cusset",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9010881, 45.7654652],
+					[4.9011239, 45.7656999]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue du 4 août 1789 Sud",
+				"status": "done",
+				"doneAt": "01/09/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9011239, 45.7656999],
+					[4.9011358, 45.7657931],
+					[4.901174, 45.7658464],
+					[4.9016464, 45.7661826],
+					[4.902199, 45.7664562],
+					[4.902416, 45.7665506],
+					[4.9025513, 45.7666016],
+					[4.9026995, 45.7666414]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "4aout-commun",
+				"line": 14,
+				"name": "Villeurbanne - Rue du 4 août 1789",
+				"status": "done",
+				"doneAt": "01/09/2019",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9026995, 45.7666414],
+					[4.9028628, 45.7667005],
+					[4.9038382, 45.7669388]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Pont de Cusset",
+				"status": "done",
+				"doneAt": "01/09/2019",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9038382, 45.7669388],
+					[4.9037845, 45.7670796],
+					[4.9045128, 45.7675577],
+					[4.9047383, 45.7677255],
+					[4.9050004, 45.7679803],
+					[4.9050971, 45.7680762],
+					[4.9053162, 45.7680957],
+					[4.9053076, 45.7681421],
+					[4.9053076, 45.7682096],
+					[4.9053291, 45.768277],
+					[4.9053742, 45.7683894],
+					[4.9063913, 45.7699052],
+					[4.9066335, 45.7703309],
+					[4.9067788, 45.7705202],
+					[4.906866, 45.77059],
+					[4.9070178, 45.7707522],
+					[4.9070759, 45.7708468],
+					[4.9074118, 45.7710112],
+					[4.9073472, 45.7711937]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Gabriel Péri - Lefèvre",
+				"status": "postponed",
+				"type": "voie-bus",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9073472, 45.7711937],
+					[4.9076734, 45.7712883],
+					[4.9083128, 45.7714415],
+					[4.9097144, 45.7717794],
+					[4.9110902, 45.7721195],
+					[4.9116133, 45.7722547],
+					[4.9120332, 45.7724507],
+					[4.9122205, 45.7725543],
+					[4.9124175, 45.7726579]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Gabriel Péri Sud",
+				"status": "done",
+				"doneAt": "15/10/2014",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9124175, 45.7726579],
+					[4.9153638, 45.7768233]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Gabriel Péri Centre",
+				"status": "done",
+				"doneAt": "01/03/2011",
+				"type": "bilaterale",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9153638, 45.7768233],
+					[4.9164192, 45.7782986]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "ZolaThorez-commun",
+				"line": 14,
+				"name": "Carrefour Zola Thorez",
+				"status": "wip",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9164192, 45.7782986],
+					[4.9165693, 45.7785166]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Gabriel Péri Nord",
+				"status": "done",
+				"doneAt": "01/07/2011",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9165693, 45.7785166],
+					[4.9183002, 45.7810787]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Salvador Allende Ouest",
+				"status": "done",
+				"doneAt": "01/09/2011",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9183002, 45.7810787],
+					[4.9233461, 45.7807255]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Salvador Allende Est",
+				"status": "done",
+				"doneAt": "15/10/2014",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9233461, 45.7807255],
+					[4.9242098, 45.7806937],
+					[4.9257489, 45.7808341],
+					[4.92913287386248, 45.781207958579905]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Giratoire Paul Marcellin",
+				"status": "done",
+				"doneAt": "15/06/2025",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9299688500266345, 45.7812262804025],
+					[4.929961438996552, 45.7812809568884],
+					[4.929929029580554, 45.7813505195827],
+					[4.929872832562856, 45.78141227580348],
+					[4.929796379008759, 45.781462345212],
+					[4.929704472776244, 45.781497581798114],
+					[4.929602888671908, 45.78151577154716],
+					[4.929498009598624, 45.78151577154716],
+					[4.929396425494288, 45.781497581798114],
+					[4.929304519261772, 45.781462345212],
+					[4.929228065707676, 45.78141227580348],
+					[4.929171868689979, 45.7813505195827],
+					[4.92913945927398, 45.7812809568884],
+					[4.92913287386248, 45.781207958579905],
+					[4.929152526241104, 45.78113611140502],
+					[4.9291841, 45.7810821],
+					[4.9292454480117724, 45.781026534148886],
+					[4.929326258726627, 45.78097991107453],
+					[4.92942115614937, 45.78094876829714],
+					[4.929524177525925, 45.78093506265896],
+					[4.929628849644315, 45.78093965534855],
+					[4.929728595570384, 45.78096225778592],
+					[4.929817147900756, 45.78100144975624],
+					[4.929888942566846, 45.78105476865213],
+					[4.929939468445736, 45.78111886421632],
+					[4.929965550810637, 45.781189709059184],
+					[4.9299688500266345, 45.7812262804025]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Charles de Gaulle Ouest",
+				"status": "done",
+				"doneAt": "15/06/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.929929029580554, 45.7813505195827],
+					[4.9357925, 45.7819601]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Charles de Gaulle Est",
+				"status": "done",
+				"doneAt": "01/09/2013",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9357925, 45.7819601],
+					[4.9365576, 45.7820299],
+					[4.9389279, 45.782182],
+					[4.9420333, 45.7822692],
+					[4.9425446, 45.7822044],
+					[4.9431487, 45.7820648],
+					[4.943424, 45.781975],
+					[4.9445788, 45.7814265],
+					[4.9456846, 45.7805783],
+					[4.9458562, 45.7804561],
+					[4.9459671, 45.7804162],
+					[4.946085, 45.7803888],
+					[4.946228, 45.7803838],
+					[4.9464032, 45.7803215],
+					[4.9464998, 45.7802317],
+					[4.9465176, 45.780117],
+					[4.9464998, 45.7800322],
+					[4.9465498, 45.7799325]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Route de Vaulx-en-Velin",
+				"status": "done",
+				"doneAt": "01/09/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9465498, 45.7799325],
+					[4.9466322, 45.7798735],
+					[4.9468595, 45.7797286],
+					[4.9477102, 45.7790809],
+					[4.9483596, 45.7787141],
+					[4.9498728, 45.7780256],
+					[4.9508599, 45.7775048],
+					[4.9510872, 45.777319],
+					[4.9528146, 45.7762411],
+					[4.9529575, 45.7761822],
+					[4.9531588, 45.7761459],
+					[4.9533471, 45.7760459]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"PasserrelleMandela-commun",
+				"line": 14,
+				"name": "Passerelle Nelson Mandela",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9533471, 45.7760459],
+					[4.953943, 45.7754348],
+					[4.9543462, 45.7748465]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"RampePasserelle-commun",
+				"line": 14,
+				"name": "Rampe Passerelle - Aviron",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9543462, 45.7748465],
+					[4.9544947, 45.7748835],
+					[4.9550252, 45.7751092]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PoleSportif-commun",
+				"line": 14,
+				"name": "Chemin de Contre-Halage - Pôle Sportif et de Loisirs",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9550252, 45.7751092],
+					[4.9558422, 45.7753349],
+					[4.9563727, 45.7755384],
+					[4.9566326, 45.7756679]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Marie-Françoise Bruyas Nord",
+				"status": "done",
+				"doneAt": "01/06/2015",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9566632, 45.7756885],
+					[4.9566915, 45.7754643],
+					[4.9566173, 45.7749322],
+					[4.956635, 45.7741563]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Marie-Françoise Bruyas Sud",
+				"status": "done",
+				"doneAt": "01/09/2003",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.956635, 45.7741563],
+					[4.9566723, 45.7739273],
+					[4.9572665, 45.7727234]
 				]
 			}
 		}
