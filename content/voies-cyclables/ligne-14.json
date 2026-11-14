@@ -3519,6 +3519,581 @@
 					[4.7337908, 45.7850239]
 				]
 			}
+		},
+
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin de Charrière Nord",
+				"status": "done",
+				"doneAt": "01/04/2003",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7577915, 45.825881],
+					[4.7577379, 45.8256569],
+					[4.7575986, 45.8245965],
+					[4.75747, 45.8235659]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin de Charrière Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.75747, 45.8235659],
+					[4.757545, 45.8234165],
+					[4.7573307, 45.8226996],
+					[4.7572449, 45.8223336],
+					[4.7572664, 45.8220498],
+					[4.7575021, 45.8214673]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin de Gargantua",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7575021, 45.8214673],
+					[4.7577379, 45.8210042],
+					[4.758188, 45.8201379],
+					[4.7586595, 45.8191819],
+					[4.7591311, 45.8181736],
+					[4.759324, 45.8178674],
+					[4.7593668, 45.817718],
+					[4.759324, 45.817591]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin des Peupliers Nord",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.759324, 45.817591],
+					[4.7590239, 45.8174865],
+					[4.7587238, 45.8173446],
+					[4.7584345, 45.8171504],
+					[4.7582094, 45.8169562],
+					[4.7580272, 45.8167246]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin des Peupliers Sud",
+				"status": "done",
+				"doneAt": "01/06/2025",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7580272, 45.8167246],
+					[4.7578986, 45.8164931],
+					[4.757845, 45.8162391],
+					[4.7578558, 45.8159926],
+					[4.7578879, 45.8157536],
+					[4.7579844, 45.8154623],
+					[4.7584559, 45.8139909],
+					[4.7585631, 45.8138714],
+					[4.7585738, 45.8137145],
+					[4.7590775, 45.8114437],
+					[4.7592382, 45.8108835],
+					[4.7593883, 45.8105175],
+					[4.7595919, 45.8102037],
+					[4.7598919, 45.8099423],
+					[4.7605671, 45.8095314],
+					[4.7612834, 45.80912]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Moulin Carron - Passage sous voie ferrée",
+				"status": "done",
+				"doneAt": "01/06/2025",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7612834, 45.80912],
+					[4.7616878, 45.8089499],
+					[4.7620152, 45.8088336]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin du Moulin Carron Nord",
+				"status": "done",
+				"doneAt": "01/12/2025",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7620152, 45.8088336],
+					[4.7622013, 45.8087576],
+					[4.7623233, 45.8086949],
+					[4.7624324, 45.8086815],
+					[4.7625993, 45.8085294],
+					[4.7626185, 45.8084265],
+					[4.7626699, 45.8083236],
+					[4.7628945, 45.8080014],
+					[4.7632797, 45.8077553],
+					[4.7644736, 45.8073616],
+					[4.7648779, 45.8072095],
+					[4.7650769, 45.8070842],
+					[4.7652887, 45.8068962],
+					[4.7654235, 45.8067128],
+					[4.7655198, 45.8065115],
+					[4.7655262, 45.8063101],
+					[4.7655134, 45.8061177],
+					[4.7654428, 45.8059343],
+					[4.7653337, 45.8057553],
+					[4.7649678, 45.8051691],
+					[4.7648651, 45.8048962],
+					[4.7649421, 45.8048067],
+					[4.7649806, 45.8047575],
+					[4.7649935, 45.8046993]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Route du Pérollier",
+				"status": "done",
+				"doneAt": "01/02/2026",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7649935, 45.8046993],
+					[4.7649678, 45.8046277],
+					[4.76491, 45.8045874],
+					[4.7648266, 45.8045382],
+					[4.7647496, 45.8043861],
+					[4.7646969, 45.8041972],
+					[4.7646816, 45.8040766],
+					[4.7647354, 45.8038944],
+					[4.7648238, 45.8036934],
+					[4.7649353, 45.8035192],
+					[4.7650468, 45.8033718],
+					[4.7652236, 45.8032137],
+					[4.7681243, 45.8006711],
+					[4.7684884, 45.8004052],
+					[4.7687369, 45.8002723],
+					[4.7690143, 45.8001635],
+					[4.7692137, 45.8000911],
+					[4.769376, 45.8000319],
+					[4.7694384, 45.8000284],
+					[4.7695058, 45.800051],
+					[4.7695981, 45.800051]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin du Tronchon",
+				"status": "done",
+				"doneAt": "01/04/2026",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7695981, 45.800051],
+					[4.7696755, 45.8000319],
+					[4.7697379, 45.7999919],
+					[4.7697978, 45.7999397],
+					[4.7698302, 45.799884],
+					[4.7699176, 45.7998474],
+					[4.7701073, 45.79979],
+					[4.770287, 45.7997361],
+					[4.7704817, 45.7996717],
+					[4.770609, 45.7996212],
+					[4.7707462, 45.7995534],
+					[4.770876, 45.7994768],
+					[4.7710258, 45.7993707],
+					[4.771203, 45.7992384],
+					[4.7713203, 45.7991497],
+					[4.7714324, 45.7990355],
+					[4.7719674, 45.7981429],
+					[4.7725206, 45.7972503],
+					[4.7728132, 45.7967913],
+					[4.7731745, 45.7963482],
+					[4.7732891, 45.796224]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin du Moulin Carron étroit",
+				"status": "done",
+				"doneAt": "01/04/2003",
+				"type": "velorue",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7732891, 45.796224],
+					[4.7733665, 45.7960549],
+					[4.7743633, 45.7945151],
+					[4.7751497, 45.793581],
+					[4.7752777, 45.7934503],
+					[4.7754286, 45.793377],
+					[4.7757121, 45.7932845],
+					[4.7759544, 45.7931729],
+					[4.7761099, 45.79309],
+					[4.7762105, 45.7930072],
+					[4.7762836, 45.7929115],
+					[4.7763294, 45.7927872],
+					[4.7763751, 45.7924205],
+					[4.77643, 45.7922548],
+					[4.7765351, 45.7920507],
+					[4.7769512, 45.7915438],
+					[4.7771067, 45.7914258]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin du Moulin Carron Decathlon",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7771067, 45.7914258],
+					[4.7776553, 45.7911517],
+					[4.7778702, 45.790954],
+					[4.7786064, 45.7901059]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Place du Pérollier",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7786064, 45.7901059],
+					[4.7788533, 45.7897935],
+					[4.7789447, 45.7896628],
+					[4.7789402, 45.7895703]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Chemin Jean-Marie Vianney",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7789402, 45.7895703],
+					[4.7820356, 45.7884002],
+					[4.7823054, 45.7882918],
+					[4.782534, 45.7881356],
+					[4.7827444, 45.7878964],
+					[4.7829913, 45.7875074],
+					[4.7832199, 45.7872556],
+					[4.7833479, 45.7871982],
+					[4.7833891, 45.7871248],
+					[4.7833616, 45.7870324],
+					[4.783293, 45.7869048],
+					[4.7832976, 45.7867709]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rond-point du Pérollier",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7832976, 45.7867709],
+					[4.7834028, 45.7867645],
+					[4.7834805, 45.786739],
+					[4.783572, 45.7866912],
+					[4.7836497, 45.7866306],
+					[4.7836725, 45.7865605]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Echangeur du Pérollier",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7836725, 45.7865605],
+					[4.784683, 45.7866721],
+					[4.7862879, 45.7868506],
+					[4.7864065, 45.7868327],
+          			[4.7867546, 45.786689]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Rosa Parks",
+				"status": "done",
+				"doneAt": "01/04/2014",
+				"type": "voie-bus",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7867546, 45.786689],
+					[4.7870561, 45.7866657],
+					[4.7904808, 45.7866466],
+					[4.7916193, 45.7866625],
+					[4.7922365, 45.786637],
+					[4.7927029, 45.7866019],
+					[4.7931876, 45.7865605]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Denise Joussot",
+				"status": "done",
+				"doneAt": "01/04/2020",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7931876, 45.7865605],
+					[4.7926252, 45.7830435]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Jonction Avenue du Plateau",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7926252, 45.7830435],
+					[4.7925566, 45.7828968],
+					[4.7924606, 45.7827916]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard de la Duchère Haut",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7924606, 45.7827916],
+					[4.7923417, 45.7827342],
+					[4.7922685, 45.7826545],
+					[4.7922137, 45.7823771],
+					[4.7921634, 45.782055],
+					[4.7921954, 45.7818478],
+					[4.7922685, 45.7816628],
+					[4.7924057, 45.7814715],
+					[4.792552, 45.7813312],
+					[4.7927441, 45.7811877],
+					[4.7929087, 45.7810857],
+					[4.7931876, 45.7809964],
+					[4.7935259, 45.7809198],
+					[4.793782, 45.7809039]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard de la Duchère Epingle",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.793782, 45.7809039],
+					[4.7940198, 45.7809103],
+					[4.7942667, 45.7809485],
+					[4.7944907, 45.7810091],
+					[4.7948016, 45.7811335],
+					[4.7950851, 45.7813089],
+					[4.7955149, 45.7815927],
+					[4.795771, 45.7817967],
+					[4.7959813, 45.7819976],
+					[4.7961322, 45.7822145],
+					[4.7962785, 45.7823803],
+					[4.7964157, 45.7824919],
+					[4.7965666, 45.7825397],
+					[4.7967357, 45.7825365],
+					[4.7968729, 45.7825014],
+					[4.7969781, 45.7824122],
+					[4.7970146, 45.7823037],
+					[4.7970101, 45.7821858],
+					[4.7969506, 45.782055]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Boulevard de la Duchère Pente",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7969506, 45.782055],
+					[4.7967769, 45.7818254],
+					[4.7962739, 45.7811112],
+					[4.7961185, 45.7808593],
+					[4.796027, 45.7806998],
+					[4.7959493, 45.7804862],
+					[4.7957801, 45.7800748],
+					[4.7956887, 45.7797814],
+					[4.7956155, 45.779504],
+					[4.7954783, 45.7789491],
+					[4.7953686, 45.778474],
+					[4.795332, 45.7781392],
+					[4.7952634, 45.777664],
+					[4.79514, 45.7773738],
+					[4.7949205, 45.7769848],
+					[4.7947559, 45.7767105],
+					[4.7946096, 45.7763661],
+					[4.7944541, 45.7759611],
+					[4.7943718, 45.7757889],
+					[4.794317, 45.7756326],
+					[4.7943124, 45.7755656],
+					[4.7943398, 45.7755019],
+					[4.7943901, 45.7753711],
+					[4.794445, 45.7752914],
+					[4.7945776, 45.7752148]
+				]
+			}
 		}
 	]
 }
