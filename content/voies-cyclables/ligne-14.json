@@ -544,8 +544,8 @@
 				"coordinates": [
 					[4.861525405195948, 45.75715986395252],
 					[4.86156446598693, 45.758263589446074],
-					[4.861588613695261, 45.7588943647132],
-					[4.861496065465587, 45.75900941517938]
+					[4.8615935, 45.7589156],
+          			[4.861565, 45.7589921]
 				]
 			}
 		},
@@ -553,8 +553,9 @@
 		{
 			"type": "Feature",
 			"properties": {
+				"id": "Pompidou-commun",
 				"line": 14,
-				"name": "Avenue Pompidou",
+				"name": "Avenue Pompidou Ouest",
 				"status": "postponed",
 				"type": "aucun",
 				"quality": "unsatisfactory",
@@ -563,7 +564,7 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.8615687, 45.7589911],
+					[4.861565, 45.7589921],
 					[4.8620285, 45.7590105],
 					[4.8629606, 45.7590837]
 				]
@@ -3280,8 +3281,7 @@
 					[4.7188011, 45.8134705],
 					[4.718883, 45.8131509],
 					[4.7191941, 45.8128427],
-					[4.7195488, 45.8125999],
-					[4.7195424, 45.8124606]
+					[4.7195942, 45.8125934]
 				]
 			}
 		},
@@ -3289,35 +3289,9 @@
 			"type": "Feature",
 			"properties": {
 				"line": 14,
-				"name": "Allée des Jardins",
+				"name": "Rue de la Veyrie",
 				"status": "done",
-				"doneAt": "01/09/2003",
-				"type": "velorue",
-				"quality": "satisfactory",
-				"link": "/voie-lyonnaise-13#test"
-			},
-			"geometry": {
-				"type": "LineString",
-				"coordinates": [
-					[4.7195424, 45.8124606],
-					[4.7199742, 45.8121012],
-					[4.7201482, 45.8118586],
-					[4.7199742, 45.8117598],
-					[4.7198904, 45.8116025],
-					[4.7198711, 45.8111533],
-					[4.7196584, 45.8109646],
-					[4.7195875, 45.8107984],
-					[4.7195939, 45.810686]
-				]
-			}
-		},
-		{
-			"type": "Feature",
-			"properties": {
-				"line": 14,
-				"name": "Jonction Avenue Hippodrome",
-				"status": "done",
-				"doneAt": "01/04/2003",
+				"doneAt": "01/09/2025",
 				"type": "voie-verte",
 				"quality": "satisfactory",
 				"link": "/voie-lyonnaise-13#test"
@@ -3325,7 +3299,29 @@
 			"geometry": {
 				"type": "LineString",
 				"coordinates": [
-					[4.7195939, 45.810686],
+					[4.7195942, 45.8125934],
+					[4.7191525, 45.8122674],
+					[4.7189317, 45.8121558]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Allée des Aubépines",
+				"status": "done",
+				"doneAt": "01/09/2025",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.7189317, 45.8121558],
+					[4.718962, 45.8119838],
+					[4.718988, 45.8112926],
 					[4.7189945, 45.8104794]
 				]
 			}
@@ -4092,6 +4088,328 @@
 					[4.7943901, 45.7753711],
 					[4.794445, 45.7752914],
 					[4.7945512, 45.7751911]
+				]
+			}
+		},
+
+
+
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue de la Part-Dieu",
+				"status": "done",
+				"doneAt": "01/09/2005",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8408676, 45.7591411],
+					[4.8410857, 45.7591487],
+					[4.8520887, 45.7599428]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "GaribaldiPartDieu-commun",
+				"line": 14,
+				"name": "Garibaldi - Part Dieu",
+				"status": "done",
+				"doneAt": "28/02/2014",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8520887, 45.7599428],
+					[4.8522102, 45.759277]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Bouchut Ouest",
+				"status": "done",
+				"doneAt": "01/04/2002",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8522102, 45.759277],
+					[4.852522, 45.7593092],
+					[4.8525747, 45.7592896],
+					[4.8526343, 45.7592872],
+					[4.8559408, 45.7595761]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Bouchut Est",
+				"status": "done",
+				"doneAt": "10/12/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8559408, 45.7595761],
+					[4.8560391, 45.7595786],
+					[4.8561269, 45.7595663],
+					[4.8562111, 45.7595516],
+					[4.8563269, 45.7595614],
+					[4.8564217, 45.7595859],
+					[4.8565095, 45.7596325],
+					[4.8569658, 45.7598773],
+					[4.857029, 45.7598945],
+					[4.8581487, 45.7600096]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PartDieu-commun",
+				"line": 14,
+				"name": "Part-Dieu Sud en surface",
+				"status": "done",
+				"doneAt": "05/09/2025",
+				"type": "voie-bus-elargie",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8582223, 45.7586972],
+					[4.857974, 45.7599893]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PassagePompidou-commun",
+				"line": 14,
+				"name": "Part-Dieu - Passage Pompidou",
+				"status": "done",
+				"doneAt": "28/08/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861565, 45.7589921],
+					[4.8582223, 45.7586972]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Pompidou-commun",
+				"line": 14,
+				"name": "Avenue Pompidou Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861565, 45.7589921],
+					[4.8620285, 45.7590105],
+					[4.8629606, 45.7590837]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Pompidou Est",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.862957, 45.7590475],
+					[4.8660339, 45.7592405],
+					[4.8678392, 45.7593187],
+					[4.8697894, 45.7594106]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Place de la Ferrandière",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8697894, 45.7594106],
+					[4.8723524, 45.7594704],
+					[4.8726489, 45.7595945]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue François Gillet",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8726489, 45.7595945],
+					[4.8757171, 45.7596316]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Saint-Exupéry Ouest",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8757171, 45.7596316],
+					[4.8769889, 45.7592516]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Quartier de la Ferrandière",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8769889, 45.7592516],
+					[4.8803576, 45.7583166],
+					[4.8804894, 45.7582384]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Saint-Exupéry Est",
+				"status": "done",
+				"doneAt": "01/02/2026",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8804894, 45.7582384],
+					[4.8805882, 45.7582706],
+					[4.8806805, 45.7582017],
+					[4.8809638, 45.7581097],
+					[4.8824437, 45.7576624],
+					[4.8825708, 45.7575799],
+					[4.8826673, 45.7574514]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Rue Jean Jaurès",
+				"status": "done",
+				"doneAt": "01/04/2026",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8826673, 45.7574514],
+					[4.8851831, 45.7580844],
+					[4.8853496, 45.7581425],
+					[4.8855512, 45.7582557],
+					[4.8875542, 45.7588153],
+					[4.8890444, 45.7591149],
+					[4.889623, 45.7592067],
+					[4.8897369, 45.7592311],
+					[4.8903111, 45.759329],
+					[4.890425, 45.7593351],
+					[4.8905302, 45.7593167],
+					[4.8906223, 45.7592739]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"line": 14,
+				"name": "Avenue Général Leclerc",
+				"status": "done",
+				"doneAt": "01/04/2026",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-lyonnaise-13#test"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8906223, 45.7592739],
+					[4.8906617, 45.7592067],
+					[4.8907275, 45.7586318],
+					[4.8907318, 45.7582985],
+					[4.891037, 45.7556958],
+					[4.891243, 45.7540627]
 				]
 			}
 		}

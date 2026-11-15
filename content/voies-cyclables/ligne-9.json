@@ -904,7 +904,7 @@
         "line": 9,
         "name": "Garibaldi - Vauban Bonnel",
         "status": "done",
-        "doneAt": "31/12/2019",
+        "doneAt": "28/02/2014",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
@@ -930,11 +930,11 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "GaribaldiPartDieu-commun",
+        "id": "GaribaldiServient-commun",
         "line": 9,
-        "name": "Garibaldi - Part Dieu",
+        "name": "Garibaldi - Servient",
         "status": "done",
-        "doneAt": "31/12/2019",
+        "doneAt": "28/02/2014",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
@@ -943,8 +943,46 @@
         "type": "LineString",
         "coordinates": [
           [4.851693701983152, 45.76211126433797],
-          [4.852191056502392, 45.75942555398832],
-          [4.852309327380084, 45.75868991382791],
+          [4.8520887, 45.7599428]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GaribaldiPartDieu-commun",
+        "line": 9,
+        "name": "Garibaldi - Part Dieu",
+        "status": "done",
+        "doneAt": "28/02/2014",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8520887, 45.7599428],
+          [4.8522102, 45.759277]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "GaribaldiPaulBert-commun",
+        "line": 9,
+        "name": "Garibaldi - Paul Bert",
+        "status": "done",
+        "doneAt": "30/06/2019",
+        "type": "bidirectionnelle",
+        "quality": "satisfactory",
+        "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.8522102, 45.759277],
           [4.852604647040714, 45.75702532674457]
         ]
       }
@@ -956,7 +994,7 @@
         "line": 9,
         "name": "Garibaldi - Paul Bert Arménie",
         "status": "done",
-        "doneAt": "31/12/2019",
+        "doneAt": "30/06/2019",
         "type": "bidirectionnelle",
         "quality": "satisfactory",
         "link": "/voie-lyonnaise-9#jean-macé-à-villeurbanne-st-jean"
