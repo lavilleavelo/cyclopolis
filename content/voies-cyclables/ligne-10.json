@@ -1270,6 +1270,27 @@
     {
       "type": "Feature",
       "properties": {
+        "id": "PartDieu-commun",
+        "line": 10,
+        "name": "Part-Dieu Bibliothèque",
+        "status": "done",
+        "doneAt": "05/11/2025",
+        "type": "voie-bus-elargie",
+        "quality": "unsatisfactory",
+        "link": "/voie-lyonnaise-10#pôle-déchange-part-dieu"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [4.857974, 45.7599893],
+          [4.857747630532799,45.761225942190066]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "PartDieu-commun",
         "line": 10,
         "name": "Part-Dieu Sud en surface",
         "status": "done",
@@ -1281,20 +1302,15 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.8582183, 45.7587315],
-          [4.8583382, 45.7587445],
-          [4.8581578, 45.7597170],
-          [4.8581250, 45.7599406],
-          [4.8579366, 45.7609160],
-          [4.8579219, 45.7609806],
-          [4.8578325, 45.7611026],
-          [4.8578192, 45.7612292]
+          [4.8582223, 45.7586972],
+          [4.857974, 45.7599893]
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
+        "id": "PassagePompidou-commun",
         "line": 10,
         "name": "Part-Dieu - Passage Pompidou",
         "status": "done",
@@ -1306,8 +1322,8 @@
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [4.861496065465587,45.75900941517938],
-          [4.858218295708809,45.75873147556919]
+          [4.861565, 45.7589921],
+          [4.8582223, 45.7586972]
         ]
       }
     },
@@ -1328,8 +1344,8 @@
         "coordinates": [
           [4.861525405195948, 45.75715986395252],
           [4.86156446598693, 45.758263589446074],
-          [4.861588613695261, 45.7588943647132],
-          [4.861496065465587,45.75900941517938]
+          [4.8615935, 45.7589156],
+          [4.861565, 45.7589921]
         ]
       }
     },
