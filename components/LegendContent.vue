@@ -59,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { VARIANTE_OPACITY } from '~/helpers/map-utils';
+import { VARIANTE_OPACITY, createConstructionIcon } from '~/helpers/map-utils';
 
 const props = withDefaults(
   defineProps<{
