@@ -5,13 +5,19 @@
     </div>
     <div class="my-auto">terminé</div>
 
-    <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
+    <div :class="['my-auto rounded-md border-gray-500 border relative', borderClass]">
       <div :class="['relative overflow-hidden', lineHeightClass]">
         <div
           class="absolute h-full w-[200%] -left-1/2 bg-lvv-blue-600 dashed-line"
           :class="{ 'animated-dashes': !reduceMotion }"
         />
       </div>
+      <img
+        v-if="reduceMotion && constructionIconUrl"
+        :src="constructionIconUrl"
+        alt=""
+        :class="['absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-none', constructionIconSizeClass]"
+      />
     </div>
     <div class="my-auto">en travaux</div>
 
@@ -26,9 +32,10 @@
 
     <div :class="['my-auto rounded-md border-gray-500 border relative', borderClass]">
       <div :class="['bg-white', lineHeightClass]" />
-      <div :class="['text-lvv-blue-600 font-bold leading-none absolute', xTextClass]">
-        <span v-if="props.size === 'small'">x x x x</span>
-        <span v-else>x x x x x</span>
+      <div class="absolute inset-0 flex items-center justify-around px-0.5 text-lvv-blue-600">
+        <svg v-for="index in crossCount" :key="index" viewBox="0 0 8 8" :class="crossSizeClass" aria-hidden="true">
+          <path d="M1 1 7 7M7 1 1 7" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
       </div>
     </div>
     <div class="my-auto">reporté après 2026</div>
@@ -36,6 +43,8 @@
 </template>
 
 <script setup lang="ts">
+import { createConstructionIcon } from '~/helpers/map-utils';
+
 const props = withDefaults(
   defineProps<{
     size?: 'small' | 'large';
@@ -47,11 +56,18 @@ const props = withDefaults(
 
 const { reduceMotion } = useSettings();
 
+const constructionIconUrl = ref('');
+onMounted(() => {
+  constructionIconUrl.value = createConstructionIcon(Math.ceil(window.devicePixelRatio)).toDataURL();
+});
+
 const gridClass = computed(() => (props.size === 'small' ? 'grid-cols-[48px_1fr]' : 'grid-cols-[64px_1fr]'));
 const textSizeClass = computed(() => (props.size === 'small' ? 'text-xs' : 'text-sm'));
 const lineHeightClass = computed(() => (props.size === 'small' ? 'h-0.5' : 'h-1'));
 const borderClass = computed(() => (props.size === 'small' ? 'rounded-sm' : 'rounded-md'));
-const xTextClass = computed(() => (props.size === 'small' ? 'text-[12px] -top-[5px]' : '-top-[7px]'));
+const constructionIconSizeClass = computed(() => (props.size === 'small' ? 'h-4 w-4' : 'h-5 w-5'));
+const crossCount = computed(() => (props.size === 'small' ? 4 : 5));
+const crossSizeClass = computed(() => (props.size === 'small' ? 'h-1.5 w-1.5' : 'h-2 w-2'));
 </script>
 
 <style scoped>
