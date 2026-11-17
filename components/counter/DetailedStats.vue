@@ -13,7 +13,13 @@
       les vacances scolaires et les jours fériés.
     </p>
 
-    <CounterPeriodSelect v-model="period" :years="years" :current-year="currentYear" />
+    <CounterPeriodSelect
+      v-model="period"
+      :years="years"
+      :current-year="currentYear"
+      :first-day="stats?.firstDay"
+      :last-day="stats?.lastDay"
+    />
 
     <div class="mt-4 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
       <template v-if="profile">
@@ -210,10 +216,10 @@ import {
   dayToTimestamp,
   formatCount,
   formatDay,
-  monthsRange,
   selectProfile,
   statsPeriodLabel,
   statsPeriodQueryParam,
+  statsPeriodRange,
   useCounterDetailedStats,
   useCounterLiveDays,
   useCounterPeriodStats,
@@ -239,9 +245,9 @@ const { data: liveDays } = useCounterLiveDays(props.counter);
 const { data: yearly } = useCounterYearlyStats(props.counter);
 
 const period = ref<StatsPeriod>('recent');
-const monthsPeriodRange = computed(() => monthsRange(period.value, stats.value?.lastDay));
-const { data: monthsStats } = useCounterPeriodStats(props.counter, monthsPeriodRange);
-const profile = computed(() => selectProfile(period.value, stats.value, yearly.value, monthsStats.value));
+const periodRange = computed(() => statsPeriodRange(period.value, stats.value?.lastDay));
+const { data: rangeStats } = useCounterPeriodStats(props.counter, periodRange);
+const profile = computed(() => selectProfile(period.value, stats.value, yearly.value, rangeStats.value));
 const years = computed(() =>
   (yearly.value ?? [])
     .filter((year) => year.averages.weekday !== null)
@@ -296,10 +302,11 @@ function removeHourlyDay(day: string) {
 
 const currentYear = computed(() => (stats.value ? Number(stats.value.lastDay.slice(0, 4)) : null));
 
+// Dates of the stats displayed: those of the previous range stay on screen while a new one loads
 const periodLabel = computed(() =>
   statsPeriodLabel(
     period.value,
-    period.value === 'recent' ? stats.value?.period : monthsPeriodRange.value,
+    period.value === 'recent' ? stats.value?.period : rangeStats.value?.period,
     currentYear.value,
   ),
 );
@@ -328,10 +335,8 @@ function gapLabel(average: number | null): string {
 
 const peakHoursLabel = computed(() => {
   const { morning, evening } = profile.value?.peakHours ?? {};
-  return [morning, evening]
-    .filter((peak) => peak)
-    .map((peak) => `${peak!.hour}h`)
-    .join(' · ');
+  const hours = [morning, evening].filter((peak) => peak).map((peak) => `${peak!.hour}h`);
+  return hours.length > 0 ? hours.join(' · ') : '–';
 });
 
 function formatOptionalCount(count: number | null): string {

@@ -89,15 +89,22 @@ export function useCounterYearlyStats(counter: CounterRef) {
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-export type StatsPeriod = 'recent' | '3-mois' | '6-mois' | number;
-
 export type StatsRange = { from: string; to: string };
 
-export const STATS_PERIOD_OPTIONS: { value: StatsPeriod; label: string; months?: number }[] = [
+export type StatsPeriod = 'recent' | '3-mois' | '6-mois' | number | StatsRange;
+
+export const STATS_PERIOD_OPTIONS: { value: Exclude<StatsPeriod, StatsRange>; label: string; months?: number }[] = [
   { value: '3-mois', label: '3 derniers mois', months: 3 },
   { value: '6-mois', label: '6 derniers mois', months: 6 },
   { value: 'recent', label: '12 derniers mois' },
 ];
+
+const RECENT_MONTHS = 12;
+const RANGE_QUERY_PATTERN = /^(\d{4}-\d{2}-\d{2})_(\d{4}-\d{2}-\d{2})$/;
+
+export function isStatsRange(period: StatsPeriod): period is StatsRange {
+  return typeof period === 'object';
+}
 
 export function statsPeriodQueryParam(): QueryParamCodec<StatsPeriod> {
   return {
@@ -106,23 +113,53 @@ export function statsPeriodQueryParam(): QueryParamCodec<StatsPeriod> {
         return Number(value);
       }
 
+      const [, from, to] = RANGE_QUERY_PATTERN.exec(value) ?? [];
+      if (from && to) {
+        return isValidDay(from) && isValidDay(to) && from <= to ? { from, to } : undefined;
+      }
+
       return STATS_PERIOD_OPTIONS.find((option) => option.value === value)?.value;
     },
-    serialize: (value) => String(value),
+    serialize: (value) => (isStatsRange(value) ? `${value.from}_${value.to}` : String(value)),
   };
 }
 
-export function monthsRange(period: StatsPeriod, lastDay: string | null | undefined): StatsRange | null {
-  const months = STATS_PERIOD_OPTIONS.find((option) => option.value === period)?.months;
-  if (!months || !lastDay) {
-    return null;
-  }
+function isValidDay(day: string): boolean {
+  return !Number.isNaN(dayToTimestamp(day));
+}
 
+function lastMonthsRange(months: number, lastDay: string): StatsRange {
   const next = new Date(dayToTimestamp(lastDay) + DAY_MS);
   const month = next.getUTCMonth() - months;
   const lastDayOfMonth = new Date(Date.UTC(next.getUTCFullYear(), month + 1, 0)).getUTCDate();
   const from = new Date(Date.UTC(next.getUTCFullYear(), month, Math.min(next.getUTCDate(), lastDayOfMonth)));
   return { from: from.toISOString().slice(0, 10), to: lastDay };
+}
+
+// Range to fetch for the period: null when its stats are already loaded (last 12 months, calendar years)
+export function statsPeriodRange(period: StatsPeriod, lastDay: string | null | undefined): StatsRange | null {
+  if (isStatsRange(period)) {
+    return period;
+  }
+
+  const months = STATS_PERIOD_OPTIONS.find((option) => option.value === period)?.months;
+  return months && lastDay ? lastMonthsRange(months, lastDay) : null;
+}
+
+// Starting point of a custom range: the dates of the period currently displayed
+export function customRangeFrom(period: StatsPeriod, firstDay: string, lastDay: string): StatsRange {
+  if (isStatsRange(period)) {
+    return period;
+  }
+
+  if (typeof period === 'number') {
+    const from = `${period}-01-01`;
+    const to = `${period}-12-31`;
+    return { from: from > firstDay ? from : firstDay, to: to < lastDay ? to : lastDay };
+  }
+
+  const range = statsPeriodRange(period, lastDay) ?? lastMonthsRange(RECENT_MONTHS, lastDay);
+  return { from: range.from > firstDay ? range.from : firstDay, to: range.to };
 }
 
 export function useCounterPeriodStats(counter: CounterRef, range: Ref<StatsRange | null>) {
@@ -139,7 +176,7 @@ export function selectProfile(
   period: StatsPeriod,
   recent: CounterProfile | null | undefined,
   yearly: YearlyStats[] | null | undefined,
-  months: CounterProfile | null | undefined,
+  range: CounterProfile | null | undefined,
 ): CounterProfile | null | undefined {
   if (period === 'recent') {
     return recent;
@@ -149,7 +186,7 @@ export function selectProfile(
     return yearly?.find((stats) => stats.year === period);
   }
 
-  return months;
+  return range;
 }
 
 export function statsPeriodLabel(

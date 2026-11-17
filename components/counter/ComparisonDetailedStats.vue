@@ -7,7 +7,13 @@
     <ProseH2 :id="anchor('semaine-weekend-et-vacances')">Semaine, weekend et vacances</ProseH2>
     <p>Part des vélos dans le trafic (vélos et voitures) selon le type de jour et l'heure.</p>
 
-    <CounterPeriodSelect v-model="period" :years="years" :current-year="currentYear" />
+    <CounterPeriodSelect
+      v-model="period"
+      :years="years"
+      :current-year="currentYear"
+      :first-day="firstCommonDay"
+      :last-day="lastCommonDay"
+    />
 
     <div class="mt-4 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-4': !embedded }">
       <template v-if="veloProfile && voitureProfile">
@@ -79,10 +85,10 @@
 <script setup lang="ts">
 import {
   formatCount,
-  monthsRange,
   selectProfile,
   statsPeriodLabel,
   statsPeriodQueryParam,
+  statsPeriodRange,
   useCounterDetailedStats,
   useCounterPeriodStats,
   useCounterYearlyStats,
@@ -115,9 +121,9 @@ if (!props.embedded) {
   useQueryParam('profil-periode', period, statsPeriodQueryParam());
 }
 
-const monthsPeriodRange = computed(() => monthsRange(period.value, lastCommonDay.value));
-const { data: veloMonths } = useCounterPeriodStats(veloCounter, monthsPeriodRange);
-const { data: voitureMonths } = useCounterPeriodStats(voitureCounter, monthsPeriodRange);
+const periodRange = computed(() => statsPeriodRange(period.value, lastCommonDay.value));
+const { data: veloRange } = useCounterPeriodStats(veloCounter, periodRange);
+const { data: voitureRange } = useCounterPeriodStats(voitureCounter, periodRange);
 
 function anchor(id: string): string | undefined {
   return props.embedded ? undefined : id;
@@ -136,15 +142,16 @@ const years = computed(() =>
     .sort((a, b) => b - a),
 );
 
-const veloProfile = computed(() => selectProfile(period.value, velo.value, veloYearly.value, veloMonths.value));
+const veloProfile = computed(() => selectProfile(period.value, velo.value, veloYearly.value, veloRange.value));
 const voitureProfile = computed(() =>
-  selectProfile(period.value, voiture.value, voitureYearly.value, voitureMonths.value),
+  selectProfile(period.value, voiture.value, voitureYearly.value, voitureRange.value),
 );
 
+// Dates of the stats displayed: those of the previous range stay on screen while a new one loads
 const periodLabel = computed(() =>
   statsPeriodLabel(
     period.value,
-    period.value === 'recent' ? velo.value?.period : monthsPeriodRange.value,
+    period.value === 'recent' ? velo.value?.period : veloRange.value?.period,
     currentYear.value,
   ),
 );
@@ -179,7 +186,10 @@ const shareTiles = computed(() => {
     return {
       label,
       value: formatShare(share(bikes, cars)),
-      detail: `${formatCount(bikes ?? 0)} vélos · ${formatCount(cars ?? 0)} voitures`,
+      detail:
+        bikes === null && cars === null
+          ? 'aucune donnée sur la période'
+          : `${formatCount(bikes ?? 0)} vélos · ${formatCount(cars ?? 0)} voitures`,
     };
   });
 
@@ -192,10 +202,11 @@ const shareTiles = computed(() => {
       peakHour = hour;
     }
   }
+  const peakShare = hourlyShares[peakHour] ?? null;
   tiles.push({
     label: 'Pic vélo',
-    value: `${peakHour}h`,
-    detail: `${formatShare(hourlyShares[peakHour])} du trafic, jours ouvrés`,
+    value: peakShare === null ? '–' : `${peakHour}h`,
+    detail: peakShare === null ? 'jours ouvrés' : `${formatShare(peakShare)} du trafic, jours ouvrés`,
   });
 
   return tiles;
