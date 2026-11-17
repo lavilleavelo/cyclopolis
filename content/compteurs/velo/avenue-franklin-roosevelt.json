@@ -1,13 +1,15 @@
 {
   "name": "Avenue Franklin Roosevelt",
-  "description": "Le compteur vélo de l'avenue Franklin Roosevelt.",
+  "description": "Le compteur vélo de l'avenue Franklin Roosevelt. Situé dans le prolongement de l'avenue Rockefeller, qui n'a pas de compteur, il sert aussi à estimer la fréquentation de la Voie Lyonnaise 12 sur cette avenue.",
   "arrondissement": "Bron",
   "idPdc": 300017147,
   "coordinates": [
     4.900803565979005,
     45.73630541471932
   ],
-  "lines": [],
+  "lines": [
+    12
+  ],
   "cyclopolisId": "avenue-franklin-roosevelt",
   "counts": [
     {
