@@ -8,7 +8,7 @@
           'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
           selectedDays === range.days ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
         ]"
-        @click="selectedDays = range.days"
+        @click="selectRange(range.days)"
       >
         {{ range.label }}
       </button>
@@ -32,6 +32,7 @@ import {
   type LiveDay,
   type SelectedDay,
 } from '~/composables/useCounterDetailedStats';
+import { useDayZoom } from '~/composables/useDayZoom';
 import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 
 const RANGES = [
@@ -70,6 +71,17 @@ if (props.syncUrl) {
     valuesQueryParam<number | null>({ '3m': 91, '1a': 365, '3a': 3 * 365, tout: null }),
   );
   useQueryParam('journalier-vacances', showSchoolHolidays, valuesQueryParam({ 1: true, 0: false }));
+}
+const {
+  zoom,
+  zoomLabel,
+  chartEvents: zoomChartEvents,
+  axisEvents: zoomAxisEvents,
+} = useDayZoom(props.syncUrl ? 'journalier-zoom' : undefined);
+
+function selectRange(days: number | null) {
+  selectedDays.value = days;
+  zoom.value = null;
 }
 
 type Point = [number, number | null];
@@ -131,15 +143,17 @@ const chartOptions = computed(() => {
   const showHolidayLabels = selectedDays.value !== null && selectedDays.value <= MAX_LABELLED_RANGE_DAYS;
 
   return {
-    chart: { height: 380, zooming: { type: 'x', mouseWheel: { enabled: false } } },
+    chart: { height: 380, zooming: { type: 'x', mouseWheel: { enabled: false } }, events: zoomChartEvents },
     lang: { locale: 'fr-FR', resetZoom: 'Réinitialiser le zoom' },
     title: { text: props.title },
+    subtitle: { text: zoomLabel.value },
     credits: { enabled: false },
     xAxis: {
       type: 'datetime',
       min: selectedDays.value ? lastTimestamp - selectedDays.value * DAY_MS : undefined,
       max: lastTimestamp + DAY_MS / 2,
       crosshair: true,
+      events: zoomAxisEvents,
       plotBands: (showSchoolHolidays.value ? schoolHolidays : []).map((holiday) => {
         const from = dayToTimestamp(holiday.start) - DAY_MS / 2;
         const to = dayToTimestamp(holiday.end) - DAY_MS / 2;

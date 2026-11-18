@@ -9,7 +9,7 @@
             'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
             selectedDays === range.days ? 'bg-lvv-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
           ]"
-          @click="selectedDays = range.days"
+          @click="selectRange(range.days)"
         >
           {{ range.label }}
         </button>
@@ -33,6 +33,7 @@ import {
   formatPercent,
   type CounterDetailedStats,
 } from '~/composables/useCounterDetailedStats';
+import { useDayZoom } from '~/composables/useDayZoom';
 import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
 
 const RANGES = [
@@ -69,6 +70,17 @@ if (props.syncUrl) {
   );
   useQueryParam('journalier', mode, valuesQueryParam({ passages: 'count', part: 'share' }));
   useQueryParam('journalier-vacances', showSchoolHolidays, valuesQueryParam({ 1: true, 0: false }));
+}
+const {
+  zoom,
+  zoomLabel,
+  chartEvents: zoomChartEvents,
+  axisEvents: zoomAxisEvents,
+} = useDayZoom(props.syncUrl ? 'journalier-zoom' : undefined);
+
+function selectRange(days: number | null) {
+  selectedDays.value = days;
+  zoom.value = null;
 }
 
 type Point = [number, number | null];
@@ -132,15 +144,17 @@ const chartOptions = computed(() => {
   const rollingAt = (points: Point[], x: number) => points.find(([timestamp]) => timestamp === x)?.[1] ?? null;
 
   return {
-    chart: { height: 380, zooming: { type: 'x', mouseWheel: { enabled: false } } },
+    chart: { height: 380, zooming: { type: 'x', mouseWheel: { enabled: false } }, events: zoomChartEvents },
     lang: { locale: 'fr-FR', resetZoom: 'Réinitialiser le zoom' },
     title: { text: props.title },
+    subtitle: { text: zoomLabel.value },
     credits: { enabled: false },
     xAxis: {
       type: 'datetime',
       min: selectedDays.value ? lastTimestamp - selectedDays.value * DAY_MS : undefined,
       max: lastTimestamp + DAY_MS / 2,
       crosshair: true,
+      events: zoomAxisEvents,
       plotLines: props.selectedDay
         ? [{ value: dayToTimestamp(props.selectedDay), color: '#6B7280', width: 1, zIndex: 3 }]
         : [],

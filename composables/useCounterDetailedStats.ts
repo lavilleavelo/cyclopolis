@@ -113,15 +113,26 @@ export function statsPeriodQueryParam(): QueryParamCodec<StatsPeriod> {
         return Number(value);
       }
 
-      const [, from, to] = RANGE_QUERY_PATTERN.exec(value) ?? [];
-      if (from && to) {
-        return isValidDay(from) && isValidDay(to) && from <= to ? { from, to } : undefined;
-      }
-
-      return STATS_PERIOD_OPTIONS.find((option) => option.value === value)?.value;
+      return parseDayRange(value) ?? STATS_PERIOD_OPTIONS.find((option) => option.value === value)?.value;
     },
-    serialize: (value) => (isStatsRange(value) ? `${value.from}_${value.to}` : String(value)),
+    serialize: (value) => (isStatsRange(value) ? serializeDayRange(value) : String(value)),
   };
+}
+
+export function dayRangeQueryParam(): QueryParamCodec<DayRange | null> {
+  return {
+    parse: parseDayRange,
+    serialize: (value) => (value ? serializeDayRange(value) : ''),
+  };
+}
+
+function parseDayRange(value: string): DayRange | undefined {
+  const [, from, to] = RANGE_QUERY_PATTERN.exec(value) ?? [];
+  return from && to && isValidDay(from) && isValidDay(to) && from <= to ? { from, to } : undefined;
+}
+
+function serializeDayRange(range: DayRange): string {
+  return `${range.from}_${range.to}`;
 }
 
 function isValidDay(day: string): boolean {
@@ -198,7 +209,11 @@ export function statsPeriodLabel(
     return `Année ${period}${period === currentYear ? ' (en cours)' : ''}`;
   }
 
-  return range ? `Du ${formatDay(range.from)} au ${formatDay(range.to)}` : '';
+  return range ? formatDayRange(range) : '';
+}
+
+export function formatDayRange(range: DayRange): string {
+  return `Du ${formatDay(range.from)} au ${formatDay(range.to)}`;
 }
 
 export type CounterPhoto = { url: string; thumbnail: string };

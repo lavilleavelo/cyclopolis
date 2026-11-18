@@ -1,6 +1,11 @@
 import { assert, describe, it } from 'vitest';
 
-import { customRangeFrom, statsPeriodQueryParam, statsPeriodRange } from '../composables/useCounterDetailedStats';
+import {
+  customRangeFrom,
+  dayRangeQueryParam,
+  statsPeriodQueryParam,
+  statsPeriodRange,
+} from '../composables/useCounterDetailedStats';
 
 describe('useCounterDetailedStats', () => {
   describe('statsPeriodQueryParam', () => {
@@ -21,6 +26,22 @@ describe('useCounterDetailedStats', () => {
       assert.isUndefined(codec.parse('2026-10-16_2026-09-01'));
       assert.isUndefined(codec.parse('2026-13-01_2026-13-05'));
       assert.isUndefined(codec.parse('2026-09-01'));
+    });
+  });
+
+  describe('dayRangeQueryParam', () => {
+    const codec = dayRangeQueryParam();
+
+    it('should round-trip a range and serialize no range as empty', () => {
+      assert.deepEqual(codec.parse('2026-09-01_2026-10-16'), { from: '2026-09-01', to: '2026-10-16' });
+      assert.equal(codec.serialize({ from: '2026-09-01', to: '2026-10-16' }), '2026-09-01_2026-10-16');
+      assert.equal(codec.serialize(null), '');
+    });
+
+    it('should ignore reversed ranges and dates that do not exist', () => {
+      assert.isUndefined(codec.parse('2026-10-16_2026-09-01'));
+      assert.isUndefined(codec.parse('2026-13-01_2026-13-05'));
+      assert.isUndefined(codec.parse('1a'));
     });
   });
 
