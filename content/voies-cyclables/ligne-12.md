@@ -70,6 +70,11 @@ Suite à la concertation, la Métropole a annoncé en février 2024 avoir retenu
 Le 27/06/2025, la Métropole de Lyon a annoncé que la Montée du chemin Neuf resterait fermée à la circulation générale, mais que la rue de l'Antiquaille réouvrait dans les deux sens de circulation. C'est donc une bonne nouvelle pour Saint-Jean et Chemin Neuf, mais un retour en arrière dangereux sur la rue des Farges et la rue de Trion avec le retour d'un trafic de transit intense dans le sens de la montée qui va malheureusement effrayer de nombreux cyclistes qui se retrouve en mixité avec les voitures sans aucun aménagement cyclable.
 ::
 
+::banner{type="rollback"}
+La mairie du 5e arrondissement souhaite rouvrir la descente de la montée du Chemin Neuf au trafic de transit automobile. Début novembre 2026, aucune décision n'a été officialisée et la montée reste fermée au transit.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/chemin-neuf){:target="_blank"}
+::
+
 ::content-image
 ---
 imageUrl: https://cyclopolis.lavilleavelo.org/vl12/rue-de-trion.png
@@ -190,6 +195,11 @@ Afin de confirmer le bon fonctionnement de la mise en sens unique de Rockefeller
 ::banner{type="wip"}
 Entre Grange Blanche et la rue Viala, les travaux auront lieu entre mi-mars 2025 et octobre 2025.\
 Les travaux définitifs entre la rue Viala et le boulevard Pinel ont eu lieu entre octobre et décembre 2025.
+::
+
+::banner{type="rollback"}
+La Métropole de Lyon a annoncé le 16/11/2026 le retour du double sens automobile entre la rue Viala et le boulevard Pinel, à la place de la piste cyclable bidirectionnelle, avec des travaux prévus à l'été 2027. La Voie Lyonnaise 12 serait alors déviée par l'avenue Esquirol et le boulevard Pinel.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/avenue-rockefeller){:target="_blank"}
 ::
 
 ### Boulevard Pinel à Bron - Boutasse

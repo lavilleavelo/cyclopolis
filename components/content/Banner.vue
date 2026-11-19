@@ -4,7 +4,7 @@
       <div class="flex-shrink-0">
         <Icon :name="banners[type].icon" class="h-6 w-6" :class="banners[type].color.logo" aria-hidden="true" />
       </div>
-      <div class="ml-4 text-base text-justify" :class="banners[type].color.text">
+      <div class="ml-4 text-base text-justify [&_a]:font-semibold [&_a]:underline" :class="banners[type].color.text">
         <slot />
       </div>
     </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-type Type = 'modified' | 'postponed' | 'unsecured' | 'wip' | 'info';
+type Type = 'modified' | 'postponed' | 'rollback' | 'unsecured' | 'wip' | 'info';
 const { type } = defineProps<{
   type: Type;
 }>();
@@ -45,6 +45,15 @@ const banners: Banner = {
       banner: 'border-[#DB3E79] bg-[#FDF2F8]',
       logo: 'text-[#DB3E79]',
       text: 'text-[#BE185D]',
+    },
+  },
+  rollback: {
+    title: 'Retour en arrière',
+    icon: 'mdi:undo-variant',
+    color: {
+      banner: 'border-[#DC2626] bg-[#FEF2F2]',
+      logo: 'text-[#DC2626]',
+      text: 'text-[#B91C1C]',
     },
   },
   unsecured: {

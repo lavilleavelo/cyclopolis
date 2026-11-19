@@ -20,6 +20,11 @@ La Métropole de Lyon a annoncé publiquement début août 2024 sur le réseau s
 ### Traversée de Saint-Just - Traversée de Saint-Jean
 Cette section est en tronçon commun avec la :line-link{line=12 anchor="traversée-de-saint-just"}.
 
+::banner{type="rollback"}
+La mairie du 5e arrondissement souhaite rouvrir la descente de la montée du Chemin Neuf au trafic de transit automobile. Début novembre 2026, aucune décision n'a été officialisée et la montée reste fermée au transit.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/chemin-neuf){:target="_blank"}
+::
+
 ### Traversée de la Presqu'Île de Lyon
 Cette section est en tronçon commun avec la :line-link{line=8 anchor="traversée-de-la-presquîle-de-lyon"}.
 

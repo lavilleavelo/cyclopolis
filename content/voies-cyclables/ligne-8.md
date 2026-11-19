@@ -166,6 +166,11 @@ La concertation publique sur ce tronçon s'est tenue du 27/03 au 28/04/2023.\
 
 Cette section est en tronçon commun avec la :line-link{line=12 anchor=traversée-de-saint-jean}.
 
+::banner{type="rollback"}
+La mairie du 5e arrondissement souhaite rouvrir la descente de la montée du Chemin Neuf au trafic de transit automobile. Début novembre 2026, aucune décision n'a été officialisée et la montée reste fermée au transit.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/chemin-neuf){:target="_blank"}
+::
+
 ### Traversée de la Presqu'Île de Lyon
 Le projet devait faire un détour par le pôle d'échange de Perrache, via le quai Fulchiron et le pont Kitchener-Marchand puis remonter sur la rive droite du Rhône.
 
@@ -183,6 +188,11 @@ La Voie Lyonnaise 8 va totalement réaménager le pont qui sera débarrassé de 
 
 ::banner{type="postponed"}
 Le Conseil Métropolitain du 17/03/2025 a acté la dernière tranche budgétaire du mandat consacré aux Voies Lyonnaises, et ce pont ne fait pas partie de la liste des aménagements financés qui est détaillée dans la délibération. Il est donc considéré comme reporté à un mandat ultérieur. Les cyclistes continueront donc à circuler sur des bandes peintes sur les trottoirs en attendant le confortement de la structure prévu ces prochaines années.
+::
+
+::banner{type="rollback"}
+Le Conseil de la Métropole a voté le 28/09/2026 la rénovation du pont sans la piste cyclable bidirectionnelle ni le couloir de bus prévus. Les quatre voies automobiles sont conservées et les cyclistes restent sur les trottoirs.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/pont-de-l-universite){:target="_blank"}
 ::
 
 

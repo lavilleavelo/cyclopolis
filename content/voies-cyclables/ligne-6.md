@@ -125,6 +125,11 @@ Des travaux préliminaires sur les réseaux souterrains ont eu lieu entre septem
 La Métropole de Lyon et la Ville de Lyon ont annoncé début juin 2025 que le début des travaux étaient finalement reportés au prochain mandat du fait des nombreux autres travaux en cours dans le secteur. L'autoroute urbaine de la rive droite a donc encore de beaux jours devant elle, au grand dam des piétons et cyclistes qui la fréquentent au quotidien.
 ::
 
+::banner{type="rollback"}
+La Métropole de Lyon a suspendu les travaux le 27/03/2026, trois jours avant leur démarrage, puis confirmé l'abandon du projet à la presse le 23/07/2026. Aucun projet de remplacement n'est annoncé.\
+[Voir le suivi sur Rétropole de Lyon](https://retropoledelyon.fr/amenagements/rive-droite){:target="_blank"}
+::
+
 ::content-image
 ---
 imageUrl: https://cyclopolis.lavilleavelo.org/vl6/quai-jules-courmont.png
