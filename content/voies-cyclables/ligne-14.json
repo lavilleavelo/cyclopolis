@@ -4449,12 +4449,11 @@
 				]
 			}
 		},
-
 		{
 			"type": "Feature",
 			"properties": {
 				"line": 14,
-				"name": "Grande rue de la Guillotière",
+				"name": "Grande rue de la Guillotiere",
 				"status": "done",
 				"doneAt": "01/04/2024",
 				"type": "bidirectionnelle",
@@ -4477,6 +4476,7 @@
 					[4.8577421, 45.7474729],
 					[4.8581274, 45.7473852],
 					[4.8587584, 45.7472578]
+				]
 			}
 		}
 	]
