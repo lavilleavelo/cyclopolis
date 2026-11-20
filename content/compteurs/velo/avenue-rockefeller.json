@@ -1,0 +1,49 @@
+{
+  "name": "Avenue Rockefeller",
+  "description": "Le compteur vélo de l'avenue Rockefeller, à l'angle de la rue Nungesser et Coli.",
+  "arrondissement": "Lyon 3-8",
+  "idPdc": 300064284,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.8803625,
+    45.742504
+  ],
+  "lines": [
+    12
+  ],
+  "counts": [
+    {
+      "month": "2026-03-01",
+      "count": 4644
+    },
+    {
+      "month": "2026-04-01",
+      "count": 58924
+    },
+    {
+      "month": "2026-05-01",
+      "count": 55348
+    },
+    {
+      "month": "2026-06-01",
+      "count": 65044
+    },
+    {
+      "month": "2026-07-01",
+      "count": 55319
+    },
+    {
+      "month": "2026-08-01",
+      "count": 47248
+    },
+    {
+      "month": "2026-09-01",
+      "count": 79375
+    },
+    {
+      "month": "2026-10-01",
+      "count": 67954
+    }
+  ]
+}

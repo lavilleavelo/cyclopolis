@@ -1,0 +1,41 @@
+{
+  "name": "Route de Lyon",
+  "description": "Le compteur vélo de la route de Lyon à Dardilly, au niveau du Bois de la Lune.",
+  "arrondissement": "Dardilly",
+  "idPdc": 300047579,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.7413154,
+    45.794647
+  ],
+  "lines": [
+    8
+  ],
+  "counts": [
+    {
+      "month": "2026-05-01",
+      "count": 0
+    },
+    {
+      "month": "2026-06-01",
+      "count": 0
+    },
+    {
+      "month": "2026-07-01",
+      "count": 3616
+    },
+    {
+      "month": "2026-08-01",
+      "count": 3745
+    },
+    {
+      "month": "2026-09-01",
+      "count": 5284
+    },
+    {
+      "month": "2026-10-01",
+      "count": 3850
+    }
+  ]
+}

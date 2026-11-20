@@ -81,6 +81,7 @@
       <p class="text-sm text-gray-500">{{ counter.arrondissement }}</p>
     </div>
 
+    <CounterTestBanner v-if="counter.test" />
     <CounterMaintenanceBanner :key="counter.path" :counts="counter.counts" :counter="counterRef" />
 
     <p v-if="counter.description" class="text-gray-500">{{ counter.description }}</p>
@@ -139,10 +140,7 @@
     <CounterDetailedStats v-if="counterRef" :key="counter.path" :counter="counterRef" :name="counter.name" embedded />
 
     <h2>Source des données</h2>
-    <p v-if="isVelo" class="text-sm text-gray-500">
-      Les données proviennent de
-      <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
-    </p>
+    <CounterDataSource v-if="isVelo" :source="counter.source" class="text-sm text-gray-500" />
     <p v-else class="text-sm text-gray-500">
       Les données proviennent de
       <a href="https://avatar.cerema.fr/cartographie" target="_blank">avatar.cerema.fr</a>.
@@ -155,6 +153,7 @@
 <script setup lang="ts">
 import type { CounterRef } from '~/composables/useCounterDetailedStats';
 import { buildCounterStats } from '~/composables/useCounterStats';
+import { provideTestCounter } from '~/composables/useTestCounter';
 import type { Count } from '~/types';
 
 const props = defineProps<{
@@ -186,6 +185,8 @@ const { data: counter, pending: loadingSingle } = await useAsyncData(
   },
   { watch: [() => props.counterLink] },
 );
+
+provideTestCounter(() => isVelo.value && counter.value?.test === true);
 
 const { data: veloCounter, pending: loadingVelo } = await useAsyncData(
   'sidebar-velo',

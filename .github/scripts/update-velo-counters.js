@@ -13,6 +13,11 @@ dayjs().format();
 const CONCURRENCY = 8;
 const MAX_ATTEMPTS = 3;
 const FETCH_TIMEOUT_MS = 60_000;
+const GRAND_LYON_CHANNELS_URL =
+  'https://data.grandlyon.com/fr/datapusher/ws/rdata/pvo_patrimoine_voirie.pvocomptagechannel/all.json';
+const GRAND_LYON_MEASURES_URL =
+  'https://data.grandlyon.com/fr/datapusher/ws/timeseries/pvo_patrimoine_voirie.pvocomptagemeasure/all.json';
+const GRAND_LYON_MOBILITY_TYPES = ['BIKE', 'E-SCOOTER'];
 
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -27,12 +32,13 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
     await Promise.all(batch.map((tracked) => updateCounter({ tracked, allCounters, failures })));
   }
 
-  if (allCounters.length !== trackedCounters.length) {
-    console.log(`\n${allCounters.length - trackedCounters.length} counters not tracked yet:`);
-    for (const counter of allCounters) {
-      if (!trackedCounters.find((c) => c.counter.idPdc === counter.idPdc)) {
-        console.log(counter.name);
-      }
+  const untrackedCounters = allCounters.filter(
+    (counter) => !trackedCounters.some((tracked) => tracked.counter.idPdc === counter.idPdc),
+  );
+  if (untrackedCounters.length > 0) {
+    console.log(`\n${untrackedCounters.length} counters not tracked yet:`);
+    for (const counter of untrackedCounters) {
+      console.log(counter.name);
     }
   }
 
@@ -49,14 +55,17 @@ const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 async function updateCounter({ tracked, allCounters, failures }) {
   const { file, counter: trackCounter } = tracked;
+  const isGrandLyon = trackCounter.source === 'grand-lyon';
   const counter = allCounters.find((c) => c.idPdc === trackCounter.idPdc);
-  if (!counter) {
+  if (!isGrandLyon && !counter) {
     console.error(`<<<<<<< ${trackCounter.name} >>>>>>> counter not found`, { trackCounter });
     return;
   }
 
   try {
-    const updatedCounts = await getUpdatedCounts({ idPdc: trackCounter.idPdc, flowIds: counter.flowIds });
+    const updatedCounts = isGrandLyon
+      ? await getGrandLyonCounts(trackCounter.idPdc)
+      : await getUpdatedCounts({ idPdc: trackCounter.idPdc, flowIds: counter.flowIds });
     updateFile({ file, counter: { ...trackCounter, counts: updatedCounts } });
     console.log(`<<<<<<< ${trackCounter.name} >>>>>>>`);
   } catch (error) {
@@ -105,23 +114,59 @@ async function getUpdatedCounts({ idPdc, flowIds }) {
       interval: '6', // month
     });
 
+  const counts = await fetchJson(URL);
+  return counts.map((count) => {
+    const date = new Date(count[0]);
+    const year = date.toLocaleDateString('fr-FR', { year: 'numeric' });
+    const month = date.toLocaleDateString('fr-FR', { month: '2-digit' });
+    return {
+      month: `${year}-${month}-01`,
+      count: Number(count[1]),
+    };
+  });
+}
+
+async function getGrandLyonCounts(siteId) {
+  const { values: channels } = await fetchJson(
+    `${GRAND_LYON_CHANNELS_URL}?` +
+      new URLSearchParams({ maxfeatures: '-1', start: '1', field: 'site_id', value: String(siteId) }),
+  );
+  const bikeChannels = channels.filter((channel) => GRAND_LYON_MOBILITY_TYPES.includes(channel.mobility_type));
+  if (bikeChannels.length === 0) {
+    throw new Error(`no bike channel for site ${siteId} on data.grandlyon.com`);
+  }
+
+  const firstYear = Math.min(...bikeChannels.map((channel) => Number((channel.started_at ?? '2015').slice(0, 4))));
+  const end = dayjs().startOf('month');
+  const countsByMonth = new Map();
+  for (let year = firstYear; year <= end.year(); year++) {
+    const { values } = await fetchJson(
+      `${GRAND_LYON_MEASURES_URL}?` +
+        new URLSearchParams({
+          maxfeatures: '-1',
+          start: '1',
+          channel_id__in: bikeChannels.map((channel) => channel.channel_id).join(','),
+          start_datetime__gte: `${year}-01-01`,
+          start_datetime__lt: year === end.year() ? end.format('YYYY-MM-DD') : `${year + 1}-01-01`,
+        }),
+    );
+    for (const { start_datetime: startDatetime, count } of values) {
+      const month = `${startDatetime.slice(0, 7)}-01`;
+      countsByMonth.set(month, (countsByMonth.get(month) ?? 0) + (count ?? 0));
+    }
+  }
+
+  return [...countsByMonth].sort(([a], [b]) => a.localeCompare(b)).map(([month, count]) => ({ month, count }));
+}
+
+async function fetchJson(url) {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     try {
-      const res = await fetch(URL, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      const res = await fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
       if (!res.ok) {
         throw new Error(`HTTP ${res.status} ${res.statusText}`);
       }
-
-      const counts = await res.json();
-      return counts.map((count) => {
-        const date = new Date(count[0]);
-        const year = date.toLocaleDateString('fr-FR', { year: 'numeric' });
-        const month = date.toLocaleDateString('fr-FR', { month: '2-digit' });
-        return {
-          month: `${year}-${month}-01`,
-          count: Number(count[1]),
-        };
-      });
+      return await res.json();
     } catch (error) {
       if (attempt === MAX_ATTEMPTS) {
         throw error;
@@ -129,7 +174,7 @@ async function getUpdatedCounts({ idPdc, flowIds }) {
 
       const delay = attempt * 5000;
       console.warn(
-        `[getUpdatedCounts] idPdc=${idPdc} attempt ${attempt}/${MAX_ATTEMPTS} failed (${error.message}), retrying in ${delay / 1000}s`,
+        `[fetchJson] ${url} attempt ${attempt}/${MAX_ATTEMPTS} failed (${error.message}), retrying in ${delay / 1000}s`,
       );
       await sleep(delay);
     }

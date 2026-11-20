@@ -23,6 +23,13 @@
       </div>
       <div class="text-base font-semibold">
         {{ name }}
+        <span
+          v-if="counter.test"
+          class="ml-1 align-middle inline-flex items-center gap-1 rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+        >
+          <Icon name="mdi:flask-outline" />
+          En test
+        </span>
       </div>
     </div>
     <div

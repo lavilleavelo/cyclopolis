@@ -20,6 +20,7 @@
       />
     </ClientOnly>
 
+    <CounterTestBanner v-if="counter.test" />
     <CounterMaintenanceBanner :counts="counter.counts" :counter="{ type: 'velo', idPdc: counter.idPdc }" />
 
     <CounterStatsSummary v-if="counterStats" :stats="counterStats" />
@@ -73,14 +74,11 @@
     </template>
 
     <ProseH2 id="source-des-donnees">Source des données</ProseH2>
-    <p>
-      Les données proviennent de
-      <a href="https://data.eco-counter.com/ParcPublic/?id=3902#" target="_blank">data.eco-counter.com</a>.
-    </p>
+    <CounterDataSource :source="counter.source" />
 
     <CounterPhotos :id-pdc="counter.idPdc" :name="counter.name" />
 
-    <CounterSensor :id-pdc="counter.idPdc" :name="counter.name" />
+    <CounterSensor :id-pdc="counter.idPdc" :name="counter.name" :source="counter.source" />
 
     <CounterLinks :voiture="matchingVoitureCounter?.path" :comparison="comparisonPath" class="mt-10" />
   </ContentFrame>
@@ -91,6 +89,7 @@ import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useChartDisplayMode } from '~/composables/useChartDisplayMode';
 import { buildCounterStats } from '~/composables/useCounterStats';
 import { useQueryParam, valuesQueryParam } from '~/composables/useQueryParam';
+import { provideTestCounter } from '~/composables/useTestCounter';
 import { getLine, useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 
 const { path } = useRoute();
@@ -107,6 +106,8 @@ if (!counter.value) {
   const router = useRouter();
   router.push({ path: '/404' });
 }
+
+provideTestCounter(() => counter.value?.test === true);
 
 const { data: matchingVoitureCounter } = await useAsyncData(`voiture-match-${path}`, () => {
   if (!counter.value?.cyclopolisId) return Promise.resolve(null);

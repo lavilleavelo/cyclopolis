@@ -21,8 +21,9 @@
             <MapPlaceholder :additional-class="MAP_HEIGHT_CLASSES" />
           </template>
           <Map
+            ref="mapComponent"
             :features="filteredFeatures"
-            :fit-bounds-features="counterFeatures"
+            :fit-bounds-features="initialBoundsFeatures"
             :options="{ roundedCorners: false, legend: false, filter: false, cooperativeGestures: !isWideScreen() }"
             :class="MAP_HEIGHT_CLASSES"
             :highlighted-counter="highlightedCounter"
@@ -42,6 +43,15 @@
           >
             <Icon name="game-icons:dutch-bike" class="text-base" />
             Voies Lyonnaises
+          </button>
+          <button
+            type="button"
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium shadow-md transition-colors bg-white/90 text-gray-700 hover:bg-white backdrop-blur-sm"
+            title="Recentrer la carte sur les résultats"
+            @click="recenterMap"
+          >
+            <Icon name="mdi:fit-to-screen-outline" class="text-base" />
+            <span class="hidden sm:inline">Recentrer</span>
           </button>
           <button
             type="button"
@@ -236,12 +246,14 @@
 
 <script setup lang="ts">
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import type { CompteurFeature } from '~/types';
 
 export type SortOption = 'passages' | 'evolution';
 export type DisplayMode = 'monthly' | 'daily';
 export type ComparisonPeriod = 'monthly' | 'annual';
 
 const MAP_HEIGHT_CLASSES = 'h-[40vh] xl:h-[calc(100vh_-_var(--navbar-height,0px))]';
+const MAP_BOUNDS_MAX_DISTANCE_KM = 15;
 
 const props = defineProps<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -266,6 +278,40 @@ const comparisonPeriod = defineModel<ComparisonPeriod>('comparisonPeriod', { req
 const showMap = defineModel<boolean>('showMap', { required: true });
 
 const counterFeatures = computed(() => props.filteredFeatures.filter((feature) => feature.geometry.type === 'Point'));
+
+function median(values: number[]): number {
+  return values.toSorted((a, b) => a - b)[Math.floor(values.length / 2)]!;
+}
+
+function distanceKm([lng1, lat1]: [number, number], [lng2, lat2]: [number, number]): number {
+  const x = (lng2 - lng1) * Math.cos((((lat1 + lat2) / 2) * Math.PI) / 180);
+  return Math.hypot(x, lat2 - lat1) * 111.32;
+}
+
+const fitBoundsFeatures = computed(() => {
+  if (searchText.value || counterFeatures.value.length < 3) {
+    return counterFeatures.value;
+  }
+
+  const coordinates: [number, number][] = counterFeatures.value.map((feature) => feature.geometry.coordinates);
+  const center: [number, number] = [median(coordinates.map(([lng]) => lng)), median(coordinates.map(([, lat]) => lat))];
+  const nearby = counterFeatures.value.filter(
+    (feature) => distanceKm(feature.geometry.coordinates, center) <= MAP_BOUNDS_MAX_DISTANCE_KM,
+  );
+  return nearby.length > 0 ? nearby : counterFeatures.value;
+});
+
+const mapComponent = ref<{ fitToFeatures: (features: CompteurFeature[]) => void } | null>(null);
+const initialBoundsFeatures = shallowRef(fitBoundsFeatures.value);
+watch(fitBoundsFeatures, (features) => {
+  if (initialBoundsFeatures.value.length === 0) {
+    initialBoundsFeatures.value = features;
+  }
+});
+
+function recenterMap() {
+  mapComponent.value?.fitToFeatures(fitBoundsFeatures.value);
+}
 
 function isWideScreen(): boolean {
   return window.matchMedia('(min-width: 1280px)').matches;

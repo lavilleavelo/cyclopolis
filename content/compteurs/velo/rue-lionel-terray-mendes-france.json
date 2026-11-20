@@ -1,0 +1,33 @@
+{
+  "name": "Rue Lionel Terray - Mendès France",
+  "description": "Le compteur vélo de la rue Lionel Terray à Bron, à l'angle de l'avenue Pierre Mendès France.",
+  "arrondissement": "Bron",
+  "idPdc": 300069607,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.914817,
+    45.72451
+  ],
+  "lines": [
+    8
+  ],
+  "counts": [
+    {
+      "month": "2026-07-01",
+      "count": 8980
+    },
+    {
+      "month": "2026-08-01",
+      "count": 9391
+    },
+    {
+      "month": "2026-09-01",
+      "count": 14876
+    },
+    {
+      "month": "2026-10-01",
+      "count": 10840
+    }
+  ]
+}

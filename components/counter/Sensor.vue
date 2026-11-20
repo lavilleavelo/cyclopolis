@@ -6,10 +6,9 @@
 
     <template v-if="scooters">
       <p>
-        Depuis le {{ formatDay(scooters.firstDay) }}, Eco-Counter estime aussi le nombre de trottinettes (sans préciser
-        sa méthode). Elles sont incluses dans les chiffres de cette page et représentent environ
-        {{ formatShare(scooters.share) }} des passages sur les douze derniers mois, soit à peu près
-        {{ formatOptionalCount(scooters.average) }} par jour.
+        Depuis le {{ formatDay(scooters.firstDay) }}, {{ provider.scooters }} (sans préciser sa méthode). Elles sont
+        incluses dans les chiffres de cette page et représentent environ {{ formatShare(scooters.share) }} des passages
+        sur les douze derniers mois, soit à peu près {{ formatOptionalCount(scooters.average) }} par jour.
       </p>
 
       <div class="mt-6 grid grid-cols-2 gap-3" :class="{ 'sm:grid-cols-3': !embedded }">
@@ -22,7 +21,7 @@
 
       <ChartScooterShare
         :title="`Part estimée des trottinettes par mois - ${name}`"
-        subtitle="Estimation d'Eco-Counter, hors jours sans donnée"
+        :subtitle="`${provider.estimate}, hors jours sans donnée`"
         :monthly="scooters.monthly"
         class="mt-8 lg:p-4 lg:rounded-lg lg:shadow-md"
       />
@@ -40,9 +39,23 @@
 import { formatCount, formatDay } from '~/composables/useCounterDetailedStats';
 import { SCOOTER_COLOR, formatShare, useCounterSensor } from '~/composables/useCounterSensor';
 
-const props = defineProps<{ idPdc: number; name: string; embedded?: boolean }>();
+const props = defineProps<{ idPdc: number; name: string; embedded?: boolean; source?: 'eco-counter' | 'grand-lyon' }>();
 
 const { data: sensor, status } = useCounterSensor(props.idPdc);
+
+const provider = computed(() =>
+  props.source === 'grand-lyon'
+    ? {
+        classifies: 'La Métropole de Lyon classe',
+        scooters: 'la Métropole de Lyon publie aussi une estimation du nombre de trottinettes',
+        estimate: 'Estimation publiée par la Métropole de Lyon',
+      }
+    : {
+        classifies: 'Eco-Counter classe',
+        scooters: 'Eco-Counter estime aussi le nombre de trottinettes',
+        estimate: "Estimation d'Eco-Counter",
+      },
+);
 
 const scooters = computed(() => sensor.value?.scooters ?? null);
 
@@ -66,7 +79,7 @@ const intro = computed(() => {
   ]
     .filter(Boolean)
     .join(' et ');
-  return `Eco-Counter classe les passages du compteur « ${sensorName.replace(/_/g, ' · ')} » en ${flowsText}.`;
+  return `${provider.value.classifies} les passages du compteur « ${sensorName.replace(/_/g, ' · ')} » en ${flowsText}.`;
 });
 
 const tiles = computed(() => {

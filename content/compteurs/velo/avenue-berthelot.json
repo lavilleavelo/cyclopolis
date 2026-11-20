@@ -1,0 +1,53 @@
+{
+  "name": "Avenue Berthelot",
+  "description": "Le compteur vélo de l'avenue Berthelot, à l'angle du boulevard des Tchécoslovaques.",
+  "arrondissement": "Lyon 7-8",
+  "idPdc": 300060966,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.8560524,
+    45.740635
+  ],
+  "lines": [
+    2
+  ],
+  "counts": [
+    {
+      "month": "2026-02-01",
+      "count": 37614
+    },
+    {
+      "month": "2026-03-01",
+      "count": 53466
+    },
+    {
+      "month": "2026-04-01",
+      "count": 57448
+    },
+    {
+      "month": "2026-05-01",
+      "count": 58523
+    },
+    {
+      "month": "2026-06-01",
+      "count": 60834
+    },
+    {
+      "month": "2026-07-01",
+      "count": 54793
+    },
+    {
+      "month": "2026-08-01",
+      "count": 63245
+    },
+    {
+      "month": "2026-09-01",
+      "count": 90174
+    },
+    {
+      "month": "2026-10-01",
+      "count": 82235
+    }
+  ]
+}

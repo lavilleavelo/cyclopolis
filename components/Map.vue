@@ -118,6 +118,7 @@ const options = { ...defaultOptions, ...props.options };
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
+let mapInstance: MaplibreMap | null = null;
 
 const {
   loadImages,
@@ -223,6 +224,7 @@ onMounted(() => {
     attributionControl: false,
     cooperativeGestures: options.cooperativeGestures,
   });
+  mapInstance = map;
 
   map.addControl(new NavigationControl({ showCompass: false }), 'top-left');
   map.addControl(new AttributionControl({ compact: false }), 'bottom-left');
@@ -607,9 +609,18 @@ onMounted(() => {
   );
 
   onUnmounted(() => {
+    mapInstance = null;
     map.remove();
   });
 });
+
+function fitToFeatures(features: Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]) {
+  if (mapInstance && features.length > 0) {
+    fitBounds({ map: mapInstance, features });
+  }
+}
+
+defineExpose({ fitToFeatures });
 </script>
 
 <style>

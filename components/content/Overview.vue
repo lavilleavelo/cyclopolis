@@ -122,7 +122,9 @@ const { data: allCounters } = await useAsyncData(() => {
 const features: Ref<Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]> = computed(() => {
   const compteurFeatures = displayBikeCounters.value
     ? getCompteursFeatures({
-        counters: (allCounters.value || []).filter((counter) => counter.lines?.includes(+props.voie.line)),
+        counters: (allCounters.value || []).filter(
+          (counter) => !counter.test && counter.lines?.includes(+props.voie.line),
+        ),
         type: 'compteur-velo',
       })
     : [];

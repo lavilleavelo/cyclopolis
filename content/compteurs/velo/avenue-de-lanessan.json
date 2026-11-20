@@ -1,0 +1,33 @@
+{
+  "name": "Avenue de Lanessan",
+  "description": "Le compteur vélo de l'avenue de Lanessan à Champagne-au-Mont-d'Or.",
+  "arrondissement": "Champagne-au-Mont-d'Or",
+  "idPdc": 300069605,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.792964,
+    45.79473
+  ],
+  "lines": [
+    4
+  ],
+  "counts": [
+    {
+      "month": "2026-07-01",
+      "count": 4024
+    },
+    {
+      "month": "2026-08-01",
+      "count": 10625
+    },
+    {
+      "month": "2026-09-01",
+      "count": 17335
+    },
+    {
+      "month": "2026-10-01",
+      "count": 14519
+    }
+  ]
+}

@@ -131,7 +131,7 @@ export function useGlobalSearch() {
     const veloResults: SearchResult[] = veloCounters.map((c) => ({
       type: 'compteur-velo' as const,
       label: c.name,
-      sublabel: c.arrondissement,
+      sublabel: c.test ? `${c.arrondissement} · en test` : c.arrondissement,
       href: c.path,
     }));
 

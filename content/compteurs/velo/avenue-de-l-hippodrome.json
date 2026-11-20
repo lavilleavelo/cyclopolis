@@ -1,0 +1,33 @@
+{
+  "name": "Avenue de l'Hippodrome",
+  "description": "Le compteur vélo de l'avenue de l'Hippodrome à Rillieux-la-Pape, à l'angle du chemin Pierre Drevet.",
+  "arrondissement": "Rillieux-la-Pape",
+  "idPdc": 300048116,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.871597,
+    45.8087
+  ],
+  "lines": [
+    7
+  ],
+  "counts": [
+    {
+      "month": "2026-07-01",
+      "count": 4819
+    },
+    {
+      "month": "2026-08-01",
+      "count": 12757
+    },
+    {
+      "month": "2026-09-01",
+      "count": 403
+    },
+    {
+      "month": "2026-10-01",
+      "count": 0
+    }
+  ]
+}

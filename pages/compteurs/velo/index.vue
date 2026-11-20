@@ -22,7 +22,7 @@
         Suivi des compteurs vélo de l'agglomération lyonnaise
       </h2>
       <p class="mt-4 text-xl text-gray-500 leading-8">
-        Chaque début de mois, nous remontons les données de {{ allCounters?.length ?? 0 }} compteurs à vélo de
+        Chaque début de mois, nous remontons les données de {{ stableCounters.length }} compteurs à vélo de
         l'agglomération lyonnaise.
       </p>
       <span class="text-sm text-gray-400"
@@ -31,13 +31,20 @@
           href="https://data.eco-counter.com/ParcPublic/?id=3902#"
           target="_blank"
           >data.eco-counter.com</a
+        >
+        et
+        <a
+          class="hover:underline"
+          href="https://data.grandlyon.com/portail/fr/jeux-de-donnees/mesures-comptage-metropole-lyon/info"
+          target="_blank"
+          >data.grandlyon.com</a
         ></span
       >
     </template>
     <template #overview>
       <ChartMetropoleIndex
-        v-if="allCounters && allCounters.length > 0"
-        :counters="allCounters"
+        v-if="stableCounters.length > 0"
+        :counters="stableCounters"
         class="mb-6"
         @highlight="highlightedCounter = $event"
       />
@@ -48,7 +55,7 @@
 <script setup lang="ts">
 import type { ComparisonPeriod, DisplayMode, SortOption } from '~/components/counter/ListLayout.vue';
 import type { CompteurFeature } from '~/types';
-import { matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
+import { isTestSearch, matchesCounterSearch, useCounterSearch } from '~/composables/useCounterSearch';
 
 const { getCompteursFeatures } = useMap();
 const { getAvailableMonths, getAvailableYears, syncDefaultPeriod, sortCounters } = useCounterUtils();
@@ -64,6 +71,11 @@ const { data: allCounters } = await useAsyncData('velo-counters', () => {
   return queryCollection('compteurs').where('path', 'LIKE', '/compteurs/velo%').all();
 });
 
+const stableCounters = computed(() => (allCounters.value ?? []).filter((counter) => !counter.test));
+const visibleCounters = computed(() =>
+  isTestSearch(searchText.value) ? (allCounters.value ?? []) : stableCounters.value,
+);
+
 const availableMonths = computed(() => getAvailableMonths(allCounters.value));
 const availableYears = computed(() => getAvailableYears(availableMonths.value));
 
@@ -71,10 +83,6 @@ const selectedMonth = ref<string>('');
 syncDefaultPeriod(selectedMonth, availableMonths, selectedYear, availableYears);
 
 const counters = computed(() => {
-  if (!allCounters.value) {
-    return [];
-  }
-
   if (comparisonPeriod.value === 'monthly' && !selectedMonth.value) {
     return [];
   }
@@ -84,7 +92,7 @@ const counters = computed(() => {
   }
 
   const sorted = sortCounters(
-    allCounters.value,
+    visibleCounters.value,
     sortBy,
     comparisonPeriod,
     selectedMonth,
@@ -100,20 +108,25 @@ const counters = computed(() => {
     }));
 });
 
-const veloOnly = (allCounters.value || []).filter((c) => !c.cyclopolisId);
-const mixed = (allCounters.value || []).filter((c) => c.cyclopolisId);
-const counterFeatures: CompteurFeature[] = [
-  ...getCompteursFeatures({ counters: veloOnly, type: 'compteur-velo' }),
-  ...getCompteursFeatures({ counters: mixed, type: 'compteur-velo', isMixed: true }),
-];
+const counterFeatures = computed<CompteurFeature[]>(() => [
+  ...getCompteursFeatures({
+    counters: visibleCounters.value.filter((c) => !c.cyclopolisId),
+    type: 'compteur-velo',
+  }),
+  ...getCompteursFeatures({
+    counters: visibleCounters.value.filter((c) => c.cyclopolisId),
+    type: 'compteur-velo',
+    isMixed: true,
+  }),
+]);
 
 const mapFeatures = computed(() => {
   if (!searchText.value) {
-    return counterFeatures;
+    return counterFeatures.value;
   }
 
   const names = new Set(counters.value.map((c) => c.name));
-  return counterFeatures.filter((f) => names.has(f.properties.name));
+  return counterFeatures.value.filter((f) => names.has(f.properties.name));
 });
 
 const { searchText, showVoiesLyonnaises, highlightedCounter, filteredFeatures } = await useCounterSearch(mapFeatures, {

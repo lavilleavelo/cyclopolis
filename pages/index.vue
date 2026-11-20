@@ -123,5 +123,5 @@ const { data: counterData } = await useAsyncData(
   },
   { deep: false },
 );
-const counterCount = computed(() => counterData.value?.length ?? 0);
+const counterCount = computed(() => counterData.value?.filter((counter) => !counter.test).length ?? 0);
 </script>

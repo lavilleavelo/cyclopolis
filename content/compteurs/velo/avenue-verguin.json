@@ -1,0 +1,50 @@
+{
+  "name": "Avenue Verguin",
+  "description": "Le compteur vélo de l'avenue Verguin, à l'angle du boulevard Anatole France.",
+  "arrondissement": "Lyon 6",
+  "idPdc": 300065896,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.8566437,
+    45.77261
+  ],
+  "lines": [
+    4,
+    9
+  ],
+  "counts": [
+    {
+      "month": "2026-03-01",
+      "count": 17251
+    },
+    {
+      "month": "2026-04-01",
+      "count": 47600
+    },
+    {
+      "month": "2026-05-01",
+      "count": 44328
+    },
+    {
+      "month": "2026-06-01",
+      "count": 53286
+    },
+    {
+      "month": "2026-07-01",
+      "count": 46542
+    },
+    {
+      "month": "2026-08-01",
+      "count": 38656
+    },
+    {
+      "month": "2026-09-01",
+      "count": 62007
+    },
+    {
+      "month": "2026-10-01",
+      "count": 49037
+    }
+  ]
+}

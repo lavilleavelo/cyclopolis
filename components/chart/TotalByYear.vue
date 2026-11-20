@@ -1,5 +1,12 @@
 <template>
-  <div>
+  <div v-if="rollingYears.length === 0" class="rounded-lg bg-gray-50 px-4 py-8 text-center text-sm text-gray-600">
+    <Icon name="mdi:calendar-clock-outline" class="text-2xl text-gray-400" />
+    <p class="mt-2">
+      Le compteur mesure les passages depuis {{ firstMonthLabel }}. Il faut douze mois de données pour calculer un total
+      annuel, qui s'affichera ici à partir de {{ firstFullYearLabel }}.
+    </p>
+  </div>
+  <div v-else>
     <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
       <div class="flex flex-wrap gap-2">
         <button
@@ -64,6 +71,14 @@ const rollingStartMonthLabel = new Date(latestYear, latestMonth + 1, 1).toLocale
 
 const allYears = [...new Set(counts.map((item: Count) => new Date(item.month).getFullYear()))].sort();
 
+const firstDate = new Date(counts[0]!.month);
+const firstMonthLabel = firstDate.toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
+const firstFullYearLabel = new Date(firstDate.getFullYear() + 1, firstDate.getMonth(), 1).toLocaleString('fr-FR', {
+  month: 'long',
+  year: 'numeric',
+});
+const rollingYears = allYears.filter((year) => new Date(year - 1, latestMonth + 1, 1) >= firstDate);
+
 function daysInMonthOf(monthIso: string): number {
   const d = new Date(monthIso);
   return new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
@@ -97,13 +112,7 @@ function getYtdData() {
 }
 
 function getRollingData() {
-  const eligibleYears = allYears.filter((year) => {
-    const startDate = new Date(year - 1, latestMonth + 1, 1);
-    const firstDataDate = new Date(counts[0]!.month);
-    return startDate >= firstDataDate;
-  });
-
-  const series = eligibleYears.map((year) => {
+  const series = rollingYears.map((year) => {
     const endDate = new Date(year, latestMonth, 1);
     const startDate = new Date(year - 1, latestMonth + 1, 1);
 
@@ -123,7 +132,7 @@ function getRollingData() {
   const max = Math.max(...values);
 
   return {
-    categories: eligibleYears.map((y) => `${y - 1}/${y}`),
+    categories: rollingYears.map((y) => `${y - 1}/${y}`),
     data: values.map((y) => {
       const color = y === max && y > 0 ? '#C84271' : '#152B68';
       return { y, color, dataLabels: { color } };

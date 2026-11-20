@@ -90,7 +90,10 @@ export type CompteurFeature = {
   };
 };
 
-export type MapCounter = Pick<Collections['compteurs'], 'path' | 'name' | 'coordinates' | 'cyclopolisId' | 'counts'>;
+export type MapCounter = Pick<
+  Collections['compteurs'],
+  'path' | 'name' | 'coordinates' | 'cyclopolisId' | 'counts' | 'test'
+>;
 export type MapCounters = { velo: MapCounter[]; voiture: MapCounter[] };
 
 export type DangerFeature = {

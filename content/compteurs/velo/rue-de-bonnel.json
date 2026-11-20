@@ -1,0 +1,49 @@
+{
+  "name": "Rue de Bonnel",
+  "description": "Le compteur vélo de la rue de Bonnel, à l'angle de l'avenue du Maréchal-de-Saxe.",
+  "arrondissement": "Lyon 3",
+  "idPdc": 300064133,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.8451557,
+    45.76165
+  ],
+  "lines": [
+    11
+  ],
+  "counts": [
+    {
+      "month": "2026-03-01",
+      "count": 8974
+    },
+    {
+      "month": "2026-04-01",
+      "count": 48394
+    },
+    {
+      "month": "2026-05-01",
+      "count": 52374
+    },
+    {
+      "month": "2026-06-01",
+      "count": 59130
+    },
+    {
+      "month": "2026-07-01",
+      "count": 53031
+    },
+    {
+      "month": "2026-08-01",
+      "count": 40405
+    },
+    {
+      "month": "2026-09-01",
+      "count": 65967
+    },
+    {
+      "month": "2026-10-01",
+      "count": 59226
+    }
+  ]
+}

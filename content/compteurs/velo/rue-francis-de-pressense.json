@@ -1,0 +1,33 @@
+{
+  "name": "Rue Francis de Pressensé",
+  "description": "Le compteur vélo de la rue Francis de Pressensé à Villeurbanne.",
+  "arrondissement": "Villeurbanne",
+  "idPdc": 300069606,
+  "source": "grand-lyon",
+  "test": true,
+  "coordinates": [
+    4.8774548,
+    45.771885
+  ],
+  "lines": [
+    4
+  ],
+  "counts": [
+    {
+      "month": "2026-07-01",
+      "count": 11281
+    },
+    {
+      "month": "2026-08-01",
+      "count": 8439
+    },
+    {
+      "month": "2026-09-01",
+      "count": 37058
+    },
+    {
+      "month": "2026-10-01",
+      "count": 23667
+    }
+  ]
+}

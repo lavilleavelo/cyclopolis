@@ -136,6 +136,8 @@ export default defineContentConfig({
         arrondissement: z.string(),
         idPdc: z.number(),
         idsPdc: z.array(z.number()).optional(),
+        source: z.enum(['eco-counter', 'grand-lyon']).optional(),
+        test: z.boolean().optional(),
         cyclopolisId: z.string().optional(),
         coordinates: z.array(z.number()).length(2),
         limitation: z.string().optional(),

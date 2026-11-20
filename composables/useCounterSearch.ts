@@ -18,11 +18,19 @@ function parseLineSearch(text: string): number | 'any' | null {
   return null;
 }
 
+export function isTestSearch(text: string): boolean {
+  return /^(?:en )?tests?$/.test(removeDiacritics(text.trim().toLowerCase()));
+}
+
 export function matchesCounterSearch(
-  counter: { arrondissement: string; name: string; lines?: number[] },
+  counter: { arrondissement: string; name: string; lines?: number[]; test?: boolean },
   search: string,
 ): boolean {
   if (!search) return true;
+  if (isTestSearch(search)) {
+    return counter.test === true;
+  }
+
   const lineSearch = parseLineSearch(search);
   if (lineSearch === 'any') {
     return (counter.lines?.length ?? 0) > 0;

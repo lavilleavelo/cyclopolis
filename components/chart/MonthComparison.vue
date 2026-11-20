@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-wrap justify-between items-start gap-2 mb-4">
-      <div class="flex flex-wrap gap-2">
+      <div v-if="hasMonthComparison" class="flex flex-wrap gap-2">
         <button
           :class="[
             'px-3 py-1.5 text-sm rounded-md font-medium transition-colors',
@@ -21,11 +21,11 @@
           Évolution annuelle
         </button>
       </div>
-      <ChartDisplayModeToggle />
+      <ChartDisplayModeToggle class="ml-auto" />
     </div>
 
     <!-- Single month mode: month dropdown + bar chart -->
-    <template v-if="mode === 'single'">
+    <template v-if="activeMode === 'single'">
       <div class="flex items-center gap-2">
         <label for="month-comparison-select" class="text-xs text-gray-500 whitespace-nowrap lg:text-sm">Mois</label>
         <select
@@ -44,7 +44,7 @@
 
     <!-- Multi-year overlay mode: line chart -->
     <template v-else>
-      <div class="flex items-center gap-2 mt-2">
+      <div v-if="yearCountOptions.length > 1" class="flex items-center gap-2 mt-2">
         <label for="year-count-comparison-select" class="text-xs text-gray-500 whitespace-nowrap lg:text-sm">
           Nombre d'années
         </label>
@@ -76,7 +76,6 @@ const props = defineProps({
   syncUrl: { type: Boolean, default: false },
 });
 
-const mode = ref<'single' | 'multi'>('single');
 const displayMode = useChartDisplayMode();
 
 function daysInMonthOf(monthIso: string): number {
@@ -111,6 +110,10 @@ const monthLabels = months.map((m) => m.name);
 
 const counts: Count[] = props.data.counts;
 const allYears = [...new Set(counts.map((item: Count) => new Date(item.month).getFullYear()))].sort();
+const hasMonthComparison = new Set(counts.map((item: Count) => new Date(item.month).getMonth())).size < counts.length;
+
+const mode = ref<'single' | 'multi'>(hasMonthComparison ? 'single' : 'multi');
+const activeMode = computed(() => (hasMonthComparison ? mode.value : 'multi'));
 
 const lastRecord = counts[counts.length - 1]!;
 const lastRecordMonth = new Date(lastRecord.month).getMonth();
@@ -221,9 +224,11 @@ const multiYearChartOptions = computed(() => {
 
   const isDaily = displayMode.value === 'daily';
   const titleSuffix =
-    selectedYearCount.value === allYears.length
-      ? ' - toutes les années'
-      : ` - ${selectedYearCount.value} dernières années`;
+    allYears.length === 1
+      ? ` - ${allYears[0]}`
+      : selectedYearCount.value === allYears.length
+        ? ' - toutes les années'
+        : ` - ${selectedYearCount.value} dernières années`;
 
   return {
     chart: { type: 'line' },
