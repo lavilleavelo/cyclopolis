@@ -1333,7 +1333,7 @@
 				"status": "done",
 				"doneAt": "02/02/2005",
 				"type": "velorue",
-				"quality": "satisfactory",
+				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
 			},
 			"geometry": {
@@ -4691,7 +4691,7 @@
 				"status": "done",
 				"doneAt": "02/02/2005",
 				"type": "velorue",
-				"quality": "satisfactory",
+				"quality": "unsatisfactory",
 				"link": "/voie-lyonnaise-13#test"
 			},
 			"geometry": {
