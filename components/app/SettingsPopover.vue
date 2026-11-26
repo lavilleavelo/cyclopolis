@@ -177,18 +177,21 @@
                   Réinitialiser
                 </button>
               </div>
-              <div class="grid grid-cols-4 gap-2">
-                <div v-for="id in getAllLineNumbers()" :key="id" class="flex flex-col items-center">
-                  <label :for="`color-line-${id}`" class="text-xs text-gray-500 mb-1">{{
-                    getLineShortName(id, '')
-                  }}</label>
-                  <input
-                    :id="`color-line-${id}`"
-                    type="color"
-                    :value="getLineColor(id)"
-                    class="h-8 w-8 p-0 border-0 rounded-full overflow-hidden cursor-pointer"
-                    @input="(e) => setCustomColor(id, (e.target as HTMLInputElement).value)"
-                  />
+              <div v-for="group in getLineGroups()" :key="group.category" class="mt-3 first:mt-0">
+                <div class="text-xs font-medium text-gray-500 mb-1">{{ group.title }}</div>
+                <div class="grid grid-cols-4 gap-2">
+                  <div v-for="id in group.lines" :key="id" class="flex flex-col items-center">
+                    <label :for="`color-line-${id}`" class="text-xs text-gray-500 mb-1">{{
+                      group.category === 'main' ? getLineShortName(id, '') : getLineLabel(id)
+                    }}</label>
+                    <input
+                      :id="`color-line-${id}`"
+                      type="color"
+                      :value="getLineColor(id)"
+                      class="h-8 w-8 p-0 border-0 rounded-full overflow-hidden cursor-pointer"
+                      @input="(e) => setCustomColor(id, (e.target as HTMLInputElement).value)"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -230,7 +233,7 @@ import { useDebounceFn } from '@vueuse/core';
 import { MAP_STYLE_OPTIONS } from '~/helpers/mapStyles';
 
 const { getLineColor } = useColors();
-const { getAllLineNumbers, getLineShortName } = useConfig();
+const { getLineGroups, getLineLabel, getLineShortName } = useConfig();
 const { palette, customColors, reduceMotion, mapStyle } = useSettings();
 
 const PALETTE_OPTIONS: { id: 'default' | 'accessible'; label: string; description: string }[] = [

@@ -19,7 +19,28 @@
           <span class="hidden sm:inline">Toutes les lignes</span>
         </button>
         <button
-          v-for="line in getAllLineNumbers()"
+          v-for="line in mainLineGroup?.lines ?? []"
+          :key="line"
+          type="button"
+          class="w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-bold text-white transition-all"
+          :class="
+            selectedLines.size > 0 && !selectedLines.has(line) ? 'opacity-30 hover:opacity-60' : 'ring-2 ring-offset-1'
+          "
+          :style="{ backgroundColor: getLineColor(line), '--tw-ring-color': getLineColor(line) }"
+          @click="toggleLine(line)"
+        >
+          {{ getLineLabel(line) }}
+        </button>
+      </div>
+
+      <div
+        v-for="group in otherLineGroups"
+        :key="group.category"
+        class="mt-2 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
+      >
+        <span class="px-1 text-[11px] sm:text-xs font-medium text-gray-500">{{ group.title }}</span>
+        <button
+          v-for="line in group.lines"
           :key="line"
           type="button"
           class="w-7 h-7 sm:w-8 sm:h-8 rounded-full text-[11px] sm:text-xs font-bold text-white transition-all"
@@ -62,12 +83,7 @@
         <span class="font-semibold text-gray-900">{{ yearSections.length }}</span> tronçons livrés en {{ selectedYear
         }}<template v-if="selectedLines.size > 0">
           sur
-          {{
-            Array.from(selectedLines)
-              .sort((a, b) => a - b)
-              .map((l) => getLineShortName(l, ''))
-              .join(', ')
-          }}</template
+          {{ getLinesListLabel(Array.from(selectedLines)) }}</template
         >, soit
         <span class="font-semibold text-gray-900">{{ displayDistanceInKm(yearDistance, 1) }}</span>
       </div>
@@ -212,12 +228,7 @@
           Aucun tronçon livré en {{ selectedYear
           }}<template v-if="selectedLines.size > 0">
             sur
-            {{
-              Array.from(selectedLines)
-                .sort((a, b) => a - b)
-                .map((l) => getLineShortName(l, ''))
-                .join(', ')
-            }}</template
+            {{ getLinesListLabel(Array.from(selectedLines)) }}</template
           >.
         </div>
       </div>
@@ -232,7 +243,10 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-const { getRevName, getAllLineNumbers, getLineLabel, getLineShortName } = useConfig();
+const { getRevName, getLineGroups, getLineLabel, getLineShortName, getLinesListLabel } = useConfig();
+
+const mainLineGroup = getLineGroups().find((group) => group.category === 'main');
+const otherLineGroups = getLineGroups().filter((group) => group.category !== 'main');
 const { getLineColor } = useColors();
 const { displayDistanceInKm } = useStats();
 

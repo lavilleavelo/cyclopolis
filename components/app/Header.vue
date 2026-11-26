@@ -127,23 +127,28 @@
                 class="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 sm:px-0"
               >
                 <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                  <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                    <NuxtLink
-                      v-for="voie in voies"
-                      :key="voie.line"
-                      :to="getVoieCyclablePath(voie.line)"
-                      class="-m-3 flex items-start justify-center rounded-lg p-3 hover:bg-gray-50"
-                      @click="close()"
-                    >
-                      <div class="flex-shrink-0">
-                        <div
-                          class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
-                          :style="`background-color: ${getLineColor(voie.line)}`"
+                  <div class="bg-white px-5 py-6 sm:p-8 space-y-6">
+                    <div v-for="group in lineGroups" :key="group.category">
+                      <div class="mb-5 text-sm font-semibold text-gray-500">{{ group.title }}</div>
+                      <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+                        <NuxtLink
+                          v-for="voie in group.voies"
+                          :key="voie.line"
+                          :to="getVoieCyclablePath(voie.line)"
+                          class="-m-3 flex items-start justify-center rounded-lg p-3 hover:bg-gray-50"
+                          @click="close()"
                         >
-                          {{ getLineLabel(voie.line) }}
-                        </div>
+                          <div class="flex-shrink-0">
+                            <div
+                              class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
+                              :style="`background-color: ${getLineColor(voie.line)}`"
+                            >
+                              {{ getLineLabel(voie.line) }}
+                            </div>
+                          </div>
+                        </NuxtLink>
                       </div>
-                    </NuxtLink>
+                    </div>
                   </div>
                   <div class="bg-lvv-blue-600 text-white text-center py-1">
                     <NuxtLink to="/tableau-de-bord" class="hover:underline" @click="close()">
@@ -342,23 +347,26 @@
             </div>
           </div>
           <div class="py-6 px-5 space-y-6 bg-gray-50">
-            <div class="grid grid-cols-4 gap-y-4 gap-x-8">
-              <NuxtLink
-                v-for="voie in voies"
-                :key="voie.line"
-                :to="getVoieCyclablePath(voie.line)"
-                class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
-                @click="close()"
-              >
-                <div class="flex-shrink-0">
-                  <div
-                    class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
-                    :style="`background-color: ${getLineColor(voie.line)}`"
-                  >
-                    {{ getLineLabel(voie.line) }}
+            <div v-for="group in lineGroups" :key="group.category">
+              <div class="mb-5 text-sm font-semibold text-gray-500">{{ group.title }}</div>
+              <div class="grid grid-cols-4 gap-y-4 gap-x-8">
+                <NuxtLink
+                  v-for="voie in group.voies"
+                  :key="voie.line"
+                  :to="getVoieCyclablePath(voie.line)"
+                  class="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                  @click="close()"
+                >
+                  <div class="flex-shrink-0">
+                    <div
+                      class="h-10 w-10 rounded-full flex items-center justify-center text-white font-bold"
+                      :style="`background-color: ${getLineColor(voie.line)}`"
+                    >
+                      {{ getLineLabel(voie.line) }}
+                    </div>
                   </div>
-                </div>
-              </NuxtLink>
+                </NuxtLink>
+              </div>
             </div>
           </div>
         </div>
@@ -374,7 +382,7 @@ import SettingsPopover from './SettingsPopover.vue';
 import type GlobalSearch from '~/components/GlobalSearch.vue';
 const { getLineColor } = useColors();
 const { getVoieCyclablePath } = useUrl();
-const { getAssoName, getLineLabel } = useConfig();
+const { getAssoName, getLineLabel, getLineGroups, getLineCategory } = useConfig();
 const barometreVeloLink = 'https://www.barometre-velo.fr/2025/carte/#11.1/45.7505/4.8316';
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)');
@@ -391,6 +399,15 @@ const navItems = computed(() => [
 ]);
 
 const { voies } = await useGetVoiesCyclablesNums();
+
+const lineGroups = computed(() =>
+  getLineGroups()
+    .map((group) => ({
+      ...group,
+      voies: (voies.value ?? []).filter((voie) => getLineCategory(voie.line) === group.category),
+    }))
+    .filter((group) => group.voies.length > 0),
+);
 
 const globalSearchRef = ref<InstanceType<typeof GlobalSearch> | null>(null);
 </script>

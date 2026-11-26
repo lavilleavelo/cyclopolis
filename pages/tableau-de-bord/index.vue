@@ -10,34 +10,40 @@
       <StatsQuality v-if="displayQuality()" class="mt-8 max-w-2xl mx-auto" :voies="geojsons" :precision="1" />
       <Typology :voies="geojsons" class="mt-8 max-w-2xl mx-auto" />
 
-      <div class="grid grid-cols-1 2xl:grid-cols-2 gap-20 mt-8">
-        <div v-for="voie in geojsons" :key="getLine(voie)" class="py-2 flex">
-          <div class="mr-4 w-2 lg:w-4 rounded-lg flex-shrink-0" :style="`background: ${getLineColor(getLine(voie))}`" />
-          <div class="flex-grow">
-            <h2 class="text-center text-2xl font-bold">
-              <LineLink :line="String(getLine(voie))" size="md" />
-            </h2>
-            <div class="text-center text-xl text-gray-900">
-              Distance totale:
-              <span class="font-bold" :style="`color: ${getLineColor(getLine(voie))}`">
-                {{ displayDistanceInKm(getTotalDistance([voie]), 1) }}
-              </span>
-            </div>
-            <div v-if="getTrafic(voie)" class="text-center text-sm text-gray-900">
-              Fréquentation max 2030:
-              <span class="font-bold" :style="`color: ${getLineColor(getLine(voie))}`">
-                {{ getTrafic(voie) }}
-              </span>
-            </div>
-            <div>
-              <ProgressBar :voies="[voie]" />
-              <Stats :voies="[voie]" :precision="1" class="mt-8" />
-              <StatsQuality v-if="displayQuality()" :voies="[voie]" :precision="1" />
-              <Typology :voies="[voie]" class="mt-8" />
+      <section v-for="group in geojsonGroups" :key="group.category" class="mt-16">
+        <h2 class="text-center text-2xl text-lvv-blue-600 font-bold">{{ group.title }}</h2>
+        <div class="grid grid-cols-1 2xl:grid-cols-2 gap-20 mt-8">
+          <div v-for="voie in group.geojsons" :key="getLine(voie)" class="py-2 flex">
+            <div
+              class="mr-4 w-2 lg:w-4 rounded-lg flex-shrink-0"
+              :style="`background: ${getLineColor(getLine(voie))}`"
+            />
+            <div class="flex-grow">
+              <h3 class="text-center text-2xl font-bold">
+                <LineLink :line="String(getLine(voie))" size="md" />
+              </h3>
+              <div class="text-center text-xl text-gray-900">
+                Distance totale:
+                <span class="font-bold" :style="`color: ${getLineColor(getLine(voie))}`">
+                  {{ displayDistanceInKm(getTotalDistance([voie]), 1) }}
+                </span>
+              </div>
+              <div v-if="getTrafic(voie)" class="text-center text-sm text-gray-900">
+                Fréquentation max 2030:
+                <span class="font-bold" :style="`color: ${getLineColor(getLine(voie))}`">
+                  {{ getTrafic(voie) }}
+                </span>
+              </div>
+              <div>
+                <ProgressBar :voies="[voie]" />
+                <Stats :voies="[voie]" :precision="1" class="mt-8" />
+                <StatsQuality v-if="displayQuality()" :voies="[voie]" :precision="1" />
+                <Typology :voies="[voie]" class="mt-8" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </div>
 </template>
@@ -49,9 +55,18 @@ import { getLine, useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclabl
 
 const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
-const { displayQuality } = useConfig();
+const { displayQuality, getLineGroups, getLineCategory } = useConfig();
 
 const { geojsons } = await useVoiesCyclablesGeojson();
+
+const geojsonGroups = computed(() =>
+  getLineGroups()
+    .map((group) => ({
+      ...group,
+      geojsons: (geojsons.value ?? []).filter((geojson) => getLineCategory(getLine(geojson)) === group.category),
+    }))
+    .filter((group) => group.geojsons.length > 0),
+);
 
 const { data: mds } = await useAsyncData(() => {
   return queryCollection('voiesCyclablesPage').all();
