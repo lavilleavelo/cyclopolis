@@ -1,0 +1,948 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Allée du Fontanil Nord",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.943446, 45.7980683],
+					[4.9434772, 45.7977265],
+					[4.9435394, 45.7975854],
+					[4.9439519, 45.7973738],
+					[4.9446212, 45.7970319],
+					[4.9454851, 45.7967498],
+					[4.9457653, 45.7967009],
+					[4.9463335, 45.7967389],
+					[4.9465358, 45.7967118],
+					[4.9467071, 45.7966195],
+					[4.9469328, 45.7964567],
+					[4.9489874, 45.7955668],
+					[4.9494778, 45.7952195],
+					[4.9499525, 45.7950079],
+					[4.9502872, 45.7950025],
+					[4.9507152, 45.7949157],
+					[4.9512756, 45.7949265],
+					[4.9519527, 45.7948831],
+					[4.9523497, 45.7948017]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Allée du Fontanil Sud",
+				"status": "done",
+				"doneAt": "02/05/2022",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9523497, 45.7948017],
+					[4.952731, 45.7945141],
+					[4.9531435, 45.7942211],
+					[4.9534704, 45.7938032],
+					[4.9542642, 45.7932226],
+					[4.9547312, 45.7927993],
+					[4.9550581, 45.7923163],
+					[4.955455, 45.7918713],
+					[4.9558986, 45.7915077],
+					[4.9562567, 45.7913884],
+					[4.956926, 45.7912418]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Chemin du Machet",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.956926, 45.7912418],
+					[4.9568871, 45.7911333],
+					[4.9568715, 45.7909759],
+					[4.9570116, 45.7908294],
+					[4.9572958, 45.7907002],
+					[4.9577753, 45.7902822],
+					[4.9581727, 45.7900579],
+					[4.9584062, 45.7899347],
+					[4.9585639, 45.7897587],
+					[4.9586144, 45.7895739],
+					[4.9586081, 45.78909],
+					[4.9584819, 45.788474],
+					[4.9583115, 45.7880517],
+					[4.9579141, 45.787295],
+					[4.9575919, 45.7867839],
+					[4.9573206, 45.7863967],
+					[4.9571755, 45.7861503],
+					[4.9571629, 45.7859743],
+					[4.9572386, 45.7857324],
+					[4.9574594, 45.7854948],
+					[4.9578002, 45.7853364],
+					[4.9584374, 45.7851604],
+					[4.9590115, 45.7850504],
+					[4.9593649, 45.7849096],
+					[4.9594469, 45.7847248],
+					[4.9594406, 45.7846016],
+					[4.959327, 45.7843816],
+					[4.9593964, 45.7843156],
+					[4.9593522, 45.7842232],
+					[4.9593775, 45.7841],
+					[4.9593081, 45.7839592],
+					[4.9593396, 45.7838712],
+					[4.9594649, 45.7837021],
+					[4.9594072, 45.7834605]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Promenade de l'Epie",
+				"status": "done",
+				"doneAt": "02/05/2012",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9594072, 45.7834605],
+					[4.9581805, 45.7836618],
+					[4.9570981, 45.7832693],
+					[4.9575888, 45.782444],
+					[4.9582671, 45.7816992],
+					[4.9589165, 45.7811456],
+					[4.9596237, 45.7806725],
+					[4.9601836, 45.7803549]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Route sous Rocade Est",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9601836, 45.7803549],
+					[4.9599303, 45.7798481],
+					[4.9598278, 45.7797493]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Claude Monet",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9598278, 45.7797493],
+					[4.9598429, 45.7796616],
+					[4.9596641, 45.7792162],
+					[4.9595428, 45.7790469],
+					[4.9593959, 45.7789445],
+					[4.9589169, 45.7787663],
+					[4.9582655, 45.7784991],
+					[4.9579908, 45.7783432],
+					[4.9577418, 45.7781561],
+					[4.956324, 45.7773454],
+					[4.956126, 45.7772029]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"Monet-commun",
+				"name": "Chemin de Halage - Claude Monet",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.956126, 45.7772029],
+					[4.9541653, 45.7764145]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rampe Passerelle - Claude Monet",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9541653, 45.7764145],
+					[4.9536291, 45.776202],
+					[4.9533471, 45.7760459]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"PasserrelleMandela-commun",
+				"name": "Passerelle Nelson Mandela",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9533471, 45.7760459],
+					[4.953943, 45.7754348],
+					[4.9543462, 45.7748465]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id":"RampePasserelle-commun",
+				"name": "Rampe Passerelle - Aviron",
+				"status": "done",
+				"doneAt": "02/10/2013",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9543462, 45.7748465],
+					[4.9544947, 45.7748835],
+					[4.9550252, 45.7751092]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PoleSportif-commun",
+				"name": "Chemin de Contre-Halage - Pôle Sportif et de Loisirs",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9550252, 45.7751092],
+					[4.9558422, 45.7753349],
+					[4.9563727, 45.7755384],
+					[4.9566326, 45.7756679]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "RocadeEst-commun",
+				"name": "Chemin de Contre-Halage - Rocade Est",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9566326, 45.7756679],
+					[4.9567918, 45.7758048],
+					[4.9569934, 45.775864],
+					[4.9577626, 45.7761896],
+					[4.9592586, 45.7766891],
+					[4.961545, 45.7776252],
+					[4.9631842, 45.7782431],
+					[4.9633699, 45.77838],
+					[4.9637147, 45.7785354],
+					[4.9639375, 45.778639],
+					[4.9642717, 45.7787093],
+					[4.9649613, 45.7787611],
+					[4.9657146, 45.7787648],
+					[4.9664414, 45.7786982],
+					[4.9673114, 45.7784466],
+					[4.967566, 45.7783282],
+					[4.968626, 45.7781727]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "DecinesKayak-commun",
+				"name": "Chemin de Contre-Halage - Décines Canoë-kayak",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.968626, 45.7781727],
+					[4.9696615, 45.7780285],
+					[4.9711044, 45.777825],
+					[4.971985, 45.7776733],
+					[4.9723829, 45.7777251],
+					[4.9727383, 45.7777177],
+					[4.9738524, 45.7775623],
+					[4.9748709, 45.777677],
+					[4.9753855, 45.7777843],
+					[4.9756242, 45.777788],
+					[4.9756903, 45.7777703]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Francisco Ferrer Nord",
+				"status": "done",
+				"doneAt": "02/02/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9756903, 45.7777703],
+					[4.9761224, 45.7769039],
+					[4.9762394, 45.7766026],
+					[4.9764554, 45.775799],
+					[4.9764914, 45.7754914],
+					[4.976417, 45.7747314],
+					[4.9763416, 45.7746562]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Francisco Ferrer Sud",
+				"status": "done",
+				"doneAt": "25/10/2006",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9763416, 45.7746562],
+					[4.9762877, 45.7744908],
+					[4.9762499, 45.7743516],
+					[4.9760019, 45.7725128],
+					[4.9759394, 45.7724485],
+					[4.9758231, 45.7724079],
+					[4.9756923, 45.7723836],
+					[4.9756225, 45.7721362],
+					[4.9756516, 45.7720956]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Sully Nord",
+				"status": "done",
+				"doneAt": "25/10/2006",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9756516, 45.7720956],
+					[4.9758144, 45.7719963],
+					[4.9758987, 45.7719192],
+					[4.9759103, 45.7718604],
+					[4.9756138, 45.7704144],
+					[4.9755644, 45.7703475],
+					[4.9752475, 45.7688104]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SullyCentre-commun",
+				"name": "Avenue Simone Veil - OL Vallée",
+				"variante": true,
+				"text": "variante Est",
+				"status": "done",
+				"doneAt": "25/05/2015",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9752475, 45.7688104],
+					[4.9783747, 45.7684824],
+					[4.9795866, 45.7683171],
+					[4.9803246, 45.7682027],
+					[4.9811239, 45.768067]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SullyCentre-commun",
+				"name": "Rue Sully Centre",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt":"25/10/2006",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9752297, 45.7688122],
+					[4.97516, 45.7683302],
+					[4.9750902, 45.7680296],
+					[4.9749318, 45.7676184]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SullySud-commun",
+				"name": "Avenue Simone Veil - Rocade Est",
+				"variante": true,
+				"text": "variante Est",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9811239, 45.768067],
+					[4.9826116, 45.7677832],
+					[4.9829018, 45.7677251],
+					[4.9831852, 45.7676237],
+					[4.9834687, 45.7675002],
+					[4.9837131, 45.7673395],
+					[4.9839611, 45.7671467],
+					[4.9842516, 45.7668171],
+					[4.9844188, 45.7665165],
+					[4.984492, 45.7662243],
+					[4.9845718, 45.7657139],
+					[4.9847277, 45.7623709],
+					[4.9847148, 45.7622199],
+					[4.9846696, 45.7621118],
+					[4.984563, 45.7620465]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "SullySud-commun",
+				"name": "Rue Sully Sud",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9749318, 45.7676184],
+					[4.9747416, 45.767331],
+					[4.9743804, 45.7669375],
+					[4.974317, 45.7667342],
+					[4.974336, 45.7665661],
+					[4.9745135, 45.7654342],
+					[4.9750459, 45.7637761],
+					[4.9750839, 45.7635816],
+					[4.9750966, 45.7634135],
+					[4.9750586, 45.7631438],
+					[4.9748716, 45.7619981]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauTennis-commun",
+				"name": "Rue Marceau - Tennis",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "06/09/2023",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9748716, 45.7619981],
+					[4.9750854, 45.7619746],
+					[4.9752692, 45.7619039],
+					[4.975873, 45.7618176],
+					[4.9765893, 45.7617862],
+					[4.9769906, 45.761781],
+					[4.9770806, 45.7617705],
+					[4.9772269, 45.7617626]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauImpasse-commun",
+				"name": "Impasse Marceau",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "06/09/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9772269, 45.7617626],
+					[4.9774556, 45.7617626],
+					[4.9796946, 45.7613205]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Marceau Biézin",
+				"variante": true,
+				"text": "variante Ouest",
+				"status": "done",
+				"doneAt": "01/04/2015",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9796946, 45.7613205],
+					[4.9797321, 45.7612655],
+					[4.9798171, 45.7612322],
+					[4.9798537, 45.7610326],
+					[4.9803931, 45.7610427],
+					[4.9804246, 45.7609432],
+					[4.9804911, 45.7607968],
+					[4.980514, 45.7605513],
+					[4.9808567, 45.7604493],
+					[4.9815103, 45.7603409],
+					[4.9820679, 45.7603377],
+					[4.9828174, 45.7603536],
+					[4.9833978, 45.760191],
+					[4.9836172, 45.7601559],
+					[4.9837223, 45.7599008]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauTennis-commun",
+				"name": "Echangeur Rocade Est",
+				"variante": true,
+				"text": "variante Est",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.984563, 45.7620465],
+					[4.9845307, 45.7618617],
+					[4.9845921, 45.761668],
+					[4.9845695, 45.7612512],
+					[4.9844726, 45.7611724]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "MarceauImpasse-commun",
+				"name": "Accès parking OL Vallée",
+				"variante": true,
+				"text": "variante Est",
+				"status": "done",
+				"doneAt": "01/09/2015",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9844726, 45.7611724],
+					[4.9844565, 45.7608503],
+					[4.9844274, 45.7605281],
+					[4.984337, 45.7603344],
+					[4.9842078, 45.7601947],
+					[4.9840056, 45.7600476],
+					[4.9837087, 45.7598938]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Promenade du Biézin",
+				"status": "done",
+				"doneAt": "01/09/2015",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9837087, 45.7598938],
+					[4.9834968, 45.7597685],
+					[4.9833026, 45.7596084],
+					[4.9832025, 45.759479],
+					[4.9831172, 45.7592963],
+					[4.9830818, 45.7591177],
+					[4.9830877, 45.7589616],
+					[4.9831584, 45.7588015],
+					[4.9832967, 45.7585879],
+					[4.9834468, 45.7584627],
+					[4.9840648, 45.7580643],
+					[4.9843856, 45.7578385],
+					[4.9846151, 45.7576003],
+					[4.9847181, 45.7573046],
+					[4.984724, 45.757126],
+					[4.9846946, 45.7564981],
+					[4.9846504, 45.7561572],
+					[4.9845798, 45.7558246],
+					[4.984049, 45.7541737],
+					[4.9840203, 45.7539785],
+					[4.9840562, 45.7535256],
+					[4.9840311, 45.7533129],
+					[4.9839737, 45.7531602],
+					[4.9839091, 45.7530501],
+					[4.9837191, 45.7528274],
+					[4.9827651, 45.7519841],
+					[4.9815959, 45.7509531],
+					[4.9806061, 45.7499846],
+					[4.9803227, 45.7497368],
+					[4.9799067, 45.7495166]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Giratoire des Boutières",
+				"status": "done",
+				"doneAt": "01/09/2020",
+				"type": "voie-verte",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9799067, 45.7495166],
+					[4.9801506, 45.749384],
+					[4.9802044, 45.7492914],
+					[4.9803012, 45.7492188],
+					[4.9803981, 45.7491688],
+					[4.9804985, 45.7491562],
+					[4.9806276, 45.7491988],
+					[4.9808069, 45.7493039]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Boulevard du Raquin Nord",
+				"status": "done",
+				"doneAt":"01/09/2005",
+				"type": "bidirectionnelle",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9808069, 45.7493039],
+					[4.9809002, 45.7491838],
+					[4.9810364, 45.7490436],
+					[4.981248, 45.748916],
+					[4.9814166, 45.7487633],
+					[4.9815601, 45.7485806],
+					[4.9816425, 45.748433],
+					[4.9816963, 45.7482778],
+					[4.9817143, 45.7480976],
+					[4.9816963, 45.7478824],
+					[4.9816354, 45.7472793],
+					[4.9818939, 45.7461667],
+					[4.9820158, 45.745914],
+					[4.9821055, 45.7457162],
+					[4.9822417, 45.7452107],
+					[4.982292, 45.7448453],
+					[4.9823171, 45.7441345],
+					[4.9822884, 45.7439368],
+					[4.9821951, 45.7437065],
+					[4.9820804, 45.7435313],
+					[4.9801751, 45.741598],
+					[4.9791788, 45.7408155],
+					[4.9787913, 45.7406289]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Boulevard du Raquin Sud",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9787913, 45.7406289],
+					[4.9773615, 45.7393644],
+					[4.976985, 45.7389911],
+					[4.9764338, 45.7382256],
+					[4.9754187, 45.736523]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Chemin de Trève",
+				"status": "done",
+				"doneAt": "01/04/2005",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9754187, 45.736523],
+					[4.9745892, 45.7342604],
+					[4.973740395939814, 45.73215540609502]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "DauphineEst-commun",
+				"name": "Avenue du Dauphiné Est",
+				"status": "done",
+				"doneAt": "15/01/1998",
+				"type": "voie-verte",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+				[4.966387992035607, 45.734484576453156],
+				[4.968252746928243, 45.73376167048718],
+				[4.968973794900535, 45.73348198634517],
+				[4.969152675236643, 45.733445577895054],
+				[4.969785405743835, 45.733222730170496],
+				[4.9699494802055995, 45.733164874514586],
+				[4.970095732784671, 45.733148112452994],
+				[4.970712623175331, 45.73296460513089],
+				[4.970930426846024, 45.732899977217414],
+				[4.971162721172533, 45.73276860487201],
+				[4.97170018365486, 45.7326203362646],
+				[4.972864642817029, 45.73233904869383],
+				[4.972956801572849, 45.73233557201405],
+				[4.973088058077877, 45.73232152685924],
+				[4.973740395939814, 45.73215540609502]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue du Progrès Nord",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.966387992035607, 45.734484576453156],
+					[4.9662451, 45.7343404],
+					[4.9661359, 45.7343252],
+					[4.9660213, 45.7343138],
+					[4.9658685, 45.7341766],
+					[4.9655902, 45.7339747],
+					[4.9651645, 45.7334872],
+					[4.964908, 45.7331748],
+					[4.9646461, 45.7328053],
+					[4.9644278, 45.7324206],
+					[4.9642586, 45.732074],
+					[4.9640621, 45.7315597],
+					[4.9639639, 45.7312283],
+					[4.9638657, 45.7307521],
+					[4.9638057, 45.730295],
+					[4.9635546, 45.7287331],
+					[4.96332, 45.7276893],
+					[4.9630681, 45.7264374],
+					[4.9629372, 45.7258011],
+					[4.9627953, 45.7254545],
+					[4.9625326, 45.7249419],
+					[4.9619541, 45.7238752],
+					[4.9615503, 45.7231479],
+					[4.9612338, 45.7226717],
+					[4.9604698, 45.7218259],
+					[4.9601587, 45.721483],
+					[4.9599315, 45.7211458],
+					[4.9595848, 45.7203521],
+					[4.9588639, 45.7186291],
+					[4.9583925, 45.7173706],
+					[4.9583088, 45.7171461]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Pelossier-commun",
+				"name": "Giratoire Pelossier",
+				"status": "postponed",
+				"type": "bilaterale",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.9583088, 45.7171461],
+					[4.9583405, 45.7170817],
+					[4.9583978, 45.7170063],
+					[4.9584359, 45.7169441],
+					[4.958509, 45.716902]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue du Progrès Sud",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-c"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.958509, 45.716902],
+					[4.9584086, 45.7167779],
+          			[4.9582812, 45.7167553],
+					[4.9581872, 45.7167028],
+					[4.9580661, 45.7164677],
+					[4.9575477, 45.7153209],
+					[4.9570512, 45.7141872],
+					[4.9567415, 45.7135245],
+					[4.9564992, 45.7131437],
+					[4.9561087, 45.7126314],
+					[4.9557721, 45.7123117],
+					[4.9545806, 45.7112729],
+					[4.9541228, 45.7109156],
+					[4.9539478, 45.710831],
+					[4.9533688, 45.7106665],
+					[4.953039, 45.7105443],
+					[4.952763, 45.7103515],
+					[4.9525678, 45.7100507],
+					[4.9522917, 45.7095289],
+					[4.9520696, 45.7091152],
+					[4.9517395, 45.708626],
+					[4.9514836, 45.7082735],
+					[4.9513019, 45.7079726],
+					[4.9510259, 45.7076765],
+					[4.9505816, 45.7071828],
+					[4.9502786, 45.7068256],
+					[4.9500969, 45.706379],
+					[4.9500949, 45.7061331]
+				]
+			}
+		}
+	]
+}

@@ -1,0 +1,312 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue de la Part-Dieu",
+				"status": "done",
+				"doneAt": "01/09/2005",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8408676, 45.7591411],
+					[4.8410857, 45.7591487],
+					[4.8520887, 45.7599428]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "GaribaldiPartDieu-commun",
+				"name": "Garibaldi - Part Dieu",
+				"status": "done",
+				"doneAt": "28/02/2014",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8520887, 45.7599428],
+					[4.8522102, 45.759277]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Bouchut Ouest",
+				"status": "done",
+				"doneAt": "01/04/2002",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8522102, 45.759277],
+					[4.852522, 45.7593092],
+					[4.8525747, 45.7592896],
+					[4.8526343, 45.7592872],
+					[4.8559408, 45.7595761]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Bouchut Est",
+				"status": "done",
+				"doneAt": "10/12/2025",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8559408, 45.7595761],
+					[4.8560391, 45.7595786],
+					[4.8561269, 45.7595663],
+					[4.8562111, 45.7595516],
+					[4.8563269, 45.7595614],
+					[4.8564217, 45.7595859],
+					[4.8565095, 45.7596325],
+					[4.8569658, 45.7598773],
+					[4.857029, 45.7598945],
+					[4.857974, 45.7599893]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PartDieu-commun",
+				"name": "Part-Dieu Sud en surface",
+				"status": "done",
+				"doneAt": "05/09/2025",
+				"type": "voie-bus-elargie",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8582183, 45.7587315],
+					[4.8583382, 45.7587445],
+					[4.8581578, 45.759717],
+					[4.858125, 45.7599406],
+					[4.858113, 45.7600026]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "PassagePompidou-commun",
+				"name": "Part-Dieu - Passage Pompidou",
+				"status": "done",
+				"doneAt": "28/08/2024",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861565, 45.7589921],
+					[4.8582183, 45.7587315]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": "Pompidou-commun",
+				"name": "Avenue Pompidou Ouest",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.861565, 45.7589921],
+					[4.8620285, 45.7590105],
+					[4.862957, 45.7590475]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue Pompidou Est",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.862957, 45.7590475],
+					[4.8660339, 45.7592405],
+					[4.8678392, 45.7593187],
+					[4.8697894, 45.7594106]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Place de la Ferrandière",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8697894, 45.7594106],
+					[4.8723524, 45.7594704],
+					[4.8726489, 45.7595945]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue François Gillet",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8726489, 45.7595945],
+					[4.8757171, 45.7596316]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue Saint-Exupéry Ouest",
+				"status": "postponed",
+				"type": "bandes-cyclables",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8757171, 45.7596316],
+					[4.8769889, 45.7592516]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Quartier de la Ferrandière",
+				"status": "postponed",
+				"type": "aucun",
+				"quality": "unsatisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8769889, 45.7592516],
+					[4.8803576, 45.7583166],
+					[4.8804894, 45.7582384]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue Saint-Exupéry Est",
+				"status": "done",
+				"doneAt": "01/02/2026",
+				"type": "velorue",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8804894, 45.7582384],
+					[4.8805882, 45.7582706],
+					[4.8806805, 45.7582017],
+					[4.8809638, 45.7581097],
+					[4.8824437, 45.7576624],
+					[4.8825708, 45.7575799],
+					[4.8826673, 45.7574514]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Rue Jean Jaurès",
+				"status": "done",
+				"doneAt": "01/04/2026",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8826673, 45.7574514],
+					[4.8851831, 45.7580844],
+					[4.8853496, 45.7581425],
+					[4.8855512, 45.7582557],
+					[4.8875542, 45.7588153],
+					[4.8890444, 45.7591149],
+					[4.889623, 45.7592067],
+					[4.8897369, 45.7592311],
+					[4.8903111, 45.759329],
+					[4.890425, 45.7593351],
+					[4.8905302, 45.7593167],
+					[4.8906223, 45.7592739]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"name": "Avenue Général Leclerc",
+				"status": "done",
+				"doneAt": "01/04/2026",
+				"type": "bidirectionnelle",
+				"quality": "satisfactory",
+				"link": "/voie-secondaire-h"
+			},
+			"geometry": {
+				"type": "LineString",
+				"coordinates": [
+					[4.8906223, 45.7592739],
+					[4.8906617, 45.7592067],
+					[4.8907275, 45.7586318],
+					[4.8907318, 45.7582985],
+					[4.891037, 45.7556958],
+					[4.891243, 45.7540627]
+				]
+			}
+		}
+	]
+}
