@@ -29,15 +29,18 @@
       @deselect-all="filters.typeFilters.value.forEach((type: StatusTypeQualityFilterItem) => (type.isEnabled = false))"
     />
 
-    <FilterSection
-      v-if="options.showLineFilters"
-      title="Filtrer par voie lyonnaise"
-      :filters="filters.lineFilters.value"
-      :show-selection-buttons="true"
-      @toggle-filter="actions.toggleLineFilter"
-      @select-all="filters.lineFilters.value.forEach((line: LineFilterItem) => (line.isEnabled = true))"
-      @deselect-all="filters.lineFilters.value.forEach((line: LineFilterItem) => (line.isEnabled = false))"
-    />
+    <template v-if="options.showLineFilters">
+      <FilterSection
+        v-for="group in lineFilterGroups"
+        :key="group.category"
+        :title="group.title"
+        :filters="group.items.map((item) => item.filter)"
+        :show-selection-buttons="group.items.length > 2"
+        @toggle-filter="(index: number) => actions.toggleLineFilter(group.items[index]!.index)"
+        @select-all="group.items.forEach((item) => (item.filter.isEnabled = true))"
+        @deselect-all="group.items.forEach((item) => (item.filter.isEnabled = false))"
+      />
+    </template>
 
     <section v-if="options.showCounters">
       <label class="mt-2 flex items-center gap-3 cursor-pointer">
@@ -75,8 +78,11 @@ import FilterSection from '~/components/filter/FilterSection.vue';
 import DoubleRangeSlider from '~/components/DoubleRangeSlider.vue';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
-import type { FiltersState, FilterActions, StatusTypeQualityFilterItem, LineFilterItem } from '~/types';
+import type { FiltersState, FilterActions, StatusTypeQualityFilterItem } from '~/types';
+import type { LineCategory } from '~/helpers/lines';
 dayjs.locale('fr');
+
+const { getRevName, getSecondaryRevName } = useConfig();
 
 const props = defineProps<{
   showLineFilters: boolean;
@@ -87,6 +93,19 @@ const props = defineProps<{
 }>();
 const defaultOptions = { showLineFilters: false, showDateFilter: false, showCounters: false };
 const options = { ...defaultOptions, ...props };
+
+const lineFilterGroups = computed(() => {
+  const groups: { category: LineCategory; title: string }[] = [
+    { category: 'main', title: `Filtrer par ${getRevName('singular').toLowerCase()}` },
+    { category: 'secondary', title: `Filtrer par ${getSecondaryRevName('singular').toLowerCase()}` },
+    { category: 'other', title: 'Autres' },
+  ];
+
+  const items = props.filters.lineFilters.value.map((filter, index) => ({ filter, index }));
+  return groups
+    .map((group) => ({ ...group, items: items.filter((item) => item.filter.category === group.category) }))
+    .filter((group) => group.items.length > 0);
+});
 
 function formatMonthYear(stepIndex: number) {
   if (stepIndex >= props.filters.dateSteps.value.length || stepIndex < 0) {

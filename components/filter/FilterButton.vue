@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="px-2 py-1.5 rounded-2xl text-sm cursor-pointer outline outline-2 outline-offset-[-1px] focus:outline-none transition-all"
+    class="min-w-8 px-2 py-1.5 rounded-2xl text-sm cursor-pointer outline outline-2 outline-offset-[-1px] focus:outline-none transition-all"
     :class="{
       'bg-lvv-blue-600 text-white hover:bg-lvv-blue-700 outline-lvv-blue-800 focus:ring-lvv-blue-400':
         isEnabled && !customStyle,

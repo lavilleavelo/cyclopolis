@@ -7,6 +7,7 @@ import {
   type LaneQuality,
   type LaneStatus,
   type LaneType,
+  type LineFilterItem,
   type UseBikeLaneFiltersOptions,
 } from '~/types';
 import type { Collections } from '@nuxt/content';
@@ -15,10 +16,15 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBikeLaneFiltersOptions) {
+export function useBikeLaneFilters({
+  allFeatures,
+  allGeojsons,
+  allLines,
+  includeOtherNetworks = false,
+}: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
   const { getLineColor } = useColors();
-  const { getLineShortName } = useConfig();
+  const { getLineShortName, getLineLabel, getLineCategory, getOtherNetworks } = useConfig();
   const route = useRoute();
   const router = useRouter();
   const currentPage = route.name;
@@ -106,7 +112,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     },
   ]);
 
-  const lineFilters = ref<{ label: string; isEnabled: boolean; line: number }[]>([]);
+  const lineFilters = ref<LineFilterItem[]>([]);
 
   const showCounters = ref(false);
 
@@ -177,7 +183,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
     });
   });
 
-  function processDateData(geojsonData: Collections['voiesCyclablesGeojson'][] | undefined | null) {
+  function processDateData(geojsonData: Pick<Collections['voiesCyclablesGeojson'], 'features'>[] | undefined | null) {
     if (!geojsonData) return;
 
     const uniqueDates = new Set<number>();
@@ -228,14 +234,20 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines }: UseBi
             if (voie.line) linesSet.add(voie.line);
           });
 
+          if (includeOtherNetworks) {
+            getOtherNetworks().forEach((network) => linesSet.add(network.line));
+          }
+
           lineFilters.value = Array.from(linesSet)
             .sort((a, b) => a - b)
             .map((line) => {
               const color = getLineColor(line);
+              const category = getLineCategory(line);
               return {
-                label: getLineShortName(line),
+                label: category === 'secondary' ? getLineLabel(line) : getLineShortName(line),
                 isEnabled: true,
                 line,
+                category,
                 color,
                 customStyle: {
                   backgroundColor: color,

@@ -33,7 +33,11 @@
 import type { CompteurFeature, MapCounters } from '~/types';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
-import { useVoiesCyclablesGeojson, useGetVoiesCyclablesNums } from '~/composables/useVoiesCyclables';
+import {
+  useVoiesCyclablesGeojson,
+  useGetVoiesCyclablesNums,
+  useOtherNetworksGeojson,
+} from '~/composables/useVoiesCyclables';
 import { MAP_PRECONNECT_LINKS } from '~/helpers/map-utils';
 
 const { getRevName, displayCounters } = useConfig();
@@ -47,6 +51,7 @@ definePageMeta({
 
 const { geojsons } = await useVoiesCyclablesGeojson();
 const { voies } = await useGetVoiesCyclablesNums();
+const { otherNetworks } = await useOtherNetworksGeojson();
 
 const mapCounters = shallowRef<MapCounters | null>(null);
 const veloCounters = computed(() => mapCounters.value?.velo ?? []);
@@ -94,13 +99,15 @@ const counterFeatures = computed<CompteurFeature[]>(() => {
 
 const features = computed(() => {
   const laneFeatures = geojsons.value ? geojsons.value.flatMap((geojson) => geojson.features) : [];
-  return [...laneFeatures, ...counterFeatures.value];
+  const otherNetworkFeatures = (otherNetworks.value ?? []).flatMap((network) => network.features);
+  return [...laneFeatures, ...otherNetworkFeatures, ...counterFeatures.value];
 });
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,
-  allGeojsons: computed(() => geojsons.value),
+  allGeojsons: computed(() => [...(geojsons.value ?? []), ...(otherNetworks.value ?? [])]),
   allLines: computed(() => voies.value),
+  includeOtherNetworks: true,
 });
 
 let mapCountersRequest: Promise<void> | null = null;
