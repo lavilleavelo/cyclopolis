@@ -16,15 +16,10 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-export function useBikeLaneFilters({
-  allFeatures,
-  allGeojsons,
-  allLines,
-  includeOtherNetworks = false,
-}: UseBikeLaneFiltersOptions) {
+export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNetworks }: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
   const { getLineColor } = useColors();
-  const { getLineShortName, getLineLabel, getLineCategory, getOtherNetworks } = useConfig();
+  const { getLineShortName, getLineLabel, getLineCategory } = useConfig();
   const route = useRoute();
   const router = useRouter();
   const currentPage = route.name;
@@ -226,7 +221,7 @@ export function useBikeLaneFilters({
 
   if (allLines) {
     watch(
-      [allLines, palette, customColors],
+      [allLines, palette, customColors, () => otherNetworks?.value],
       ([newLines]) => {
         if (newLines) {
           const linesSet = new Set<number>();
@@ -234,9 +229,9 @@ export function useBikeLaneFilters({
             if (voie.line) linesSet.add(voie.line);
           });
 
-          if (includeOtherNetworks) {
-            getOtherNetworks().forEach((network) => linesSet.add(network.line));
-          }
+          (otherNetworks?.value ?? [])
+            .filter((network) => network.features.length > 0)
+            .forEach((network) => linesSet.add(network.line));
 
           lineFilters.value = Array.from(linesSet)
             .sort((a, b) => a - b)

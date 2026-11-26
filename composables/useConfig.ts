@@ -38,10 +38,6 @@ export const useConfig = () => {
     return getLineCategory(line) === 'other';
   }
 
-  function getOtherNetworks() {
-    return config.otherNetworks;
-  }
-
   /** tous les numéros des lignes disposant d'une page : les voies cyclables puis les voies secondaires */
   function getAllLineNumbers(): number[] {
     return [...getMainLineNumbers(), ...getSecondaryLineNumbers()];
@@ -138,7 +134,6 @@ export const useConfig = () => {
     getLineCategory,
     isSecondaryLine,
     isOtherNetworkLine,
-    getOtherNetworks,
     getAllLineNumbers,
     getLineGroups,
     getLineLabel,

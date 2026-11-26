@@ -107,7 +107,7 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allFeatures: features,
   allGeojsons: computed(() => [...(geojsons.value ?? []), ...(otherNetworks.value ?? [])]),
   allLines: computed(() => voies.value),
-  includeOtherNetworks: true,
+  otherNetworks,
 });
 
 let mapCountersRequest: Promise<void> | null = null;

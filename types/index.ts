@@ -197,5 +197,5 @@ export interface UseBikeLaneFiltersOptions {
   allFeatures: Ref<Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]>;
   allGeojsons?: Ref<Pick<Collections['voiesCyclablesGeojson'], 'features'>[] | undefined | null>;
   allLines?: Ref<{ line: number }[] | undefined | null>;
-  includeOtherNetworks?: boolean;
+  otherNetworks?: Ref<{ line: number; features: unknown[] }[] | undefined | null>;
 }
