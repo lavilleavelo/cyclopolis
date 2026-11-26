@@ -21,14 +21,13 @@
 import type { Collections } from '@nuxt/content';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import MapPlaceholder from '~/components/MapPlaceholder.vue';
+import { getLineFileName } from '~/helpers/lines';
 
 const { path } = useRoute();
-const { getVoieCyclableRegex } = useUrl();
+const { getLineFromPath } = useUrl();
 const { getLineName } = useConfig();
 
-const regex = getVoieCyclableRegex();
-const match = path.match(regex);
-const line = match ? match[1] : '';
+const line = getLineFromPath(path) ?? NaN;
 
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
@@ -49,7 +48,9 @@ const mapOptions = {
 };
 
 const { data: geojson } = await useAsyncData(() => {
-  return queryCollection('voiesCyclablesGeojson').path(`/voies-cyclables/ligne-${line}`).first();
+  return queryCollection('voiesCyclablesGeojson')
+    .path(`/voies-cyclables/${getLineFileName(line)}`)
+    .first();
 });
 
 const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed(() => {
@@ -61,7 +62,7 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
   allFeatures: features,
 });
 
-const lineName = getLineName(Number(line));
+const lineName = getLineName(line);
 const description = `Carte de la ${lineName}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés.`;
 useHead({
   title: `Carte de la ${lineName}`,

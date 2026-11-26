@@ -1,4 +1,5 @@
 import { removeDiacritics } from '~/helpers/helpers';
+import { getSecondaryLineByLetter } from '~/helpers/lines';
 import { isLineStringFeature } from '~/types';
 
 function levenshtein(a: string, b: string): number {
@@ -65,7 +66,8 @@ const staticPages: SearchResult[] = [
 ];
 
 export function useGlobalSearch() {
-  const { getLineName, getLineShortName } = useConfig();
+  const { getLineName, getLineShortName, getNbVoiesCyclables } = useConfig();
+  const { getVoieCyclablePath } = useUrl();
   const results = ref<SearchResult[]>([]);
   const loading = ref(false);
   const loaded = ref(false);
@@ -123,7 +125,7 @@ export function useGlobalSearch() {
         type: 'voie',
         label: getLineName(line),
         sublabel: voieEndpoints.has(line) ? `${voieEndpoints.get(line)!.from} → ${voieEndpoints.get(line)!.to}` : '',
-        href: `/voie-lyonnaise-${line}`,
+        href: getVoieCyclablePath(line),
         line,
       });
     }
@@ -180,7 +182,11 @@ export function useGlobalSearch() {
     const match = normalized.match(/^(?:vl\s*|voie[- ]?lyonnaise?\s*)?(\d{1,2})$/);
     if (match) {
       const num = Number(match[1]);
-      if (num >= 1 && num <= 20) return num;
+      if (num >= 1 && num <= getNbVoiesCyclables()) return num;
+    }
+    const secondaryMatch = normalized.match(/^(?:vs\s*|voie[- ]?secondaire\s*)([a-z])$/);
+    if (secondaryMatch) {
+      return getSecondaryLineByLetter(secondaryMatch[1]!)?.line ?? null;
     }
     return null;
   }

@@ -5,6 +5,22 @@ const DESCRIPTION = `Plateforme citoyenne et associative, par ${config.assoName}
 const BASE_URL = 'https://cyclopolis.fr';
 const COVER_IMAGE_URL = 'https://cyclopolis.lavilleavelo.org/cyclopolis.png';
 
+const SECONDARY_LINE_FILE = /voies-cyclables\/ligne-([a-z]+)\.(?:json|md)$/;
+
+function getSecondaryLineFromFile(fileId: string): number | undefined {
+  const letter = fileId.match(SECONDARY_LINE_FILE)?.[1];
+  if (!letter) {
+    return undefined;
+  }
+  const secondaryLine = config.secondaryLines.lines.find((line) => line.letter.toLowerCase() === letter);
+  if (!secondaryLine) {
+    throw new Error(`${fileId} : voie secondaire « ${letter} » absente de secondaryLines dans config.json`);
+  }
+  return secondaryLine.line;
+}
+
+type ContentFeature = { geometry?: { type?: string }; properties: { type?: string; line?: number } };
+
 export default defineNuxtConfig({
   srcDir: '.',
   css: ['~/assets/main.css'],
@@ -49,6 +65,24 @@ export default defineNuxtConfig({
   },
 
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@nuxt/icon', '@nuxt/eslint', 'nuxt-umami'],
+
+  hooks: {
+    'content:file:afterParse'({ file, content }) {
+      const line = getSecondaryLineFromFile(file.id);
+      if (line === undefined) {
+        return;
+      }
+      if (!Array.isArray(content.features)) {
+        content.line = line;
+        return;
+      }
+      for (const feature of content.features as ContentFeature[]) {
+        if (feature.geometry?.type === 'LineString' || feature.properties.type === 'perspective') {
+          feature.properties.line = line;
+        }
+      }
+    },
+  },
 
   content: {
     markdown: {

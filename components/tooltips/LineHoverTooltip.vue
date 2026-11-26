@@ -1,9 +1,10 @@
 <template>
   <div class="bg-white not-prose text-gray-900 w-48">
     <div class="py-1 bg-zinc-100 flex flex-col items-center justify-center">
-      <div class="flex flex-row space-x-1">
+      <div v-if="linesWithPage.length === 0" class="font-bold text-sm">{{ getLinesName(lines) }}</div>
+      <div v-else class="flex flex-row space-x-1">
         <div
-          v-for="line in lines"
+          v-for="line in linesWithPage"
           :key="line"
           class="h-8 w-8 rounded-full flex items-center justify-center text-white text-base font-bold"
           :style="`background-color: ${getLineColor(line)}`"
@@ -45,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div v-if="!hasDetailsPanel" class="flex justify-center">
+      <div v-if="!hasDetailsPanel && hasDetailsPage" class="flex justify-center">
         <a
           class="p-1 text-lvv-blue-600 text-xs text-base italic hover:underline"
           :href="getSectionDetailsUrl(feature.properties)"
@@ -61,7 +62,7 @@
 import type { LaneQuality, LineStringFeature } from '~/types';
 
 const { getLineColor } = useColors();
-const { getLineLabel } = useConfig();
+const { getLineLabel, getLinesName, isOtherNetworkLine } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
 const { getSectionDetailsUrl } = useUrl();
 
@@ -72,6 +73,8 @@ const { feature, lines, hasDetailsPanel } = defineProps<{
 }>();
 
 const quality = computed(() => getQuality(feature.properties.quality));
+const linesWithPage = computed(() => lines.filter((line) => !isOtherNetworkLine(line)));
+const hasDetailsPage = computed(() => !!feature.properties.link || linesWithPage.value.length > 0);
 
 function getDoneAtText(doneAt: string): string {
   const [day, month, year] = doneAt.split('/');

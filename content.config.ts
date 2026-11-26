@@ -1,6 +1,39 @@
 import { defineCollection, defineContentConfig } from '@nuxt/content';
 import { z } from 'zod';
 
+const lineStringFeatureSchema = <Line extends z.ZodTypeAny>(line: Line) =>
+  z.object({
+    type: z.enum(['Feature']),
+    properties: z.object({
+      id: z.string().optional(),
+      line,
+      name: z.string(),
+      status: z.enum(['planned', 'priority-2030', 'postponed', 'done', 'wip', 'tested', 'unknown']),
+      type: z.enum([
+        'bidirectionnelle',
+        'bilaterale',
+        'voie-bus',
+        'voie-bus-elargie',
+        'velorue',
+        'voie-verte',
+        'bandes-cyclables',
+        'zone-de-rencontre',
+        'aucun',
+        'inconnu',
+      ]),
+      link: z.string().optional(),
+      quality: z.enum(['satisfactory', 'unsatisfactory']),
+      text: z.string().optional(),
+      variante: z.boolean().optional(),
+      excludeFromStats: z.boolean().optional(),
+      doneAt: z.string().optional(),
+    }),
+    geometry: z.object({
+      type: z.enum(['LineString']),
+      coordinates: z.array(z.tuple([z.number(), z.number()])),
+    }),
+  });
+
 export default defineContentConfig({
   collections: {
     news: defineCollection({
@@ -59,37 +92,7 @@ export default defineContentConfig({
         type: z.enum(['FeatureCollection']),
         features: z.array(
           z.union([
-            z.object({
-              type: z.enum(['Feature']),
-              properties: z.object({
-                id: z.string().optional(),
-                line: z.number(),
-                name: z.string(),
-                status: z.enum(['planned', 'priority-2030', 'postponed', 'done', 'wip', 'tested', 'unknown']),
-                type: z.enum([
-                  'bidirectionnelle',
-                  'bilaterale',
-                  'voie-bus',
-                  'voie-bus-elargie',
-                  'velorue',
-                  'voie-verte',
-                  'bandes-cyclables',
-                  'zone-de-rencontre',
-                  'aucun',
-                  'inconnu',
-                ]),
-                link: z.string().optional(),
-                quality: z.enum(['satisfactory', 'unsatisfactory']),
-                text: z.string().optional(),
-                variante: z.boolean().optional(),
-                excludeFromStats: z.boolean().optional(),
-                doneAt: z.string().optional(),
-              }),
-              geometry: z.object({
-                type: z.enum(['LineString']),
-                coordinates: z.array(z.tuple([z.number(), z.number()])),
-              }),
-            }),
+            lineStringFeatureSchema(z.number()),
             z.object({
               type: z.enum(['Feature']),
               properties: z.object({
@@ -118,6 +121,14 @@ export default defineContentConfig({
             }),
           ]),
         ),
+      }),
+    }),
+    autresReseauxGeojson: defineCollection({
+      source: 'autres-reseaux/*.json',
+      type: 'page',
+      schema: z.object({
+        type: z.enum(['FeatureCollection']),
+        features: z.array(lineStringFeatureSchema(z.number().optional())),
       }),
     }),
     compteurs: defineCollection({

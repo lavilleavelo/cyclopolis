@@ -1,4 +1,5 @@
 import config from '~/config.json';
+import { getOtherNetwork, getSecondaryLine } from '~/helpers/lines';
 
 export const useColors = () => {
   const { palette, customColors } = useSettings();
@@ -16,6 +17,14 @@ export const useColors = () => {
 
     if (effectiveCustomColors[line]) {
       return effectiveCustomColors[line];
+    }
+
+    if (getSecondaryLine(line)) {
+      return config.secondaryLines.color;
+    }
+    const otherNetwork = getOtherNetwork(line);
+    if (otherNetwork) {
+      return otherNetwork.color;
     }
 
     if (effectivePalette === 'accessible') {

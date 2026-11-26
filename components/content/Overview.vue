@@ -82,11 +82,13 @@ import MapPlaceholder from '~/components/MapPlaceholder.vue';
 import { useBikeLaneFilters } from '~/composables/useBikeLaneFilters';
 import type { Ref } from 'vue';
 import type { CompteurFeature } from '~/types';
+import { getLineFileName } from '~/helpers/lines';
 
 const { path } = useRoute();
 const { getLineColor } = useColors();
 const { getTotalDistance, displayDistanceInKm } = useStats();
 const { displayQuality, getLineName } = useConfig();
+const { getVoieCyclablePath } = useUrl();
 const { getCompteursFeatures } = useMap();
 
 const props = withDefaults(
@@ -149,7 +151,7 @@ watch(
 const color = getLineColor(Number(props.voie.line));
 const distance = geojson.value ? getTotalDistance([geojson.value]) : 0;
 
-const linkToGeoJSON = `https://github.com/lavilleavelo/cyclopolis/blob/main/content/voies-cyclables/ligne-${props.voie.line}.json`;
+const linkToGeoJSON = `https://github.com/lavilleavelo/cyclopolis/blob/main/content/voies-cyclables/${getLineFileName(props.voie.line)}.json`;
 
 function downloadGpx() {
   if (!geojson.value) {
@@ -164,7 +166,7 @@ function downloadGpx() {
       author: {
         name: 'Cyclopolis - La Ville à Vélo',
         link: {
-          href: `https://cyclopolis.fr/voie-lyonnaise-${props.voie.line}`,
+          href: `https://cyclopolis.fr${getVoieCyclablePath(props.voie.line)}`,
           text: 'Cyclopolis - La Ville à Vélo',
         },
       },

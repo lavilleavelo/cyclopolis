@@ -1,4 +1,6 @@
 import type { Collections } from '@nuxt/content';
+import config from '~/config.json';
+import { getLineFromFileName } from '~/helpers/lines';
 import { isLineStringFeature } from '~/types';
 
 export const useGetVoiesCyclablesNums = async () => {
@@ -14,8 +16,7 @@ export function getLine(geojson: Collections['voiesCyclablesGeojson']): number {
     return lineStringFeature.properties.line;
   }
   // fichier sans tronçon (ligne en cours de saisie) : le numéro est déduit du nom du fichier
-  const match = geojson.path?.match(/ligne-(\d+)$/);
-  return match ? Number(match[1]) : NaN;
+  return getLineFromFileName(geojson.path) ?? NaN;
 }
 
 export const useVoiesCyclablesGeojson = async () => {
@@ -32,4 +33,19 @@ export const useVoiesCyclablesGeojson = async () => {
     });
   });
   return { geojsons, refresh, pending };
+};
+
+export const useOtherNetworksGeojson = async () => {
+  const { data: otherNetworks } = await useAsyncData('otherNetworksGeojson', async () => {
+    const geojsons = await queryCollection('autresReseauxGeojson').all();
+    return config.otherNetworks.map((network) => {
+      const geojson = geojsons.find((item) => item.path?.endsWith(`/${network.id}`));
+      const features: Collections['voiesCyclablesGeojson']['features'] = (geojson?.features ?? []).map((feature) => ({
+        ...feature,
+        properties: { ...feature.properties, line: network.line, excludeFromStats: true },
+      }));
+      return { line: network.line, features };
+    });
+  });
+  return { otherNetworks };
 };

@@ -1,4 +1,12 @@
 import config from '~/config.json';
+import {
+  getLineCategory,
+  getMainLineNumbers,
+  getOtherNetwork,
+  getSecondaryLine,
+  getSecondaryLineNumbers,
+  type LineCategory,
+} from '~/helpers/lines';
 
 export const useConfig = () => {
   function getRevName(gram: 'plural' | 'singular' = 'plural'): string {
@@ -13,59 +21,100 @@ export const useConfig = () => {
     return config.assoLink;
   }
 
-  /** nombre de voies cyclables du réseau structurant (hors réseau complémentaire) */
+  /** nombre de voies cyclables du réseau structurant (hors voies secondaires) */
   function getNbVoiesCyclables(): number {
     return config.nbVoiesCyclables;
   }
 
-  /**
-   * le réseau complémentaire (reste du réseau sécurisé interconnecté aux voies cyclables)
-   * est géré comme une ligne supplémentaire, avec un affichage spécifique.
-   */
-  function getComplementaryNetwork() {
-    return config.complementaryNetwork;
+  function getSecondaryRevName(gram: 'plural' | 'singular' = 'plural'): string {
+    return config.secondaryLines.name[gram];
   }
 
-  function isComplementaryLine(line: number): boolean {
-    return line === config.complementaryNetwork.line;
+  function isSecondaryLine(line: number): boolean {
+    return getLineCategory(line) === 'secondary';
   }
 
-  /** tous les numéros de ligne affichés : les voies cyclables puis le réseau complémentaire */
+  function isOtherNetworkLine(line: number): boolean {
+    return getLineCategory(line) === 'other';
+  }
+
+  function getOtherNetworks() {
+    return config.otherNetworks;
+  }
+
+  /** tous les numéros des lignes disposant d'une page : les voies cyclables puis les voies secondaires */
   function getAllLineNumbers(): number[] {
-    const lines = Array.from({ length: config.nbVoiesCyclables }, (_, index) => index + 1);
-    return [...lines, config.complementaryNetwork.line];
+    return [...getMainLineNumbers(), ...getSecondaryLineNumbers()];
   }
 
-  /** libellé court affiché dans les pastilles rondes : le numéro de ligne, ou la lettre du réseau complémentaire */
+  function getLineGroups(): { category: LineCategory; title: string; lines: number[] }[] {
+    return [
+      { category: 'main' as const, title: getRevName(), lines: getMainLineNumbers() },
+      { category: 'secondary' as const, title: getSecondaryRevName(), lines: getSecondaryLineNumbers() },
+    ].filter((group) => group.lines.length > 0);
+  }
+
+  /** libellé court affiché dans les pastilles rondes : le numéro de la voie cyclable, ou la lettre de la voie secondaire */
   function getLineLabel(line: number): string {
-    if (isComplementaryLine(line)) {
-      return config.complementaryNetwork.letter;
+    const secondaryLine = getSecondaryLine(line);
+    if (secondaryLine) {
+      return secondaryLine.letter;
+    }
+    if (getOtherNetwork(line)) {
+      return '';
     }
     return String(line);
   }
 
-  /** nom complet d'une ligne : « Voie Lyonnaise 3 » ou « Réseau complémentaire » */
+  /** nom complet d'une ligne : « Voie Lyonnaise 3 », « Voie secondaire A » ou « Desserte locale » */
   function getLineName(line: number): string {
-    if (isComplementaryLine(line)) {
-      return config.complementaryNetwork.name;
+    const otherNetwork = getOtherNetwork(line);
+    if (otherNetwork) {
+      return otherNetwork.name;
+    }
+    if (isSecondaryLine(line)) {
+      return `${getSecondaryRevName('singular')} ${getLineLabel(line)}`;
     }
     return `${getRevName('singular')} ${line}`;
   }
 
-  /** nom d'un groupe de lignes (tooltip) : « Voie Lyonnaise », « Voies Lyonnaises » ou « Réseau complémentaire » */
+  /** nom d'un groupe de lignes (tooltip) : « Voie Lyonnaise », « Voies secondaires », « Desserte locale », ... */
   function getLinesName(lines: number[]): string {
-    if (lines.length > 0 && lines.every(isComplementaryLine)) {
-      return config.complementaryNetwork.name;
+    const gram = lines.length > 1 ? 'plural' : 'singular';
+    const categories = new Set(lines.map(getLineCategory));
+    if (categories.size > 1) {
+      return 'Voies cyclables';
     }
-    return lines.length > 1 ? getRevName() : getRevName('singular');
+    if (categories.has('secondary')) {
+      return getSecondaryRevName(gram);
+    }
+    if (categories.has('other')) {
+      return [...new Set(lines.map(getLineName))].join(' / ');
+    }
+    return getRevName(gram);
   }
 
-  /** nom abrégé d'une ligne : « VL 3 » ou « Autres » */
+  /** nom abrégé d'une ligne : « VL 3 », « Voie secondaire A » ou « Desserte locale » */
   function getLineShortName(line: number, separator = ' '): string {
-    if (isComplementaryLine(line)) {
-      return config.complementaryNetwork.filterLabel;
+    if (getLineCategory(line) !== 'main') {
+      return getLineName(line);
     }
     return `${config.revName.abbreviated}${separator}${line}`;
+  }
+
+  function getLinesListLabel(lines: number[]): string {
+    const sorted = [...lines].sort((a, b) => a - b);
+    const secondary = sorted.filter(isSecondaryLine);
+    const parts = [
+      ...sorted.filter((line) => getLineCategory(line) === 'main').map((line) => getLineShortName(line, '')),
+      ...(secondary.length > 0
+        ? [
+            `${getSecondaryRevName(secondary.length > 1 ? 'plural' : 'singular')} ${secondary.map(getLineLabel).join(', ')}`,
+          ]
+        : []),
+      ...sorted.filter(isOtherNetworkLine).map(getLineName),
+    ];
+    return parts.length > 1 ? `${parts.slice(0, -1).join(', ')} et ${parts.at(-1)}` : (parts[0] ?? '');
   }
 
   function displayQuality(): boolean {
@@ -82,16 +131,21 @@ export const useConfig = () => {
 
   return {
     getRevName,
+    getSecondaryRevName,
     getAssoName,
     getAssoLink,
     getNbVoiesCyclables,
-    getComplementaryNetwork,
-    isComplementaryLine,
+    getLineCategory,
+    isSecondaryLine,
+    isOtherNetworkLine,
+    getOtherNetworks,
     getAllLineNumbers,
+    getLineGroups,
     getLineLabel,
     getLineName,
     getLinesName,
     getLineShortName,
+    getLinesListLabel,
     displayQuality,
     displayQualityOnHomePage,
     displayCounters,

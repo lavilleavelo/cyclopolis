@@ -7,10 +7,9 @@ import VoieCyclableDetails from '~/components/VoieCyclableDetails.vue';
 
 const { path } = useRoute();
 const { getLineName } = useConfig();
-const { getVoieCyclableRegex } = useUrl();
+const { getLineFromPath } = useUrl();
 
-const regex = getVoieCyclableRegex();
-const line = path.match(regex)?.[1] ?? '';
+const line = getLineFromPath(path) ?? NaN;
 
 // https://github.com/nuxt/framework/issues/3587
 definePageMeta({
@@ -19,10 +18,10 @@ definePageMeta({
 });
 
 const { data: voie } = await useAsyncData(path, () => {
-  return queryCollection('voiesCyclablesPage').where('line', '=', Number(line)).first();
+  return queryCollection('voiesCyclablesPage').where('line', '=', line).first();
 });
 
-const lineName = getLineName(Number(line));
+const lineName = getLineName(line);
 const description = `Tout savoir sur la ${lineName}. Avancement, carte interactive, détail rue par rue, calendrier des travaux et photos du projet.`;
 
 useHead({

@@ -4,14 +4,14 @@
       <div class="font-bold text-base">
         {{ title }}
       </div>
-      <div class="flex flex-row space-x-1">
+      <div v-if="linesWithPage.length > 0" class="flex flex-row space-x-1">
         <div
-          v-for="line in lines"
+          v-for="line in linesWithPage"
           :key="line"
           class="h-8 w-8 rounded-full flex items-center justify-center text-white text-base font-bold"
           :style="`background-color: ${getLineColor(line)}`"
         >
-          <a :href="`/voie-lyonnaise-${line}`">
+          <a :href="getVoieCyclablePath(line)">
             {{ getLineLabel(line) }}
           </a>
         </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div v-if="!hasDetailsPanel" class="bg-lvv-blue-600 flex justify-center">
+    <div v-if="!hasDetailsPanel && hasDetailsPage" class="bg-lvv-blue-600 flex justify-center">
       <a class="p-1 text-white text-base italic hover:underline" :href="getSectionDetailsUrl(feature.properties)">
         voir le détail <Icon name="mdi:link-variant" class="h-4 w-4 text-white" />
       </a>
@@ -75,9 +75,9 @@
 import type { LaneQuality, LineStringFeature } from '~/types';
 
 const { getLineColor } = useColors();
-const { getLinesName, getLineLabel, displayQuality } = useConfig();
+const { getLinesName, getLineLabel, isOtherNetworkLine, displayQuality } = useConfig();
 const { getDistance, typologyNames, qualityNames } = useStats();
-const { getSectionDetailsUrl } = useUrl();
+const { getSectionDetailsUrl, getVoieCyclablePath } = useUrl();
 
 const { feature, lines, hasDetailsPanel } = defineProps<{
   feature: LineStringFeature;
@@ -86,6 +86,8 @@ const { feature, lines, hasDetailsPanel } = defineProps<{
 }>();
 
 const title = computed(() => getLinesName(lines));
+const linesWithPage = computed(() => lines.filter((line) => !isOtherNetworkLine(line)));
+const hasDetailsPage = computed(() => !!feature.properties.link || linesWithPage.value.length > 0);
 
 function getDoneAtText(doneAt: string): string {
   const [day, month, year] = doneAt.split('/');

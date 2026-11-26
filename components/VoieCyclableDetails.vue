@@ -97,14 +97,13 @@ const props = withDefaults(
 
 const { getLineColor } = useColors();
 const { getLinesName, getLineName, getLineLabel } = useConfig();
-const { getVoieCyclableRegex } = useUrl();
+const { getLineFromPath } = useUrl();
 
-const color = computed(() => getLineColor(Number(props.line)));
+const color = computed(() => getLineColor(Number(line.value)));
 
-const regex = getVoieCyclableRegex();
 const line = computed(() => {
   if (typeof props.line === 'string') {
-    return props.line.match(regex)?.[1] ?? props.line;
+    return getLineFromPath(props.line) ?? props.line;
   }
   return props.line;
 });

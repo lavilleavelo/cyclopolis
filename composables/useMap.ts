@@ -30,8 +30,10 @@ import {
   getUsedCompositeIcons,
   groupFeaturesByColor,
   VARIANTE_OPACITY,
-  COMPLEMENTARY_LINE_WIDTH_RATIO,
+  THIN_LINE_WIDTH_RATIO,
+  getThinLineNumbers,
 } from '~/helpers/map-utils';
+import { getOtherNetworkLineNumbers } from '~/helpers/lines';
 import { type CanvasDashAnimator, createCanvasDashAnimator } from '~/helpers/canvas-animator';
 import printConfig from '~/print-config.json';
 
@@ -71,19 +73,27 @@ const VARIANTE_AWARE_LAYER_IDS = [
 
 const isVarianteExpression: maplibregl.ExpressionSpecification = ['boolean', ['get', 'variante'], false];
 const isHoveredExpression: maplibregl.ExpressionSpecification = ['boolean', ['feature-state', 'hover'], false];
-const { getAllLineNumbers, getLineLabel, getComplementaryNetwork } = useConfig();
-const isComplementaryLineExpression: maplibregl.ExpressionSpecification = [
-  '==',
+const { getAllLineNumbers, getLineLabel } = useConfig();
+const ALL_MAP_LINE_NUMBERS = [...getAllLineNumbers(), ...getOtherNetworkLineNumbers()];
+const isThinLineExpression: maplibregl.ExpressionSpecification = [
+  'in',
   ['get', 'line'],
-  getComplementaryNetwork().line,
+  ['literal', getThinLineNumbers()],
 ];
 
 /**
- * largeur d'une couche de tronçons : les tronçons du réseau complémentaire sont tracés plus fin.
+ * largeur d'une couche de tronçons : les voies secondaires et les autres réseaux sont tracés plus fin.
  */
 function getLineWidth(width: number): maplibregl.ExpressionSpecification {
-  return ['case', isComplementaryLineExpression, width * COMPLEMENTARY_LINE_WIDTH_RATIO, width];
+  return ['case', isThinLineExpression, width * THIN_LINE_WIDTH_RATIO, width];
 }
+
+const LINE_SHIELD_ICON: maplibregl.ExpressionSpecification = [
+  'case',
+  ['in', ['get', 'line'], ['literal', getOtherNetworkLineNumbers()]],
+  '',
+  ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+];
 
 function isVarianteAwareLayer(layerId: string) {
   return (
@@ -415,7 +425,7 @@ export const useMap = ({
         source: 'all-but-wip-sections-low-zoom',
         maxzoom: 13,
         layout: {
-          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-image': LINE_SHIELD_ICON,
           'icon-size': 0.3,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
@@ -431,7 +441,7 @@ export const useMap = ({
         minzoom: 13,
         maxzoom: 17,
         layout: {
-          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-image': LINE_SHIELD_ICON,
           'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
@@ -445,7 +455,7 @@ export const useMap = ({
         source: 'all-but-wip-sections',
         minzoom: 17,
         layout: {
-          'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+          'icon-image': LINE_SHIELD_ICON,
           'icon-size': 0.4,
           'symbol-spacing': 1000000,
           'symbol-placement': 'line-center',
@@ -571,7 +581,7 @@ export const useMap = ({
       type: 'symbol',
       source: 'wip-sections',
       layout: {
-        'icon-image': ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
+        'icon-image': LINE_SHIELD_ICON,
         'icon-size': ['interpolate', ['linear'], ['zoom'], 13, 0.3, 15, 0.3, 17, 0.4],
         'symbol-placement': 'line-center',
         'symbol-spacing': 1000000,
@@ -720,7 +730,7 @@ export const useMap = ({
   function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const featuresByColor = groupFeaturesByColor(features);
 
-    for (const line of getAllLineNumbers()) {
+    for (const line of ALL_MAP_LINE_NUMBERS) {
       const lineColor = getLineColor(line);
       if (!featuresByColor[lineColor]) {
         upsertMapSource(map, `postponed-sections-${lineColor}`, []);
@@ -1731,7 +1741,7 @@ export const useMap = ({
 
     const { getLineColor } = useColors();
     const postponedLayerIds: string[] = [];
-    for (const line of getAllLineNumbers()) {
+    for (const line of ALL_MAP_LINE_NUMBERS) {
       const lineColor = getLineColor(line);
       postponedLayerIds.push(`postponed-symbols-${lineColor}`, `postponed-text-${lineColor}`);
     }
@@ -1785,9 +1795,7 @@ export const useMap = ({
         }
       }
 
-      const colors = getAllLineNumbers()
-        .map((line) => getLineColor(line))
-        .reverse();
+      const colors = ALL_MAP_LINE_NUMBERS.map((line) => getLineColor(line)).reverse();
 
       for (const color of colors) {
         if (!map.getLayer(`postponed-text-${color}`)) {

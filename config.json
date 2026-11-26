@@ -14,12 +14,30 @@
   ],
   "zoom": 10.331154971672706,
   "nbVoiesCyclables": 13,
-  "complementaryNetwork": {
-    "line": 14,
-    "letter": "A",
-    "filterLabel": "Autres",
-    "name": "Réseau complémentaire"
+  "secondaryLines": {
+    "name": {
+      "plural": "Voies secondaires",
+      "singular": "Voie secondaire"
+    },
+    "slug": "voie-secondaire",
+    "color": "#4A4A4A",
+    "lines": [
+      { "line": 14, "letter": "A" },
+      { "line": 15, "letter": "B" },
+      { "line": 16, "letter": "C" },
+      { "line": 17, "letter": "D" },
+      { "line": 18, "letter": "E" },
+      { "line": 19, "letter": "F" },
+      { "line": 20, "letter": "G" },
+      { "line": 21, "letter": "H" },
+      { "line": 22, "letter": "I" },
+      { "line": 23, "letter": "J" }
+    ]
   },
+  "otherNetworks": [
+    { "line": 101, "id": "desserte-locale", "name": "Desserte locale", "color": "#4A4A4A" },
+    { "line": 102, "id": "reseau-voisin", "name": "Réseau voisin", "color": "#9CA3AF" }
+  ],
   "colors": [
     {
       "line": 1,
@@ -72,10 +90,6 @@
     {
       "line": 13,
       "color": "#8C5745"
-    },
-    {
-      "line": 14,
-      "color": "#4A4A4A"
     }
   ],
   "accessibleColors": [
@@ -91,8 +105,7 @@
     { "line": 10, "color": "#5D4037" },
     { "line": 11, "color": "#00BCD4" },
     { "line": 12, "color": "#E91E63" },
-    { "line": 13, "color": "#8C5745" },
-    { "line": 14, "color": "#4A4A4A" }
+    { "line": 13, "color": "#8C5745" }
   ],
   "transports": [
     {

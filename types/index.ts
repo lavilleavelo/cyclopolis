@@ -1,5 +1,6 @@
 import type { Collections } from '@nuxt/content';
 import type { Ref } from 'vue';
+import type { LineCategory } from '~/helpers/lines';
 
 export type LaneType =
   | 'bidirectionnelle'
@@ -167,6 +168,7 @@ export interface StatusTypeQualityFilterItem extends BaseFilterItem {
 
 export interface LineFilterItem extends BaseFilterItem {
   line: number;
+  category: LineCategory;
   color?: string;
 }
 
@@ -193,6 +195,7 @@ export interface FilterActions {
 
 export interface UseBikeLaneFiltersOptions {
   allFeatures: Ref<Collections['voiesCyclablesGeojson']['features'] | CompteurFeature[]>;
-  allGeojsons?: Ref<Collections['voiesCyclablesGeojson'][] | undefined | null>;
-  allLines?: Ref<LineStringFeature[] | undefined | null>;
+  allGeojsons?: Ref<Pick<Collections['voiesCyclablesGeojson'], 'features'>[] | undefined | null>;
+  allLines?: Ref<{ line: number }[] | undefined | null>;
+  includeOtherNetworks?: boolean;
 }

@@ -68,6 +68,7 @@ const props = defineProps<{
 
 const emit = defineEmits(['close']);
 const { getLineName } = useConfig();
+const { getVoieCyclablePath } = useUrl();
 
 function getDefaultBottomSheetHeight() {
   return window?.innerHeight * 0.5;
@@ -98,7 +99,7 @@ const isPanelOpen = computed(() => props.open && !!props.line);
 
 const panelTitle = computed(() => (selectedLine.value ? getLineName(Number(selectedLine.value)) : ''));
 
-const pathToLine = computed(() => (selectedLine.value ? `/voie-lyonnaise-${selectedLine.value}` : null));
+const pathToLine = computed(() => (selectedLine.value ? getVoieCyclablePath(Number(selectedLine.value)) : null));
 
 function getFirstVisibleAnchor(): string | null {
   const container =

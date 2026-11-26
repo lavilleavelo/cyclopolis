@@ -1,34 +1,48 @@
 import type { Collections } from '@nuxt/content';
-import config from '~/config.json';
+import { getLineCategory, getOtherNetworkLineNumbers, getSecondaryLineNumbers } from '~/helpers/lines';
 
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
 > & { properties: { color: string } };
 
+type LineStringFeatureWithId = Extract<
+  Collections['voiesCyclablesGeojson']['features'][0],
+  { geometry: { type: 'LineString' } }
+> & { properties: { id: string } };
+
 /** opacité des tronçons appartenant à une variante, pour les distinguer du tracé principal */
 export const VARIANTE_OPACITY = 0.4;
 
 /** largeur (en px) des tronçons sur la carte */
 export const SECTION_LINE_WIDTH = 4;
-/** les tronçons du réseau complémentaire sont tracés plus fin que les voies cyclables */
-export const COMPLEMENTARY_SECTION_LINE_WIDTH = 2.5;
-export const COMPLEMENTARY_LINE_WIDTH_RATIO = COMPLEMENTARY_SECTION_LINE_WIDTH / SECTION_LINE_WIDTH;
+/** les tronçons des voies secondaires et des autres réseaux sont tracés plus fin que les voies cyclables */
+export const THIN_SECTION_LINE_WIDTH = 2.5;
+export const THIN_LINE_WIDTH_RATIO = THIN_SECTION_LINE_WIDTH / SECTION_LINE_WIDTH;
 
-export function isComplementaryLine(line: number | undefined): boolean {
-  return line === config.complementaryNetwork.line;
+export function getThinLineNumbers(): number[] {
+  return [...getSecondaryLineNumbers(), ...getOtherNetworkLineNumbers()];
 }
 
-/** largeur d'un tronçon : réduite pour le réseau complémentaire, normale sinon */
+export function isThinLine(line: number | undefined): boolean {
+  return getLineCategory(line) !== 'main';
+}
+
+/** largeur d'un tronçon : réduite pour les voies secondaires et les autres réseaux, normale sinon */
 export function getSectionLineWidth(line: number | undefined, width = SECTION_LINE_WIDTH): number {
-  if (isComplementaryLine(line)) {
-    return width * COMPLEMENTARY_LINE_WIDTH_RATIO;
+  if (isThinLine(line)) {
+    return width * THIN_LINE_WIDTH_RATIO;
   }
   return width;
 }
 
-// features plotted last are on top. Le réseau complémentaire est tracé en premier, sous les voies cyclables.
-const sortOrder = [1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11, 13, config.complementaryNetwork.line].reverse();
+// features plotted last are on top.
+// Les autres réseaux sont tracés en premier, puis les voies secondaires, sous les voies cyclables.
+const sortOrder = [
+  ...[1, 3, 2, 4, 5, 6, 7, 12, 8, 9, 10, 11, 13],
+  ...getSecondaryLineNumbers(),
+  ...getOtherNetworkLineNumbers(),
+].reverse();
 
 export function sortByLine(
   featureA: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -182,6 +196,17 @@ export function normalizeLineDirection(coordinates: [number, number][]): [number
   return shouldReverse ? [...coordinates].reverse() : coordinates;
 }
 
+function isSharedSectionWithShield(
+  feature: Collections['voiesCyclablesGeojson']['features'][0],
+): feature is LineStringFeatureWithId {
+  return (
+    feature.geometry.type === 'LineString' &&
+    'id' in feature.properties &&
+    !!feature.properties.id &&
+    getLineCategory(feature.properties.line) !== 'other'
+  );
+}
+
 export function addCompositeIconNames(features: Collections['voiesCyclablesGeojson']['features']) {
   // les sections en commun ont un ID
   const sectionGroups = new Map<
@@ -190,7 +215,7 @@ export function addCompositeIconNames(features: Collections['voiesCyclablesGeojs
   >();
 
   features.forEach((feature, index) => {
-    if (feature.geometry.type !== 'LineString' || !('id' in feature.properties) || !feature.properties.id) {
+    if (!isSharedSectionWithShield(feature)) {
       return;
     }
 
@@ -240,7 +265,7 @@ export function getUsedCompositeIcons(features: Collections['voiesCyclablesGeojs
   const sectionGroups = new Map<string, number[]>();
 
   for (const feature of features) {
-    if (feature.geometry.type !== 'LineString' || !('id' in feature.properties) || !feature.properties.id) {
+    if (!isSharedSectionWithShield(feature)) {
       continue;
     }
 

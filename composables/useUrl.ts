@@ -1,4 +1,5 @@
 import config from '~/config.json';
+import { getSecondaryLine, getSecondaryLineByLetter } from '~/helpers/lines';
 import type { LineStringFeature } from '~/types';
 
 export const useUrl = () => {
@@ -7,25 +8,34 @@ export const useUrl = () => {
   }
 
   function getVoieCyclablePath(line: number) {
+    const secondaryLine = getSecondaryLine(line);
+    if (secondaryLine) {
+      return `/${config.secondaryLines.slug}-${secondaryLine.letter.toLowerCase()}`;
+    }
     return `/${config.slug}-${line}`;
   }
 
-  function getVoieCyclableRegex() {
-    // le réseau complémentaire a sa propre page, comme une voie cyclable
-    const lines = [
-      ...Array.from({ length: config.nbVoiesCyclables }, (_, index) => config.nbVoiesCyclables - index),
-      config.complementaryNetwork.line,
-    ];
-    return new RegExp(`${config.slug}-(${lines.join('|')})\\b`);
+  function getLineFromPath(path: string): number | undefined {
+    const mainMatch = path.match(new RegExp(`${config.slug}-(\\d+)\\b`));
+    if (mainMatch) {
+      const line = Number(mainMatch[1]);
+      return line >= 1 && line <= config.nbVoiesCyclables ? line : undefined;
+    }
+
+    const secondaryMatch = path.match(new RegExp(`${config.secondaryLines.slug}-([a-z]+)\\b`, 'i'));
+    if (secondaryMatch) {
+      return getSecondaryLineByLetter(secondaryMatch[1]!)?.line;
+    }
+
+    return undefined;
   }
 
   function extractLineAndAnchorFromPath(path: string) {
     // Example path: /voie-lyonnaise-11#section-2
     const [pathNoAnchor, anchor] = path.split('#');
-    const match = pathNoAnchor?.match(getVoieCyclableRegex());
-    if (match) {
-      const line = match[1];
-      return { line, anchor };
+    const line = getLineFromPath(pathNoAnchor ?? '');
+    if (line !== undefined) {
+      return { line: String(line), anchor };
     }
     return { anchor };
   }
@@ -41,7 +51,7 @@ export const useUrl = () => {
     withoutTrailingSlash,
     getVoieCyclablePath,
     getSectionDetailsUrl,
-    getVoieCyclableRegex,
+    getLineFromPath,
     extractLineAndAnchorFromPath,
   };
 };
