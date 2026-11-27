@@ -1,10 +1,12 @@
 import { useLocalStorage } from '@vueuse/core';
+import type { MapDisplayMode } from '~/helpers/map-display';
 import type { MapStyleKey } from '~/helpers/mapStyles';
 
 const palette = useLocalStorage<'default' | 'accessible'>('cyclopolis-palette', 'default');
 const customColors = useLocalStorage<Record<number, string>>('cyclopolis-custom-colors', {});
 const reduceMotion = useLocalStorage<boolean>('cyclopolis-reduce-motion', true);
 const mapStyle = useLocalStorage<MapStyleKey>('cyclopolis-map-style', 'default');
+const mapDisplayMode = useLocalStorage<MapDisplayMode>('cyclopolis-map-display-mode', 'line');
 
 export const useSettings = () => {
   return {
@@ -12,5 +14,6 @@ export const useSettings = () => {
     customColors,
     reduceMotion,
     mapStyle,
+    mapDisplayMode,
   };
 };

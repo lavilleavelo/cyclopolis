@@ -2,9 +2,10 @@ import type { Collections } from '@nuxt/content';
 import type * as maplibregl from 'maplibre-gl';
 import type { GeoJSONSource, MapOptions, Map as MaplibreType, PaddingOptions } from 'maplibre-gl';
 import { LngLatBounds, Popup } from 'maplibre-gl';
-import { createApp, defineComponent, h, Suspense, watch, onUnmounted } from 'vue';
+import { createApp, defineComponent, h, Suspense, watch, onUnmounted, toValue, type MaybeRefOrGetter } from 'vue';
 import {
   type CompteurFeature,
+  type LaneStatus,
   isCompteurFeature,
   isDangerFeature,
   isLineStringFeature,
@@ -34,6 +35,15 @@ import {
   getThinLineNumbers,
 } from '~/helpers/map-utils';
 import { getOtherNetworkLineNumbers } from '~/helpers/lines';
+import {
+  type LaneTypeStyle,
+  type MapDisplayMode,
+  LANE_TYPE_STYLES,
+  getLaneTypeDasharray,
+  getLaneTypeLayerId,
+  getStatusColor,
+  isQualityShownByLaneType,
+} from '~/helpers/map-display';
 import { type CanvasDashAnimator, createCanvasDashAnimator } from '~/helpers/canvas-animator';
 import printConfig from '~/print-config.json';
 
@@ -71,10 +81,13 @@ const VARIANTE_AWARE_LAYER_IDS = [
   'unsatisfactory-sections',
 ];
 
+const LANE_TYPE_LAYER_IDS = LANE_TYPE_STYLES.map(getLaneTypeLayerId);
+
 const isVarianteExpression: maplibregl.ExpressionSpecification = ['boolean', ['get', 'variante'], false];
 const isHoveredExpression: maplibregl.ExpressionSpecification = ['boolean', ['feature-state', 'hover'], false];
 const { getAllLineNumbers, getLineLabel } = useConfig();
-const ALL_MAP_LINE_NUMBERS = [...getAllLineNumbers(), ...getOtherNetworkLineNumbers()];
+const OTHER_NETWORK_LINE_NUMBERS = getOtherNetworkLineNumbers();
+const ALL_MAP_LINE_NUMBERS = [...getAllLineNumbers(), ...OTHER_NETWORK_LINE_NUMBERS];
 const isThinLineExpression: maplibregl.ExpressionSpecification = [
   'in',
   ['get', 'line'],
@@ -90,7 +103,7 @@ function getLineWidth(width: number): maplibregl.ExpressionSpecification {
 
 const LINE_SHIELD_ICON: maplibregl.ExpressionSpecification = [
   'case',
-  ['in', ['get', 'line'], ['literal', getOtherNetworkLineNumbers()]],
+  ['in', ['get', 'line'], ['literal', OTHER_NETWORK_LINE_NUMBERS]],
   '',
   ['coalesce', ['get', 'compositeIconName'], ['concat', 'line-shield-', ['get', 'line']]],
 ];
@@ -98,6 +111,7 @@ const LINE_SHIELD_ICON: maplibregl.ExpressionSpecification = [
 function isVarianteAwareLayer(layerId: string) {
   return (
     VARIANTE_AWARE_LAYER_IDS.includes(layerId) ||
+    LANE_TYPE_LAYER_IDS.includes(layerId) ||
     layerId.startsWith('postponed-symbols-') ||
     layerId.startsWith('postponed-text-')
   );
@@ -163,6 +177,18 @@ function getPriority2030ContourColor(
   ] as maplibregl.ExpressionSpecification;
 }
 
+function getLaneTypeFilter(style: LaneTypeStyle): maplibregl.ExpressionSpecification {
+  const typeFilter: maplibregl.ExpressionSpecification = ['in', ['get', 'type'], ['literal', style.types]];
+  if (!style.quality) {
+    return typeFilter;
+  }
+  const qualityFilter: maplibregl.ExpressionSpecification =
+    style.quality === 'unsatisfactory'
+      ? ['==', ['get', 'quality'], 'unsatisfactory']
+      : ['!=', ['get', 'quality'], 'unsatisfactory'];
+  return ['all', typeFilter, qualityFilter];
+}
+
 type ColoredLineStringFeature = Extract<
   Collections['voiesCyclablesGeojson']['features'][0],
   { geometry: { type: 'LineString' } }
@@ -174,7 +200,8 @@ const PRINT_ICON_PIXEL_RATIO = 4;
 export const useMap = ({
   updateUrlOnFeatureClick,
   print = false,
-}: { updateUrlOnFeatureClick?: boolean; print?: boolean } = {}) => {
+  displayMode = 'line',
+}: { updateUrlOnFeatureClick?: boolean; print?: boolean; displayMode?: MaybeRefOrGetter<MapDisplayMode> } = {}) => {
   const iconPixelRatio = print ? PRINT_ICON_PIXEL_RATIO : 1;
   const crossIconSize = print ? printConfig.crossIconSize : 1.2;
   const crossLineWidth = print ? printConfig.crossLineWidth : undefined;
@@ -190,10 +217,19 @@ export const useMap = ({
   let currentClickPopup: maplibregl.Popup | null = null;
   let lastHoveredFeatureId: string | null = null;
   let lastClickedFeatureId: string | null = null;
+  let currentSelections: Array<{ line: number; sectionName?: string | null }> | null = null;
   let popupCloseHandledByMapClick = false;
   let wipAnimator: CanvasDashAnimator | null = null;
   let currentMap: MaplibreType | null = null;
   const shieldImages: Map<string, HTMLCanvasElement> = new Map();
+  const postponedColors: Set<string> = new Set();
+
+  function getFeatureColor({ line, status }: { line: number; status: LaneStatus }) {
+    if (toValue(displayMode) === 'status' && !OTHER_NETWORK_LINE_NUMBERS.includes(line)) {
+      return getStatusColor(status);
+    }
+    return getLineColor(line);
+  }
 
   function addLineColor(
     feature: Extract<Collections['voiesCyclablesGeojson']['features'][0], { geometry: { type: 'LineString' } }>,
@@ -201,8 +237,8 @@ export const useMap = ({
     return {
       ...feature,
       properties: {
-        color: getLineColor(feature.properties.line),
         ...feature.properties,
+        color: getFeatureColor(feature.properties),
       },
     };
   }
@@ -502,6 +538,53 @@ export const useMap = ({
     });
   }
 
+  function plotLaneTypeSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    upsertMapSource(map, 'type-sections', features as Collections['voiesCyclablesGeojson']['features']);
+
+    for (const style of LANE_TYPE_STYLES) {
+      const layerId = getLaneTypeLayerId(style);
+      if (map.getLayer(layerId)) {
+        continue;
+      }
+
+      if (style.crosses) {
+        map.addLayer({
+          id: layerId,
+          type: 'symbol',
+          source: 'type-sections',
+          filter: getLaneTypeFilter(style),
+          layout: {
+            'symbol-placement': 'line',
+            'symbol-spacing': 1,
+            'icon-image': 'cross-icon',
+            'icon-size': crossIconSize,
+          },
+          paint: {
+            'icon-color': style.color,
+            'icon-opacity': getBaseOpacity(layerId),
+          },
+        });
+        continue;
+      }
+
+      const dasharray = getLaneTypeDasharray(style);
+      map.addLayer({
+        id: layerId,
+        type: 'line',
+        source: 'type-sections',
+        filter: getLaneTypeFilter(style),
+        layout: style.dotted ? { 'line-cap': 'round' } : {},
+        paint: {
+          'line-width': style.width,
+          'line-color': style.color,
+          'line-opacity': getBaseOpacity(layerId),
+          ...(style.gapWidth ? { 'line-gap-width': style.gapWidth } : {}),
+          ...(dasharray ? { 'line-dasharray': dasharray } : {}),
+        },
+      });
+    }
+  }
+
   function plotDoneSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     // si il n'y a rien a afficher et que la couche n'existe pas, on ne fait rien
     // si elle existe déjà, on la maj (carte dynamique par année)
@@ -730,14 +813,14 @@ export const useMap = ({
   function plotPostponedSections({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
     const featuresByColor = groupFeaturesByColor(features);
 
-    for (const line of ALL_MAP_LINE_NUMBERS) {
-      const lineColor = getLineColor(line);
-      if (!featuresByColor[lineColor]) {
-        upsertMapSource(map, `postponed-sections-${lineColor}`, []);
+    for (const color of postponedColors) {
+      if (!featuresByColor[color]) {
+        upsertMapSource(map, `postponed-sections-${color}`, []);
       }
     }
 
     for (const [color, sameColorFeatures] of Object.entries(featuresByColor)) {
+      postponedColors.add(color);
       upsertMapSource(
         map,
         `postponed-sections-${color}`,
@@ -1173,6 +1256,7 @@ export const useMap = ({
       id: index,
     })) as unknown as ColoredLineStringFeature[];
 
+    const isLaneTypeMode = toValue(displayMode) === 'type';
     const unsatisfactory: ColoredLineStringFeature[] = [];
     const done: ColoredLineStringFeature[] = [];
     const wip: ColoredLineStringFeature[] = [];
@@ -1184,9 +1268,14 @@ export const useMap = ({
       if (
         feature.properties.quality === 'unsatisfactory' &&
         feature.properties.status !== 'postponed' &&
-        feature.properties.status !== 'priority-2030'
+        feature.properties.status !== 'priority-2030' &&
+        !(isLaneTypeMode && isQualityShownByLaneType(feature.properties.type))
       ) {
         unsatisfactory.push(feature);
+      }
+
+      if (isLaneTypeMode) {
+        continue;
       }
 
       switch (feature.properties.status) {
@@ -1211,6 +1300,10 @@ export const useMap = ({
 
     plotUnderlinedSections({ map, features: sections });
     plotUnsatisfactorySections({ map, features: unsatisfactory });
+    plotLaneTypeSections({ map, features: isLaneTypeMode ? sections : [] });
+    if (map.getLayer('contour-layer')) {
+      map.setLayoutProperty('contour-layer', 'visibility', isLaneTypeMode ? 'none' : 'visible');
+    }
     plotDoneSections({ map, features: done });
     plotPlannedSections({ map, features: planned });
     plotPriority2030Sections({ map, features: priority2030 });
@@ -1712,6 +1805,7 @@ export const useMap = ({
     map: MaplibreType;
     selections: Array<{ line: number; sectionName?: string | null }> | null;
   }) {
+    currentSelections = selections;
     // highlight-layer is used for hover effect only, so we don't need to handle it here
     const layerIds = [
       'done-sections',
@@ -1731,6 +1825,7 @@ export const useMap = ({
       'underline-layer',
       'perspectives',
       'dangers',
+      ...LANE_TYPE_LAYER_IDS,
     ];
 
     const moveLayerToTop = (layerId: string) => {
@@ -1739,11 +1834,9 @@ export const useMap = ({
       }
     };
 
-    const { getLineColor } = useColors();
     const postponedLayerIds: string[] = [];
-    for (const line of ALL_MAP_LINE_NUMBERS) {
-      const lineColor = getLineColor(line);
-      postponedLayerIds.push(`postponed-symbols-${lineColor}`, `postponed-text-${lineColor}`);
+    for (const color of postponedColors) {
+      postponedLayerIds.push(`postponed-symbols-${color}`, `postponed-text-${color}`);
     }
 
     const allLayerIds = [...layerIds, ...postponedLayerIds];
@@ -1795,7 +1888,7 @@ export const useMap = ({
         }
       }
 
-      const colors = ALL_MAP_LINE_NUMBERS.map((line) => getLineColor(line)).reverse();
+      const colors = ALL_MAP_LINE_NUMBERS.map((line) => getFeatureColor({ line, status: 'postponed' })).reverse();
 
       for (const color of colors) {
         if (!map.getLayer(`postponed-text-${color}`)) {
@@ -1907,7 +2000,7 @@ export const useMap = ({
       }
 
       // we need to bring highlighted postponed layers to the front otherwise they are hidden under dimmed layers
-      const colors = selectedLines.map((line) => getLineColor(line));
+      const colors = selectedLines.map((line) => getFeatureColor({ line, status: 'postponed' }));
 
       for (const color of colors.reverse()) {
         if (!map.getLayer(`postponed-text-${color}`)) {
@@ -1928,6 +2021,10 @@ export const useMap = ({
     moveLayerToTop('compteurs-labels');
     moveLayerToTop('compteurs-mixed');
     moveLayerToTop('compteurs-mixed-labels');
+  }
+
+  function refreshHighlight({ map }: { map: MaplibreType }) {
+    highlightLines({ map, selections: currentSelections });
   }
 
   function raiseLayersBelowShields({ map, layerIds }: { map: MaplibreType; layerIds: string[] }) {
@@ -2124,6 +2221,7 @@ export const useMap = ({
     handleMapClick,
     handleMapHover,
     highlightLines,
+    refreshHighlight,
     raiseLayersBelowShields,
     highlightCounter,
     showFeatureTooltip,

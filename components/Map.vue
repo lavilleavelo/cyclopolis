@@ -115,6 +115,7 @@ const props = defineProps<{
 }>();
 
 const options = { ...defaultOptions, ...props.options };
+const { mapDisplayMode } = useSettings();
 
 const legendModalComponent = ref<{ openModal: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
@@ -128,10 +129,12 @@ const {
   handleMapClick,
   handleMapHover,
   highlightLines,
+  refreshHighlight,
   highlightCounter,
   showFeatureTooltip,
 } = useMap({
   updateUrlOnFeatureClick: options.updateUrlOnFeatureClick,
+  displayMode: () => (options.legend ? mapDisplayMode.value : 'line'),
 });
 
 const router = useRouter();
@@ -483,6 +486,18 @@ onMounted(() => {
     },
     { deep: true },
   );
+
+  watch(mapDisplayMode, () => {
+    if (!options.legend || !mapReady.value) {
+      return;
+    }
+    try {
+      plotFeatures({ map, features: props.features });
+      refreshHighlight({ map });
+    } catch (e) {
+      console.warn('not able to plot features', e);
+    }
+  });
 
   watch(mapStyle, (newStyleKey) => {
     map.setStyle(getMapStyle(newStyleKey), { diff: false });
