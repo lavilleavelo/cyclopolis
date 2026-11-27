@@ -161,6 +161,8 @@ export interface BaseFilterItem {
 }
 
 export interface StatusTypeQualityFilterItem extends BaseFilterItem {
+  id?: string;
+  quality?: LaneQuality;
   statuses?: string[];
   types?: string[];
   qualities?: string[];
