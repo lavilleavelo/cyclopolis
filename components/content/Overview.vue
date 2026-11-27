@@ -136,6 +136,7 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features'] | CompteurF
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,
+  syncDisplayMode: true,
 });
 
 watch(displayBikeCounters, (val) => {

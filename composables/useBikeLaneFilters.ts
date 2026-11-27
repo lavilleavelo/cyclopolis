@@ -10,19 +10,26 @@ import {
   type UseBikeLaneFiltersOptions,
 } from '~/types';
 import type { Collections } from '@nuxt/content';
-import { LANE_TYPE_STYLES, matchesLaneTypeStyle } from '~/helpers/map-display';
+import { LANE_TYPE_STYLES, MAP_DISPLAY_MODES, matchesLaneTypeStyle } from '~/helpers/map-display';
 import { useRoute, useRouter } from 'vue-router';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
-export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNetworks }: UseBikeLaneFiltersOptions) {
+export function useBikeLaneFilters({
+  allFeatures,
+  allGeojsons,
+  allLines,
+  otherNetworks,
+  syncDisplayMode = false,
+}: UseBikeLaneFiltersOptions) {
   const { getAllUniqLineStrings, getDistance } = useStats();
   const { getLineColor } = useColors();
   const { getLineShortName, getLineLabel, getLineCategory } = useConfig();
   const route = useRoute();
   const router = useRouter();
   const currentPage = route.name;
+  const { mapDisplayMode } = useSettings();
 
   const statusFilters = ref([
     {
@@ -136,6 +143,10 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
       qualityFilters.value.forEach((f) => (f.isEnabled = f.qualities.every((q) => enabled.includes(q))));
     }
 
+    if (syncDisplayMode && import.meta.client) {
+      mapDisplayMode.value = MAP_DISPLAY_MODES.find((mode) => mode.id === query.display)?.id ?? 'line';
+    }
+
     if (Object.hasOwn(query, 'counters') || query.modal === 'counter') {
       showCounters.value = query.counters === '1' || query.modal === 'counter';
     }
@@ -175,6 +186,25 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
       isReady.value = true;
     });
   });
+
+  if (syncDisplayMode) {
+    watch([mapDisplayMode, isReady], ([displayMode, ready]) => {
+      if (!ready || currentPage !== route.name) {
+        return;
+      }
+      const display = displayMode === 'line' ? undefined : displayMode;
+      if (route.query.display === display) {
+        return;
+      }
+      const newQuery = { ...route.query };
+      if (display) {
+        newQuery.display = display;
+      } else {
+        delete newQuery.display;
+      }
+      void router.replace({ query: newQuery });
+    });
+  }
 
   function processDateData(geojsonData: Pick<Collections['voiesCyclablesGeojson'], 'features'>[] | undefined | null) {
     if (!geojsonData) return;

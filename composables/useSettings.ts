@@ -6,7 +6,7 @@ const palette = useLocalStorage<'default' | 'accessible'>('cyclopolis-palette', 
 const customColors = useLocalStorage<Record<number, string>>('cyclopolis-custom-colors', {});
 const reduceMotion = useLocalStorage<boolean>('cyclopolis-reduce-motion', true);
 const mapStyle = useLocalStorage<MapStyleKey>('cyclopolis-map-style', 'default');
-const mapDisplayMode = useLocalStorage<MapDisplayMode>('cyclopolis-map-display-mode', 'line');
+const mapDisplayMode = ref<MapDisplayMode>('line');
 
 export const useSettings = () => {
   return {

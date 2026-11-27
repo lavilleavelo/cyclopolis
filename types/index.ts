@@ -200,4 +200,5 @@ export interface UseBikeLaneFiltersOptions {
   allGeojsons?: Ref<Pick<Collections['voiesCyclablesGeojson'], 'features'>[] | undefined | null>;
   allLines?: Ref<{ line: number }[] | undefined | null>;
   otherNetworks?: Ref<{ line: number; features: unknown[] }[] | undefined | null>;
+  syncDisplayMode?: boolean;
 }

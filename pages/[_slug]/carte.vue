@@ -60,6 +60,7 @@ const features: Ref<Collections['voiesCyclablesGeojson']['features']> = computed
 
 const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = useBikeLaneFilters({
   allFeatures: features,
+  syncDisplayMode: true,
 });
 
 const lineName = getLineName(line);
