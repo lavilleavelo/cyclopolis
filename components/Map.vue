@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <LegendModal ref="legendModalComponent" :filters="filters" :actions="actions" />
+    <LegendSheet ref="legendSheetComponent" :filters="filters" :actions="actions" />
 
     <div class="flex rounded-lg h-full w-full">
       <div ref="mapContainer" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
@@ -117,7 +117,7 @@ const props = defineProps<{
 const options = { ...defaultOptions, ...props.options };
 const { mapDisplayMode } = useSettings();
 
-const legendModalComponent = ref<{ openModal: () => void } | null>(null);
+const legendSheetComponent = ref<{ toggleSheet: () => void } | null>(null);
 const filterControl = ref<FilterControl | null>(null);
 let mapInstance: MaplibreMap | null = null;
 
@@ -330,8 +330,8 @@ onMounted(() => {
     } else {
       const legendControl = new LegendControl({
         onClick: () => {
-          if (legendModalComponent.value) {
-            legendModalComponent.value.openModal();
+          if (legendSheetComponent.value) {
+            legendSheetComponent.value.toggleSheet();
           }
         },
       });

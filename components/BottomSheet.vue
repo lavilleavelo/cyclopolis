@@ -7,7 +7,10 @@
     leave-from-class="translate-y-0"
     leave-to-class="translate-y-full"
   >
-    <div v-if="open" class="fixed inset-x-0 bottom-0 z-50 pointer-events-none 2xl:container mx-auto">
+    <div
+      v-if="open"
+      :class="['fixed inset-x-0 bottom-0 pointer-events-none 2xl:container mx-auto', elevated ? 'z-[60]' : 'z-50']"
+    >
       <div
         ref="sheetRef"
         class="pointer-events-auto flex flex-col bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-1px_rgba(0,0,0,0.06)] 2xl:shadow-md rounded-t-2xl"
@@ -31,6 +34,7 @@
           </h2>
           <button
             type="button"
+            aria-label="Fermer"
             class="rounded-md p-1 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors"
             @click="$emit('close')"
           >
@@ -38,8 +42,10 @@
           </button>
         </div>
 
-        <div :id="panelId" class="flex-1 overflow-y-auto px-4 py-2">
-          <slot />
+        <div :id="panelId" ref="panelRef" class="flex-1 overflow-y-auto px-4 py-2">
+          <div ref="contentRef">
+            <slot />
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +54,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onBeforeUnmount, watch } from 'vue';
+import { onKeyStroke, useResizeObserver, useWindowSize } from '@vueuse/core';
 
 const props = withDefaults(
   defineProps<{
@@ -56,12 +63,18 @@ const props = withDefaults(
     getMaxHeightPx?: () => number;
     getDefaultHeightPx?: () => number;
     panelId?: string;
+    fitContent?: boolean;
+    elevated?: boolean;
+    closeOnEscape?: boolean;
   }>(),
   {
     title: 'Details',
     getDefaultHeightPx: () => window.innerHeight * 0.3,
     getMaxHeightPx: () => window.innerHeight * 0.7,
     panelId: 'bottom-sheet-panel',
+    fitContent: false,
+    elevated: false,
+    closeOnEscape: false,
   },
 );
 
@@ -74,14 +87,41 @@ const emit = defineEmits<{
 const isDragging = ref(false);
 const startY = ref(0);
 const startHeight = ref(0);
-const currentHeight = ref(props.getDefaultHeightPx());
+const currentHeight = ref(getInitialHeightPx());
 const sheetRef = ref<HTMLElement | null>(null);
+const panelRef = ref<HTMLElement | null>(null);
+const contentRef = ref<HTMLElement | null>(null);
+const { height: windowHeight } = useWindowSize();
+
+useResizeObserver(contentRef, () => {
+  if (props.fitContent && currentHeight.value && !isDragging.value && measureContentHeight() <= currentHeight.value) {
+    currentHeight.value = 0;
+  }
+});
+
+onKeyStroke('Escape', () => {
+  if (props.open && props.closeOnEscape) {
+    emit('close');
+  }
+});
+const contentHeight = ref(0);
+
+function getInitialHeightPx() {
+  return props.fitContent ? 0 : props.getDefaultHeightPx();
+}
+
+function measureContentHeight() {
+  if (!sheetRef.value || !panelRef.value) {
+    return 0;
+  }
+  return sheetRef.value.offsetHeight - panelRef.value.clientHeight + panelRef.value.scrollHeight;
+}
 
 watch(
   () => props.open,
   (isOpen) => {
     if (isOpen && !currentHeight.value) {
-      currentHeight.value = props.getDefaultHeightPx();
+      currentHeight.value = getInitialHeightPx();
     }
   },
 );
@@ -98,7 +138,9 @@ function handleDragStart(e: MouseEvent | TouchEvent) {
 
   isDragging.value = true;
   startY.value = clientY;
-  startHeight.value = currentHeight.value || props.getDefaultHeightPx();
+  contentHeight.value = props.fitContent ? measureContentHeight() : 0;
+  startHeight.value =
+    currentHeight.value || (props.fitContent ? (sheetRef.value?.offsetHeight ?? 0) : props.getDefaultHeightPx());
 
   if ('touches' in e) {
     document.addEventListener('touchmove', handleDragMove, { passive: false });
@@ -121,7 +163,9 @@ function handleDragMove(e: MouseEvent | TouchEvent) {
 
   const newHeight = startHeight.value - deltaY;
   const minHeight = -1;
-  const maxHeight = props.getMaxHeightPx();
+  const maxHeight = contentHeight.value
+    ? Math.min(contentHeight.value, props.getMaxHeightPx())
+    : props.getMaxHeightPx();
 
   currentHeight.value = Math.max(minHeight, Math.min(newHeight, maxHeight));
 
@@ -144,12 +188,15 @@ function handleDragEnd() {
   if (currentHeight.value < closeThreshold) {
     emit('close');
     setTimeout(() => {
-      currentHeight.value = props.getDefaultHeightPx();
+      currentHeight.value = getInitialHeightPx();
     }, 200);
   } else {
     const minHeight = 200;
     if (currentHeight.value < minHeight) {
       currentHeight.value = minHeight;
+    }
+    if (contentHeight.value && currentHeight.value >= contentHeight.value - 1) {
+      currentHeight.value = 0;
     }
   }
 }
@@ -157,7 +204,7 @@ function handleDragEnd() {
 const sheetStyle = computed(() => {
   return {
     height: currentHeight.value ? `${currentHeight.value}px` : 'auto',
-    maxHeight: '95vh',
+    maxHeight: props.fitContent && windowHeight.value ? `${props.getMaxHeightPx()}px` : '95vh',
     transition: isDragging.value ? 'none' : 'height 0.2s ease-out',
   };
 });
