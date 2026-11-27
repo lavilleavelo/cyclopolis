@@ -94,7 +94,7 @@ function getStatus(properties: LineStringFeature['properties']): { label: string
     },
     'priority-2030': {
       label: 'priorité 2030',
-      class: 'text-lvv-blue-600 font-semibold rounded-xl px-2 border-2 border-lvv-blue-600',
+      class: 'text-white bg-lvv-pink font-semibold rounded-xl px-2',
     },
     tested: {
       label: 'en test',

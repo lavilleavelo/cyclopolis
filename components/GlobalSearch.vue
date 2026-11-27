@@ -114,7 +114,7 @@ const StatusBadge = defineComponent({
       wip: 'bg-blue-100 text-blue-700',
       tested: 'bg-blue-100 text-blue-700',
       planned: 'bg-gray-100 text-gray-600',
-      'priority-2030': 'bg-lvv-blue-100 text-lvv-blue-600',
+      'priority-2030': 'bg-pink-100 text-pink-700',
       postponed: 'bg-pink-100 text-pink-700',
     };
 
