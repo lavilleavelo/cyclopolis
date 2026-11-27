@@ -113,7 +113,7 @@
                   />
                 </ClientOnly>
                 <div class="px-3 py-3 bg-gray-50 space-y-2">
-                  <div class="text-xs text-gray-500">Livré le {{ formatDate(section.date) }}</div>
+                  <div class="text-xs text-gray-500">Livré en {{ formatDoneAt(section.date) }}</div>
                   <div class="flex flex-wrap gap-2">
                     <a
                       v-for="pl in section.pageLinks"
@@ -149,6 +149,7 @@
 import { useVoiesCyclablesGeojson } from '~/composables/useVoiesCyclables';
 import type { TimelineSection } from '~/composables/useTimeline';
 import dayjs from 'dayjs';
+import { formatDoneAt } from '~/helpers/date';
 import 'dayjs/locale/fr';
 dayjs.locale('fr');
 
@@ -194,13 +195,6 @@ function toggleExpand(section: TimelineSection) {
   } else {
     expandedKeys.value.add(key);
   }
-}
-
-function formatDate(date: string): string {
-  const [day, m, y] = date.split('/');
-  return dayjs(new Date(+y!, +m! - 1, +day!))
-    .locale('fr')
-    .format('D MMMM YYYY');
 }
 
 useHead({ title: `Chronologie — ${monthLabel}` });

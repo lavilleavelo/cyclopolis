@@ -73,6 +73,7 @@
 
 <script setup lang="ts">
 import type { LaneQuality, LineStringFeature } from '~/types';
+import { formatDoneAt } from '~/helpers/date';
 
 const { getLineColor } = useColors();
 const { getLinesName, getLineLabel, isOtherNetworkLine, displayQuality } = useConfig();
@@ -89,20 +90,11 @@ const title = computed(() => getLinesName(lines));
 const linesWithPage = computed(() => lines.filter((line) => !isOtherNetworkLine(line)));
 const hasDetailsPage = computed(() => !!feature.properties.link || linesWithPage.value.length > 0);
 
-function getDoneAtText(doneAt: string): string {
-  const [day, month, year] = doneAt.split('/');
-  const date = new Date(Number(year), Number(month) - 1, Number(day));
-  if (date.getTime() < new Date(2021, 0, 1).getTime()) {
-    return 'avant 2021';
-  }
-  return `en ${date.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}`;
-}
-
 function getStatus(properties: LineStringFeature['properties']): { label: string; class: string; date?: string } {
   const statusMapping = {
     done: {
       label: 'terminé',
-      date: properties.doneAt && getDoneAtText(properties.doneAt),
+      date: properties.doneAt && `en ${formatDoneAt(properties.doneAt)}`,
       class: 'text-white bg-lvv-blue-600 rounded-xl px-2 w-fit',
     },
     wip: {
