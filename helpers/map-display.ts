@@ -22,7 +22,7 @@ export const STATUS_COLOR = LVV_BLUE;
 export const WISHED_STATUS_COLOR = LVV_PINK;
 
 export function getStatusColor(status: LaneStatus): string {
-  return status === 'postponed' ? WISHED_STATUS_COLOR : STATUS_COLOR;
+  return status === 'postponed' || status === 'priority-2030' ? WISHED_STATUS_COLOR : STATUS_COLOR;
 }
 
 export type LaneTypeStyle = {

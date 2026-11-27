@@ -107,13 +107,34 @@
               v-else-if="row.id === 'priority-2030'"
               :class="['rounded-md border-gray-500 border overflow-hidden', borderClass]"
             >
-              <div class="bg-lvv-blue-600/25 py-1 border-y-2 border-lvv-pink">
-                <div :class="['relative', lineHeightClass]">
-                  <div class="absolute h-full w-full">
-                    <div class="h-full bg-lvv-blue-600 dashed-line-planned" />
+              <div
+                :class="[
+                  mapDisplayMode === 'status' ? 'bg-lvv-pink/25' : 'bg-lvv-blue-600/25',
+                  'py-1 border-y-2 border-lvv-pink',
+                ]"
+              >
+                <div v-if="mapDisplayMode === 'status'" :class="['bg-lvv-pink', lineHeightClass]" />
+                <div v-else :class="['relative', lineHeightClass]">
+                  <div class="absolute inset-0 flex items-center justify-around px-0.5 text-lvv-blue-600">
+                    <svg
+                      v-for="index in crossCount"
+                      :key="index"
+                      viewBox="0 0 8 8"
+                      :class="crossSizeClass"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 1 7 7M7 1 1 7" fill="none" stroke="currentColor" stroke-width="2" />
+                    </svg>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div
+              v-else-if="row.id === 'postponed' && mapDisplayMode === 'status'"
+              :class="['rounded-md border-gray-500 border', borderClass]"
+            >
+              <div :class="['bg-lvv-pink', lineHeightClass]" />
             </div>
 
             <div
@@ -121,12 +142,7 @@
               :class="['rounded-md border-gray-500 border relative', borderClass]"
             >
               <div :class="['bg-white', lineHeightClass]" />
-              <div
-                :class="[
-                  'absolute inset-0 flex items-center justify-around px-0.5',
-                  mapDisplayMode === 'status' ? 'text-lvv-pink' : 'text-lvv-blue-600',
-                ]"
-              >
+              <div class="absolute inset-0 flex items-center justify-around px-0.5 text-lvv-blue-600">
                 <svg
                   v-for="index in crossCount"
                   :key="index"

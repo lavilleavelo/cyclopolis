@@ -73,6 +73,8 @@ const VARIANTE_AWARE_LAYER_IDS = [
   'done-sections',
   'planned-sections',
   'priority-2030-sections',
+  'priority-2030-crosses',
+  'wished-texts',
   'priority-2030-halo',
   'priority-2030-contour',
   'wip-sections',
@@ -771,10 +773,30 @@ export const useMap = ({
       paint: {
         'line-width': getLineWidth(SECTION_STYLE.lineWidth),
         'line-color': ['get', 'color'],
-        'line-dasharray': [2, 4],
         'line-opacity': getBaseOpacity('priority-2030-sections'),
       },
     });
+    map.addLayer({
+      id: 'priority-2030-crosses',
+      type: 'symbol',
+      source: 'priority-2030-sections',
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 1,
+        'icon-image': 'cross-icon',
+        'icon-size': crossIconSize,
+      },
+      paint: {
+        'icon-color': ['get', 'color'],
+        'icon-opacity': getBaseOpacity('priority-2030-crosses'),
+      },
+    });
+  }
+
+  function setLayerVisibility(map: MaplibreType, layerId: string, visible: boolean) {
+    if (map.getLayer(layerId)) {
+      map.setLayoutProperty(layerId, 'visibility', visible ? 'visible' : 'none');
+    }
   }
 
   /**
@@ -868,6 +890,34 @@ export const useMap = ({
       map.on('mouseenter', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = 'pointer'));
       map.on('mouseleave', `postponed-symbols-${color}`, () => (map.getCanvas().style.cursor = ''));
     }
+  }
+
+  function plotWishedTexts({ map, features }: { map: MaplibreType; features: ColoredLineStringFeature[] }) {
+    if (features.length === 0 && !map.getLayer('wished-texts')) {
+      return;
+    }
+    if (upsertMapSource(map, 'wished-sections', features as Collections['voiesCyclablesGeojson']['features'])) {
+      return;
+    }
+
+    map.addLayer({
+      id: 'wished-texts',
+      type: 'symbol',
+      source: 'wished-sections',
+      filter: ['!', ['has', 'text']],
+      paint: {
+        'text-halo-color': '#fff',
+        'text-halo-width': 3,
+        'text-opacity': getBaseOpacity('wished-texts'),
+      },
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 150,
+        'text-font': ['Open Sans Regular'],
+        'text-field': 'souhaité',
+        'text-size': statusTextSize,
+      },
+    });
   }
 
   function plotPerspective({
@@ -1257,12 +1307,14 @@ export const useMap = ({
     })) as unknown as ColoredLineStringFeature[];
 
     const isLaneTypeMode = toValue(displayMode) === 'type';
+    const isStatusMode = toValue(displayMode) === 'status';
     const unsatisfactory: ColoredLineStringFeature[] = [];
     const done: ColoredLineStringFeature[] = [];
     const wip: ColoredLineStringFeature[] = [];
     const planned: ColoredLineStringFeature[] = [];
     const priority2030: ColoredLineStringFeature[] = [];
     const postponed: ColoredLineStringFeature[] = [];
+    const wished: ColoredLineStringFeature[] = [];
 
     for (const feature of sections) {
       if (
@@ -1293,7 +1345,12 @@ export const useMap = ({
           priority2030.push(feature);
           break;
         case 'postponed':
-          postponed.push(feature);
+          if (isStatusMode) {
+            done.push(feature);
+            wished.push(feature);
+          } else {
+            postponed.push(feature);
+          }
           break;
       }
     }
@@ -1307,8 +1364,11 @@ export const useMap = ({
     plotDoneSections({ map, features: done });
     plotPlannedSections({ map, features: planned });
     plotPriority2030Sections({ map, features: priority2030 });
+    setLayerVisibility(map, 'priority-2030-sections', isStatusMode);
+    setLayerVisibility(map, 'priority-2030-crosses', !isStatusMode);
     plotWipSections({ map, features: wip });
     plotPostponedSections({ map, features: postponed });
+    plotWishedTexts({ map, features: wished });
     plotSectionTexts({ map, features: sections });
 
     const compteurFeature = features.filter(isCompteurFeature);
@@ -1815,6 +1875,8 @@ export const useMap = ({
       'priority-2030-halo',
       'priority-2030-contour',
       'priority-2030-sections',
+      'priority-2030-crosses',
+      'wished-texts',
       'unsatisfactory-sections',
       'section-texts',
       'section-names',
