@@ -64,8 +64,8 @@ export function useBikeLaneFilters({
       isEnabled: true,
       statuses: ['priority-2030'],
       customStyle: {
-        backgroundColor: '#152B68',
-        borderColor: '#152B68',
+        backgroundColor: '#C84271',
+        borderColor: '#C84271',
         textColor: '#FFFFFF',
       },
     },
