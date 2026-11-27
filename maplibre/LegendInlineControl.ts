@@ -4,13 +4,16 @@ export default class LegendInlineControl {
   _container!: HTMLDivElement;
   _app: ReturnType<typeof createApp> | null = null;
 
-  constructor(private vueComponent: Component) {}
+  constructor(
+    private vueComponent: Component,
+    private props: Record<string, unknown> = {},
+  ) {}
 
   onAdd() {
     this._container = document.createElement('div');
     this._container.className = 'maplibregl-ctrl';
 
-    this._app = createApp(this.vueComponent);
+    this._app = createApp(this.vueComponent, this.props);
     this._app.mount(this._container);
 
     return this._container;

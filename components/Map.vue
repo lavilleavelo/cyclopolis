@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <LegendModal ref="legendModalComponent" />
+    <LegendModal ref="legendModalComponent" :filters="filters" :actions="actions" />
 
     <div class="flex rounded-lg h-full w-full">
       <div ref="mapContainer" :class="[options.roundedCorners ? 'rounded-lg' : '', 'h-full w-full']" />
@@ -322,7 +322,10 @@ onMounted(() => {
     const isLargeMap = window.innerWidth >= legendInlineBreakpoint && !options.fullscreen;
 
     if (isLargeMap) {
-      const legendInlineControl = new LegendInlineControl(LegendInline);
+      const legendInlineControl = new LegendInlineControl(LegendInline, {
+        filters: props.filters,
+        actions: props.actions,
+      });
       map.addControl(legendInlineControl, 'bottom-left');
     } else {
       const legendControl = new LegendControl({

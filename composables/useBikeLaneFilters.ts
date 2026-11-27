@@ -6,11 +6,11 @@ import {
   isPointFeature,
   type LaneQuality,
   type LaneStatus,
-  type LaneType,
   type LineFilterItem,
   type UseBikeLaneFiltersOptions,
 } from '~/types';
 import type { Collections } from '@nuxt/content';
+import { LANE_TYPE_STYLES, matchesLaneTypeStyle } from '~/helpers/map-display';
 import { useRoute, useRouter } from 'vue-router';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
@@ -75,17 +75,15 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
     // { label: 'Inconnu', isEnabled: true, statuses: ['unknown'] },
   ]);
 
-  const typeFilters = ref([
-    { label: 'Bidirectionnelle', isEnabled: true, types: ['bidirectionnelle'] },
-    { label: 'Bilaterale', isEnabled: true, types: ['bilaterale'] },
-    { label: 'Voie Bus', isEnabled: true, types: ['voie-bus', 'voie-bus-elargie'] },
-    { label: 'Voie verte', isEnabled: true, types: ['voie-verte'] },
-    { label: 'Vélorue', isEnabled: true, types: ['velorue'] },
-    { label: 'Bandes cyclables', isEnabled: true, types: ['bandes-cyclables'] },
-    { label: 'Zone de rencontre', isEnabled: true, types: ['zone-de-rencontre'] },
-    // { label: 'Inconnu', isEnabled: true, types: ['inconnu'] },
-    { label: 'Aucun', isEnabled: true, types: ['aucun'] },
-  ]);
+  const typeFilters = ref(
+    LANE_TYPE_STYLES.map((style) => ({
+      id: style.id,
+      label: style.label,
+      isEnabled: true,
+      types: style.types,
+      quality: style.quality,
+    })),
+  );
 
   const qualityFilters = ref([
     {
@@ -128,7 +126,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
     if (Object.hasOwn(query, 'types')) {
       const typesQuery = query.types;
       const enabled = typesQuery && (typesQuery as string).length > 0 ? (typesQuery as string).split(',') : [];
-      typeFilters.value.forEach((f) => (f.isEnabled = f.types.every((t) => enabled.includes(t))));
+      typeFilters.value.forEach((f) => (f.isEnabled = enabled.includes(f.id)));
     }
 
     if (Object.hasOwn(query, 'qualities')) {
@@ -262,9 +260,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
   const visibleStatuses = computed(() =>
     statusFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.statuses as LaneStatus[]),
   );
-  const visibleTypes = computed(() =>
-    typeFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.types as LaneType[]),
-  );
+  const visibleTypeFilters = computed(() => typeFilters.value.filter((item) => item.isEnabled));
   const visibleQualities = computed(() =>
     qualityFilters.value.filter((item) => item.isEnabled).flatMap((item) => item.qualities as LaneQuality[]),
   );
@@ -294,9 +290,8 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
         delete newQuery.statuses;
       }
 
-      const allTypes = typeFilters.value.flatMap((f) => f.types);
-      if (visibleTypes.value.length < allTypes.length) {
-        newQuery.types = visibleTypes.value.join(',');
+      if (visibleTypeFilters.value.length < typeFilters.value.length) {
+        newQuery.types = visibleTypeFilters.value.map((f) => f.id).join(',');
       } else {
         delete newQuery.types;
       }
@@ -384,7 +379,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
 
         return (
           visibleStatuses.value.includes(feature.properties.status) &&
-          visibleTypes.value.includes(feature.properties.type) &&
+          visibleTypeFilters.value.some((item) => matchesLaneTypeStyle(item, feature.properties)) &&
           visibleQualities.value.includes(feature.properties.quality)
         );
       }

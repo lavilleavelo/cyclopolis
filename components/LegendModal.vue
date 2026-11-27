@@ -15,7 +15,7 @@
         </button>
         <DialogTitle class="text-lg font-medium leading-6 text-gray-900"> Légende </DialogTitle>
         <div class="mt-2">
-          <LegendContent size="large" />
+          <LegendContent size="large" :filters="filters" :actions="actions" />
         </div>
       </DialogPanel>
     </div>
@@ -24,6 +24,12 @@
 
 <script setup lang="ts">
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/vue';
+import type { FilterActions, FiltersState } from '~/types';
+
+defineProps<{
+  filters?: FiltersState;
+  actions?: FilterActions;
+}>();
 
 const isOpen = ref(false);
 
