@@ -63,7 +63,7 @@ const { filters, actions, filteredFeatures, totalDistance, filteredDistance } = 
 });
 
 const lineName = getLineName(line);
-const description = `Carte de la ${lineName}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux reportés.`;
+const description = `Carte de la ${lineName}. Découvrez les tronçons prévus, déjà réalisés, en travaux et ceux souhaités.`;
 useHead({
   title: `Carte de la ${lineName}`,
   meta: [

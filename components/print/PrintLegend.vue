@@ -97,7 +97,7 @@ const statuses = computed<LegendStatus[]>(() => [
   { label: 'terminé' },
   { label: 'en travaux', dashes: SECTION_STYLE.wipDasharray, icon: constructionIcon },
   { label: 'prévu pour 2026', dashes: SECTION_STYLE.plannedDasharray },
-  { label: 'reporté après 2026', crosses: true },
+  { label: 'souhaité', crosses: true },
   ...(props.showUnsatisfactory ? [{ label: 'non satisfaisant', unsatisfactory: true }] : []),
 ]);
 

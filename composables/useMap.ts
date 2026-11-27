@@ -778,7 +778,7 @@ export const useMap = ({
           'symbol-placement': 'line',
           'symbol-spacing': 150,
           'text-font': ['Open Sans Regular'],
-          'text-field': 'reporté',
+          'text-field': 'souhaité',
           'text-size': statusTextSize,
         },
       });

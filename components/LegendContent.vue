@@ -49,7 +49,7 @@
         </svg>
       </div>
     </div>
-    <div class="my-auto">reporté</div>
+    <div class="my-auto">souhaité</div>
 
     <div :class="['my-auto rounded-md border-gray-500 border', borderClass]">
       <div :class="['bg-lvv-blue-600', lineHeightClass]" :style="{ opacity: VARIANTE_OPACITY }" />

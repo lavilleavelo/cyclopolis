@@ -63,7 +63,7 @@ export function useBikeLaneFilters({ allFeatures, allGeojsons, allLines, otherNe
       },
     },
     {
-      label: 'Reporté',
+      label: 'Souhaité',
       isEnabled: true,
       statuses: ['postponed'],
       customStyle: {

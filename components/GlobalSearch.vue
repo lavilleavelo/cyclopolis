@@ -106,7 +106,7 @@ const StatusBadge = defineComponent({
       tested: 'En travaux',
       planned: 'Prévu',
       'priority-2030': 'Priorité 2030',
-      postponed: 'Reporté',
+      postponed: 'Souhaité',
     };
 
     const colors: Record<string, string> = {
